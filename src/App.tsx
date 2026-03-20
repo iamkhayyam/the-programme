@@ -17,7 +17,7 @@ import Contact from "./pages/Contact";
 import ConstitutionalProof from "./pages/ConstitutionalProof";
 
 export default function App() {
-  const basename = import.meta.env.MODE === 'production' ? '/the-programme' : '/';
+  const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || '/';
   return (
     <Router basename={basename}>
       <ScrollToTop />
