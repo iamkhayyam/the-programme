@@ -8,8 +8,6 @@
     <script type="text/javascript">
       // Single Page Apps for GitHub Pages
       // https://github.com/rafgraph/spa-github-pages
-      // This script takes the current url and converts the path and query string into arguments:
-      // https://iamkhayyam.github.io/the-programme/play?id=123 -> https://iamkhayyam.github.io/the-programme/?p=/play&q=id=123
       (function(l) {
         if (l.search[1] === 'p') {
           var decoded = l.search.slice(1).split('&').map(function(s) {
@@ -18,8 +16,9 @@
             return s.slice(0, 2) === 'p='
           })[0].slice(2);
           if (decoded !== l.pathname.slice(l.pathname.lastIndexOf('/') + 1)) {
+            var cleanPath = decoded.replace(/^\//, '');
             window.history.replaceState(null, null,
-              l.pathname.slice(0, l.pathname.lastIndexOf('/') + 1) + decoded.replace(/^\//, '') + (l.hash || '')
+              l.pathname.slice(0, l.pathname.lastIndexOf('/') + 1) + cleanPath + (l.hash || '')
             );
           }
         }
