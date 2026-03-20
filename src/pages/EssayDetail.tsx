@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "motion/react";
 import { PAPERS } from "../constants/programme";
+import { ESSAYS } from "./Essays";
 import gsap from "gsap";
 import KnowwareLogo from "../components/KnowwareLogo";
 
@@ -1120,10 +1121,10 @@ export default function EssayDetail() {
 
         <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">Essays</div>
         <ul className="font-plex-mono text-[0.5rem] tracking-wider leading-[2.1] uppercase text-light mb-6">
-          {PAPERS.map((p) => (
-            <li key={p.id} className={p.essayUrl === `/essays/${id}` ? "text-ink font-medium" : ""}>
-              <Link to={p.essayUrl} className="hover:text-ink transition-colors">
-                {p.essayUrl === `/essays/${id}` && "→ "}{p.id} · {p.essayTitle.replace("✍️ ", "")}
+          {ESSAYS.map((e) => (
+            <li key={e.id} className={e.readUrl === `/essays/${id}` ? "text-ink font-medium" : ""}>
+              <Link to={e.readUrl} className="hover:text-ink transition-colors">
+                {e.readUrl === `/essays/${id}` && "→ "}{e.title}
               </Link>
             </li>
           ))}

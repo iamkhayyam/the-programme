@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { BookOpen, ChevronRight, Headphones, Share2 } from "lucide-react";
 
-const ESSAYS = [
+export const ESSAYS = [
   {
     id: "00",
     slug: "preface",

@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { Github, ExternalLink } from "lucide-react";
 import gsap from "gsap";
 import { PAPERS } from "../constants/programme";
+import { ESSAYS } from "./Essays";
 import KnowwareLogo from "../components/KnowwareLogo";
 
 interface PaperContent {
@@ -930,10 +931,10 @@ export default function PaperDetail() {
 
         <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">Essays</div>
         <ul className="font-plex-mono text-[0.5rem] tracking-wider leading-[2.1] uppercase text-light mb-6">
-          {PAPERS.map((p) => (
-            <li key={p.id} className="hover:text-ink transition-colors">
-              <Link to={p.essayUrl}>
-                {p.id} · {p.essayTitle.replace("✍️ ", "")}
+          {ESSAYS.map((e) => (
+            <li key={e.id} className="hover:text-ink transition-colors">
+              <Link to={e.readUrl}>
+                {e.title}
               </Link>
             </li>
           ))}

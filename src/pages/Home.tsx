@@ -8,6 +8,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 import { PAPERS } from "../constants/programme";
+import { ESSAYS } from "./Essays";
 import KnowwareLogo from "../components/KnowwareLogo";
 
 export default function Home() {
@@ -120,10 +121,10 @@ export default function Home() {
 
         <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">Essays</div>
         <ul className="font-plex-mono text-[0.5rem] tracking-wider leading-[2.1] uppercase text-light mb-6">
-          {PAPERS.map((paper) => (
-            <li key={paper.id} className="hover:text-ink transition-colors">
-              <Link to={paper.essayUrl}>
-                {paper.id} · {paper.essayTitle.replace("✍️ ", "")}
+          {ESSAYS.map((essay) => (
+            <li key={essay.id} className="hover:text-ink transition-colors">
+              <Link to={essay.readUrl}>
+                {essay.id} · {essay.title}
               </Link>
             </li>
           ))}
