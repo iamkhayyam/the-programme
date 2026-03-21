@@ -51,6 +51,24 @@ This repository contains the interactive digital manifestation of the programme,
 - **Motion** for fluid interactions
 - **Lucide React** for iconography
 
+### Development
+
+To run the repository locally:
+
+```bash
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Deploy to GitHub Pages (manual)
+npm run deploy
+```
+
 ---
 
 ## Maktub
