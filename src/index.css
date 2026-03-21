@@ -95,7 +95,7 @@
   }
 
   p {
-    @apply font-plex-sans text-[0.9rem] leading-[1.6] text-mid;
+    @apply font-plex-sans text-[1.25rem] leading-[1.7] text-mid;
   }
 }
 
@@ -110,4 +110,18 @@
 .dark .theme-blend {
   mix-blend-mode: screen;
   filter: invert(1) brightness(1.5);
+}
+
+/* Responsive Table Utilities */
+.responsive-table-container {
+  @apply overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0 mb-8;
+}
+
+.responsive-table {
+  @apply min-w-[600px] w-full border-collapse;
+}
+
+.responsive-table th, 
+.responsive-table td {
+  @apply text-left py-3 px-4;
 }

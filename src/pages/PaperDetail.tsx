@@ -103,8 +103,8 @@ const PAPERS_DATA: Record<string, PaperContent> = {
         </div>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Position in the Nine-Paper Programme</h2>
-        <div className="my-6 overflow-x-auto">
-          <table className="w-full border-collapse text-[0.85rem] font-stix">
+        <div className="responsive-table-container">
+          <table className="responsive-table text-[0.85rem] font-stix">
             <thead>
               <tr className="font-plex-sans font-medium text-[0.7rem] uppercase tracking-wider border-y-2 border-ink">
                 <th className="py-2 px-3 text-left">Paper</th>
@@ -173,8 +173,8 @@ const PAPERS_DATA: Record<string, PaperContent> = {
         <p className="mb-4">Colour every entry that is <em>not</em> divisible by 3 and leave the rest blank. Do this for row after row, hundreds of rows deep. What emerges is not a triangle. It is a fractal — an infinite, self-similar geometric object that replicates itself at every scale. This is not a recent discovery. What is curious is that nobody has used it to ask the obvious question: does this fractal belong to Pascal's mathematical world, or to someone else's? The answer is someone else's. His name was Omar Khayyam.</p>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">584 Years Earlier</h2>
-        <div className="my-6 overflow-x-auto">
-          <table className="w-full border-collapse text-[0.85rem] font-stix">
+        <div className="responsive-table-container">
+          <table className="responsive-table text-[0.85rem] font-stix">
             <thead>
               <tr className="font-plex-sans font-medium text-[0.7rem] uppercase tracking-wider border-y-2 border-ink">
                 <th className="py-2 px-3 text-left">Year</th>
@@ -454,8 +454,8 @@ const PAPERS_DATA: Record<string, PaperContent> = {
         </div>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">The Universal Formula and Its Predictions</h2>
-        <div className="my-6 overflow-x-auto">
-          <table className="w-full border-collapse text-[0.85rem] font-stix">
+        <div className="responsive-table-container">
+          <table className="responsive-table text-[0.85rem] font-stix">
             <thead>
               <tr className="font-plex-sans font-medium text-[0.7rem] uppercase tracking-wider border-y-2 border-ink">
                 <th className="py-2 px-3 text-left">k</th>
@@ -559,8 +559,8 @@ const PAPERS_DATA: Record<string, PaperContent> = {
         </div>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">The Five Structural Correspondences</h2>
-        <div className="my-6 overflow-x-auto">
-          <table className="w-full border-collapse text-[0.85rem] font-stix">
+        <div className="responsive-table-container">
+          <table className="responsive-table text-[0.85rem] font-stix">
             <thead>
               <tr className="font-plex-sans font-medium text-[0.7rem] uppercase tracking-wider border-y-2 border-ink">
                 <th className="py-2 px-3 text-left">#</th>
@@ -833,8 +833,8 @@ const PAPERS_DATA: Record<string, PaperContent> = {
         <p className="mb-4">The 2× floor is constitutionally guaranteed regardless of the signal. The NFR (Neural Frequency Reduction) pipeline that motivated this paper achieves 2730× compression at 96% energy retention on neural network weight tensors — a factor of 2 is constitutionally guaranteed, and a factor of ≈1365 arises from exploiting the sparsity of the non-redundant spectral structure in trained networks. Constitutional Forcing explains the floor; the sparsity structure explains the ceiling.</p>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Position Within the Constitutional Sieve Programme</h2>
-        <div className="my-6 overflow-x-auto">
-          <table className="w-full border-collapse text-[0.85rem] font-stix">
+        <div className="responsive-table-container">
+          <table className="responsive-table text-[0.85rem] font-stix">
             <thead>
               <tr className="font-plex-sans font-medium text-[0.7rem] uppercase tracking-wider border-y-2 border-ink">
                 <th className="py-2 px-3 text-left">Paper</th>
@@ -901,9 +901,9 @@ export default function PaperDetail() {
   };
 
   return (
-    <div className="max-w-[1080px] mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-0">
+    <div className="max-w-[1080px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-0">
       {/* --- SIDEBAR --- */}
-      <aside className="border-r border-rule pr-7 py-10 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto hidden md:block">
+      <aside className="border-r border-rule pr-7 py-10 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto hidden lg:block">
         <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-1.5">Programme</div>
         <KnowwareLogo size="clamp(75px, 9vw, 95px)" className="mb-8 -ml-[8.33%]" strokeColor="var(--text-light)" circleColor="var(--text-color)" />
         
@@ -964,7 +964,7 @@ export default function PaperDetail() {
       </aside>
 
       {/* --- CONTENT --- */}
-      <article className="md:pl-11 py-10 md:pb-16 bg-paper-bg min-h-[calc(100vh-56px)]">
+      <article className="lg:pl-11 py-10 md:pb-16 bg-paper-bg min-h-[calc(100vh-56px)]">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -972,7 +972,7 @@ export default function PaperDetail() {
         >
           <div className="text-center pb-8 border-b border-rule mb-8">
             <div className="font-plex-mono text-[0.6rem] text-light tracking-[0.15em] uppercase mb-5">Preprint · ARC Institute of Knowware · February 2026</div>
-            <h1 className="font-stix font-semibold text-[1.45rem] leading-[1.35] text-ink mb-4">{paper.title}</h1>
+            <h1 className="font-stix font-semibold text-[1.8rem] leading-[1.35] text-ink mb-4">{paper.title}</h1>
             <div className="font-plex-sans text-[0.82rem] text-mid mb-1.5">{paper.authors}</div>
             <div className="font-plex-sans text-[0.72rem] text-light italic mb-4">{paper.affiliation}</div>
             <div className="font-plex-mono text-[0.62rem] text-light">{paper.date}</div>
@@ -980,7 +980,7 @@ export default function PaperDetail() {
 
           <div className="mx-0 md:mx-8 mb-6 p-5 bg-note-bg border border-rule">
             <div className="font-plex-sans font-medium text-[0.68rem] uppercase tracking-widest text-mid mb-3 text-center">Abstract</div>
-            <div className="font-stix text-[0.88rem] leading-[1.65] text-mid text-justify">{paper.abstract}</div>
+            <div className="font-stix text-[1.05rem] leading-[1.65] text-mid text-justify">{paper.abstract}</div>
           </div>
 
           <div className="mx-0 md:mx-8 mb-6 font-plex-sans text-[0.7rem] text-light text-center">
@@ -994,7 +994,7 @@ export default function PaperDetail() {
             </span>
           </div>
 
-          <div className="font-stix text-[1rem] leading-[1.72] text-ink max-w-[640px] mx-auto">
+          <div className="font-stix text-[1.35rem] leading-[1.72] text-ink max-w-[640px] mx-auto">
             {paper.content}
 
             {paper.nextPaper && (

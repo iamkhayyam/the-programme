@@ -8,7 +8,7 @@ export default function CoverLetter() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="font-stix text-[1.05rem] leading-[1.8] text-ink"
+        className="font-stix text-[1.35rem] leading-[1.8] text-ink"
       >
         {/* FROM */}
         <div className="mb-12 pb-8 border-b border-rule">
@@ -71,7 +71,7 @@ export default function CoverLetter() {
         {/* SECTION: WHAT IT NOW CONTAINS */}
         <div className="mt-12 pt-8 border-t border-rule">
           <div className="font-plex-mono text-[0.62rem] tracking-[0.18em] uppercase text-light mb-6">What the programme now contains</div>
-          <div className="border-l-2 border-ink pl-6 my-10 font-garamond italic text-[1.25rem] leading-relaxed text-ink">
+          <div className="border-l-2 border-ink pl-6 my-10 font-garamond italic text-[1.45rem] leading-relaxed text-ink">
             Six domains. Five centuries. One mechanism.
           </div>
           <div className="space-y-6">
@@ -121,8 +121,8 @@ export default function CoverLetter() {
         <div className="mt-12 pt-8 border-t border-rule">
           <div className="font-plex-mono text-[0.62rem] tracking-[0.18em] uppercase text-light mb-8">This package contains</div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse font-garamond text-[1rem]">
+          <div className="responsive-table-container">
+            <table className="responsive-table font-garamond text-[1rem]">
               <tbody>
                 {[
                   { section: "Section I", label: "Essay Series", desc: "Nine narrative essays written in discovery order — the experience of the programme arriving, timestamped, in the rooms where it happened. Published first under math.HO. The mathematical papers do not contain the thread that runs through these essays. The essays do not contain the proofs. They are complementary and neither is sufficient without the other." },

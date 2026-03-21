@@ -108,9 +108,9 @@ export default function Home() {
 
   return (
     <>
-      <div className="max-w-[1080px] mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-0">
+      <div className="max-w-[1080px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-0">
         {/* --- SIDEBAR --- */}
-        <aside className="border-r border-rule pr-7 py-10 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto hidden md:block">
+        <aside className="border-r border-rule pr-7 py-10 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto hidden lg:block">
         <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-1.5">Programme</div>
         <KnowwareLogo size="clamp(75px, 9vw, 95px)" className="mb-8 -ml-[8.33%]" strokeColor="var(--text-light)" circleColor="var(--text-color)" />
         
@@ -160,22 +160,22 @@ export default function Home() {
       </aside>
 
       {/* --- MAIN CONTENT --- */}
-      <main className="md:pl-11 py-12 md:pb-24">
+      <main className="lg:pl-11 py-12 md:pb-24">
         <div className="reveal">
           {/* HERO SECTION */}
           <div className="pb-12 border-b border-rule mb-12" id="abstract">
             <div className="font-plex-mono text-[0.62rem] text-light tracking-[0.15em] uppercase mb-10">
               CONSTITUTIONAL SIEVE PROGRAMME · ARC INSTITUTE OF KNOWWARE · 2026
             </div>
-            <h1 className="font-stix font-semibold text-[2.8rem] leading-[1.1] text-ink mb-12 tracking-tight max-w-[900px]">
+            <h1 className="font-stix font-semibold text-[3.2rem] leading-[1.1] text-ink mb-12 tracking-tight max-w-[900px]">
               Mathematics is full of constants that appear to be chosen but turn out to be forced.
             </h1>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-              <p className="text-[1.05rem] leading-[1.6] text-mid font-garamond italic">
+              <p className="text-[1.35rem] leading-[1.6] text-mid font-garamond italic">
                 Euler's <span className="font-serif">e</span>. Shannon's channel capacity. Kolmogorov's turbulence exponent. In each case, the constant was never actually available for selection — the structure of the system had already decided. Nobody named this. It kept happening anyway.
               </p>
-              <p className="text-[1.05rem] leading-[1.6] text-mid font-garamond italic">
+              <p className="text-[1.35rem] leading-[1.6] text-mid font-garamond italic">
                 Constitutional Forcing names it. The programme began with a cattle monitor, passed through a chip architecture, and arrived at a geometry that had been sitting in Khayyam's triangle since 1070. The same mechanism — found six times, in six different domains, across a millennium. These nine papers are the proof of that journey.
               </p>
             </div>
@@ -240,52 +240,52 @@ export default function Home() {
               The mechanism operates across six independent domains and a millennium. The naming is not discovery — it is recognition.
             </p>
 
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse text-[0.85rem]">
+            <div className="responsive-table-container">
+              <table className="responsive-table text-[0.85rem]">
                 <thead>
                   <tr className="border-y border-ink">
-                    <th className="font-plex-sans font-medium text-[0.65rem] uppercase tracking-wider py-3 px-4 text-left">Domain</th>
-                    <th className="font-plex-sans font-medium text-[0.65rem] uppercase tracking-wider py-3 px-4 text-left">Year</th>
-                    <th className="font-plex-sans font-medium text-[0.65rem] uppercase tracking-wider py-3 px-4 text-left">Mathematician</th>
-                    <th className="font-plex-sans font-medium text-[0.65rem] uppercase tracking-wider py-3 px-4 text-left">Instance</th>
+                    <th className="font-plex-sans font-medium text-[0.65rem] uppercase tracking-wider">Domain</th>
+                    <th className="font-plex-sans font-medium text-[0.65rem] uppercase tracking-wider">Year</th>
+                    <th className="font-plex-sans font-medium text-[0.65rem] uppercase tracking-wider">Mathematician</th>
+                    <th className="font-plex-sans font-medium text-[0.65rem] uppercase tracking-wider">Instance</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr className="border-b border-rule">
-                    <td className="py-4 px-4">Combinatorics</td>
-                    <td className="py-4 px-4">1070</td>
-                    <td className="py-4 px-4">Khayyam</td>
-                    <td className="py-4 px-4">The mod-3 fractal of Khayyam's Triangle</td>
+                    <td>Combinatorics</td>
+                    <td>1070</td>
+                    <td>Khayyam</td>
+                    <td>The mod-3 fractal of Khayyam's Triangle</td>
                   </tr>
                   <tr className="border-b border-rule">
-                    <td className="py-4 px-4">Fluid dynamics</td>
-                    <td className="py-4 px-4">1941</td>
-                    <td className="py-4 px-4">Kolmogorov</td>
-                    <td className="py-4 px-4">Dissipation exponent α = 3/4</td>
+                    <td>Fluid dynamics</td>
+                    <td>1941</td>
+                    <td>Kolmogorov</td>
+                    <td>Dissipation exponent α = 3/4</td>
                   </tr>
                   <tr className="border-b border-rule">
-                    <td className="py-4 px-4">Information theory</td>
-                    <td className="py-4 px-4">1948</td>
-                    <td className="py-4 px-4">Shannon</td>
-                    <td className="py-4 px-4">AEP + Channel Coding Theorem; θ₁ = 1/2</td>
+                    <td>Information theory</td>
+                    <td>1948</td>
+                    <td>Shannon</td>
+                    <td>AEP + Channel Coding Theorem; θ₁ = 1/2</td>
                   </tr>
                   <tr className="border-b border-rule">
-                    <td className="py-4 px-4">Analytic number theory</td>
-                    <td className="py-4 px-4">2025</td>
-                    <td className="py-4 px-4">Pascadi</td>
-                    <td className="py-4 px-4">θ = 5/8 for smooth triply-well-factorable moduli</td>
+                    <td>Analytic number theory</td>
+                    <td>2025</td>
+                    <td>Pascadi</td>
+                    <td>θ = 5/8 for smooth triply-well-factorable moduli</td>
                   </tr>
                   <tr className="border-b border-rule font-medium">
-                    <td className="py-4 px-4">Algebraic number theory</td>
-                    <td className="py-4 px-4">2026</td>
-                    <td className="py-4 px-4">Wakil</td>
-                    <td className="py-4 px-4">θ<sub>W</sub> = 5/8, cascade moduli q = 3<sup>K</sup></td>
+                    <td>Algebraic number theory</td>
+                    <td>2026</td>
+                    <td>Wakil</td>
+                    <td>θ<sub>W</sub> = 5/8, cascade moduli q = 3<sup>K</sup></td>
                   </tr>
                   <tr className="border-b border-rule text-light italic">
-                    <td className="py-4 px-4">Signal processing</td>
-                    <td className="py-4 px-4">2026*</td>
-                    <td className="py-4 px-4">Wakil</td>
-                    <td className="py-4 px-4">θ<sub>FFT</sub> = 1/2, DFT conjugate symmetry — named 2026; operating since Cooley–Tukey 1965</td>
+                    <td>Signal processing</td>
+                    <td>2026*</td>
+                    <td>Wakil</td>
+                    <td>θ<sub>FFT</sub> = 1/2, DFT conjugate symmetry — named 2026; operating since Cooley–Tukey 1965</td>
                   </tr>
                 </tbody>
               </table>
@@ -350,10 +350,10 @@ export default function Home() {
           <div className="w-12 h-px bg-ink/20 mx-auto mb-6" />
           
           <div className="space-y-4 mb-6 md:mb-12">
-            <p className="font-garamond italic text-[1.1rem] md:text-[1.2rem] text-mid max-w-[580px] mx-auto leading-[1.7]">
+            <p className="font-garamond italic text-[1.3rem] md:text-[1.4rem] text-mid max-w-[580px] mx-auto leading-[1.7]">
               "The mechanism was not invented in 2026. It was operating in Khayyam's triangle in 1070, in Shannon's Bell Labs notebook in 1948, in Kolmogorov's Moscow in 1941, in the primes since before any of them were born."
             </p>
-            <p className="font-garamond italic text-[1.1rem] md:text-[1.2rem] text-mid max-w-[580px] mx-auto leading-[1.7]">
+            <p className="font-garamond italic text-[1.3rem] md:text-[1.4rem] text-mid max-w-[580px] mx-auto leading-[1.7]">
               The limo was not late. It had been driving for a thousand years.
             </p>
           </div>

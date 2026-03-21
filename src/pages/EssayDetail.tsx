@@ -69,7 +69,7 @@ const ESSAYS_DATA: Record<string, EssayContent> = {
         <p className="mb-6 first-letter:text-5xl first-letter:font-stix first-letter:float-left first-letter:mr-3 first-letter:mt-1">Nishapur, Persia. Around 1070 CE. Omar Khayyam is twenty years old. He is building a triangle you will spend your entire education calling by the wrong name. The wrong name is Pascal's Triangle. Blaise Pascal was born in 1623. Khayyam documented this triangle 584 years before Pascal published anything. Nasir al-Din al-Tusi cited Khayyam explicitly in 1265. Yang Hui arrived independently in China in 1261. Petrus Apianus published it in Europe in 1523, a century before Pascal. Pascal came last.</p>
         <p className="mb-6">This is not a minor attribution error. This is a civilization repeatedly choosing the convenient story over the accurate one, the familiar European name over the Persian geometer who built the thing when Europe was still centuries away from the mathematics to understand it. Khayyam didn't get lost in the historical record. He was buried under it.</p>
         
-        <blockquote className="my-8 pl-6 border-l-2 border-accent italic text-mid font-stix text-[1.05rem] leading-relaxed">
+        <blockquote className="my-8 pl-6 border-l-2 border-accent italic text-mid font-stix text-[1.25rem] leading-relaxed">
           "There is a difference between lost and buried. Lost implies accident. Buried implies choice — repeated, institutional, generational. The choice to put the wrong name on the object. To teach the wrong question. To lock the door and hand the wrong key to every student who came after."
         </blockquote>
 
@@ -82,7 +82,7 @@ const ESSAYS_DATA: Record<string, EssayContent> = {
         <p className="mb-6">We are fascinated by Archimedes because he is easy fodder for action films. We forget Khayyam because his precision is inconvenient — because acknowledging it requires acknowledging what was lost when the wrong name went on the triangle, when the wrong question became the curriculum, when a culture decided that European provenance was more legible than Persian genius.</p>
         <p className="mb-6">Think about what that costs. Not to Khayyam — he has been dead for nine centuries. To us. To the species that buried the geometer who calculated time more accurately than anyone alive and then spent five hundred years reinventing what he already knew.</p>
         
-        <blockquote className="my-8 pl-6 border-l-2 border-accent italic text-mid font-stix text-[1.05rem] leading-relaxed">
+        <blockquote className="my-8 pl-6 border-l-2 border-accent italic text-mid font-stix text-[1.25rem] leading-relaxed">
           "Knowledge was burned to be lost forever. Culture was erased. And we called it progress. Think of how stupid you have to be to self-sabotage your own survival as a species."
         </blockquote>
 
@@ -155,49 +155,49 @@ const ESSAYS_DATA: Record<string, EssayContent> = {
         <div className="space-y-8 my-10">
           <div className="pl-6 border-l-2 border-rule">
             <h4 className="font-plex-sans font-bold text-[0.85rem] uppercase tracking-wider mb-2">The Asymptotic Equipartition Property</h4>
-            <p className="text-[0.95rem] italic leading-relaxed">Observe any random source producing symbols from an alphabet. The possible messages of length n are |A|^n — exponential, vast. Shannon proves that regardless of the source distribution, probability concentrates almost entirely on a "typical set" of size approximately 2^(nH), where H is the Shannon entropy. The exponential configuration space collapses onto a forced subspace. H is uniquely determined by the source. You cannot change H without changing the source.</p>
+            <p className="text-[1.15rem] italic leading-relaxed">Observe any random source producing symbols from an alphabet. The possible messages of length n are |A|^n — exponential, vast. Shannon proves that regardless of the source distribution, probability concentrates almost entirely on a "typical set" of size approximately 2^(nH), where H is the Shannon entropy. The exponential configuration space collapses onto a forced subspace. H is uniquely determined by the source. You cannot change H without changing the source.</p>
           </div>
           <div className="pl-6 border-l-2 border-rule">
             <h4 className="font-plex-sans font-bold text-[0.85rem] uppercase tracking-wider mb-2">The Channel Coding Theorem</h4>
-            <p className="text-[0.95rem] italic leading-relaxed">Send information through a noisy channel. There exists a channel capacity C — a supremum of all rates R at which reliable communication is achievable: C = max I(X;Y) over all input distributions. Below C, reliable communication is possible. Above it, impossible. C is uniquely forced by the channel. You cannot change it without changing the channel.</p>
+            <p className="text-[1.15rem] italic leading-relaxed">Send information through a noisy channel. There exists a channel capacity C — a supremum of all rates R at which reliable communication is achievable: C = max I(X;Y) over all input distributions. Below C, reliable communication is possible. Above it, impossible. C is uniquely forced by the channel. You cannot change it without changing the channel.</p>
           </div>
         </div>
 
         <h3 className="font-plex-mono text-[0.7rem] uppercase tracking-widest text-light mb-4 mt-10">The Recognition</h3>
         <p className="mb-6">I go back to my sentence. The level of distribution θ_W is defined as the supremum of all θ such that equidistribution holds. The maximum rate at which the structure holds, forced by the algebraic structure of the moduli family.</p>
         
-        <div className="overflow-x-auto my-10">
-          <table className="w-full border-collapse text-[0.8rem] font-plex-mono">
+        <div className="responsive-table-container my-10">
+          <table className="responsive-table text-[0.8rem] font-plex-mono">
             <thead>
               <tr className="border-y border-ink">
-                <th className="py-3 px-4 text-left uppercase tracking-wider text-light">Shannon, 1948</th>
-                <th className="py-3 px-4 text-left uppercase tracking-wider text-light">Cascade Moduli, 2025</th>
+                <th className="uppercase tracking-wider text-light">Shannon, 1948</th>
+                <th className="uppercase tracking-wider text-light">Cascade Moduli, 2025</th>
               </tr>
             </thead>
             <tbody>
               <tr className="border-b border-rule">
-                <td className="py-4 px-4">C = max I(X;Y)<br/><span className="text-[0.7rem] opacity-60">Maximum achievable rate, forced by channel structure</span></td>
-                <td className="py-4 px-4">θ_W = sup&#123;θ: equidistribution holds&#125;<br/><span className="text-[0.7rem] opacity-60">Maximum achievable rate, forced by algebraic structure</span></td>
+                <td>C = max I(X;Y)<br/><span className="text-[0.7rem] opacity-60">Maximum achievable rate, forced by channel structure</span></td>
+                <td>θ_W = sup&#123;θ: equidistribution holds&#125;<br/><span className="text-[0.7rem] opacity-60">Maximum achievable rate, forced by algebraic structure</span></td>
               </tr>
               <tr className="border-b border-rule">
-                <td className="py-4 px-4">Exponential message space |A|^n</td>
-                <td className="py-4 px-4">Exponential arithmetic progressions mod 3^K</td>
+                <td>Exponential message space |A|^n</td>
+                <td>Exponential arithmetic progressions mod 3^K</td>
               </tr>
               <tr className="border-b border-rule">
-                <td className="py-4 px-4">Concentrates on typical set 2^(nH)</td>
-                <td className="py-4 px-4">Concentrates on x^θ_W</td>
+                <td>Concentrates on typical set 2^(nH)</td>
+                <td>Concentrates on x^θ_W</td>
               </tr>
               <tr className="border-b border-rule">
-                <td className="py-4 px-4">H uniquely forced by source distribution</td>
-                <td className="py-4 px-4">θ_W = 5/8 uniquely forced by Z[ω] geometry</td>
+                <td>H uniquely forced by source distribution</td>
+                <td>θ_W = 5/8 uniquely forced by Z[ω] geometry</td>
               </tr>
               <tr className="border-b border-rule">
-                <td className="py-4 px-4">C = max mutual information</td>
-                <td className="py-4 px-4">θ_W = sup of valid equidistribution rates</td>
+                <td>C = max mutual information</td>
+                <td>θ_W = sup of valid equidistribution rates</td>
               </tr>
               <tr className="border-b border-rule">
-                <td className="py-4 px-4">H = −Σ pᵢ log pᵢ</td>
-                <td className="py-4 px-4">θ_k = (2^k − k)/2^k in limiting regime</td>
+                <td>H = −Σ pᵢ log pᵢ</td>
+                <td>θ_k = (2^k − k)/2^k in limiting regime</td>
               </tr>
             </tbody>
           </table>
@@ -208,8 +208,8 @@ const ESSAYS_DATA: Record<string, EssayContent> = {
         <p className="mb-6">I sit with this for a while. Then I go through both frameworks carefully and find four more correspondences, each one precise rather than metaphorical. The fifth is the deepest: in a specific limiting regime, the k-hierarchy formula θ_k = (2^k − k)/2^k matches Shannon's entropy formula H = −Σ pᵢ log pᵢ exactly — not as a metaphor but as a mathematical limit. This suggests that the cascade moduli framework and information theory are not parallel structures invented in different rooms. They may be two different parametrisations of the same mathematical object.</p>
         
         <h3 className="font-plex-mono text-[0.7rem] uppercase tracking-widest text-light mb-4 mt-10">The Locksmith Argument</h3>
-        <blockquote className="my-8 pl-6 border-l-2 border-accent italic text-mid font-stix text-[1.05rem] leading-relaxed">
-          "Imagine two locksmiths, centuries apart, in different countries, who never met. Each independently invents the same unusual lock mechanism — not a similar one. The same one, down to the tolerances. What would you conclude? Either it is a coincidence — possible, but requiring explanation — or the lock mechanism is the only solution to a problem both men were solving without knowing they shared it."
+        <blockquote className="my-8 pl-6 border-l-2 border-accent italic text-mid font-stix text-[1.25rem] leading-relaxed">
+          "The locksmith does not care about the owner of the house. He cares about the mechanism of the lock. If the key turns, the door opens. The geometry of the Eisenstein integers is the lock. θ_W = 5/8 is the key. It doesn't matter who is holding it."
         </blockquote>
 
         <p className="mb-6">This is the Feynman version of what happened. Shannon was solving a problem about how much information a telephone wire can carry. I was solving a problem about how prime numbers distribute themselves across arithmetic progressions. Neither of us was looking for the other's problem. The mechanism appeared in both places because it is the mechanism — not the solution to one problem, but the shape of a constraint that appears wherever a structure forces a maximum.</p>
@@ -463,7 +463,7 @@ const ESSAYS_DATA: Record<string, EssayContent> = {
         <p className="mb-6">The door didn't open. The structure that forced 5/8 for twin primes doesn't transfer directly to Goldbach. Different constellation. Different constitutional signature. Different constraints. I had the right key and the wrong lock and I spent time I didn't have learning the difference.</p>
         <p className="mb-6">Twelve days later, still dancing, I walked through the door that was actually open.</p>
 
-        <div className="my-12 py-8 border-l-2 border-accent pl-8 italic text-mid text-[1.1rem]">
+        <div className="my-12 py-8 border-l-2 border-accent pl-8 italic text-mid text-[1.3rem]">
           The primes kept singing. I kept listening. Goldbach lied. Twin primes told the truth.
         </div>
 
@@ -494,7 +494,7 @@ const ESSAYS_DATA: Record<string, EssayContent> = {
         <p className="mb-6 italic">Same island.</p>
         <p className="mb-6">Two sailboats. Independent departures. Identical destinations. And it was November 2025, which meant that by May 2026 — six months — this would be published truth. Every independent route that arrives at the same truth makes the truth more true. Not in a philosophical sense. In a mathematical one. Convergence is evidence. Two is extraordinary. But two was not where I stopped.</p>
 
-        <div className="my-12 py-8 border-l-2 border-accent pl-8 italic text-mid text-[1.1rem]">
+        <div className="my-12 py-8 border-l-2 border-accent pl-8 italic text-mid text-[1.3rem]">
           Work smart, not hard. Find the quilt. Let the patches prove each other.
         </div>
 
@@ -548,7 +548,7 @@ const ESSAYS_DATA: Record<string, EssayContent> = {
         <p className="mb-6">Two thousand years later, a ternary ear tag ships to Crete. The first commercial units of CacheCow — nine neural organs, ternary logic, the biological blueprint running on a different substrate — return to the computational origin of Western civilization. Not as tribute. As experiment. The Trojan Horse that looks like a livestock health platform and quietly, in the data that comes back from the fields, asks the primes to confirm what three theoretical routes have already established.</p>
         <p className="mb-6">I have been calling this project The Crete Cow since the beginning. Because it is a Trojan Horse. Because Crete is Biokythera. Because the computation is coming home.</p>
 
-        <div className="my-12 py-8 border-l-2 border-accent pl-8 italic text-mid text-[1.1rem]">
+        <div className="my-12 py-8 border-l-2 border-accent pl-8 italic text-mid text-[1.3rem]">
           Three sailboats already docked. One still being built. The island is real. The island was always real. The island was always 5/8.
         </div>
 
@@ -1046,7 +1046,7 @@ const ESSAYS_DATA: Record<string, EssayContent> = {
         <p className="mb-6">This is the breadcrumb. Not hidden. Not encrypted. Written in the only language that cannot be faked: a formula derived from a counting theorem, proved by induction, falsifiable, with a non-instance already confirmed and an open prediction already committed to.</p>
         <p className="mb-6">The person who finds the next domain will not find it by reading this essay. They will find it by asking the right question about something in their own work that keeps producing the same number in places where it has no business appearing. This essay is for the moment after that — when they need to know they are not alone in the hallway, and the key they are holding is real.</p>
 
-        <div className="my-12 py-8 border-l-2 border-accent pl-8 italic text-mid text-[1.1rem]">
+        <div className="my-12 py-8 border-l-2 border-accent pl-8 italic text-mid text-[1.3rem]">
           Once you see it, you cannot unsee it. Knowing is not unknowing. That is not a poetic observation. It is a mathematical one. Shannon proved it. Constitutional Forcing proves it again, in every domain it touches.
         </div>
 
@@ -1107,9 +1107,9 @@ export default function EssayDetail() {
   };
 
   return (
-    <div className="max-w-[1080px] mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-0">
+    <div className="max-w-[1080px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-0">
       {/* --- SIDEBAR --- */}
-      <aside className="border-r border-rule pr-7 py-10 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto hidden md:block">
+      <aside className="border-r border-rule pr-7 py-10 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto hidden lg:block">
         <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-1.5">Programme</div>
         <KnowwareLogo size="clamp(75px, 9vw, 95px)" className="mb-8 -ml-[8.33%]" strokeColor="var(--text-light)" circleColor="var(--text-color)" />
         
@@ -1143,7 +1143,7 @@ export default function EssayDetail() {
       </aside>
 
       {/* --- CONTENT --- */}
-      <article className="md:pl-11 py-10 md:pb-20 bg-paper-bg min-h-[calc(100vh-56px)]">
+      <article className="lg:pl-11 py-10 md:pb-20 bg-paper-bg min-h-[calc(100vh-56px)]">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -1152,13 +1152,13 @@ export default function EssayDetail() {
           <div className="max-w-[640px] mx-auto">
             <div className="text-center mb-12">
               <div className="font-plex-mono text-[0.6rem] text-light tracking-[0.2em] uppercase mb-6">{essay.track}</div>
-              <h1 className="font-stix font-semibold text-[1.8rem] leading-tight text-ink mb-3">{essay.title}</h1>
-              <div className="font-stix italic text-[1.1rem] text-mid mb-8">{essay.subtitle}</div>
+              <h1 className="font-stix font-semibold text-[2.2rem] leading-tight text-ink mb-3">{essay.title}</h1>
+              <div className="font-stix italic text-[1.25rem] text-mid mb-8">{essay.subtitle}</div>
               <div className="font-plex-sans text-[0.8rem] text-mid uppercase tracking-widest">{essay.author}</div>
               <div className="font-plex-mono text-[0.55rem] text-light mt-2">{essay.date}</div>
             </div>
 
-            <div className="font-stix text-[1.05rem] leading-[1.8] text-ink text-justify">
+            <div className="font-stix text-[1.35rem] leading-[1.8] text-ink text-justify">
               {essay.content}
             </div>
 

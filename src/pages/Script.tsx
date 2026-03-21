@@ -8,9 +8,9 @@ import { PAPERS } from "../constants/programme";
 
 export default function Script() {
   return (
-    <div className="max-w-[1080px] mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-0">
+    <div className="max-w-[1080px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-0">
       {/* --- SIDEBAR --- */}
-      <aside className="border-r border-rule pr-7 py-10 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto hidden md:block">
+      <aside className="border-r border-rule pr-7 py-10 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto hidden lg:block">
         <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-1.5">Programme</div>
         <KnowwareLogo size="clamp(75px, 9vw, 95px)" className="mb-8 -ml-[8.33%]" strokeColor="var(--text-light)" circleColor="var(--text-color)" />
         
@@ -70,7 +70,7 @@ export default function Script() {
       </aside>
 
       {/* --- CONTENT --- */}
-      <main className="md:pl-11 py-10 md:pb-20 bg-paper-bg min-h-[calc(100vh-56px)]">
+      <main className="lg:pl-11 py-10 md:pb-20 bg-paper-bg min-h-[calc(100vh-56px)]">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
