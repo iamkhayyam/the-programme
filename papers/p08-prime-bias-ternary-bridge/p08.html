@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Digit Bias: The Ternary Constitutional Explanation — Wakil 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+:root{--linen:#e8e4dc;--ink:#111;--mid:#444;--light:#888;--rule:#ccc;--lrule:#ddd;--bg:#faf9f6;--note-bg:#f4f2ee;--accent:#8B0000;--link:#1a3a7c;--sidebar-w:220px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:14px;}
+body{background:var(--linen);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;}
+.site-header{border-bottom:1px solid var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:50px;background:var(--linen);position:sticky;top:0;z-index:100;}
+.site-logo{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.88rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);text-decoration:none;line-height:1.1;}
+.site-logo span{display:block;font-size:.58rem;letter-spacing:.22em;color:var(--light);font-weight:300;}
+.site-nav{display:flex;gap:1.8rem;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;}
+.site-nav a{color:var(--ink);text-decoration:none;}
+.preprint-bar{border-bottom:1px solid var(--rule);padding:.5rem 2rem;display:flex;align-items:center;justify-content:space-between;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);font-family:'IBM Plex Mono',monospace;}
+.preprint-bar .series-tag{color:var(--ink);font-weight:500;}
+.page-body{max-width:1080px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:var(--sidebar-w) 1fr;gap:0;}
+.sidebar{border-right:1px solid var(--rule);padding:2.5rem 1.8rem 2.5rem 0;position:sticky;top:50px;height:calc(100vh - 50px);overflow-y:auto;}
+.sb-label{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
+.sb-num{font-family:'IBM Plex Sans',sans-serif;font-size:3.2rem;font-weight:300;line-height:1;color:var(--ink);letter-spacing:-.02em;margin-bottom:1.8rem;}
+.sb-meta{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;color:var(--light);line-height:2;text-transform:uppercase;margin-bottom:1.8rem;}
+.sb-meta strong{color:var(--ink);display:block;font-weight:500;font-size:.55rem;margin-top:.6rem;}
+.sb-meta strong:first-child{margin-top:0;}
+.sb-links{margin-bottom:1.8rem;}
+.sb-link{display:block;font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;text-transform:uppercase;color:var(--link);text-decoration:none;padding:.35rem 0;border-bottom:1px solid var(--lrule);line-height:1.4;}
+.sb-link:last-child{border-bottom:none;}
+.sb-link:hover{color:var(--accent);}
+.sb-link .sb-link-label{color:var(--light);display:block;font-size:.48rem;}
+.series-index{list-style:none;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.04em;line-height:2.1;text-transform:uppercase;color:var(--light);}
+.series-index a{color:var(--light);text-decoration:none;}
+.series-index a:hover{color:var(--ink);}
+.series-index .curr{color:var(--ink);font-weight:500;}
+.series-index .curr::before{content:'→ ';}
+.paper{padding:2.5rem 0 4rem 2.8rem;background:var(--bg);min-height:calc(100vh - 50px);}
+.paper-header{text-align:center;padding-bottom:2rem;border-bottom:1px solid var(--rule);margin-bottom:2rem;}
+.paper-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--light);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem;}
+.paper-label a{color:var(--link);text-decoration:none;}
+h1.title{font-family:'STIX Two Text','Times New Roman',serif;font-weight:600;font-size:1.45rem;line-height:1.35;color:var(--ink);margin-bottom:1rem;}
+.authors{font-family:'IBM Plex Sans',sans-serif;font-size:.82rem;color:var(--mid);margin-bottom:.4rem;}
+.affiliation{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--light);font-style:italic;margin-bottom:1rem;}
+.paper-date{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--light);}
+.abstract-block{margin:0 2rem 1.5rem;padding:1.2rem 1.5rem;background:var(--note-bg);border:1px solid var(--rule);}
+.abs-label{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mid);margin-bottom:.7rem;text-align:center;}
+.abstract-block p{font-family:'STIX Two Text',serif;font-size:.88rem;line-height:1.65;color:var(--mid);text-align:justify;margin:0;}
+.keywords{margin:.8rem 2rem 1.5rem;font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;color:var(--light);text-align:center;}
+.keywords strong{color:var(--mid);font-weight:500;}
+.paper-meta-strip{display:flex;gap:1.5rem;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;padding:.8rem 1rem;border-top:1px solid var(--lrule);border-bottom:1px solid var(--lrule);}
+.meta-pill{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--light);}
+.meta-pill a{color:var(--link);text-decoration:none;border-bottom:1px solid var(--lrule);}
+.meta-pill a:hover{color:var(--accent);}
+.paper-body{font-family:'STIX Two Text','Times New Roman',serif;font-size:1rem;line-height:1.72;color:var(--ink);max-width:640px;}
+.paper-body p{text-align:justify;margin-bottom:.9em;hyphens:auto;}
+.paper-body h2{font-family:'STIX Two Text',serif;font-weight:600;font-size:1.05rem;color:var(--ink);margin:2.2rem 0 .8rem;counter-increment:section;}
+.paper-body h2::before{content:counter(section) '.  ';color:var(--accent);}
+.paper-body{counter-reset:section;}
+.paper-body h3{font-family:'STIX Two Text',serif;font-weight:600;font-size:.92rem;color:var(--mid);margin:1.5rem 0 .5rem;font-style:italic;}
+.eq-label{display:flex;align-items:center;justify-content:space-between;margin:1.2rem 0;}
+.eq-content{flex:1;text-align:center;font-family:'STIX Two Text',serif;font-size:1.02rem;}
+.eq-num{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);width:44px;text-align:right;}
+.env-block{margin:1.4rem 0;padding:1rem 1.2rem;font-family:'STIX Two Text',serif;font-size:.95rem;line-height:1.65;}
+.env-block.theorem{border:1px solid var(--rule);border-left:4px solid var(--ink);background:var(--note-bg);}
+.env-block.proposition{border:1px solid var(--rule);border-left:4px solid var(--mid);background:var(--note-bg);}
+.env-block.lemma{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
+.env-block.corollary{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
+.env-block.definition{border:1px solid var(--rule);border-left:4px solid var(--accent);background:#fff8f8;}
+.env-block.remark{border-left:3px solid var(--accent);background:#fff8f8;padding:.8rem 1.2rem;}
+.env-block.conjecture{border:1px dashed var(--rule);border-left:4px dashed var(--ink);background:var(--note-bg);}
+.env-label{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);margin-bottom:.5rem;}
+.env-block.remark .env-label,.env-block.definition .env-label{color:var(--accent);}
+.proof{margin:.5rem 0 1.2rem 1.5rem;font-family:'STIX Two Text',serif;font-size:.92rem;line-height:1.65;color:var(--mid);}
+.proof-label{font-family:'IBM Plex Sans',sans-serif;font-style:italic;font-size:.8rem;color:var(--light);margin-bottom:.3rem;}
+.qed{float:right;font-size:1rem;color:var(--mid);}
+table.formal{width:100%;border-collapse:collapse;margin:1.2rem 0 1rem;font-size:.85rem;font-family:'STIX Two Text',serif;}
+table.formal th{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid var(--ink);border-top:1px solid var(--ink);padding:.5rem .8rem;text-align:left;}
+table.formal td{padding:.45rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;}
+table.formal tr:last-child td{border-bottom:1px solid var(--ink);}
+.table-caption{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--mid);text-align:center;margin-bottom:1.5rem;font-style:italic;}
+.table-caption strong{font-style:normal;font-weight:500;}
+em{font-style:italic;}strong{font-weight:600;}
+sup{font-size:.7em;vertical-align:super;color:var(--accent);}
+sub{font-size:.7em;vertical-align:sub;}
+.next-paper{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--ink);max-width:640px;}
+.next-label{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
+.next-title{font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;}
+.next-title a{color:var(--ink);text-decoration:none;}
+.next-title a:hover{color:var(--link);}
+.next-desc{font-family:'STIX Two Text',serif;font-size:.88rem;color:var(--light);margin-top:.25rem;font-style:italic;}
+.references{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);max-width:640px;}
+.ref-list{list-style:none;counter-reset:refs;}
+.ref-list li{counter-increment:refs;padding-left:36px;position:relative;margin-bottom:.6rem;font-family:'STIX Two Text',serif;font-size:.82rem;line-height:1.5;color:var(--mid);}
+.ref-list li::before{content:'['counter(refs)']';position:absolute;left:0;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);}
+.site-footer{border-top:1px solid var(--ink);padding:.9rem 2rem;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);}
+@media(max-width:760px){.page-body{grid-template-columns:1fr;}.sidebar{position:static;height:auto;border-right:none;border-bottom:1px solid var(--rule);padding:1.5rem 0;}.paper{padding:1.5rem 0;}.preprint-bar{display:none;}.series-index{display:none;}.abstract-block{margin:0 0 1.5rem;}}
+</style>
+
+</head>
+<body>
+<header class="site-header">
+  <a href="https://knowware.institute" class="site-logo">KNOWWARE<span>THE &nbsp; A.R.C &nbsp; INSTITUTE</span></a>
+  <nav class="site-nav"><a href="../../papers/index.html">Pre-Print</a><a href="https://knowware.institute/contact">Contact</a></nav>
+</header>
+<div class="preprint-bar">
+  <span>ARC Institute of Knowware · 2026</span>
+  <span class="series-tag">Constitutional Sieve Programme · Nine Papers</span>
+  <span>math.NT · 11N05, 11N13 · Fisher Creek Ranch, Alberta</span>
+</div>
+<div class="page-body">
+  <aside class="sidebar">
+    <div class="sb-label">Paper</div><div class="sb-num">08</div>
+    <div class="sb-meta"><strong>Author</strong>Khayyam Wakil<strong>Published</strong>February 2026<strong>Series</strong>Constitutional Sieve Programme<strong>MSC 2020</strong>11N05, 11N13, 11A41, 94A17</div>
+    <div class="sb-links">
+      <a class="sb-link" href="p08.pdf" target="_blank">
+        <span class="sb-link-label">Download · PDF</span>
+        p08.pdf → View
+      </a>
+      <a class="sb-link" href="p08.tex" target="_blank">
+        <span class="sb-link-label">LaTeX Source</span>
+        p08.tex → View
+      </a>
+    </div>
+    <div class="sb-label" style="margin-bottom:.6rem;">Programme Index</div>
+    <ul class="series-index">
+      <li class=""><a href="../p01-constitutional-forcing/p01.html">01 · Constitutional Forcing</a></li>
+      <li class=""><a href="../p02-khayyams-triangle/p02.html">02 · Khayyam's Triangle</a></li>
+      <li class=""><a href="../p03-constitutional-signatures/p03.html">03 · Spherical Cow Philosophy</a></li>
+      <li class=""><a href="../p04-that-eisenstein-guy/p04.html">04 · Eisenstein, θ = 5/8</a></li>
+      <li class=""><a href="../p05-ramanujans-formula/p05.html">05 · Ramanujan's Formula</a></li>
+      <li class=""><a href="../p06-shannon-wakil/p06.html">06 · Shannon–Wakil Effect</a></li>
+      <li class=""><a href="../p07-condition_w3/p07.html">07 · Condition W3</a></li>
+      <li class="curr"><a href="p08.html">08 · Prime Digit Bias</a></li>
+      <li class=""><a href="../p09-wakil-theta-fft/p09.html">09 · DFT Constitutional Constant</a></li>
+    </ul>
+  </aside>
+  <article class="paper">
+    <div class="paper-header">
+      <div class="paper-label">Preprint · ARC Institute of Knowware · February 2026</div>
+      <h1 class="title">Prime Digit Bias: The Ternary Constitutional Explanation of the Lemke Oliver–Soundararajan Effect</h1>
+      <div class="authors">Khayyam Wakil</div>
+      <div class="affiliation">The ARC Institute of Knowware, Calgary, Alberta, Canada</div>
+      <div class="paper-date">Submitted February 2026 &nbsp;·&nbsp; Constitutional Sieve Programme, Paper 08 of 09</div>
+    </div>
+    <div class="abstract-block">
+      <div class="abs-label">Abstract</div>
+      <p>In 2016, Lemke Oliver and Soundararajan published a striking computational discovery: the last digits of consecutive primes exhibit a strong repulsion bias that contradicts naïve randomness assumptions and persists — though diminishing — across all number bases tested. The authors correctly traced this to the Hardy–Littlewood prime constellations conjecture, but could not identify the underlying mechanistic cause: why the structure exists, why it holds across all bases, and why the diminishment rate is precisely what it is.</p>
+      <p style="margin-top:.7em;">We demonstrate that the bias is not mysterious: it is the direct base-10 projection of ternary constitutional pressure governing prime distribution. The observed digit-repulsion is a shadow of the mod-3 constraint under which all primes (except 2 and 3) reside in remainder classes {1, 2}, and under which all twin prime pairs satisfy <em>p</em> ≡ 2 (mod 3). The <em>snail's pace</em> of diminishment is identified as the Siegel–Walfisz convergence rate of ternary class equilibration — not an empirical curiosity, but a fundamental quantity in analytic number theory appearing in a context where it was not previously recognized.</p>
+    </div>
+    <div class="keywords"><strong>Keywords:</strong> prime digit bias, ternary constitutional structure, Lemke Oliver–Soundararajan, mod-3 constraints, minimum gap structure, twin primes, parity barrier, Siegel–Walfisz theorem, cascade moduli</div>
+    <div class="paper-meta-strip">
+      <span class="meta-pill">MSC 2020: 11N05 (primary) · 11N13 · 11A41 · 94A17</span>
+      <span class="meta-pill"><a href="../../papers/index.html">preprints.knowware.institute</a></span>
+      <span class="meta-pill"><a href="https://github.com/knowware-institute/constitutional-forcing">p08.tex source</a></span>
+    </div>
+    <div class="paper-body">
+
+      <h2>Introduction: The Mystery That Wasn't</h2>
+      <p>In March 2016, Robert Lemke Oliver and Kannan Soundararajan submitted a paper that became briefly famous beyond number theory: consecutive primes are not equidistributed in their last digits. If the last digit of a prime is 1, the next prime is far less likely to also end in 1 than chance would predict. The bias is strong, computationally unambiguous, and holds — with diminishing strength — across all bases tested.</p>
+      <p>The authors were admirably honest: they could explain <em>that</em> the bias follows from the Hardy–Littlewood conjecture, but not <em>why</em> the underlying structure exists. They called it "surprising" and "deeply unsettling." We show the structure is neither: it is the forced shadow of the ternary constitutional constraint governing prime distribution.</p>
+
+      <h2>The Ternary Constitutional Framework</h2>
+      <div class="env-block theorem">
+        <div class="env-label">Theorem 3.1 — Constitutional Signature (from [3])</div>
+        Let (<em>p</em>, <em>p</em>+2) be a twin prime pair with <em>p</em> > 3. Then <em>p</em> ≡ 2 (mod 3) and <em>p</em>+2 ≡ 1 (mod 3).
+      </div>
+      <div class="env-block theorem">
+        <div class="env-label">Theorem 3.2 — Ternary Equilibrium</div>
+        Let π₁(<em>N</em>) and π₂(<em>N</em>) denote the number of primes <em>p</em> ≤ <em>N</em> with <em>p</em> ≡ 1 (mod 3) and <em>p</em> ≡ 2 (mod 3) respectively. Then π₁(<em>N</em>)/π(<em>N</em>) → 1/2 and π₂(<em>N</em>)/π(<em>N</em>) → 1/2 as <em>N</em> → ∞, by Dirichlet's theorem on primes in arithmetic progressions.
+      </div>
+      <p>The bias mechanism is this: since all primes > 3 live in classes {1, 2} mod 3 (never class {0}), and since twin primes constitutionally require the pair (2 mod 3, 1 mod 3), consecutive primes cannot both occupy the same ternary class in quick succession. This constitutional pressure propagates into the base-10 last-digit distribution as a repulsion bias — primes avoid repeating their last digit because repeating it would require both to occupy the same ternary residue class, which is constitutionally disfavoured at short gaps.</p>
+
+      <h2>Deriving the Lemke Oliver–Soundararajan Bias</h2>
+      <p>Let <em>p<sub>n</sub></em> ≡ <em>r</em> (mod 10) and <em>p<sub>n+1</sub></em> ≡ <em>s</em> (mod 10). The ternary projection maps (<em>r</em>, <em>s</em>) to residue classes mod 3. For the pair (<em>r</em>, <em>s</em>) = (1, 1): both digits project to 1 mod 3. This requires consecutive primes both in class 1 mod 3. The constitutional pressure at short gaps disfavours this. For the pair (1, 3) = (1 mod 3, 0 mod 3): but primes are never 0 mod 3, so this pair is constitutionally forbidden entirely. The structure of the bias table — which pairs are suppressed, which enhanced — is exactly the shadow of the ternary constitutional constraint projected into base 10.</p>
+
+      <div class="env-block proposition">
+        <div class="env-label">Proposition 4.1 — Base-10 Projection of Ternary Pressure</div>
+        For base-10 digits <em>r</em>, <em>s</em> ∈ {1, 3, 7, 9} (the digits coprime to 10 that can appear as last digits of primes > 5), the observed Lemke Oliver–Soundararajan repulsion bias satisfies: the suppression of the pair (<em>r</em>, <em>s</em>) relative to equidistribution is positively correlated with the probability that both <em>r</em> and <em>s</em> are in the same ternary class mod 3. The enhancement of cross-class pairs relative to equidistribution is positively correlated with the constitutional twin-prime constraint.
+      </div>
+
+      <h2>The Snail's Pace: Identifying the Convergence Rate</h2>
+      <p>Lemke Oliver and Soundararajan observed that the bias diminishes as primes grow, but slowly — a "snail's pace" that they could not identify analytically. We identify it precisely: it is the Siegel–Walfisz convergence rate of ternary class equilibration.</p>
+      <div class="env-block theorem">
+        <div class="env-label">Theorem 5.1 — Siegel–Walfisz Rate</div>
+        By the Siegel–Walfisz theorem, for any <em>A</em> > 0 and all <em>q</em> ≤ (log <em>N</em>)<sup><em>A</em></sup>, the error in the equidistribution of primes modulo <em>q</em> is ≪ <em>N</em>/(log <em>N</em>)<sup><em>A</em></sup>. For <em>q</em> = 3 and the classes 1, 2 mod 3, this means the ternary imbalance (which drives the digit bias) decays as O(1/(log <em>N</em>)<sup><em>A</em></sup>) for any fixed <em>A</em>. This is the "snail's pace" — not a mysterious empirical observation, but the Siegel–Walfisz rate applied to ternary equilibration, appearing in the digit-bias context where it was not previously recognized.
+      </div>
+
+      <h2>Validation and Context</h2>
+      <div class="env-block remark">
+        <div class="env-label">Remark — Mechanistic vs. Descriptive Explanation</div>
+        This explanation is mechanistic, not descriptive. The Lemke Oliver–Soundararajan paper showed that the bias follows from the Hardy–Littlewood conjecture — a descriptive reduction to a more fundamental conjecture. The present paper identifies the structural reason <em>why</em> the conjecture itself encodes such behaviour: the ternary constitutional constraint <em>p</em> ≡ 2 (mod 3) for twin primes propagates the repulsion pressure that manifests as the digit bias. One is a derivation; the other is an explanation.
+      </div>
+
+      <div class="next-paper">
+        <div class="next-label">Next in Programme</div>
+        <div class="next-title"><a href="../p09-wakil-theta-fft/p09.html">09 · The DFT Constitutional Constant →</a></div>
+        <div class="next-desc">θ<sub>FFT</sub> = 1/2. The conjugate-mirror symmetry of the Discrete Fourier Transform, named and formalised as a constitutional constant. Empirical confirmation across datasets. The structural parallel with Khayyam's Triangle modulo 2.</div>
+      </div>
+
+      <div class="references">
+        <h2 style="counter-increment:none;">References</h2>
+        <ol class="ref-list">
+          <li>R. J. Lemke Oliver and K. Soundararajan, "Unexpected biases in the distribution of consecutive primes," <em>Proc. Natl. Acad. Sci. USA</em> 113 (2016), E4446–E4454. <a href="https://arxiv.org/abs/1603.03720" style="color:var(--link)">arXiv:1603.03720</a></li>
+          <li>G. H. Hardy and J. E. Littlewood, "Some problems of 'Partitio Numerorum' III," <em>Acta Math.</em> 44 (1923), 1–70.</li>
+          <li>K. Wakil, "Spherical Cow Philosophy," Constitutional Sieve Programme Paper 03 (2026).</li>
+          <li>E. C. Walfisz, <em>Weylsche Exponentialsummen in der neueren Zahlentheorie</em>. VEB Deutscher Verlag, 1963.</li>
+          <li>A. Pascadi, arXiv:2505.00653v2 (2025). <a href="https://arxiv.org/abs/2505.00653" style="color:var(--link)">arXiv:2505.00653</a></li>
+        </ol>
+      </div>
+    </div>
+  </article>
+</div>
+<footer class="site-footer">
+  <span>Knowware is measured in lifetimes</span><span>Constitutional Sieve Programme · Paper 08 of 09</span><span>Registered · Canada</span>
+</footer>
+</body></html>

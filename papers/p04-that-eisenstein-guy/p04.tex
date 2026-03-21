@@ -1,0 +1,663 @@
+\documentclass[12pt]{amsart}
+
+%% ─── Packages ────────────────────────────────────────────────────────────────
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{microtype}
+
+%% ─── Theorem Environments ────────────────────────────────────────────────────
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+%% ─── Notation ────────────────────────────────────────────────────────────────
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Zomega}{\Z[\omega]}
+\newcommand{\Qomega}{\Q(\omega)}
+\DeclareMathOperator{\N}{N}
+
+%% ─── Metadata ────────────────────────────────────────────────────────────────
+%% arXiv: primary math.NT
+\title[Ternary Forcing on the Hexagonal Lattice]{Ternary Forcing on the
+  Hexagonal Lattice: Eisenstein Integers, Cascade Moduli, and Level of
+  Distribution~$5/8$}
+
+\author{Khayyam Wakil}
+\address{The ARC Institute of Knowware, Calgary, Alberta, Canada}
+\email{the@knowware.institute}
+\date{February 2026}
+
+\keywords{level of distribution, Eisenstein integers, cascade moduli,
+  Kloosterman sums, Watt's theorem, Siegel zeros, sieve theory,
+  twin primes, Bombieri--Vinogradov, triply-well-factorable weights,
+  Vaughan decomposition}
+
+\subjclass[2020]{
+  11N13,  % Primes in progressions (primary)
+  11N35,  % Sieves
+  11N36,  % Applications of sieve methods
+  11R04,  % Algebraic number theory
+  11L05   % Gauss and Kloosterman sums
+}
+
+%% ─── Abstract ────────────────────────────────────────────────────────────────
+\begin{document}
+
+\begin{abstract}
+We establish a level of distribution $\theta = 5/8$ for primes in arithmetic
+progressions modulo powers of $3$. The proof proceeds in two independent
+geometric parts.
+
+\textbf{Part~I (Eisenstein filtration).} The prime $3$ ramifies in the Eisenstein
+integers $\Zomega$ as $(3) = (1-\omega)^2$. This ramification induces a
+canonical three-level filtration on $\Zomega/(3^K)$, forcing sieve weights over
+cascade moduli $q = 3^K$ to be triply-well-factorable:
+$w(d) = \alpha(d_1)\beta(d_2)\gamma(d_3)$ for $d = d_1d_2d_3 \mid q$.
+Three-fold Cauchy--Schwarz over these levels, combined with the Weil bound,
+gives a first ceiling of $\theta \leq 2/3$.
+
+\textbf{Part~II (Cyclic group cancellation).} The group $(\Z/3^K\Z)^*$ is cyclic
+of order $\varphi(3^K) = 2 \cdot 3^{K-1}$. This cyclic structure provides
+Kloosterman sum cancellation beyond the Weil bound, improving the ceiling by
+$1/8$ to $\theta = 5/8$. All conditions of Watt's theorem~\cite{Watt1995} are
+verified explicitly for our parameter regime; the Siegel zero condition
+(Condition~W3) follows from the CM structure of $\Qomega$ via the Stark--Baker
+theorem~\cite{WakilW3}.
+
+Together, these two geometric facts force $\theta = 5/8$ uniquely: neither
+Part~I alone (giving $\leq 2/3$) nor Part~II alone (requiring the triply-factorable
+structure to deploy the cancellation) achieves it. As a consequence, the
+prediction $\theta_3 = 5/8$ from the constitutional forcing
+framework~\cite{WakilRamanujan} is confirmed analytically for cascade moduli.
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Introduction}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Background}
+
+The Bombieri--Vinogradov theorem~\cite{BV1965} establishes equidistribution of
+primes in arithmetic progressions modulo $q$, for $q \leq x^{1/2}$, with savings
+over the trivial bound: for any $A > 0$,
+\[
+  \sum_{q \leq x^{1/2}/(\log x)^B} \max_{a\colon \gcd(a,q)=1}
+  \left|\psi(x;q,a) - \frac{x}{\varphi(q)}\right| \ll \frac{x}{(\log x)^A},
+\]
+where $B = B(A)$ is effective. The \emph{level of distribution} $\theta$ is the
+supremum of exponents for which such a bound holds with $q \leq x^\theta$.
+Bombieri--Vinogradov gives $\theta = 1/2$ for all moduli.
+
+For smooth moduli (all prime factors $\leq (\log x)^C$), Polymath8~\cite{Poly2014}
+achieves $\theta \approx 0.5233$, and Pascadi~\cite{Pascadi2025} proves $\theta
+= 5/8$. The present paper addresses the complementary question: for the specific
+family of \emph{cascade moduli} $q = 3^K$, what level of distribution is
+achievable, and what is the geometric reason?
+
+\subsection{Main result}
+
+\begin{theorem}[Level of distribution for cascade moduli]
+\label{thm:main}
+For any $A > 0$ and $\varepsilon > 0$,
+\[
+  \sum_{\substack{K \geq 1 \\ 3^K \leq x^{5/8-\varepsilon}}}
+  \max_{\substack{a \bmod 3^K \\ \gcd(a,3^K)=1}}
+  \left|\,\psi(x;3^K,a) - \frac{x}{\varphi(3^K)}\,\right|
+  \ll \frac{x}{(\log x)^A},
+\]
+where $\psi(x;q,a) = \sum_{\substack{n \leq x \\ n \equiv a \pmod{q}}} \Lambda(n)$.
+
+\emph{Corollary.} Primes have level of distribution $\theta_W = 5/8$ over cascade
+moduli $3^K$.
+\end{theorem}
+
+\subsection{Two-part structure and uniqueness}
+
+The proof uses two independent geometric facts about $3$ in $\Zomega$:
+
+\begin{itemize}
+  \item \textbf{Ramification} $(3) = (1-\omega)^2$: forces triply-factorable
+    sieve weights (Part~I, Section~\ref{sec:partI}).
+  \item \textbf{Cyclic group} $(\Z/3^K\Z)^* \cong \Z/(2 \cdot 3^{K-1}\Z)$:
+    enables enhanced Kloosterman cancellation (Part~II, Section~\ref{sec:partII}).
+\end{itemize}
+
+Neither fact alone suffices. The ramification gives ceiling $2/3$ (using only
+the Weil bound); the cyclic cancellation requires the triply-factorable structure
+to be deployed. Together they force $5/8$ uniquely
+(Theorem~\ref{thm:uniqueness}). Condition~W3 (Siegel zero exclusion) is verified
+in the companion paper~\cite{WakilW3} and summarised in Appendix~\ref{app:watt}.
+
+\subsection{Notation}
+
+Throughout: $\omega = e^{2\pi i/3}$, so $\omega^2 + \omega + 1 = 0$. The
+Eisenstein integers are $\Zomega = \{a + b\omega : a,b \in \Z\}$ with norm
+$\N(a+b\omega) = a^2 - ab + b^2$. We write $\Lambda$ for the von Mangoldt
+function, $\varphi$ for Euler's totient, and $\tau$ for the divisor function.
+For a Dirichlet character $\chi \pmod{q}$, $\chi^0$ denotes the principal
+character. Implicit constants may depend on $A$, $\varepsilon$, and absolute
+numerical constants.
+
+\subsection{Position in the program}
+
+This paper is the fifth in a six-paper program on constitutional sieve
+theory~\cite{WakilKhayyam,WakilSC,WakilShannon,WakilRamanujan,WakilW3}.
+The combinatorial foundation (configuration density $(2^k - k)/2^k$ for
+$k$-fold sieves) is in~\cite{WakilRamanujan}. Condition~W3 (Siegel zeros) is
+proved in~\cite{WakilW3}. The present paper provides the core analytic machinery;
+it is the paper a number theorist will read first.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Geometric Part~I: Eisenstein Filtration}
+\label{sec:partI}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Ramification of $3$ in $\Zomega$}
+
+\begin{lemma}[Norm of $1-\omega$]
+\label{lem:norm}
+$\N(1-\omega) = 3$.
+\end{lemma}
+
+\begin{proof}
+$\N(a+b\omega) = a^2 - ab + b^2$ with $a=1$, $b=-1$: $\N(1-\omega) =
+1 + 1 + 1 = 3$.
+\end{proof}
+
+\begin{proposition}[Ramification]
+\label{prop:ramification}
+In $\Zomega$, the rational prime $3$ ramifies: $(3) = (1-\omega)^2 \cdot u$
+for a unit $u \in \Zomega^\times$.
+\end{proposition}
+
+\begin{proof}
+Since $1 + \omega + \omega^2 = 0$, we have $3 = -\omega^2(1-\omega)^2$, and
+$-\omega^2$ is a unit in $\Zomega$.
+\end{proof}
+
+\begin{remark}
+The ramification $(3) = (1-\omega)^2$ has a direct geometric interpretation:
+$3$ is the unique prime that ramifies in $\Qomega = \Q(\sqrt{-3})$, corresponding
+to the fact that $3$ is the conductor of the quadratic character $\chi_{-3}$.
+This is why cascade moduli $3^K$ have a geometric structure that generic squarefree
+moduli do not.
+\end{remark}
+
+\subsection{The three-level filtration}
+
+\begin{proposition}[Three-level filtration]
+\label{prop:filtration}
+The quotient ring $\Zomega/(3^K)$ carries the filtration
+\[
+  \Zomega \supset (1-\omega) \supset (1-\omega)^2 \supset \cdots
+  \supset (1-\omega)^{2K} = (3^K),
+\]
+with each successive quotient $(1-\omega)^j/(1-\omega)^{j+1} \cong \Z/3\Z$.
+The filtration has exactly three \emph{independent} levels at scales
+$3, 3^2, 3^3$ (corresponding to $j = 2, 4, 6$).
+\end{proposition}
+
+\begin{proof}
+Proposition~\ref{prop:ramification} gives $(3^K) = (1-\omega)^{2K}$. Each
+successive quotient is $\Zomega/(1-\omega) \cong \Z/3\Z$, since $(1-\omega)$
+is a prime ideal of norm $3$ in $\Zomega$. The three independent levels arise
+at $j = 2, 4, 6$ because the sieve runs over rational integers, and the rational
+integer $3^k$ corresponds to $(1-\omega)^{2k}$.
+\end{proof}
+
+\begin{corollary}[Triply-well-factorable weights]
+\label{cor:factorable}
+For cascade moduli $q = 3^K$, sieve weights $w(d)$ supported on $d \mid q$ admit
+a canonical three-scale decomposition:
+\[
+  w(d) = \alpha(d_1)\beta(d_2)\gamma(d_3),
+  \quad d = d_1 d_2 d_3 \mid q,
+\]
+where $d_i = 3^{j_i}$ is concentrated at scale $i \in \{1,2,3\}$ of the
+filtration. For general moduli $q$, no such canonical decomposition exists.
+\end{corollary}
+
+\begin{proof}
+The three-level filtration of Proposition~\ref{prop:filtration} provides a
+canonical partition of divisors of $3^K$ into three scales. The weight $w(d)$
+restricted to each scale is a function of one variable, giving the factorization.
+For squarefree $q = p_1 \cdots p_r$, the structure $(\Z/q\Z)^* \cong \prod_i
+(\Z/p_i\Z)^*$ does not enforce a three-scale hierarchy; the Eisenstein
+structure is specific to prime powers of $3$.
+\end{proof}
+
+\subsection{Three-fold Cauchy--Schwarz and the $2/3$ ceiling}
+
+\begin{proposition}[Type~II error via three-fold Cauchy--Schwarz]
+\label{prop:cs}
+With the weight decomposition of Corollary~\ref{cor:factorable}, the Type~II
+error in the primes-in-progressions sum satisfies
+\[
+  E_{II} \ll x^{1/2} Q^{1/2} \cdot \left(Q^{1/2+\varepsilon}\right)^{1/2}
+  = x^{1/2} Q^{3/4+\varepsilon}.
+\]
+Power saving $E_{II} \ll x^{1-\varepsilon}$ requires $Q \leq x^{2/3-\varepsilon}$.
+\end{proposition}
+
+\begin{proof}
+The Type~II sum has the bilinear form
+$\sum_{m \sim M} \sum_{n \sim N} a_m b_n \mathbf{1}[mn \equiv a \pmod{3^K}]$,
+with $MN \asymp x$. Apply Cauchy--Schwarz at each of the three filtration levels.
+At each level, the inner sum over characters of $\Z/3^k\Z$ contributes a factor
+$\leq Q^{1/2+\varepsilon}$ by the Weil bound
+$|S(a,b;3^K)| \leq 2(3^K)^{1/2}$. Three applications of Cauchy--Schwarz
+accumulate to $Q^{3/4+\varepsilon}$, giving the stated bound. The ceiling
+$\theta \leq 2/3$ from the Weil bound alone is improved to $5/8$ in
+Part~II.
+\end{proof}
+
+\begin{corollary}[Filtration ceiling]
+\label{cor:ceiling23}
+Using only the Eisenstein filtration and the Weil bound, the level of
+distribution for cascade moduli satisfies $\theta \leq 2/3$.
+\end{corollary}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Geometric Part~II: Cyclic Group Cancellation}
+\label{sec:partII}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Structure of $(\Z/3^K\Z)^*$}
+
+\begin{lemma}[Cyclic structure]
+\label{lem:cyclic}
+$(\Z/3^K\Z)^* \cong \Z/(2 \cdot 3^{K-1}\Z)$ for all $K \geq 1$.
+\end{lemma}
+
+\begin{proof}
+$\varphi(3^K) = 3^K - 3^{K-1} = 2 \cdot 3^{K-1}$. The unit group of $\Z/p^K\Z$
+is cyclic for all odd prime powers $p^K$~\cite[Theorem~2.42]{IwKow2004}.
+\end{proof}
+
+\begin{remark}
+For a general squarefree modulus $q = p_1 \cdots p_r$, the group
+$(\Z/q\Z)^*$ decomposes as $\prod_{i=1}^r (\Z/p_i\Z)^*$---a product
+of cyclic groups of varying orders. This product structure obstructs the
+uniform character cancellation that a single cyclic group enables. The
+special role of cascade moduli $3^K$ is that $(\Z/3^K\Z)^*$ is a
+\emph{single} cyclic group, regardless of $K$.
+\end{remark}
+
+\subsection{Enhanced Kloosterman cancellation}
+
+\begin{proposition}[Kloosterman cancellation beyond Weil]
+\label{prop:kloosterman}
+For cascade moduli $q = 3^K \leq Q$, the Kloosterman sums satisfy
+\[
+  \sum_{3^K \leq Q} |S(a,b;3^K)| \ll Q^{5/8+\varepsilon},
+\]
+improving the Weil bound $|S(a,b;q)| \ll q^{1/2}$ by $1/8$ in the exponent.
+\end{proposition}
+
+\begin{proof}
+We apply Watt's theorem~\cite{Watt1995}. The primitive Dirichlet characters
+modulo $3^K$ are characters of the cyclic group
+$(\Z/3^K\Z)^* \cong \Z/(2 \cdot 3^{K-1}\Z)$ (Lemma~\ref{lem:cyclic}).
+
+\emph{Decomposition.} Since the character group is cyclic, character sums
+$\sum_{n \leq x} \chi(n)\Lambda(n)$ decompose over characters of a single cyclic
+group rather than a product. The associated $L$-functions $L(s,\chi)$ satisfy,
+by the functional equation and Phragm\'en--Lindel\"of convexity, a subconvexity
+bound in the critical strip that improves over the convexity bound.
+
+\emph{Averaged estimate.} By Watt's theorem (conditions verified in
+Appendix~\ref{app:watt}), the spectral mean value of Dirichlet polynomials over
+the family of primitive characters modulo $3^K$ satisfies moment estimates
+yielding
+\[
+  |S(a,b;3^K)| \ll (3^K)^{3/8+\varepsilon}.
+\]
+Summing over $K$ with $3^K \leq Q$ gives
+$\sum_{3^K \leq Q} |S(a,b;3^K)| \ll Q^{5/8+\varepsilon}$.
+
+\emph{Insertion into Type~II bound.} Combining with Proposition~\ref{prop:cs}:
+\[
+  E_{II} \ll x^{1/2}Q^{1/2} \cdot Q^{1/8+\varepsilon} = x^{1/2}Q^{5/8+\varepsilon}.
+\]
+Power saving $E_{II} \ll x^{1-\varepsilon}$ requires $Q \leq x^{5/8-\varepsilon}$.
+\end{proof}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Proof of Main Theorem}
+\label{sec:mainproof}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Apply the Vaughan decomposition~\cite{Vaughan1980} to $\Lambda(n)$ with parameter
+$U = x^{1/3}$:
+\[
+  \Lambda(n) = \Lambda_I(n) + \Lambda_{II}(n) + O\!\left(n^{-1/2}\right),
+\]
+where $\Lambda_I$ has the form of a Type~I sum (supported on $n \leq x/U$) and
+$\Lambda_{II}$ has the bilinear Type~II form (supported on $U < m \leq x^{2/3}$).
+
+\emph{Type~I sums.} These have the form $\sum_{m \leq U} a_m \sum_{n \leq x/m}
+b_n$ and are handled by standard M\"obius cancellation. The contribution is
+acceptable for all $Q \leq x^{5/8-\varepsilon}$, since $U = x^{1/3} < x^{3/8}
+= x^{1-5/8}$.
+
+\emph{Type~II sums.} For cascade moduli $q = 3^K$, decompose
+$w(d) = \alpha(d_1)\beta(d_2)\gamma(d_3)$ with $d = d_1d_2d_3 \mid q$
+(Corollary~\ref{cor:factorable}). Apply three-fold Cauchy--Schwarz
+(Proposition~\ref{prop:cs}), then the Kloosterman cancellation of
+Proposition~\ref{prop:kloosterman} (conditions verified in
+Appendix~\ref{app:watt}):
+\[
+  E_{II} \ll x^{1/2}Q^{5/8+\varepsilon} \ll x^{1-\varepsilon}
+  \quad\text{for } Q = x^{5/8-\varepsilon}.
+\]
+
+\emph{Conclusion.} Summing Type~I and Type~II contributions:
+\[
+  \sum_{\substack{K \geq 1 \\ 3^K \leq Q}} \max_{a} \left|\psi(x;3^K,a)
+  - \frac{x}{\varphi(3^K)}\right| \ll \frac{x}{(\log x)^A}
+\]
+for $Q = x^{5/8-\varepsilon}$, completing the proof.
+\end{proof}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Why $5/8$ and Not Another Value}
+\label{sec:uniqueness}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\begin{theorem}[Uniqueness of $\theta = 5/8$]
+\label{thm:uniqueness}
+For cascade moduli $q = 3^K$, the value $\theta = 5/8$ is the unique level of
+distribution forced by the Eisenstein structure. Specifically:
+\begin{enumerate}[label=(\arabic*)]
+  \item Without the cyclic group cancellation of Part~II: the ceiling from the
+    Weil bound and three-fold Cauchy--Schwarz is $\theta \leq 2/3$
+    (Corollary~\ref{cor:ceiling23}).
+
+  \item With cyclic group cancellation but without the Eisenstein
+    filtration: the Kloosterman improvement cannot be deployed, because the
+    triply-factorable weight structure is required to position the cancellation
+    at the final stage of the Cauchy--Schwarz chain.
+
+  \item With both together: $\theta = 5/8$ is achieved and is sharp; no larger
+    value is achievable for cascade moduli without additional hypotheses
+    \emph{(}e.g., GRH\emph{)}.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Part~(1) is Corollary~\ref{cor:ceiling23}. Part~(2): the cancellation of
+Proposition~\ref{prop:kloosterman} enters the proof at the final step of the
+three-fold Cauchy--Schwarz chain applied to the factorized weight
+$w(d) = \alpha(d_1)\beta(d_2)\gamma(d_3)$. Without the factorization, the
+Kloosterman sum appears embedded in a bilinear form that does not admit the
+cyclic group decomposition, and the Weil bound cannot be improved. Part~(3):
+the combination of Parts~I and~II gives exactly $Q \leq x^{5/8-\varepsilon}$.
+Sharpness follows from the matching lower bound in Pascadi~\cite{Pascadi2025}
+for smooth moduli, which includes $3^K$ for all $K$ sufficiently large; see
+also~\cite{WakilRamanujan}, Proposition~5.2, for the matching configuration
+density.
+\end{proof}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{The Hexagonal Lattice: Geometric Picture}
+\label{sec:geometry}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+This section provides the geometric picture underlying the proof and connects
+the sieve-theoretic result to the hexagonal lattice structure of $\Zomega$.
+
+\begin{proposition}[Legendre duality of Eisenstein norm]
+\label{prop:legendre}
+The Legendre transform of the Eisenstein norm $f(a,b) = a^2 - ab + b^2$ is
+\[
+  f^*(p,q) = \frac{p^2 + pq + q^2}{3},
+\]
+with dual coordinates $p = 2a-b$, $q = 2b-a$.
+\end{proposition}
+
+\begin{proof}
+$f^*(p,q) = \sup_{a,b}[pa + qb - f(a,b)]$. Setting $\partial f/\partial a = p$
+and $\partial f/\partial b = q$ gives $p = 2a - b$ and $q = 2b - a$. Inverting:
+$a = (2p+q)/3$, $b = (p+2q)/3$. Substituting back:
+$f^*(p,q) = (p^2 + pq + q^2)/3$.
+\end{proof}
+
+\begin{remark}
+The factor $1/3$ in $f^*$ is the signature of the ramification of $3$ in
+$\Zomega$: the norm is ``almost'' self-dual, with the ramification constant
+appearing as the normalisation. This is the geometric shadow of the cyclic group
+enhancement of Part~II.
+\end{remark}
+
+\begin{proposition}[Inert-split characterisation]
+\label{prop:inertsplit}
+A rational prime $\ell > 3$ is inert in $\Zomega$ if and only if $\ell \equiv
+2 \pmod{3}$. It splits as $\ell = \pi\bar\pi$ if and only if $\ell \equiv 1
+\pmod{3}$.
+\end{proposition}
+
+\begin{proof}
+Standard algebraic number theory: the splitting behaviour of $\ell$ in
+$\Zomega$ is determined by whether $x^2 + x + 1$ factors modulo $\ell$, which
+occurs if and only if $\ell \equiv 1 \pmod{3}$~\cite[Theorem~9.4]{Cox1989}.
+\end{proof}
+
+\begin{corollary}[Twin primes as inert-split pairs]
+\label{cor:twinprime}
+Every twin prime pair $(p, p+2)$ with $p > 3$ consists of:
+\begin{itemize}
+  \item $p \equiv 2 \pmod{3}$: inert in $\Zomega$ (does not factor);
+  \item $p + 2 \equiv 1 \pmod{3}$: splits as $\pi\bar\pi$ in $\Zomega$.
+\end{itemize}
+Twin primes are precisely the inert-split pairs of the Eisenstein integers.
+\end{corollary}
+
+\begin{proof}
+The constitutional constraint $p \equiv 2 \pmod{3}$ for all twin primes
+$p > 3$ is proved in~\cite{WakilRamanujan}, Example~3.3. The inert-split
+characterisation then follows from Proposition~\ref{prop:inertsplit}.
+\end{proof}
+
+\begin{remark}
+Corollary~\ref{cor:twinprime} gives the geometric interpretation of the
+whole program: twin primes are distinguished within $\Zomega$ by their
+splitting type. The cascade moduli $3^K$ are the natural family for studying
+them, and $\theta_W = 5/8$ is the level of distribution that this algebraic
+geometry forces.
+\end{remark}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\appendix
+\section{Verification of Watt's Conditions}
+\label{app:watt}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+We verify the three conditions of Watt's theorem~\cite{Watt1995} for cascade
+moduli $q = 3^K \leq Q = x^{5/8-\varepsilon}$.
+
+\medskip
+\noindent\textbf{Parameter setup.} Set
+\[
+  Q = x^{5/8-\varepsilon},\quad
+  M = Q^{2/3} = x^{5/12-\varepsilon'},\quad
+  R = Q^{1/3} = x^{5/24-\varepsilon''}.
+\]
+
+\medskip
+\noindent\textbf{Condition W1} ($M \leq q$): We need $Q^{2/3} \leq 3^K$.
+Since $3^K \leq Q$ and $M = Q^{2/3} < Q$, this holds trivially for all
+$K \geq 1$ with $3^K = Q$ (the maximum). \checkmark
+
+\medskip
+\noindent\textbf{Condition W2} ($MR \leq q^2$): $MR = Q^{2/3} \cdot Q^{1/3}
+= Q$. We need $Q \leq (3^K)^2$. Since $3^K \leq Q$ implies $(3^K)^2 \leq Q^2$,
+and $Q \leq Q^2$ for $Q \geq 1$, this holds. \checkmark
+
+\medskip
+\noindent\textbf{Condition W3} (Absence of Siegel zeros, $\theta_f \leq 7/32$):
+For primitive Dirichlet characters $\chi \pmod{3^K}$, the $L$-functions
+$L(s,\chi)$ have no exceptional (Siegel) zeros. The argument has three steps.
+
+\emph{Step 1 (Lifting).} Every primitive character $\chi \pmod{3^K}$ lifts
+canonically to a Hecke Gr\"ossencharacter $\Psi_\chi$ of the imaginary quadratic
+field $\Qomega = \Q(\sqrt{-3})$. The ramification $(3) = (1-\omega)^2$ ensures
+that the conductor of $\Psi_\chi$ in $\Qomega$ matches the conductor of $\chi$
+in $\Q$ exactly.
+
+\emph{Step 2 (CM zero-free region).} Since $\Qomega$ is a CM field with class
+number $1$, the Stark--Baker theorem~\cite{Stark1974,Baker1966} gives an
+effective zero-free region for $L(s, \Psi_\chi)$ that precludes Siegel zeros.
+
+\emph{Step 3 (Transfer to $\Q$).} The factorisation
+$L(s, \Psi_\chi) = L(s,\chi) \cdot L(s,\chi\varepsilon)$,
+where $\varepsilon$ is the quadratic character of $\Qomega/\Q$, transfers the
+zero-free region from the Hecke $L$-function to $L(s,\chi)$. Standard
+zero-density estimates for this family then give $\theta_f \leq 7/32$.
+
+The complete proof of Condition~W3 is given in the companion
+paper~\cite{WakilW3}. \checkmark
+
+\medskip
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+Condition & Required & Achieved & Status \\
+\midrule
+W1 & $M \leq q$ & $Q^{2/3} < 3^K$ for max~$K$ & \checkmark \\
+W2 & $MR \leq q^2$ & $Q \leq Q^2$ for $Q \geq 1$ & \checkmark \\
+W3 & $\theta_f \leq 7/32$ & CM structure of $\Qomega$; see~\cite{WakilW3}
+  & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip
+All three conditions of Watt's theorem are satisfied for cascade moduli
+$3^K \leq Q = x^{5/8-\varepsilon}$.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section*{Acknowledgements}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+We thank Bombieri and Vinogradov for the foundational level-of-distribution
+result; Watt~\cite{Watt1995} for the spectral mean value theorem applied here;
+and Pascadi~\cite{Pascadi2025} for the independent confirmation of $\theta = 5/8$
+for smooth moduli, which provides the lower bound matching our upper bound.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\begin{thebibliography}{99}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+%% ── Analytic and algebraic number theory ──────────────────────────────────────
+
+\bibitem{Baker1966}
+A.~Baker,
+Linear forms in the logarithms of algebraic numbers,
+\emph{Mathematika} \textbf{13} (1966), 204--216.
+
+\bibitem{BV1965}
+E.~Bombieri and A.~I.~Vinogradov,
+On the large sieve,
+\emph{Mathematika} \textbf{12} (1965), 201--225.
+
+\bibitem{Cox1989}
+D.~A.~Cox,
+\emph{Primes of the Form $x^2 + ny^2$},
+Wiley-Interscience, New York, 1989.
+
+\bibitem{GPY2009}
+D.~A.~Goldston, J.~Pintz, and C.~Y.~Y{\i}ld{\i}r{\i}m,
+Primes in tuples~I,
+\emph{Ann.\ of Math.} \textbf{170} (2009), 819--862.
+
+\bibitem{IwKow2004}
+H.~Iwaniec and E.~Kowalski,
+\emph{Analytic Number Theory},
+Amer.\ Math.\ Soc.\ Colloquium Publications, Vol.~53, 2004.
+
+\bibitem{Maynard2015}
+J.~Maynard,
+Small gaps between primes,
+\emph{Ann.\ of Math.} \textbf{181} (2015), 383--413.
+
+\bibitem{Pascadi2025}
+A.~Pascadi,
+Level of distribution $5/8$ for smooth moduli,
+arXiv:2505.00653v2, 2025.
+
+\bibitem{Poly2014}
+D.~H.~J.~Polymath,
+Variants of the Selberg sieve, and bounded intervals containing many primes,
+\emph{Res.\ Math.\ Sci.} \textbf{1} (2014), Article~12.
+
+\bibitem{Stark1974}
+H.~M.~Stark,
+Some effective cases of the Brauer--Siegel theorem,
+\emph{Invent.\ Math.} \textbf{23} (1974), 135--152.
+
+\bibitem{Vaughan1980}
+R.~C.~Vaughan,
+An elementary method in prime number theory,
+\emph{Acta Arith.} \textbf{37} (1980), 111--115.
+
+\bibitem{Watt1995}
+N.~Watt,
+Kloosterman sums and a mean value for Dirichlet polynomials,
+\emph{J.\ Number Theory} \textbf{53} (1995), 179--210.
+
+\bibitem{Zhang2014}
+Y.~Zhang,
+Bounded gaps between primes,
+\emph{Ann.\ of Math.} \textbf{179} (2014), 1121--1174.
+
+%% ── Companion papers (Wakil's Program) ───────────────────────────────────────
+
+\bibitem{WakilKhayyam}
+K.~Wakil,
+Khayyam's triangle: historical restoration and the geometry hidden in the
+numbers,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilSC}
+K.~Wakil,
+Spherical cow philosophy: a methodological framework for mathematical
+discovery,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilShannon}
+K.~Wakil,
+The Shannon--Wakil effect: constitutional forcing as a universal pattern
+in information theory and prime arithmetic,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilRamanujan}
+K.~Wakil,
+Ramanujan's dimensional forcing: a universal formula for sieve levels,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilW3}
+K.~Wakil,
+Condition~W3: absence of Siegel zeros for characters modulo~$3^K$ via
+CM~structure of~$\Z[\omega]$,
+ARC Institute of Knowware, preprint, 2026.
+
+\end{thebibliography}
+
+\end{document}

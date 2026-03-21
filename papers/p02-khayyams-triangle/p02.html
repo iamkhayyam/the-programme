@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Khayyam's Triangle — Wakil 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+:root{--linen:#e8e4dc;--ink:#111;--mid:#444;--light:#888;--rule:#ccc;--lrule:#ddd;--bg:#faf9f6;--note-bg:#f4f2ee;--accent:#8B0000;--link:#1a3a7c;--sidebar-w:220px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:14px;}
+body{background:var(--linen);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;}
+.site-header{border-bottom:1px solid var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:50px;background:var(--linen);position:sticky;top:0;z-index:100;}
+.site-logo{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.88rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);text-decoration:none;line-height:1.1;}
+.site-logo span{display:block;font-size:.58rem;letter-spacing:.22em;color:var(--light);font-weight:300;}
+.site-nav{display:flex;gap:1.8rem;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;}
+.site-nav a{color:var(--ink);text-decoration:none;}
+.preprint-bar{border-bottom:1px solid var(--rule);padding:.5rem 2rem;display:flex;align-items:center;justify-content:space-between;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);font-family:'IBM Plex Mono',monospace;}
+.preprint-bar .series-tag{color:var(--ink);font-weight:500;}
+.page-body{max-width:1080px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:var(--sidebar-w) 1fr;gap:0;}
+.sidebar{border-right:1px solid var(--rule);padding:2.5rem 1.8rem 2.5rem 0;position:sticky;top:50px;height:calc(100vh - 50px);overflow-y:auto;}
+.sb-label{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
+.sb-num{font-family:'IBM Plex Sans',sans-serif;font-size:3.2rem;font-weight:300;line-height:1;color:var(--ink);letter-spacing:-.02em;margin-bottom:1.8rem;}
+.sb-meta{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;color:var(--light);line-height:2;text-transform:uppercase;margin-bottom:1.8rem;}
+.sb-meta strong{color:var(--ink);display:block;font-weight:500;font-size:.55rem;margin-top:.6rem;}
+.sb-meta strong:first-child{margin-top:0;}
+.sb-links{margin-bottom:1.8rem;}
+.sb-link{display:block;font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;text-transform:uppercase;color:var(--link);text-decoration:none;padding:.35rem 0;border-bottom:1px solid var(--lrule);line-height:1.4;}
+.sb-link:last-child{border-bottom:none;}
+.sb-link:hover{color:var(--accent);}
+.sb-link .sb-link-label{color:var(--light);display:block;font-size:.48rem;}
+.series-index{list-style:none;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.04em;line-height:2.1;text-transform:uppercase;color:var(--light);}
+.series-index a{color:var(--light);text-decoration:none;}
+.series-index a:hover{color:var(--ink);}
+.series-index .curr{color:var(--ink);font-weight:500;}
+.series-index .curr::before{content:'→ ';}
+.paper{padding:2.5rem 0 4rem 2.8rem;background:var(--bg);min-height:calc(100vh - 50px);}
+.paper-header{text-align:center;padding-bottom:2rem;border-bottom:1px solid var(--rule);margin-bottom:2rem;}
+.paper-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--light);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem;}
+.paper-label a{color:var(--link);text-decoration:none;}
+h1.title{font-family:'STIX Two Text','Times New Roman',serif;font-weight:600;font-size:1.45rem;line-height:1.35;color:var(--ink);margin-bottom:1rem;}
+.authors{font-family:'IBM Plex Sans',sans-serif;font-size:.82rem;color:var(--mid);margin-bottom:.4rem;}
+.affiliation{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--light);font-style:italic;margin-bottom:1rem;}
+.paper-date{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--light);}
+.abstract-block{margin:0 2rem 1.5rem;padding:1.2rem 1.5rem;background:var(--note-bg);border:1px solid var(--rule);}
+.abs-label{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mid);margin-bottom:.7rem;text-align:center;}
+.abstract-block p{font-family:'STIX Two Text',serif;font-size:.88rem;line-height:1.65;color:var(--mid);text-align:justify;margin:0;}
+.keywords{margin:.8rem 2rem 1.5rem;font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;color:var(--light);text-align:center;}
+.keywords strong{color:var(--mid);font-weight:500;}
+.paper-meta-strip{display:flex;gap:1.5rem;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;padding:.8rem 1rem;border-top:1px solid var(--lrule);border-bottom:1px solid var(--lrule);}
+.meta-pill{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--light);}
+.meta-pill a{color:var(--link);text-decoration:none;border-bottom:1px solid var(--lrule);}
+.meta-pill a:hover{color:var(--accent);}
+.paper-body{font-family:'STIX Two Text','Times New Roman',serif;font-size:1rem;line-height:1.72;color:var(--ink);max-width:640px;}
+.paper-body p{text-align:justify;margin-bottom:.9em;hyphens:auto;}
+.paper-body h2{font-family:'STIX Two Text',serif;font-weight:600;font-size:1.05rem;color:var(--ink);margin:2.2rem 0 .8rem;counter-increment:section;}
+.paper-body h2::before{content:counter(section) '.  ';color:var(--accent);}
+.paper-body{counter-reset:section;}
+.paper-body h3{font-family:'STIX Two Text',serif;font-weight:600;font-size:.92rem;color:var(--mid);margin:1.5rem 0 .5rem;font-style:italic;}
+.eq-label{display:flex;align-items:center;justify-content:space-between;margin:1.2rem 0;}
+.eq-content{flex:1;text-align:center;font-family:'STIX Two Text',serif;font-size:1.02rem;}
+.eq-num{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);width:44px;text-align:right;}
+.env-block{margin:1.4rem 0;padding:1rem 1.2rem;font-family:'STIX Two Text',serif;font-size:.95rem;line-height:1.65;}
+.env-block.theorem{border:1px solid var(--rule);border-left:4px solid var(--ink);background:var(--note-bg);}
+.env-block.proposition{border:1px solid var(--rule);border-left:4px solid var(--mid);background:var(--note-bg);}
+.env-block.lemma{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
+.env-block.corollary{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
+.env-block.definition{border:1px solid var(--rule);border-left:4px solid var(--accent);background:#fff8f8;}
+.env-block.remark{border-left:3px solid var(--accent);background:#fff8f8;padding:.8rem 1.2rem;}
+.env-block.conjecture{border:1px dashed var(--rule);border-left:4px dashed var(--ink);background:var(--note-bg);}
+.env-label{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);margin-bottom:.5rem;}
+.env-block.remark .env-label,.env-block.definition .env-label{color:var(--accent);}
+.proof{margin:.5rem 0 1.2rem 1.5rem;font-family:'STIX Two Text',serif;font-size:.92rem;line-height:1.65;color:var(--mid);}
+.proof-label{font-family:'IBM Plex Sans',sans-serif;font-style:italic;font-size:.8rem;color:var(--light);margin-bottom:.3rem;}
+.qed{float:right;font-size:1rem;color:var(--mid);}
+table.formal{width:100%;border-collapse:collapse;margin:1.2rem 0 1rem;font-size:.85rem;font-family:'STIX Two Text',serif;}
+table.formal th{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid var(--ink);border-top:1px solid var(--ink);padding:.5rem .8rem;text-align:left;}
+table.formal td{padding:.45rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;}
+table.formal tr:last-child td{border-bottom:1px solid var(--ink);}
+.table-caption{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--mid);text-align:center;margin-bottom:1.5rem;font-style:italic;}
+.table-caption strong{font-style:normal;font-weight:500;}
+em{font-style:italic;}strong{font-weight:600;}
+sup{font-size:.7em;vertical-align:super;color:var(--accent);}
+sub{font-size:.7em;vertical-align:sub;}
+.next-paper{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--ink);max-width:640px;}
+.next-label{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
+.next-title{font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;}
+.next-title a{color:var(--ink);text-decoration:none;}
+.next-title a:hover{color:var(--link);}
+.next-desc{font-family:'STIX Two Text',serif;font-size:.88rem;color:var(--light);margin-top:.25rem;font-style:italic;}
+.references{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);max-width:640px;}
+.ref-list{list-style:none;counter-reset:refs;}
+.ref-list li{counter-increment:refs;padding-left:36px;position:relative;margin-bottom:.6rem;font-family:'STIX Two Text',serif;font-size:.82rem;line-height:1.5;color:var(--mid);}
+.ref-list li::before{content:'['counter(refs)']';position:absolute;left:0;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);}
+.site-footer{border-top:1px solid var(--ink);padding:.9rem 2rem;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);}
+@media(max-width:760px){.page-body{grid-template-columns:1fr;}.sidebar{position:static;height:auto;border-right:none;border-bottom:1px solid var(--rule);padding:1.5rem 0;}.paper{padding:1.5rem 0;}.preprint-bar{display:none;}.series-index{display:none;}.abstract-block{margin:0 0 1.5rem;}}
+</style>
+
+</head>
+<body>
+<header class="site-header">
+  <a href="https://knowware.institute" class="site-logo">KNOWWARE<span>THE &nbsp; A.R.C &nbsp; INSTITUTE</span></a>
+  <nav class="site-nav"><a href="../../papers/index.html">Pre-Print</a><a href="https://knowware.institute/contact">Contact</a></nav>
+</header>
+<div class="preprint-bar">
+  <span>ARC Institute of Knowware · January 2026</span>
+  <span class="series-tag">Constitutional Sieve Programme · Nine Papers</span>
+  <span>math.NT · 01A30, 11B65, 28A80 · Fisher Creek Ranch, Alberta</span>
+</div>
+<div class="page-body">
+  <aside class="sidebar">
+    <div class="sb-label">Paper</div><div class="sb-num">02</div>
+    <div class="sb-meta"><strong>Author</strong>Khayyam Wakil<strong>Published</strong>January 2026<strong>Series</strong>Constitutional Sieve Programme<strong>MSC 2020</strong>01A30, 11B65, 28A80, 11N35</div>
+    <div class="sb-links">
+      <a class="sb-link" href="p02.pdf" target="_blank">
+        <span class="sb-link-label">Download · PDF</span>
+        p02.pdf → View
+      </a>
+      <a class="sb-link" href="p02.tex" target="_blank">
+        <span class="sb-link-label">LaTeX Source</span>
+        p02.tex → View
+      </a>
+    </div>
+    <div class="sb-label" style="margin-bottom:.6rem;">Programme Index</div>
+    <ul class="series-index">
+      <li><a href="../p01-constitutional-forcing/p01.html">01 · Constitutional Forcing</a></li>
+      <li class="curr"><a href="p02.html">02 · Khayyam's Triangle</a></li>
+      <li><a href="../p03-constitutional-signatures/p03.html">03 · Spherical Cow Philosophy</a></li>
+      <li><a href="../p04-that-eisenstein-guy/p04.html">04 · Eisenstein, θ = 5/8</a></li>
+      <li><a href="../p05-ramanujans-formula/p05.html">05 · Ramanujan's Formula</a></li>
+      <li><a href="../p06-shannon-wakil/p06.html">06 · Shannon–Wakil Effect</a></li>
+      <li><a href="../p07-condition_w3/p07.html">07 · Condition W3</a></li>
+      <li><a href="../p08-prime-bias-ternary-bridge/p08.html">08 · Prime Digit Bias</a></li>
+      <li><a href="../p09-wakil-theta-fft/p09.html">09 · DFT Constitutional Constant</a></li>
+    </ul>
+  </aside>
+  <article class="paper">
+    <div class="paper-header">
+      <div class="paper-label">Preprint · ARC Institute of Knowware · January 2026</div>
+      <h1 class="title">Khayyam's Triangle: Historical Restoration and the Geometry Hidden in the Numbers</h1>
+      <div class="authors">Khayyam Wakil</div>
+      <div class="affiliation">The ARC Institute of Knowware, Calgary, Alberta, Canada</div>
+      <div class="paper-date">Submitted January 2026 &nbsp;·&nbsp; Constitutional Sieve Programme, Paper 02 of 09</div>
+    </div>
+    <div class="abstract-block">
+      <div class="abs-label">Abstract</div>
+      <p>The triangular array of binomial coefficients has been called "Pascal's Triangle" in the West for centuries — yet Pascal arrived 584 years after the Persian mathematician Omar Khayyam first documented it. That alone might justify a rename. But there is a stronger argument hiding in plain sight: the triangle's deepest structural property is <em>geometric</em>, not combinatorial, and it belongs by mathematical character to Khayyam's tradition rather than Pascal's. Reduce the triangle's entries modulo any prime <em>p</em> and a Sierpiński-type fractal emerges — a self-similar geometric structure invisible to Pascal's probabilistic eye, but exactly the kind of hidden geometry Khayyam spent his life finding.</p>
+      <p style="margin-top:.7em;">This paper is the second in the nine-paper Constitutional Sieve Programme. The mod-3 fractal structure of Khayyam's Triangle, governed by Lucas's theorem, is the direct combinatorial ancestor of the cascade moduli framework and the level-of-distribution result <em>θ<sub>W</sub></em> = 5/8 proved in the companion papers. A reader wishing to understand why the prime 3 plays a privileged role in that arithmetic programme will find the answer here.</p>
+    </div>
+    <div class="keywords"><strong>Keywords:</strong> Pascal's triangle, Khayyam's triangle, Sierpiński fractal, Lucas's theorem, modular arithmetic, history of mathematics, cascade moduli, constitutional sieve theory</div>
+    <div class="paper-meta-strip">
+      <span class="meta-pill">MSC 2020: 01A30 · 11B65 · 28A80 · 11N35</span>
+      <span class="meta-pill"><a href="../../papers/index.html">preprints.knowware.institute</a></span>
+      <span class="meta-pill"><a href="https://github.com/knowware-institute/constitutional-forcing">p02.tex source</a></span>
+    </div>
+    <div class="paper-body">
+
+      <h2>The Wrong Man's Name</h2>
+      <p>Here is a simple question nobody seems to have asked. You know the triangular array of binomial coefficients — the one where each entry is the sum of the two above it, the one that encodes combinations, gives you Pascal's Rule, and sits in every combinatorics textbook. You call it Pascal's Triangle. But what does its deepest structural property look like, and whose mathematical instincts would have found it?</p>
+      <p>Colour every entry that is <em>not</em> divisible by 3 and leave the rest blank. Do this for row after row, hundreds of rows deep. What emerges is not a triangle. It is a fractal — an infinite, self-similar geometric object that replicates itself at every scale. This is not a recent discovery. What is curious is that nobody has used it to ask the obvious question: does this fractal belong to Pascal's mathematical world, or to someone else's? The answer is someone else's. His name was Omar Khayyam.</p>
+
+      <h2>584 Years Earlier</h2>
+      <table class="formal">
+        <tr><th>Year</th><th>Mathematician</th><th>Location</th><th>Notes</th></tr>
+        <tr><td>~1070</td><td>Omar Khayyam</td><td>Persia</td><td>First documented appearance; cited by al-Ṭūsī, 1265</td></tr>
+        <tr><td>1261</td><td>Yang Hui</td><td>China</td><td>Independent discovery</td></tr>
+        <tr><td>1265</td><td>al-Ṭūsī</td><td>Persia</td><td>Explicitly cites Khayyam</td></tr>
+        <tr><td>1303</td><td>Zhu Shijie</td><td>China</td><td>Includes diagram</td></tr>
+        <tr><td>1523</td><td>Petrus Apianus</td><td>Europe</td><td>131 years before Pascal</td></tr>
+        <tr><td>1654</td><td>Blaise Pascal</td><td>France</td><td><em>Traité du triangle arithmétique</em></td></tr>
+      </table>
+      <div class="table-caption"><strong>Table 1.</strong> The triangle before Pascal. He came last.</div>
+
+      <h2>Two Ways of Seeing a Triangle</h2>
+      <p>Pascal's question was: <em>how many outcomes?</em> He wrote his <em>Traité</em> to solve the problem of points — how to divide gambling stakes fairly when a game is interrupted. That question is extraordinarily productive. It built probability theory. It shaped mathematics for generations. But it cannot see the fractal.</p>
+      <p>Khayyam's question was: <em>what structure is hiding here?</em> Reduce the triangle modulo 3. What survives? The answer is a Sierpiński triangle — the same self-similar fractal pattern at every scale, its appearance governed exactly by Lucas's theorem. The fractal is invisible to Pascal's question. It is the first thing Khayyam's question finds.</p>
+
+      <div class="env-block theorem">
+        <div class="env-label">Lemma 4.1 — Lucas's Theorem</div>
+        The binomial coefficient <em>C</em>(<em>n</em>, <em>k</em>) ≡ 0 (mod <em>p</em>) if and only if at least one base-<em>p</em> digit of <em>k</em> exceeds the corresponding digit of <em>n</em>. Equivalently, <em>C</em>(<em>n</em>, <em>k</em>) is nonzero mod <em>p</em> if and only if every base-<em>p</em> digit of <em>k</em> is at most the corresponding digit of <em>n</em>.
+      </div>
+
+      <div class="env-block proposition">
+        <div class="env-label">Proposition 4.2 — Hausdorff Dimension of the Mod-<em>p</em> Fractal</div>
+        For any prime <em>p</em>, the set of nonzero entries of the triangular array modulo <em>p</em> forms a Sierpiński fractal with Hausdorff dimension log(<em>p</em>+1)/log(<em>p</em>). For <em>p</em> = 3: dimension = log(4)/log(3) ≈ 1.262. For <em>p</em> = 2: dimension = log(3)/log(2) ≈ 1.585.
+      </div>
+
+      <h2>Why This Matters: The Combinatorial Origin of θ = 5/8</h2>
+      <p>The mod-3 fractal is not decorative. The surviving entries — the nonzero residues 1 and 2 mod 3 — trace out exactly the constitutional residue classes that twin primes inhabit. The Sierpiński void pattern at scale 3<sup><em>K</em></sup> matches, entry for entry, the count of invalid configurations in a <em>K</em>-level cascade sieve.</p>
+      <p>This is Proposition 2.3 of the Ramanujan paper [5]: a direct combinatorial correspondence between the fractal and the sieve. The triangle is not a metaphor for the arithmetic. The triangle <em>is</em> the arithmetic, seen from a different frame. Both are projections of the same underlying structure. Khayyam's Triangle (combinatorial face) and the hexagonal lattice of the Eisenstein integers (algebraic face) are the same result in two mathematical languages.</p>
+
+      <div class="next-paper">
+        <div class="next-label">Next in Programme</div>
+        <div class="next-title"><a href="../p03-constitutional-signatures/p03.html">03 · Spherical Cow Philosophy →</a></div>
+        <div class="next-desc">A Methodological Framework for Mathematical Discovery. Why the 2,300-year-old barrier at θ = 1/2 is not an obstacle — it is information. How to read what structural barriers tell you.</div>
+      </div>
+
+      <div class="references">
+        <h2 style="counter-increment:none;">References</h2>
+        <ol class="ref-list">
+          <li>R. Rashed (ed.), <em>Encyclopedia of the History of Arabic Science</em>, Vol. 2. Routledge, 1996.</li>
+          <li>B. Pascal, <em>Traité du triangle arithmétique</em> (1654; published posthumously 1665).</li>
+          <li>E. W. Weisstein, "Pascal's Triangle," MathWorld, Wolfram Web Resource.</li>
+          <li>M. Gardner, "Mathematical Games," <em>Scientific American</em> (1977).</li>
+          <li>K. Wakil, "Ramanujan's Dimensional Forcing: A Universal Formula for Sieve Levels," Constitutional Sieve Programme Paper 05 (2026).</li>
+        </ol>
+      </div>
+    </div>
+  </article>
+</div>
+<footer class="site-footer">
+  <span>Knowware is measured in lifetimes</span><span>Constitutional Sieve Programme · Paper 02 of 09</span><span>Registered · Canada</span>
+</footer>
+</body></html>

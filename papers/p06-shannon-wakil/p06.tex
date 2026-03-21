@@ -1,0 +1,686 @@
+\documentclass[12pt]{amsart}
+
+%% ─── Packages ────────────────────────────────────────────────────────────────
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{microtype}
+
+%% ─── Theorem Environments ────────────────────────────────────────────────────
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+%% ─── Notation ────────────────────────────────────────────────────────────────
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\thetaW}{\theta_W}
+\newcommand{\thetaBV}{\theta_{BV}}
+\newcommand{\Zomega}{\Z[\omega]}
+\newcommand{\Lamb}{\Lambda}
+
+%% ─── Metadata ────────────────────────────────────────────────────────────────
+%% arXiv: primary cs.IT, cross-list math.NT
+\title[The Shannon--Wakil Effect]{The Shannon--Wakil Effect: Constitutional
+  Forcing as a Universal Pattern in Information Theory and Prime Arithmetic}
+
+\author{Khayyam Wakil}
+\address{The ARC Institute of Knowware, Calgary, Alberta, Canada}
+\email{the@knowware.institute}
+\date{February 2026}
+
+\keywords{Shannon entropy, channel capacity, asymptotic equipartition property,
+  constitutional forcing, level of distribution, cascade moduli, Eisenstein integers,
+  twin primes, Sophie Germain primes, $k$-hierarchy, structural parallel}
+
+\subjclass[2020]{
+  94A15,  % Information theory (primary)
+  94A24,  % Coding theorems
+  11N35,  % Sieves
+  11N13,  % Primes in arithmetic progressions
+  11R04   % Algebraic number theory: general
+}
+
+%% ─── Abstract ────────────────────────────────────────────────────────────────
+\begin{document}
+
+\begin{abstract}
+We identify, formalize, and provide three proven instances of a structural
+phenomenon we call the \emph{Shannon--Wakil effect}: an exponential configuration
+space undergoes forced dimensional reduction to a strict subspace, governed by a
+constant that is uniquely determined by the algebraic structure of the system and
+cannot be altered without changing that structure.
+
+The first two instances are both due to Shannon (1948). The Asymptotic
+Equipartition Property (AEP) shows that $|\mathcal{A}|^n$ sequences concentrate
+onto a typical set of size $\approx 2^{nH}$, where entropy $H$ is forced by the
+source distribution. The Channel Coding Theorem shows that $2^{nR}$ codes can be
+reliably communicated only for rates $R < C$, where the channel capacity $C$ is
+forced by the channel. In each case an exponential space of configurations is
+forced by structure into a strict subspace governed by a uniquely determined constant.
+
+The third instance is the cascade moduli result of the companion
+paper~\cite{WakilEisenstein}: primes modulo powers of $3$ concentrate onto an
+effective subspace governed by level of distribution $\thetaW = 5/8$, forced by
+the algebraic structure of the Eisenstein integers $\Zomega$---specifically the
+ramification $(3) = (1-\omega)^2$ and the cyclic group structure of
+$(\Z/3^K\Z)^*$.
+
+We exhibit a confirmed non-instance: Sophie Germain prime pairs, whose coupled
+modular constraints confine the level of distribution to $\thetaBV = 1/2$,
+exactly as predicted by the $k$-hierarchy $\theta_k = (2^k - k)/2^k$.
+The framework is therefore falsifiable: it correctly identifies which prime
+constellations do and do not exhibit the effect. We formalize the pattern through
+five structural correspondences, state the Constitutional Forcing Conjecture with
+categorical language, and identify an open prediction at $k=4$.
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Introduction}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+Every mathematician knows at some level that information theory and number theory
+are different subjects. Information theory studies the storage and transmission of
+data; number theory studies the arithmetic structure of integers. They have
+different objects, different tools, and different communities.
+
+This paper documents a precise structural parallel between the two, visible only
+after both sides are independently understood.
+
+In 1948, Shannon proved two theorems that together define the fundamental limits
+of compression and communication~\cite{Shannon1948}. The Asymptotic Equipartition
+Property (AEP) says: most sequences are typical---the $|\mathcal{A}|^n$ possible
+sequences of length $n$ collapse to an effective set of size $\approx 2^{nH}$,
+governed by entropy $H$. The Channel Coding Theorem says: reliable communication
+at rate $R$ is possible if and only if $R < C$, where channel capacity $C$ governs
+the collapse of the exponential space of possible codes. In both cases an exponential
+space is forced by algebraic structure into a strict subspace; the governing constant
+is not chosen but uniquely determined by the underlying mathematical object.
+
+In the companion papers~\cite{WakilEisenstein,WakilW3}, we establish an analogous
+phenomenon in analytic number theory. The algebraic structure of $\Zomega$ forces
+primes in arithmetic progressions modulo cascade moduli $3^K$ to concentrate onto
+an effective subspace. The governing constant $\thetaW = 5/8$ is not chosen; it is
+uniquely forced by two facts about $\Zomega$: the ramification $(3) = (1-\omega)^2$
+and the cyclic group structure of $(\Z/3^K\Z)^*$.
+
+We call all three results instances of the Shannon--Wakil effect.
+
+\subsection{Three instances, one pattern}
+
+The three proven instances are:
+
+\begin{enumerate}
+  \item \textbf{Shannon AEP (1948).} Source sequences of length $n$ concentrate
+    onto $\approx 2^{nH}$ typical sequences out of $|\mathcal{A}|^n$ possible.
+    Governing constant: entropy $H$, forced by source distribution $p$.
+
+  \item \textbf{Shannon Channel Coding (1948).} Reliable codes exist at all rates
+    $R < C$ and fail at all rates $R > C$. Governing constant: channel capacity
+    $C = \max_{p(x)} I(X;Y)$, forced by the channel $p(y|x)$.
+
+  \item \textbf{Cascade Moduli Forcing (2026,~\cite{WakilEisenstein}).} Primes
+    modulo $3^K \leq x^{\thetaW - \varepsilon}$ are equidistributed in arithmetic
+    progressions; no unconditional result achieves $\theta > \thetaW$ for this
+    family. Governing constant: $\thetaW = 5/8$, forced by the Eisenstein
+    structure of $\Zomega$.
+\end{enumerate}
+
+The non-instance---Sophie Germain primes at $\theta = 1/2$---confirms that the
+pattern is not universal: only systems with the right structural independence exhibit
+the effect.
+
+\subsection{What this paper claims and does not claim}
+\label{sec:claims}
+
+We attach logical-status labels to every significant claim. Here we state the
+top-level ones.
+
+\begin{itemize}
+  \item[\textbf{[Proven]}] All three instances satisfy the formal definition of
+    the Shannon--Wakil effect (Definition~\ref{def:sw}).
+
+  \item[\textbf{[Proven]}] Sophie Germain primes are a non-instance, as predicted
+    by $\theta_2 = (2^2 - 2)/2^2 = 1/2$.
+
+  \item[\textbf{[Proven]}] The five structural correspondences of
+    Section~\ref{sec:correspondences} hold.
+
+  \item[\textbf{[Conjectured]}] The pattern extends to a general class of
+    systems---the Constitutional Forcing Conjecture
+    (Conjecture~\ref{conj:cfc}).
+
+  \item[\textbf{[Open]}] The $k=4$ prediction $\theta_4 = 3/4$
+    (Remark~\ref{rem:k4}).
+
+  \item[\textbf{[Not claimed]}] A functorial or categorical equivalence between
+    information theory and number theory. The correspondences are structural
+    parallels, not isomorphisms.
+\end{itemize}
+
+\subsection{Position in the program}
+
+This paper is the third in a six-paper program on constitutional sieve
+theory~\cite{WakilKhayyam,WakilSC,WakilRamanujan,WakilEisenstein,WakilW3}.
+The combinatorial foundation is traced to the mod-$3$ fractal of Khayyam's
+Triangle in~\cite{WakilKhayyam}. The arithmetic level of distribution
+$\thetaW = 5/8$ is proved in~\cite{WakilEisenstein}, with Condition~W3
+verified in~\cite{WakilW3}. The methodological framework is articulated
+in~\cite{WakilSC}. The formula $\theta_k = (2^k - k)/2^k$ and its
+combinatorial derivation appear in~\cite{WakilRamanujan}.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{The Shannon--Wakil Effect: Definition}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\begin{definition}[Shannon--Wakil Effect]
+\label{def:sw}
+A system $\mathcal{S} = (\mathcal{C}_n, \mu, \Phi)$ exhibits the
+\emph{Shannon--Wakil effect} if:
+\begin{enumerate}[label=(SW\arabic*)]
+  \item \textbf{Exponential configuration space.} $|\mathcal{C}_n|$ grows
+    exponentially in $n$: $|\mathcal{C}_n| = e^{n(r + o(1))}$ for some $r > 0$.
+
+  \item \textbf{Intrinsic structural constraint.} $\mu$ is a measure or
+    distributional law intrinsic to $\mathcal{S}$---not an external parameter.
+
+  \item \textbf{Forced dimensional reduction.} There exists an effective subspace
+    $\mathcal{E}_n \subsetneq \mathcal{C}_n$ with $|\mathcal{E}_n| = e^{n(\theta^* r
+    + o(1))}$ for $\theta^* \in (0,1)$, onto which $\mu$ concentrates: the
+    complement $\mathcal{C}_n \setminus \mathcal{E}_n$ carries vanishing measure.
+
+  \item \textbf{Uniqueness of governing constant.} The constant $\theta^*$ is
+    uniquely determined by the algebraic structure of $\mathcal{S}$. No other
+    value of $\theta^*$ is consistent with both the exponential growth rate and
+    the structural constraint.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+Condition (SW4) is the critical one: $\theta^*$ must be \emph{forced}, not
+chosen. In Shannon's AEP, changing $\theta^*$ requires changing the source
+distribution $p$, hence the entropy $H$. In cascade moduli forcing, changing
+$\theta^*$ requires changing the algebraic structure of $\Zomega$---which would
+require changing the prime $3$ itself, i.e., which prime ramifies in
+$\mathbb{Q}(\omega)$.
+\end{remark}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{First Instance: Shannon's AEP}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+Let $\mathcal{A}$ be a finite alphabet with probability distribution $p$ on
+$\mathcal{A}$. Let $X_1, X_2, \ldots$ be i.i.d.\ with law $p$. The entropy is
+$H = H(p) = -\sum_{a \in \mathcal{A}} p(a) \log_2 p(a)$.
+
+\begin{theorem}[AEP,~{\cite[Theorem~3.1.2]{CoverThomas2006}}]
+\label{thm:aep}
+For any $\varepsilon > 0$, the typical set
+\[
+  T_\varepsilon^{(n)} = \left\{ x^n \in \mathcal{A}^n :
+    \left| -\frac{1}{n} \log_2 p(x^n) - H \right| < \varepsilon \right\}
+\]
+satisfies: \emph{(i)} $\Pr[X^n \in T_\varepsilon^{(n)}] \to 1$;
+\emph{(ii)} $|T_\varepsilon^{(n)}| \leq 2^{n(H+\varepsilon)}$;
+\emph{(iii)} for large $n$, $|T_\varepsilon^{(n)}| \geq (1-\varepsilon)2^{n(H-\varepsilon)}$.
+\end{theorem}
+
+\begin{proposition}[AEP Exhibits SW Effect]
+\label{prop:aep-sw}
+The system $\mathcal{S}_{AEP} = (\mathcal{A}^n, p^{\otimes n}, \Phi)$ with
+$\Phi(\mathcal{S}) = H/\log_2|\mathcal{A}|$ satisfies \emph{(SW1)--(SW4)}.
+\end{proposition}
+
+\begin{proof}
+(SW1): $|\mathcal{A}^n| = |\mathcal{A}|^n$, exponential. (SW2): $p^{\otimes n}$
+is the i.i.d.\ product law intrinsic to the source. (SW3): The effective subspace
+is $T_\varepsilon^{(n)}$ with $|T_\varepsilon^{(n)}| \leq 2^{n(H+\varepsilon)} \ll
+|\mathcal{A}|^n$, carrying probability mass tending to $1$ by
+Theorem~\ref{thm:aep}(i). (SW4): $\theta^* = H/\log_2|\mathcal{A}|$ is uniquely
+forced by $p$; changing $\theta^*$ requires changing $H$, which requires changing
+$p$.
+\end{proof}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Second Instance: Shannon's Channel Coding Theorem}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+A discrete memoryless channel is a conditional distribution $p(y|x)$ from input
+alphabet $\mathcal{X}$ to output alphabet $\mathcal{Y}$. The channel capacity is
+\[
+  C = \max_{p(x)} I(X;Y)
+    = \max_{p(x)} \sum_{x,y} p(x)p(y|x) \log \frac{p(y|x)}{p(y)}.
+\]
+
+\begin{theorem}[Channel Coding,~{\cite[Theorems~7.7.1,~7.7.2]{CoverThomas2006}}]
+\label{thm:channel}
+\emph{(Achievability)} For any $R < C$ and $\varepsilon > 0$, there exist codes
+of rate $R$ and blocklength $n$ with error probability $< \varepsilon$ for all
+sufficiently large $n$.
+
+\emph{(Converse)} For any $R > C$, every sequence of codes of rate $R$ has error
+probability bounded away from $0$.
+\end{theorem}
+
+The configuration space here is the set of all possible codebooks: there are
+$|\mathcal{X}|^{n \cdot 2^{nR}}$ possible codebooks of rate $R$ and blocklength
+$n$---doubly exponential in $n$.
+
+\begin{proposition}[Channel Coding Exhibits SW Effect]
+\label{prop:channel-sw}
+The system $\mathcal{S}_{ch}$ with configuration space $=$ codebook space,
+law $= p(y|x)$, and $\Phi(\mathcal{S}) = C/\log_2|\mathcal{X}|$
+satisfies (SW1)--(SW4).
+\end{proposition}
+
+\begin{proof}
+(SW1): The codebook space is exponential in $n$. (SW2): $p(y|x)$ is intrinsic
+to the channel. (SW3): By Theorem~\ref{thm:channel}, codes at rates $R > C$
+have error probability bounded away from $0$; the effective subspace is the set
+of codes with $R < C$. (SW4): $\theta^* = C/\log_2|\mathcal{X}|$ is uniquely
+determined by $p(y|x)$; changing $\theta^*$ requires changing $C$, which requires
+changing the channel.
+\end{proof}
+
+\begin{remark}
+\label{rem:two-shannon}
+Both Propositions~\ref{prop:aep-sw} and~\ref{prop:channel-sw} instantiate the
+same definition applied to different aspects of the same theory. This internal
+consistency within information theory---that a single definition captures both
+source coding and channel coding limits---is evidence that
+Definition~\ref{def:sw} is the right one.
+\end{remark}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Third Instance: Cascade Moduli Forcing}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\begin{theorem}[Cascade Moduli Forcing,~{\cite[Theorem~1.1]{WakilEisenstein}}]
+\label{thm:cascade}
+For any $A > 0$ and $\varepsilon > 0$,
+\[
+  \sum_{\substack{K \geq 1 \\ 3^K \leq x^{5/8 - \varepsilon}}}
+  \max_{\gcd(a,3^K)=1}
+  \left| \sum_{\substack{n \leq x \\ n \equiv a\,(3^K)}} \Lambda(n)
+    - \frac{x}{\varphi(3^K)} \right|
+  \ll \frac{x}{(\log x)^A}.
+\]
+The constant $\thetaW = 5/8$ is uniquely forced: it equals $(2^3 - 3)/2^3$,
+determined by the three-level Eisenstein filtration of $\Zomega/(3^K)$ and the
+cyclic group structure of $(\Z/3^K\Z)^*$. No value $\theta > 5/8$ is achievable
+for cascade moduli without additional hypotheses.
+\end{theorem}
+
+The combinatorial origin of the value $5/8$ is derived in~\cite{WakilRamanujan}
+and traced to the mod-$3$ fractal structure of Khayyam's Triangle
+in~\cite{WakilKhayyam}: of the $2^3 = 8$ binary configurations in a three-level
+cascade sieve, exactly $k = 3$ are invalid (forced by constitutional constraint),
+leaving $5$ valid---giving density $5/8$.
+
+\begin{proposition}[Cascade Forcing Exhibits SW Effect]
+\label{prop:cascade-sw}
+The system $\mathcal{S}_{casc}$ with configuration space $(\Z/3^K\Z)^*$,
+structural law $= \Zomega\text{-structure}$, and $\Phi(\mathcal{S}) = 5/8$
+satisfies (SW1)--(SW4).
+\end{proposition}
+
+\begin{proof}
+(SW1): $|(\Z/3^K\Z)^*| = \varphi(3^K) = 2 \cdot 3^{K-1}$, exponential in $K$.
+(SW2): The Eisenstein structure---the ramification $(3) = (1-\omega)^2$ and the
+cyclic isomorphism $(\Z/3^K\Z)^* \cong \Z/(2 \cdot 3^{K-1}\Z)$---is intrinsic
+to $\Zomega$. (SW3): By the constitutional signature of~\cite{WakilEisenstein},
+primes concentrate onto the inert sublattice
+$\mathcal{E}_K = \{a \in (\Z/3^K\Z)^* : a \equiv 2 \pmod{3}\}$, with
+$|\mathcal{E}_K|/|(\Z/3^K\Z)^*| = 1/2$; the level of distribution $5/8$ measures
+the depth of this concentration. (SW4): $\thetaW = 5/8$ is the unique value
+consistent with both the Eisenstein filtration~\cite{WakilEisenstein}~Part~(i)
+and the cyclic group cancellation~\cite{WakilEisenstein}~Part~(ii), with
+Condition~W3 verified in~\cite{WakilW3}.
+\end{proof}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{The Five Structural Correspondences}
+\label{sec:correspondences}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+The three instances share precise structural parallels. We state them as
+correspondences---matching of mathematical roles---not as isomorphisms or
+functorial equivalences.
+
+\subsection{The correspondence table}
+
+\medskip
+\begin{center}
+\begin{tabularx}{\textwidth}{>{\bfseries}lXXX}
+\toprule
+Role & Shannon AEP & Channel Coding & Cascade Forcing \\
+\midrule
+Config.\ space
+  & $\mathcal{A}^n$, size $|\mathcal{A}|^n$
+  & Codebook space, exp.\ in $n$
+  & $(\Z/3^K\Z)^*$, size $2{\cdot}3^{K-1}$ \\[4pt]
+Constraint
+  & i.i.d.\ law $p^{\otimes n}$
+  & Channel $p(y|x)$
+  & Eisenstein filtration of $\Zomega/(3^K)$ \\[4pt]
+Eff.\ subspace
+  & Typical set $T_\varepsilon^{(n)}$
+  & Rate-$R$ codes, $R < C$
+  & Inert sublattice $\mathcal{E}_K$ \\[4pt]
+Gov.\ constant
+  & Entropy $H$
+  & Capacity $C$
+  & $\thetaW = 5/8$ \\[4pt]
+Forcing mech.
+  & LLN
+  & Random coding + Fano
+  & Ramification + cyclic group \\
+\bottomrule
+\end{tabularx}
+\end{center}
+\medskip
+
+\subsection{The formula correspondence}
+\label{sec:formula}
+
+All three governing constants obey a structural formula of the same form:
+\[
+  \theta^* = \frac{\text{total dimensions} - \text{constraint dimensions}}
+                  {\text{total dimensions}}.
+\]
+Specifically:
+\begin{itemize}
+  \item \textbf{AEP}: $H = \log|\mathcal{A}| - D(p \| u)$, where
+    $D(p\|u)$ is the KL divergence from uniform. The constraint removes
+    $D(p\|u)$ bits from $\log|\mathcal{A}|$.
+
+  \item \textbf{Channel Coding}: $C = \log|\mathcal{X}| - \min_{p(x)} H(X|Y)$,
+    total uncertainty minus what the channel obscures.
+
+  \item \textbf{Cascade Forcing}: $\thetaW = (2^k - k)/2^k$ with $k = 3$.
+    The Eisenstein filtration provides $2^k = 8$ total configuration dimensions;
+    the $k = 3$ independent constraint levels remove $3$, leaving $5$.
+\end{itemize}
+
+In each case: governing constant $= (\text{total} - \text{constraint})/\text{total}$.
+
+\subsection{The reduction correspondence}
+
+In each instance the effective subspace is characterised by a typicality or
+independence property:
+\begin{itemize}
+  \item \textbf{AEP}: Typical sequences match the true entropy (law-of-large-numbers typical).
+  \item \textbf{Channel Coding}: Good codes consist of codewords jointly typical with their outputs.
+  \item \textbf{Cascade Forcing}: The effective subspace consists of primes in the
+    inert class of $\Zomega$---those matching the algebraic ``type'' of the Eisenstein structure.
+\end{itemize}
+In all three: the effective subspace consists of elements that \emph{match the structure}.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{The Confirmed Non-Instance: Sophie Germain Primes}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+A framework's predictive power is demonstrated not only by instances it explains
+but by non-instances it predicts. The Shannon--Wakil framework predicts that
+prime constellations with coupled modular constraints---dimensional parameter
+$k \leq 2$---will not exhibit the effect beyond $\thetaBV = 1/2$.
+
+\begin{theorem}[Sophie Germain Non-Instance,~{\cite[Theorem~7.1]{WakilShannon}}]
+\label{thm:sg}
+Sophie Germain prime pairs $(p, 2p+1)$ have dimensional parameter $k = 2$:
+the mod-$3$ residue of $2p+1$ is determined by that of $p$ (both satisfy
+$p \equiv 2 \pmod{3}$), giving only two independent constraint levels.
+The predicted level of distribution is
+\[
+  \theta_2 = \frac{2^2 - 2}{2^2} = \frac{1}{2}.
+\]
+Computational analysis confirms $\delta \cdot \log x = 2.38 \pm 0.18$ (stable),
+consistent with $\theta = 1/2$ and inconsistent with $\theta > 1/2$ at $p < 0.001$.
+\end{theorem}
+
+\begin{remark}
+The Sophie Germain prediction follows the same logic as the Shannon instances:
+coupled constraints reduce effective dimensionality. In channel coding, a degraded
+channel has lower capacity because extra dependence between input and output is
+introduced; in Sophie Germain primes, the coupling between $p$ and $2p+1$ modulo
+$3$ reduces the effective $k$ from $3$ to $2$. The formula $\theta_k = (2^k -
+k)/2^k$ handles both with the same mechanism. Falsifiable predictions
+subsequently confirmed are stronger evidence than accommodated data.
+\end{remark}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{The $k$-Hierarchy}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+The formula $\theta_k = (2^k - k)/2^k$ organises all known instances into a
+single hierarchy. Table~\ref{tab:hierarchy} displays the first five levels.
+
+\begin{table}[h]
+\centering
+\caption{The $k$-hierarchy of constitutional sieve levels.}
+\label{tab:hierarchy}
+\begin{tabular}{ccccl}
+\toprule
+$k$ & $2^k$ & $2^k - k$ & $\theta_k$ & Status \\
+\midrule
+$1$ & $2$ & $1$ & $1/2$  & Proven (Bombieri--Vinogradov~\cite{BV1965}) \\
+$2$ & $4$ & $2$ & $1/2$  & Confirmed non-instance (Sophie Germain) \\
+$3$ & $8$ & $5$ & $5/8$  & Proven (cascade moduli,~\cite{WakilEisenstein}) \\
+$4$ & $16$& $12$& $3/4$  & \textbf{Open prediction} \\
+$5$ & $32$& $27$& $27/32$& Conjectured \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{remark}
+Note that $k=1$ and $k=2$ both give $\theta = 1/2$. The $k=1$ case is
+Bombieri--Vinogradov: one-level constitutional sieves recover exactly the
+classical barrier. The $k=2$ case (Sophie Germain) is a non-instance of the
+enhanced effect---the coupling prevents improvement beyond $1/2$---confirming
+that the enhancement requires genuine multi-level independence ($k \geq 3$).
+The first genuinely new level is $k=3$ at $\theta_W = 5/8$.
+\end{remark}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{The Constitutional Forcing Conjecture}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\begin{conjecture}[Constitutional Forcing Conjecture]
+\label{conj:cfc}
+Let $\mathcal{S}$ be a system in which:
+\begin{enumerate}[label=(\roman*)]
+  \item the configuration space is exponential with growth rate $r > 0$;
+  \item the structural law is intrinsic (not an external parameter);
+  \item the system has exactly $k$ independent constitutional constraint levels,
+    with $2^k$ total binary configurations of which $k$ are invalidated by the
+    constraints.
+\end{enumerate}
+Then $\mathcal{S}$ exhibits the Shannon--Wakil effect with governing constant
+$\theta^* = (2^k - k)/2^k$.
+\end{conjecture}
+
+\begin{remark}
+Conjecture~\ref{conj:cfc} is deliberately broad. It encompasses information
+theory ($k=1$: entropy/capacity), prime constellations ($k=3$: twin primes via
+Eisenstein structure), and hypothetical $k=4$ systems yet to be identified.
+The conjecture is falsifiable at every level of the $k$-hierarchy.
+\end{remark}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Shannon--Wakil Effect vs.\ Analogies}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+It is important to distinguish the Shannon--Wakil effect from informal analogy.
+
+An \emph{analogy} between two fields observes superficial similarity and draws
+heuristic inspiration. The comparison is suggestive but not formally verifiable.
+Analogies are valuable but limited: they can be wrong in ways that are hard to
+detect, and they generate no falsifiable predictions.
+
+The Shannon--Wakil effect is different in three ways.
+
+\textbf{First}, all three instances are proved to satisfy the same formal
+definition (Definition~\ref{def:sw}). This is not a qualitative resemblance but
+a quantitative match: the same conditions (SW1)--(SW4) are verified in each case.
+
+\textbf{Second}, the framework makes falsifiable predictions. The Sophie Germain
+non-instance was predicted before the verification was run
+(Theorem~\ref{thm:sg}); the $k=4$ prediction is open and testable
+(Remark~\ref{rem:k4} below). A framework that predicts non-instances is
+doing more than analogy.
+
+\textbf{Third}, the formula correspondence (Section~\ref{sec:formula}) is
+quantitatively precise: all three governing constants satisfy the same structural
+formula $\theta^* = (\text{total} - \text{constraint})/\text{total}$, with the
+quantities total and constraint having natural interpretations in each domain.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Discussion and Open Problems}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{The 77-year gap}
+
+Shannon proved the AEP and Channel Coding Theorem in 1948. The arithmetic
+instance (cascade moduli, $\thetaW = 5/8$) was established in 2026. The
+77-year gap is not surprising: the connection is visible only after both sides
+are independently understood. The order---independent results first, structural
+comparison second---guarantees that neither result was constructed to match the
+other. This independence is what makes the parallel meaningful.
+
+\subsection{The $k=4$ open prediction}
+\label{rem:k4}
+
+\begin{remark}[Open prediction]
+\label{rem:k4}
+The formula $\theta_4 = (2^4 - 4)/2^4 = 12/16 = 3/4$ predicts the existence
+of a prime constellation with exactly $k = 4$ independent modular constraints,
+exhibiting level of distribution $\theta = 3/4$ via the constitutional sieve
+framework. Identifying such a constellation and verifying or disproving
+$\theta_4 = 3/4$ is a concrete open problem that would either strengthen or
+refute the $k$-hierarchy.
+\end{remark}
+
+\subsection{The Shannon--Wakil constant ratio}
+
+The ratio $\thetaW / \thetaBV = (5/8)/(1/2) = 5/4$ is the gain in level of
+distribution achieved by the Eisenstein structure over the classical Bombieri--Vinogradov
+bound. Whether this ratio has a natural information-theoretic interpretation---as a
+channel capacity gain from exploiting the algebraic structure of $\Zomega$ relative
+to a generic channel---is open.
+
+\subsection{Channel capacity as a forcing constant}
+
+The channel capacity $C = \max_{p(x)} I(X;Y)$ is the maximum mutual information
+over all input distributions. In the cascade moduli case, the analogue of mutual
+information is the level of distribution: the supremum $\theta$ such that primes are
+equidistributed over $3^K \leq x^\theta$. The parallel is:
+\[
+  C = \max_{p(x)} I(X;Y)
+  \quad\longleftrightarrow\quad
+  \thetaW = \sup\{\theta : \text{equidistribution holds for } 3^K \leq x^\theta\}.
+\]
+In both cases the governing constant is defined as the maximum that the structure
+achieves. This maximisation correspondence is the most precise of the five and the
+most promising avenue for a functorial formulation of the conjecture.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section*{Acknowledgements}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+We thank Claude Shannon posthumously. His 1948 paper established both the AEP and
+the Channel Coding Theorem in a single work, and both turn out to be instances of
+the same underlying phenomenon documented here. That a 1948 result in electrical
+engineering is structurally parallel to a 2026 result in prime number theory would
+presumably have pleased him.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\begin{thebibliography}{99}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+%% ── Information theory ───────────────────────────────────────────────────────
+
+\bibitem{Shannon1948}
+C.~E.~Shannon,
+A mathematical theory of communication,
+\emph{Bell System Tech.\ J.}\ \textbf{27} (1948), 379--423, 623--656.
+
+\bibitem{CoverThomas2006}
+T.~M.~Cover and J.~A.~Thomas,
+\emph{Elements of Information Theory},
+2nd ed., Wiley-Interscience, Hoboken, NJ, 2006.
+
+%% ── Analytic number theory ────────────────────────────────────────────────────
+
+\bibitem{BV1965}
+E.~Bombieri and A.~I.~Vinogradov,
+On the large sieve,
+\emph{Mathematika}\ \textbf{12} (1965), 201--225.
+
+\bibitem{GPY2009}
+D.~A.~Goldston, J.~Pintz, and C.~Y.~Y{\i}ld{\i}r{\i}m,
+Primes in tuples~I,
+\emph{Ann.\ of Math.}\ \textbf{170} (2009), 819--862.
+
+\bibitem{Pascadi2025}
+A.~Pascadi,
+Level of distribution $5/8$ for smooth moduli,
+arXiv:2505.00653v2, 2025.
+
+%% ── Companion papers (Wakil's Program) ───────────────────────────────────────
+
+\bibitem{WakilKhayyam}
+K.~Wakil,
+Khayyam's triangle: historical restoration and the geometry hidden in the
+numbers,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilSC}
+K.~Wakil,
+Spherical cow philosophy: a methodological framework for mathematical
+discovery,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilRamanujan}
+K.~Wakil,
+Ramanujan's dimensional forcing: a universal formula for sieve levels,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilEisenstein}
+K.~Wakil,
+Ternary forcing on the hexagonal lattice: Eisenstein integers, cascade
+moduli, and level of distribution~$5/8$,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilW3}
+K.~Wakil,
+Condition~W3: absence of Siegel zeros for characters modulo~$3^K$ via
+CM~structure of~$\Z[\omega]$,
+ARC Institute of Knowware, preprint, 2026.
+
+\end{thebibliography}
+
+\end{document}

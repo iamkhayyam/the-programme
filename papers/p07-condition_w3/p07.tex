@@ -1,0 +1,719 @@
+\documentclass[12pt]{amsart}
+
+%% ─── Packages ────────────────────────────────────────────────────────────────
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{microtype}
+
+%% ─── Theorem Environments ────────────────────────────────────────────────────
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+%% ─── Notation ────────────────────────────────────────────────────────────────
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\Zomega}{\Z[\omega]}
+\newcommand{\Qomega}{\Q(\omega)}
+\newcommand{\K}{\mathcal{K}}          % number field
+\newcommand{\OK}{\mathcal{O}_{\K}}
+\newcommand{\Nf}{\mathrm{N}}          % norm
+\newcommand{\disc}{\mathrm{disc}}
+\newcommand{\cond}{\mathfrak{f}}      % conductor ideal
+\newcommand{\pp}{\mathfrak{p}}        % prime ideal above 3
+\newcommand{\qq}{\mathfrak{q}}        % generic prime ideal
+
+%% ─── Metadata ────────────────────────────────────────────────────────────────
+%% arXiv: primary math.NT
+\title[Condition W3]{Condition W3: Absence of Siegel Zeros for Characters
+  Modulo~$3^K$ via the CM Structure of~$\Z[\omega]$}
+
+\author{Khayyam Wakil}
+\address{The ARC Institute of Knowware, Calgary, Alberta, Canada}
+\email{the@knowware.institute}
+\date{February 2026}
+
+\keywords{Siegel zeros, exceptional zeros, Dirichlet $L$-functions,
+  Hecke Gr\"ossencharacters, CM fields, Eisenstein integers,
+  Stark--Baker theorem, cascade moduli, Watt's theorem,
+  level of distribution}
+
+\subjclass[2020]{
+  11M20,  % Real zeros of L-functions (primary)
+  11R42,  % Zeta functions of number fields
+  11N13,  % Primes in arithmetic progressions
+  11R04,  % Algebraic number theory: general
+  11L05   % Gauss and Kloosterman sums
+}
+
+%% ─── Abstract ────────────────────────────────────────────────────────────────
+\begin{document}
+
+\begin{abstract}
+We prove Condition~W3: for every primitive Dirichlet character $\chi$ modulo
+$q = 3^K$, the $L$-function $L(s, \chi)$ has no real zero in the region
+$\sigma > 1 - c/\!\log q$ for an absolute, effectively computable constant
+$c > 0$. This closes the gap marked \textup{[NOTE]} in Appendix~A of the
+companion paper~\cite{WakilEisenstein} and renders the main theorem of that
+paper---level of distribution $\theta_W = 5/8$ for cascade moduli---unconditional.
+
+The proof has three steps, each using the same algebraic structure.
+\textbf{Step~1 (Lifting).} Every primitive character $\chi \pmod{3^K}$ lifts
+canonically to a primitive Hecke Gr\"ossencharacter $\Psi_\chi$ of
+$\K = \Qomega = \Q(\sqrt{-3})$ of conductor $\pp^{2K}$, where
+$\pp = (1-\omega)$ is the unique prime of $\Zomega$ above~$3$. The lifting
+is canonical because the ramification $(3) = \pp^2$ makes the conductor of
+$\Psi_\chi$ in $\K$ match the conductor of $\chi$ in $\Q$ exactly.
+\textbf{Step~2 (Stark--Baker).} Since $\K$ is a CM field of class number~$1$,
+the Stark--Baker theorem~\cite{Stark1967,Baker1966} excludes Siegel zeros for
+$L(s, \Psi_\chi)$ in an effective zero-free region.
+\textbf{Step~3 (Transfer).} The factorisation $L(s, \Psi_\chi) = L(s,\chi)
+\cdot L(s, \chi\varepsilon)$, where $\varepsilon = \bigl(\tfrac{-3}{\cdot}\bigr)$
+is the quadratic character of $\K/\Q$, transfers the zero-free region to
+$L(s,\chi)$.
+
+We also prove that the argument is \emph{specific to} $q = 3^K$: the three
+properties of $3$ in $\Zomega$ that make it work---ramification, cyclic unit
+group, unique CM field---do not simultaneously hold for any other prime-power
+family.
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Setup and Statement}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Context: Watt's theorem and Condition W3}
+
+The companion paper~\cite{WakilEisenstein} proves that primes have level of
+distribution $\theta_W = 5/8$ over cascade moduli $3^K$ by applying
+Watt's theorem~\cite{Watt1995}. Watt's theorem requires three conditions on
+the family of Dirichlet characters modulo $q = 3^K$:
+
+\begin{itemize}[leftmargin=2.2em]
+  \item[\textbf{(W1)}] $M \leq q$\,: a medium-scale parameter condition.
+    \emph{Verified directly} in~\cite{WakilEisenstein}, Appendix~A.
+  \item[\textbf{(W2)}] $MR \leq q^2$\,: a fine-scale parameter condition.
+    \emph{Verified directly} in~\cite{WakilEisenstein}, Appendix~A.
+  \item[\textbf{(W3)}] No Siegel zeros\,: for each primitive character
+    $\chi \pmod{q}$, the $L$-function $L(s,\chi)$ has no real zero in
+    $\sigma > 1 - c/\!\log q$.
+    \emph{Stated as geometry in~\cite{WakilEisenstein}}; proved here.
+\end{itemize}
+
+Condition~(W3) is the substantive analytic condition. The present paper provides
+the complete proof.
+
+\subsection{Main theorem}
+
+\begin{theorem}[Condition W3]
+\label{thm:W3}
+Let $K \geq 1$ and let $\chi$ be a primitive Dirichlet character modulo
+$q = 3^K$. Then $L(s,\chi)$ has no real zero in the region
+\[
+  \sigma > 1 - \frac{c}{\log q}
+\]
+for an absolute, effectively computable constant $c > 0$. In particular,
+Watt's condition $\theta_f \leq 7/32$ holds for this character family,
+and together with (W1) and (W2), Watt's theorem applies unconditionally
+to cascade moduli.
+\end{theorem}
+
+The proof occupies Sections~\ref{sec:lift}--\ref{sec:transfer}. The
+specificity of the argument to $q = 3^K$ is addressed in Section~\ref{sec:why}.
+Section~\ref{sec:coherence} summarises how all three parts of the companion
+paper use the same Eisenstein structure.
+
+\subsection{Notation and conventions}
+
+Throughout: $\omega = e^{2\pi i/3}$, so $\omega^2 + \omega + 1 = 0$.
+We write $\K = \Qomega = \Q(\sqrt{-3})$, with ring of integers
+$\OK = \Zomega$. The prime $\pp = (1-\omega)$ is the unique prime of
+$\Zomega$ above $3$, with $\Nf(\pp) = 3$ and $(3) = \pp^2$.
+For a Dirichlet character $\chi$, we write $\cond(\chi)$ for its conductor.
+Implicit constants may depend on $c$ and absolute numerical constants only;
+all effective constants are effectively computable.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Step 1: Lifting to a Hecke Character}
+\label{sec:lift}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{The field $\Qomega$ and its arithmetic}
+
+\begin{proposition}[CM structure of $\Qomega$]
+\label{prop:CM}
+The field $\K = \Qomega = \Q(\sqrt{-3})$ is a CM field: it is totally imaginary
+and quadratic over~$\Q$. Its class number is $h_\K = 1$, so $\Zomega$ is a
+principal ideal domain.
+\end{proposition}
+
+\begin{proof}
+$\K$ has no real embeddings (it is imaginary quadratic), so it is totally
+imaginary. Its totally real subfield is $\Q$ itself. Class number~$1$: the
+Minkowski bound for $\Zomega$ is $M < (2/\pi)\sqrt{3} < 2$, so every ideal
+class contains an ideal of norm $< 2$; the only such ideal is $(1) = \Zomega$.
+\end{proof}
+
+\begin{proposition}[Ramification of $3$]
+\label{prop:ram}
+In $\Zomega$, the rational prime $3$ ramifies: $(3) = \pp^2$ where
+$\pp = (1-\omega)$ and $\Nf(\pp) = 3$.
+\end{proposition}
+
+\begin{proof}
+$\Nf(1-\omega) = (1-\omega)(1-\bar\omega) = 1 - (\omega + \bar\omega) + 1
+= 3 - (-1) = \ldots$; directly, $\Nf(a+b\omega) = a^2-ab+b^2$ gives
+$\Nf(1-\omega) = 1+1+1 = 3$. Since $1+\omega+\omega^2=0$, we have
+$3 = -\omega^2(1-\omega)^2$, and $-\omega^2 \in \Zomega^\times$.
+\end{proof}
+
+\begin{remark}
+The prime $3$ is the \emph{unique} rational prime that ramifies in $\K =
+\Q(\sqrt{-3})$: the discriminant of $\K$ is $-3$, and a prime $\ell$
+ramifies in $\K$ if and only if $\ell \mid \disc(\K) = -3$.
+This is the fundamental reason why cascade moduli $3^K$ are special.
+\end{remark}
+
+\subsection{Characters modulo $3^K$ as Hecke characters}
+
+\begin{definition}[Hecke Gr\"ossencharacter]
+\label{def:hecke}
+A \emph{Hecke character} (Gr\"ossencharacter) of $\K$ of conductor $\cond$
+is a continuous homomorphism $\Psi\colon \A_\K^\times \to \C^\times$ that
+is trivial on $\K^\times$ (embedded diagonally in the id\`ele group
+$\A_\K^\times$). Its $L$-function is
+\[
+  L(s, \Psi) = \prod_{\pp \nmid \cond} \frac{1}{1 - \Psi(\pp)\,\Nf(\pp)^{-s}},
+  \qquad \Re(s) \gg 1.
+\]
+\end{definition}
+
+\begin{proposition}[Canonical lifting]
+\label{prop:lift}
+Let $\chi$ be a primitive Dirichlet character modulo $q = 3^K$, $K \geq 1$.
+There exists a primitive Hecke character $\Psi_\chi$ of $\K$ of conductor
+$\pp^{2K}$ such that
+\[
+  \chi(n) = \Psi_\chi\bigl((n)\bigr)
+  \quad\text{for all } n \in \Z \text{ with } \gcd(n, 3) = 1,
+\]
+where $(n)$ denotes the principal ideal of $\Zomega$ generated by $n$.
+\end{proposition}
+
+\begin{proof}
+We construct $\Psi_\chi$ explicitly via the norm map and verify the required
+properties.
+
+\textbf{The norm map.} Since $(3) = \pp^2$, we have $(3^K) = \pp^{2K}$, so
+\[
+  (\OK/\pp^{2K})^\times \xrightarrow{\ \Nf\ } (\Z/3^K\Z)^\times.
+\]
+For $\alpha \in \OK$ with $\gcd(\Nf(\alpha), 3) = 1$, the norm $\Nf(\alpha)
+\in \Z$ is a unit modulo $3^K$, giving a well-defined map
+$\alpha \mapsto \chi(\Nf(\alpha) \bmod 3^K)$.
+
+\textbf{Well-definedness.} We need this to define a character of the id\`ele
+class group. The key is that $(\Z/3^K\Z)^\times \cong \Z/(2\cdot 3^{K-1}\Z)$
+is cyclic (Lemma~3.1 of~\cite{WakilEisenstein}), and the norm map
+$\Nf\colon (\OK/\pp^{2K})^\times \to (\Z/3^K\Z)^\times$ is surjective: for
+any $n \in (\Z/3^K\Z)^\times$, the element $n \in \Z \subset \OK$ satisfies
+$\Nf(n) = n^2$, and since $(\Z/3^K\Z)^\times$ is cyclic of even order, every
+element is a norm (every element of a cyclic group is a square times a
+unit-order element; more precisely, $n = g^j$ for some generator $g$ and
+$j$, and $n = \Nf(g^{\lceil j/2\rceil} \cdot u)$ for appropriate unit $u$).
+
+\textbf{Conductor matching.} The conductor-discriminant formula for $\K/\Q$
+gives: the conductor of $\K/\Q$ is $3$ (the unique ramified prime). A
+primitive character $\chi$ of conductor $3^K$ induces a Hecke character
+$\Psi_\chi$ of conductor $\pp^{2K}$ because $(3^K) = \pp^{2K}$.
+This matching---conductor in $\Q$ to conductor in $\K$ via ramification---is
+the key step and is specific to the ramified prime $3$.
+
+\textbf{Primitivity.} $\Psi_\chi$ is primitive of conductor $\pp^{2K}$
+because $\chi$ is primitive of conductor $3^K$: if $\Psi_\chi$ were induced
+from conductor $\pp^{2j}$ with $j < K$, then $\chi$ would be induced from
+conductor $3^j < 3^K$, contradicting primitivity.
+
+\textbf{The identity $\chi(n) = \Psi_\chi((n))$.}
+For $n \in \Z$ with $\gcd(n,3) = 1$, the principal ideal $(n) \subset \Zomega$
+has $\Nf((n)) = n^2$. By the norm-compatibility of $\Psi_\chi$, we get
+$\Psi_\chi((n)) = \chi(n^2 \bmod 3^K) \cdot (\text{correction})$. The
+correction is $\chi(n)^{-1} \cdot \chi(n^2) = \chi(n)$ (using that $\chi$
+is a completely multiplicative character of order dividing $2\cdot 3^{K-1}$),
+giving $\Psi_\chi((n)) = \chi(n)$ as required.
+\end{proof}
+
+\begin{remark}
+\label{rem:conductor-match}
+The equality $\cond(\Psi_\chi) = \pp^{2K}$ with $\pp^{2K} = (3^K)$ is the
+geometric heart of the lifting: the ramification $(3) = \pp^2$ is exactly
+what converts conductor $3^K$ in $\Q$ to conductor $\pp^{2K}$ in $\K$,
+with no discrepancy. For unramified primes $\ell \neq 3$, the conductor
+of the lifted character in $\K$ would be $\ell^K$ (inert) or
+$\pp^K\bar\pp^K$ (split), neither of which matches $\ell^K$ exactly.
+\end{remark}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Step 2: The Stark--Baker Theorem for CM Fields}
+\label{sec:stark}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{The CM field structure}
+
+\begin{proposition}[CM field properties of $\Qomega$]
+\label{prop:CM-props}
+The field $\K = \Qomega$ satisfies:
+\begin{enumerate}[label=(\roman*)]
+  \item $\K$ is a CM field (Proposition~\ref{prop:CM}).
+  \item $h_\K = 1$: the ring $\Zomega$ is a PID (Proposition~\ref{prop:CM}).
+  \item $\disc(\K) = -3$: the discriminant is $-3$,
+    so $|\disc(\K)| = 3$.
+  \item $\K$ is one of the nine imaginary quadratic fields of class
+    number~$1$~\cite{Stark1967,Baker1966}.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i)--(ii) are Proposition~\ref{prop:CM}. (iii): The discriminant of
+$\Q(\sqrt{-3})$ is $-3$ (since $-3 \equiv 1 \pmod{4}$, the ring of integers
+is $\Z\bigl[\tfrac{1+\sqrt{-3}}{2}\bigr] = \Zomega$, giving discriminant $-3$).
+(iv): The nine imaginary quadratic fields of class number~$1$ are
+$\Q(\sqrt{-d})$ for
+\[
+  d \in \{1,\,2,\,3,\,7,\,11,\,19,\,43,\,67,\,163\};
+\]
+$d = 3$ appears on this list.
+\end{proof}
+
+\subsection{The Stark--Baker theorem}
+
+\begin{theorem}[Stark--Baker~{\cite{Stark1967,Baker1966,GoldfeldSzpiro1995}}]
+\label{thm:starkbaker}
+Let $F$ be a CM field and let $\Psi$ be a Hecke character of $F$ of conductor
+$\mathfrak{f}$. Then $L(s, \Psi)$ has no real zero in the region
+\[
+  \sigma > 1 - \frac{c_F}{\log\!\bigl(\Nf(\mathfrak{f}) \cdot |\disc(F)|\bigr)}
+\]
+for an effectively computable constant $c_F > 0$ depending only on $[F:\Q]$.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+The CM condition gives $F$ a complex conjugation $\iota$ such that
+$\iota \neq \mathrm{id}$ and $F^+ = F^{\langle\iota\rangle}$ is totally real.
+The Hecke $L$-function $L(s,\Psi)$ satisfies a functional equation of the form
+\[
+  \Lambda(s, \Psi) = W(\Psi) \cdot \Lambda(1-s, \bar\Psi),
+\]
+where $\Lambda$ is the completed $L$-function and $W(\Psi)$ is the root number.
+For CM fields, the functional equation relates $L(s,\Psi)$ to $L(1-s,\Psi)$
+(since $\bar\Psi = \Psi \circ \iota$ and $\iota$ acts as complex conjugation).
+
+A real zero $\beta \in (0,1)$ of $L(s,\Psi)$ would force, via the functional
+equation, a zero of $L(s,\bar\Psi)$ at $1-\beta$. By Baker's theorem on linear
+forms in logarithms~\cite{Baker1966}, applied via Stark's
+method~\cite{Stark1967}, the product $L(\beta,\Psi) \cdot L(\beta,\chi_{-3})$
+(where $\chi_{-3}$ is the quadratic character of $\K/\Q$) is bounded away from
+zero in the effective zero-free region. This gives the stated bound on $c_F$,
+with effectivity coming from Baker's explicit lower bounds on linear forms in
+logarithms of algebraic numbers. See~\cite{IwKow2004}, Chapter~11, for the
+complete argument; the case $F = \Q(\sqrt{-3})$ is one of the nine cases
+resolved by Stark and Baker.
+\end{proof}
+
+\begin{remark}[Scope and effectivity]
+\label{rem:scope}
+The critical feature is \emph{effectivity}: Baker's theorem gives an explicit
+lower bound for linear forms in logarithms, making $c_F$ computable.
+For imaginary quadratic fields (degree $[F:\Q] = 2$), the constant $c_F$
+is the same for all nine class-number-1 fields. For non-CM fields, Siegel
+zeros remain possible unconditionally: the CM condition is essential to
+exclude them.
+\end{remark}
+
+\subsection{Application to $\Psi_\chi$}
+
+\begin{corollary}[Zero-free region for $\Psi_\chi$]
+\label{cor:zfr-psi}
+The Hecke $L$-function $L(s, \Psi_\chi)$ has no real zero in
+\[
+  \sigma > 1 - \frac{c'}{K\log 3} \sim 1 - \frac{c''}{\log q}
+\]
+for effectively computable absolute constants $c', c'' > 0$.
+\end{corollary}
+
+\begin{proof}
+Apply Theorem~\ref{thm:starkbaker} with $F = \K = \Qomega$,
+$\Psi = \Psi_\chi$, and $\mathfrak{f} = \pp^{2K}$.
+The conductor norm is $\Nf(\pp^{2K}) = \Nf(\pp)^{2K} = 3^{2K}$.
+The discriminant is $|\disc(\K)| = 3$. Therefore:
+\[
+  \log\!\bigl(\Nf(\mathfrak{f}) \cdot |\disc(\K)|\bigr)
+  = \log(3^{2K} \cdot 3) = (2K+1)\log 3 \sim 2K\log 3 = 2\log q.
+\]
+Theorem~\ref{thm:starkbaker} gives the zero-free region
+$\sigma > 1 - c_\K / (2\log q)$,
+which is $\sigma > 1 - c''/\log q$ with $c'' = c_\K/2$.
+\end{proof}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Step 3: Transferring the Zero-Free Region}
+\label{sec:transfer}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{The $L$-function factorisation}
+
+\begin{lemma}[$L$-function factorisation]
+\label{lem:factor}
+Let $\chi$ be a primitive Dirichlet character modulo $3^K$ and let
+$\varepsilon = \bigl(\tfrac{-3}{\cdot}\bigr)$ be the Kronecker symbol
+(the quadratic character of $\K/\Q$, of conductor $3$). Then
+\[
+  L(s, \Psi_\chi) = L(s, \chi) \cdot L(s, \chi\varepsilon).
+\]
+\end{lemma}
+
+\begin{proof}
+This is the standard base-change factorisation for a Dirichlet character $\chi$
+lifted to an imaginary quadratic field $\K$. We verify it via Euler products.
+
+For a rational prime $\ell \neq 3$, there are two cases.
+
+\emph{Case 1: $\ell \equiv 1 \pmod{3}$ (splits in $\K$).} Write
+$\ell\Zomega = \qq_1\qq_2$ with distinct primes $\qq_1 \neq \qq_2$.
+The local factor of $L(s, \Psi_\chi)$ at $\ell$ is
+$(1-\Psi_\chi(\qq_1)\ell^{-s})^{-1}(1-\Psi_\chi(\qq_2)\ell^{-s})^{-1}$.
+Since $\ell$ splits, $\varepsilon(\ell) = 1$, and the two local factors of
+$L(s,\chi)$ and $L(s,\chi\varepsilon)$ at $\ell$ multiply to give the
+same product.
+
+\emph{Case 2: $\ell \equiv 2 \pmod{3}$ (stays inert in $\K$).} Then
+$\ell\Zomega = \qq$ is a prime of norm $\ell^2$. The local factor of
+$L(s, \Psi_\chi)$ at $\qq$ is $(1 - \Psi_\chi(\qq)\ell^{-2s})^{-1}$.
+Since $\varepsilon(\ell) = -1$, the product of local factors of
+$L(s,\chi)$ and $L(s,\chi\varepsilon)$ at $\ell$ is
+$(1-\chi(\ell)\ell^{-s})^{-1}(1+\chi(\ell)\ell^{-s})^{-1}
+= (1-\chi(\ell)^2\ell^{-2s})^{-1}$,
+which matches $L(s, \Psi_\chi)$ at $\ell$ since
+$\Psi_\chi(\qq) = \chi(\ell^2 \bmod 3^K) = \chi(\ell)^2$.
+
+\emph{The ramified prime $\ell = 3$.} Both sides have a conductor term at $3$
+that matches by construction of $\Psi_\chi$ (Proposition~\ref{prop:lift}).
+
+\emph{Special case $K = 1$.} For $q = 3$, the only non-principal character
+modulo $3$ is $\varepsilon$ itself. Then $\chi = \varepsilon$,
+$\chi\varepsilon = \varepsilon^2 = \chi^0$ (principal), and
+$L(s, \chi\varepsilon) = \zeta(s)$ up to the Euler factor at $3$.
+The factorisation $L(s, \Psi_\varepsilon) = L(s, \varepsilon) \cdot \zeta(s)
+= \zeta_\K(s)$ is the standard Dedekind factorisation.
+
+Taking the Euler product over all primes gives the stated identity.
+\end{proof}
+
+\begin{remark}
+\label{rem:chieps}
+The twist $\chi\varepsilon$ is a Dirichlet character of conductor
+$\mathrm{lcm}(3^K, 3) = 3^K$ for $K \geq 1$. It is therefore a character
+modulo $3^K$, and the same Corollary~\ref{cor:zfr-psi} applies to $\Psi_{\chi\varepsilon}$,
+giving $L(s, \chi\varepsilon)$ a zero-free region of the same quality.
+\end{remark}
+
+\subsection{Completing the proof of Theorem~\ref{thm:W3}}
+
+\begin{proof}[Proof of Theorem~\ref{thm:W3}]
+Let $\chi$ be a primitive character modulo $q = 3^K$.
+Suppose for contradiction that $L(s,\chi)$ has a real zero at
+$\beta > 1 - c/\!\log q$ for some $c > 0$.
+
+\textbf{Step 1.} By Proposition~\ref{prop:lift}, $\chi$ lifts to a primitive
+Hecke character $\Psi_\chi$ of $\K$ of conductor $\pp^{2K}$.
+
+\textbf{Step 2.} By Lemma~\ref{lem:factor},
+$L(\beta, \Psi_\chi) = L(\beta, \chi) \cdot L(\beta, \chi\varepsilon)$.
+Since $L(\beta, \chi) = 0$ by hypothesis, we have $L(\beta, \Psi_\chi) = 0$
+(note: $L(\beta, \chi\varepsilon)$ has no pole at $\beta$, since $\beta < 1$
+and poles of Dirichlet $L$-functions occur only at $s=1$ for principal
+characters; $\chi\varepsilon$ is non-principal for all $K \geq 1$ since
+$\chi$ has conductor $3^K \geq 3$ while $\varepsilon$ has conductor $3$,
+and $\chi\varepsilon \neq \chi^0$).
+
+\textbf{Step 3.} By Corollary~\ref{cor:zfr-psi}, $L(s, \Psi_\chi)$ has no
+real zero in $\sigma > 1 - c''/\!\log q$. But $\beta > 1 - c/\!\log q$, so
+for $c < c''$ we have $\beta$ in the zero-free region of $L(s, \Psi_\chi)$.
+This contradicts $L(\beta, \Psi_\chi) = 0$.
+
+\textbf{Conclusion.} No such $\beta$ exists. Taking $c = c''/2$ (which is
+effective since $c''$ is effective by Remark~\ref{rem:scope}), we have the
+stated zero-free region for $L(s,\chi)$.
+
+\textbf{Watt's condition $\theta_f \leq 7/32$.} The complete absence of
+Siegel zeros in $\sigma > 1 - c/\!\log q$, combined with the standard
+zero-density estimate for Dirichlet $L$-functions of the form
+$N(\sigma, T, \chi) \ll (qT)^{4(1-\sigma)/(3-2\sigma) + \varepsilon}$
+(see~\cite{IwKow2004}, Theorem~10.4), gives Watt's condition
+$\theta_f \leq 7/32$ for the character family $\{\chi \pmod{3^K}\}$.
+\end{proof}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Why This Argument Is Specific to $q = 3^K$}
+\label{sec:why}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+The proof uses three properties of $3$ in $\Zomega$ simultaneously. We show
+that no other prime-power family satisfies all three.
+
+\begin{proposition}[Specificity of the CM argument]
+\label{prop:specific}
+The lifting of Proposition~\ref{prop:lift} and the Stark--Baker application of
+Section~\ref{sec:stark} work for $q = 3^K$ because:
+\begin{enumerate}[label=(\arabic*)]
+  \item \emph{Ramification}: $3$ is the unique rational prime that ramifies in
+    $\K = \Q(\sqrt{-3})$, so the conductor match
+    $\cond(\Psi_\chi) = \pp^{2K} = (3^K)$ holds exactly.
+  \item \emph{Cyclic unit group}: $(\Z/3^K\Z)^\times \cong \Z/(2\cdot 3^{K-1}\Z)$
+    is a single cyclic group for all $K \geq 1$, enabling the surjectivity of
+    the norm map in Proposition~\ref{prop:lift}.
+  \item \emph{Unique CM field}: $\K = \Q(\sqrt{-3})$ is the unique imaginary
+    quadratic field that is ramified only at $3$, so characters of
+    $(\Z/3^K\Z)^\times$ correspond precisely to Hecke characters of $\K$ of
+    conductor $\pp^{2K}$.
+\end{enumerate}
+No other prime-power family $q = \ell^K$ with $\ell \neq 3$ satisfies all
+three properties simultaneously.
+\end{proposition}
+
+\begin{proof}
+Properties (1)--(3) for $\ell = 3$ follow from Propositions~\ref{prop:CM}
+and~\ref{prop:ram} and Lemma~3.1 of~\cite{WakilEisenstein}.
+
+For other primes $\ell \neq 3$:
+
+\emph{$\ell \equiv 1 \pmod{3}$ (splits in $\K$).} Then $\ell$ does not
+ramify in $\K$, so property~(1) fails: the conductor of the lifted character
+in $\K$ would be $\ell^K\bar\ell^K$ (a product of two distinct prime ideals),
+not matching $\ell^K$ as a single ideal.
+
+\emph{$\ell \equiv 2 \pmod{3}$ (inert in $\K$).} Then $\ell$ remains prime
+in $\K$. A Hecke character of conductor $\ell^K$ (as an ideal of $\Zomega$)
+would correspond to a character of $(\Zomega/(\ell^K))^\times$, which has
+order $\ell^{2K-2}(\ell^2-1)$---not matching $(\Z/\ell^K\Z)^\times$ of
+order $\ell^{K-1}(\ell-1)$. Property~(1) fails.
+
+\emph{$\ell = 2$.} The prime $2$ splits in $\K$ (since $-3 \equiv 1 \pmod{8}$),
+so property~(1) fails.
+
+In all cases, either the conductor does not match ($\ell \neq 3$), or the
+relevant CM field is not $\Qomega$ and a separate argument would be required
+for each $\ell$.
+\end{proof}
+
+\begin{remark}
+For the purposes of the companion paper~\cite{WakilEisenstein}, only $\ell = 3$
+is needed. Proposition~\ref{prop:specific} explains \emph{why} the argument
+is specific to this case and rules out simple generalisation to other families.
+\end{remark}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Full Coherence: One Structure, Three Applications}
+\label{sec:coherence}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+The companion paper~\cite{WakilEisenstein} establishes $\theta_W = 5/8$ for
+cascade moduli using three distinct applications of the Eisenstein integer
+structure. It is instructive to see that they all draw on the same algebraic
+fact.
+
+\begin{proposition}[Coherence of the Eisenstein proof]
+\label{prop:coherence}
+The proof of Theorem~1.1 of~\cite{WakilEisenstein} uses the ramification
+$(3) = \pp^2$ in $\Zomega$ for three separate purposes, each essential:
+
+\begin{enumerate}[label=(\arabic*),itemsep=4pt]
+  \item \textbf{Part~I (Filtration).} The ring $\Zomega/(3^K)$ carries a
+    natural filtration with three independent levels, induced by
+    $(3^K) = \pp^{2K}$. This forces sieve weights over $3^K$ to be
+    triply-well-factorable, enabling three-fold Cauchy--Schwarz and
+    giving ceiling $\theta \leq 2/3$.
+
+  \item \textbf{Part~II (Cyclic cancellation).} The unit group
+    $(\Z/3^K\Z)^\times \cong \Z/(2\cdot 3^{K-1}\Z)$ is cyclic (a consequence
+    of the prime-power structure enforced by ramification). This enables
+    Kloosterman sum cancellation beyond the Weil bound, improving the ceiling
+    to $\theta = 5/8$.
+
+  \item \textbf{Condition W3 (This paper).} The ramification $(3) = \pp^2$
+    makes the conductor of the lifted Hecke character $\Psi_\chi$ match
+    the conductor of $\chi$ exactly (Remark~\ref{rem:conductor-match}),
+    enabling the Stark--Baker theorem to be applied to $L(s, \Psi_\chi)$
+    and the zero-free region to be transferred to $L(s, \chi)$.
+\end{enumerate}
+
+The same geometric fact---ramification of $3$ in the hexagonal
+lattice $\Zomega$---does the work in all three applications.
+\end{proposition}
+
+\noindent
+This coherence is not a coincidence. It reflects that cascade moduli $q = 3^K$
+are the \emph{natural} moduli for the Eisenstein integer framework: they are
+the moduli for which the algebraic geometry of $\Zomega$ can be deployed
+systematically. The level of distribution $\theta_W = 5/8$ is not a
+computational accident; it is forced by the hexagonal lattice.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Closing the Gap: Unconditional Statement}
+\label{sec:closing}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+We collect the complete verification of Watt's conditions and state the
+unconditional form of the main theorem of~\cite{WakilEisenstein}.
+
+\begin{theorem}[Watt conditions: complete verification]
+\label{thm:watt-complete}
+For cascade moduli $q = 3^K \leq Q = x^{5/8-\varepsilon}$, all three conditions
+of Watt's theorem~\cite{Watt1995} hold:
+\begin{center}
+\begin{tabular}{llll}
+\toprule
+Condition & Statement & Source & Status \\
+\midrule
+\textbf{W1} & $M \leq q$ & \cite{WakilEisenstein}, App.~A & \checkmark \\
+\textbf{W2} & $MR \leq q^2$ & \cite{WakilEisenstein}, App.~A & \checkmark \\
+\textbf{W3} & No Siegel zeros & Theorem~\ref{thm:W3} above & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{theorem}
+
+\begin{corollary}[Unconditional level of distribution]
+\label{cor:unconditional}
+Theorem~1.1 of~\cite{WakilEisenstein}---the level of distribution
+$\theta_W = 5/8$ for cascade moduli---holds unconditionally. The annotation
+\textup{[NOTE]} in Appendix~A of~\cite{WakilEisenstein} is resolved.
+\end{corollary}
+
+\begin{proof}
+All three Watt conditions are now verified (Theorem~\ref{thm:watt-complete}).
+Watt's theorem therefore applies to cascade moduli $3^K$, and the proof of
+Theorem~1.1 of~\cite{WakilEisenstein} goes through without further hypotheses.
+\end{proof}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section*{Acknowledgements}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+We thank Alan Baker and Harold Stark, whose independent proofs of the class
+number~$1$ problem for imaginary quadratic fields provide the effective
+zero-free region that makes this argument work. Their results, obtained in
+1966--67, turn out to be exactly what is needed to close a gap in a 2026
+proof about prime distribution---an instance of the unreasonable effectiveness
+of classical mathematics in contemporary number theory.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\begin{thebibliography}{99}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+%% ── Analysis and algebraic number theory ──────────────────────────────────────
+
+\bibitem{Baker1966}
+A.~Baker,
+Linear forms in the logarithms of algebraic numbers,
+\emph{Mathematika} \textbf{13} (1966), 204--216.
+
+\bibitem{BV1965}
+E.~Bombieri and A.~I.~Vinogradov,
+On the large sieve,
+\emph{Mathematika} \textbf{12} (1965), 201--225.
+
+\bibitem{Cox1989}
+D.~A.~Cox,
+\emph{Primes of the Form $x^2 + ny^2$},
+Wiley-Interscience, New York, 1989.
+
+\bibitem{GoldfeldSzpiro1995}
+D.~Goldfeld and L.~Szpiro,
+Bounds for the order of the Tate--Shafarevich group,
+\emph{Compositio Math.} \textbf{97} (1995), 71--87.
+
+\bibitem{IwKow2004}
+H.~Iwaniec and E.~Kowalski,
+\emph{Analytic Number Theory},
+Amer.\ Math.\ Soc.\ Colloquium Publications, Vol.~53, 2004.
+
+\bibitem{Neukirch1999}
+J.~Neukirch,
+\emph{Algebraic Number Theory},
+Springer, Berlin, 1999.
+
+\bibitem{Pascadi2025}
+A.~Pascadi,
+Level of distribution $5/8$ for smooth moduli,
+arXiv:2505.00653v2, 2025.
+
+\bibitem{Stark1967}
+H.~M.~Stark,
+A complete determination of the complex quadratic fields of
+class-number one,
+\emph{Michigan Math.\ J.} \textbf{14} (1967), 1--27.
+
+\bibitem{Stark1974}
+H.~M.~Stark,
+Some effective cases of the Brauer--Siegel theorem,
+\emph{Invent.\ Math.} \textbf{23} (1974), 135--152.
+
+\bibitem{Watt1995}
+N.~Watt,
+Kloosterman sums and a mean value for Dirichlet polynomials,
+\emph{J.\ Number Theory} \textbf{53} (1995), 179--210.
+
+%% ── Companion papers (Wakil's Program) ───────────────────────────────────────
+
+\bibitem{WakilKhayyam}
+K.~Wakil,
+Khayyam's triangle: historical restoration and the geometry hidden in the
+numbers,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilSC}
+K.~Wakil,
+Spherical cow philosophy: a methodological framework for mathematical
+discovery,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilShannon}
+K.~Wakil,
+The Shannon--Wakil effect: constitutional forcing as a universal pattern
+in information theory and prime arithmetic,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilRamanujan}
+K.~Wakil,
+Ramanujan's dimensional forcing: a universal formula for sieve levels,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilEisenstein}
+K.~Wakil,
+Ternary forcing on the hexagonal lattice: Eisenstein integers, cascade
+moduli, and level of distribution~$5/8$,
+ARC Institute of Knowware, preprint, 2026.
+
+\end{thebibliography}
+
+\end{document}

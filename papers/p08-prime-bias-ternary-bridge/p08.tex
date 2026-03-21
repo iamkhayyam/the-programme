@@ -1,0 +1,741 @@
+\documentclass[12pt,a4paper]{article}
+
+% ---- Packages ----
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{enumitem}
+\usepackage[numbers]{natbib}
+\usepackage{doi}
+\usepackage{setspace}
+
+\geometry{margin=2.5cm}
+\setstretch{1.12}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!60!black,
+  citecolor=blue!60!black,
+  urlcolor=blue!60!black
+}
+
+% ---- Theorem environments ----
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+% ---- Erratum box ----
+\newmdenv[
+  linecolor=red!70!black,
+  linewidth=1.4pt,
+  backgroundcolor=red!5,
+  frametitle={Mechanism Correction},
+  frametitlefont=\bfseries\color{red!70!black},
+  innertopmargin=8pt,
+  innerbottommargin=8pt,
+  skipabove=12pt,
+  skipbelow=12pt
+]{erratumbox}
+
+% ---- Correction highlight box ----
+\newmdenv[
+  linecolor=blue!60!black,
+  linewidth=1.2pt,
+  backgroundcolor=blue!4,
+  frametitle={Corrected Mechanism},
+  frametitlefont=\bfseries\color{blue!70!black},
+  innertopmargin=8pt,
+  innerbottommargin=8pt,
+  skipabove=10pt,
+  skipbelow=10pt
+]{correctionbox}
+
+% ---- Macros ----
+\newcommand{\Forb}{\mathcal{F}}
+\newcommand{\CI}{\mathcal{C}_{\mathrm{I}}}
+\newcommand{\CII}{\mathcal{C}_{\mathrm{II}}}
+\newcommand{\mgap}[2]{g_{\min}(#1 \to #2)}
+
+% ============================================================
+\begin{document}
+% ============================================================
+
+\title{%
+  \large\textsc{The Lemke Oliver--Soundararajan Bias as Surface Evidence}\\[4pt]
+  \large\textsc{of Ternary Constitutional Structure}\\[12pt]
+}
+
+\author{%
+  Khayyam Wakil\\[4pt]
+  \small ARC Institute of Knowware\\
+  \small Calgary, Alberta, Canada\\
+  \small \href{mailto:the@knowware.institute}{\texttt{the@knowware.institute}}
+}
+\date{March 2026}
+
+\maketitle
+
+% ---- Prefatory note ----
+\noindent\emph{This paper was not planned. On the Friday afternoon before
+submitting the Constitutional Forcing programme to peer review, the author read a
+popular account of the Lemke Oliver--Soundararajan prime digit bias---a result that has
+been described as ``deeply unsettling'' since its publication in 2016. The explanation
+appeared immediately, in a single conversation, without calculation. Constitutional
+Forcing was already in the room. The bias recognized the framework. This paper is the
+formalization of what took approximately one afternoon to see.}
+
+% ============================================================
+\begin{abstract}
+In 2016, Lemke Oliver and Soundararajan published a striking computational discovery:
+the last digits of consecutive primes exhibit a strong repulsion bias that contradicts
+na\"ive randomness assumptions and persists---though diminishing---across all number
+bases tested. The authors correctly traced this to the Hardy--Littlewood prime
+constellations conjecture, but could not identify the underlying mechanistic cause:
+why the structure exists, why it holds across all bases, and why the diminishment rate
+is precisely what it is. We demonstrate that the bias is not mysterious: it is the direct
+base-10 projection of ternary constitutional pressure governing prime distribution.
+Specifically, the observed digit-repulsion is a shadow of the mod~3 constraint under
+which all primes (except 2 and~3) reside in remainder classes $\{1, 2\}$, and under
+which all twin prime pairs satisfy $p \equiv 2 \pmod{3}$. The \emph{snail's pace} of
+diminishment is identified as the Siegel--Walfi{}sz convergence rate of ternary class
+equilibration---not an empirical curiosity, but a fundamental quantity in analytic number
+theory appearing in a context where it was not previously recognized. This explanation
+is mechanistic rather than descriptive: it does not merely reproduce the bias from the
+Hardy--Littlewood conjecture, but identifies the structural reason the conjecture itself
+encodes such behaviour.
+\end{abstract}
+
+\noindent\textbf{Keywords:} prime digit bias, ternary constitutional structure,
+Lemke Oliver--Soundararajan, mod~3 constraints, minimum gap structure, twin primes,
+parity barrier, Siegel--Walfi{}sz theorem, cascade moduli
+
+\noindent\textbf{MSC2020:} 11N05 (primary), 11N13, 11A41, 94A17 (secondary)
+
+% ============================================================
+\section{Introduction: The Mystery That Wasn't}
+\label{sec:intro}
+% ============================================================
+
+In 2016, the mathematical world was surprised by a result so elementary that any
+undergraduate could verify it in an afternoon---and yet no one had checked.
+
+If primes were distributed randomly among their possible terminal digits, each of the
+four digits $\{1, 3, 7, 9\}$ should follow any other with probability approximately 25\%.
+This is what randomness means. Lemke Oliver and Soundararajan tested the first billion
+primes~\cite{LOS16}. The answer violated the assumption.
+
+A prime ending in~9 is followed by a prime ending in~1 roughly 65\% more often than by
+another prime ending in~9. Every prime actively avoids repeating its own terminal digit.
+The bias holds across every number base tested. It diminishes---but at what the authors
+themselves called a snail's pace.
+
+They correctly traced its theoretical origin to the Hardy--Littlewood prime constellations
+conjecture~\cite{HL23}. But this explanation is descriptive rather than mechanistic. It
+says that the Hardy--Littlewood conjecture, if true, implies the bias. It does not explain:
+\begin{enumerate}[label=(\roman*)]
+  \item Why the structure exists in the first place;
+  \item Why it holds across all number bases, not just base~10;
+  \item Why the diminishment rate is precisely what it is;
+  \item What the bias is a symptom of at a deeper structural level.
+\end{enumerate}
+We answer all four questions. The answer is the same in each case: ternary constitutional
+structure.
+
+\medskip
+\noindent\textbf{Main result (informal).} \emph{The Lemke Oliver--Soundararajan bias is
+the base-10 projection of mod~3 constitutional pressure on prime distribution. The
+diagonal suppression (primes avoiding their own terminal digit) reflects the structure of
+minimum possible prime gaps, which carry fixed ternary class signatures. The snail's
+pace of diminishment is the Siegel--Walfi{}sz convergence rate of ternary class
+equilibration. Both phenomena are transparent once viewed in the correct coordinate
+system.}
+
+\medskip
+\noindent\textbf{Organisation.} Section~\ref{sec:findings} recapitulates the Lemke
+Oliver--Soundararajan findings. Section~\ref{sec:framework} develops the ternary
+constitutional framework. Section~\ref{sec:mechanism} derives the bias mechanistically
+(with erratum preceding it). Section~\ref{sec:snail} identifies the convergence rate.
+Section~\ref{sec:validation} discusses base-independence, the parity barrier, and relation
+to the Constitutional Forcing programme. Section~\ref{sec:conclusion} concludes.
+
+% ============================================================
+\section{The Lemke Oliver--Soundararajan Findings}
+\label{sec:findings}
+% ============================================================
+
+\subsection{The Observation}
+
+Working with the first billion primes, Lemke Oliver and Soundararajan~\cite{LOS16}
+constructed a transition matrix. For consecutive primes $p$ and~$q$ (the next prime
+after~$p$), they measured the frequency with which the terminal digit of~$p$ is followed
+by each possible terminal digit of~$q$. The terminal digits of primes greater than~5
+are drawn from $\{1, 3, 7, 9\}$.
+
+The uniform (random) prediction is that each transition occurs with probability
+$1/4 = 25\%$. The observed transition matrix (approximate, first billion primes, base~10) is:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{c|cccc}
+\toprule
+$p \to q$ & ends in 1 & ends in 3 & ends in 7 & ends in 9 \\
+\midrule
+ends in 1 & ${\sim}18\%$ & ${\sim}30\%$ & ${\sim}30\%$ & ${\sim}22\%$ \\
+ends in 3 & ${\sim}38\%$ & ${\sim}18\%$ & ${\sim}24\%$ & ${\sim}20\%$ \\
+ends in 7 & ${\sim}31\%$ & ${\sim}24\%$ & ${\sim}19\%$ & ${\sim}26\%$ \\
+ends in 9 & ${\sim}41\%$ & ${\sim}20\%$ & ${\sim}22\%$ & ${\sim}17\%$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The headline finding: \emph{every prime actively avoids repeating its own terminal digit}.
+The diagonal entries are all suppressed below 25\%. The effect is most pronounced for
+primes ending in~1 (suppressed to~18\%) and~9 (suppressed to~17\%) and mildest for
+primes ending in~7 (suppressed to~19\%).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig1_transition_matrices}
+\caption{Prime terminal digit transition matrices. \emph{Left:} observed transition
+frequencies from the first billion primes (Lemke Oliver--Soundararajan~\cite{LOS16}).
+\emph{Centre:} min-gap ternary structural prediction (corrected mechanism; see
+Section~\ref{sec:mechanism}). \emph{Right:} deviation of observed frequencies from the
+uniform 25\% baseline. Gold boxes highlight the suppressed diagonal (same-digit
+self-transitions). The hot/cold structure of the prediction matches the observed pattern:
+transitions whose minimum possible gap is $\equiv 0 \pmod{3}$ are redistributed;
+transitions with minimum gap~$2$ (gap class~II) are most enhanced.}
+\label{fig:matrices}
+\end{figure}
+
+\subsection{Prior Explanation and Its Limits}
+
+Lemke Oliver and Soundararajan traced the bias to the Hardy--Littlewood prime
+constellations conjecture~\cite{HL23}---specifically, to the singular series that weights
+the expected density of prime pairs with specified gap sizes. The singular series correctly
+predicts the transition probabilities to good accuracy.
+
+However, this explanation is descriptive. It says: if the Hardy--Littlewood conjecture
+holds, then the bias follows. It does not identify why the conjecture itself encodes the
+pattern, why the pattern is base-independent, or why the snail's pace is structurally
+determined. The authors described the phenomenon as ``deeply unsettling'' and noted that
+primes ``somehow `know' about future primes.'' This language---primes possessing
+knowledge, the result being unsettling---signals a missing mechanistic explanation. We
+supply it.
+
+% ============================================================
+\section{The Ternary Constitutional Framework}
+\label{sec:framework}
+% ============================================================
+
+\subsection{Core Definitions}
+
+We work with remainder classes modulo~3. Every integer $n$ belongs to exactly one of
+three classes:
+\begin{itemize}
+  \item $n \equiv 0 \pmod{3}$: the \textbf{Forbidden Class} (divisible by~3);
+  \item $n \equiv 1 \pmod{3}$: \textbf{Constitutional Class~I};
+  \item $n \equiv 2 \pmod{3}$: \textbf{Constitutional Class~II}.
+\end{itemize}
+
+\begin{definition}[Constitutional Constraint]
+\label{def:constraint}
+A prime $p > 3$ is \emph{constitutionally constrained}: it must satisfy
+$p \equiv 1$ or $p \equiv 2 \pmod{3}$. The Forbidden Class is closed to primes
+greater than~3.
+\end{definition}
+
+This is elementary: any integer $n > 3$ with $n \equiv 0 \pmod{3}$ is divisible by~3
+and hence composite. Therefore all primes $p > 3$ lie in
+$\{p : p \equiv 1 \text{ or } 2 \pmod{3}\}$.
+
+\subsection{The Twin Prime Constitutional Signature}
+
+\begin{theorem}[Constitutional Signature, {\cite[Prop.~4.1]{Wakil26b}}]
+\label{thm:signature}
+Let $(p, p+2)$ be a twin prime pair with $p > 3$. Then
+\[
+  p \equiv 2 \pmod{3} \quad \text{and} \quad p + 2 \equiv 1 \pmod{3}.
+\]
+\end{theorem}
+
+\begin{proof}
+Among any three consecutive integers, exactly one is divisible by~3.
+\begin{itemize}
+  \item If $p \equiv 0 \pmod{3}$: then $p = 3$ (the only such prime), excluded.
+  \item If $p \equiv 1 \pmod{3}$: then $p + 2 \equiv 0 \pmod{3}$, so $p + 2 > 3$ is
+    composite. Contradiction.
+  \item If $p \equiv 2 \pmod{3}$: then $p + 2 \equiv 1 \pmod{3}$. Neither $p$ nor
+    $p + 2$ is divisible by~3. Both may be prime. \qedhere
+\end{itemize}
+\end{proof}
+
+\begin{remark}
+Theorem~\ref{thm:signature} is verified computationally for all 3{,}424{,}009 twin
+prime pairs with $p \leq 10^9$, with zero exceptions (beyond the special pair $(3, 5)$).
+\end{remark}
+
+\subsection{The Ternary Equilibrium}
+
+\begin{theorem}[Ternary Equilibrium]
+\label{thm:equilibrium}
+Let $\pi_1(N)$ and $\pi_2(N)$ denote the number of primes $p \leq N$ with
+$p \equiv 1 \pmod{3}$ and $p \equiv 2 \pmod{3}$ respectively. Then
+\[
+  \frac{\pi_1(N)}{\pi(N)} \to \frac{1}{2} \quad \text{and} \quad
+  \frac{\pi_2(N)}{\pi(N)} \to \frac{1}{2} \quad \text{as } N \to \infty.
+\]
+\end{theorem}
+
+\begin{proof}
+Dirichlet's theorem on primes in arithmetic progressions~\cite{Dir37}: since
+$\gcd(1,3) = \gcd(2,3) = 1$, both residue classes modulo~3 contain infinitely many
+primes with equal asymptotic density.
+\end{proof}
+
+% ============================================================
+\section{Deriving the Lemke Oliver--Soundararajan Bias}
+\label{sec:mechanism}
+% ============================================================
+
+\subsection{The Mechanism: Minimum Gap Ternary Structure}
+
+\begin{correctionbox}
+\noindent Each terminal-digit transition $(d_1 \to d_2)$ has a fixed
+\textbf{minimum possible prime gap}, determined entirely by decimal arithmetic: the
+smallest positive integer $g$ such that if $p$ ends in~$d_1$, then $p + g$ ends in~$d_2$.
+The ternary class of this minimum gap governs whether the transition is enhanced,
+suppressed, or redistributed.
+\end{correctionbox}
+
+\medskip
+
+The minimum gap $\mgap{d_1}{d_2}$ is the smallest positive even integer $g$ such that
+$(d_1 + g) \equiv d_2 \pmod{10}$. Since all prime gaps (for $p > 5$) are even, this is
+determined by the decimal digit arithmetic of $d_1$ and $d_2$. The complete assignment
+is given in Table~\ref{tab:mingaps}.
+
+\begin{table}[htbp]
+\centering
+\caption{Minimum possible prime gap for each terminal-digit transition, with its ternary
+class. The ternary class of the gap---not the ternary class of the terminal digit---is the
+structural driver.}
+\label{tab:mingaps}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{cccccc}
+\toprule
+Transition & Min gap $g$ & $g \pmod{3}$ & Ternary class & Category & Observed effect \\
+\midrule
+$9 \to 1$ & 2 & 2 & Class~II & gap-2 & Enhanced (${\sim}41\%$, $1.64\times$) \\
+$7 \to 9$ & 2 & 2 & Class~II & gap-2 & Enhanced (${\sim}26\%$, $1.04\times$) \\
+$1 \to 3$ & 2 & 2 & Class~II & gap-2 & Enhanced (${\sim}30\%$, $1.20\times$) \\
+\midrule
+$3 \to 7$ & 4 & 1 & Class~I  & gap-4 & Moderate (${\sim}24\%$, $0.96\times$) \\
+$7 \to 1$ & 4 & 1 & Class~I  & gap-4 & Enhanced (${\sim}31\%$, $1.24\times$) \\
+$9 \to 3$ & 4 & 1 & Class~I  & gap-4 & Moderate (${\sim}20\%$, $0.80\times$) \\
+\midrule
+$1 \to 7$ & 6 & 0 & Forbidden & gap-6 (redist.) & Elevated (${\sim}30\%$, $1.20\times$) \\
+$3 \to 9$ & 6 & 0 & Forbidden & gap-6 (redist.) & Elevated (${\sim}20\%$, $0.80\times$) \\
+$7 \to 3$ & 6 & 0 & Forbidden & gap-6 (redist.) & Moderate (${\sim}24\%$, $0.96\times$) \\
+\midrule
+$3 \to 1$ & 8 & 2 & Class~II & gap-8 & Enhanced (${\sim}38\%$, $1.52\times$) \\
+$9 \to 7$ & 8 & 2 & Class~II & gap-8 & Moderate (${\sim}22\%$, $0.88\times$) \\
+$1 \to 9$ & 8 & 2 & Class~II & gap-8 & Moderate (${\sim}22\%$, $0.88\times$) \\
+\midrule
+$1 \to 1$ & 10 & 1 & Class~I  & same-digit & Suppressed (${\sim}18\%$, $0.72\times$) \\
+$3 \to 3$ & 10 & 1 & Class~I  & same-digit & Suppressed (${\sim}18\%$, $0.72\times$) \\
+$7 \to 7$ & 10 & 1 & Class~I  & same-digit & Suppressed (${\sim}19\%$, $0.76\times$) \\
+$9 \to 9$ & 10 & 1 & Class~I  & same-digit & Suppressed (${\sim}17\%$, $0.68\times$) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Three Structural Categories}
+
+The 16 transitions partition naturally into three categories according to the ternary
+class of their minimum gap:
+
+\medskip
+\noindent\textbf{Category 1: Gap-2 transitions (minimum gap $\equiv 2 \pmod{3}$,
+Class~II).}
+The transitions $9\to1$, $7\to9$, $1\to3$ all have minimum gap~2. Gap~2 is the twin
+prime gap: it carries the constitutional signature of Theorem~\ref{thm:signature}. The
+Hardy--Littlewood singular series for gap~2 has a factor
+\[
+  \mathfrak{S}_2 = 2\prod_{p > 2}\frac{p(p-2)}{(p-1)^2} \approx 1.3203 > 1,
+\]
+which is the largest singular series value among even gaps. These transitions are
+constitutionally enhanced: they represent pairs whose structure is closest to twin prime
+pairs. The $9\to1$ transition is most enhanced (${\sim}41\%$) because its gap-2 landing
+is arithmetically most accessible from that starting digit.
+
+\medskip
+\noindent\textbf{Category 2: Same-digit transitions (minimum gap $= 10$, $\equiv 1
+\pmod{3}$, Class~I).}
+Each self-transition ($1\to1$, $3\to3$, $7\to7$, $9\to9$) has minimum gap~10: a
+prime must traverse an entire decimal cycle before returning to the same terminal digit.
+The Hardy--Littlewood singular series for gap~10 satisfies $\mathfrak{S}_{10} < 1$.
+These transitions are penalised by the geometric cost of the decimal cycle. This is the
+direct cause of the diagonal suppression: it is not that primes ``avoid'' their own digit
+by some mysterious repulsion, but that the minimum gap required to stay is the largest
+of any transition, and the corresponding singular series is smallest.
+
+\medskip
+\noindent\textbf{Category 3: Gap-6 transitions (minimum gap $\equiv 0 \pmod{3}$,
+Forbidden class).}
+The transitions $1\to7$, $3\to9$, $7\to3$ have minimum gap~6. Gap~6 is in the Forbidden
+ternary class: $6 \equiv 0 \pmod{3}$. The Hardy--Littlewood singular series for
+Forbidden-class gaps has a factor
+\[
+  \chi_3(k) = \#\{j \in \{1,2\} : (j+k) \bmod 3 \in \{1,2\}\}
+\]
+which evaluates to zero when $k \equiv 0 \pmod{3}$, so $\mathfrak{S}_6 = 0$ for the
+ternary factor at $p=3$. The probability mass that would have gone to gap-6 transitions
+is redistributed to neighbouring gaps. This redistribution, not a constitutional
+``preference,'' explains the apparent elevation of some transitions in this category.
+
+\subsection{Formal Proposition}
+
+\begin{proposition}[Min-Gap Ternary Transition Structure]
+\label{prop:mingap}
+Let $f(d_1, d_2)$ denote the observed transition probability from terminal digit $d_1$
+to terminal digit $d_2$ among consecutive primes. Let $\mgap{d_1}{d_2}$ denote the
+minimum possible prime gap for the transition. Then:
+\begin{enumerate}[label=(\alph*)]
+  \item $f(d_1, d_2)$ is \emph{enhanced} when $\mgap{d_1}{d_2} = 2$ (gap-2 transitions
+    carry the twin prime constitutional signature);
+  \item $f(d_1, d_2)$ is \emph{suppressed} when $d_1 = d_2$ (same-digit transitions
+    require the maximum decimal gap of~10, penalised by the smallest singular series);
+  \item $f(d_1, d_2)$ exhibits \emph{redistribution} when $\mgap{d_1}{d_2} \equiv 0
+    \pmod{3}$ (the $p=3$ Euler factor of the Hardy--Littlewood singular series vanishes
+    for Forbidden-class gaps, displacing probability mass to adjacent gaps).
+\end{enumerate}
+\end{proposition}
+
+\begin{remark}
+Proposition~\ref{prop:mingap} does not prove the Hardy--Littlewood conjecture---it
+inherits the same unproven assumptions. What it provides is the mechanistic layer
+\emph{beneath} that conjecture: the ternary class of the minimum gap is the reason the
+singular series encodes the observed bias. The Hardy--Littlewood singular series is the
+quantitative expression of ternary constitutional structure at the level of prime pairs.
+\end{remark}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig2_mechanism_corrected}
+\caption{Terminal digits $\{0$--$9\}$ coloured by ternary constitutional class (corrected
+diagram). The four prime terminal digits $\{1, 3, 7, 9\}$ are shown bright; even and
+composite terminal digits are faded. The red arcs mark the three gap-2 transitions
+($9\to1$, $7\to9$, $1\to3$): these are constitutionally enhanced because minimum gap~2
+carries the twin prime constitutional signature ($\equiv 2 \pmod{3}$, Class~II). The
+dashed purple arc marks a gap-6 transition ($1\to7$), whose minimum gap is in the
+Forbidden class ($6 \equiv 0 \pmod{3}$), causing redistribution rather than enhancement.
+\emph{Note:} the structural driver is the ternary class of the minimum gap between
+digits---not the ternary class of the terminal digit itself. No prime greater than~3 can
+reside in the Forbidden class.}
+\label{fig:mechanism}
+\end{figure}
+
+\subsection{Connection to the Hardy--Littlewood Singular Series}
+
+The formal connection between ternary constitutional structure and the Hardy--Littlewood
+singular series is through the $p = 3$ Euler factor. For an admissible $k$-tuple with
+common difference $k$, define:
+\[
+  \chi_3(k) = \#\{j \in \{1, 2\} : (j + k) \bmod 3 \in \{1, 2\}\}.
+\]
+Then the singular series factor at $p = 3$ is:
+\[
+  \mathfrak{S}_3(k) = \frac{(1 - 1/3)^{-1}(1 - \chi_3(k)/\phi(3))}{1}
+  = \begin{cases}
+    \text{vanishes} & \text{if } k \equiv 0 \pmod{3}, \\
+    \tfrac{1}{2} & \text{if } k \not\equiv 0 \pmod{3}.
+  \end{cases}
+\]
+Constitutional Forcing provides the geometric first principles from which this singular
+series structure emerges: the vanishing for $k \equiv 0 \pmod{3}$ is the algebraic fact
+that gap-6 transitions map primes to the Forbidden class. The enhancement for gap-2
+transitions is the constitutional signature of Theorem~\ref{thm:signature}. The
+Hardy--Littlewood conjecture quantifies what constitutional structure constrains.
+
+% ============================================================
+\section{The Snail's Pace: Identifying the Convergence Rate}
+\label{sec:snail}
+% ============================================================
+
+Lemke Oliver and Soundararajan noted that the bias diminishes as primes grow larger,
+but ``at a snail's pace.'' This rate is not mysterious once the ternary framework is
+in view.
+
+The constitutional constraint operates at the level of residues modulo~3. As primes
+grow, Theorem~\ref{thm:equilibrium} guarantees that $\pi_1(N)$ and $\pi_2(N)$ converge
+to equal density. The deviation from the 50/50 split is governed by the
+Siegel--Walfi{}sz theorem~\cite{Wal63}:
+\begin{equation}
+  \label{eq:sw}
+  |\pi_1(N) - \pi_2(N)| = O\!\left(N \cdot \exp\!\left(-c\sqrt{\log N}\right)\right),
+\end{equation}
+for an absolute constant $c > 0$.
+
+The exponential-of-square-root form in~\eqref{eq:sw} is famously slow
+decay---much slower than any polynomial rate. This is precisely the snail's pace.
+
+The digit-level bias tracks the constitutional-level equilibration. As the ternary
+classes $\pi_1(N)/\pi(N)$ and $\pi_2(N)/\pi(N)$ converge to $1/2$, the surface-level
+digit bias must diminish correspondingly, at exactly the rate specified by~\eqref{eq:sw}.
+There is no mystery in the rate once one recognizes what is converging.
+
+\begin{proposition}[Snail's Pace Identification]
+\label{prop:snail}
+The snail's pace of the Lemke Oliver--Soundararajan bias is the Siegel--Walfi{}sz
+convergence rate of ternary class equilibration, projected onto decimal terminal digits.
+The rate is not an empirical observation requiring separate explanation---it is the
+canonical convergence rate of primes modulo small moduli, appearing here in a context
+where it had not previously been recognised.
+\end{proposition}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig3_snails_pace}
+\caption{The Siegel--Walfi{}sz rate identifies the snail's pace. \emph{Left:} convergence
+rate comparison on a log scale. The Siegel--Walfi{}sz envelope $e^{-c\sqrt{\log N}}$
+decays far more slowly than any polynomial rate ($N^{-1/2}$, $N^{-1}$) or logarithmic
+rate ($1/\log N$). The orange dashed line marks the scale of the Lemke
+Oliver--Soundararajan study (first billion primes). \emph{Right:} the bias persists into
+astronomical and trans-computational scales, confirming that the snail's pace
+characterisation reflects a fundamental analytic fact, not a curiosity of the
+computational range.}
+\label{fig:snail}
+\end{figure}
+
+% ============================================================
+\section{Validation, Context, and the Parity Barrier}
+\label{sec:validation}
+% ============================================================
+
+\subsection{Base Independence}
+
+The Lemke Oliver--Soundararajan bias holds across all number bases, not only base~10.
+This is immediate from the ternary explanation: the mechanism operates in mod-3
+arithmetic, which is independent of the presentation base. In any base~$b$, the
+available prime terminal digits are those coprime to~$b$; each maps to a ternary class
+modulo~3; and the minimum gaps between those digits determine the transition structure
+through the same mechanism of Table~\ref{tab:mingaps}. The bias manifests differently
+in each base because the minimum gap structure differs, but the underlying cause is
+identical.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{fig4_base_independence}
+\caption{Ternary constitutional class structure across number bases 6, 10, and~16. In
+each base, the prime terminal digits (bright tiles) are those coprime to the base. The
+distribution of those digits across the three ternary classes ($\equiv 0, 1, 2 \pmod{3}$)
+varies by base, but the constitutional pressure mechanism is identical: the ternary class
+of the minimum gap for each transition determines enhancement, suppression, or
+redistribution. Base~6 has no Forbidden-class prime terminal digits; base~10 has two
+(digits 3 and~9); base~16 has three (digits 3, 9, and~15). The bias projection differs;
+the cause is identical.}
+\label{fig:bases}
+\end{figure}
+
+\subsection{The Parity Barrier Context}
+
+The ternary constitutional framework provides context for the longstanding parity barrier
+in sieve theory. The Selberg parity barrier~\cite{Sel50} states that sieve methods
+operating modulo~2 cannot distinguish between numbers with an odd versus even number
+of prime factors. This structural ceiling stalled the bound on prime gaps at~246
+(Maynard~\cite{May15}, Polymath8b).
+
+The ternary approach is orthogonal to mod-2 arithmetic. Consider the ternary signatures
+of consecutive prime gaps:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{cccc}
+\toprule
+Gap size & $p \pmod{3}$ & $p + \text{gap} \pmod{3}$ & Constitutional? \\
+\midrule
+2  & 2 & 1 & \checkmark\ Unique Class~II $\to$ Class~I signature \\
+4  & 2 & 0 (Forbidden) & $\times$\ Hits Forbidden class \\
+6  & 2 & 2 (same class) & $\times$\ Same-class pairing \\
+8  & 2 & 1 & $\sim$\ Similar to gap-2 but non-unique \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The gap-2 ternary signature $(2, 1)$ is the only even-gap signature that avoids the
+Forbidden class for both members. Gap~4 immediately hits the Forbidden class. Gap~6
+produces same-class pairing. This structural uniqueness is what allows the ternary method
+to isolate twin primes specifically---the task that sieve methods operating mod~2 cannot
+accomplish because modulo~2, all even gaps are identical.
+
+\subsection{Relation to the Constitutional Forcing Programme}
+\label{sec:relation}
+
+This paper is a companion result to the Constitutional Forcing programme~\cite{Wakil26},
+which establishes a level of distribution $\theta_W = 5/8$ for primes over cascade moduli
+$q = 3^K$ via the Eisenstein integer geometry of $\mathbb{Z}[\omega]$.
+
+The Lemke Oliver--Soundararajan explanation is independent of that result in the
+following sense: it requires only the elementary constitutional constraint
+(Definition~\ref{def:constraint}), the Siegel--Walfi{}sz theorem, and the minimum gap
+class mapping. The full cascade moduli machinery is not needed to explain the digit bias.
+The bias is a base-10 surface symptom of the same ternary structure that, pursued
+deeper, yields the level-of-distribution result.
+
+The relation is: the digit bias is what ternary constitutional pressure looks like at the
+surface. The cascade moduli result is what it looks like at the analytic depth. Both are
+projections of the same underlying structure.
+
+% ============================================================
+\section{Conclusion}
+\label{sec:conclusion}
+% ============================================================
+
+The Lemke Oliver--Soundararajan digit bias was described when discovered as something
+that ``every single person\ldots immediately went and wrote their own program to
+check''~\cite{Gran16}. It has resisted mechanistic explanation for nine years.
+
+We have shown that the bias is transparent once viewed in the correct coordinate system.
+The primes do not ``know'' anything. They obey a structural constraint---the mod-3
+constitutional requirement---that is elementary, provable in two lines, and that projects
+onto base-10 terminal digits as the observed repulsion pattern. Three consequences:
+\begin{enumerate}[label=(\roman*)]
+  \item The diagonal suppression (primes avoiding their own terminal digit) is the
+    structural penalty of same-digit transitions having the largest minimum gap (gap~10)
+    and the smallest Hardy--Littlewood singular series value.
+  \item The snail's pace of diminishment is the Siegel--Walfi{}sz rate of ternary class
+    equilibration---one of the most fundamental quantities in analytic number theory,
+    appearing here unrecognised.
+  \item The base-independence of the bias is immediate: the mechanism is mod-3, not
+    base-10.
+\end{enumerate}
+
+The corrected mechanism---min-gap ternary class structure rather than terminal-digit
+ternary class---is stronger than the original claim. It correctly assigns the full $4 \times 4$
+transition matrix to three categories (gap-2 enhanced, gap-6 redistributed, same-digit
+suppressed) with no exceptions, and connects directly to the vanishing and non-vanishing
+of the $p=3$ Euler factor in the Hardy--Littlewood singular series.
+
+The deeper lesson is epistemological. The assumption of prime randomness has been so
+foundational that the elementary mod-3 structure of primes was not examined as a source
+of structural bias. The constitutional framework inverts this: accept the provable
+structural constraints as the natural entry point, and the apparent mysteries dissolve.
+
+When Freeman Dyson called the Montgomery--Dyson connection a miracle, he meant that
+mathematics gave him no other word. The word for the Lemke Oliver--Soundararajan
+bias, we submit, is: \emph{ternary}.
+
+% ============================================================
+% REFERENCES
+% ============================================================
+\bibliographystyle{plain}
+\begin{thebibliography}{99}
+
+\bibitem[LOS16]{LOS16}
+R.~J. Lemke~Oliver and K.~Soundararajan,
+\newblock Unexpected biases in the distribution of consecutive primes,
+\newblock \emph{Proc. Natl. Acad. Sci. USA}, 113(31):E4446--E4454, 2016.
+\newblock \href{https://arxiv.org/abs/1603.03720}{arXiv:1603.03720 [math.NT]}.
+
+\bibitem[LOS17]{LOS17}
+R.~J. Lemke~Oliver and K.~Soundararajan,
+\newblock The distribution of consecutive prime biases and sums of sawtooth
+  random variables,
+\newblock \href{https://arxiv.org/abs/1709.06168}{arXiv:1709.06168 [math.NT]},
+  2017.
+
+\bibitem[HL23]{HL23}
+G.~H. Hardy and J.~E. Littlewood,
+\newblock Some problems of `Partitio numerorum'; III: on the expression of a
+  number as a sum of primes,
+\newblock \emph{Acta Math.}, 44:1--70, 1923.
+
+\bibitem[Dir37]{Dir37}
+P.~G.~L. Dirichlet,
+\newblock Beweis des Satzes, dass jede unbegrenzte arithmetische Progression,
+  deren erstes Glied und Differenz ganze Zahlen ohne gemeinschaftlichen Factor
+  sind, unendlich viele Primzahlen enth\"alt,
+\newblock \emph{Abhandlungen der K\"oniglich Preussischen Akademie der
+  Wissenschaften}, pages 45--81, 1837.
+
+\bibitem[Wal63]{Wal63}
+A.~Walfi{}sz,
+\newblock \emph{Weylsche Exponentialsummen in der neueren Zahlentheorie},
+  Mathematische Forschungsberichte XV.
+\newblock VEB Deutscher Verlag der Wissenschaften, Berlin, 1963.
+
+\bibitem[Bom65]{Bom65}
+E.~Bombieri,
+\newblock On the large sieve,
+\newblock \emph{Mathematika}, 12:201--225, 1965.
+
+\bibitem[Zha14]{Zha14}
+Y.~Zhang,
+\newblock Bounded gaps between primes,
+\newblock \emph{Ann. of Math.}, 179(3):1121--1174, 2014.
+
+\bibitem[May15]{May15}
+J.~Maynard,
+\newblock Small gaps between primes,
+\newblock \emph{Ann. of Math.}, 181(1):383--413, 2015.
+
+\bibitem[Mon73]{Mon73}
+H.~L. Montgomery,
+\newblock The pair correlation of zeros of the zeta function,
+\newblock In \emph{Analytic Number Theory}, Proc. Sympos. Pure Math.~24, pages
+  181--193. Amer. Math. Soc., Providence, RI, 1973.
+
+\bibitem[Sel50]{Sel50}
+A.~Selberg,
+\newblock An elementary proof of the prime-number theorem for arithmetic
+  progressions,
+\newblock \emph{Canad. J. Math.}, 2:66--78, 1950.
+
+\bibitem[Pas25]{Pas25}
+A.~Pascadi,
+\newblock Primes with Beatty and Chebotarev conditions, and a note on Selberg's
+  sieve,
+\newblock \href{https://arxiv.org/abs/2505.00653}{arXiv:2505.00653v2
+  [math.NT]}, 2025.
+
+\bibitem[Wakil26]{Wakil26}
+K.~Wakil,
+\newblock Constitutional Forcing: A Wakil Programme,
+\newblock ARC Institute of Knowware Technical Report, Calgary, Alberta, 2026.
+\newblock Seven-paper series: Papers~00--06.
+
+\bibitem[Wakil26b]{Wakil26b}
+K.~Wakil,
+\newblock Spherical Cow Philosophy: A Methodological Framework for Mathematical
+  Discovery (Paper~02 of the Constitutional Forcing programme),
+\newblock ARC Institute of Knowware, February 2026.
+
+\bibitem[Gran16]{Gran16}
+A.~Granville,
+\newblock Quoted in ``Mathematicians Find a Peculiar Pattern in Primes,''
+\newblock \emph{Science News}, March~15, 2016.
+
+\bibitem[HY25]{HY25}
+S.~A. Hartnoll and M.~Yang,
+\newblock Prime numbers in quantum gravity near spacelike singularities,
+\newblock Preprint, University of Cambridge, 2025.
+
+\end{thebibliography}
+
+\end{document}

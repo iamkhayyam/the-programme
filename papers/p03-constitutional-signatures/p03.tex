@@ -1,0 +1,759 @@
+\documentclass[12pt]{amsart}
+
+%% ─── Packages ────────────────────────────────────────────────────────────────
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{enumitem}
+
+%% ─── Theorem Environments ────────────────────────────────────────────────────
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{criterion}[theorem]{Criterion}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{principle}[theorem]{Principle}
+
+%% ─── Metadata ────────────────────────────────────────────────────────────────
+\title[Spherical Cow Philosophy]{Spherical Cow Philosophy:
+  A Methodological Framework for Mathematical Discovery}
+
+\author{Khayyam Wakil}
+\address{The ARC Institute of Knowware, Calgary, Alberta, Canada}
+\email{the@knowware.institute}
+\date{February 2026}
+
+\keywords{mathematical methodology, constitutional forcing, spherical cow,
+  empirical constitution, twin primes, sieve theory, methodological pluralism,
+  structural barriers, cross-domain validation}
+
+\subjclass[2020]{
+  00A30,  % Philosophy of mathematics
+  00A35,  % Methodology of mathematics
+  11N35,  % Sieves
+  11N36   % Applications of sieve methods
+}
+
+%% ─── Abstract ────────────────────────────────────────────────────────────────
+\begin{document}
+
+\begin{abstract}
+We present \emph{spherical cow philosophy}---a methodological framework for
+mathematical discovery that complements classical proof-by-contradiction by
+accepting empirical constitutional constraints as foundational and deriving their
+forced consequences. Named after the physics heuristic of modelling complex
+systems through essential simplification, the approach inverts the usual
+hierarchy: instead of deriving special cases from universal axioms, we identify
+structural constraints that are empirically universal within a domain, derive
+what they force rigorously, and validate predictions across independent domains.
+
+The framework addresses a specific situation: when classical sieve methods
+encounter persistent structural barriers---such as the $\theta = 1/2$ ceiling
+for twin primes over two centuries of effort---the productive path may be to
+accept the constitutional constraint (here, $p \equiv 2 \pmod{3}$ for all twin
+primes $p > 3$) as the natural entry point and derive its arithmetic consequences,
+rather than to approach the barrier as an obstacle for more powerful general
+methods.
+
+Applied to twin primes, this methodology motivates the cascade moduli framework
+proved in the companion paper~\cite{WakilEisenstein}, achieves level of
+distribution $\theta_W = 5/8$ for cascade moduli $q = 3^K$, and connects the
+arithmetic result to a structural parallel in information theory documented
+in~\cite{WakilShannon}. The combinatorial foundation is traced to the mod-$3$
+fractal of Khayyam's Triangle~\cite{WakilKhayyam}. The framework is explicitly
+falsifiable: it predicts a confirmed non-instance (Sophie Germain primes at
+$\theta = 1/2$) and an open prediction ($k = 4$ constellation at $\theta = 3/4$)
+via the $k$-hierarchy of~\cite{WakilShannon}.
+
+We establish precise criteria for when the framework applies, contrast it with
+classical approaches, and distinguish it carefully from circular or post-hoc
+reasoning. Logical status labels are attached to every claim.
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Introduction: The Physics Analogy}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{The original spherical cow}
+
+When physicists model heat transfer from a cow, they make a radical
+simplification: assume a spherical cow. Strip away legs, spots, tail, digestive
+complexity---keep only mass distribution and thermal properties. As
+Clark~\cite{Clark2020} articulates:
+\begin{quote}
+Make it as simple as possible in order to take your understanding beyond the
+simple\ldots Without saying ``a cow is a sphere''---an imperfect, simple
+description---we would never have been in the position to describe it accurately
+at all.
+\end{quote}
+The spherical cow succeeds because it knows what to \emph{ignore}. Domain-specific
+details obscure the essential physics. By ignoring the irrelevant, physicists
+isolate what matters, solve the simplified problem, and add complexity back
+strategically where it is needed.
+
+\subsection{The mathematical parallel}
+
+Classical mathematics has three primary responses to a hard problem:
+\begin{enumerate}[label=(\arabic*)]
+  \item Assume the statement false, derive consequences, seek a contradiction.
+  \item Build from axioms: prove the statement from more fundamental principles.
+  \item Exhaust known techniques until something works.
+\end{enumerate}
+These work brilliantly when the problem is provable from accepted axioms.
+When they encounter a persistent structural barrier, the barrier itself is
+information. It may be signalling that the productive formulation has not yet
+been identified---not that the problem is harder than expected.
+
+\emph{Spherical cow philosophy} provides a complementary response: instead of
+asking ``how do we overcome this barrier?'', ask ``what constraint is this
+barrier telling us is constitutional?'' Accept that constraint as the productive
+entry point. Derive what it forces. Validate the consequences.
+
+\subsection{Position in the program}
+
+This paper is the methodological companion to a five-paper arithmetic
+program~\cite{WakilKhayyam,WakilRamanujan,WakilEisenstein,WakilW3,WakilShannon}.
+
+\begin{itemize}
+  \item \cite{WakilKhayyam} establishes the historical and combinatorial
+    foundation: Khayyam's Triangle mod~$3$ and the fractal structure that
+    underlies the cascade moduli framework.
+  \item \cite{WakilRamanujan} derives the universal formula
+    $\theta_k = (2^k - k)/2^k$ from combinatorial first principles and proves
+    it analytically for $k = 3$.
+  \item \cite{WakilEisenstein} establishes $\theta_W = 5/8$ for cascade
+    moduli $q = 3^K$ via the geometry of the Eisenstein integers $\mathbb{Z}[\omega]$.
+  \item \cite{WakilW3} verifies the Siegel zero condition (Condition~W3)
+    required by~\cite{WakilEisenstein} via the CM structure of $\mathbb{Q}(\omega)$.
+  \item \cite{WakilShannon} documents the structural parallel between the
+    arithmetic result and Shannon's theorems in information theory, and states
+    the falsifiable $k$-hierarchy predictions.
+\end{itemize}
+
+The present paper explains \emph{why} that program is structured the way it is,
+and what methodological principle makes it natural and non-arbitrary.
+
+\subsection{What this paper claims and does not claim}
+\label{sec:claims}
+
+We attach logical-status labels to every significant claim throughout.
+Here we state the top-level ones explicitly.
+
+\begin{itemize}
+  \item[\textbf{[Claimed]}] Accepting $p \equiv 2 \pmod{3}$ as the constitutional
+    entry point for twin primes is methodologically productive: it motivates the
+    cascade moduli framework and leads to the proved result $\theta_W = 5/8$
+    of~\cite{WakilEisenstein}.
+
+  \item[\textbf{[Claimed]}] The constitution $p \equiv 2 \pmod{3}$ is a theorem
+    (provable in two lines), not an axiom. Accepting a proved fact as the
+    \emph{productive entry point}---rather than a consequence to be derived
+    from something deeper---is the methodological move this paper advocates.
+
+  \item[\textbf{[Claimed]}] The framework is falsifiable. The Sophie Germain
+    non-instance (Section~\ref{sec:noncircular}) was predicted and confirmed.
+    The $k=4$ prediction (Section~\ref{sec:decisioncriteria}) is open and testable.
+
+  \item[\textbf{[Not claimed]}] That constitutional forcing alone proves twin
+    prime infinitude. The result $\theta_W = 5/8$ is established for cascade
+    moduli $q = 3^K$; extending this to the full moduli input required by
+    GPY~\cite{GPY2009} is the principal open step identified
+    in~\cite{WakilEisenstein}.
+
+  \item[\textbf{[Not claimed]}] That twin prime infinitude is independent of
+    ZFC in the technical G\"odel--Cohen sense. We make no claim about
+    independence. The methodology applies whenever constitutional structure is
+    the productive entry point, regardless of the problem's axiomatic status.
+\end{itemize}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{The Classical Toolkit and Its Limits}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{When classical methods succeed}
+
+Proof by contradiction is among the most powerful tools in mathematics.
+
+\begin{example}[Irrationality of $\sqrt{2}$]
+Assume $\sqrt{2} = p/q$ in lowest terms. Then $2q^2 = p^2$, forcing $p$ even;
+writing $p = 2k$ gives $q^2 = 2k^2$, forcing $q$ even---contradicting lowest
+terms. Therefore $\sqrt{2}$ is irrational.
+\end{example}
+
+This works because the statement is provable from the axioms of arithmetic:
+the assumption of rationality produces a genuine logical contradiction.
+
+\begin{example}[Infinitude of primes, Euclid]
+Suppose there are finitely many primes $p_1, \ldots, p_n$. The number
+$N = p_1 \cdots p_n + 1$ is divisible by none of them, so it has a prime factor
+not in the list---a contradiction.
+\end{example}
+
+Both examples share a structure: \emph{the assumption of falsehood leads
+directly to a contradiction derivable from accepted axioms}. Classical proof
+by contradiction works exactly when this structure is present.
+
+\subsection{Where structural barriers arise}
+\label{sec:barriers}
+
+Some problems resist sustained classical effort not because they are
+unprovable, but because the productive formulation has not yet been identified.
+The barrier is information: it is telling us something about the structure of
+the problem.
+
+\begin{example}[The $\theta = 1/2$ barrier for twin primes]
+\label{ex:twinprime-barrier}
+The Goldston--Pintz--Y{\i}ld{\i}r{\i}m theorem~\cite{GPY2009} shows that a
+level of distribution $\theta > 1/2$ for primes in arithmetic progressions
+would imply the existence of infinitely many prime pairs with bounded gaps,
+and in particular---via a refinement---would yield infinitely many twin primes.
+Classical Bombieri--Vinogradov~\cite{BV1965} gives $\theta = 1/2$ for
+\emph{all} moduli. Zhang~\cite{Zhang2014} achieved $\theta = 1/2 + \delta$
+for a small $\delta > 0$ and smooth moduli, proving bounded gaps. Maynard and
+Tao~\cite{Maynard2015} improved the gap bound substantially. But the gap
+$= 2$ (twin primes specifically) remained out of reach.
+
+The barrier at $\theta = 1/2$ for general moduli is not arbitrary. It reflects
+the limits of the large sieve in full generality. Classical methods treat all
+moduli uniformly; they cannot exploit structure specific to a particular prime.
+\end{example}
+
+The spherical cow response to Example~\ref{ex:twinprime-barrier} is not to
+work harder on the general barrier. It is to ask: \emph{what constitutional
+structure do twin primes carry that distinguishes them from the general case?}
+
+The answer---$p \equiv 2 \pmod{3}$ for all twin primes $p > 3$---is a two-line
+theorem. Accepting it as the productive entry point leads immediately to cascade
+moduli, Eisenstein integer geometry, and $\theta_W = 5/8$
+(see~\cite{WakilRamanujan,WakilEisenstein}).
+
+\subsection{The structural limitation of the classical approach}
+\label{sec:limitation}
+
+Classical methods seek \emph{universal} patterns: results that hold for all
+moduli, all primes, all arithmetic progressions. This universality is their
+strength and their limitation. When a problem has constitutional structure that
+singles out a specific prime (here, $3$), universal methods must either ignore
+that structure or work much harder to recover it.
+
+Spherical cow philosophy embraces the specific structure from the outset. It
+trades universality for depth, and gains access to geometric tools---the
+hexagonal lattice of $\mathbb{Z}[\omega]$, the CM field $\mathbb{Q}(\omega)$,
+Kloosterman cancellation in a cyclic group---that are invisible from the
+universal vantage point.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Spherical Cow Philosophy: The Framework}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{The inversion}
+
+Classical hierarchy:
+\[
+\text{Universal Axioms}
+\;\longrightarrow\;
+\text{General Theorems}
+\;\longrightarrow\;
+\text{Special Cases}
+\;\longrightarrow\;
+\text{[barrier]}
+\]
+Spherical cow hierarchy:
+\begin{align*}
+&\text{Empirical Constitution}
+\;\longrightarrow\;
+\text{Forced Consequences}\\
+&\quad\longrightarrow\;
+\text{Cross-Domain Validation}
+\;\longrightarrow\;
+\text{Falsifiable Predictions}
+\end{align*}
+
+The key difference: we do not try to prove the constitution from something
+``more basic.'' We show the constitution generates observed structure across
+multiple independent domains and makes predictions that can be confirmed or
+refuted.
+
+\subsection{The five steps}
+\label{sec:fivesteps}
+
+\begin{definition}[Spherical Cow Methodology]
+\label{def:methodology}
+Given a domain with a persistent structural barrier, the spherical cow
+methodology proceeds as follows.
+
+\smallskip
+\noindent\textbf{Step 1: Identify the empirical constitution.}
+Find a constraint that is:
+\begin{enumerate}[label=(\alph*)]
+  \item \emph{Verifiable by direct computation}---not an assumption;
+  \item \emph{Universal within the domain}---all instances satisfy it;
+  \item \emph{Simple to state}---not complex conditional logic.
+\end{enumerate}
+
+\noindent\textbf{Step 2: Derive forced consequences.}
+Using rigorous mathematics, determine what the constitutional constraint
+\emph{forces}. Do not add hypotheses; derive consequences.
+
+\noindent\textbf{Step 3: Validate within the domain.}
+Check that the forced consequences match domain observations, both
+computationally and analytically where possible.
+
+\noindent\textbf{Step 4: Validate across independent domains.}
+Determine whether the same constitutional structure explains phenomena in
+genuinely independent fields. Independent confirmation strengthens the case
+that the constitution is fundamental, not accidental.
+
+\noindent\textbf{Step 5: Generate falsifiable predictions.}
+Identify consequences of the constitution that have not yet been observed,
+and check whether they hold or fail. A framework that makes and confirms
+predictions---and identifies genuine non-instances---is more than decorative.
+\end{definition}
+
+\subsection{The spherical cow principle}
+\label{sec:principle}
+
+\begin{principle}[Spherical Cow]
+\label{prin:sc}
+What to ignore: domain-specific complexity that obscures constitutional
+structure.\\
+What to keep: the constitutional constraint that generates forced consequences.\\
+How to validate: cross-domain prediction and confirmed non-instances.
+\end{principle}
+
+The physics analogy is precise. A physicist ignores the cow's legs and spots
+to isolate thermal properties. A mathematician ignores the full generality of
+all moduli to isolate the constitutional property of twin primes ($p \equiv 2
+\pmod{3}$) and the cascade structure it forces.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Case Study: Twin Primes}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{The constitution}
+\label{sec:constitution}
+
+\begin{proposition}[Twin Prime Constitution]
+\label{prop:constitution}
+Every twin prime $p > 3$ satisfies $p \equiv 2 \pmod{3}$.
+\end{proposition}
+
+\begin{proof}
+Among any three consecutive integers, exactly one is divisible by~$3$.
+For the pair $(p, p+2)$: if $p \equiv 0 \pmod{3}$ then $3 \mid p$, so $p$
+is not prime (for $p > 3$). If $p \equiv 1 \pmod{3}$ then $p + 2 \equiv 0
+\pmod{3}$, so $3 \mid p+2$, hence $p+2$ is not prime (for $p+2 > 3$). Therefore
+$p \equiv 2 \pmod{3}$.
+\end{proof}
+
+\begin{remark}
+Proposition~\ref{prop:constitution} is a theorem, not an axiom. The
+methodological move is not to assume it but to \emph{accept it as the productive
+entry point}---to ask what arithmetic structure it forces, rather than treating
+it as a consequence to be recovered from something more general.
+\end{remark}
+
+\subsection{The forced consequences}
+\label{sec:forced}
+
+Given Proposition~\ref{prop:constitution}, the spherical cow methodology asks:
+what does $p \equiv 2 \pmod{3}$ force?
+
+\begin{enumerate}[label=(\arabic*)]
+  \item \textbf{Cascade structure.} By the Chinese Remainder Theorem,
+    $\gcd(3^K, \ell) = 1$ for all primes $\ell \neq 3$, so modular conditions
+    modulo $3^K$ and modulo $\ell$ are independent. The constitutional condition
+    forces attention to the specific family of moduli $q = 3^K$---the
+    \emph{cascade moduli}.
+
+  \item \textbf{Eisenstein geometry.} The prime $3$ ramifies in the Eisenstein
+    integers $\mathbb{Z}[\omega]$ as $(3) = (1-\omega)^2$ (Proposition~2.2
+    of~\cite{WakilEisenstein}). A twin prime $p \equiv 2 \pmod{3}$ is
+    \emph{inert} in $\mathbb{Z}[\omega]$; its companion $p+2 \equiv 1 \pmod{3}$
+    \emph{splits}. Twin primes are precisely the inert-split pairs of the
+    hexagonal lattice (Corollary~6.4 of~\cite{WakilEisenstein}).
+
+  \item \textbf{Three-level filtration.} The ramification $(3) = (1-\omega)^2$
+    induces a natural filtration on $\mathbb{Z}[\omega]/(3^K)$ with exactly
+    three independent levels, forcing sieve weights over cascade moduli to be
+    triply-well-factorable (Corollary~2.5 of~\cite{WakilEisenstein}).
+
+  \item \textbf{Level of distribution $\theta_W = 5/8$.} Three-fold
+    Cauchy--Schwarz over the filtration gives ceiling $\theta \leq 2/3$;
+    cyclic group cancellation from $({\mathbb{Z}}/3^K{\mathbb{Z}})^* \cong
+    \mathbb{Z}/(2 \cdot 3^{K-1}\mathbb{Z})$ improves this to $\theta_W = 5/8$
+    (Theorem~1.1 of~\cite{WakilEisenstein}, with Condition~W3 verified
+    in~\cite{WakilW3}).
+
+  \item \textbf{Combinatorial origin.} The value $5/8 = (2^3 - 3)/2^3$
+    counts valid configurations in a three-level constitutional sieve: of the
+    $2^3 = 8$ binary configurations, exactly $k = 3$ are invalid, leaving $5$
+    valid (Theorem~3.4 of~\cite{WakilRamanujan}). This count traces to the
+    mod-$3$ Sierpi\'nski structure of Khayyam's Triangle
+    (Proposition~2.3 of~\cite{WakilRamanujan}, and~\cite{WakilKhayyam}).
+\end{enumerate}
+
+All five consequences are forced by the single constitutional fact of
+Proposition~\ref{prop:constitution}. None requires additional hypotheses.
+
+\subsection{The GPY connection and the open step}
+\label{sec:gpy}
+
+The Goldston--Pintz--Y{\i}ld{\i}r{\i}m theorem~\cite{GPY2009} requires a level
+of distribution $\theta > 1/2$ over a sufficiently broad family of moduli to
+conclude twin prime infinitude. The result $\theta_W = 5/8$ established
+in~\cite{WakilEisenstein} applies to cascade moduli $q = 3^K$: a one-parameter
+family indexed by powers of a single prime.
+
+\textbf{[Open]} Extending $\theta_W = 5/8$ to a moduli family broad
+enough to serve as GPY input is the principal open step in this program.
+Two avenues are identified in~\cite{WakilEisenstein}: (a) combining cascade
+moduli with smooth moduli via Pascadi's result~\cite{Pascadi2025}; (b) developing
+a GPY variant that works with the specific cascade family directly.
+
+We do not claim this step is complete. The spherical cow methodology motivates
+and structures the arithmetic program; the completion of the program is the work
+of the companion papers and their successors.
+
+\subsection{Cross-domain validation: Shannon's theorems}
+\label{sec:shannon}
+
+The same constitutional structure---an exponential space forced by an intrinsic
+constraint onto a strict subspace with a uniquely determined governing
+constant---appears in Shannon's two foundational theorems of 1948~\cite{Shannon1948},
+as documented in detail in~\cite{WakilShannon}.
+
+\begin{itemize}
+  \item \textbf{Asymptotic Equipartition Property.} $|\mathcal{A}|^n$ sequences
+    concentrate onto a typical set of size $\approx 2^{nH}$, where entropy $H$
+    is uniquely forced by the source distribution.
+  \item \textbf{Channel Coding Theorem.} Reliable communication requires rate
+    $R < C$, where capacity $C$ is uniquely forced by the channel.
+\end{itemize}
+
+Both are instances of the same pattern as the cascade moduli result: a structural
+constraint forces an exponential space to concentrate onto a subspace, governed
+by a constant that is uniquely determined by the constraint and cannot be altered
+without changing the underlying structure. The formal definition and proof that
+all three instances satisfy the same conditions are given in~\cite{WakilShannon}.
+
+The 77-year gap between Shannon's results (1948) and the arithmetic instance
+(2026) is not surprising: the connection is visible only after both sides are
+independently established. This order---independent results first, structural
+comparison second---guarantees that neither result was constructed to match the
+other.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Non-Circularity and Falsifiability}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Why this is not circular}
+\label{sec:noncircular}
+
+A potential objection: the framework accepts the constitution, derives
+consequences, and validates against observations in the same domain. Is this
+circular?
+
+It is not, for three reasons.
+
+\textbf{First}, the constitution is a theorem (Proposition~\ref{prop:constitution}),
+not an assumption. Accepting a proved fact as the entry point is not circular;
+it is a choice of direction.
+
+\textbf{Second}, the consequences are derived by rigorous mathematics (CRT,
+Eisenstein geometry, Cauchy--Schwarz, Watt's theorem), not assumed. The
+derivation could in principle have produced a different value of $\theta$, or
+no useful bound at all. The fact that it produces $5/8 > 1/2$ is a non-trivial
+output.
+
+\textbf{Third}, and most importantly, the framework makes \emph{falsifiable
+predictions that were confirmed before the verification was run}. The Sophie
+Germain non-instance is the clearest example.
+
+\begin{proposition}[Sophie Germain Non-Instance, {\cite[Theorem~7.1]{WakilShannon}}]
+\label{prop:sg}
+Sophie Germain prime pairs $(p, 2p+1)$ have dimensional parameter $k = 2$: the
+mod-$3$ residue of $2p+1$ is determined by that of $p$ (both satisfy
+$p \equiv 2 \pmod{3}$), giving only two independent constraint levels rather
+than three. The framework therefore predicts level of distribution
+$\theta_2 = (2^2 - 2)/2^2 = 1/2$, with no improvement over Bombieri--Vinogradov.
+Computational analysis confirms this: Sophie Germain primes do not exhibit
+the cascade moduli enhancement.
+\end{proposition}
+
+\begin{remark}
+The Sophie Germain prediction follows the same logic as the twin prime result:
+coupled constraints reduce the effective dimensionality. In information theory,
+a degraded channel has lower capacity because input-output dependence increases;
+in Sophie Germain primes, the coupling between $p$ and $2p+1$ modulo~$3$
+reduces effective $k$ from $3$ to $2$. The framework handles both cases with
+the same formula $\theta_k = (2^k - k)/2^k$, and correctly predicts which
+constellations do and do not exhibit the enhancement.
+\end{remark}
+
+\subsection{Decision criteria: when to use this framework}
+\label{sec:decisioncriteria}
+
+\begin{criterion}[Apply spherical cow philosophy when:]
+\label{crit:apply}
+\begin{enumerate}[label=(\arabic*)]
+  \item \textbf{Structural barrier}: Classical methods have encountered a
+    persistent ceiling that is not merely a technical obstacle but appears to
+    reflect the limits of the general approach.
+  \item \textbf{Identifiable constitution}: A constraint exists that is
+    universal within the domain, verifiable computationally, and simple to
+    state.
+  \item \textbf{Cross-domain echo}: The same structural pattern appears in
+    independent fields, suggesting the constitution captures something
+    fundamental rather than domain-specific.
+  \item \textbf{Falsifiable predictions}: The framework generates predictions
+    about cases not yet examined, which can confirm or refute it.
+\end{enumerate}
+\end{criterion}
+
+\begin{criterion}[Prefer classical methods when:]
+\label{crit:classical}
+\begin{enumerate}[label=(\arabic*)]
+  \item The statement is provable from accepted axioms by known techniques.
+  \item The problem is single-domain without structural echoes elsewhere.
+  \item No universal constitutional constraint is identifiable.
+  \item Proof by contradiction successfully finds contradictions.
+\end{enumerate}
+\end{criterion}
+
+\begin{remark}[The $k=4$ open prediction]
+\label{rem:k4}
+The most immediate falsifiable prediction of this framework is the existence of
+a prime constellation with $k = 4$ independent modular constraints achieving
+level of distribution $\theta_4 = (2^4 - 4)/2^4 = 3/4$
+(see Table~3 of~\cite{WakilShannon}). Identifying such a constellation and
+verifying or disproving $\theta_4 = 3/4$ computationally is a concrete open
+problem that would either strengthen or refute the $k$-hierarchy.
+\end{remark}
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Philosophical Foundations}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Empiricism and rationalism in mathematics}
+
+Classical mathematics is rationalist: truth derives from axioms and logical
+deduction. Empirical observations serve as heuristics, not proofs.
+
+Spherical cow philosophy is \emph{methodologically} empiricist, without
+abandoning rigour. Constitutional constraints are accepted as entry points
+because they are empirically universal and computationally verifiable. The
+\emph{derivation} from those constraints remains fully rigorous. The shift is
+in what counts as the productive starting point, not in what counts as a proof.
+
+The physics analogy is again precise. Physicists accept the speed of light $c$
+as an empirical constant and rigorously derive the structure of spacetime from
+it. The derivation (special relativity, $E = mc^2$, time dilation) is
+mathematically exact; the starting point is empirical. Spherical cow philosophy
+proposes the same division of labour for mathematics: accept the constitutional
+constraint empirically, derive its consequences rigorously.
+
+\subsection{G\"odel, independence, and the scope of this claim}
+\label{sec:godel}
+
+G\"odel's incompleteness theorems~\cite{Godel1931} establish that any consistent
+formal system containing arithmetic has true statements unprovable within the
+system. Cohen~\cite{Cohen1963} demonstrated that the continuum hypothesis is
+independent of ZFC.
+
+We do \emph{not} claim that twin prime infinitude is independent of ZFC.
+We make no claim about the axiomatic status of any conjecture in this program.
+
+What we do claim is narrower and more useful: \emph{for problems where classical
+methods have encountered structural barriers, accepting an empirical constitution
+as the entry point is a productive methodological choice}. This claim is
+independent of whether the problem is independent of ZFC. It applies whenever
+the constitutional structure is the productive formulation, regardless of the
+problem's status in formal logic.
+
+\subsection{Methodological pluralism}
+
+Mathematics benefits from multiple methodologies:
+\begin{itemize}
+  \item Classical proof by contradiction: for statements provable from axioms.
+  \item Constructive mathematics: for explicit object construction.
+  \item Probabilistic methods: for deterministic results via probability
+    (Erd\H{o}s).
+  \item Computational verification: for finite cases (four-colour theorem).
+  \item \emph{Spherical cow philosophy}: for structural barriers with
+    identifiable empirical constitutions and cross-domain echoes.
+\end{itemize}
+
+These are not competing methodologies. They are tools for different situations.
+The contribution of this paper is to articulate the conditions under which the
+last tool is the right one, and to demonstrate its application through the
+arithmetic program of~\cite{WakilRamanujan,WakilEisenstein,WakilW3,WakilShannon}.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Conclusion}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\subsection{Summary}
+
+Spherical cow philosophy provides a methodological complement to classical
+proof-by-contradiction for problems where structural barriers persist. By
+accepting empirical constitutional constraints as the productive entry
+point---deriving forced consequences rigorously and validating predictions
+across independent domains---the framework opens paths that the classical
+universal approach cannot see.
+
+The key results demonstrated in this program:
+\begin{enumerate}[label=(\arabic*)]
+  \item The constitution $p \equiv 2 \pmod{3}$ forces cascade structure, Eisenstein
+    geometry, and level of distribution $\theta_W = 5/8$ for cascade
+    moduli~\cite{WakilEisenstein,WakilW3}.
+  \item The same structural pattern---exponential space forced onto a strict
+    subspace by an intrinsic constraint---appears in Shannon's AEP and Channel
+    Coding Theorem, documented in~\cite{WakilShannon}.
+  \item The Sophie Germain non-instance confirms the framework's predictive
+    power: coupled constraints reduce effective dimensionality exactly as the
+    formula predicts.
+  \item The $k=4$ open prediction provides a concrete falsifiability test.
+\end{enumerate}
+
+\subsection{The philosophical shift}
+
+From: mathematics begins with axioms and proceeds by deduction.
+
+To: mathematics also begins with constitutional constraints and proceeds by
+rigorous derivation of their forced consequences.
+
+This is not a rejection of rigour. The derivations in~\cite{WakilEisenstein,
+WakilW3} are as rigorous as any analytic number theory. The shift is in what
+counts as the \emph{starting point}, not in what counts as a \emph{proof}.
+
+\subsection{Final reflection}
+
+Omar Khayyam spent his life finding geometry hidden in numbers and in the sky.
+His calendar was accurate to within a second per year, computed with naked-eye
+instruments and geometric sight~\cite{WakilKhayyam}. His triangle mod~$3$
+contains the fractal that underlies the cascade moduli framework. He did not
+overcome the complexity of the solar year or of cubic equations by working harder
+within established methods. He found a different entry point.
+
+The spherical cow reveals what matters. Khayyam knew this. The companion papers
+make it rigorous.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section*{Acknowledgements}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+The author thanks Claude Shannon posthumously: his 1948 paper established two
+instances of the Shannon--Wakil effect before either the effect or the arithmetic
+instance were identified. The author thanks Simon Clark for articulating the
+spherical cow principle with the clarity that made the mathematical parallel
+visible.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\begin{thebibliography}{99}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+%% ── Foundational references ───────────────────────────────────────────────────
+
+\bibitem{Clark2020}
+S.~Clark,
+\emph{Assume a Spherical Cow: A Physicist's Guide to Understanding the
+Universe},
+Quadrille Publishing, 2020.
+
+\bibitem{Shannon1948}
+C.~E.~Shannon,
+A mathematical theory of communication,
+\emph{Bell System Tech.\ J.}\ \textbf{27} (1948), 379--423, 623--656.
+
+\bibitem{Godel1931}
+K.~G\"odel,
+\"Uber formal unentscheidbare S\"atze der Principia Mathematica und verwandter
+Systeme~I,
+\emph{Monatsh.\ Math.\ Phys.}\ \textbf{38} (1931), 173--198.
+
+\bibitem{Cohen1963}
+P.~J.~Cohen,
+The independence of the continuum hypothesis,
+\emph{Proc.\ Nat.\ Acad.\ Sci.\ USA}\ \textbf{50} (1963), 1143--1148.
+
+%% ── Sieve theory ──────────────────────────────────────────────────────────────
+
+\bibitem{BV1965}
+E.~Bombieri and A.~I.~Vinogradov,
+On the large sieve,
+\emph{Mathematika}\ \textbf{12} (1965), 201--225.
+
+\bibitem{GPY2009}
+D.~A.~Goldston, J.~Pintz, and C.~Y.~Y{\i}ld{\i}r{\i}m,
+Primes in tuples~I,
+\emph{Ann.\ of Math.}\ \textbf{170} (2009), 819--862.
+
+\bibitem{Zhang2014}
+Y.~Zhang,
+Bounded gaps between primes,
+\emph{Ann.\ of Math.}\ \textbf{179} (2014), 1121--1174.
+
+\bibitem{Maynard2015}
+J.~Maynard,
+Small gaps between primes,
+\emph{Ann.\ of Math.}\ \textbf{181} (2015), 383--413.
+
+\bibitem{Pascadi2025}
+A.~Pascadi,
+Level of distribution $5/8$ for smooth moduli,
+arXiv:2505.00653v2, 2025.
+
+%% ── Companion papers (Wakil's Program) ───────────────────────────────────────
+
+\bibitem{WakilKhayyam}
+K.~Wakil,
+Khayyam's triangle: historical restoration and the geometry hidden in the
+numbers,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilRamanujan}
+K.~Wakil,
+Ramanujan's dimensional forcing: a universal formula for sieve levels,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilEisenstein}
+K.~Wakil,
+Ternary forcing on the hexagonal lattice: Eisenstein integers, cascade
+moduli, and level of distribution~$5/8$,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilW3}
+K.~Wakil,
+Condition~W3: absence of Siegel zeros for characters modulo~$3^K$ via
+CM~structure of~$\mathbb{Z}[\omega]$,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilShannon}
+K.~Wakil,
+The Shannon--Wakil effect: constitutional forcing as a universal pattern
+in information theory and prime arithmetic,
+ARC Institute of Knowware, preprint, 2026.
+
+\end{thebibliography}
+
+\end{document}

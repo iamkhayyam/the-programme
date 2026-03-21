@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Shannon–Wakil Effect — Wakil 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+:root{--linen:#e8e4dc;--ink:#111;--mid:#444;--light:#888;--rule:#ccc;--lrule:#ddd;--bg:#faf9f6;--note-bg:#f4f2ee;--accent:#8B0000;--link:#1a3a7c;--sidebar-w:220px;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:14px;}
+body{background:var(--linen);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;}
+.site-header{border-bottom:1px solid var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:50px;background:var(--linen);position:sticky;top:0;z-index:100;}
+.site-logo{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.88rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);text-decoration:none;line-height:1.1;}
+.site-logo span{display:block;font-size:.58rem;letter-spacing:.22em;color:var(--light);font-weight:300;}
+.site-nav{display:flex;gap:1.8rem;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;}
+.site-nav a{color:var(--ink);text-decoration:none;}
+.preprint-bar{border-bottom:1px solid var(--rule);padding:.5rem 2rem;display:flex;align-items:center;justify-content:space-between;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);font-family:'IBM Plex Mono',monospace;}
+.preprint-bar .series-tag{color:var(--ink);font-weight:500;}
+.page-body{max-width:1080px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:var(--sidebar-w) 1fr;gap:0;}
+.sidebar{border-right:1px solid var(--rule);padding:2.5rem 1.8rem 2.5rem 0;position:sticky;top:50px;height:calc(100vh - 50px);overflow-y:auto;}
+.sb-label{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
+.sb-num{font-family:'IBM Plex Sans',sans-serif;font-size:3.2rem;font-weight:300;line-height:1;color:var(--ink);letter-spacing:-.02em;margin-bottom:1.8rem;}
+.sb-meta{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;color:var(--light);line-height:2;text-transform:uppercase;margin-bottom:1.8rem;}
+.sb-meta strong{color:var(--ink);display:block;font-weight:500;font-size:.55rem;margin-top:.6rem;}
+.sb-meta strong:first-child{margin-top:0;}
+.sb-links{margin-bottom:1.8rem;}
+.sb-link{display:block;font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;text-transform:uppercase;color:var(--link);text-decoration:none;padding:.35rem 0;border-bottom:1px solid var(--lrule);line-height:1.4;}
+.sb-link:last-child{border-bottom:none;}
+.sb-link:hover{color:var(--accent);}
+.sb-link .sb-link-label{color:var(--light);display:block;font-size:.48rem;}
+.series-index{list-style:none;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.04em;line-height:2.1;text-transform:uppercase;color:var(--light);}
+.series-index a{color:var(--light);text-decoration:none;}
+.series-index a:hover{color:var(--ink);}
+.series-index .curr{color:var(--ink);font-weight:500;}
+.series-index .curr::before{content:'→ ';}
+.paper{padding:2.5rem 0 4rem 2.8rem;background:var(--bg);min-height:calc(100vh - 50px);}
+.paper-header{text-align:center;padding-bottom:2rem;border-bottom:1px solid var(--rule);margin-bottom:2rem;}
+.paper-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--light);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem;}
+.paper-label a{color:var(--link);text-decoration:none;}
+h1.title{font-family:'STIX Two Text','Times New Roman',serif;font-weight:600;font-size:1.45rem;line-height:1.35;color:var(--ink);margin-bottom:1rem;}
+.authors{font-family:'IBM Plex Sans',sans-serif;font-size:.82rem;color:var(--mid);margin-bottom:.4rem;}
+.affiliation{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--light);font-style:italic;margin-bottom:1rem;}
+.paper-date{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--light);}
+.abstract-block{margin:0 2rem 1.5rem;padding:1.2rem 1.5rem;background:var(--note-bg);border:1px solid var(--rule);}
+.abs-label{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mid);margin-bottom:.7rem;text-align:center;}
+.abstract-block p{font-family:'STIX Two Text',serif;font-size:.88rem;line-height:1.65;color:var(--mid);text-align:justify;margin:0;}
+.keywords{margin:.8rem 2rem 1.5rem;font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;color:var(--light);text-align:center;}
+.keywords strong{color:var(--mid);font-weight:500;}
+.paper-meta-strip{display:flex;gap:1.5rem;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;padding:.8rem 1rem;border-top:1px solid var(--lrule);border-bottom:1px solid var(--lrule);}
+.meta-pill{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--light);}
+.meta-pill a{color:var(--link);text-decoration:none;border-bottom:1px solid var(--lrule);}
+.meta-pill a:hover{color:var(--accent);}
+.paper-body{font-family:'STIX Two Text','Times New Roman',serif;font-size:1rem;line-height:1.72;color:var(--ink);max-width:640px;}
+.paper-body p{text-align:justify;margin-bottom:.9em;hyphens:auto;}
+.paper-body h2{font-family:'STIX Two Text',serif;font-weight:600;font-size:1.05rem;color:var(--ink);margin:2.2rem 0 .8rem;counter-increment:section;}
+.paper-body h2::before{content:counter(section) '.  ';color:var(--accent);}
+.paper-body{counter-reset:section;}
+.paper-body h3{font-family:'STIX Two Text',serif;font-weight:600;font-size:.92rem;color:var(--mid);margin:1.5rem 0 .5rem;font-style:italic;}
+.eq-label{display:flex;align-items:center;justify-content:space-between;margin:1.2rem 0;}
+.eq-content{flex:1;text-align:center;font-family:'STIX Two Text',serif;font-size:1.02rem;}
+.eq-num{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);width:44px;text-align:right;}
+.env-block{margin:1.4rem 0;padding:1rem 1.2rem;font-family:'STIX Two Text',serif;font-size:.95rem;line-height:1.65;}
+.env-block.theorem{border:1px solid var(--rule);border-left:4px solid var(--ink);background:var(--note-bg);}
+.env-block.proposition{border:1px solid var(--rule);border-left:4px solid var(--mid);background:var(--note-bg);}
+.env-block.lemma{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
+.env-block.corollary{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
+.env-block.definition{border:1px solid var(--rule);border-left:4px solid var(--accent);background:#fff8f8;}
+.env-block.remark{border-left:3px solid var(--accent);background:#fff8f8;padding:.8rem 1.2rem;}
+.env-block.conjecture{border:1px dashed var(--rule);border-left:4px dashed var(--ink);background:var(--note-bg);}
+.env-label{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);margin-bottom:.5rem;}
+.env-block.remark .env-label,.env-block.definition .env-label{color:var(--accent);}
+.proof{margin:.5rem 0 1.2rem 1.5rem;font-family:'STIX Two Text',serif;font-size:.92rem;line-height:1.65;color:var(--mid);}
+.proof-label{font-family:'IBM Plex Sans',sans-serif;font-style:italic;font-size:.8rem;color:var(--light);margin-bottom:.3rem;}
+.qed{float:right;font-size:1rem;color:var(--mid);}
+table.formal{width:100%;border-collapse:collapse;margin:1.2rem 0 1rem;font-size:.85rem;font-family:'STIX Two Text',serif;}
+table.formal th{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid var(--ink);border-top:1px solid var(--ink);padding:.5rem .8rem;text-align:left;}
+table.formal td{padding:.45rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;}
+table.formal tr:last-child td{border-bottom:1px solid var(--ink);}
+.table-caption{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--mid);text-align:center;margin-bottom:1.5rem;font-style:italic;}
+.table-caption strong{font-style:normal;font-weight:500;}
+em{font-style:italic;}strong{font-weight:600;}
+sup{font-size:.7em;vertical-align:super;color:var(--accent);}
+sub{font-size:.7em;vertical-align:sub;}
+.next-paper{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--ink);max-width:640px;}
+.next-label{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
+.next-title{font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;}
+.next-title a{color:var(--ink);text-decoration:none;}
+.next-title a:hover{color:var(--link);}
+.next-desc{font-family:'STIX Two Text',serif;font-size:.88rem;color:var(--light);margin-top:.25rem;font-style:italic;}
+.references{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);max-width:640px;}
+.ref-list{list-style:none;counter-reset:refs;}
+.ref-list li{counter-increment:refs;padding-left:36px;position:relative;margin-bottom:.6rem;font-family:'STIX Two Text',serif;font-size:.82rem;line-height:1.5;color:var(--mid);}
+.ref-list li::before{content:'['counter(refs)']';position:absolute;left:0;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);}
+.site-footer{border-top:1px solid var(--ink);padding:.9rem 2rem;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);}
+@media(max-width:760px){.page-body{grid-template-columns:1fr;}.sidebar{position:static;height:auto;border-right:none;border-bottom:1px solid var(--rule);padding:1.5rem 0;}.paper{padding:1.5rem 0;}.preprint-bar{display:none;}.series-index{display:none;}.abstract-block{margin:0 0 1.5rem;}}
+</style>
+
+</head>
+<body>
+<header class="site-header">
+  <a href="https://knowware.institute" class="site-logo">KNOWWARE<span>THE &nbsp; A.R.C &nbsp; INSTITUTE</span></a>
+  <nav class="site-nav"><a href="../../papers/index.html">Pre-Print</a><a href="https://knowware.institute/contact">Contact</a></nav>
+</header>
+<div class="preprint-bar">
+  <span>ARC Institute of Knowware · 2026</span>
+  <span class="series-tag">Constitutional Sieve Programme · Nine Papers</span>
+  <span>cs.IT / math.NT · 94A15, 11N35 · Fisher Creek Ranch, Alberta</span>
+</div>
+<div class="page-body">
+  <aside class="sidebar">
+    <div class="sb-label">Paper</div><div class="sb-num">06</div>
+    <div class="sb-meta"><strong>Author</strong>Khayyam Wakil<strong>Published</strong>February 2026<strong>Series</strong>Constitutional Sieve Programme<strong>MSC 2020</strong>94A15, 94A24, 11N35, 11N13</div>
+    <div class="sb-links">
+      <a class="sb-link" href="p06.pdf" target="_blank">
+        <span class="sb-link-label">Download · PDF</span>
+        p06.pdf → View
+      </a>
+      <a class="sb-link" href="p06.tex" target="_blank">
+        <span class="sb-link-label">LaTeX Source</span>
+        p06.tex → View
+      </a>
+    </div>
+    <div class="sb-label" style="margin-bottom:.6rem;">Programme Index</div>
+    <ul class="series-index">
+      <li class=""><a href="../p01-constitutional-forcing/p01.html">01 · Constitutional Forcing</a></li>
+      <li class=""><a href="../p02-khayyams-triangle/p02.html">02 · Khayyam's Triangle</a></li>
+      <li class=""><a href="../p03-constitutional-signatures/p03.html">03 · Spherical Cow Philosophy</a></li>
+      <li class=""><a href="../p04-that-eisenstein-guy/p04.html">04 · Eisenstein, θ = 5/8</a></li>
+      <li class=""><a href="../p05-ramanujans-formula/p05.html">05 · Ramanujan's Formula</a></li>
+      <li class="curr"><a href="p06.html">06 · Shannon–Wakil Effect</a></li>
+      <li class=""><a href="../p07-condition_w3/p07.html">07 · Condition W3</a></li>
+      <li class=""><a href="../p08-prime-bias-ternary-bridge/p08.html">08 · Prime Digit Bias</a></li>
+      <li class=""><a href="../p09-wakil-theta-fft/p09.html">09 · DFT Constitutional Constant</a></li>
+    </ul>
+  </aside>
+  <article class="paper">
+    <div class="paper-header">
+      <div class="paper-label">Preprint · ARC Institute of Knowware · February 2026</div>
+      <h1 class="title">The Shannon–Wakil Effect: Constitutional Forcing as a Universal Pattern in Information Theory and Prime Arithmetic</h1>
+      <div class="authors">Khayyam Wakil</div>
+      <div class="affiliation">The ARC Institute of Knowware, Calgary, Alberta, Canada</div>
+      <div class="paper-date">Submitted February 2026 &nbsp;·&nbsp; Constitutional Sieve Programme, Paper 06 of 09</div>
+    </div>
+    <div class="abstract-block">
+      <div class="abs-label">Abstract</div>
+      <p>We identify, formalize, and provide three proven instances of a structural phenomenon we call the <em>Shannon–Wakil effect</em>: an exponential configuration space undergoes forced dimensional reduction to a strict subspace, governed by a constant that is uniquely determined by the algebraic structure of the system and cannot be altered without changing that structure.</p>
+      <p style="margin-top:.7em;">The first two instances are both due to Shannon (1948). The Asymptotic Equipartition Property shows that |𝒜|<sup><em>n</em></sup> sequences concentrate onto a typical set of size ≈ 2<sup><em>nH</em></sup>, where entropy <em>H</em> is forced by the source distribution. The Channel Coding Theorem shows that reliable communication is possible only at rates <em>R</em> &lt; <em>C</em>, where channel capacity <em>C</em> is forced by the channel. The third instance is the cascade moduli result: primes modulo powers of 3 concentrate onto an effective subspace governed by level of distribution θ<sub>W</sub> = 5/8, forced by the algebraic structure of Z[ω].</p>
+      <p style="margin-top:.7em;">We exhibit a confirmed non-instance (Sophie Germain prime pairs at θ = 1/2), demonstrating that the framework is falsifiable.</p>
+    </div>
+    <div class="keywords"><strong>Keywords:</strong> Shannon entropy, channel capacity, asymptotic equipartition property, constitutional forcing, level of distribution, cascade moduli, Eisenstein integers, twin primes, Sophie Germain primes, <em>k</em>-hierarchy, structural parallel</div>
+    <div class="paper-meta-strip">
+      <span class="meta-pill">MSC 2020: 94A15 (primary) · 94A24 · 11N35 · 11N13</span>
+      <span class="meta-pill"><a href="../../papers/index.html">preprints.knowware.institute</a></span>
+      <span class="meta-pill"><a href="https://github.com/knowware-institute/constitutional-forcing">p06.tex source</a></span>
+    </div>
+    <div class="paper-body">
+
+      <h2>Introduction</h2>
+      <p>Every mathematician knows at some level that information theory and number theory are different subjects. Information theory studies the storage and transmission of data; number theory studies the arithmetic structure of integers. They have different objects, different tools, and different communities.</p>
+      <p>This paper documents a precise structural parallel between the two, visible only after both sides are independently understood. In 1948, Shannon proved two theorems that together define the fundamental limits of compression and communication. In 2026, a companion paper established an analogous phenomenon in analytic number theory. The governing constants in both cases are not chosen — they are uniquely forced by the algebraic structure of the underlying mathematical object. We call all three results instances of the Shannon–Wakil effect.</p>
+
+      <h2>The Shannon–Wakil Effect: Definition</h2>
+      <div class="env-block definition">
+        <div class="env-label">Definition 2.1 — Shannon–Wakil Effect</div>
+        A system exhibits the <em>Shannon–Wakil effect</em> if: (i) it has an exponential configuration space of size <em>B</em><sup><em>n</em></sup> or 2<sup><em>k</em></sup>; (ii) algebraic structure forces dimensional reduction to a strict subspace; (iii) the governing constant of that reduction is uniquely determined by the structure and cannot be altered without changing the system; (iv) the reduction is not approximated or fitted — it is exact and structural.
+      </div>
+
+      <h2>First Instance: Shannon's AEP (1948)</h2>
+      <div class="env-block theorem">
+        <div class="env-label">Theorem 3.1 — Asymptotic Equipartition Property (Shannon 1948)</div>
+        For any ε > 0, the typical set <em>T</em><sub>ε</sub><sup>(<em>n</em>)</sup> = {<em>x</em><sup><em>n</em></sup> ∈ 𝒜<sup><em>n</em></sup> : |−(1/<em>n</em>) log<sub>2</sub> <em>p</em>(<em>x</em><sup><em>n</em></sup>) − <em>H</em>| &lt; ε} satisfies: (i) Pr[<em>X</em><sup><em>n</em></sup> ∈ <em>T</em><sub>ε</sub><sup>(<em>n</em>)</sup>] → 1; (ii) |<em>T</em><sub>ε</sub><sup>(<em>n</em>)</sup>| ≤ 2<sup><em>n</em>(<em>H</em>+ε)</sup>; (iii) |<em>T</em><sub>ε</sub><sup>(<em>n</em>)</sup>| ≥ (1−ε)2<sup><em>n</em>(<em>H</em>−ε)</sup> for large <em>n</em>.
+      </div>
+      <p>The Shannon–Wakil structure: configuration space |𝒜|<sup><em>n</em></sup>; forced reduction to ≈ 2<sup><em>nH</em></sup>; governing constant <em>H</em> = −Σ <em>p</em> log <em>p</em> forced uniquely by the source distribution. You cannot change <em>H</em> without changing the source. It is not fitted. It is forced.</p>
+
+      <h2>Second Instance: Channel Coding Theorem (1948)</h2>
+      <div class="env-block theorem">
+        <div class="env-label">Theorem 4.1 — Channel Coding Theorem (Shannon 1948)</div>
+        (Achievability) For any <em>R</em> &lt; <em>C</em> and ε > 0, codes of rate <em>R</em> and block-length <em>n</em> exist with error probability &lt; ε for all sufficiently large <em>n</em>. (Converse) For any <em>R</em> &gt; <em>C</em>, every sequence of codes of rate <em>R</em> has error probability bounded away from 0. Channel capacity: <em>C</em> = max<sub><em>p</em>(<em>x</em>)</sub> <em>I</em>(<em>X</em>;<em>Y</em>).
+      </div>
+      <p>The Shannon–Wakil structure: code space 2<sup><em>nR</em></sup>; forced reduction to reliable codes only for <em>R</em> &lt; <em>C</em>; governing constant <em>C</em> = max <em>I</em>(<em>X</em>;<em>Y</em>) forced uniquely by the channel. The supremum structure of <em>C</em> and the supremum structure of level of distribution θ<sub>W</sub> are formally identical: both are the maximum rate at which a forced concentration holds.</p>
+
+      <h2>Third Instance: Cascade Moduli Forcing (2026)</h2>
+      <div class="env-block theorem">
+        <div class="env-label">Theorem 5.1 — Cascade Moduli Forcing (Companion Paper [4])</div>
+        For any <em>A</em> > 0 and ε > 0, Σ<sub>3<sup>K</sup> ≤ x<sup>5/8−ε</sup></sub> max<sub>gcd(<em>a</em>,3<sup>K</sup>)=1</sub> |ψ(<em>x</em>; 3<sup>K</sup>, <em>a</em>) − <em>x</em>/φ(3<sup>K</sup>)| ≪ <em>x</em>/(log <em>x</em>)<sup><em>A</em></sup>. The level of distribution θ<sub>W</sub> = 5/8 is the supremum of valid equidistribution rates, forced by the algebraic structure of Z[ω]. It cannot be changed without changing the structure.
+      </div>
+
+      <h2>The Five Structural Correspondences</h2>
+      <table class="formal">
+        <tr><th>#</th><th>Shannon AEP</th><th>Channel Coding</th><th>Cascade Moduli</th></tr>
+        <tr><td>1</td><td>|𝒜|<sup><em>n</em></sup> possible sequences</td><td>2<sup><em>nR</em></sup> possible codes</td><td>All progressions mod 3<sup><em>K</em></sup></td></tr>
+        <tr><td>2</td><td>Concentrates on ≈ 2<sup><em>nH</em></sup></td><td>Reliable only at <em>R</em> &lt; <em>C</em></td><td>Concentrates on <em>x</em><sup>θ<sub>W</sub></sup></td></tr>
+        <tr><td>3</td><td><em>H</em> forced by source <em>p</em>(<em>x</em>)</td><td><em>C</em> forced by channel <em>p</em>(<em>y</em>|<em>x</em>)</td><td>θ<sub>W</sub> forced by Z[ω] structure</td></tr>
+        <tr><td>4</td><td>Entropy maximisation</td><td>Mutual information supremum</td><td>Equidistribution supremum</td></tr>
+        <tr><td>5</td><td>θ₁ = (2−1)/2 = 1/2</td><td>θ₁ = 1/2 (binary channel)</td><td>θ₃ = (8−3)/8 = 5/8</td></tr>
+      </table>
+      <div class="table-caption"><strong>Table 1.</strong> Five structural correspondences between the three instances of the Shannon–Wakil effect. Each is precise, not metaphorical.</div>
+
+      <div class="env-block remark">
+        <div class="env-label">Remark — The 77-Year Gap</div>
+        Shannon's results: 1948. The cascade moduli result: 2026. Gap: 77 years. The structural parallel was invisible until both sides were independently established. Shannon had never heard of cascade moduli; this programme was not built by analogy from information theory. The independence of the two paths is part of the evidence that the mechanism is real: two separate fields, different tools, different communities, decades apart, forced to the same formal structure by the same underlying phenomenon.
+      </div>
+
+      <h2>The Shannon–Wakil Constant Ratio</h2>
+      <div class="env-block proposition">
+        <div class="env-label">Proposition 8.1 — Shannon–Wakil Constant Ratio</div>
+        The ratio θ<sub>W</sub>/θ<sub>BV</sub> = (5/8)/(1/2) = 5/4 is the information-theoretic gain from exploiting the algebraic structure of Z[ω] relative to a generic (unstructured) channel. Whether this ratio has a channel-capacity interpretation — that is, whether there exists a channel whose capacity is exactly 5/4 times the capacity of the corresponding binary channel — is an open problem.
+      </div>
+
+      <div class="next-paper">
+        <div class="next-label">Next in Programme</div>
+        <div class="next-title"><a href="../p07-condition_w3/p07.html">07 · Condition W3 →</a></div>
+        <div class="next-desc">Absence of Siegel Zeros for Characters Modulo 3<sup>K</sup> via the CM Structure of Z[ω]. The foundation check: proving that the pathological zeros that would undermine the main theorem cannot exist — via the same Eisenstein structure that forces θ = 5/8.</div>
+      </div>
+
+      <div class="references">
+        <h2 style="counter-increment:none;">References</h2>
+        <ol class="ref-list">
+          <li>C. E. Shannon, "A Mathematical Theory of Communication," <em>Bell Syst. Tech. J.</em> 27 (1948), 379–423.</li>
+          <li>T. Cover and J. Thomas, <em>Elements of Information Theory</em>, 2nd ed. Wiley, 2006.</li>
+          <li>K. Wakil, "Ramanujan's Dimensional Forcing," Constitutional Sieve Programme Paper 05 (2026).</li>
+          <li>K. Wakil, "Ternary Forcing on the Hexagonal Lattice," Constitutional Sieve Programme Paper 04 (2026).</li>
+          <li>K. Wakil, "Spherical Cow Philosophy," Constitutional Sieve Programme Paper 03 (2026).</li>
+        </ol>
+      </div>
+    </div>
+  </article>
+</div>
+<footer class="site-footer">
+  <span>Knowware is measured in lifetimes</span><span>Constitutional Sieve Programme · Paper 06 of 09</span><span>Registered · Canada</span>
+</footer>
+</body></html>
