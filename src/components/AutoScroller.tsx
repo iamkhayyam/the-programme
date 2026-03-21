@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useReadingSpeed } from "../context/ReadingSpeedContext";
-import { Play, Pause, Plus, Minus, MoveVertical, ExternalLink } from "lucide-react";
+import { Play, Pause, MoveVertical, ExternalLink, Minus, Plus } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function AutoScroller() {
@@ -27,7 +27,7 @@ export default function AutoScroller() {
                <span className="font-plex-mono text-[0.5rem] text-mid uppercase tracking-[0.2em] opacity-70 mb-1">Menu</span>
                <Link to="/preprints" onClick={() => setIsExpanded(false)} className="text-[0.7rem] text-light hover:text-accent uppercase tracking-widest font-medium transition-colors">Papers</Link>
                <Link to="/essays" onClick={() => setIsExpanded(false)} className="text-[0.7rem] text-light hover:text-accent uppercase tracking-widest font-medium transition-colors">Essays</Link>
-               <Link to="/constitutional-proof" onClick={() => setIsExpanded(false)} className="text-[0.7rem] text-light hover:text-accent uppercase tracking-widest font-medium transition-colors">The Play</Link>
+               <Link to="/constitutional-proof" onClick={() => setIsExpanded(false)} className="text-[0.7rem] text-light hover:text-accent uppercase tracking-widest font-medium transition-colors">SCRIPT</Link>
                <a href="https://github.com/iamkhayyam/the-programme" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-[0.7rem] text-light hover:text-accent uppercase tracking-widest font-medium transition-colors">
                  GitHub <ExternalLink size={10} />
                </a>
@@ -41,31 +41,44 @@ export default function AutoScroller() {
 
             <div className="flex items-center justify-center gap-4">
               <button 
+                onClick={decreaseSpeed}
+                className="w-6 h-6 rounded-full border border-rule/20 flex items-center justify-center text-mid hover:text-accent hover:border-accent transition-all active:scale-90"
+                title="Decrease Speed"
+              >
+                <Minus size={12} />
+              </button>
+
+              <button 
                 onClick={toggleAutoScroll}
                 className="w-10 h-10 rounded-full border border-rule/40 flex items-center justify-center text-light hover:text-accent hover:border-accent transition-all active:scale-95"
               >
                 {isAutoScrolling ? <Pause size={16} /> : <Play size={16} className="ml-0.5" />}
               </button>
+
+              <button 
+                onClick={increaseSpeed}
+                className="w-6 h-6 rounded-full border border-rule/20 flex items-center justify-center text-mid hover:text-accent hover:border-accent transition-all active:scale-90"
+                title="Increase Speed"
+              >
+                <Plus size={12} />
+              </button>
             </div>
 
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-3">
               <div className="flex items-center justify-between px-1">
                 <span className="font-plex-mono text-[0.5rem] text-mid uppercase tracking-tighter">Speed</span>
                 <span className="font-plex-mono text-[0.6rem] text-accent font-bold">{speed.toFixed(1)}x</span>
               </div>
-              <div className="flex items-center gap-2">
-                <button 
-                  onClick={decreaseSpeed}
-                  className="flex-1 h-8 border border-rule/30 rounded flex items-center justify-center text-light hover:bg-white/5 transition-colors"
-                >
-                  <Minus size={12} />
-                </button>
-                <button 
-                  onClick={increaseSpeed}
-                  className="flex-1 h-8 border border-rule/30 rounded flex items-center justify-center text-light hover:bg-white/5 transition-colors"
-                >
-                  <Plus size={12} />
-                </button>
+              <div className="px-1">
+                <input 
+                  type="range" 
+                  min="0.5" 
+                  max="10" 
+                  step="0.1" 
+                  value={speed} 
+                  onChange={(e) => setSpeed(parseFloat(e.target.value))}
+                  className="w-full h-1 bg-rule/20 rounded-lg appearance-none cursor-pointer accent-accent"
+                />
               </div>
             </div>
           </motion.div>

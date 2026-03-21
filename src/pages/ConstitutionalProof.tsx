@@ -11,11 +11,20 @@ export default function ConstitutionalProof() {
       {/* --- SIDEBAR --- */}
       <aside className="border-r border-rule pr-7 py-10 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto hidden md:block">
         <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-1.5">Programme</div>
-        <KnowwareLogo size={70} className="mb-8" strokeColor="#888" circleColor="#1a1a1a" />
+        <KnowwareLogo size="clamp(75px, 9vw, 95px)" className="mb-8 -ml-[8.33%]" strokeColor="var(--text-light)" circleColor="var(--text-color)" />
         
         <div className="font-plex-mono text-[0.52rem] tracking-wider text-light leading-[2] uppercase mb-7">
           <strong className="text-ink block font-medium text-[0.55rem] mt-2.5 first:mt-0">Author</strong>Khayyam Wakil
-          <strong className="text-ink block font-medium text-[0.55rem] mt-2.5">Year</strong>2025
+          
+          <div className="flex gap-6 mt-2.5">
+            <div>
+              <strong className="text-ink block font-medium text-[0.55rem]">Year</strong>2025
+            </div>
+            <div>
+              <strong className="text-ink block font-medium text-[0.55rem]">Status</strong>Active
+            </div>
+          </div>
+
           <strong className="text-ink block font-medium text-[0.55rem] mt-2.5">Format</strong>Screenplay
         </div>
 
@@ -25,7 +34,7 @@ export default function ConstitutionalProof() {
             <Link to="/">← Back to Home</Link>
           </li>
           <li className="hover:text-light transition-colors">
-            <Link to="/play">Play Overview</Link>
+            <Link to="/script">SCRIPT Overview</Link>
           </li>
         </ul>
 

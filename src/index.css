@@ -8,21 +8,72 @@
   --font-garamond: "EB Garamond", serif;
   --font-space: "Space Grotesk", sans-serif;
 
-  --color-linen: rgba(242, 242, 242, 0.8);
-  --color-ink: #1a1a1a;
-  --color-mid: #555;
-  --color-light: #888;
-  --color-rule: #dadada;
+  --color-linen: var(--bg-color);
+  --color-ink: var(--text-color);
+  --color-mid: var(--text-mid);
+  --color-light: var(--text-light);
+  --color-rule: var(--border-color);
   --color-accent: #777;
-  --color-accent-pale: rgba(0, 0, 0, 0.03);
+  --color-accent-pale: var(--accent-pale);
   --color-accent-dark: #333;
-  --color-paper-bg: rgba(250, 250, 250, 0.9);
-  --color-note-bg: rgba(245, 245, 245, 0.9);
+  --color-paper-bg: var(--paper-bg);
+  --color-note-bg: var(--note-bg);
+}
+
+:root {
+  --bg-color: rgba(242, 242, 242, 0.8);
+  --text-color: #1a1a1a;
+  --text-mid: #555;
+  --text-light: #888;
+  --border-color: #dadada;
+  --paper-bg: rgba(250, 250, 250, 0.9);
+  --note-bg: rgba(245, 245, 245, 0.9);
+  --accent-pale: rgba(0, 0, 0, 0.03);
+}
+
+.theme-1 {
+  --bg-color: #e5e5e0;
+  --text-color: #222;
+  --text-mid: #666;
+  --text-light: #999;
+  --border-color: #cbcbc5;
+  --paper-bg: #ecece7;
+  --note-bg: #e8e8e3;
+}
+
+.theme-2 {
+  --bg-color: #2a2a2a;
+  --text-color: #d1d1ca;
+  --text-mid: #888;
+  --text-light: #555;
+  --border-color: #3a3a3a;
+  --paper-bg: #323232;
+  --note-bg: #2e2e2e;
+  --accent-pale: rgba(255, 255, 255, 0.03);
+}
+
+.theme-3, .dark {
+  --bg-color: #121212;
+  --text-color: #f5f5f0;
+  --text-mid: #a0a0a0;
+  --text-light: #666;
+  --border-color: #2a2a2a;
+  --paper-bg: #1a1a1a;
+  --note-bg: #161616;
+  --accent-pale: rgba(255, 255, 255, 0.05);
 }
 
 @layer base {
+  html {
+    transition: background-color 0.8s cubic-bezier(0.19, 1, 0.22, 1), 
+                color 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+                border-color 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+  }
   body {
     @apply bg-linen text-ink font-plex-sans min-h-screen relative;
+    transition: background-color 0.8s cubic-bezier(0.19, 1, 0.22, 1), 
+                color 0.8s cubic-bezier(0.19, 1, 0.22, 1),
+                border-color 0.8s cubic-bezier(0.19, 1, 0.22, 1);
   }
 
   body::before {
@@ -39,6 +90,10 @@
     @apply font-stix;
   }
 
+  sub, sup {
+    @apply italic;
+  }
+
   p {
     @apply font-plex-sans text-[0.9rem] leading-[1.6] text-mid;
   }
@@ -46,4 +101,13 @@
 
 .markdown-body {
   @apply font-stix leading-relaxed;
+}
+
+.theme-blend {
+  mix-blend-mode: multiply;
+}
+
+.dark .theme-blend {
+  mix-blend-mode: screen;
+  filter: invert(1) brightness(1.5);
 }

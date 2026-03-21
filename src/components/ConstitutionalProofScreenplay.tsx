@@ -2,7 +2,7 @@ import React from "react";
 
 const ConstitutionalProofScreenplay: React.FC = () => {
   return (
-    <div className="constitutional-proof-screenplay-container my-16 border border-rule bg-[#faf6ee] text-[#1a1208] font-mono text-[14px] leading-[1.7] relative overflow-hidden shadow-xl rounded-sm">
+    <div className="constitutional-proof-screenplay-container my-16 border border-rule bg-paper-bg text-ink font-mono text-[14px] leading-[1.7] relative overflow-hidden shadow-xl rounded-sm">
       <style dangerouslySetInnerHTML={{ __html: `
         .constitutional-proof-screenplay-container {
           --cream: #f5efe0;
@@ -18,6 +18,20 @@ const ConstitutionalProofScreenplay: React.FC = () => {
           --muted-teal: #4a8a8a;
           font-family: 'Courier Prime', 'Courier New', monospace;
           padding: 80px 40px;
+        }
+
+        .dark .constitutional-proof-screenplay-container {
+          --cream: #1a1a1a;
+          --warm-white: #121212;
+          --mustard: #b8860b;
+          --sienna: #cd853f;
+          --teal: #4a8a8a;
+          --coral: #ff7f50;
+          --sage: #8fbc8f;
+          --sepia: #d2b48c;
+          --ink: #f5f5f0;
+          --pale-coral: #4a3a3a;
+          --muted-teal: #669999;
         }
 
         .cp-page {

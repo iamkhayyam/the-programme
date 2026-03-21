@@ -6,21 +6,30 @@ import { Link } from "react-router-dom";
 import { Download } from "lucide-react";
 import { PAPERS } from "../constants/programme";
 
-export default function Play() {
+export default function Script() {
   return (
     <div className="max-w-[1080px] mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-0">
       {/* --- SIDEBAR --- */}
       <aside className="border-r border-rule pr-7 py-10 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto hidden md:block">
         <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-1.5">Programme</div>
-        <KnowwareLogo size={70} className="mb-8" strokeColor="#888" circleColor="#1a1a1a" />
+        <KnowwareLogo size="clamp(75px, 9vw, 95px)" className="mb-8 -ml-[8.33%]" strokeColor="var(--text-light)" circleColor="var(--text-color)" />
         
         <div className="font-plex-mono text-[0.52rem] tracking-wider text-light leading-[2] uppercase mb-7">
           <strong className="text-ink block font-medium text-[0.55rem] mt-2.5 first:mt-0">Author</strong>Khayyam Wakil
-          <strong className="text-ink block font-medium text-[0.55rem] mt-2.5">Year</strong>2025
+          
+          <div className="flex gap-6 mt-2.5">
+            <div>
+              <strong className="text-ink block font-medium text-[0.55rem]">Year</strong>2025
+            </div>
+            <div>
+              <strong className="text-ink block font-medium text-[0.55rem]">Status</strong>Active
+            </div>
+          </div>
+
           <strong className="text-ink block font-medium text-[0.55rem] mt-2.5">Format</strong>Screenplay
         </div>
 
-        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">The Play</div>
+        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">SCRIPT</div>
         <ul className="font-plex-mono text-[0.5rem] tracking-wider leading-[2.1] uppercase text-ink mb-6">
           <li className="font-medium hover:text-light transition-colors">
             <Link to="/constitutional-proof">→ 00 - THE CONSTITUTIONAL PROOF</Link>

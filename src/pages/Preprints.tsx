@@ -396,7 +396,7 @@ export default function Preprints() {
             <img 
               src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='40' fill='%23003366' font-style='italic'%3Eمكتوب%3C/text%3E%3C/svg%3E" 
               alt="Maktub" 
-              className="h-20 mix-blend-multiply"
+              className="h-20 theme-blend"
             />
           </div>
           <div className="font-plex-mono text-[0.55rem] text-light tracking-[0.2em] uppercase mt-4">

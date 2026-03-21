@@ -10,7 +10,7 @@ import Home from "./pages/Home";
 import PaperDetail from "./pages/PaperDetail";
 import EssayDetail from "./pages/EssayDetail";
 import Essays from "./pages/Essays";
-import Play from "./pages/Play";
+import Script from "./pages/Script";
 import CoverLetter from "./pages/CoverLetter";
 import Preprints from "./pages/Preprints";
 import Contact from "./pages/Contact";
@@ -27,7 +27,7 @@ export default function App() {
           <Route path="/papers/:id" element={<PaperDetail />} />
           <Route path="/essays" element={<Essays />} />
           <Route path="/essays/:id" element={<EssayDetail />} />
-          <Route path="/play" element={<Play />} />
+          <Route path="/script" element={<Script />} />
           <Route path="/cover-letter" element={<CoverLetter />} />
           <Route path="/preprints" element={<Preprints />} />
           <Route path="/contact" element={<Contact />} />

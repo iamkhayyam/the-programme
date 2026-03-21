@@ -390,7 +390,7 @@ const ESSAYS_DATA: Record<string, EssayContent> = {
         <h3 className="font-plex-mono text-[0.7rem] uppercase tracking-widest text-light mb-4 mt-10">The Napkin</h3>
         <p className="mb-6">This is what Ramanujan wrote:</p>
 
-        <div className="my-10 p-10 bg-[#fdfaf6] border border-[#e8e4de] shadow-sm relative overflow-hidden">
+        <div className="my-10 p-10 bg-note-bg border border-rule shadow-sm relative overflow-hidden">
           {/* Coral border effect */}
           <div className="absolute top-0 left-0 w-full h-1 bg-[#ff7f50] opacity-20" />
           <div className="absolute bottom-0 left-0 w-full h-1 bg-[#ff7f50] opacity-20" />
@@ -769,7 +769,7 @@ const ESSAYS_DATA: Record<string, EssayContent> = {
         <p className="mb-8">Here is what the key opened. In order of recognition, not chronology.</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-          <div className="p-6 border border-rule bg-paper/30">
+          <div className="p-6 border border-rule bg-paper-bg/30">
             <div className="flex justify-between items-start mb-4">
               <span className="font-plex-mono text-[0.7rem] text-accent font-bold">1</span>
               <span className="font-plex-mono text-[0.6rem] text-light">2025</span>
@@ -779,7 +779,7 @@ const ESSAYS_DATA: Record<string, EssayContent> = {
             <p className="text-[0.8rem] text-mid leading-relaxed">Twin primes satisfy p ≡ 2 (mod 3). The Eisenstein integers force three constraint levels. θ_W = 5/8 is not derived — it is what the structure leaves standing.</p>
           </div>
 
-          <div className="p-6 border border-rule bg-paper/30">
+          <div className="p-6 border border-rule bg-paper-bg/30">
             <div className="flex justify-between items-start mb-4">
               <span className="font-plex-mono text-[0.7rem] text-accent font-bold">2</span>
               <span className="font-plex-mono text-[0.6rem] text-light">1948</span>
@@ -789,7 +789,7 @@ const ESSAYS_DATA: Record<string, EssayContent> = {
             <p className="text-[0.8rem] text-mid leading-relaxed">Shannon's AEP and Channel Coding Theorem. An exponential configuration space forced onto a strict subspace by the source structure. Shannon didn't know either.</p>
           </div>
 
-          <div className="p-6 border border-rule bg-paper/30">
+          <div className="p-6 border border-rule bg-paper-bg/30">
             <div className="flex justify-between items-start mb-4">
               <span className="font-plex-mono text-[0.7rem] text-accent font-bold">3</span>
               <span className="font-plex-mono text-[0.6rem] text-light">1941</span>
@@ -799,7 +799,7 @@ const ESSAYS_DATA: Record<string, EssayContent> = {
             <p className="text-[0.8rem] text-mid leading-relaxed">Kolmogorov's turbulence exponent. Two constitutional constraints on incompressible flow. First structural derivation of why it cannot be otherwise.</p>
           </div>
 
-          <div className="p-6 border border-rule bg-paper/30">
+          <div className="p-6 border border-rule bg-paper-bg/30">
             <div className="flex justify-between items-start mb-4">
               <span className="font-plex-mono text-[0.7rem] text-accent font-bold">4</span>
               <span className="font-plex-mono text-[0.6rem] text-light">1965</span>
@@ -809,7 +809,7 @@ const ESSAYS_DATA: Record<string, EssayContent> = {
             <p className="text-[0.8rem] text-mid leading-relaxed">The Discrete Fourier Transform of any real-valued signal. The real-valued constraint eliminates exactly one configuration class. θ_FFT = 1/2.</p>
           </div>
 
-          <div className="p-6 border border-rule bg-paper/30">
+          <div className="p-6 border border-rule bg-paper-bg/30">
             <div className="flex justify-between items-start mb-4">
               <span className="font-plex-mono text-[0.7rem] text-accent font-bold">5</span>
               <span className="font-plex-mono text-[0.6rem] text-light">1070</span>
@@ -819,7 +819,7 @@ const ESSAYS_DATA: Record<string, EssayContent> = {
             <p className="text-[0.8rem] text-mid leading-relaxed">Khayyam's Triangle modulo 3. A Sierpiński fractal sitting in the most studied object in Western mathematics for three centuries.</p>
           </div>
 
-          <div className="p-6 border border-rule bg-paper/30">
+          <div className="p-6 border border-rule bg-paper-bg/30">
             <div className="flex justify-between items-start mb-4">
               <span className="font-plex-mono text-[0.7rem] text-accent font-bold">6</span>
               <span className="font-plex-mono text-[0.6rem] text-light">2016</span>
@@ -1111,7 +1111,7 @@ export default function EssayDetail() {
       {/* --- SIDEBAR --- */}
       <aside className="border-r border-rule pr-7 py-10 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto hidden md:block">
         <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-1.5">Programme</div>
-        <KnowwareLogo size={70} className="mb-8" strokeColor="#888" circleColor="#1a1a1a" />
+        <KnowwareLogo size="clamp(75px, 9vw, 95px)" className="mb-8 -ml-[8.33%]" strokeColor="var(--text-light)" circleColor="var(--text-color)" />
         
         <div className="font-plex-mono text-[0.52rem] tracking-wider text-light leading-[2] uppercase mb-7">
           <strong className="text-ink block font-medium text-[0.55rem] mt-2.5 first:mt-0">Author</strong>{essay.author}

@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 import { PAPERS } from "../constants/programme";
 import { ESSAYS } from "./Essays";
 import KnowwareLogo from "../components/KnowwareLogo";
+import { Fraction } from "../components/Fraction";
 
 export default function Home() {
   const maktubRef = useRef<HTMLImageElement>(null);
@@ -111,12 +112,19 @@ export default function Home() {
         {/* --- SIDEBAR --- */}
         <aside className="border-r border-rule pr-7 py-10 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto hidden md:block">
         <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-1.5">Programme</div>
-        <KnowwareLogo size={70} className="mb-8" strokeColor="#888" circleColor="#1a1a1a" />
+        <KnowwareLogo size="clamp(75px, 9vw, 95px)" className="mb-8 -ml-[8.33%]" strokeColor="var(--text-light)" circleColor="var(--text-color)" />
         
         <div className="font-plex-mono text-[0.52rem] tracking-wider text-light leading-[2] uppercase mb-7">
           <strong className="text-ink block font-medium text-[0.55rem] mt-2.5 first:mt-0">Institute</strong>ARC Institute
-          <strong className="text-ink block font-medium text-[0.55rem] mt-2.5">Year</strong>2026
-          <strong className="text-ink block font-medium text-[0.55rem] mt-2.5">Status</strong>Active
+          
+          <div className="flex gap-6 mt-2.5">
+            <div>
+              <strong className="text-ink block font-medium text-[0.55rem]">Year</strong>2026
+            </div>
+            <div>
+              <strong className="text-ink block font-medium text-[0.55rem]">Status</strong>Active
+            </div>
+          </div>
         </div>
 
         <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">Essays</div>
@@ -141,7 +149,7 @@ export default function Home() {
           ))}
         </ul>
 
-        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">The Play</div>
+        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">SCRIPT</div>
         <ul className="font-plex-mono text-[0.5rem] tracking-wider leading-[2.1] uppercase text-light">
           <li className="hover:text-ink transition-colors">
             <Link to="/constitutional-proof">
@@ -299,7 +307,7 @@ export default function Home() {
                 <Link 
                   key={paper.id}
                   to={paper.paperUrl}
-                  className="bg-white p-6 hover:bg-linen/30 transition-colors flex flex-col justify-between min-h-[220px] group"
+                  className="bg-paper-bg p-6 hover:bg-linen/30 transition-colors flex flex-col justify-between min-h-[220px] group"
                 >
                   <div>
                     <div className="flex justify-between items-start mb-4">
@@ -329,12 +337,19 @@ export default function Home() {
     </div>
 
     {/* --- CLOSING --- */}
-    <div ref={closingRef} className="relative z-10 border-t border-rule overflow-hidden h-[calc(100vh-3.5rem-3rem)] flex items-center justify-center w-full">
-        <div ref={closingContentRef} className="max-w-[800px] mx-auto py-16 px-8 text-center relative z-10 flex flex-col items-center justify-center">
-          <div className="font-stix text-[2rem] md:text-[2.4rem] text-ink mb-6 tracking-widest">θ<sub>k</sub> = (2<sup>k</sup> − k) / 2<sup>k</sup></div>
-          <div className="w-12 h-px bg-ink mx-auto mb-8" />
+    <div ref={closingRef} className="relative z-10 border-t border-rule overflow-hidden min-h-[320px] md:h-[calc(100vh-3.5rem-3rem)] pt-20 pb-2 md:py-0 flex items-center justify-center w-full">
+        <div ref={closingContentRef} className="max-w-[800px] mx-auto px-8 text-center relative z-10 flex flex-col items-center justify-center">
+          <div className="font-stix text-ink flex items-center gap-4 md:gap-6 mb-8 tracking-normal">
+            <span className="text-[2.2rem] md:text-[3.2rem] font-medium">θ<sub>k</sub> =</span>
+            <Fraction 
+              numerator={<span className="text-[1.6rem] md:text-[2.2rem] px-1">2<sup>k</sup> − k</span>}
+              denominator={<span className="text-[1.6rem] md:text-[2.2rem] px-1">2<sup>k</sup></span>}
+              className="scale-110 md:scale-125"
+            />
+          </div>
+          <div className="w-12 h-px bg-ink/20 mx-auto mb-6" />
           
-          <div className="space-y-6 mb-12">
+          <div className="space-y-4 mb-6 md:mb-12">
             <p className="font-garamond italic text-[1.1rem] md:text-[1.2rem] text-mid max-w-[580px] mx-auto leading-[1.7]">
               "The mechanism was not invented in 2026. It was operating in Khayyam's triangle in 1070, in Shannon's Bell Labs notebook in 1948, in Kolmogorov's Moscow in 1941, in the primes since before any of them were born."
             </p>
@@ -343,7 +358,7 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="mt-8 flex flex-col items-center gap-3 relative">
+          <div className="mt-1 md:mt-8 flex flex-col items-center gap-1 md:gap-3 relative">
             {/* Sonar Rings */}
             <div ref={sonarContainerRef} className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none flex items-center justify-center">
               <div className="sonar-ring absolute w-32 h-32 border border-accent/40 rounded-full" />
@@ -351,15 +366,15 @@ export default function Home() {
               <div className="sonar-ring absolute w-32 h-32 border border-accent/20 rounded-full" />
             </div>
 
-            <div className="font-plex-mono text-[0.6rem] tracking-[0.4em] uppercase text-light">Maktub</div>
-            <div className="font-plex-mono text-[0.6rem] tracking-[0.4em] uppercase text-light">It is written</div>
+            <div className="font-plex-mono text-[0.5rem] md:text-[0.6rem] tracking-[0.4em] uppercase text-light">Maktub</div>
+            <div className="font-plex-mono text-[0.5rem] md:text-[0.6rem] tracking-[0.4em] uppercase text-light">It is written</div>
             <img 
               ref={maktubRef}
               onMouseEnter={handleMaktubHover}
               onMouseLeave={handleMaktubLeave}
               src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 200'%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='80' fill='%231e3a8a' font-style='italic'%3Eمكتوب%3C/text%3E%3C/svg%3E" 
               alt="Maktub Calligraphy" 
-              className="h-24 md:h-28 w-auto mt-4 opacity-90 mix-blend-multiply contrast-125 cursor-pointer relative z-10"
+              className="h-16 md:h-28 w-auto mt-1 md:mt-4 opacity-90 theme-blend contrast-125 cursor-pointer relative z-10"
               referrerPolicy="no-referrer"
             />
           </div>
