@@ -1107,22 +1107,22 @@ export default function EssayDetail() {
   };
 
   return (
-    <div className="max-w-[1080px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-0">
+    <div className="max-w-[1140px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-0">
       {/* --- SIDEBAR --- */}
       <aside className="border-r border-rule pr-7 py-10 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto hidden lg:block">
-        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-1.5">Programme</div>
-        <KnowwareLogo size="clamp(75px, 9vw, 95px)" className="mb-8 -ml-[8.33%]" strokeColor="var(--text-light)" circleColor="var(--text-color)" />
+        <div className="font-plex-mono text-[0.55rem] tracking-[0.18em] uppercase text-light mb-1.5">Programme</div>
+        <KnowwareLogo size="clamp(75px, 9vw, 95px)" className="mb-8" strokeColor="var(--text-light)" circleColor="var(--text-color)" />
         
-        <div className="font-plex-mono text-[0.52rem] tracking-wider text-light leading-[2] uppercase mb-7">
-          <strong className="text-ink block font-medium text-[0.55rem] mt-2.5 first:mt-0">Author</strong>{essay.author}
-          <strong className="text-ink block font-medium text-[0.55rem] mt-2.5">Published</strong>February 2026
-          <strong className="text-ink block font-medium text-[0.55rem] mt-2.5">Series</strong>Constitutional Sieve
+        <div className="font-plex-mono text-[0.58rem] tracking-wider text-light leading-[2] uppercase mb-7">
+          <strong className="text-ink block font-medium text-[0.6rem] mt-2.5 first:mt-0">Author</strong>{essay.author}
+          <strong className="text-ink block font-medium text-[0.6rem] mt-2.5">Published</strong>February 2026
+          <strong className="text-ink block font-medium text-[0.6rem] mt-2.5">Series</strong>Constitutional Sieve
         </div>
 
-        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">Essays</div>
-        <ul className="font-plex-mono text-[0.5rem] tracking-wider leading-[2.1] uppercase text-light mb-6">
+        <div className="font-plex-mono text-[0.55rem] tracking-[0.18em] uppercase text-light mb-2.5">Essays</div>
+        <ul className="font-plex-mono text-[0.55rem] tracking-wider leading-[2.1] uppercase text-light mb-6">
           {ESSAYS.map((e) => (
-            <li key={e.id} className={e.readUrl === `/essays/${id}` ? "text-ink font-medium" : ""}>
+            <li key={e.id} className={`${e.readUrl === `/essays/${id}` ? "text-ink font-medium" : ""} hover:text-ink hover:text-[0.6rem] transition-all duration-300`}>
               <Link to={e.readUrl} className="hover:text-ink transition-colors">
                 {e.readUrl === `/essays/${id}` && "→ "}{e.title}
               </Link>
@@ -1130,10 +1130,10 @@ export default function EssayDetail() {
           ))}
         </ul>
 
-        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">Papers</div>
-        <ul className="font-plex-mono text-[0.5rem] tracking-wider leading-[2.1] uppercase text-light">
+        <div className="font-plex-mono text-[0.55rem] tracking-[0.18em] uppercase text-light mb-2.5">Papers</div>
+        <ul className="font-plex-mono text-[0.55rem] tracking-wider leading-[2.1] uppercase text-light">
           {PAPERS.map((p) => (
-            <li key={p.id} className="hover:text-ink transition-colors">
+            <li key={p.id} className="hover:text-ink hover:text-[0.6rem] transition-all duration-300">
               <Link to={p.paperUrl}>
                 {p.id} · {p.title}
               </Link>

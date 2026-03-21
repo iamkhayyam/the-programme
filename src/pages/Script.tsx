@@ -8,48 +8,48 @@ import { PAPERS } from "../constants/programme";
 
 export default function Script() {
   return (
-    <div className="max-w-[1080px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-0">
+    <div className="max-w-[1140px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-0">
       {/* --- SIDEBAR --- */}
       <aside className="border-r border-rule pr-7 py-10 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto hidden lg:block">
-        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-1.5">Programme</div>
-        <KnowwareLogo size="clamp(75px, 9vw, 95px)" className="mb-8 -ml-[8.33%]" strokeColor="var(--text-light)" circleColor="var(--text-color)" />
+        <div className="font-plex-mono text-[0.55rem] tracking-[0.18em] uppercase text-light mb-1.5">Programme</div>
+        <KnowwareLogo size="clamp(75px, 9vw, 95px)" className="mb-8" strokeColor="var(--text-light)" circleColor="var(--text-color)" />
         
-        <div className="font-plex-mono text-[0.52rem] tracking-wider text-light leading-[2] uppercase mb-7">
-          <strong className="text-ink block font-medium text-[0.55rem] mt-2.5 first:mt-0">Author</strong>Khayyam Wakil
+        <div className="font-plex-mono text-[0.58rem] tracking-wider text-light leading-[2] uppercase mb-7">
+          <strong className="text-ink block font-medium text-[0.6rem] mt-2.5 first:mt-0">Author</strong>Khayyam Wakil
           
           <div className="flex gap-6 mt-2.5">
             <div>
-              <strong className="text-ink block font-medium text-[0.55rem]">Year</strong>2025
+              <strong className="text-ink block font-medium text-[0.6rem]">Year</strong>2025
             </div>
             <div>
-              <strong className="text-ink block font-medium text-[0.55rem]">Status</strong>Active
+              <strong className="text-ink block font-medium text-[0.6rem]">Status</strong>Active
             </div>
           </div>
 
-          <strong className="text-ink block font-medium text-[0.55rem] mt-2.5">Format</strong>Screenplay
+          <strong className="text-ink block font-medium text-[0.6rem] mt-2.5">Format</strong>Screenplay
         </div>
 
-        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">SCRIPT</div>
-        <ul className="font-plex-mono text-[0.5rem] tracking-wider leading-[2.1] uppercase text-ink mb-6">
-          <li className="font-medium hover:text-light transition-colors">
+        <div className="font-plex-mono text-[0.55rem] tracking-[0.18em] uppercase text-light mb-2.5">SCRIPT</div>
+        <ul className="font-plex-mono text-[0.55rem] tracking-wider leading-[2.1] uppercase text-ink mb-6">
+          <li className="font-medium hover:text-light transition-all duration-300 hover:text-[0.6rem]">
             <Link to="/constitutional-proof">→ 00 - THE CONSTITUTIONAL PROOF</Link>
           </li>
         </ul>
 
-        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">Resources</div>
+        <div className="font-plex-mono text-[0.55rem] tracking-[0.18em] uppercase text-light mb-2.5">Resources</div>
         <a 
           href={`${import.meta.env.BASE_URL}constitutional_proof.pdf`} 
           download 
-          className="flex items-center gap-2 font-plex-mono text-[0.5rem] tracking-wider leading-[2.1] uppercase text-coral hover:text-ink transition-colors mb-6"
+          className="flex items-center gap-2 font-plex-mono text-[0.55rem] tracking-wider leading-2.1 uppercase text-coral hover:text-ink transition-all duration-300 hover:text-[0.6rem] mb-6"
         >
           <Download size={10} />
           Download Text
         </a>
 
-        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">Essays</div>
-        <ul className="font-plex-mono text-[0.5rem] tracking-wider leading-[2.1] uppercase text-light mb-6">
+        <div className="font-plex-mono text-[0.55rem] tracking-[0.18em] uppercase text-light mb-2.5">Essays</div>
+        <ul className="font-plex-mono text-[0.55rem] tracking-wider leading-[2.1] uppercase text-light mb-6">
           {PAPERS.map((p) => (
-            <li key={p.id} className="hover:text-ink transition-colors">
+            <li key={p.id} className="hover:text-ink hover:text-[0.6rem] transition-all duration-300">
               <Link to={p.essayUrl}>
                 {p.id} · {p.essayTitle.replace("✍️ ", "")}
               </Link>
@@ -57,10 +57,10 @@ export default function Script() {
           ))}
         </ul>
 
-        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">Papers</div>
-        <ul className="font-plex-mono text-[0.5rem] tracking-wider leading-[2.1] uppercase text-light">
+        <div className="font-plex-mono text-[0.55rem] tracking-[0.18em] uppercase text-light mb-2.5">Papers</div>
+        <ul className="font-plex-mono text-[0.55rem] tracking-wider leading-[2.1] uppercase text-light">
           {PAPERS.map((p) => (
-            <li key={p.id} className="hover:text-ink transition-colors">
+            <li key={p.id} className="hover:text-ink hover:text-[0.6rem] transition-all duration-300">
               <Link to={p.paperUrl}>
                 {p.id} · {p.title}
               </Link>

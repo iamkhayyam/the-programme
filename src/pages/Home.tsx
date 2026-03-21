@@ -108,29 +108,29 @@ export default function Home() {
 
   return (
     <>
-      <div className="max-w-[1080px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-0">
+      <div className="max-w-[1140px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-0">
         {/* --- SIDEBAR --- */}
         <aside className="border-r border-rule pr-7 py-10 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto hidden lg:block">
-        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-1.5">Programme</div>
-        <KnowwareLogo size="clamp(75px, 9vw, 95px)" className="mb-8 -ml-[8.33%]" strokeColor="var(--text-light)" circleColor="var(--text-color)" />
+        <div className="font-plex-mono text-[0.55rem] tracking-[0.18em] uppercase text-light mb-1.5">Programme</div>
+        <KnowwareLogo size="clamp(75px, 9vw, 95px)" className="mb-8" strokeColor="var(--text-light)" circleColor="var(--text-color)" />
         
-        <div className="font-plex-mono text-[0.52rem] tracking-wider text-light leading-[2] uppercase mb-7">
-          <strong className="text-ink block font-medium text-[0.55rem] mt-2.5 first:mt-0">Institute</strong>ARC Institute
+        <div className="font-plex-mono text-[0.58rem] tracking-wider text-light leading-[2] uppercase mb-7">
+          <strong className="text-ink block font-medium text-[0.6rem] mt-2.5 first:mt-0">Institute</strong>ARC Institute
           
           <div className="flex gap-6 mt-2.5">
             <div>
-              <strong className="text-ink block font-medium text-[0.55rem]">Year</strong>2026
+              <strong className="text-ink block font-medium text-[0.6rem]">Year</strong>2026
             </div>
             <div>
-              <strong className="text-ink block font-medium text-[0.55rem]">Status</strong>Active
+              <strong className="text-ink block font-medium text-[0.6rem]">Status</strong>Active
             </div>
           </div>
         </div>
 
-        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">Essays</div>
-        <ul className="font-plex-mono text-[0.5rem] tracking-wider leading-[2.1] uppercase text-light mb-6">
+        <div className="font-plex-mono text-[0.55rem] tracking-[0.18em] uppercase text-light mb-2.5">Essays</div>
+        <ul className="font-plex-mono text-[0.55rem] tracking-wider leading-[2.1] uppercase text-light mb-6">
           {ESSAYS.map((essay) => (
-            <li key={essay.id} className="hover:text-ink transition-colors">
+            <li key={essay.id} className="hover:text-ink hover:text-[0.6rem] transition-all duration-300">
               <Link to={essay.readUrl}>
                 {essay.id} · {essay.title}
               </Link>
@@ -138,10 +138,10 @@ export default function Home() {
           ))}
         </ul>
 
-        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">Papers</div>
-        <ul className="font-plex-mono text-[0.5rem] tracking-wider leading-[2.1] uppercase text-light mb-6">
+        <div className="font-plex-mono text-[0.55rem] tracking-[0.18em] uppercase text-light mb-2.5">Papers</div>
+        <ul className="font-plex-mono text-[0.55rem] tracking-wider leading-[2.1] uppercase text-light mb-6">
           {PAPERS.map((paper) => (
-            <li key={paper.id} className="hover:text-ink transition-colors">
+            <li key={paper.id} className="hover:text-ink hover:text-[0.6rem] transition-all duration-300">
               <Link to={paper.paperUrl}>
                 {paper.id} · {paper.title}
               </Link>
@@ -149,9 +149,9 @@ export default function Home() {
           ))}
         </ul>
 
-        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">SCRIPT</div>
-        <ul className="font-plex-mono text-[0.5rem] tracking-wider leading-[2.1] uppercase text-light">
-          <li className="hover:text-ink transition-colors">
+        <div className="font-plex-mono text-[0.55rem] tracking-[0.18em] uppercase text-light mb-2.5">SCRIPT</div>
+        <ul className="font-plex-mono text-[0.55rem] tracking-wider leading-[2.1] uppercase text-light">
+          <li className="hover:text-ink hover:text-[0.6rem] transition-all duration-300">
             <Link to="/constitutional-proof">
               00 · The Constitutional Proof
             </Link>
@@ -252,40 +252,40 @@ export default function Home() {
                 </thead>
                 <tbody>
                   <tr className="border-b border-rule">
-                    <td>Combinatorics</td>
-                    <td>1070</td>
-                    <td>Khayyam</td>
-                    <td>The mod-3 fractal of Khayyam's Triangle</td>
+                    <td data-label="Domain">Combinatorics</td>
+                    <td data-label="Year">1070</td>
+                    <td data-label="Mathematician">Khayyam</td>
+                    <td data-label="Instance">The mod-3 fractal of Khayyam's Triangle</td>
                   </tr>
                   <tr className="border-b border-rule">
-                    <td>Fluid dynamics</td>
-                    <td>1941</td>
-                    <td>Kolmogorov</td>
-                    <td>Dissipation exponent α = 3/4</td>
+                    <td data-label="Domain">Fluid dynamics</td>
+                    <td data-label="Year">1941</td>
+                    <td data-label="Mathematician">Kolmogorov</td>
+                    <td data-label="Instance">Dissipation exponent α = 3/4</td>
                   </tr>
                   <tr className="border-b border-rule">
-                    <td>Information theory</td>
-                    <td>1948</td>
-                    <td>Shannon</td>
-                    <td>AEP + Channel Coding Theorem; θ₁ = 1/2</td>
+                    <td data-label="Domain">Information theory</td>
+                    <td data-label="Year">1948</td>
+                    <td data-label="Mathematician">Shannon</td>
+                    <td data-label="Instance">AEP + Channel Coding Theorem; θ₁ = 1/2</td>
                   </tr>
                   <tr className="border-b border-rule">
-                    <td>Analytic number theory</td>
-                    <td>2025</td>
-                    <td>Pascadi</td>
-                    <td>θ = 5/8 for smooth triply-well-factorable moduli</td>
+                    <td data-label="Domain">Analytic number theory</td>
+                    <td data-label="Year">2025</td>
+                    <td data-label="Mathematician">Pascadi</td>
+                    <td data-label="Instance">θ = 5/8 for smooth triply-well-factorable moduli</td>
                   </tr>
                   <tr className="border-b border-rule font-medium">
-                    <td>Algebraic number theory</td>
-                    <td>2026</td>
-                    <td>Wakil</td>
-                    <td>θ<sub>W</sub> = 5/8, cascade moduli q = 3<sup>K</sup></td>
+                    <td data-label="Domain">Algebraic number theory</td>
+                    <td data-label="Year">2026</td>
+                    <td data-label="Mathematician">Wakil</td>
+                    <td data-label="Instance">θ<sub>W</sub> = 5/8, cascade moduli q = 3<sup>K</sup></td>
                   </tr>
                   <tr className="border-b border-rule text-light italic">
-                    <td>Signal processing</td>
-                    <td>2026*</td>
-                    <td>Wakil</td>
-                    <td>θ<sub>FFT</sub> = 1/2, DFT conjugate symmetry — named 2026; operating since Cooley–Tukey 1965</td>
+                    <td data-label="Domain">Signal processing</td>
+                    <td data-label="Year">2026*</td>
+                    <td data-label="Mathematician">Wakil</td>
+                    <td data-label="Instance">θ<sub>FFT</sub> = 1/2, DFT conjugate symmetry — named 2026; operating since Cooley–Tukey 1965</td>
                   </tr>
                 </tbody>
               </table>

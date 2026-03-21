@@ -901,49 +901,49 @@ export default function PaperDetail() {
   };
 
   return (
-    <div className="max-w-[1080px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-[220px_1fr] gap-0">
+    <div className="max-w-[1140px] mx-auto px-4 md:px-8 grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-0">
       {/* --- SIDEBAR --- */}
       <aside className="border-r border-rule pr-7 py-10 sticky top-14 h-[calc(100vh-56px)] overflow-y-auto hidden lg:block">
-        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-1.5">Programme</div>
-        <KnowwareLogo size="clamp(75px, 9vw, 95px)" className="mb-8 -ml-[8.33%]" strokeColor="var(--text-light)" circleColor="var(--text-color)" />
+        <div className="font-plex-mono text-[0.55rem] tracking-[0.18em] uppercase text-light mb-1.5">Programme</div>
+        <KnowwareLogo size="clamp(75px, 9vw, 95px)" className="mb-8" strokeColor="var(--text-light)" circleColor="var(--text-color)" />
         
-        <div className="font-plex-mono text-[0.52rem] tracking-wider text-light leading-[2] uppercase mb-7">
-          <strong className="text-ink block font-medium text-[0.55rem] mt-2.5 first:mt-0">Author</strong>{paper.authors}
+        <div className="font-plex-mono text-[0.58rem] tracking-wider text-light leading-[2] uppercase mb-7">
+          <strong className="text-ink block font-medium text-[0.6rem] mt-2.5 first:mt-0">Author</strong>{paper.authors}
           
           <div className="flex gap-6 mt-2.5">
             <div>
-              <strong className="text-ink block font-medium text-[0.55rem]">Published</strong>Feb 2026
+              <strong className="text-ink block font-medium text-[0.6rem]">Published</strong>Feb 2026
             </div>
             <div>
-              <strong className="text-ink block font-medium text-[0.55rem]">Status</strong>{paperStatus}
+              <strong className="text-ink block font-medium text-[0.6rem]">Status</strong>{paperStatus}
             </div>
           </div>
 
-          <strong className="text-ink block font-medium text-[0.55rem] mt-2.5">Series</strong>Constitutional Sieve
-          <strong className="text-ink block font-medium text-[0.55rem] mt-2.5">MSC 2020</strong>{paper.msc}
+          <strong className="text-ink block font-medium text-[0.6rem] mt-2.5">Series</strong>Constitutional Sieve
+          <strong className="text-ink block font-medium text-[0.6rem] mt-2.5">MSC 2020</strong>{paper.msc}
         </div>
 
         <div className="mb-7">
-          <a href={paper.pdfUrl} target="_blank" rel="noreferrer" className="block font-plex-mono text-[0.52rem] tracking-wider uppercase text-accent hover:text-ink border-b border-rule py-1.5 leading-tight">
-            <span className="text-light block text-[0.48rem]">Preprint · Full PDF</span>
+          <a href={paper.pdfUrl} target="_blank" rel="noreferrer" className="block font-plex-mono text-[0.58rem] tracking-wider uppercase text-accent hover:text-ink border-b border-rule py-1.5 leading-tight hover:text-[0.62rem] transition-all duration-300">
+            <span className="text-light block text-[0.52rem]">Preprint · Full PDF</span>
             Knowware Preprints → View
           </a>
           {paper.githubUrl && (
-            <a href={paper.githubUrl} target="_blank" rel="noreferrer" className="block font-plex-mono text-[0.52rem] tracking-wider uppercase text-accent hover:text-ink border-b border-rule py-1.5 leading-tight">
-              <span className="text-light block text-[0.48rem]">LaTeX Source</span>
+            <a href={paper.githubUrl} target="_blank" rel="noreferrer" className="block font-plex-mono text-[0.58rem] tracking-wider uppercase text-accent hover:text-ink border-b border-rule py-1.5 leading-tight hover:text-[0.62rem] transition-all duration-300">
+              <span className="text-light block text-[0.52rem]">LaTeX Source</span>
               GitHub → p{paper.id}.tex
             </a>
           )}
-          <a href={paper.arxivUrl} target="_blank" rel="noreferrer" className="block font-plex-mono text-[0.52rem] tracking-wider uppercase text-accent hover:text-ink border-b border-rule py-1.5 leading-tight">
-            <span className="text-light block text-[0.48rem]">arXiv Repository</span>
+          <a href={paper.arxivUrl} target="_blank" rel="noreferrer" className="block font-plex-mono text-[0.58rem] tracking-wider uppercase text-accent hover:text-ink border-b border-rule py-1.5 leading-tight hover:text-[0.62rem] transition-all duration-300">
+            <span className="text-light block text-[0.52rem]">arXiv Repository</span>
             arXiv → {paper.arxivUrl.split('/').pop()}
           </a>
         </div>
 
-        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">Essays</div>
-        <ul className="font-plex-mono text-[0.5rem] tracking-wider leading-[2.1] uppercase text-light mb-6">
+        <div className="font-plex-mono text-[0.55rem] tracking-[0.18em] uppercase text-light mb-2.5">Essays</div>
+        <ul className="font-plex-mono text-[0.55rem] tracking-wider leading-[2.1] uppercase text-light mb-6">
           {ESSAYS.map((e) => (
-            <li key={e.id} className="hover:text-ink transition-colors">
+            <li key={e.id} className="hover:text-ink hover:text-[0.6rem] transition-all duration-300">
               <Link to={e.readUrl}>
                 {e.title}
               </Link>
@@ -951,10 +951,10 @@ export default function PaperDetail() {
           ))}
         </ul>
 
-        <div className="font-plex-mono text-[0.5rem] tracking-[0.18em] uppercase text-light mb-2.5">Papers</div>
-        <ul className="font-plex-mono text-[0.5rem] tracking-wider leading-[2.1] uppercase text-light">
+        <div className="font-plex-mono text-[0.55rem] tracking-[0.18em] uppercase text-light mb-2.5">Papers</div>
+        <ul className="font-plex-mono text-[0.55rem] tracking-wider leading-[2.1] uppercase text-light">
           {PAPERS.map((p) => (
-            <li key={p.id} className={p.paperUrl === `/papers/p${paper.id}` ? "text-ink font-medium" : ""}>
+            <li key={p.id} className={`${p.paperUrl === `/papers/p${paper.id}` ? "text-ink font-medium" : ""} hover:text-ink hover:text-[0.6rem] transition-all duration-300`}>
               <Link to={p.paperUrl} className="hover:text-ink transition-colors">
                 {p.paperUrl === `/papers/p${paper.id}` && "→ "}{p.id} · {p.title}
               </Link>

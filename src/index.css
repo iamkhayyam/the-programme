@@ -118,10 +118,54 @@
 }
 
 .responsive-table {
-  @apply min-w-[600px] w-full border-collapse;
+  @apply w-full border-collapse;
 }
 
-.responsive-table th, 
-.responsive-table td {
-  @apply text-left py-3 px-4;
+@media (max-width: 767px) {
+  .responsive-table, 
+  .responsive-table thead, 
+  .responsive-table tbody, 
+  .responsive-table th, 
+  .responsive-table td, 
+  .responsive-table tr { 
+    display: block; 
+  }
+  
+  .responsive-table thead tr { 
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  .responsive-table tr { 
+    @apply border border-rule mb-6 p-4 bg-paper-bg/30 rounded-lg;
+  }
+  
+  .responsive-table td { 
+    @apply border-none relative pl-[35%] py-2 text-[0.8rem] min-h-[2.5rem] flex items-center;
+  }
+  
+  .responsive-table td:before { 
+    @apply absolute left-0 top-1/2 -translate-y-1/2 w-[30%] pr-2 font-plex-mono font-medium text-[0.55rem] uppercase tracking-wider text-light;
+    content: attr(data-label);
+  }
+
+  .responsive-table td[data-label="Instance"] {
+    @apply pl-0 pt-8 block;
+  }
+
+  .responsive-table td[data-label="Instance"]:before {
+    @apply top-4 translate-y-0 w-full;
+  }
+}
+
+@media (min-width: 768px) {
+  .responsive-table {
+    @apply min-w-[600px];
+  }
+  
+  .responsive-table th, 
+  .responsive-table td {
+    @apply text-left py-3 px-4;
+  }
 }
