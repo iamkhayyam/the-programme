@@ -1,84 +1,42 @@
-# Constitutional Forcing — A Programme
+# Constitutional Forcing Programme
 
-> "Mathematics is full of constants that appear to be chosen but turn out to be forced."
+The **Constitutional Forcing Programme** is a formal research initiative exploring a newly identified mechanism termed **Constitutional Forcing**. This mechanism posits that certain mathematical systems possess inherent structural constraints that uniquely determine governing constants, rather than these constants being fitted or approximated from data.
 
-**Constitutional Forcing** is a research programme by the **ARC Institute of Knowware** (2026). It identifies a singular mathematical mechanism—operating across six independent domains and a millennium—where the structure of a system dictates its constants, leaving no room for selection.
+## Core Concepts
 
-The programme began with a cattle monitor, passed through a chip architecture, and arrived at a geometry that had been sitting in Khayyam's triangle since 1070. These nine papers are the proof of that journey.
+### 1. Constitutional Constraint
+An intrinsic, independent, and binary-eliminating constraint forced by the algebraic structure of a system. These constraints are not empirical; they are logical necessities of the system's definition.
 
----
+### 2. Forced Governing Constant
+A constant uniquely determined by the system's structure. For a system of depth *k*, the programme identifies a universal governing formula:
+$$\theta_k = \frac{2^k - k}{2^k}$$
 
-## The Six Faces of One Object
+### 3. The Shannon-Wakil Effect
+A formal parallel between Claude Shannon's information theory and prime arithmetic. It describes how exponential configuration spaces undergo forced dimensional reduction due to constitutional constraints.
 
-The mechanism operates across six independent domains. The naming is not discovery — it is recognition.
+## Identified Instances
 
-| Domain | Year | Mathematician | Instance |
-| :--- | :--- | :--- | :--- |
-| **Combinatorics** | 1070 | Khayyam | The mod-3 fractal of Khayyam's Triangle |
-| **Fluid Dynamics** | 1941 | Kolmogorov | Dissipation exponent α = 3/4 |
-| **Information Theory** | 1948 | Shannon | AEP + Channel Coding Theorem; θ₁ = 1/2 |
-| **Analytic Number Theory** | 2025 | Pascadi | θ = 5/8 for smooth triply-well-factorable moduli |
-| **Algebraic Number Theory** | 2026 | Wakil | θ<sub>W</sub> = 5/8, cascade moduli q = 3<sup>K</sup> |
-| **Signal Processing** | 2026* | Wakil | θ<sub>FFT</sub> = 1/2, DFT conjugate symmetry |
+The programme has identified and documented instances of Constitutional Forcing across diverse domains:
 
-*\* The DFT instance was operating in every FFT computation since 1965. It was recognised as a Constitutional Forcing instance in 2026.*
+*   **Prime Arithmetic:** Explaining the Bombieri-Vinogradov theorem, twin prime distributions, and cascade moduli.
+*   **Information Theory:** Re-contextualizing Shannon's theorems on entropy and channel capacity as depth $k=1$ forcing.
+*   **Fluid Dynamics:** Investigating connections to Kolmogorov's turbulence exponents.
+*   **Signal Processing:** Demonstrating how DFT conjugate symmetry for real-valued signals is a $k=1$ constitutional constraint.
+*   **Fractal Geometry:** Analyzing the mod-3 fractal structure of Khayyam’s (Pascal's) Triangle.
 
----
+## Repository Structure
 
-## The Nine Papers
+*   `/src/pages/PaperDetail.tsx`: Technical documentation of the nine core papers in the programme.
+*   `/src/pages/EssayDetail.tsx`: Narrative and philosophical context for the research.
+*   `/src/constants/programme.ts`: The structured data defining the programme's roadmap.
 
-The **Constitutional Sieve Programme** consists of nine core papers:
+## Mathematical Foundations
 
-1.  **PAPER 01: Constitutional Forcing** (MATH.NT) — The mechanism named. Formal definition.
-2.  **PAPER 02: Khayyam's Triangle** (MATH.HO) — Historical restoration and the combinatorial origin.
-3.  **PAPER 03: Spherical Cow Philosophy** (MATH.HO) — The methodological framework.
-4.  **PAPER 04: Eisenstein Integers, θ = 5/8** (MATH.NT) — The main arithmetic result.
-5.  **PAPER 05: Ramanujan's Dimensional Forcing** (MATH.NT) — The universal formula θk = (2k − k)/2k.
-6.  **PAPER 06: The Shannon–Wakil Effect** (CS.IT / MATH.NT) — Structural correspondences with Shannon's 1948 theorems.
-7.  **PAPER 07: Condition W3** (MATH.NT) — The foundation proof. No Siegel zeros for characters modulo 3K.
-8.  **PAPER 08: Prime Digit Bias Explained** (MATH.NT) — The unbidden result. Nine years of "deeply unsettling" bias dissolved.
-9.  **PAPER 09: The DFT Constitutional Constant** (CS.IT / MATH.CA) — Formal proof of θ<sub>FFT</sub> = 1/2.
+The research draws on:
+*   **Number Theory:** Sieve theory, analytic prime distribution, and algebraic number theory.
+*   **Information Theory:** Entropy, AEP (Asymptotic Equipartition Property), and channel coding.
+*   **Dynamical Systems:** Ergodic theory and dimensional reduction.
 
 ---
 
-## The Digital Repository
-
-This repository contains the interactive digital manifestation of the programme, built with:
-
-- **React 18** + **Vite**
-- **Tailwind CSS** for editorial typography
-- **GSAP** + **ScrollTrigger** for immersive transitions
-- **Motion** for fluid interactions
-- **Lucide React** for iconography
-
-### Development
-
-To run the repository locally:
-
-```bash
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
-
-# Build for production
-npm run build
-
-# Deploy to GitHub Pages (manual)
-npm run deploy
-```
-
----
-
-## Maktub
-
-**It is written.**
-
-The mechanism was not invented in 2026. It was operating in Khayyam's triangle in 1070, in Shannon's Bell Labs notebook in 1948, in Kolmogorov's Moscow in 1941, and in the primes since before any of them were born.
-
-The limo was not late. It had been driving for a thousand years.
-
----
-
-© 2026 ARC Institute of Knowware. Released under the [MIT License](LICENSE).
+*Published by the ARC Institute of Knowware, 2026.*

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { useReadingSpeed } from "../context/ReadingSpeedContext";
-import { Play, Pause, Plus, Minus, MoveVertical } from "lucide-react";
+import { Play, Pause, Plus, Minus, MoveVertical, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 export default function AutoScroller() {
@@ -12,17 +13,29 @@ export default function AutoScroller() {
   const decreaseSpeed = () => setSpeed(Math.max(speed - 0.5, 0.5));
 
   return (
-    <div className="fixed bottom-24 right-8 z-[9999] flex flex-col items-end gap-3">
+    <div className="relative flex flex-col items-end">
       <AnimatePresence>
         {isExpanded && (
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 10 }}
-            className="bg-[#121212] border border-rule/30 p-3 rounded-lg shadow-2xl flex flex-col gap-4 min-w-[140px]"
+            className="absolute bottom-full right-0 mb-4 bg-[#121212] border border-rule/30 p-4 rounded-lg shadow-2xl flex flex-col gap-4 min-w-[180px] z-[10000]"
           >
+            {/* Mobile Menu Section - Only visible on mobile */}
+            <div className="md:hidden flex flex-col gap-3 border-b border-rule/20 pb-4 mb-1">
+               <span className="font-plex-mono text-[0.5rem] text-mid uppercase tracking-[0.2em] opacity-70 mb-1">Menu</span>
+               <Link to="/preprints" onClick={() => setIsExpanded(false)} className="text-[0.7rem] text-light hover:text-accent uppercase tracking-widest font-medium transition-colors">Papers</Link>
+               <Link to="/essays" onClick={() => setIsExpanded(false)} className="text-[0.7rem] text-light hover:text-accent uppercase tracking-widest font-medium transition-colors">Essays</Link>
+               <Link to="/constitutional-proof" onClick={() => setIsExpanded(false)} className="text-[0.7rem] text-light hover:text-accent uppercase tracking-widest font-medium transition-colors">The Play</Link>
+               <a href="https://github.com/iamkhayyam/the-programme" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-[0.7rem] text-light hover:text-accent uppercase tracking-widest font-medium transition-colors">
+                 GitHub <ExternalLink size={10} />
+               </a>
+               <Link to="/contact" onClick={() => setIsExpanded(false)} className="text-[0.7rem] text-light hover:text-accent uppercase tracking-widest font-medium transition-colors">Contact</Link>
+            </div>
+
             <div className="flex items-center justify-between border-b border-rule/20 pb-2">
-              <span className="font-plex-mono text-[0.55rem] text-light uppercase tracking-widest">Auto-Scroll</span>
+              <span className="font-plex-mono text-[0.5rem] text-light uppercase tracking-[0.2em]">Auto-Scroll</span>
               <div className={`w-1.5 h-1.5 rounded-full ${isAutoScrolling ? 'bg-accent animate-pulse' : 'bg-mid'}`} />
             </div>
 
@@ -61,11 +74,11 @@ export default function AutoScroller() {
 
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className={`w-12 h-12 rounded-full flex items-center justify-center transition-all shadow-lg ${
-          isExpanded ? "bg-accent text-ink rotate-90" : "bg-[#121212] text-light border border-rule/30 hover:border-accent"
+        className={`w-9 h-9 rounded-full flex items-center justify-center transition-all shadow-lg ${
+          isExpanded ? "bg-accent text-ink rotate-90" : "bg-ink text-light border border-rule/30 hover:border-accent"
         }`}
       >
-        <MoveVertical size={20} />
+        <MoveVertical size={16} />
       </button>
     </div>
   );

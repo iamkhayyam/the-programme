@@ -64,13 +64,17 @@ export default function Layout({ children }: LayoutProps) {
           </PageTransition>
         </main>
 
-        <AutoScroller />
-
         {/* --- FOOTER --- */}
-        <footer className="sticky bottom-0 z-[100] border-t border-ink bg-linen/90 backdrop-blur-sm px-8 py-4 flex flex-col md:flex-row justify-between font-plex-mono text-[0.6rem] tracking-widest uppercase text-mid gap-2">
-          <span>Knowware is measured in lifetimes</span>
-          <span>In Progress · March 2026</span>
-          <span>Registered · Canada</span>
+        <footer className="sticky bottom-0 z-[100] border-t border-ink bg-linen/90 backdrop-blur-sm px-4 md:px-8 py-3 flex items-center justify-between font-plex-mono text-[0.6rem] tracking-widest uppercase text-mid">
+          <div className="flex flex-col md:flex-row gap-2 md:gap-8">
+            <span>Knowware is measured in lifetimes</span>
+            <span className="hidden sm:inline">In Progress · March 2026</span>
+            <span className="hidden lg:inline">Registered · Canada</span>
+          </div>
+          
+          <div className="flex items-center gap-4">
+            <AutoScroller />
+          </div>
         </footer>
       </div>
     </ReadingSpeedProvider>
