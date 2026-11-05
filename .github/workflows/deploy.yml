@@ -21,6 +21,12 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+# Maintenance mode: while 'true', only the static page in ./maintenance is
+# published (every URL shows it via 404.html) and the site is not built.
+# Set to 'false' to publish the full site again.
+env:
+  MAINTENANCE_MODE: 'true'
+
 jobs:
   # Single deploy job since we're just deploying; no building needed if we use the right action
   deploy:
@@ -32,21 +38,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set up Node
+        if: env.MAINTENANCE_MODE != 'true'
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'npm'
       - name: Install dependencies
+        if: env.MAINTENANCE_MODE != 'true'
         run: npm install
       - name: Build
+        if: env.MAINTENANCE_MODE != 'true'
         run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: './dist'
+          path: ${{ env.MAINTENANCE_MODE == 'true' && './maintenance' || './dist' }}
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
