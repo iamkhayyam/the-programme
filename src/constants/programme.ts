@@ -56,7 +56,7 @@ export const PAPERS = [
     status: "UNDER REVISION",
     teaser: "The proposed universal formula θₖ = (2ᵏ − k)/2ᵏ for k-fold constitutional sieves. Predicts θ₄ = 3/4 and θ₅ = 27/32.",
     essayTitle: "The Quilt Proof",
-    essayTeaser: "The convergence of independent routes to the same tiny island of truth.",
+    essayTeaser: "The convergence of routes to the same tiny island of truth.",
     paperUrl: "/papers/p05",
     essayUrl: "/essays/the-quilt-proof"
   },
@@ -81,7 +81,7 @@ export const PAPERS = [
     metadata: "11M20 · 11R42 · 11N13",
     status: "UNDER REVISION",
     teaser: "Absence of Siegel zeros for characters modulo 3ᴷ, argued via the CM field Q(ω).",
-    essayTitle: "The Seventh Domain",
+    essayTitle: "The Sixth Domain",
     essayTeaser: "Constitutional Forcing was not invented in 2026. It was recognized. That is a different thing, and the difference matters.",
     paperUrl: "/papers/p07",
     essayUrl: "/essays/the-seventh-domain"

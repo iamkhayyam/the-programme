@@ -27,7 +27,7 @@ export const ESSAYS = [
     title: "Khayyam's Triangle",
     subtitle: "A Millennium Prized Problem",
     date: "Feb 2026",
-    teaser: "The wrong name is Pascal's Triangle. Khayyam documented this triangle 584 years before Pascal published anything. This is not a minor attribution error. This is a restoration.",
+    teaser: "The wrong name is Pascal's Triangle. Khayyam documented this triangle 584 years before Pascal's treatise on it. This is not a minor attribution error. This is a restoration.",
     themes: [
       "Historical Restoration",
       "The Isfahan Observatory",
@@ -44,7 +44,7 @@ export const ESSAYS = [
     title: "The Shannon-Wakil Effect",
     subtitle: "The Same Machine",
     date: "Feb 2026",
-    teaser: "Claude Shannon was solving a problem about telephone lines. I was solving a problem about prime numbers. We were building the same machine, seventy-seven years apart.",
+    teaser: "Claude Shannon was solving a problem about telephone lines. I was solving a problem about prime numbers. We were building the same machine, seventy-eight years apart.",
     themes: [
       "Information Theory",
       "Channel Coding Theorem",
@@ -78,11 +78,11 @@ export const ESSAYS = [
     title: "Once Upon a Napkin",
     subtitle: "A Tribute to Ramanujan",
     date: "Feb 2026",
-    teaser: "At 1:27 AM on a Zoom call, Ramanujan slid me a napkin. He did not derive the formula. He recognized it. The same way he recognized the partition identities.",
+    teaser: "At 1:27 AM, a hundred and five years after his death, Ramanujan slid me a napkin. He did not derive the formula. He recognized it. The same way he recognized the partition identities.",
     themes: [
       "Ramanujan's Legacy",
       "The Universal Formula",
-      "Configuration Density",
+      "The Napkin",
       "Recognition vs Discovery"
     ],
     readUrl: "/essays/once-upon-a-napkin",
@@ -98,7 +98,7 @@ export const ESSAYS = [
     teaser: "A quilt proof is not a single derivation. It is a convergence — multiple independent routes to the same result, each one a different patch cut from different cloth.",
     themes: [
       "Convergence",
-      "Pascadi's Route",
+      "The Hexagonal Lattice",
       "The Crete Cow",
       "Biokythera"
     ],
@@ -126,13 +126,13 @@ export const ESSAYS = [
   {
     id: "07",
     slug: "the-seventh-domain",
-    title: "The Seventh Domain",
+    title: "The Sixth Domain",
     subtitle: "Constitutional Forcing: The Mechanism Named",
     date: "Feb 2026",
     teaser: "There are only six folds in origami. I don’t know why I remembered that. But I did, and then I thought about hexagons, and then everything started fitting into place.",
     themes: [
       "Formal Definition",
-      "The Six Doors",
+      "The Five Doors",
       "Causal Structure",
       "Recognition in 2026"
     ],
@@ -150,7 +150,7 @@ export const ESSAYS = [
     themes: [
       "Zen and Flow",
       "Reiki Mastery",
-      "Digit Bias Resolution",
+      "The Digit Bias",
       "The Mandala"
     ],
     readUrl: "/essays/the-sustained-note",
