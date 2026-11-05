@@ -5,76 +5,98 @@ import type { PaperContent } from "./types";
 const p07: PaperContent = {
   id: "07",
   track: "Paper · ARC-CF-P07",
-  title: "Condition W3: Absence of Siegel Zeros for Characters Modulo 3K via the CM Structure of Z[ω]",
+  title: <>Condition W3: Absence of Siegel Zeros for Characters Modulo 3<sup><em>K</em></sup></>,
   authors: "Khayyam Wakil",
   affiliation: "The ARC Institute of Knowware, Calgary, Alberta, Canada",
-  date: "Submitted February 2026 · Constitutional Sieve Programme, Paper 07 of 09",
-  pdfUrl: "https://preprint.knowware.institute/pdf/p07.pdf",
-  githubUrl: "https://github.com/knowware-institute/p07",
+  date: "February 2026 · revised November 2026 · Constitutional Sieve Programme, Paper 07 of 09",
+  pdfUrl: `${import.meta.env.BASE_URL}files/p07.pdf`,
+  githubUrl: "https://github.com/iamkhayyam/the-programme/tree/main/papers/p07-condition_w3",
   abstract: (
     <>
-      <p className="mb-3">We argue for Condition W3: for every primitive Dirichlet character χ modulo <em>q</em> = 3<sup><em>K</em></sup>, the <em>L</em>-function <em>L</em>(<em>s</em>, χ) has no real zero in the region σ &gt; 1 − <em>c</em>/log <em>q</em> for an absolute, effectively computable constant <em>c</em> &gt; 0.</p>
-      <p>The argument has three steps, each using the same algebraic structure. <strong>Step 1 (Lifting).</strong> Every primitive character χ (mod 3<sup><em>K</em></sup>) lifts canonically to a primitive Hecke Grössencharacter Ψ<sub>χ</sub> of K = Q(ω) = Q(√−3) of conductor 𝔭<sup>2<em>K</em></sup>, where 𝔭 = (1−ω) is the unique prime of Z[ω] above 3. <strong>Step 2 (Stark–Baker).</strong> Since K is a CM field of class number 1, the Stark–Baker theorem excludes Siegel zeros for <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>) in an effective zero-free region. <strong>Step 3 (Transfer).</strong> The factorisation <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>) = <em>L</em>(<em>s</em>, χ)·<em>L</em>(<em>s</em>, χε) transfers the zero-free region to <em>L</em>(<em>s</em>, χ).</p>
+      <p className="mb-3">We prove Condition W3: for every primitive Dirichlet character χ modulo <em>q</em> = 3<sup><em>K</em></sup>, the <em>L</em>-function <em>L</em>(<em>s</em>, χ) has no real zero in the region σ &gt; 1 − <em>c</em>/log <em>q</em>, for an absolute, effectively computable constant <em>c</em> &gt; 0. The statement is classical, and its proof takes one line: the group (ℤ/3<sup><em>K</em></sup>ℤ)<sup>×</sup> is cyclic of even order, so the only real non-principal character modulo 3<sup><em>K</em></sup> is the one induced from the character χ<sub>−3</sub> modulo 3; an exceptional zero can only belong to a real character; and <em>L</em>(σ, χ<sub>−3</sub>) &gt; 0 for σ &gt; 0.</p>
+      <p>As context we record, with corrections, the arithmetic of ℚ(ω) that the original version used: the base change χ∘N of a character χ modulo 3<sup><em>K</em></sup> takes the value χ(<em>n</em>)<sup>2</sup> on the ideal (<em>n</em>), its conductor is 𝔭<sup>2<em>K</em>−1</sup> for <em>K</em> ≥ 2, and <em>L</em>(<em>s</em>, χ∘N) = <em>L</em>(<em>s</em>, χ)<em>L</em>(<em>s</em>, χχ<sub>−3</sub>). Condition W3 does not make any level of distribution unconditional, and nothing in it is specific to the prime 3.</p>
     </>
   ),
-  keywords: "Siegel zeros, exceptional zeros, Dirichlet L-functions, Hecke Grössencharacters, CM fields, Eisenstein integers, Stark–Baker theorem, cascade moduli, Watt's theorem, level of distribution",
-  msc: "11M20 (primary) · 11R42 · 11N13 · 11R37",
+  keywords: "Siegel zeros, exceptional zeros, Dirichlet L-functions, cyclic groups, Hecke characters, Eisenstein integers, cascade moduli",
+  msc: "11M20 (primary) · 11R42 · 11R11",
   content: (
     <>
-      <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Setup and Statement</h2>
-      <p className="mb-4">Papers 04 and 07 apply Watt's mean-value theorem [3] under three conditions they label W1–W3. Conditions W1 and W2 are parameter bounds addressed in the companion paper [4], Appendix A. Condition W3 — no Siegel zeros — is what this paper addresses.</p>
+      <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
+        <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Revision note (November 2026)</div>
+        <p className="text-[0.95rem] leading-relaxed">The proof through a “Stark–Baker theorem” for CM fields is replaced by the one-line cyclicity argument, and the former Theorem 3.2 is withdrawn: as stated, it would solve the Landau–Siegel zero problem. The lifting identity χ(<em>n</em>) = Ψ<sub>χ</sub>((<em>n</em>)) of the former Proposition 2.5 is withdrawn: the base change χ∘N gives χ(<em>n</em>)<sup>2</sup>, its conductor is 𝔭<sup>2<em>K</em>−1</sup> (not 𝔭<sup>2<em>K</em></sup>) for <em>K</em> ≥ 2, and the norm map onto (ℤ/3<sup><em>K</em></sup>ℤ)<sup>×</sup> has image of index 2. Also withdrawn: the claim that the argument is specific to 3, the statement that 2 splits in ℤ[ω] (it is inert, since −3 ≡ 5 mod 8), the table of “Watt conditions”, the claim that W3 implies θ<sub><em>f</em></sub> ≤ 7/32 with the zero-density estimate quoted with it, and the “unconditional level of distribution <Fraction numerator="5" denominator="8" />”. The case <em>K</em> = 1, the Minkowski bound and the computation of N(1 − ω) are corrected.</p>
+      </div>
 
+      <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Setup and Statement</h2>
+      <p className="mb-4">This paper is p07 of a nine-paper programme [1]. The companion paper p04 [2] concerns primes in arithmetic progressions to the moduli <em>q</em> = 3<sup><em>K</em></sup>; there, a level of distribution <Fraction numerator="5" denominator="8" /> for each single modulus 3<sup><em>K</em></sup> is a conjecture, which would go beyond what the Generalised Riemann Hypothesis gives. The name “Condition W3” is kept as a label for the following classical statement. Notation: ω = <em>e</em><sup>2π<em>i</em>/3</sup>, 𝒦 = ℚ(ω) = ℚ(√−3) with ring of integers ℤ[ω], 𝔭 = (1 − ω) the unique prime above 3, and ε = χ<sub>−3</sub> = (−3/·), the non-principal character modulo 3 and the quadratic character of 𝒦/ℚ.</p>
       <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
         <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 1.1 — Condition W3</div>
-        <p className="text-[0.95rem] leading-relaxed">Let <em>K</em> ≥ 1 and let χ be a primitive Dirichlet character modulo <em>q</em> = 3<sup><em>K</em></sup>. Then <em>L</em>(<em>s</em>, χ) has no real zero in the region σ &gt; 1 − <em>c</em>/log <em>q</em> for an absolute, effectively computable constant <em>c</em> &gt; 0.</p>
+        <p className="text-[0.95rem] leading-relaxed">Let <em>K</em> ≥ 1 and let χ be a primitive Dirichlet character modulo <em>q</em> = 3<sup><em>K</em></sup>. Then <em>L</em>(<em>s</em>, χ) has no real zero in the region σ &gt; 1 − <em>c</em>/log <em>q</em>, for an absolute, effectively computable constant <em>c</em> &gt; 0.</p>
       </div>
 
-      <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Step 1: Lifting to a Hecke Character</h2>
-      <p className="mb-4">Paper 07 lifts χ to a Hecke character of K = Q(ω) by base change.</p>
-
-      <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
-        <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Proposition 2.5 — Canonical Lifting</div>
-        <p className="text-[0.95rem] leading-relaxed">Let χ be a primitive Dirichlet character modulo 3<sup><em>K</em></sup>, and let Ψ<sub>χ</sub> = χ∘N be its base change, a Hecke Grössencharacter of K = Q(√−3); then Ψ<sub>χ</sub>((<em>n</em>)) = χ(<em>n</em>)² for all <em>n</em> coprime to 3. The factorisation <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>) = <em>L</em>(<em>s</em>, χ)·<em>L</em>(<em>s</em>, χε) holds, where ε = (−3/·) is the quadratic character of K/Q.</p>
+      <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Proof of Condition W3</h2>
+      <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
+        <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Lemma 2.1 — Real characters modulo 3<sup><em>K</em></sup></div>
+        <p className="text-[0.95rem] leading-relaxed">For <em>K</em> ≥ 1, the group (ℤ/3<sup><em>K</em></sup>ℤ)<sup>×</sup> is cyclic of order 2·3<sup><em>K</em>−1</sup>, and there is exactly one real non-principal character modulo 3<sup><em>K</em></sup>, namely the character induced by χ<sub>−3</sub>. Its <em>L</em>-function is <em>L</em>(<em>s</em>, χ<sub>−3</sub>). In particular, for <em>K</em> ≥ 2 every primitive character modulo 3<sup><em>K</em></sup> is complex.</p>
+      </div>
+      <p className="mb-4">The powers of 2 modulo 9 are 2, 4, 8, 7, 5, 1, so 2 is a primitive root modulo every 3<sup><em>K</em></sup> [3], and the character group of a cyclic group of even order has exactly one element of order 2. <strong>Lemma 2.2</strong> adds that <em>L</em>(σ, χ<sub>−3</sub>) &gt; 0 for every real σ &gt; 0, since <em>L</em>(σ, χ<sub>−3</sub>) = Σ<sub><em>m</em>≥0</sub> ((3<em>m</em>+1)<sup>−σ</sup> − (3<em>m</em>+2)<sup>−σ</sup>) is a series of positive terms; for example <em>L</em>(1, χ<sub>−3</sub>) = π/(3√3) = 0.6045….</p>
+      <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
+        <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 2.3 — Classical zero-free region [4, Ch. 14]</div>
+        <p className="text-[0.95rem] leading-relaxed">There is an absolute, effectively computable constant <em>c</em><sub>0</sub> ∈ (0, 1] such that, for <em>q</em> ≥ 3 and χ a non-principal character modulo <em>q</em>: if χ is not real, <em>L</em>(<em>s</em>, χ) has no zero in the region σ ≥ 1 − <em>c</em><sub>0</sub>/log(<em>q</em>(|<em>t</em>| + 2)); if χ is real, <em>L</em>(<em>s</em>, χ) has at most one zero in this region, and such a zero is real and simple.</p>
       </div>
       <div className="ml-6 mb-6 font-stix text-[0.92rem] leading-relaxed text-mid">
-        <div className="font-plex-sans italic text-[0.8rem] text-light mb-1">Proof sketch.</div>
-        The factorisation follows from the standard decomposition of Hecke <em>L</em>-functions over quadratic extensions. <span className="float-right text-[1rem]">□</span>
+        <div className="font-plex-sans italic text-[0.8rem] text-light mb-1">Proof of Theorem 1.1.</div>
+        Take <em>c</em> = <em>c</em><sub>0</sub>/2. Since log(2<em>q</em>) ≤ 2 log <em>q</em>, a real zero β &gt; 1 − <em>c</em>/log <em>q</em> lies in the region of Theorem 2.3 (with <em>t</em> = 0). If <em>K</em> ≥ 2, χ is not real (Lemma 2.1), so Theorem 2.3 excludes β. If <em>K</em> = 1, then χ = χ<sub>−3</sub>, and <em>L</em>(β, χ<sub>−3</sub>) &gt; 0 by Lemma 2.2. <span className="float-right text-[1rem]">□</span>
       </div>
-
-      <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Step 2: The Stark–Baker Theorem for CM Fields</h2>
-      <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
-        <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 3.2 — as stated in Paper 07</div>
-        <p className="text-[0.95rem] leading-relaxed">Let F be a CM field and let Ψ be a Hecke character of F of conductor 𝔣. Then <em>L</em>(<em>s</em>, Ψ) has no real zero in the region σ &gt; 1 − <em>c</em><sub>F</sub>/log(N(𝔣)·|disc(F)|) for an effectively computable constant <em>c</em><sub>F</sub> &gt; 0 depending only on [F:Q].</p>
-        <p className="mt-2 text-[0.8rem] leading-relaxed text-light italic">In this generality the statement is not an established theorem: for imaginary quadratic fields it would settle the Landau–Siegel zero problem. Stark (1967) and Baker (1966) solved the class-number-one problem. Under revision.</p>
-      </div>
-
       <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
-        <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Proposition 3.1 — CM Structure of Q(ω)</div>
-        <p className="text-[0.95rem] leading-relaxed">The field K = Q(ω) = Q(√−3) is a CM field: totally imaginary, quadratic over Q, with discriminant disc(K) = −3. Its class number is 1 (Z[ω] is a principal ideal domain). The Minkowski bound for Z[ω] is (2/π)√3 &lt; 2, so every ideal class contains an ideal of norm 1, i.e. the unit ideal. These properties together make K the optimal field for the Stark–Baker argument: the effective constant <em>c</em><sub>K</sub> is explicit and the zero-free region is the largest possible for a quadratic CM field.</p>
+        <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Remarks 2.4–2.5 — A slightly stronger statement; nothing here is specific to 3</div>
+        <p className="text-[0.95rem] leading-relaxed">The same argument shows that no non-principal character modulo 3<sup><em>K</em></sup>, primitive or not, has a zero in the region of Theorem 2.3 with <em>q</em> = 3<sup><em>K</em></sup>: these moduli have no exceptional zero, so the prime number theorem for arithmetic progressions to them holds in the Siegel–Walfisz range with effectively computable constants [4, Ch. 20]. For every odd prime ℓ, (ℤ/ℓ<sup><em>K</em></sup>ℤ)<sup>×</sup> is also cyclic of even order, so the same argument proves W3 for the moduli ℓ<sup><em>K</em></sup>, with a constant <em>c</em><sub>ℓ</sub> &gt; 0 depending on ℓ; a constant uniform in ℓ would exclude Siegel zeros for real characters of prime conductor, which is an open problem. Nor is ℚ(ω) special: ℚ(√−7), ℚ(√−11), ℚ(√−19), ℚ(√−43), ℚ(√−67) and ℚ(√−163) also have class number 1, and each is ramified at a single prime.</p>
       </div>
 
-      <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Step 3: Transfer to <em>L</em>(<em>s</em>, χ)</h2>
-      <p className="mb-4">From Proposition 2.5: <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>) = <em>L</em>(<em>s</em>, χ)·<em>L</em>(<em>s</em>, χε). If <em>L</em>(<em>s</em>, χ) had a real zero β in the region σ &gt; 1 − <em>c</em>/log <em>q</em>, then <em>L</em>(β, Ψ<sub>χ</sub>) = <em>L</em>(β, χ)·<em>L</em>(β, χε) = 0. But Stark–Baker (Theorem 3.2) guarantees no such zero for <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>). Contradiction. Hence <em>L</em>(<em>s</em>, χ) has no such zero. <span className="float-right text-[1rem]">□</span></p>
+      <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">The Field ℚ(ω) and Base Change (Context)</h2>
+      <p className="mb-4">Sections 3 and 4 of the paper record the arithmetic of 𝒦 = ℚ(ω). It is context only and is not needed for the proof. <strong>Proposition 3.1:</strong> 𝒦 is imaginary quadratic, hence a CM field, with ring of integers ℤ[ω], discriminant −3, class number 1 (the Minkowski bound is (2/π)√3 ≈ 1.10) and unit group μ<sub>6</sub> = {'{'}±1, ±ω, ±ω<sup>2</sup>{'}'}. It is one of the nine imaginary quadratic fields of class number one, by Heegner [5], Baker [6] and Stark [7]; that theorem plays no role here (Remark 3.2). <strong>Proposition 3.3:</strong> (3) = 𝔭<sup>2</sup>, with N(1 − ω) = 1 + 1 + 1 = 3 and 3 = −ω<sup>2</sup>(1 − ω)<sup>2</sup>. <strong>Lemma 3.5:</strong> a prime ℓ ≠ 3 splits in 𝒦 if ℓ ≡ 1 (mod 3) and is inert if ℓ ≡ 2 (mod 3); in particular 2 is inert and ℤ[ω]/(2) ≅ 𝔽<sub>4</sub>.</p>
+      <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
+        <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Proposition 4.1 — Base change of characters modulo 3<sup><em>K</em></sup></div>
+        <p className="text-[0.95rem] leading-relaxed">Let χ be a Dirichlet character modulo 3<sup><em>K</em></sup> and put Ψ<sub>χ</sub>(𝔞) = χ(N𝔞). (i) Ψ<sub>χ</sub> is a Hecke character of finite order with modulus 𝔭<sup>2<em>K</em></sup>, and Ψ<sub>χ</sub>((<em>n</em>)) = χ(<em>n</em>)<sup>2</sup> for every <em>n</em> ∈ ℤ. (ii) The image of the norm map (𝒪<sub>𝒦</sub>/𝔭<sup>2<em>K</em></sup>)<sup>×</sup> → (ℤ/3<sup><em>K</em></sup>ℤ)<sup>×</sup> is the subgroup {'{'}<em>n</em> ≡ 1 (mod 3){'}'}, of index 2; hence Ψ<sub>χ</sub> = Ψ<sub>χε</sub>, and χ ↦ Ψ<sub>χ</sub> is two-to-one. (iii) If χ is primitive, Ψ<sub>χ</sub> is trivial when <em>K</em> = 1, and its conductor is 𝔭<sup>2<em>K</em>−1</sup> when <em>K</em> ≥ 2.</p>
+      </div>
+      <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
+        <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Lemma 4.3 — <em>L</em>-function factorisation</div>
+        <p className="text-[0.95rem] leading-relaxed">For every Dirichlet character χ modulo 3<sup><em>K</em></sup>, <em>K</em> ≥ 1, <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>) = <em>L</em>(<em>s</em>, χ)·<em>L</em>(<em>s</em>, χε). For <em>K</em> = 1, χε is principal and the identity reads ζ<sub>𝒦</sub>(<em>s</em>) = ζ(<em>s</em>)<em>L</em>(<em>s</em>, ε) (Remark 4.4).</p>
+      </div>
+      <p className="mb-4">The conductor in (iii) agrees with the conductor–discriminant formula, 3·3<sup>2<em>K</em>−1</sup> = 3<sup><em>K</em></sup>·3<sup><em>K</em></sup>. Since <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>) is a product of two Dirichlet <em>L</em>-functions modulo 3<sup><em>K</em></sup>, a zero-free region for it is the same statement as one for the pair <em>L</em>(<em>s</em>, χ), <em>L</em>(<em>s</em>, χε): passing to ℚ(ω) adds nothing to the proof (Remark 4.5).</p>
 
-      <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Full Coherence: One Structure, Three Applications</h2>
-      <p className="mb-4">The Eisenstein structure of Z[ω] does three things at once: (1) it forces the triply-well-factorable decomposition of sieve weights (Part I of [4]); (2) it provides the cyclic group structure used in the argument for θ<sub>W</sub> = <Fraction numerator="5" denominator="8" /> (Part II of [4]); (3) it provides the CM field structure that prevents Siegel zeros (this paper). The same algebraic structure does all three jobs simultaneously. This coherence is constitutional — not designed in, but forced by what Z[ω] is.</p>
+      <div className="my-6 p-4 border border-rule border-l-4 border-light bg-paper-bg">
+        <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Withdrawn (Sections 4–6 of the paper)</div>
+        <ul className="list-disc pl-5 space-y-1 text-[0.9rem] leading-relaxed">
+          <li><strong>The “Stark–Baker theorem”</strong> (former Theorem 3.2): applied to ζ<sub><em>F</em></sub> = ζ·<em>L</em>(<em>s</em>, χ<sub><em>d</em><sub><em>F</em></sub></sub>) for imaginary quadratic <em>F</em> it would solve the open Landau–Siegel problem; Heegner, Baker and Stark proved the class-number-one theorem, which gives no zero-free region.</li>
+          <li><strong>The lifting χ(<em>n</em>) = Ψ<sub>χ</sub>((<em>n</em>))</strong> (former Proposition 2.5): impossible for odd χ, since (<em>n</em>) = (−<em>n</em>) forces χ(−1) = 1; the conductor does not “match” (Remark 4.2).</li>
+          <li><strong>“Watt conditions” W1–W3</strong> (former Theorem 7.1): Watt's theorem [8] is a <em>t</em>-aspect mean value of |ζ(½ + <em>it</em>)|<sup>4</sup>|Σ<em>a</em><sub><em>m</em></sub><em>m</em><sup>−<em>it</em></sup>|<sup>2</sup> with no such hypotheses.</li>
+          <li><strong>W3 ⇒ θ ≤ 7/32:</strong> that bound is the Kim–Sarnak bound [9] towards Selberg's eigenvalue conjecture, a theorem about Maass forms that neither the absence of Siegel zeros nor any zero-density estimate implies.</li>
+          <li><strong>“Unconditional level <Fraction numerator="5" denominator="8" />”</strong> (former Corollary 7.2): p04's sum over 3<sup><em>K</em></sup> ≤ <em>x</em><sup>θ</sup> holds for every θ &lt; 1 without W3; the per-modulus level is a conjecture, and a <em>c</em>/log <em>q</em> region gives no saving for <em>q</em> = <em>x</em><sup>θ</sup>, since <em>x</em><sup>1 − <em>c</em>/log <em>q</em></sup> = <em>e</em><sup>−<em>c</em>/θ</sup><em>x</em>.</li>
+          <li><strong>“Coherence”</strong> (former Proposition 6.1): the (1 − ω)-adic filtration of ℤ[ω]/(3<sup><em>K</em></sup>) has 2<em>K</em> steps, not three; the Kloosterman bound (3<sup><em>K</em></sup>)<sup>3/8+ε</sup> fails; the conductors do not match.</li>
+          <li><strong>“Specific to 3”</strong> (former Proposition 5.1): see Remark 2.5; its proof also had 2 splitting “since −3 ≡ 1 (mod 8)”, but −3 ≡ 5 (mod 8) and 2 is inert.</li>
+        </ul>
+      </div>
 
       <div className="mt-12 pt-6 border-t border-rule">
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mb-6">References</h2>
         <ol className="list-none [counter-reset:refs]">
-          <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">H. M. Stark, "A complete determination of the complex quadratic fields of class-number one," <em>Michigan Math. J.</em> 14 (1967), 1–27.</li>
-          <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">A. Baker, "Linear forms in the logarithms of algebraic numbers IV," <em>Mathematika</em> 15 (1968), 204–216.</li>
-          <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">N. Watt, "Kloosterman sums and a mean value for Dirichlet polynomials," <em>J. Number Theory</em> 53 (1995), 179–210.</li>
-          <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">K. Wakil, "Ternary Forcing on the Hexagonal Lattice," Constitutional Sieve Programme Paper 04 (2026).</li>
-          <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">D. Goldfeld and L. Szpiro, "Bounds for the order of the Tate-Shafarevich group," <em>Compositio Math.</em> 97 (1995), 71–87.</li>
+          <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">K. Wakil, “Constitutional Forcing,” ARC Institute of Knowware, preprint, 2026.</li>
+          <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">K. Wakil, “Ternary Forcing on the Hexagonal Lattice: Eisenstein Integers, Cascade Moduli, and a Conjectured Level of Distribution 5/8,” ARC Institute of Knowware, preprint, 2026.</li>
+          <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">K. Ireland and M. Rosen, <em>A Classical Introduction to Modern Number Theory</em>, 2nd ed., Graduate Texts in Mathematics 84, Springer, New York, 1990.</li>
+          <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">H. Davenport, <em>Multiplicative Number Theory</em>, 3rd ed., revised by H. L. Montgomery, Graduate Texts in Mathematics 74, Springer, New York, 2000.</li>
+          <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">K. Heegner, “Diophantische Analysis und Modulfunktionen,” <em>Math. Z.</em> 56 (1952), 227–253.</li>
+          <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">A. Baker, “Linear forms in the logarithms of algebraic numbers,” <em>Mathematika</em> 13 (1966), 204–216.</li>
+          <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">H. M. Stark, “A complete determination of the complex quadratic fields of class-number one,” <em>Michigan Math. J.</em> 14 (1967), 1–27.</li>
+          <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">N. Watt, “Kloosterman sums and a mean value for Dirichlet polynomials,” <em>J. Number Theory</em> 53 (1995), 179–210.</li>
+          <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">H. H. Kim, “Functoriality for the exterior square of GL<sub>4</sub> and the symmetric fourth of GL<sub>2</sub>” (with Appendix 2 by H. H. Kim and P. Sarnak), <em>J. Amer. Math. Soc.</em> 16 (2003), 139–183.</li>
         </ol>
       </div>
     </>
   ),
   nextPaper: {
     id: "08",
-    title: "08 · Prime Digit Bias",
-    desc: "A proposed ternary explanation of the Lemke Oliver–Soundararajan bias: why consecutive prime last digits tend to avoid each other.",
+    title: "08 · The Lemke Oliver–Soundararajan Bias and Ternary Constitutional Structure",
+    desc: <>Recomputed transition counts for the first 10<sup>8</sup> and 10<sup>9</sup> primes show that the Hardy–Littlewood heuristic of Lemke Oliver and Soundararajan accounts for the last-digit bias of consecutive primes, and the ternary explanation is withdrawn.</>,
     url: "/papers/p08"
   }
 };
