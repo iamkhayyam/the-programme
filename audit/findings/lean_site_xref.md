@@ -64,7 +64,7 @@ Repo HEAD at review time: `40c2f3d` ("Add Lean 4 formalisation of all 9 papers",
 | P02:39 | `binom_nonzero_mod_iff` | iii (axiom-dep.) | Contrapositive of axiom `lucas_theorem`. |
 | P02:72 | `mod3_configuration_count` | i | 8−3 = 5 and 5/8 = 5/8. Nothing about mod 3 or a fractal. |
 | P02:82 | `ternary_survivor_count` | ii | `4^K = (3+1)^K`. The claim it is named after is false (see A-05). |
-| P03:116 | `twin_prime_constitution` | iii | p, p+2 prime, p > 3 ⇒ p ≡ 2 (mod 3). A genuine, classical elementary proof. |
+| P03:31 | `twin_prime_constitution` | iii | p, p+2 prime, p > 3 ⇒ p ≡ 2 (mod 3). A genuine, classical elementary proof. |
 | P04:48 | `norm_one_minus_omega` | i | `decide`: 1² − 1·(−1) + (−1)² = 3 ✓ |
 | P04:60 | `oneMinusOmega_sq_val` | i | `decide`: (1−ω)² = −3ω ✓ |
 | P04:65 | `ramification_of_three` | i | `decide`: (1+ω)(−3ω) = 3 ✓ |
@@ -73,26 +73,26 @@ Repo HEAD at review time: `40c2f3d` ("Add Lean 4 formalisation of all 9 papers",
 | P04:106 | `main_theorem_cascade` | **i** | `(1:ℚ)/2 + 1/8 = 5/8`. Named "Main Theorem 1.1". |
 | P04:114 | `uniqueness_of_five_eighths` | **i** | `2/3 ≠ 5/8 ∧ 1/2 + 1/8 = 5/8`. Named "Theorem 5.1 uniqueness". |
 | P04:135 | `twin_primes_are_inert_split` | sorry | Even if proved, `classifyPrime` is *defined* by `p % 3` (P04:129), so it would say nothing about factorisation in ℤ[ω]. |
-| P05:163 | `config_space_size` | iii | `card (Fin k → Bool) = 2^k`. |
-| P05:182 | `singleFail_injective` | iii | The k "single-fail" configurations are distinct. |
-| P05:190 | `counting_theorem_configs` | iii | Each single-fail configuration is invalid. This gives *at least* k invalid configurations; see A-02. |
-| P05:202, 226–228, 244 | `config_density_3`, `unification_k1/k3/k4`, `theta_5_value` | i | Numeral arithmetic. |
-| P05:213, 218 | `pattern_density_neq_config`, `density_discrepancy` | i | 416/729 ≠ 5/8 and 5/8 − 416/729 > 0 ✓ |
-| P05:247 | `three_first_odd_prime` | iii | Trivial. |
+| P05:25 | `config_space_size` | iii | `card (Fin k → Bool) = 2^k`. |
+| P05:44 | `singleFail_injective` | iii | The k "single-fail" configurations are distinct. |
+| P05:52 | `counting_theorem_configs` | iii | Each single-fail configuration is invalid. This gives *at least* k invalid configurations; see A-02. |
+| P05:64, 88–90, 106 | `config_density_3`, `unification_k1/k3/k4`, `theta_5_value` | i | Numeral arithmetic. |
+| P05:75, 80 | `pattern_density_neq_config`, `density_discrepancy` | i | 416/729 ≠ 5/8 and 5/8 − 416/729 > 0 ✓ |
+| P05:109 | `three_first_odd_prime` | iii | Trivial. |
 | P06:46 | `three_instances_satisfy_SW` | **ii** | Only *one* system is defined, and all four of its Prop fields are `True`. |
 | P06:57, 61, 66, 75 | `sophie_germain_noninstance`, `framework_falsifiable`, `k_hierarchy_table`, `k4_prediction_value` | i | Numeral arithmetic. The table values are correct. |
-| P07:112 | `unique_ramified_prime` | iii | If a prime p divides 3, then p = 3. Says nothing about ramification or discriminants. |
-| P07:139 | `condition_W3` | **ii (axiom)** | `∃ c : ℚ, c > 0`, obtained from axiom `stark_baker_theorem`. |
-| P07:144 | `watt_conditions_satisfied` | **ii** | `True := trivial`. |
-| P07:164 | `three_in_stark_list` | i | `3 ∈ [1,2,3,7,…]`. |
+| P07:37 | `unique_ramified_prime` | iii | If a prime p divides 3, then p = 3. Says nothing about ramification or discriminants. |
+| P07:64 | `condition_W3` | **ii (axiom)** | `∃ c : ℚ, c > 0`, obtained from axiom `stark_baker_theorem`. |
+| P07:69 | `watt_conditions_satisfied` | **ii** | `True := trivial`. |
+| P07:89 | `three_in_stark_list` | i | `3 ∈ [1,2,3,7,…]`. |
 | P08:32 | `prime_avoids_forbidden` | iii | Prime p > 3 ⇒ p mod 3 ≠ 0. |
 | P08:51 | `twin_prime_ternary_signature` | iii | Repeats P03, plus p+2 ≡ 1 (mod 3). |
 | P08:102, 107, 113, 116, 121 | `diagonal_has_max_gap`, `offdiagonal_smaller_gap`, `diagonal_gap_ternary`, `gap2_transitions`, `gap2_is_classII` | i | Lookups in a hand-entered 4×4 table, plus `10 % 3 = 1` and `2 % 3 = 2`. |
-| P09:180 | `independent_dof_even` | i | 1+1+2(N/2−1) = N for even N ≥ 2. |
-| P09:187 | `theta_fft_value` | i | N/(2N) = 1/2. |
-| P09:205 | `khayyam_bridge` | i | 1/2 = (2−1)/2. |
-| P09:216 | `compression_floor` | i | 1/(1/2) = 2. |
-| P09:220 | `universal_constant` | ii | `thetaFFT = 1/2 := rfl`. |
+| P09:51 | `independent_dof_even` | i | 1+1+2(N/2−1) = N for even N ≥ 2. |
+| P09:58 | `theta_fft_value` | i | N/(2N) = 1/2. |
+| P09:76 | `khayyam_bridge` | i | 1/2 = (2−1)/2. |
+| P09:87 | `compression_floor` | i | 1/(1/2) = 2. |
+| P09:91 | `universal_constant` | ii | `thetaFFT = 1/2 := rfl`. |
 
 ### A.2 Axioms (all 20)
 
@@ -109,17 +109,17 @@ So the axiom set is consistent, and `False` cannot be derived (VERIFIED). But no
 | `lucas_theorem` P02:35 | Lucas's criterion | True and standard. SUSPECT: probably already in Mathlib (`Mathlib/Combinatorics/Choose/Lucas.lean`). |
 | `sierpinski_self_similarity` P02:57 | `∃ copies, copies = (p+1)^m` | Vacuous (provable by `⟨_, rfl⟩`). The intended claim is false (A-05). |
 | `mod3_smaller_than_mod2` P02:65 | log4/log3 < log3/log2 | True for the Lean definition. False for the real fractals (A-05). |
-| `k4_prediction` P03:174 | `∃ constellation, True` | Vacuous. Does not mention 3/4. |
+| `k4_prediction` P03:89 | `∃ constellation, True` | Vacuous. Does not mention 3/4. |
 | `three_level_filtration` P04:79 | `∃ n, n = 3` | Vacuous. |
 | `unit_group_cyclic` P04:96 | `True` | Vacuous. |
-| `geometric_pillar_theta3` P05:235 | `configDensity 3 = 5/8` | Arithmetic, already proved by `norm_num` at P05:202. The report files it under "Deep analytic results". |
-| `general_correspondence_conjecture` P05:241 | `∀k, k ≥ 1 → True` | Vacuous. |
-| `canonical_lifting` P07:126 | `True` | Vacuous. |
-| `stark_baker_theorem` P07:129 | `∃ c:ℚ, c > 0` | Vacuous (c = 1). |
-| `l_function_factorisation` P07:132 | `True` | Vacuous. |
+| `geometric_pillar_theta3` P05:97 | `configDensity 3 = 5/8` | Arithmetic, already proved by `norm_num` at P05:64. The report files it under "Deep analytic results". |
+| `general_correspondence_conjecture` P05:103 | `∀k, k ≥ 1 → True` | Vacuous. |
+| `canonical_lifting` P07:51 | `True` | Vacuous. |
+| `stark_baker_theorem` P07:54 | `∃ c:ℚ, c > 0` | Vacuous (c = 1). |
+| `l_function_factorisation` P07:57 | `True` | Vacuous. |
 | `dirichlet_mod3_equilibrium`, `snails_pace_is_siegel_walfisz`, `base_independence` P08:127–129 | `True` / `∀ base ≥ 2, True` | Vacuous. |
-| `conjugate_symmetry`, `dc_is_real`, `nyquist_is_real`, `energy_conservation` P09:161–198 | Standard DFT facts | True and provable. This is the only genuine theorem of p09, and it is the part left unproved. |
-| `structural_bridge` P09:209 | `True` | Vacuous. |
+| `conjugate_symmetry`, `dc_is_real`, `nyquist_is_real`, `energy_conservation` P09:32–67 | Standard DFT facts | True and provable. This is the only genuine theorem of p09, and it is the part left unproved. |
+| `structural_bridge` P09:80 | `True` | Vacuous. |
 
 ### A.3 Findings: Lean code
 
@@ -135,7 +135,7 @@ So the axiom set is consistent, and `False` cannot be derived (VERIFIED). But no
   - Rename it (for example `theta_def`) and remove the "Counting Theorem" claims from the file and the report.
   - Alternatively, state a real model with a cardinality claim (see A-02); that statement is false.
 
-**A-02 · CRITICAL · P05_RamanujansDimensionalForcing.lean:168–193 (header P05:145) · VERIFIED**
+**A-02 · CRITICAL · P05_RamanujansDimensionalForcing.lean:29–56 (header P05:8) · VERIFIED**
 - Quote: `def isInvalid (c : Configuration k) : Prop := ∃ i : Fin k, c i = false`, with the header "Counting Theorem: k invalid out of 2^k".
 - What is wrong:
   - This is the only file that models configurations concretely.
@@ -144,7 +144,7 @@ So the axiom set is consistent, and `False` cannot be derived (VERIFIED). But no
 - Evidence: exhaustive enumeration for k = 1…6 gives 1, 3, 7, 15, 31, 63 invalid configurations (`checks.py`).
 - Fix: state `Fintype.card {c // isInvalid c} = 2^k - 1`, which is provable. Report that the Lean model contradicts p01 Theorem 2.6 / p05 Theorem 3.4.
 
-**A-03 · CRITICAL · P04:105–119, P07:138–144, P05:234–235 · VERIFIED**
+**A-03 · CRITICAL · P04:105–119, P07:63–69, P05:97 · VERIFIED**
 - Quote: `theorem main_theorem_cascade : (1 : ℚ) / 2 + 1 / 8 = 5 / 8`; `theorem condition_W3 : ∃ (c : ℚ), c > 0`; `theorem watt_conditions_satisfied : True := trivial`; `axiom geometric_pillar_theta3 : configDensity 3 = 5 / 8`
 - What is wrong:
   - The programme's three central analytic results are each replaced by numeral arithmetic, an existential that is trivially true, or `True`:
@@ -187,7 +187,7 @@ So the axiom set is consistent, and `False` cannot be derived (VERIFIED). But no
   - The Lean docstring gives Sophie Germain **k = 1**, but p06.tex:452–460 (Theorem 7.1) says **k = 2**.
 - Fix: rename the theorem, and align the Sophie Germain depth with the paper (see X-02).
 
-**A-08 · MAJOR · P07_ConditionW3.lean:111–119, 160–165 · VERIFIED**
+**A-08 · MAJOR · P07_ConditionW3.lean:36–43, 86–90 · VERIFIED**
 - Quote: `def class_number_one_discriminants : List ℕ := [1, 2, 3, 7, 11, 19, 43, 67, 163]`
 - What is wrong:
   - These are the Heegner numbers d of ℚ(√−d), not discriminants (the discriminants are −4, −8, −3, −7, …).
@@ -204,7 +204,7 @@ So the axiom set is consistent, and `False` cannot be derived (VERIFIED). But no
   - The theorems are table lookups. Nothing connects the table to prime transition frequencies, the LOS bias, or Siegel–Walfisz (whose axiom is `True`).
 - Fix: present this as "encoding of the minimum-gap table only".
 
-**A-10 · MAJOR · P09_WakilThetaFFT.lean:160–171, 186–220 · VERIFIED**
+**A-10 · MAJOR · P09_WakilThetaFFT.lean:32–41, 51–91 · VERIFIED**
 - What is wrong:
   - The one real theorem in p09 (conjugate symmetry, a two-line proof) is an **axiom**.
   - Meanwhile `N/(2N) = 1/2`, `1/(1/2) = 2` and `thetaFFT = 1/2 := rfl` count as "verified theorems".
@@ -246,7 +246,7 @@ So the axiom set is consistent, and `False` cannot be derived (VERIFIED). But no
   - There is no committed `lake-manifest.json`, `.lake/`, `.olean`, build log or Lean CI. `.github/workflows/deploy.yml` only builds the website.
   - Mathlib is pinned only to `rev = "v4.29.0"` (lakefile.toml:14–17), not to a commit.
   - The compile cannot be confirmed. Plausible failure or warning points (SUSPECT):
-    - P09:187–189: `field_simp` must discharge `(N:ℚ) ≠ 0` from `hN : N ≥ 2` in ℕ.
+    - P09:58–60: `field_simp` must discharge `(N:ℚ) ≠ 0` from `hN : N ≥ 2` in ℕ.
     - P02 uses `Real.log`, and P09 uses `Real.pi` and `Complex.exp`, with only `import Mathlib.Tactic` (plus `Mathlib.Data.Complex.Basic`). It is not verified that these are in scope.
     - There are unused-variable warnings beyond P08, for example `S` in `forced_constant` (P01:114) and `hp` in `classifyPrime` (P04:129). This contradicts "two warnings".
 - Fix: commit `lake-manifest.json` and a CI job running `lake build`, and attach the log. Until then, say "not independently compiled".
