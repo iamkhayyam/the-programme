@@ -60,6 +60,8 @@ The other numbers that "poisoned" the research were mostly external constants ma
 
 ## 3. Root-cause errors (inherited by several papers)
 
+Several files in `findings/` refer to "facts 1–7". These map to the IDs below as follows: fact 1 = R2, fact 2 = R1, fact 3 = R3, fact 4 = R6, fact 5 = R4, fact 6 = R7, fact 7 = R8.
+
 | ID | Error | First appears | Inherited by | Status |
 |---|---|---|---|---|
 | R1 | **Counting Theorem miscount.** With c ∈ {0,1}^k (c_i = 1 iff constraint i holds), one failing constraint invalidates 2^{k−1} configurations. Invalid = 2^k − 1 and valid = 1 for every k (k = 3: 7 invalid, not 3). The induction ignores that the k − 1 invalid configurations each split in two. | p01 Thm 2.6 (l.242–270) | p02, p03, p04, p05 (Prop 4.1, whose own proof defines valid = "all coordinates 1"), p06, p09, Lean P01/P05, website | VERIFIED |
@@ -97,9 +99,24 @@ Cross-paper numbering is inconsistent. p01 calls itself "Paper 00 of a seven-pap
 
 ## 5. Supporting material
 
-**Lean (`lean/`, `LEAN_VERIFICATION_REPORT.md`).** See `findings/lean_site_xref.md` for the theorem-by-theorem classification. In short, the files check numeral arithmetic (θ_k values, 8 − 3 = 5, 1/2 + 1/8 = 5/8) and a few correct Eisenstein-integer identities (N(1−ω) = 3, 3 = −ω²(1−ω)²). Everything analytic is an `axiom` whose type is `True` or `∃ c, c > 0`, or is left as `sorry`. The verification report describes these as machine verification of the papers' results; that description is wrong. P02 also encodes the wrong Hausdorff-dimension formula, and an axiom (`mod3_smaller_than_mod2`) that states the opposite of the truth.
+**Lean (`lean/`, `LEAN_VERIFICATION_REPORT.md`).** See `findings/lean_site_xref.md` §A for the theorem-by-theorem classification of all 59 theorems and 20 axioms. In short:
 
-**Website (`src/`).** Every page repeats Kolmogorov α = 3/4 as an instance. The places are `programme.ts:9`, `Home.tsx:176,263–264,354`, `PaperDetail.tsx:78–79`, `EssayDetail.tsx:743,798–799,834–848,895,948`, `Preprints.tsx:19–20` and `CoverLetter.tsx:78,129`. EssayDetail.tsx:837 even reads "Two constraints. Eight configurations. Two invalid. Six valid. θ₂ = 6/8 = 3/4". Status labels such as "PROVED (UNCONDITIONAL VIA PAPER 07)" for p04 are not supported. The site is deployed from this repo by `.github/workflows/deploy.yml`, so these claims are live.
+- **The Counting Theorem is true by definition.** `def invalidCount (k : ℕ) : ℕ := k` (P01:28), so `counting_theorem` is `k = k`, closed by `rfl`. The flawed induction appears only in a comment.
+- **The one concrete model refutes it.** The model in P05:168–171 defines "invalid" as "some constraint fails" (p05's own rule). Under that definition there are 2^k − 1 invalid configurations, and the file only proves "at least k".
+- **The headline results are arithmetic or vacuous statements.** `main_theorem_cascade` is `1/2 + 1/8 = 5/8`. `condition_W3` is `∃ c : ℚ, c > 0`, and `watt_conditions_satisfied` is `True`. `constitutional_forcing_conjecture` is trivially provable because `forced_constant` ignores its argument.
+- **The axioms carry no content.** 14 of the 20 axioms are `True` or trivially provable. No axiom states anything about primes in progressions, L-functions, Kloosterman sums, Shannon theory, Kolmogorov or prime bias. Even p09's one genuine theorem, DFT conjugate symmetry, is assumed as an axiom rather than proved.
+- **What is genuinely proved:** numeral arithmetic (36 of 59 theorems; the θ_k values are correct), a few correct Eisenstein-integer identities (N(1−ω) = 3, 3 = −ω²(1−ω)²), and about a dozen elementary facts (e.g. twin primes > 3 are ≡ 2 mod 3).
+- **P02 is wrong as well as empty.** It encodes the wrong Hausdorff-dimension formula and the survivor count 4^K, which should be 6^K. Its axiom `mod3_smaller_than_mod2` states the opposite of the truth.
+- **The verification report overstates what was built and verified.** Its claim that "all 1,031 lines compile" cannot be checked from the repo: there is no `lake-manifest.json`, build log or CI job. It says Watt, Kloosterman and Cauchy–Schwarz are "stated but axiomatised", but none of them appears in the code. Its "machine-verified" count includes theorems that depend on axioms.
+
+**Website (`src/`).** The site repeats Kolmogorov α = 3/4 as an instance in many places: `programme.ts:9`, `Home.tsx:176,263–264,354`, `PaperDetail.tsx:78–79`, `EssayDetail.tsx:743,798–799,834–848,895,948`, `Preprints.tsx:19–20` and `CoverLetter.tsx:78,129`. Two of these get the arithmetic wrong on its own terms: `PaperDetail.tsx:79` prints θ₂ = (4 − 2)/4 = 3/4, and `EssayDetail.tsx:837` reads "Two constraints. Eight configurations. Two invalid. Six valid. θ₂ = 6/8 = 3/4". Other problems:
+
+- **Status labels contradict each other.** p04 is "PROVED (UNCONDITIONAL VIA PAPER 07)" in `programme.ts:44`, "Proved (conditional W3)" in `PaperDetail.tsx:119` and "PROVED" in `Preprints.tsx:77`. p05's main result is a Theorem in the .tex but "Conjecture 6.1" on the site.
+- **Twin primes.** The site says a level of distribution would yield infinitely many twin primes (`PaperDetail.tsx:473,486`, `EssayDetail.tsx:383–384,941`). That is false (R9).
+- **arXiv links.** The links `arxiv.org/abs/2602.0101` … `2603.0109` and their DOIs are not valid arXiv identifiers: post-2015 IDs have five digits after the dot. The cover letter (`CoverLetter.tsx:98–101`) says the math.NT endorsement was still pending, so these links do not resolve to the papers.
+- **False numerical statements.** Mod-2 "void fraction exactly 1/2" (`PaperDetail.tsx:822`), the Kloosterman q^{3/8} bound (`:358`), "(1,3) constitutionally forbidden" (`:731`) and the reversed "12% discrepancy" (`:443`) are all false.
+
+The site is deployed from this repo by `.github/workflows/deploy.yml`, so these claims are live.
 
 **Programme registry (the `constitutional-forcing-programme` skill).** The registry that Claude consults before touching programme papers carries the Kolmogorov error itself:
 - the k-hierarchy table lists "k = 2 … Kolmogorov turbulence exponent α = 3/4", next to θ_2 = 1/2;
@@ -172,6 +189,7 @@ cd audit/scripts/p04 && python3 kloosterman.py
 | `scripts/p07/` | Character group, L-values, conductors, norm map, class numbers |
 | `scripts/p08/` | `sieve.c`/`sieve2.c` (compile with `gcc -O2`), raw outputs `out_1e8.txt`/`out_1e9.txt`, `analyze.py`, and the Hardy–Littlewood transition `model.py` |
 | `scripts/p09/` | DFT degrees of freedom, θ_emp bound, Pascal mod 2, compression claims |
+| `scripts/lean_site/` | θ_k table and Lean model counts (`checks.py`), Pascal mod 2/mod 3 and website numbers (`checks2.py`), axiom truth checks (`axioms_check.py`), theorem numbering across papers (`numbering.py`) |
 
 Limitations:
 - The Lean files were reviewed by reading. No Lean toolchain is available here, so they were not compiled.
