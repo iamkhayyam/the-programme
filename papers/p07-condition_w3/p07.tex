@@ -64,59 +64,59 @@
 \begin{abstract}
 We prove Condition~W3: for every primitive Dirichlet character $\chi$ modulo
 $q = 3^K$, the $L$-function $L(s, \chi)$ has no real zero in the region
-$\sigma > 1 - c/\!\log q$ for an absolute, effectively computable constant
-$c > 0$. This closes the gap marked \textup{[NOTE]} in Appendix~A of the
-companion paper~\cite{WakilEisenstein} and renders the main theorem of that
-paper---level of distribution $\theta_W = 5/8$ for cascade moduli---unconditional.
-
-The proof has three steps, each using the same algebraic structure.
-\textbf{Step~1 (Lifting).} Every primitive character $\chi \pmod{3^K}$ lifts
-canonically to a primitive Hecke Gr\"ossencharacter $\Psi_\chi$ of
-$\K = \Qomega = \Q(\sqrt{-3})$ of conductor $\pp^{2K}$, where
-$\pp = (1-\omega)$ is the unique prime of $\Zomega$ above~$3$. The lifting
-is canonical because the ramification $(3) = \pp^2$ makes the conductor of
-$\Psi_\chi$ in $\K$ match the conductor of $\chi$ in $\Q$ exactly.
-\textbf{Step~2 (Stark--Baker).} Since $\K$ is a CM field of class number~$1$,
-the Stark--Baker theorem~\cite{Stark1967,Baker1966} excludes Siegel zeros for
-$L(s, \Psi_\chi)$ in an effective zero-free region.
-\textbf{Step~3 (Transfer).} The factorisation $L(s, \Psi_\chi) = L(s,\chi)
-\cdot L(s, \chi\varepsilon)$, where $\varepsilon = \bigl(\tfrac{-3}{\cdot}\bigr)$
-is the quadratic character of $\K/\Q$, transfers the zero-free region to
-$L(s,\chi)$.
-
-We also prove that the argument is \emph{specific to} $q = 3^K$: the three
-properties of $3$ in $\Zomega$ that make it work---ramification, cyclic unit
-group, unique CM field---do not simultaneously hold for any other prime-power
-family.
+$\sigma > 1 - c/\!\log q$, for an absolute, effectively computable constant
+$c > 0$. The statement is classical, and its proof takes one line: the group
+$(\Z/3^K\Z)^\times$ is cyclic of even order, so the only real non-principal
+character modulo $3^K$ is the one induced from the character $\chi_{-3}$
+modulo $3$; an exceptional zero can only belong to a real character; and
+$L(\sigma,\chi_{-3}) > 0$ for $\sigma > 0$. As context we record, with
+corrections, the arithmetic of $\Q(\omega)$ that the original version used:
+the base change $\chi\circ\mathrm{N}$ of a character $\chi$ modulo $3^K$
+takes the value $\chi(n)^2$ on the ideal $(n)$, its conductor is
+$\mathfrak p^{2K-1}$ for $K \geq 2$, and
+$L(s,\chi\circ\mathrm{N}) = L(s,\chi)L(s,\chi\chi_{-3})$. Condition~W3
+does not make any level of distribution unconditional, and nothing in it is
+specific to the prime $3$.
 \end{abstract}
 
 \maketitle
+
+\noindent\textbf{Revision note (November 2026).}
+The proof through a ``Stark--Baker theorem'' for CM fields is replaced by the
+one-line cyclicity argument, and the former Theorem~3.2 is withdrawn: as
+stated, it would solve the Landau--Siegel zero problem. The lifting identity
+$\chi(n) = \Psi_\chi((n))$ of the former Proposition~2.5 is withdrawn: the
+base change $\chi\circ\Nf$ gives $\chi(n)^2$, its conductor is $\pp^{2K-1}$
+(not $\pp^{2K}$) for $K \geq 2$, and the norm map onto $(\Z/3^K\Z)^\times$
+has image of index~$2$. The claim that the argument is specific to $3$
+(former Proposition~5.1) is withdrawn, as is the statement that $2$ splits
+in $\Zomega$ (it is inert, since $-3 \equiv 5 \pmod 8$). The table of
+``Watt conditions'' (former Theorem~7.1), the claim that W3 implies
+$\theta_f \leq 7/32$, the zero-density estimate quoted with it, and the
+``unconditional level of distribution $5/8$'' (former Corollary~7.2) are
+withdrawn. The case $K = 1$, the Minkowski bound and the computation of
+$\Nf(1-\omega)$ are corrected, and the reference to a ``[NOTE]'' in the
+companion paper, which does not exist there, is removed.
+
 \tableofcontents
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section{Setup and Statement}
 %% ─────────────────────────────────────────────────────────────────────────────
 
-\subsection{Context: Watt's theorem and Condition W3}
+\subsection{Context}
 
-The companion paper~\cite{WakilEisenstein} proves that primes have level of
-distribution $\theta_W = 5/8$ over cascade moduli $3^K$ by applying
-Watt's theorem~\cite{Watt1995}. Watt's theorem requires three conditions on
-the family of Dirichlet characters modulo $q = 3^K$:
-
-\begin{itemize}[leftmargin=2.2em]
-  \item[\textbf{(W1)}] $M \leq q$\,: a medium-scale parameter condition.
-    \emph{Verified directly} in~\cite{WakilEisenstein}, Appendix~A.
-  \item[\textbf{(W2)}] $MR \leq q^2$\,: a fine-scale parameter condition.
-    \emph{Verified directly} in~\cite{WakilEisenstein}, Appendix~A.
-  \item[\textbf{(W3)}] No Siegel zeros\,: for each primitive character
-    $\chi \pmod{q}$, the $L$-function $L(s,\chi)$ has no real zero in
-    $\sigma > 1 - c/\!\log q$.
-    \emph{Stated as geometry in~\cite{WakilEisenstein}}; proved here.
-\end{itemize}
-
-Condition~(W3) is the substantive analytic condition. The present paper provides
-the complete proof.
+This paper is p07 of a nine-paper programme~\cite{WakilCF}. The companion
+paper~\cite{WakilEisenstein} (p04) concerns primes in arithmetic progressions
+to the moduli $q = 3^K$. The original version of the present paper presented
+Condition~W3 below as the third of three hypotheses ``(W1)--(W3)'' of Watt's
+theorem~\cite{Watt1995}, and claimed that proving it made a level of
+distribution $5/8$ for these moduli unconditional. Both claims are withdrawn
+(Section~\ref{sec:relation}): Watt's theorem has no such hypotheses, and the
+level $5/8$ for each single modulus $3^K$ is a conjecture
+in~\cite{WakilEisenstein}, which would go beyond what the Generalised Riemann
+Hypothesis gives. The name ``Condition~W3'' is kept as a label for the
+following classical statement.
 
 \subsection{Main theorem}
 
@@ -127,26 +127,127 @@ $q = 3^K$. Then $L(s,\chi)$ has no real zero in the region
 \[
   \sigma > 1 - \frac{c}{\log q}
 \]
-for an absolute, effectively computable constant $c > 0$. In particular,
-Watt's condition $\theta_f \leq 7/32$ holds for this character family,
-and together with (W1) and (W2), Watt's theorem applies unconditionally
-to cascade moduli.
+for an absolute, effectively computable constant $c > 0$.
 \end{theorem}
 
-The proof occupies Sections~\ref{sec:lift}--\ref{sec:transfer}. The
-specificity of the argument to $q = 3^K$ is addressed in Section~\ref{sec:why}.
-Section~\ref{sec:coherence} summarises how all three parts of the companion
-paper use the same Eisenstein structure.
+The proof (Section~\ref{sec:proof}) uses only the cyclicity of
+$(\Z/3^K\Z)^\times$, the classical zero-free region for Dirichlet
+$L$-functions, and the positivity of $L(\sigma,\chi_{-3})$.
+Sections~\ref{sec:field} and~\ref{sec:basechange} record, with corrections,
+the arithmetic of $\Qomega$ that the original version used; it is context
+only and is not needed for the proof. Section~\ref{sec:stark} explains why
+the ``Stark--Baker theorem'' of the original version is withdrawn, and
+Section~\ref{sec:relation} explains why W3 has no consequence for any level
+of distribution beyond the Siegel--Walfisz range.
 
 \subsection{Notation and conventions}
 
 Throughout: $\omega = e^{2\pi i/3}$, so $\omega^2 + \omega + 1 = 0$.
 We write $\K = \Qomega = \Q(\sqrt{-3})$, with ring of integers
 $\OK = \Zomega$. The prime $\pp = (1-\omega)$ is the unique prime of
-$\Zomega$ above $3$, with $\Nf(\pp) = 3$ and $(3) = \pp^2$.
-For a Dirichlet character $\chi$, we write $\cond(\chi)$ for its conductor.
-Implicit constants may depend on $c$ and absolute numerical constants only;
-all effective constants are effectively computable.
+$\Zomega$ above $3$, with $\Nf(\pp) = 3$ and $(3) = \pp^2$. We write
+$\varepsilon = \chi_{-3} = \bigl(\tfrac{-3}{\cdot}\bigr)$ for the
+non-principal character modulo $3$, which is the quadratic character of
+$\K/\Q$. For a Dirichlet character $\chi$, $\cond(\chi)$ is its conductor.
+All constants are absolute and effectively computable unless stated
+otherwise.
+
+%% ─────────────────────────────────────────────────────────────────────────────
+\section{Proof of Condition W3}
+\label{sec:proof}
+%% ─────────────────────────────────────────────────────────────────────────────
+
+\begin{lemma}[Real characters modulo $3^K$]
+\label{lem:real}
+For $K \geq 1$, the group $(\Z/3^K\Z)^\times$ is cyclic of order
+$2\cdot 3^{K-1}$, and there is exactly one real non-principal character
+modulo $3^K$, namely the character induced by $\chi_{-3}$. Its $L$-function
+is $L(s,\chi_{-3})$. In particular, for $K \geq 2$ every primitive character
+modulo $3^K$ is complex.
+\end{lemma}
+
+\begin{proof}
+The powers of $2$ modulo $9$ are $2, 4, 8, 7, 5, 1$, so $2$ is a primitive
+root modulo $9$, hence modulo every $3^K$~\cite[Ch.~4]{IrelandRosen1990}
+(and trivially modulo $3$). The character group of a cyclic group of even
+order is cyclic of the same order and has exactly one element of order $2$.
+The character induced by $\chi_{-3}$ is real and non-principal, so it is
+that element. Since $\chi_{-3}(n) = 0$ already when $3 \mid n$, the induced
+character coincides with $\chi_{-3}$ as a function on $\Z$, and the two
+$L$-functions are equal. Its conductor is $3$, so it is not primitive
+modulo $3^K$ for $K \geq 2$.
+\end{proof}
+
+\begin{lemma}[Positivity of $L(\sigma,\chi_{-3})$]
+\label{lem:positive}
+$L(\sigma,\chi_{-3}) > 0$ for every real $\sigma > 0$.
+\end{lemma}
+
+\begin{proof}
+For $\sigma > 0$ the series $\sum_n \chi_{-3}(n)n^{-\sigma}$ converges, and
+grouping consecutive non-zero terms gives
+\[
+  L(\sigma,\chi_{-3}) = \sum_{m \geq 0}\bigl((3m+1)^{-\sigma} - (3m+2)^{-\sigma}\bigr),
+\]
+a series of positive terms.
+\end{proof}
+
+For example, $L(0,\chi_{-3}) = 1/3$ and
+$L(1,\chi_{-3}) = \pi/(3\sqrt3) = 0.6045\ldots$.
+
+\begin{theorem}[Classical zero-free region; see {\cite[Ch.~14]{Davenport2000}}]
+\label{thm:classical}
+There is an absolute, effectively computable constant $c_0 \in (0,1]$ with
+the following property. Let $q \geq 3$ and let $\chi$ be a non-principal
+character modulo $q$. If $\chi$ is not real, $L(s,\chi)$ has no zero in the
+region $\sigma \geq 1 - c_0/\log\bigl(q(|t|+2)\bigr)$. If $\chi$ is real,
+$L(s,\chi)$ has at most one zero in this region, and such a zero is real
+and simple.
+\end{theorem}
+
+\begin{proof}[Proof of Theorem~\ref{thm:W3}]
+Let $c = c_0/2$, with $c_0$ as in Theorem~\ref{thm:classical}, and suppose
+that $\beta$ is a real zero of $L(s,\chi)$ with $\beta > 1 - c/\log q$. Since
+$L(s,\chi) \neq 0$ for $\sigma \geq 1$, we have $\beta < 1$. Since $q \geq 3$,
+$\log(2q) \leq 2\log q$, so $\beta > 1 - c_0/\log(2q)$, and $s = \beta$
+lies in the region of Theorem~\ref{thm:classical} (with $t = 0$).
+
+If $K \geq 2$, then $\chi$ is not real (Lemma~\ref{lem:real}), and
+Theorem~\ref{thm:classical} excludes $\beta$. If $K = 1$, the only primitive
+character modulo $3$ is $\chi = \chi_{-3}$, and $L(\beta,\chi_{-3}) > 0$ by
+Lemma~\ref{lem:positive}. In either case we reach a contradiction.
+\end{proof}
+
+\begin{remark}[The one-line argument, and a slightly stronger statement]
+\label{rem:oneline}
+In one line: $(\Z/3^K\Z)^\times$ is cyclic of even order, so the only real
+non-principal character modulo $3^K$ is induced from $\chi_{-3}$; an
+exceptional zero can only belong to a real character; so any exceptional
+zero modulo $3^K$ would be a zero of the single fixed function
+$L(s,\chi_{-3})$, which is positive on $(0,1]$. The same argument shows that
+no non-principal character modulo $3^K$, primitive or not, has a zero in the
+region of Theorem~\ref{thm:classical} with $q = 3^K$: the moduli $3^K$ have
+no exceptional zero. Consequently the prime number theorem for arithmetic
+progressions to these moduli holds in the Siegel--Walfisz range with
+effectively computable constants~\cite[Ch.~20]{Davenport2000}.
+\end{remark}
+
+\begin{remark}[Nothing here is specific to $3$]
+\label{rem:notspecific}
+The proof uses only that $(\Z/3^K\Z)^\times$ is cyclic of even order and
+that one fixed real $L$-function has no real zero near $1$. For every odd
+prime $\ell$, $(\Z/\ell^K\Z)^\times$ is cyclic of even order, and the only
+real non-principal character modulo $\ell^K$ is induced from the Legendre
+symbol $(\cdot/\ell)$. Hence, for each fixed $\ell$, the same argument proves
+Condition~W3 for the moduli $\ell^K$, with a constant $c_\ell > 0$ that
+depends on $\ell$ (through the largest real zero of $L(s,(\cdot/\ell))$ in
+$(0,1)$, if there is one). A constant uniform in $\ell$ would exclude Siegel
+zeros for the real characters of prime conductor, which is an open problem.
+Likewise, the field $\Qomega$ plays no special role: $\Q(\sqrt{-7})$,
+$\Q(\sqrt{-11})$, $\Q(\sqrt{-19})$, $\Q(\sqrt{-43})$, $\Q(\sqrt{-67})$ and
+$\Q(\sqrt{-163})$ also have class number~$1$, and each is ramified at a
+single prime~$\ell$, with $(\ell) = \mathfrak l^2$.
+\end{remark}
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section{Step 1: Lifting to a Hecke Character}
