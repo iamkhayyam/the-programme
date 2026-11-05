@@ -196,6 +196,7 @@ uniformly for all $K \geq 1$ with $3^K \leq x^{5/8-\varepsilon}$.
 
 \begin{remark}[Status of Conjecture~\ref{conj:main}]
 \label{rem:status}
+We record three points.
 \begin{enumerate}[label=(\alph*)]
   \item \emph{It goes beyond GRH.} For a single modulus $q$, GRH gives
     $\psi(x;q,a) = x/\varphi(q) + O(x^{1/2}\log^2 x)$~\cite[Ch.~20]{Davenport2000},
@@ -631,11 +632,15 @@ refer to the original version.
     2\cdot 3^{K/2}$ for $K \geq 3$. The summed statement
     $\sum_{3^K \leq Q}|S(a,b;3^K)| \ll Q^{5/8+\varepsilon}$ is true, but it is
     weaker than what the general bound gives for fixed $(a,b) \neq (0,0)$
-    (namely $\ll_{a,b} Q^{1/2+\varepsilon}$), so it is no improvement. Watt's theorem, invoked for the pointwise bound,
-    does not give it (item~\ref{wd:watt}).
+    (namely $\ll_{a,b} Q^{1/2+\varepsilon}$), so it is no improvement.
+    Watt's theorem, invoked for the pointwise bound, does not give it
+    (item~\ref{wd:watt}).
   \item \emph{Exponent arithmetic.} Even granting the previous steps, the
-    final inequality $x^{1/2}Q^{5/8+\varepsilon} \leq x^{1-\varepsilon}$ gives
-    $Q \leq x^{4/5 - O(\varepsilon)}$, not $Q \leq x^{5/8-\varepsilon}$; the
+    final inequality of the original proof,
+    \[
+      x^{1/2}Q^{5/8+\varepsilon} \leq x^{1-\varepsilon},
+    \]
+    gives $Q \leq x^{4/5 - O(\varepsilon)}$, not $Q \leq x^{5/8-\varepsilon}$; the
     exponent of $Q$ was read off as if it were the level. A sharper estimate
     can only enlarge an admissible range, so the account ``ceiling $2/3$
     improved by $1/8$ to $5/8$'' is incoherent; note also that

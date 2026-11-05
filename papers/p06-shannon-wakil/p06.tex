@@ -98,7 +98,7 @@ in which the counting formula is a postulate.
 The arithmetic ``third instance'' is withdrawn: primes do not concentrate on the
 class $2 \bmod 3$ (Proposition~\ref{prop:cascade-sw} now shows that (SW3) fails),
 Theorem~5.1 of the first version is replaced by the trivial estimate that it is
-(Proposition~\ref{thm:cascade}), and $\thetaW = 5/8$ is stated as a conjecture.
+(Proposition~\ref{prop:trivial-sum}), and $\thetaW = 5/8$ is stated as a conjecture.
 The Sophie Germain ``theorem'', its citation of itself and the unreproducible
 statistic $\delta \cdot \log x = 2.38 \pm 0.18$ are withdrawn, and so is the
 claim that information theory supplies $k = 1$ instances. The false capacity
@@ -177,7 +177,7 @@ top-level ones.
 \begin{itemize}
   \item[\textbf{[Proven]}] Under the hypotheses $0 < H < \log_2|\mathcal{A}|$
     and $\varepsilon_n \to 0$ with $n\varepsilon_n^2 \to \infty$, the AEP
-    satisfies (SW1)--(SW3) with $\theta^* = H/\log_2|\mathcal{A}|$
+    satisfies (SW1)--(SW4) with $\theta^* = H/\log_2|\mathcal{A}|$
     (Proposition~\ref{prop:aep-sw}).
 
   \item[\textbf{[Proven]}] Channel coding, recast on $\mathcal{X}^n$, satisfies
@@ -186,7 +186,7 @@ top-level ones.
 
   \item[\textbf{[Proven]}] The cascade-moduli system does not satisfy (SW3)
     (Proposition~\ref{prop:cascade-sw}), and the summed estimate of the first
-    version holds for every exponent up to $1$ (Proposition~\ref{thm:cascade}).
+    version holds for every exponent up to $1$ (Proposition~\ref{prop:trivial-sum}).
 
   \item[\textbf{[Conjectured]}] $\thetaW = 5/8$ for the moduli $3^K$, per
     modulus~\cite{WakilEisenstein}; this would go beyond the Generalised Riemann
@@ -403,7 +403,7 @@ $(\Z/3^K\Z)^*$, and that no $\theta > 5/8$ is achievable for cascade moduli. In
 fact the estimate holds for every exponent up to $1$.
 
 \begin{proposition}[The summed estimate is trivial]
-\label{thm:cascade}
+\label{prop:trivial-sum}
 For every $A > 0$,
 \[
   \sum_{\substack{K \geq 1 \\ 3^K \leq x}}
@@ -472,7 +472,7 @@ The first version asserted that ``primes concentrate onto the inert sublattice
 $\mathcal{E}_K$'' and that ``the level of distribution $5/8$ measures the depth
 of this concentration''. The condition $p \equiv 2 \pmod{3}$ constrains the
 smaller member of a twin-prime pair (and Sophie Germain primes $p > 3$), not
-primes in general, and Proposition~\ref{thm:cascade} concerns all primes through
+primes in general, and Proposition~\ref{prop:trivial-sum} concerns all primes through
 $\Lambda(n)$. ``Depth of concentration'' was not defined, and $5/8$ is not the
 exponent ratio of any set defined in this paper. Levels of distribution are
 downward closed (if a level $\theta$ holds, so does every smaller one), so $5/8$
@@ -606,6 +606,7 @@ With this correction the analogy to ``coupling reduces $k$'' does not hold.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section{The $k$-Hierarchy}
+\label{sec:hierarchy}
 %% ─────────────────────────────────────────────────────────────────────────────
 
 The formula $\theta_k = (2^k - k)/2^k$, obtained from the counting postulate
@@ -748,20 +749,19 @@ The first version called $\thetaW / \thetaBV = (5/8)/(1/2) = 5/4$ the gain in
 level of distribution achieved by the Eisenstein structure over
 Bombieri--Vinogradov. That interpretation is withdrawn. Bombieri--Vinogradov is
 an average over all moduli $q \leq x^{1/2}(\log x)^{-B}$, whereas the cascade
-family has $O(\log x)$ moduli; for that family the summed estimate holds
-trivially up to exponent $1$ (Proposition~\ref{thm:cascade}), and per modulus
-$5/8$ is conjectural; and levels above $1/2$ for general moduli are known with
-well-factorable weights (Section~\ref{sec:hierarchy}).
+family has $O(\log x)$ moduli. For that family the summed estimate holds
+trivially up to exponent $1$ (Proposition~\ref{prop:trivial-sum}), and the
+per-modulus level $5/8$ is conjectural. Levels above $1/2$ for general moduli
+are known with well-factorable weights (Section~\ref{sec:hierarchy}).
 
 \subsection{Channel capacity and levels of distribution}
 
 Both the channel capacity $C = \max_{p(x)} I(X;Y)$ and a level of distribution
 are defined as suprema. For the moduli $3^K$ the supremum of the admissible
 $\theta$ depends on the formulation: for the summed estimate of
-Proposition~\ref{thm:cascade} it is $1$, and in the per-modulus form it is
-unknown (Montgomery's conjecture predicts $1$). A proved exponent such as the
-conjectured $5/8$ would be a lower bound for that supremum, not the supremum
-itself. The first version's claim that this ``maximisation correspondence is the
+Proposition~\ref{prop:trivial-sum} it is $1$, and in the per-modulus form it is
+unknown (Montgomery's conjecture predicts $1$). If $5/8$ were proved for these
+moduli, it would be a lower bound for that supremum, not the supremum itself. The first version's claim that this ``maximisation correspondence is the
 most precise of the five'' is withdrawn.
 
 %% ─────────────────────────────────────────────────────────────────────────────
@@ -789,50 +789,71 @@ T.~M.~Cover and J.~A.~Thomas,
 
 %% ── Analytic number theory ────────────────────────────────────────────────────
 
-\bibitem{BV1965}
-E.~Bombieri and A.~I.~Vinogradov,
+\bibitem{Bombieri1965}
+E.~Bombieri,
 On the large sieve,
 \emph{Mathematika}\ \textbf{12} (1965), 201--225.
 
-\bibitem{GPY2009}
-D.~A.~Goldston, J.~Pintz, and C.~Y.~Y{\i}ld{\i}r{\i}m,
-Primes in tuples~I,
-\emph{Ann.\ of Math.}\ \textbf{170} (2009), 819--862.
+\bibitem{BFI1986}
+E.~Bombieri, J.~B.~Friedlander, and H.~Iwaniec,
+Primes in arithmetic progressions to large moduli,
+\emph{Acta Math.}\ \textbf{156} (1986), 203--251.
+
+\bibitem{Lichtman2023}
+J.~D.~Lichtman,
+Primes in arithmetic progressions to large moduli, and Goldbach beyond the
+square-root barrier,
+arXiv:2309.08522, 2023.
+
+\bibitem{Maynard2020}
+J.~Maynard,
+Primes in arithmetic progressions to large moduli~II: well-factorable
+estimates,
+arXiv:2006.07088, 2020.
 
 \bibitem{Pascadi2025}
 A.~Pascadi,
-Level of distribution $5/8$ for smooth moduli,
-arXiv:2505.00653v2, 2025.
+On the exponents of distribution of primes and smooth numbers,
+arXiv:2505.00653, 2025.
 
-%% ── Companion papers (Wakil's Program) ───────────────────────────────────────
+\bibitem{Vinogradov1965}
+A.~I.~Vinogradov,
+The density hypothesis for Dirichlet $L$-series,
+\emph{Izv.\ Akad.\ Nauk SSSR Ser.\ Mat.}\ \textbf{29} (1965), 903--934.
+
+%% ── Companion papers (Wakil's Programme) ─────────────────────────────────────
+
+\bibitem{WakilCF}
+K.~Wakil,
+Constitutional Forcing,
+ARC Institute of Knowware, preprint, 2026.
 
 \bibitem{WakilKhayyam}
 K.~Wakil,
-Khayyam's triangle: historical restoration and the geometry hidden in the
-numbers,
+Khayyam's Triangle: Historical Restoration and the Geometry Hidden in the
+Numbers,
 ARC Institute of Knowware, preprint, 2026.
 
 \bibitem{WakilSC}
 K.~Wakil,
-Spherical cow philosophy: a methodological framework for mathematical
-discovery,
-ARC Institute of Knowware, preprint, 2026.
-
-\bibitem{WakilRamanujan}
-K.~Wakil,
-Ramanujan's dimensional forcing: a universal formula for sieve levels,
+Spherical Cow Philosophy: A Methodological Framework for Mathematical
+Discovery,
 ARC Institute of Knowware, preprint, 2026.
 
 \bibitem{WakilEisenstein}
 K.~Wakil,
-Ternary forcing on the hexagonal lattice: Eisenstein integers, cascade
-moduli, and level of distribution~$5/8$,
+Ternary Forcing on the Hexagonal Lattice: Eisenstein Integers, Cascade
+Moduli, and a Conjectured Level of Distribution~$5/8$,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilRamanujan}
+K.~Wakil,
+Ramanujan's Dimensional Forcing: A Universal Formula for Sieve Levels,
 ARC Institute of Knowware, preprint, 2026.
 
 \bibitem{WakilW3}
 K.~Wakil,
-Condition~W3: absence of Siegel zeros for characters modulo~$3^K$ via
-CM~structure of~$\Z[\omega]$,
+Condition~W3: Absence of Siegel Zeros for Characters Modulo~$3^K$,
 ARC Institute of Knowware, preprint, 2026.
 
 \end{thebibliography}
