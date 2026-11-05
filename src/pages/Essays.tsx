@@ -27,7 +27,7 @@ export const ESSAYS = [
     title: "Khayyam's Triangle",
     subtitle: "A Millennium Prized Problem",
     date: "Feb 2026",
-    teaser: "The wrong name is Pascal's Triangle. Khayyam documented this triangle 584 years before Pascal's treatise on it. This is not a minor attribution error. This is a restoration.",
+    teaser: "The wrong name is Pascal's Triangle. Khayyam wrote on this triangle 584 years before Pascal's treatise on it. This is not a minor attribution error. This is a restoration.",
     themes: [
       "Historical Restoration",
       "The Isfahan Observatory",
