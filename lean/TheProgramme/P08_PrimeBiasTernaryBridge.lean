@@ -128,9 +128,9 @@ theorem diagonal_has_max_gap :
 
 /-- Different-digit transitions have a smaller minimum gap. -/
 theorem offdiagonal_smaller_gap :
-    ∀ d1 d2 : TerminalDigit, d1 ≠ d2 → minGap d1 d2 < 10 := by
-  intro d1 d2 hne
-  cases d1 <;> cases d2 <;> simp_all [minGap]
+    ∀ a b : TerminalDigit, a ≠ b → minGap a b < 10 := by
+  intro a b hne
+  cases a <;> cases b <;> simp_all [minGap]
 
 /-- 10 ≡ 1 (mod 3). -/
 theorem diagonal_gap_ternary : (10 : ℕ) % 3 = 1 := by norm_num

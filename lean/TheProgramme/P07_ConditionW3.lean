@@ -32,6 +32,7 @@
 
 import Mathlib.Tactic
 import Mathlib.RingTheory.ZMod.UnitsCyclic
+import TheProgramme.P04_EisensteinIntegers
 
 /-- The only prime dividing 3 is 3. -/
 theorem prime_dvd_three : ∀ p : ℕ, Nat.Prime p → p ∣ 3 → p = 3 := by
@@ -42,9 +43,8 @@ theorem prime_dvd_three : ∀ p : ℕ, Nat.Prime p → p ∣ 3 → p = 3 := by
   · exact absurd h (Nat.Prime.one_lt hp).ne'
   · exact h
 
-/-- (ℤ/3^Kℤ)ˣ is cyclic. -/
-theorem units_three_pow_cyclic (K : ℕ) : IsCyclic (ZMod (3 ^ K))ˣ :=
-  ZMod.isCyclic_units_of_prime_pow 3 Nat.prime_three (by norm_num) K
+/-- (ℤ/3^Kℤ)ˣ is cyclic: `units_three_pow_cyclic`, proved in P04. -/
+example (K : ℕ) : IsCyclic (ZMod (3 ^ K))ˣ := units_three_pow_cyclic K
 
 /-- (ℤ/7^Kℤ)ˣ is cyclic too: cyclicity does not single out 3. -/
 theorem units_seven_pow_cyclic (K : ℕ) : IsCyclic (ZMod (7 ^ K))ˣ :=
@@ -55,7 +55,8 @@ theorem units_seven_pow_cyclic (K : ℕ) : IsCyclic (ZMod (7 ^ K))ˣ :=
     not proved here. -/
 def heegnerNumbers : List ℕ := [1, 2, 3, 7, 11, 19, 43, 67, 163]
 
-/-- The primes in the list: 3 is one of seven odd primes. -/
-theorem heegner_primes :
-    heegnerNumbers.filter Nat.Prime = [2, 3, 7, 11, 19, 43, 67, 163] := by
-  decide
+/-- The list contains the odd primes 3, 7, 11, 19, 43, 67 and 163:
+    3 is one of seven. -/
+theorem heegner_odd_primes :
+    ∀ p ∈ [3, 7, 11, 19, 43, 67, 163], p ∈ heegnerNumbers ∧ Nat.Prime p := by
+  norm_num [heegnerNumbers]

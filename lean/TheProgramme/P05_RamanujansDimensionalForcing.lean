@@ -70,7 +70,7 @@ theorem isValid_iff {k : ℕ} (c : Configuration k) : isValid c ↔ c = allTrue 
 
 /-- Invalid means "not the all-true configuration". -/
 theorem isInvalid_iff {k : ℕ} (c : Configuration k) : isInvalid c ↔ c ≠ allTrue k := by
-  rw [← isValid_iff]
+  rw [ne_eq, ← isValid_iff]
   simp [isInvalid, isValid]
 
 /-- **Exactly 2^k − 1 configurations are invalid.** This contradicts the
@@ -85,6 +85,7 @@ theorem invalid_count (k : ℕ) :
 theorem invalid_count_three :
     Fintype.card {c : Configuration 3 // isInvalid c} = 7 := by
   rw [invalid_count]
+  norm_num
 
 /-- A single-fail configuration: all true except position i. -/
 def singleFailConfig (k : ℕ) (i : Fin k) : Configuration k :=

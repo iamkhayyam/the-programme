@@ -3,12 +3,18 @@
              for Mathematical Discovery
   Khayyam Wakil, February 2026
 
-  Lean 4 formalisation of the formalisable mathematical content.
+  Lean 4 formalisation, revised November 2026.
 
-  Key results:
-    1. Twin Prime Constitution (Proposition 4.1): p ≡ 2 (mod 3) for p > 3.
-    2. Sophie Germain non-instance: coupled constraints give effective k=1.
-    3. Methodology encoded as type-level specifications.
+  What this file contains:
+    1. Twin Prime Constitution (Proposition 4.1): if p > 3 and p, p + 2 are
+       both prime, then p ≡ 2 (mod 3). A complete proof of a classical fact.
+    2. The five-step methodology and decision criteria, recorded as
+       structures (data types only; nothing is proved about them).
+
+  Not formalised: the Sophie Germain non-instance (see P01 for the mod-3
+  fact about Sophie Germain pairs) and the k = 4 prediction. The April 2026
+  version stated the k = 4 prediction as the empty axiom
+  `∃ constellation, True`; it has been removed.
 -/
 
 import Mathlib.Tactic
@@ -79,12 +85,3 @@ structure ClassicalPreferred where
   single_domain : Prop
   no_constitution : Prop
   contradiction_works : Prop
-
--- ════════════════════════════════════════════════════════════════════════════
--- Section 4: The k=4 Open Prediction (Remark 5.3)
--- ════════════════════════════════════════════════════════════════════════════
-
-/-- The k=4 open prediction: a constellation with 4 independent constraints
-    achieving θ₄ = 3/4. -/
-axiom k4_prediction :
-  ∃ (constellation : ℕ → Prop), True  -- Open: neither proved nor disproved

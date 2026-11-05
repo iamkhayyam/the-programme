@@ -35,7 +35,7 @@ The programme puts forward instances of the mechanism in several domains. None o
 
 *   `papers/p01-…/` to `papers/p09-…/`: LaTeX sources, PDFs, HTML versions and Lean files of the nine papers. These are the versions currently under revision.
 *   `audit/`: the November 2026 audit. `README.md` holds the summary, `findings/` the per-paper findings with file and line references, and `scripts/` the code that reproduces every check.
-*   `lean/`: a Lean 4 project. It checks the arithmetic of the tabulated values and a few Eisenstein-integer identities. It does not formalise the papers' main theorems; see `audit/findings/lean_site_xref.md`.
+*   `lean/`: a Lean 4 project (builds with `lake build`: 64 theorems, no `sorry`, one axiom). It proves the arithmetic of the tables, the configuration count 2^k − 1, elementary facts about primes mod 3 and Eisenstein integers, and the conjugate symmetry of the real DFT. It does not formalise the papers' main claims; see `LEAN_VERIFICATION_REPORT.md`.
 *   `src/`: the website (React + Vite). `src/constants/programme.ts` lists the papers; `src/pages/PaperDetail.tsx` and `src/pages/EssayDetail.tsx` hold the paper summaries and essays.
 *   `maintenance/`: the static page published while the site is in maintenance mode.
 
