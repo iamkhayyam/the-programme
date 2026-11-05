@@ -10,6 +10,20 @@ export default function CoverLetter() {
         transition={{ duration: 0.8 }}
         className="font-stix text-[1.35rem] leading-[1.8] text-ink"
       >
+        {/* CORRECTION NOTE (added November 2026; the letter below is reproduced as sent) */}
+        <div className="mb-12 p-6 border border-rule bg-accent-pale font-plex-sans text-[0.85rem] leading-relaxed text-mid">
+          <strong className="font-medium text-[0.62rem] tracking-[0.18em] uppercase text-light block mb-3">Correction note · November 2026</strong>
+          <p className="mb-3">This letter is reproduced as it was sent on March 11th, 2026. Several claims in it were later found to be wrong:</p>
+          <ul className="list-disc pl-5 space-y-1.5 mb-3">
+            <li>Kolmogorov's turbulence exponent α = 3/4 is not an instance of the formula. The formula gives θ₂ = 1/2, and Kolmogorov's 3/4 is the dissipation-scale exponent (η/L ~ Re<sup>−3/4</sup>), which Kolmogorov derived in 1941 by dimensional analysis.</li>
+            <li>Pascadi's 5/8 (arXiv:2505.00653, "On the exponents of distribution of primes and smooth numbers") concerns general moduli with well-factorable weights. It is not a special case of the formula and does not confirm the cascade-moduli result.</li>
+            <li>The papers are not established as proved; they are being revised. This includes the counting theorem, θ<sub>W</sub> = 5/8 for cascade moduli, Condition W3 closing the proof, and the Sophie Germain "computational confirmation".</li>
+            <li>The Lemke Oliver–Soundararajan bias decays like (log log x)/log x, not at a Siegel–Walfisz rate. The quotation about everyone running their own program is Soundararajan's, not Granville's.</li>
+            <li>The real-signal DFT keeps N of 2N real degrees of freedom, which is classical. It does not give a 2× compression floor.</li>
+          </ul>
+          <p>The papers on this site are being revised accordingly.</p>
+        </div>
+
         {/* FROM */}
         <div className="mb-12 pb-8 border-b border-rule">
           <div className="font-plex-sans font-medium text-[1.1rem] tracking-wider uppercase text-ink mb-1">Khayyam Wakil</div>

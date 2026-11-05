@@ -149,14 +149,6 @@ export default function Home() {
           ))}
         </ul>
 
-        <div className="font-plex-mono text-[0.55rem] tracking-[0.18em] uppercase text-light mb-2.5">SCRIPT</div>
-        <ul className="font-plex-mono text-[0.55rem] tracking-wider leading-[2.1] uppercase text-light">
-          <li className="hover:text-ink hover:text-[0.6rem] transition-all duration-300">
-            <Link to="/constitutional-proof">
-              00 · The Constitutional Proof
-            </Link>
-          </li>
-        </ul>
       </aside>
 
       {/* --- MAIN CONTENT --- */}
@@ -173,10 +165,10 @@ export default function Home() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <p className="text-[1.35rem] leading-[1.6] text-mid font-garamond italic">
-                Euler's <span className="font-serif">e</span>. Shannon's channel capacity. Kolmogorov's turbulence exponent. In each case, the constant was never actually available for selection — the structure of the system had already decided. Nobody named this. It kept happening anyway.
+                Euler's <span className="font-serif">e</span>. Shannon's channel capacity. In each case, the constant was never actually available for selection — the structure of the system had already decided. Nobody named this. It kept happening anyway.
               </p>
               <p className="text-[1.35rem] leading-[1.6] text-mid font-garamond italic">
-                Constitutional Forcing names it. The programme began with a cattle monitor, passed through a chip architecture, and arrived at a geometry that had been sitting in Khayyam's triangle since 1070. The same mechanism — found six times, in six different domains, across a millennium. These nine papers are the proof of that journey.
+                Constitutional Forcing names it. The programme began with a cattle monitor, passed through a chip architecture, and arrived at a geometry that had been sitting in Khayyam's triangle since 1070. The same mechanism, traced through several domains across a millennium. These nine papers are the record of that journey.
               </p>
             </div>
 
@@ -230,14 +222,14 @@ export default function Home() {
             </div>
           </div>
 
-          {/* 4. SIX FACES */}
+          {/* 4. FACES */}
           <section id="faces" className="mb-24 pt-16 border-t border-rule reveal">
-            <div className="font-plex-sans text-[0.6rem] tracking-[0.2em] uppercase text-light mb-2">SIX PROVEN INSTANCES</div>
+            <div className="font-plex-sans text-[0.6rem] tracking-[0.2em] uppercase text-light mb-2">PROPOSED INSTANCES</div>
             <h2 className="font-stix font-semibold text-[1.8rem] text-ink mb-4">
-              <span className="line-through opacity-40">Four. Five.</span> Six Faces of One Object
+              Faces of One Object
             </h2>
             <p className="mb-8 text-[1rem] text-mid italic font-garamond">
-              The mechanism operates across six independent domains and a millennium. The naming is not discovery — it is recognition.
+              The instances the programme puts forward, across four domains and a millennium. The papers that set them out are under revision.
             </p>
 
             <div className="responsive-table-container">
@@ -258,39 +250,27 @@ export default function Home() {
                     <td data-label="Instance">The mod-3 fractal of Khayyam's Triangle</td>
                   </tr>
                   <tr className="border-b border-rule">
-                    <td data-label="Domain">Fluid dynamics</td>
-                    <td data-label="Year">1941</td>
-                    <td data-label="Mathematician">Kolmogorov</td>
-                    <td data-label="Instance">Dissipation exponent α = 3/4</td>
-                  </tr>
-                  <tr className="border-b border-rule">
                     <td data-label="Domain">Information theory</td>
                     <td data-label="Year">1948</td>
                     <td data-label="Mathematician">Shannon</td>
-                    <td data-label="Instance">AEP + Channel Coding Theorem; θ₁ = 1/2</td>
-                  </tr>
-                  <tr className="border-b border-rule">
-                    <td data-label="Domain">Analytic number theory</td>
-                    <td data-label="Year">2025</td>
-                    <td data-label="Mathematician">Pascadi</td>
-                    <td data-label="Instance">θ = 5/8 for smooth triply-well-factorable moduli</td>
+                    <td data-label="Instance">AEP + Channel Coding Theorem</td>
                   </tr>
                   <tr className="border-b border-rule font-medium">
                     <td data-label="Domain">Algebraic number theory</td>
                     <td data-label="Year">2026</td>
                     <td data-label="Mathematician">Wakil</td>
-                    <td data-label="Instance">θ<sub>W</sub> = 5/8, cascade moduli q = 3<sup>K</sup></td>
+                    <td data-label="Instance">θ<sub>W</sub> = 5/8 claimed for cascade moduli q = 3<sup>K</sup></td>
                   </tr>
                   <tr className="border-b border-rule text-light italic">
                     <td data-label="Domain">Signal processing</td>
                     <td data-label="Year">2026*</td>
                     <td data-label="Mathematician">Wakil</td>
-                    <td data-label="Instance">θ<sub>FFT</sub> = 1/2, DFT conjugate symmetry — named 2026; operating since Cooley–Tukey 1965</td>
+                    <td data-label="Instance">θ<sub>FFT</sub> = 1/2, DFT conjugate symmetry — a classical property, named 2026</td>
                   </tr>
                 </tbody>
               </table>
               <div className="mt-4 font-plex-mono text-[0.55rem] text-light leading-relaxed max-w-[800px]">
-                * The DFT instance was not discovered in 2026. It was operating in every FFT computation since 1965. It was recognised as a Constitutional Forcing instance in 2026 — which is a different thing.
+                * Conjugate symmetry was not discovered in 2026. It is a classical property of the discrete Fourier transform, used in every FFT. It was read as a Constitutional Forcing instance in 2026 — which is a different thing.
               </div>
             </div>
           </section>
@@ -298,9 +278,13 @@ export default function Home() {
           {/* 5. THE NINE PAPERS GRID */}
           <section id="series" className="mb-24 pt-16 border-t border-rule reveal">
             <div className="font-plex-sans text-[0.6rem] tracking-[0.2em] uppercase text-light mb-2">THE NINE PAPERS</div>
-            <h2 className="font-stix font-semibold text-[1.8rem] text-ink mb-12">
+            <h2 className="font-stix font-semibold text-[1.8rem] text-ink mb-6">
               Constitutional Sieve Programme
             </h2>
+            <p className="mb-12 max-w-[800px] border-l-2 border-accent pl-4 text-[0.95rem] leading-relaxed text-mid">
+              <span className="font-plex-mono text-[0.6rem] tracking-[0.15em] uppercase text-light block mb-1">Revision notice · November 2026</span>
+              The papers below are being revised. Earlier versions contained errors, including a Kolmogorov 3/4 instance that does not hold and a misattribution of Pascadi's 5/8 result. Their status labels reflect this.
+            </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-rule border border-rule">
               {PAPERS.map((paper) => (
@@ -351,7 +335,7 @@ export default function Home() {
           
           <div className="space-y-4 mb-6 md:mb-12">
             <p className="font-garamond italic text-[1.3rem] md:text-[1.4rem] text-mid max-w-[580px] mx-auto leading-[1.7]">
-              "The mechanism was not invented in 2026. It was operating in Khayyam's triangle in 1070, in Shannon's Bell Labs notebook in 1948, in Kolmogorov's Moscow in 1941, in the primes since before any of them were born."
+              "The mechanism was not invented in 2026. It was operating in Khayyam's triangle in 1070, in Shannon's Bell Labs notebook in 1948, in the primes since before any of them were born."
             </p>
             <p className="font-garamond italic text-[1.3rem] md:text-[1.4rem] text-mid max-w-[580px] mx-auto leading-[1.7]">
               The limo was not late. It had been driving for a thousand years.

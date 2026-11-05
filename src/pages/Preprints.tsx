@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-import { FileText, ExternalLink, BookOpen, ChevronRight, Download, Github } from "lucide-react";
+import { FileText, BookOpen, ChevronRight, Download, Github } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const PREPRINTS = [
@@ -8,42 +8,38 @@ const PREPRINTS = [
     id: "01",
     paperId: "PAPER 01",
     category: "MATH.NT",
-    doi: "10.48550/arXiv.2602.0101",
     title: "Constitutional Forcing",
     date: "Feb 2026",
-    status: "PROVED",
-    description: "The foundational paper defining the Constitutional Forcing mechanism. It establishes the counting theorem and identifies the first four instances of the mechanism across fluid dynamics, information theory, and combinatorics.",
+    status: "UNDER REVISION",
+    description: "The foundational paper defining the Constitutional Forcing mechanism. It states the counting theorem and proposes instances of the mechanism in prime arithmetic and information theory.",
     highlights: [
-      "Definition 1.1: The Constitutional Constraint",
-      "Theorem 2.4: The Counting Theorem for Cascade Moduli",
-      "Lemma 3.1: Kolmogorov-Shannon Equivalence",
-      "Instance I: The α = 3/4 Dissipation Exponent"
+      "Definition 2.1: The Constitutional Constraint",
+      "Definition 2.4: Constitutional Forcing",
+      "Theorem 2.6: The Counting Theorem",
+      "Conjecture 5.1: The Constitutional Forcing Conjecture"
     ],
     htmlUrl: "/papers/p01",
     pdfUrl: "https://preprint.knowware.institute/pdf/p01.pdf",
     downloadUrl: "https://preprint.knowware.institute/dl/p01.zip",
-    arxivUrl: "https://arxiv.org/abs/2602.0101",
     githubUrl: "https://github.com/knowware-institute/p01"
   },
   {
     id: "02",
     paperId: "PAPER 02",
     category: "MATH.HO",
-    doi: "10.48550/arXiv.2602.0102",
     title: "Khayyam's Triangle",
-    date: "Feb 2026",
-    status: "PROVED",
-    description: "A historical and combinatorial investigation into the mod-3 fractal structure hidden within Omar Khayyam's 11th-century algebraic works. It proves that the cascade framework is a restoration of this ancient symmetry.",
+    date: "Jan 2026",
+    status: "UNDER REVISION",
+    description: "A historical and combinatorial essay on Omar Khayyam's place in the history of the arithmetic triangle and on the mod-3 Sierpiński fractal hidden in its numbers.",
     highlights: [
-      "Historical Analysis: The 1070 Manuscript",
-      "Theorem 1.2: Mod-3 Sierpiński Convergence",
-      "Definition 2.1: The Khayyam Cascade",
-      "Combinatorial Proof of Ternary Symmetry"
+      "Historical Analysis: Khayyam and the Triangle",
+      "Lemma 4.1: Lucas's Theorem",
+      "Proposition 4.2: The Mod-p Sierpiński Fractal",
+      "Connection to the Companion Papers"
     ],
     htmlUrl: "/papers/p02",
     pdfUrl: "https://preprint.knowware.institute/pdf/p02.pdf",
     downloadUrl: "https://preprint.knowware.institute/dl/p02.zip",
-    arxivUrl: "https://arxiv.org/abs/2602.0102",
     githubUrl: "https://github.com/knowware-institute/p02"
   },
   {
@@ -51,33 +47,30 @@ const PREPRINTS = [
     paperId: "PAPER 03",
     category: "MATH.HO",
     title: "Spherical Cow Philosophy",
-    doi: "10.48550/arXiv.2602.0103",
     date: "Feb 2026",
-    status: "PROVED",
+    status: "UNDER REVISION",
     description: "The methodological manifesto of the programme. It argues for the 'constitutional' approach to mathematical constants—viewing them as forced by system architecture rather than chosen by nature.",
     highlights: [
-      "The Constitutional Axiom",
-      "Falsifiability in Forcing Models",
-      "Analysis of the Sophie Germain Non-Instance",
-      "Methodological Framework for Recognition"
+      "Definition 3.1: The Spherical Cow Methodology",
+      "Principle 3.2: Spherical Cow",
+      "Proposition 4.1: Twin Prime Constitution",
+      "Criteria 5.3–5.4: When to Apply the Methodology"
     ],
     htmlUrl: "/papers/p03",
     pdfUrl: "https://preprint.knowware.institute/pdf/p03.pdf",
     downloadUrl: "https://preprint.knowware.institute/dl/p03.zip",
-    arxivUrl: "https://arxiv.org/abs/2602.0103",
     githubUrl: "https://github.com/knowware-institute/p03"
   },
   {
     id: "04",
     paperId: "PAPER 04",
     category: "MATH.NT",
-    doi: "10.48550/arXiv.2602.0104",
     title: "Eisenstein Integers, θ = 5/8",
     date: "Feb 2026",
-    status: "PROVED",
-    description: "The core arithmetic result of the programme. It proves the level of distribution θ = 5/8 for cascade moduli using the hexagonal geometry of Eisenstein integers and Watt's theorem.",
+    status: "UNDER REVISION",
+    description: "The core arithmetic claim of the programme: a level of distribution θ = 5/8 for cascade moduli 3ᴷ, argued from the hexagonal geometry of Eisenstein integers and Watt's theorem.",
     highlights: [
-      "Theorem 4.1: θW = 5/8 for Cascade Moduli",
+      "Theorem 1.1: θW = 5/8 for Cascade Moduli (claimed)",
       "Eisenstein Ramification Analysis",
       "Application of Watt's Mean Value Theorem",
       "The Hexagonal Lattice Constraint"
@@ -85,122 +78,104 @@ const PREPRINTS = [
     htmlUrl: "/papers/p04",
     pdfUrl: "https://preprint.knowware.institute/pdf/p04.pdf",
     downloadUrl: "https://preprint.knowware.institute/dl/p04.zip",
-    arxivUrl: "https://arxiv.org/abs/2602.0104",
     githubUrl: "https://github.com/knowware-institute/p04"
   },
   {
     id: "05",
     paperId: "PAPER 05",
     category: "MATH.NT",
-    doi: "10.48550/arXiv.2602.0105",
     title: "Ramanujan's Dimensional Forcing",
     date: "Feb 2026",
-    status: "PROVED · K≥4 CONJECTURAL",
-    description: "Unifies the Bombieri-Vinogradov theorem and Pascadi's result into a single universal formula. It predicts higher-order constants in the k-hierarchy of forcing dimensions.",
+    status: "UNDER REVISION",
+    description: "Proposes a single formula for the levels of k-fold constitutional sieves and predicts higher-order constants in the k-hierarchy of forcing dimensions.",
     highlights: [
-      "The Universal Forcing Formula: θk = (2k − k)/2k",
-      "Unification of Bombieri-Vinogradov (k=1)",
-      "Prediction for θ₅ = 27/32",
-      "Ramanujan Identity Correspondences"
+      "The Proposed Formula: θₖ = (2ᵏ − k)/2ᵏ",
+      "Theorem 3.4: Nested Constraint Count",
+      "Proposition 4.1: Pattern vs. Configuration Density",
+      "Predictions: θ₄ = 3/4, θ₅ = 27/32"
     ],
     htmlUrl: "/papers/p05",
     pdfUrl: "https://preprint.knowware.institute/pdf/p05.pdf",
     downloadUrl: null,
-    arxivUrl: "https://arxiv.org/abs/2602.0105",
     githubUrl: null
   },
   {
     id: "06",
     paperId: "PAPER 06",
     category: "CS.IT / MATH.NT",
-    doi: "10.48550/arXiv.2603.0106",
     title: "The Shannon–Wakil Effect",
-    date: "Mar 2026",
-    status: "PROVED",
-    description: "Demonstrates that Claude Shannon's 1948 information theory directly encodes the Constitutional Forcing signal. It proves five structural correspondences between entropy and prime distribution.",
+    date: "Feb 2026",
+    status: "UNDER REVISION",
+    description: "Proposes a structural parallel between Claude Shannon's 1948 theorems and the cascade-moduli arithmetic, named the Shannon–Wakil Effect.",
     highlights: [
-      "The Entropy-Prime Correspondence",
-      "Theorem 3.2: Shannon Capacity of the Integers",
-      "Analysis of the 77-Year Recognition Gap",
-      "Information-Theoretic Sieve Bounds"
+      "Definition 2.1: The Shannon–Wakil Effect",
+      "Propositions 3.2 and 4.2: The AEP and Channel Coding",
+      "Proposition 5.2: The Cascade-Moduli Case",
+      "Analysis of the 78-Year Recognition Gap"
     ],
     htmlUrl: "/papers/p06",
     pdfUrl: "https://preprint.knowware.institute/pdf/p06.pdf",
     downloadUrl: "https://preprint.knowware.institute/dl/p06.zip",
-    arxivUrl: "https://arxiv.org/abs/2603.0106",
     githubUrl: "https://github.com/knowware-institute/p06"
   },
   {
     id: "07",
     paperId: "PAPER 07",
     category: "MATH.NT",
-    doi: "10.48550/arXiv.2603.0107",
     title: "Condition W3",
-    date: "Mar 2026",
-    status: "PROVED",
-    description: "The foundation proof preventing Siegel zeros for characters modulo 3K. It shows that the same Eisenstein structure that forces θ = 5/8 also prevents the zeros that would undermine it.",
+    date: "Feb 2026",
+    status: "UNDER REVISION",
+    description: "States Condition W3, the absence of Siegel zeros for Dirichlet characters modulo 3ᴷ, and argues for it through the CM field Q(ω).",
     highlights: [
-      "Theorem 1.1: Elimination of Siegel Zeros",
-      "The CM Field Q(ω) Construction",
-      "L-function Non-vanishing at s=1",
-      "Structural Integrity of the Cascade"
+      "Theorem 1.1: Condition W3",
+      "Proposition 2.1: The CM Structure of Q(ω)",
+      "Lemma 4.1: L-function Factorisation",
+      "Theorem 7.1: Watt Conditions"
     ],
     htmlUrl: "/papers/p07",
     pdfUrl: "https://preprint.knowware.institute/pdf/p07.pdf",
     downloadUrl: "https://preprint.knowware.institute/dl/p07.zip",
-    arxivUrl: "https://arxiv.org/abs/2603.0107",
     githubUrl: "https://github.com/knowware-institute/p07"
   },
   {
     id: "08",
     paperId: "PAPER 08",
     category: "MATH.NT",
-    doi: "10.48550/arXiv.2603.0108",
-    title: "Prime Digit Bias Explained",
+    title: "Prime Digit Bias",
     date: "Mar 2026",
-    status: "PROVED",
-    description: "Resolves the 'deeply unsettling' digit bias observed by Lemke Oliver and Soundararajan. It proves the bias is a necessary consequence of the constitutional ternary symmetry.",
+    status: "UNDER REVISION",
+    description: "Proposes a ternary reading of the last-digit bias in consecutive primes observed by Lemke Oliver and Soundararajan (2016).",
     highlights: [
-      "Resolution of the LOS Bias",
-      "Ternary Symmetry in Digit Distribution",
-      "Theorem 2.2: The Unbidden Result",
-      "Dissolution of the 2016 Mystery"
+      "Theorem 3.2: Constitutional Signature",
+      "Theorem 3.4: Ternary Equilibrium",
+      "Proposition 4.1: Min-Gap Transition Structure",
+      "Proposition 5.1: The Snail's Pace"
     ],
     htmlUrl: "/papers/p08",
     pdfUrl: "https://preprint.knowware.institute/pdf/p08.pdf",
     downloadUrl: "https://preprint.knowware.institute/dl/p08.zip",
-    arxivUrl: "https://arxiv.org/abs/2603.0108",
     githubUrl: "https://github.com/knowware-institute/p08"
   },
   {
     id: "09",
     paperId: "PAPER 09",
     category: "CS.IT / MATH.CA",
-    doi: "10.48550/arXiv.2603.0109",
     title: "The DFT Constitutional Constant",
     date: "Mar 2026",
-    status: "PROVED",
-    description: "Identifies the sixth instance of the mechanism within the Discrete Fourier Transform. It proves that the DFT conjugate symmetry is a constitutional constant operating since 1965.",
+    status: "UNDER REVISION",
+    description: "Reads the conjugate symmetry of the discrete Fourier transform of real signals, which leaves N of 2N real degrees of freedom, as a constitutional constant θ_FFT = 1/2.",
     highlights: [
-      "Recognition of the 6th Instance",
-      "Theorem 5.1: DFT Conjugate Symmetry as Forcing",
-      "Fourier Spectrum of Riemann Zeros",
-      "Empirical Confirmation via FFT"
+      "Definition 2.3: The Constant θ_FFT",
+      "Theorem 3.1: Conjugate Symmetry",
+      "Section 4: Empirical Measurements",
+      "Conjecture 8.1: Constitutional Universality"
     ],
     htmlUrl: "/papers/p09",
     pdfUrl: "https://preprint.knowware.institute/pdf/p09.pdf",
     downloadUrl: "https://preprint.knowware.institute/dl/p09.zip",
-    arxivUrl: "https://arxiv.org/abs/2603.0109",
     githubUrl: "https://github.com/knowware-institute/p09"
   }
 ];
-
-const DoiBadge = ({ doi }: { doi: string }) => (
-  <div className="inline-flex items-center bg-linen border border-rule px-2 py-0.5 rounded-sm hover:border-accent transition-colors cursor-pointer group">
-    <span className="font-plex-mono text-[0.55rem] text-light uppercase tracking-wider mr-1.5 border-r border-rule pr-1.5 group-hover:text-accent transition-colors">DOI</span>
-    <span className="font-plex-mono text-[0.55rem] text-ink group-hover:text-accent transition-colors">{doi}</span>
-  </div>
-);
 
 const SubjectTag = ({ category }: { category: string }) => (
   <span className="font-plex-mono text-[0.55rem] text-accent uppercase tracking-widest border border-accent/20 px-2 py-0.5 rounded-full bg-accent/5">
@@ -280,7 +255,7 @@ export default function Preprints() {
             Knowware Preprints
           </h1>
           <p className="font-garamond italic text-[1.15rem] text-mid max-w-[700px]">
-            The formal record of the Constitutional Sieve Programme. These preprints represent the complete proof-chain of the forcing mechanism, from historical restoration to empirical signal processing.
+            The formal record of the Constitutional Sieve Programme, from historical restoration to signal processing. These preprints are being revised; earlier versions contained errors, and their status labels reflect this.
           </p>
         </div>
 
@@ -303,7 +278,6 @@ export default function Preprints() {
                     </div>
                     <SubjectTag category={paper.category} />
                   </div>
-                  <DoiBadge doi={paper.doi} />
                 </div>
 
                 {/* AT A GLANCE: INTEGRATED DESIGN */}
@@ -371,11 +345,6 @@ export default function Preprints() {
                         label="Download" 
                         icon={Download} 
                         url={paper.downloadUrl} 
-                      />
-                      <ActionButton 
-                        label="arXiv" 
-                        icon={ExternalLink} 
-                        url={paper.arxivUrl} 
                       />
                       <ActionButton 
                         label="GitHub" 
