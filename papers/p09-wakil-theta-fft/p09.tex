@@ -163,9 +163,9 @@ What this paper adds is modest:
   \item We record what the symmetry does and does not imply for energy
         measurements, complex and quantised inputs, finite precision
         and compression.  Several claims made for it in an earlier
-        version---an empirical confirmation, a $2\times$ compression
-        floor, an adversarial-robustness result---do not hold, and we
-        say why.
+        version---an empirical confirmation and a $2\times$ compression
+        floor---do not hold, and an ``adversarial robustness'' result is
+        a restatement of the theorem; we say why.
   \item We examine a proposed parallel between $\thetaFFT = \tfrac{1}{2}$
         and the modular fractal geometry of Khayyam's Triangle, and show
         that it fails.
@@ -498,8 +498,9 @@ and with it any compression ratio; the symmetry itself is preserved.
 \subsection{Adversarial inputs}
 
 \begin{proposition}[Adversarial inputs]\label{prop:adversarial}
-$\thetaFFT = \tfrac{1}{2}$ depends only on $N$ and on the signals being
-real, so no choice of real data changes it.  The energy fraction, by
+$\thetaFFT = \tfrac{1}{2}$ is a property of the space $\R^N$ of real
+signals, not of any particular signal, so no choice of real data
+changes it.  The energy fraction, by
 contrast, can be placed anywhere in $[0, \tfrac{1}{2}]$ and no higher:
 for real $x \neq 0$, $0 \leq \thetaFFT^{\mathrm{emp}}(x) \leq \tfrac{1}{2}$,
 and for $N \geq 3$ every value in $[0, \tfrac{1}{2}]$ is attained.
@@ -533,7 +534,7 @@ Let $x \in \R^N$ and let $\tilde{x}$ be a computed spectrum with
 $\norm{\tilde{x} - \hat{x}} \leq \delta \norm{\hat{x}}$.  Then
 \[
   \max_{1 \leq k \leq N-1}
-  \abs[\big]{\tilde{x}_{N-k} - \overline{\tilde{x}_k}}
+  \bigl|\tilde{x}_{N-k} - \overline{\tilde{x}_k}\bigr|
   \;\leq\; 2\delta \norm{\hat{x}}.
 \]
 With the FFT bound above, the mirror residual is therefore
@@ -644,102 +645,150 @@ supporting it were reported.  The conjecture is withdrawn.
 \label{sec:compression}
 % ═════════════════════════════════════════════════════════════════════════════
 
-\subsection{The two-factor decomposition}
+\subsection{What conjugate symmetry does and does not give}
 
-Let $w \in \R^N$ be a real-valued weight tensor.  Total compression
-achievable by FFT pre-processing followed by NFR decompression
-decomposes as:
-\[
-  \eta_{\mathrm{total}}
-  \;=\; \underbrace{\eta_{\mathrm{const}}}_{\thetaFFT\text{-floor}}
-  \;\times\;
-  \underbrace{\eta_{\mathrm{sparse}}}_{\text{spectral sparsity}}.
-\]
+Let $w \in \R^N$ be a real-valued weight tensor, flattened.  Its
+independent half-spectrum $(\hat{w}_k)_{k \in L}$, as returned by
+real-input FFT routines such as \texttt{numpy.fft.rfft}, consists of
+$\lfloor N/2 \rfloor + 1$ complex numbers, of which
+$\operatorname{Im}\hat{w}_0 = 0$ and, for even $N$,
+$\operatorname{Im}\hat{w}_{N/2} = 0$.  It therefore holds exactly $N$
+real numbers, as many as $w$: for $N = 32768$, $16385$ complex
+coefficients, i.e.\ $32768$ real numbers.
 
-The constitutional floor $\eta_{\mathrm{const}} = 2$ is exact and
-universal for real inputs.  The sparsity multiplier
-$\eta_{\mathrm{sparse}}$ depends on the energy concentration of the
-specific tensor.
+\begin{proposition}[No compression from the symmetry]\label{prop:nocompression}
+For $w \in \R^N$, the map sending $w$ to the real and imaginary parts of
+$(\hat{w}_k)_{k \in L}$, with the identically zero imaginary parts of
+$\hat{w}_0$ and (for even $N$) $\hat{w}_{N/2}$ omitted, is a linear
+bijection $\R^N \to \R^N$.
+\end{proposition}
 
-\begin{theorem}[Compression lower bound]\label{thm:compression}
-For any real-valued weight tensor $w \in \R^N$ with
-$\thetaFFT = \tfrac{1}{2}$ (guaranteed by Theorem~\ref{thm:main}),
-an FFT-based compression scheme retaining only the independent
-spectral half achieves at minimum a lossless $2\times$ compression
-of the spectral representation.  This bound is tight: it is achieved
-by white-noise inputs.
-\end{theorem}
+\begin{proof}
+The map is linear, and it is injective because by
+Theorem~\ref{thm:main} the half-spectrum determines $\hat{w}$ and hence
+$w$.  The number of real numbers it retains is
+$2(\lfloor N/2 \rfloor + 1) - 2 = N$ for even $N$ and
+$2 \cdot \tfrac{N+1}{2} - 1 = N$ for odd $N$, so a linear injection
+$\R^N \to \R^N$ is a bijection.
+\end{proof}
 
-\subsection{Theorem-predicted compression ratio}
+So conjugate symmetry avoids the $2\times$ inflation of storing the full
+complex spectrum, but it gives no compression relative to the input.
+An earlier version decomposed the total compression of an FFT-based
+scheme as $\eta_{\mathrm{total}} = \eta_{\mathrm{const}} \times
+\eta_{\mathrm{sparse}}$ with a ``constitutional floor''
+$\eta_{\mathrm{const}} = 2$, and stated a ``compression lower bound''
+theorem: a lossless $2\times$ compression for every real tensor, tight
+for white noise.  Measured against the real input, $\eta_{\mathrm{const}}
+= 1$, so $\eta_{\mathrm{total}} = \eta_{\mathrm{sparse}}$, and that
+theorem is withdrawn.  Any compression of an FFT-based scheme comes from
+discarding or coarsely coding spectral coefficients---that is, from
+spectral sparsity of the data---and is lossy unless the discarded
+coefficients are exactly zero.  (In floating point even the round trip
+$w \mapsto \hat{w} \mapsto w$ is exact only up to rounding error.)
 
-Given intrinsic dimensionality $d$ of the weight manifold (measurable
-from the FFT energy-concentration curve), the predicted compression
-ratio is:
-\[
-  \etapred(d) \;=\; \frac{N}{\lfloor N^{d/\dim} \rfloor}
-  \qquad (\text{approximate; see \cite{Wakil2026Ramanujan} for exact form}).
-\]
-The empirical ratio $\etaact$ measured on structured FFN weights
-at $d \approx 0.03$ gives:
-\[
-  \etapred \;\approx\; 2730, \qquad \etaact \;=\; 2730,
-\]
-confirming the theorem to within measurement precision.
+\subsection{Spectral sparsity of the test matrices}
 
-\subsection{The NFR stage: compressing the residual}
+The only reproducible compression entry of the table withdrawn in
+Section~\ref{sec:empirical} is the random control.  For an i.i.d.\
+Gaussian $512 \times 64$ matrix, keeping the largest $20\%$ of the DFT
+coefficients ($5\times$) retains about $52\%$ of the energy ($0.518$ to
+$0.521$ in our recomputation); for exponentially distributed coefficient
+powers the fraction retained is $f(1 - \ln f) \approx 0.522$ at $f = 0.2$.
 
-After FFT pre-processing, the NFR (Neural Fiber Representation) stage
-trains three parallel SIREN networks on the tri-state decomposition
-of the independent spectral half.  The NFR compression acts on a
-tensor already reduced by $\eta_{\mathrm{const}} = 2$, so its
-compression ratio compounds:
-\[
-  \eta_{\mathrm{total}} \;=\; \eta_{\mathrm{const}} \times \eta_{\mathrm{NFR}}.
-\]
-The total claimed compression of 67$\times$ on MoE expert weights
-(20$\times$ in public-facing claims) decomposes as
-$2 \times 33.5$ or better, contingent on NFR convergence.
+The ``$2730\times$ at $96\%$ energy'' reported for ``structured FFN
+weights'' could not be reproduced from the described construction.  For
+low-rank (rank $1$, $4$, $8$ or $16$) plus Gaussian noise (standard
+deviation $0.1$) matrices of that shape, $96\%$ of the energy of the
+two-dimensional DFT needs between $19{,}871$ and $23{,}767$ of the
+$32{,}768$ coefficients, a ratio of $1.4$ to $1.6\times$.  Low rank does
+not imply DFT sparsity: the two-dimensional DFT of $UV^{\mathsf{T}}$ is
+$(FU)(FV)^{\mathsf{T}}$, still of rank $r$ but in general dense.  A ratio
+of $2730 = \lfloor 32768/12 \rfloor$ would mean that $96\%$ of the energy
+lies in $12$ of the $32{,}768$ coefficients.  The $2730\times$ figure is
+therefore unverified and is withdrawn, together with the earlier
+explanation that gradient-descent training drives weight tensors ``onto
+low-dimensional manifolds in frequency space'', which synthetic test
+matrices could not have tested.  The ``moderate'' entry for the
+attention weights was not a measurement.
+
+\subsection{The withdrawn predicted-ratio formula}
+
+An earlier version gave a ``theorem-predicted'' compression ratio
+$\etapred(d) = N/\lfloor N^{d/\dim} \rfloor$ and reported
+$\etapred \approx 2730 = \etaact$ at $d \approx 0.03$.  The symbol
+$\dim$ was never defined and no theorem was stated.  For $N = 32768$ and
+$d = 0.03$ the formula gives $32768$ for $\dim \in \{\tfrac{1}{2}, 1, 2\}$;
+the value $2730$ would need $\dim \approx 0.1255$.  The formula and the
+claimed agreement are withdrawn.
+
+\subsection{The NFR stage}
+
+The NFR (Neural Fiber Representation) stage trains three parallel SIREN
+networks \cite{Sitzmann2020} on a decomposition of the independent
+spectral half into magnitude, phase and a third ``coherence'' channel.
+It is under development, and no compression results for it are reported
+here.  The figures given in an earlier version---$67\times$ on MoE expert
+weights ($20\times$ in public-facing claims), decomposed as
+$2 \times 33.5$---are unverified, and their factor $2$ rested on the
+illusory floor of Proposition~\ref{prop:nocompression}; they are
+withdrawn.
 
 % ═════════════════════════════════════════════════════════════════════════════
 \section{Position Within the Constitutional Sieve Programme}
 \label{sec:sieve}
 % ═════════════════════════════════════════════════════════════════════════════
 
-This paper is Paper~3 of a six-paper programme \cite{Wakil2026Khayyam,
-Wakil2026Ramanujan,Wakil2026Eisenstein,Wakil2026ConditionW3,
-Wakil2026Shannon,Wakil2026SphericalCow}.
+This paper is the ninth of the nine papers of the programme:
 
 \begin{enumerate}[noitemsep]
-  \item \textbf{Paper~1} \cite{Wakil2026Khayyam}: Historical restoration
-        of Khayyam's Triangle; the fractal.  Establishes the geometric
-        frame.
-  \item \textbf{Paper~2} \cite{Wakil2026Ramanujan}: Ramanujan's
-        dimensional forcing; sieve level formula.
-  \item \textbf{Paper~3} (this paper): $\thetaFFT = \tfrac{1}{2}$;
-        the spectral constitutional constant; bridge to the fractal.
-  \item \textbf{Paper~4} \cite{Wakil2026Eisenstein}: Eisenstein integers,
-        cascade moduli, $\theta_W = \tfrac{5}{8}$.
-  \item \textbf{Paper~5} \cite{Wakil2026ConditionW3}: Condition W3;
-        absence of Siegel zeros.
-  \item \textbf{Paper~6} \cite{Wakil2026Shannon}: Shannon--Wakil effect;
-        information-theoretic parallel.
+  \item \cite{Wakil2026Forcing}: Constitutional Forcing.  The formula
+        $\theta_k = (2^k - k)/2^k$ is a postulate (a system of depth $k$
+        is one in which exactly $k$ configuration classes are
+        eliminated), not a theorem.
+  \item \cite{Wakil2026Khayyam}: Khayyam's Triangle; historical
+        restoration and the mod-$p$ fractal.
+  \item \cite{Wakil2026SphericalCow}: Spherical Cow Philosophy; the
+        programme's methodology.
+  \item \cite{Wakil2026Eisenstein}: Eisenstein integers and cascade
+        moduli; the level of distribution $\theta_W = \tfrac{5}{8}$ for
+        the moduli $3^K$ is a conjecture.
+  \item \cite{Wakil2026Ramanujan}: Ramanujan's dimensional forcing; the
+        counting formula is a postulate.
+  \item \cite{Wakil2026Shannon}: the Shannon--Wakil effect; a parallel
+        with information theory.
+  \item \cite{Wakil2026ConditionW3}: Condition W3, the absence of
+        exceptional zeros for characters modulo $3^K$; it is true, with a
+        one-line proof from the cyclicity of $(\Z/3^K\Z)^\times$.
+  \item \cite{Wakil2026Bias}: the Lemke Oliver--Soundararajan bias and
+        ternary structure.
+  \item This paper: $\thetaFFT = \tfrac{1}{2}$; conjugate symmetry of the
+        real DFT.
 \end{enumerate}
 
-The thread connecting all six: \emph{constitutional forcing}.  A
-constitutional constant is a structural invariant---$\thetaFFT = \tfrac{1}{2}$,
-$\theta_W = \tfrac{5}{8}$, $d_3 = \log 4/\log 3$---that governs the
-architecture of information in a given domain.  The programme argues
-that the same forcing principle operates across spectral compression,
-prime distribution, and information theory, because all three are
-shadows of the same underlying sieve geometry.
+The programme's organising idea is \emph{constitutional forcing}:
+structural constraints that fix a constant before any data are examined.
+Of the constants mentioned in this paper, $\thetaFFT = \tfrac{1}{2}$ is a
+classical theorem (Theorem~\ref{thm:main}), $\theta_W = \tfrac{5}{8}$ is
+a conjecture \cite{Wakil2026Eisenstein}, and the dimension of the mod-3
+fractal is $\log 6/\log 3$.  The value $\tfrac{1}{2}$ does not identify a
+depth $k$ in the formula $\theta_k = (2^k - k)/2^k$, since
+$\theta_1 = \theta_2 = \tfrac{1}{2}$.  That these constants are shadows of
+a common ``sieve geometry'', as an earlier version put it, is a
+heuristic, not a result.
 
-\begin{conjecture}[Constitutional universality]\label{conj:universality}
-For every real-valued signal domain equipped with a natural basis change
-(Fourier, modular, wavelet, $p$-adic), there exists a constitutional
-constant $\theta \in (0,1)$ such that $\theta$ of the representation
-in the new basis is derivable from the remainder, and the residual
-non-redundant structure encodes the domain's essential geometry.
-\end{conjecture}
+An earlier version also stated a ``constitutional universality''
+conjecture: that every real-valued signal domain with a natural basis
+change (Fourier, modular, wavelet, $p$-adic) has a constant
+$\theta \in (0,1)$ of its representation that is derivable from the
+remainder.  It is false.  Any invertible real transform
+$\R^N \to \R^N$---the discrete cosine transform, the discrete Hartley
+transform \cite{Bracewell1983}, or an orthonormal Haar wavelet
+transform---has no derivable coefficients, so $\theta = 0$.  The
+conjecture is withdrawn.  The same examples show that the value
+$\tfrac{1}{2}$ is an artefact of representing a real signal by complex
+coefficients: the Hartley transform carries the same information as the
+DFT with no redundancy.
 
 % ═════════════════════════════════════════════════════════════════════════════
 \section{Conclusion}
@@ -748,28 +797,32 @@ non-redundant structure encodes the domain's essential geometry.
 We have established the following:
 
 \begin{enumerate}[noitemsep]
-  \item $\thetaFFT = \tfrac{1}{2}$ is an exact theorem for all
-        real-valued finite signals, proved directly from the DFT
-        definition (Theorem~\ref{thm:main}).
-  \item The constant is empirically confirmed across structured and
-        random AI weight tensors with maximum deviation $< 3 \times 10^{-4}$,
-        all of which is attributable to measurement artefacts rather
-        than genuine asymmetry (Table~\ref{tab:empirical}).
-  \item The constant is adversarially robust over real inputs:
-        no real-valued signal can violate it (Proposition~\ref{prop:adversarial}).
-        The only genuine escape is to leave the real domain.
-  \item The structural parallel with Khayyam's Triangle modulo 2
-        is exact at the level of redundancy fraction, and extends
-        to the ternary ($p = 3$) setting through the NFR tri-state
-        decomposition (Table~\ref{tab:bridge}, Conjecture~\ref{conj:ternary}).
-  \item The compression lower bound of $2\times$ is tight, theorem-guaranteed,
-        and independent of data; the sparsity multiplier is
-        data-dependent and achieves up to $2730\times$ on structured
-        neural weights (Theorem~\ref{thm:compression}).
+  \item $\thetaFFT = \tfrac{1}{2}$, counted in real parameters, is an
+        exact and classical theorem for all real-valued finite signals,
+        proved directly from the DFT definition (Theorem~\ref{thm:main}).
+        Counted in complex coefficients, the independent fraction is
+        $(\lfloor N/2 \rfloor + 1)/N$ (Remark~\ref{rem:coeffcount}).
+  \item The energy fraction of the upper half satisfies
+        $\thetaFFT^{\mathrm{emp}} = \tfrac{1}{2} -
+        (\abs{\hat{x}_0}^2 + \abs{\hat{x}_{N/2}}^2)/(2E) \leq \tfrac{1}{2}$
+        for real data (Proposition~\ref{prop:energyidentity}).  It is a
+        property of the data and does not test $\thetaFFT$; the earlier
+        empirical table, which contained an impossible value, is
+        withdrawn.
+  \item $\thetaFFT$ does not depend on the data, so no real input can
+        change it; the energy fraction can be placed anywhere in
+        $[0, \tfrac{1}{2}]$ (Proposition~\ref{prop:adversarial}).
+  \item There is no parallel with Khayyam's Triangle at the level of
+        redundancy fraction: the proportion of entries divisible by $p$
+        tends to $1$ (Section~\ref{sec:bridge}).
+  \item Conjugate symmetry gives no compression relative to a real
+        input: the half-spectrum holds exactly $N$ real numbers
+        (Proposition~\ref{prop:nocompression}).  Compression must come
+        from spectral sparsity; the earlier $2730\times$ and $67\times$
+        figures are unverified and withdrawn.
 \end{enumerate}
 
-The geometry was always in the spectrum.
-It took the constitutional frame to see it.
+The symmetry has been in the spectrum, and in the textbooks, all along.
 
 % ─────────────────────────────────────────────────────────────────────────────
 \section*{Acknowledgements}
