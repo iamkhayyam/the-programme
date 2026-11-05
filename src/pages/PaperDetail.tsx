@@ -51,7 +51,7 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     content: (
       <>
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">What Constitutional Forcing Is</h2>
-        <p className="mb-4">The Bombieri–Vinogradov theorem establishes that primes are equidistributed in arithmetic progressions to modulus x<sup>1/2</sup>. The level of distribution is θ = <Fraction numerator="1" denominator="2" />. It is not a computation; it is a structural fact about binary arithmetic progressions.</p>
+        <p className="mb-4">The Bombieri–Vinogradov theorem establishes that primes are equidistributed in arithmetic progressions on average over moduli up to x<sup>1/2</sup> (up to logarithmic factors). The level of distribution is θ = <Fraction numerator="1" denominator="2" />. It is not a computation; it is a structural fact about binary arithmetic progressions.</p>
         <p className="mb-4">In the companion paper [3] we argue for θ<sub>W</sub> = <Fraction numerator="5" denominator="8" /> for cascade moduli q = 3<sup>K</sup> via the algebraic geometry of the Eisenstein integers.</p>
         <p className="mb-4">This paper asks: what is the mechanism? Why <Fraction numerator="5" denominator="8" />? Why not <Fraction numerator="3" denominator="5" />, or <Fraction numerator="2" denominator="3" />, or some other rational number? The answer proposed here is Constitutional Forcing: the cascade result is argued to be an instance of the same structural phenomenon as the Bombieri–Vinogradov barrier itself.</p>
         
@@ -83,7 +83,7 @@ const PAPERS_DATA: Record<string, PaperContent> = {
         <p className="mb-4">A framework that cannot be wrong is not a framework. We document a proposed non-instance.</p>
         <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
           <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Proposition 4.1 — Sophie Germain Non-Instance</div>
-          <p className="text-[0.95rem] leading-relaxed">Sophie Germain prime pairs (p, 2p+1) do not exhibit Constitutional Forcing at depth k = 3. Predicted level of distribution: θ = <Fraction numerator="1" denominator="2" />. No enhancement over Bombieri–Vinogradov.</p>
+          <p className="text-[0.95rem] leading-relaxed">Sophie Germain prime pairs (p, 2p+1) do not exhibit Constitutional Forcing at depth k = 2. Predicted level of distribution: θ = <Fraction numerator="1" denominator="2" />. No enhancement over Bombieri–Vinogradov.</p>
         </div>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">The Constitutional Forcing Conjecture</h2>
@@ -133,7 +133,7 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     nextPaper: {
       id: "02",
       title: "02 · Khayyam's Triangle",
-      desc: "Historical Restoration and the Geometry Hidden in the Numbers. The mod-3 fractal that sat inside the most studied triangle in mathematics for nine centuries: the direct combinatorial ancestor of cascade moduli and θ<sub>W</sub> = 5/8.",
+      desc: "Historical Restoration and the Geometry Hidden in the Numbers. The mod-3 fractal that sat inside the most studied triangle in mathematics for nine centuries.",
       url: "/papers/p02"
     }
   },
@@ -374,7 +374,7 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     nextPaper: {
       id: "05",
       title: "05 · Ramanujan's Dimensional Forcing",
-      desc: "A Universal Formula for Sieve Levels. The formula θ<sub>k</sub> = <Fraction numerator={<>2<sup>k</sup>−k</>} denominator={<>2<sup>k</sup></>} /> that unifies Bombieri–Vinogradov (k=1) and the cascade result (k=3).",
+      desc: "A Universal Formula for Sieve Levels. The proposed formula θₖ = (2ᵏ − k)/2ᵏ, covering Bombieri–Vinogradov (k=1) and the cascade claim (k=3).",
       url: "/papers/p05"
     }
   },
@@ -600,7 +600,7 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     content: (
       <>
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Setup and Statement</h2>
-        <p className="mb-4">Watt's theorem [3] converts triply-well-factorable sieve weights into a level-of-distribution bound, provided three conditions hold for the relevant Dirichlet characters. Conditions W1 and W2 are parameter bounds addressed in the companion paper [4], Appendix A. Condition W3 — no Siegel zeros — is what this paper addresses.</p>
+        <p className="mb-4">Papers 04 and 07 apply Watt's mean-value theorem [3] under three conditions they label W1–W3. Conditions W1 and W2 are parameter bounds addressed in the companion paper [4], Appendix A. Condition W3 — no Siegel zeros — is what this paper addresses.</p>
 
         <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
           <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 1.1 — Condition W3</div>
@@ -608,7 +608,7 @@ const PAPERS_DATA: Record<string, PaperContent> = {
         </div>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Step 1: Lifting to a Hecke Character</h2>
-        <p className="mb-4">The key algebraic fact is that the ramification (3) = 𝔭² in Z[ω] makes the conductor of the lifted character in K = Q(ω) match the conductor of χ in Q exactly.</p>
+        <p className="mb-4">Paper 07 lifts χ to a Hecke character of K = Q(ω) by base change.</p>
 
         <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
           <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Proposition 2.5 — Canonical Lifting</div>
@@ -616,13 +616,14 @@ const PAPERS_DATA: Record<string, PaperContent> = {
         </div>
         <div className="ml-6 mb-6 font-stix text-[0.92rem] leading-relaxed text-mid">
           <div className="font-plex-sans italic text-[0.8rem] text-light mb-1">Proof sketch.</div>
-          The lifting is canonical because the ramification (3) = 𝔭² forces N(𝔭<sup>2K</sup>) = 3<sup>2K</sup> = <em>q</em>², but the conductor of Ψ<sub>χ</sub> restricted to Q recovers <em>q</em> exactly, since the ramification index e = 2 cancels in the conductor computation. The factorisation follows from the standard decomposition of Hecke <em>L</em>-functions over quadratic extensions. <span className="float-right text-[1rem]">□</span>
+          The factorisation follows from the standard decomposition of Hecke <em>L</em>-functions over quadratic extensions. <span className="float-right text-[1rem]">□</span>
         </div>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Step 2: The Stark–Baker Theorem for CM Fields</h2>
         <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 3.2 — Stark–Baker (1967/1968)</div>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 3.2 — as stated in Paper 07</div>
           <p className="text-[0.95rem] leading-relaxed">Let F be a CM field and let Ψ be a Hecke character of F of conductor 𝔣. Then <em>L</em>(<em>s</em>, Ψ) has no real zero in the region σ &gt; 1 − <em>c</em><sub>F</sub>/log(N(𝔣)·|disc(F)|) for an effectively computable constant <em>c</em><sub>F</sub> &gt; 0 depending only on [F:Q].</p>
+          <p className="mt-2 text-[0.8rem] leading-relaxed text-light italic">In this generality the statement is not an established theorem: for imaginary quadratic fields it would settle the Landau–Siegel zero problem. Stark (1967) and Baker (1966) solved the class-number-one problem. Under revision.</p>
         </div>
 
         <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
@@ -915,6 +916,11 @@ export default function PaperDetail() {
             <div className="font-plex-sans text-[0.82rem] text-mid mb-1.5">{paper.authors}</div>
             <div className="font-plex-sans text-[0.72rem] text-light italic mb-4">{paper.affiliation}</div>
             <div className="font-plex-mono text-[0.62rem] text-light">{paper.date}</div>
+          </div>
+
+          <div className="mx-0 md:mx-8 mb-6 p-4 border-l-2 border-accent font-plex-sans text-[0.8rem] leading-relaxed text-mid">
+            <span className="font-plex-mono text-[0.58rem] tracking-[0.15em] uppercase text-light block mb-1">Under revision · November 2026</span>
+            This page summarises a version of the paper that is being revised. Statements reproduced from it, including theorems, are not to be read as established results.
           </div>
 
           <div className="mx-0 md:mx-8 mb-6 p-5 bg-note-bg border border-rule">
