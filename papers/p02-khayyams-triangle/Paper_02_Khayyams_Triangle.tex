@@ -18,7 +18,7 @@
 \author{Khayyam Wakil}
 \address{The ARC Institute of Knowware, Calgary, Alberta, Canada}
 \email{the@knowware.institute}
-\date{January 2026}
+\date{January 2026; revised November 2026}
 
 \subjclass[2020]{01A30, 11B65, 28A80, 11N35}
 \keywords{Pascal's triangle, Khayyam's triangle, Sierpiński fractal, Lucas's theorem, modular arithmetic, history of mathematics, cascade moduli, constitutional sieve theory}
@@ -26,69 +26,77 @@
 \begin{document}
 
 \begin{abstract}
-The triangular array of binomial coefficients has been called ``Pascal's Triangle'' in the West for centuries---yet Pascal arrived 584 years after the Persian mathematician Omar Khayyam first documented it. That alone might justify a rename. But there is a stronger argument hiding in plain sight: the triangle's deepest structural property is \emph{geometric}, not combinatorial, and it belongs by mathematical character to Khayyam's tradition rather than Pascal's. Reduce the triangle's entries modulo any prime $p$ and a Sierpiński-type fractal emerges---a self-similar geometric structure invisible to Pascal's probabilistic eye, but exactly the kind of hidden geometry Khayyam spent his life finding.
+The triangular array of binomial coefficients has been called ``Pascal's Triangle'' in the West for centuries---yet it was known in India, in the Islamic world and in China long before Pascal's \emph{Traité} of 1654. In Iran it carries the name of the Persian mathematician Omar Khayyam, whose work on the extraction of roots, written before about 1070 and now lost, is the basis for associating the triangle with him; he was not its first discoverer. We review this history and correct the popular account where it goes wrong. We then argue that a further consideration favours Khayyam's name: the triangle's most striking structural property is \emph{geometric}. Reduce the triangle's entries modulo any prime $p$ and a Sierpiński-type fractal emerges---a self-similar geometric structure far from the probabilistic questions Pascal put to the triangle, and of the kind of hidden geometry that runs through Khayyam's work. For $p=3$ its Hausdorff dimension is $\log 6/\log 3 \approx 1.631$.
 
-This paper is the first in a six-paper program on constitutional sieve theory. The mod-3 fractal structure of Khayyam's Triangle, governed by Lucas's theorem, is the direct combinatorial ancestor of the cascade moduli framework and the level-of-distribution result $\theta_W = 5/8$ proved in the companion papers \cite{ramanujan,eisenstein}. A reader wishing to understand why the prime 3 plays a privileged role in that arithmetic program will find the answer here. This paper makes the historical and mathematical case, and shows you the fractal.
+This paper is the second in a nine-paper program on constitutional sieve theory \cite{forcing}. The fractal motivates the program's interest in the prime 3, but it does not supply its arithmetic: nothing in the fractal singles out the prime 3, and the program's central arithmetic claim, a level of distribution $\theta_W = 5/8$ for the moduli $3^K$, is a conjecture \cite{eisenstein}. This paper makes the historical and mathematical case for the name, and shows you the fractal.
 \end{abstract}
 
 \maketitle
 
+\noindent\textbf{Revision note (November 2026).} The Hausdorff dimension of the mod-$p$ fractal is corrected to $\log(p(p+1)/2)/\log p$, which is $\log 6/\log 3\approx 1.631$ for $p=3$ (larger, not smaller, than the mod-2 value), with six, not three, self-similar copies at each scale. The claim that the mod-3 void pattern matches the count of ``$k$ invalid configurations out of $2^k$'' is false and has been withdrawn, as has the claim that the fractal explains why the prime 3 is singled out. Companion results are now cited with their revised status: $\theta_W=5/8$ is a conjecture and the counting formula is a postulate. The history is corrected: Khayyam's treatment of the binomial expansion is lost, his surviving algebra does not contain the triangle, and earlier sources are listed; the date of Apianus (1527), the gaps to Pascal and the al-\d{T}ūsī citation are fixed. The 11-decimal solar-year figure, a modern reconstruction of doubtful authenticity, is no longer presented as Khayyam's, and the claim that the fractal went unnoticed for three centuries is replaced by its nineteenth-century history.
+
 \tableofcontents
 
-\section{The Wrong Man's Name}
+\section{Whose Name?}
 
-Here is a simple question nobody seems to have asked. You know the triangular array of binomial coefficients---the one where each entry is the sum of the two above it, the one that encodes combinations, gives you Pascal's Rule, and sits in every combinatorics textbook. You call it Pascal's Triangle. But what does its deepest structural property look like, and whose mathematical instincts would have found it?
+Here is a simple question. You know the triangular array of binomial coefficients---the one where each entry is the sum of the two above it, the one that encodes combinations, gives you Pascal's Rule, and sits in every combinatorics textbook. You call it Pascal's Triangle. But what does its deepest structural property look like, and whose mathematical instincts would have found it?
 
 Colour every entry that is \emph{not} divisible by 3 and leave the rest blank. Do this for row after row, hundreds of rows deep. What emerges is not a triangle. It is a fractal---an infinite, self-similar geometric object that replicates itself at every scale (Figure~\ref{fig:fractal}).
 
-This is not a recent discovery; it has been known for decades and is well documented \cite{gardner1977,wolfram1984}. What is curious is that nobody has used it to ask the obvious question: does this fractal belong to Pascal's mathematical world, or to someone else's?
+This is not a recent discovery: the arithmetic behind it was worked out in the nineteenth century \cite{kummer1852,lucas1878}, and the picture is well documented \cite{wolfram1984,reiter1993}. The question we ask here is a different one: does this fractal belong to Pascal's mathematical world, or to someone else's?
 
-The answer, we will argue, is someone else's. His name was Omar Khayyam, and he documented this triangle approximately 584 years before Pascal was born.
+The answer, we will argue, is someone else's: Omar Khayyam's. Khayyam was not the first to know the triangle, and his own account of it is lost (Section~\ref{sec:history}). Our case rests partly on history and partly on the character of his mathematics.
 
-\section{584 Years Earlier}
+\section{Centuries Before Pascal}\label{sec:history}
 
-The historical record is not ambiguous. Table~\ref{tab:timeline} shows the known appearances of the binomial coefficient triangle before Pascal's \emph{Traité du triangle arithmétique} of 1654 \cite{pascal1654}.
+The historical record is clear that the triangle long predates Pascal; it does not support the popular claim that Khayyam was the first to know it. Table~\ref{tab:timeline} lists some of the appearances of the binomial coefficient triangle before Pascal's \emph{Traité du triangle arithmétique}, printed in 1654 and published posthumously in 1665 \cite{pascal1654}; see \cite{edwards1987} for a full account.
 
 \begin{table}[h]
 \centering
-\caption{The triangle before Pascal.}
+\caption{Some appearances of the triangle before Pascal.}
 \label{tab:timeline}
 \begin{tabular}{lll}
 \hline
-Year & Mathematician & Location \\
+Date & Source & Location \\
 \hline
-$\sim$1070 & Omar Khayyam & Persia \\
+10th c. & Halāyudha, on Piṅgala's \emph{meru-prastāra} & India \\
+c.~1000 & al-Karajī (reported by al-Samaw'al, 1144) & Baghdad \\
+c.~1050 & Jia Xian (reported by Yang Hui) & China \\
+before c.~1070 & Omar Khayyam (lost work on roots) & Persia \\
+13th c. & Jordanus de Nemore & Europe \\
 1261 & Yang Hui \cite{yanghui1261} & China \\
-1265 & al-Tūsī \cite{altusi1265} & Persia \\
+1265 & al-\d{T}ūsī, \emph{Jawāmi` al-ḥisāb} \cite{altusi1265} & Persia \\
 1303 & Zhu Shijie & China \\
 1356 & Narayana Pandita & India \\
-1523 & Petrus Apianus & Germany \\
+1527 & Petrus Apianus & Germany \\
 1654 & Blaise Pascal \cite{pascal1654} & France \\
 \hline
 \end{tabular}
 \end{table}
 
-Khayyam described the triangle in his \emph{Maqālah fī al-jabr wa al-muqābalah} \cite{khayyam1070}, around 1070 CE. We know this not only from the manuscript itself but from Naṣīr al-Dīn al-Tūsī, who cited Khayyam by name in 1265 \cite{altusi1265,rashed2000}---nearly four centuries before Pascal. Yang Hui arrived independently in 1261 \cite{yanghui1261}. Apianus printed it in Europe in 1523.
+Khayyam's own treatment of the triangle does not survive. His algebra treatise, the \emph{Risāla fī'l-barāhīn `alā masā'il al-jabr wa'l-muqābala} \cite{khayyam1070,rashed2000}, was written c.~1070 in Samarkand; it classifies the cubic equations and solves them with conic sections, and it does not contain the triangle. In it Khayyam mentions an earlier work of his own on finding roots of higher order; that work, which presumably used the binomial coefficients, is lost \cite{rashed2000,edwards1987}. The association of the triangle with Khayyam rests on this reference and on the later tradition that carries his name in Iran.
 
-Pascal arrived 584 years after Khayyam, 131 years after Apianus, and last of all. Wolfram MathWorld already lists the triangle under three names---Pascal's in the West, Yang Hui's in China, Khayyam's in Persia \cite{mathworld}. It already carries Khayyam's name in Iran. This kind of correction is routine: ``Arabic numerals'' came from India; the Fibonacci sequence was known to Virahanka and Hemachandra centuries earlier; the Pythagorean theorem was recorded in Babylon a millennium before Pythagoras. Restoring the right name is not erasure. It is accuracy.
+Others were earlier. Al-Karajī's construction of the triangle is reported by al-Samaw'al (1144); Jia Xian's (c.~1050) is reported by Yang Hui, who credits him \cite{yanghui1261}; and the Indian prosodists had the array as Piṅgala's \emph{meru-prastāra}, described explicitly by Halāyudha in the tenth century \cite{edwards1987}. Two centuries after Khayyam, Naṣīr al-Dīn al-\d{T}ūsī used the binomial coefficients for the extraction of roots in his \emph{Jawāmi` al-ḥisāb} of 1265 \cite{altusi1265}. Apianus printed the triangle in Europe, on the title page of his \emph{Rechnung}, in 1527.
+
+Pascal, born in 1623, printed his \emph{Traité} in 1654: some 584 years after Khayyam's algebra, 127 years after Apianus, and last of all the entries in Table~\ref{tab:timeline}. Reference works already record that the triangle predates Pascal \cite{mathworld,edwards1987}; in China it is called Yang Hui's triangle, and in Iran it already carries Khayyam's name. Corrections of this kind are not unusual: ``Arabic numerals'' came from India; the Fibonacci sequence was known in India, to Virahāṅka centuries earlier and to Hemachandra before Fibonacci; the Pythagorean theorem was recorded in Babylon a millennium before Pythagoras. Restoring a name is not erasure. But since Khayyam was not first, priority alone would favour other names; our case for his rests also on the argument of the next sections.
 
 \section{Two Ways of Seeing a Triangle}
 
 To understand why the fractal matters, one must understand the different questions Pascal and Khayyam were asking.
 
-Pascal wrote his \emph{Traité} to solve the \emph{Problème des partis} \cite{pascal1654}---the problem of dividing gambling stakes fairly when a game of chance is interrupted midway. His question was: \emph{how many} outcomes are possible? The triangle answered it. Each entry $\binom{n}{k}$ counted the ways to choose $k$ items from $n$---discrete, additive, enumerative. Pascal's tradition was probabilistic and combinatorial. He saw the triangle as a counting machine, and a very good one.
+Pascal's \emph{Traité} applies the triangle to, among other things, the \emph{problème des partis} \cite{pascal1654}---the problem of dividing gambling stakes fairly when a game of chance is interrupted midway. His question there was: \emph{how many} outcomes are possible? The triangle answered it. Each entry $\binom{n}{k}$ counted the ways to choose $k$ items from $n$---discrete, additive, enumerative. Pascal's tradition was probabilistic and combinatorial. He saw the triangle as a counting machine, and a very good one.
 
-Khayyam's tradition was different. His central mathematical achievement was solving cubic equations not algebraically but \emph{geometrically}---by finding the intersection of a parabola and a circle \cite{khayyam1070,rashed2000}. He did not ask how many ways something could happen. He asked what \emph{shape} the relationship took. Where Pascal counted, Khayyam looked for hidden structure.
+Khayyam's tradition was different. His central mathematical achievement was solving cubic equations not algebraically but \emph{geometrically}---by intersecting conic sections: a parabola and a circle for some types of cubic, and a parabola and a hyperbola, a hyperbola and a circle, or two hyperbolas for others \cite{khayyam1070,rashed2000}. In that work he did not ask how many ways something could happen. He asked what \emph{shape} the relationship took. Where Pascal counted, Khayyam looked for hidden structure.
 
-This instinct extended to his astronomy, and here the evidence becomes striking. Between 1074 and 1079, working at the Isfahan observatory with naked-eye instruments and no machinery beyond his own geometric reasoning, Khayyam calculated the solar year as 365.24219858156 days. Modern atomic-clock measurements give 365.242190 days: a discrepancy of 0.741312 seconds per year \cite{meeus2002}. The Jalali calendar built on his calculation accumulates one day's error in roughly 5,000 years; the Gregorian calendar, introduced five centuries later with all of European observational astronomy behind it, accumulates the same error in about 3,300 years.
+This instinct extended to his astronomy. From about 1074, Khayyam worked with other astronomers at the Isfahan observatory, with naked-eye instruments, on the calendar reform that produced the Jalali calendar of 1079, whose year began at the observed vernal equinox. The year length his group adopted is not, as far as we can determine, preserved in a reliable primary source. The figure often quoted for it, 365.24219858156 days, cannot be taken at face value: it equals $365 + 683/2820$ to every printed digit, the mean year of a 2820-year intercalation cycle proposed in the twentieth century, and is very likely a modern back-calculation rather than Khayyam's value \cite{heydari2004}. (Taken at face value, it would differ from the modern mean tropical year of 365.242190 days by 0.741447 seconds per year; but the mean tropical year in Khayyam's time was itself about 365.24225 days \cite{laskar1986}.) Popular accounts credit the Jalali calendar with an error of one day in about 5,000 years, against one day in about 3,200 years for the Gregorian calendar, whose mean year is 365.2425 days. Since the Jalali calendar was fixed by observation, such comparisons depend on which arithmetic leap-year rule is attributed to it; a 33-year cycle with eight leap years, for instance, drifts by one day in about 4,300 years against the mean tropical year.
 
-A man with a cup of wine and a loaf of bread---and geometric sight---outperformed five centuries of subsequent institutional astronomy.
+A man remembered in the West for a jug of wine and a loaf of bread led a calendar reform whose accuracy, for its time, was remarkable.
 
-This was not luck. It was a method: find the hidden geometry, ask what structure the observations encode, approach the problem as an outsider unbounded by specialist convention. The same man who could do this was, in a direct sense, the right man to look at a triangle of counting numbers and ask not ``how many?'' but ``what shape is hiding in here?''
+We read this as a method rather than luck: find the hidden geometry, ask what structure the observations encode, approach the problem as an outsider unbounded by specialist convention. On this reading, the same man was the right man to look at a triangle of counting numbers and ask not ``how many?'' but ``what shape is hiding in here?'' There is no evidence that Khayyam studied the triangle modulo a prime; the point concerns the kind of question, not a discovery he made.
 
-\section{The Fractal Nobody Named---And Why Nobody Saw It}
+\section{The Fractal Inside the Triangle}
 
-Here is the experiment. Take the triangle. Replace every entry with its remainder when divided by 3. Entries divisible by 3 become 0---blank, void, absent. The rest survive. The result is Figure~\ref{fig:fractal}: the survivors arrange themselves into a perfect Sierpiński-type fractal. Three smaller copies of the whole triangle appear at the base level. Each of those contains three smaller copies. Each of those contains three smaller copies. The self-similarity continues without bound.
+Here is the experiment. Take the triangle. Replace every entry with its remainder when divided by 3. Entries divisible by 3 become 0---blank, void, absent. The rest survive. The result is Figure~\ref{fig:fractal}: the survivors arrange themselves into a perfect Sierpiński-type fractal. The first $3^m$ rows contain six copies of the first $3^{m-1}$ rows---one in the top band of $3^{m-1}$ rows, two in the middle band, three in the bottom band---separated by voids. Each of those contains six smaller copies. Each of those contains six smaller copies. (The copies agree with the original in which entries vanish; in one of them the nonzero residues are multiplied by 2.) The self-similarity continues without bound.
 
 This is not an approximation or a visual trick. It is an exact mathematical fact, established by Lucas's theorem \cite{lucas1878}.
 
@@ -100,35 +108,41 @@ Write $n = \sum_i n_i p^i$ and $k = \sum_i k_i p^i$ in base $p$. Then
 In particular, $\binom{n}{k} \not\equiv 0 \pmod{p}$ if and only if $k_i \leq n_i$ for all $i$.
 \end{lemma}
 
-The product in Lemma~\ref{lem:lucas} is zero the moment any base-$p$ digit of $k$ exceeds the corresponding digit of $n$---and exactly those positions become the voids that carve the fractal. The self-similarity at scales $p, p^2, p^3, \ldots$ follows directly from the self-similar structure of base-$p$ digit representations.
+The product in Lemma~\ref{lem:lucas} is zero the moment any base-$p$ digit of $k$ exceeds the corresponding digit of $n$---and exactly those positions become the voids that carve the fractal. The self-similarity at scales $p, p^2, p^3, \ldots$ follows directly from the self-similar structure of base-$p$ digit representations. Counting the survivors is equally direct: by Lemma~\ref{lem:lucas}, row $n$ has $\prod_i (n_i+1)$ entries not divisible by $p$ \cite{fine1947}, and summing over the rows $n < p^m$ gives $(1+2+\cdots+p)^m = (p(p+1)/2)^m$.
 
-\begin{proposition}[\cite{sierpinski1915,reiter1993}]\label{prop:fractal}
-For any prime $p$, the entries of the triangle not divisible by $p$ form a Sierpiński-type fractal, self-similar at scales $p^m$ for all positive integers $m$, with Hausdorff dimension
+\begin{proposition}[\cite{wolfram1984,reiter1993}]\label{prop:fractal}
+For any prime $p$, the entries of the triangle not divisible by $p$ form a Sierpiński-type fractal, self-similar at scales $p^m$ for all positive integers $m$: the first $p^m$ rows contain $p(p+1)/2$ copies of the pattern of the first $p^{m-1}$ rows, and $(p(p+1)/2)^m$ entries not divisible by $p$ in all. Rescaled to a triangle of fixed size, the pattern converges to a self-similar set of Hausdorff dimension
 \[
-d = \frac{\log(p+1)}{\log p}.
+d = \frac{\log\bigl(p(p+1)/2\bigr)}{\log p}.
 \]
-For $p=3$ this gives $d = \log 4 / \log 3 \approx 1.262$.
+For $p=3$ this gives $d = \log 6 / \log 3 \approx 1.631$.
 \end{proposition}
 
 \begin{remark}
-The value $\log 3 / \log 2 \approx 1.585$ is the Hausdorff dimension of the binary ($p=2$) Sierpiński triangle---the mod-2 case. The mod-3 case gives the strictly smaller dimension $\log 4 / \log 3 \approx 1.262$. These are distinct fractals.
+The value $\log 3 / \log 2 \approx 1.585$ is the Hausdorff dimension of the binary ($p=2$) Sierpiński triangle, the gasket of \cite{sierpinski1915}---the case $p=2$ of the formula. The mod-3 case has the larger dimension $\log 6 / \log 3 \approx 1.631$, and the dimension increases with $p$ towards 2 (about 1.683 for $p=5$ and 1.712 for $p=7$). These are distinct fractals.
 \end{remark}
 
 \subsection{Connection to the companion papers}
 
-This fractal is not merely an historical curiosity. In the companion paper \cite{ramanujan}, the mod-3 structure of Khayyam's Triangle is identified as the combinatorial origin of the \emph{constitutional residue class partition}: the Sierpiński void pattern at scale $3^K$ matches exactly the count of invalid configurations in a $K$-level cascade sieve (Proposition 2.3 of \cite{ramanujan}). The counting theorem proved there---that a $k$-fold constitutional sieve has exactly $k$ invalid configurations out of $2^k$ total---gives configuration density $(2^k - k)/2^k$, which for $k=3$ yields $5/8$.
+This fractal is a historical and mathematical object in its own right, and it motivated the companion papers' interest in the prime 3. It does not supply their arithmetic. An earlier version of this section stated that the void pattern at scale $3^K$ matches the count of invalid configurations in a $K$-level cascade sieve, ``$k$ invalid configurations out of $2^k$ total''. That is false, and the claim is withdrawn. In the first $3^K$ rows there are $6^K$ nonzero and $3^K(3^K+1)/2 - 6^K$ zero entries modulo 3 (0, 9, 162 and 2025 zero entries for $K = 1, 2, 3, 4$). The survivor density $1, 4/5, 4/7, 16/41, 16/61, \ldots$ tends to $0$, whereas $(2^K-K)/2^K$ tends to $1$, and no statistic of the triangle equals $2^K - K$.
 
-In \cite{eisenstein}, the arithmetic progressions modulo powers of 3 that survive this partition are identified as the cascade moduli $q = 3^K$, and the algebraic structure of the Eisenstein integers $\mathbb{Z}[\omega]$ is shown to force the level of distribution $\theta_W = 5/8$ over these moduli. The Siegel zero condition required for this result is established independently in \cite{w3condition}. The Shannon--Wakil structural parallel connecting this arithmetic result to information theory is developed in \cite{shannon}.
+The companion results, with their current status, are as follows.
+\begin{itemize}
+\item The formula $\theta_k = (2^k-k)/2^k$ is a postulate: a system ``of depth $k$'' is defined as one in which exactly $k$ configuration classes are eliminated \cite{forcing,ramanujan}. It is not a theorem. If a configuration counts as invalid whenever some constraint fails, there are $2^k - 1$ invalid configurations, not $k$.
+\item The level of distribution $\theta_W = 5/8$ for the moduli $q = 3^K$ is a conjecture \cite{eisenstein}. The summed form of the statement holds for every fixed exponent below 1, so it carries no information about $5/8$; the per-modulus form would go beyond what the Generalised Riemann Hypothesis gives.
+\item Condition W3, the absence of exceptional zeros for characters modulo $3^K$, is true, with a one-line proof: $(\mathbb{Z}/3^K\mathbb{Z})^\times$ is cyclic of even order, so the only real non-principal character modulo $3^K$ is induced from the character $\chi_{-3}$ modulo 3; an exceptional zero can only belong to a real character, so it would be a zero of $L(s,\chi_{-3})$, which is positive on $(0,1]$ \cite{w3condition}.
+\item An analogy between this arithmetic and information theory is explored in \cite{shannon}.
+\end{itemize}
 
-The geometry was always here. The companion papers make it rigorous. A reader who wishes to understand why the prime 3 is singled out in that arithmetic program---why not 5, or 7, or any other prime---will find the answer in Proposition~\ref{prop:fractal} and in the ramification of 3 in $\mathbb{Z}[\omega]$: these are two faces of the same structure, as noted in Remark 2.4 of \cite{ramanujan}.
+Nothing in Proposition~\ref{prop:fractal} singles out the prime 3: Lucas's theorem and the dimension formula hold uniformly for every prime. The companion papers single out 3 because it is the only prime that ramifies in $\mathbb{Z}[\omega]$; that is a property of the field $\mathbb{Q}(\sqrt{-3})$, not of the fractal, and every prime ramifies in some quadratic field (5 in $\mathbb{Q}(\sqrt{5})$, 7 in $\mathbb{Q}(\sqrt{-7})$). An earlier version described the fractal and the ramification of 3 in $\mathbb{Z}[\omega]$ as ``two faces of the same structure''; no such relation has been established, and the claim is withdrawn.
 
-\subsection{Why the fractal waited three centuries}
+\subsection{When the fractal was noticed}
 
-The fractal was documented by Gardner for general audiences in 1977 \cite{gardner1977} and treated rigorously by Wolfram in 1984 \cite{wolfram1984}. Pascal published his \emph{Traité} in 1654. The fractal therefore sat inside ``Pascal's Triangle'' for over three centuries before anyone noticed it. Not for lack of mathematicians looking---the triangle was one of the most studied objects in Western mathematics during that period. For lack of the right question.
+The arithmetic behind the fractal is a nineteenth-century achievement. Kummer determined in 1852 the exact power of a prime dividing $\binom{n}{k}$ \cite{kummer1852}; Lucas proved Lemma~\ref{lem:lucas} in 1878 \cite{lucas1878}, and it characterises the void pattern exactly; Glaisher counted the odd entries in each row in 1899 \cite{glaisher1899}; and Fine counted the entries of each row not divisible by $p$ in 1947 \cite{fine1947}. Gardner surveyed the triangle's patterns for a general audience in 1966 \cite{gardner1966}, and Wolfram treated the geometry of binomial coefficients modulo $p$, including its fractal dimension, in 1984 \cite{wolfram1984}. Pascal's \emph{Traité} dates from 1654, so about two centuries passed before the arithmetic of the pattern was understood.
 
-Pascal's question was: \emph{how many ways?} Combinatorial, enumerative, discrete. That question is extraordinarily productive---it built probability theory and shaped mathematics for generations. But it cannot see the fractal. When you ask how many outcomes are possible, you get $\binom{n}{k}$. That counting number carries no hint of hidden geometry. The fractal is invisible to the question that gave the triangle its Western name.
+Pascal's question was: \emph{how many ways?} Combinatorial, enumerative, discrete. That question is extraordinarily productive---it built probability theory and shaped mathematics for generations. On its own it does not lead to the fractal: the value $\binom{n}{k}$ of a single entry carries no hint of the pattern. What revealed it was a question about the arithmetic of the entries---which of them a given prime divides---and then, with Glaisher and Fine, a count of those entries.
 
-The fractal appears only when you ask a completely different question: \emph{what structure do these numbers encode?} Not how many, but what shape. Not outcomes, but geometry. That is not Pascal's question. It is Khayyam's.
+We read that as a question about structure: \emph{what do these numbers encode?} Not how many, but what shape. Not outcomes, but geometry. It is not the question Pascal asked of the triangle. It is, we argue, the kind of question Khayyam asked.
 
 \subsection{What is lost when we forget}
 
@@ -136,11 +150,11 @@ There is a cost to misattribution that goes beyond historical fairness. When a m
 
 ``Pascal's Triangle'' frames the object as combinatorial. It belongs to the world of counting, probability, and discrete mathematics. That framing is not wrong---it is incomplete, and its incompleteness is invisible when the name goes unquestioned.
 
-``Khayyam's Triangle'' frames the object differently. It belongs to the world of hidden geometry, structural patterns, and the question of what arithmetic encodes. Under that frame, the natural next question is not ``what does this count?'' but ``what does this look like when transformed?'' Modular reduction. Base-$p$ representations. Self-similar structure. Forced residue classes. These are the questions that lead, via \cite{ramanujan,eisenstein,w3condition}, to the level-of-distribution breakthrough at the heart of this program.
+``Khayyam's Triangle'' frames the object differently. It belongs to the world of hidden geometry, structural patterns, and the question of what arithmetic encodes. Under that frame, the natural next question is not ``what does this count?'' but ``what does this look like when transformed?'' Modular reduction. Base-$p$ representations. Self-similar structure. Residue classes. These are the questions that motivated the companion papers \cite{ramanujan,eisenstein,w3condition}; their central arithmetic claim, a level of distribution $5/8$ for the moduli $3^K$, remains a conjecture.
 
-Discoveries do not typically come from specialists deepening a known tradition. They come from outsiders who bring a different question. Khayyam was a geometer and astronomer looking at an arithmetic object. That combination---the outsider's question applied to the insider's object---is precisely what geometric instinct applied to arithmetic produces. It produced the fractal. It produced the Eisenstein integer foundation for prime distribution \cite{eisenstein}. It produced the structural parallel with information theory \cite{shannon}. The methodological foundation underlying this entire body of work is articulated in \cite{spherical}.
+Discoveries, in our view, often come not from specialists deepening a known tradition but from outsiders who bring a different question. Khayyam was a geometer and astronomer looking at an arithmetic object. That combination---the outsider's question applied to the insider's object---is what this program tries to imitate, in its use of the Eisenstein integers \cite{eisenstein} and in its analogy with information theory \cite{shannon}. Its methodology is set out in \cite{spherical}.
 
-The ancient wisdom was not lost through malice. It was submerged by the ordinary mechanics of conquest and canonisation. European mathematical tradition inherited Pascal's name and Pascal's question. The geometric tradition---find the hidden structure, come at the problem as an outsider, ask what shape the numbers encode---was submerged.
+The ancient wisdom was not lost through malice. It was submerged by the ordinary mechanics of transmission and canonisation. European mathematical tradition inherited Pascal's name and Pascal's question. The geometric tradition---find the hidden structure, come at the problem as an outsider, ask what shape the numbers encode---was submerged.
 
 It is not submerged anymore.
 
@@ -150,85 +164,102 @@ We are not the first to correct a mathematical name when the evidence became cle
 
 Consider Pluto. For seventy-six years it was the ninth planet---named, classified, taught in every school. Then the evidence accumulated that it did not fit the category, and in 2006 the International Astronomical Union reclassified it. Science corrected itself. The reclassification was not erasure---Pluto still exists, still has its name, still has its discoverers. What changed was the frame in which it was understood. We propose something analogous, and in the opposite direction. Not demotion but restoration.
 
-Three things are simultaneously true.
+We make three points.
 
-\textbf{First.} Khayyam documented this triangle 584 years before Pascal, attested by named sources from the thirteenth century \cite{altusi1265,rashed2000}. This is not disputed. Wolfram MathWorld already lists the triangle under three names \cite{mathworld}. Iran already uses Khayyam's name. The correction is not an invention; it is a completion.
+\textbf{First.} The triangle was known centuries before Pascal, in India, in the Islamic world and in China (Table~\ref{tab:timeline}). Khayyam's own treatment, written before about 1070, is lost and is known only through his reference to it; he was not the first, and if priority alone decided the name, al-Karajī, Jia Xian or the Indian prosodists would have the stronger claim. Reference works already record the earlier history \cite{mathworld,edwards1987}. Iran already uses Khayyam's name, and China uses Yang Hui's. The correction we propose is not an invention; it extends an existing usage.
 
-\textbf{Second.} The triangle's deepest structural property---a self-similar fractal revealed by modular reduction via Lucas's theorem (Lemma~\ref{lem:lucas}, Proposition~\ref{prop:fractal}), and the direct combinatorial ancestor of the cascade moduli framework of \cite{ramanujan,eisenstein,w3condition,shannon}---is a geometric property. It is visible only through a geometric, structure-seeking lens. That lens is Khayyam's \cite{khayyam1070}, not Pascal's \cite{pascal1654}. Pascal's combinatorial question cannot find this structure. Khayyam's geometric question finds it immediately.
+\textbf{Second.} The triangle's most striking structural property is a self-similar fractal revealed by modular reduction via Lucas's theorem (Lemma~\ref{lem:lucas}, Proposition~\ref{prop:fractal}). We argue that it is a geometric property, best seen through a geometric, structure-seeking lens, and that this lens is closer to Khayyam's \cite{khayyam1070} than to the combinatorial use Pascal made of the triangle \cite{pascal1654}. (Historically, the fractal's arithmetic was worked out by Kummer, Lucas, Glaisher and Fine, not by either man.)
 
-\textbf{Third.} The cost of the wrong name is epistemic, not merely aesthetic. It forecloses questions. It trains generations to approach a geometric object with a combinatorial frame. The program documented in \cite{ramanujan,eisenstein,w3condition,shannon,spherical} would not have emerged from within the Pascal frame.
+\textbf{Third.} The cost of the wrong name, we believe, is epistemic, not merely aesthetic. A name frames the questions one asks, and can train generations to approach a geometric object with a combinatorial frame. The program documented in \cite{forcing,ramanujan,eisenstein,w3condition,shannon,spherical} was, in the author's view, prompted by asking Khayyam's kind of question rather than Pascal's.
 
-We are not proposing to expunge Pascal from the literature. His contributions to probability and combinatorics are real, lasting, and appropriately celebrated. We propose that the standard Western designation go forward as Khayyam's Triangle, with a note acknowledging Pascal's work---exactly as we note Fibonacci's contributions while acknowledging Hemachandra's priority, exactly as we note ``Arabic numerals'' while acknowledging they came from India, exactly as we corrected Pluto's classification when the evidence made the right frame clear.
+We are not proposing to expunge Pascal from the literature. His contributions to probability and combinatorics are real, lasting, and appropriately celebrated. We propose that the standard Western designation go forward as Khayyam's Triangle, with a note acknowledging Pascal's work and the earlier history of Table~\ref{tab:timeline}---much as Fibonacci's contributions are noted while the earlier Indian sources are acknowledged, and as ``Arabic numerals'' are acknowledged to have come from India. This is a proposal about a name, not a claim of priority.
 
 The geometry was always there.
 
-The triangle was always his.
+The triangle was never only Pascal's.
 
-It is time the name caught up.
+We propose that the name catch up.
 
-\begin{acknowledgements}
+\section*{Acknowledgements}
 The author thanks Omar Khayyam posthumously: for the cubic equations, for the calendar, and for the geometric instinct that turns counting numbers into hidden structure.
-\end{acknowledgements}
 
 \begin{figure}[p]
 \centering
 \includegraphics[width=\textwidth]{khayyam_sierpinski_academic.png}
-\caption{From counting numbers to hidden geometry. \textit{Top row:} Khayyam's Triangle in raw form (12 rows), reduced modulo 2 (64 rows)---odd entries survive, even entries vanish, binary Sierpiński emerges (Hausdorff dimension $\log 3 / \log 2 \approx 1.585$), and reduced modulo 3 (64 rows)---residues 1 (teal) and 2 (crimson) survive, multiples of 3 collapse to void, ternary Sierpiński emerges (Hausdorff dimension $\log 4 / \log 3 \approx 1.262$). \textit{Bottom row:} First 27 rows showing three self-similar copies at scale $p=3$, Lucas's theorem mechanism explaining the fractal structure, and 128-row depth showing infinite self-similarity. Pascal's combinatorial question---\emph{how many outcomes?}---cannot see any of this. Khayyam's geometric question---\emph{what structure do these numbers encode?}---finds it immediately.}
+\caption{From counting numbers to hidden geometry. \textit{Top row:} Khayyam's Triangle in raw form (12 rows), reduced modulo 2 (64 rows)---odd entries survive, even entries vanish, binary Sierpiński emerges (Hausdorff dimension $\log 3 / \log 2 \approx 1.585$), and reduced modulo 3 (64 rows)---residues 1 (teal) and 2 (crimson) survive, multiples of 3 collapse to void, ternary Sierpiński emerges (Hausdorff dimension $\log 6 / \log 3 \approx 1.631$). \textit{Bottom row:} the first 27 rows, which contain six self-similar copies of the first 9 rows (one, two and three in the successive bands of nine rows), Lucas's theorem mechanism explaining the fractal structure, and 128-row depth showing continued self-similarity. \textit{Errors printed in the image:} the inset of the bottom-centre panel reads ``$d = \log 4/\log 3 \approx 1.585$'', which is wrong twice over ($\log 4/\log 3 \approx 1.262$, and $1.585 \approx \log 3/\log 2$ is the mod-2 value); the correct mod-3 dimension is $\log 6/\log 3 \approx 1.631$. The bottom-left panel's legend ``Three self-similar copies'' should read six (its labels mark the three copies in the bottom band). In the mod-2 panel the odd entries are plotted in dark blue, not gold as its legend says.}
 \label{fig:fractal}
 \end{figure}
 
 \begin{thebibliography}{99}
 
 \bibitem{khayyam1070}
-O.~Khayyam, \emph{Maqālah fī al-jabr wa al-muqābalah}, Manuscript, Nishapur, Persia, c.~1070 CE.
+O.~Khayyam, \emph{Risāla fī'l-barāhīn `alā masā'il al-jabr wa'l-muqābala} (Treatise on the demonstration of problems of algebra), Samarkand, c.~1070 CE; English translation in \cite{rashed2000}.
 
 \bibitem{altusi1265}
-N.~D.~al-Tūsī, \emph{Sharḥ al-ishārāt}, Manuscript, Persia, 1265 CE.
+Naṣīr al-Dīn al-\d{T}ūsī, \emph{Jawāmi` al-ḥisāb bi-l-takht wa-l-turāb}, 1265 CE.
 
 \bibitem{yanghui1261}
 Yang Hui, \emph{Xiangjie Jiuzhang Suanfa}, China, 1261 CE.
 
 \bibitem{pascal1654}
-B.~Pascal, \emph{Traité du triangle arithmétique}, G.~Desprez, Paris, 1654.
+B.~Pascal, \emph{Traité du triangle arithmétique}, G.~Desprez, Paris, 1665 (printed 1654).
 
 \bibitem{lucas1878}
-É.~Lucas, Théorie des fonctions numériques simplement périodiques, \emph{Amer. J. Math.} \textbf{1} (1878), 184--196.
+É.~Lucas, Théorie des fonctions numériques simplement périodiques, \emph{Amer. J. Math.} \textbf{1} (1878), 184--196, 197--240, 289--321.
 
 \bibitem{sierpinski1915}
 W.~Sierpiński, Sur une courbe dont tout point est un point de ramification, \emph{C. R. Acad. Sci. Paris} \textbf{160} (1915), 302--305.
 
-\bibitem{gardner1977}
-M.~Gardner, Pascal's triangle, \emph{Sci. Amer.} \textbf{237}(6) (1977), 138--146.
+\bibitem{kummer1852}
+E.~E.~Kummer, Über die Ergänzungssätze zu den allgemeinen Reciprocitätsgesetzen, \emph{J. Reine Angew. Math.} \textbf{44} (1852), 93--146.
+
+\bibitem{glaisher1899}
+J.~W.~L.~Glaisher, On the residue of a binomial-theorem coefficient with respect to a prime modulus, \emph{Quart. J. Pure Appl. Math.} \textbf{30} (1899), 150--156.
+
+\bibitem{fine1947}
+N.~J.~Fine, Binomial coefficients modulo a prime, \emph{Amer. Math. Monthly} \textbf{54} (1947), 589--592.
+
+\bibitem{gardner1966}
+M.~Gardner, The multiple charms of Pascal's triangle (Mathematical Games), \emph{Sci. Amer.} \textbf{215}(6) (December 1966), 128ff.
 
 \bibitem{wolfram1984}
-S.~Wolfram, Geometry of binomial coefficients, \emph{Amer. Math. Monthly} \textbf{91} (1984), 566--570.
+S.~Wolfram, Geometry of binomial coefficients, \emph{Amer. Math. Monthly} \textbf{91} (1984), 566--571.
 
 \bibitem{reiter1993}
-C.~A.~Reiter, Determining the dimension of fractals generated by Pascal's triangle, \emph{Fibonacci Quart.} \textbf{31}(2) (1993), 112--120.
+A.~M.~Reiter, Determining the dimension of fractals generated by Pascal's triangle, \emph{Fibonacci Quart.} \textbf{31}(2) (1993), 112--120.
+
+\bibitem{edwards1987}
+A.~W.~F.~Edwards, \emph{Pascal's Arithmetical Triangle}, Charles Griffin, London, 1987; reprinted Johns Hopkins University Press, Baltimore, 2002.
 
 \bibitem{rashed2000}
 R.~Rashed and B.~Vahabzadeh, \emph{Omar Khayyām the Mathematician}, Bibliotheca Persica Press, New York, 2000.
 
-\bibitem{meeus2002}
-J.~Meeus, The Gregorian Calendar and the Tropical Year, in \emph{More Mathematical Astronomy Morsels}, pp.~357--366, Willmann-Bell, Richmond, VA, 2002.
+\bibitem{heydari2004}
+M.~Heydari-Malayeri, A concise review of the Iranian calendar, arXiv:astro-ph/0409620, 2004.
+
+\bibitem{laskar1986}
+J.~Laskar, Secular terms of classical planetary theories using the results of general theory, \emph{Astron. Astrophys.} \textbf{157} (1986), 59--70.
 
 \bibitem{mathworld}
 E.~W.~Weisstein, Pascal's Triangle, \emph{MathWorld---A Wolfram Web Resource}, \url{https://mathworld.wolfram.com/PascalsTriangle.html}.
 
+\bibitem{forcing}
+K.~Wakil, \emph{Constitutional Forcing}, ARC Institute of Knowware, preprint, 2026.
+
 \bibitem{ramanujan}
-K.~Wakil, \emph{Ramanujan's dimensional forcing: a universal formula for sieve levels}, ARC Institute of Knowware, preprint, 2026.
+K.~Wakil, \emph{Ramanujan's Dimensional Forcing: A Universal Formula for Sieve Levels}, ARC Institute of Knowware, preprint, 2026.
 
 \bibitem{eisenstein}
-K.~Wakil, \emph{Ternary forcing on the hexagonal lattice: Eisenstein integers, cascade moduli, and level of distribution 5/8}, ARC Institute of Knowware, preprint, 2026.
+K.~Wakil, \emph{Ternary Forcing on the Hexagonal Lattice: Eisenstein Integers, Cascade Moduli, and a Conjectured Level of Distribution 5/8}, ARC Institute of Knowware, preprint, 2026.
 
 \bibitem{w3condition}
-K.~Wakil, \emph{Condition W3: absence of Siegel zeros for characters modulo $3^K$ via CM structure of $\mathbb{Z}[\omega]$}, ARC Institute of Knowware, preprint, 2026.
+K.~Wakil, \emph{Condition W3: Absence of Siegel Zeros for Characters Modulo $3^K$}, ARC Institute of Knowware, preprint, 2026.
 
 \bibitem{shannon}
-K.~Wakil, \emph{The Shannon--Wakil effect: constitutional forcing as a universal pattern in information theory and prime arithmetic}, ARC Institute of Knowware, preprint, 2026.
+K.~Wakil, \emph{The Shannon--Wakil Effect: Constitutional Forcing as a Universal Pattern in Information Theory and Prime Arithmetic}, ARC Institute of Knowware, preprint, 2026.
 
 \bibitem{spherical}
-K.~Wakil, \emph{Spherical cow philosophy: a methodological framework for mathematical discovery}, ARC Institute of Knowware, preprint, 2026.
+K.~Wakil, \emph{Spherical Cow Philosophy: A Methodological Framework for Mathematical Discovery}, ARC Institute of Knowware, preprint, 2026.
 
 \end{thebibliography}
 

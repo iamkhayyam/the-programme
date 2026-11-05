@@ -25,6 +25,7 @@
 
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
+\newtheorem{postulate}[theorem]{Postulate}
 \newtheorem{example}[theorem]{Example}
 
 \theoremstyle{remark}
@@ -49,11 +50,11 @@
 \author{Khayyam Wakil}
 \address{The ARC Institute of Knowware, Calgary, Alberta, Canada}
 \email{the@knowware.institute}
-\date{February 2026}
+\date{February 2026; revised November 2026}
 
 \keywords{level of distribution, sieve theory, constitutional sieve,
-  Eisenstein integers, Kloosterman sums, Watt's theorem, twin primes,
-  cascade moduli, Ramanujan, configuration density, $k$-hierarchy}
+  Eisenstein integers, Kloosterman sums, twin primes,
+  cascade moduli, configuration density, $k$-hierarchy}
 
 \subjclass[2020]{
   11N35,  % Sieves (primary)
@@ -67,40 +68,49 @@
 \begin{document}
 
 \begin{abstract}
-We derive a universal formula for the level of distribution achieved by $k$-fold
-sieves with constitutional structure:
+We study the formula
 \[
-  \thetak = \frac{2^k - k}{2^k} = 1 - \frac{k}{2^k}.
+  \thetak = \frac{2^k - k}{2^k} = 1 - \frac{k}{2^k},
 \]
-The formula rests on two independent pillars. The first is \emph{combinatorial}:
-a counting theorem shows that a $k$-level nested constitutional sieve has exactly
-$k$ invalid configurations out of $2^k$ total, giving configuration density
-$(2^k-k)/2^k$. The second is \emph{geometric}: for the case $k=3$ (twin primes
-and cascade moduli $q=3^K$), the algebraic structure of the Eisenstein integers
-$\Zomega$ independently forces $\theta = 5/8$ via two mechanisms---the
-three-level filtration arising from the ramification $(3) = (1-\omega)^2$, and
-the enhanced Kloosterman cancellation from the cyclic structure
-$(\Z/3^K\Z)^* \cong \Z/(2 \cdot 3^{K-1}\Z)$.
-
-The formula unifies the classical Bombieri--Vinogradov barrier ($\thetak[1] = 1/2$,
-$k=1$) and Pascadi's breakthrough ($\thetak[3] = 5/8$, $k=3$,
-arXiv:2505.00653v2) as special cases of the same principle, and predicts the
-next achievable threshold at $k=4$ ($\thetak[4] = 3/4$). The combinatorial
-origin of the formula is traced to the mod-$3$ Sierpi\'nski structure of
-Khayyam's Triangle~\cite{WakilKhayyam}. We resolve a previously conflated
-distinction between \emph{pattern density} and \emph{configuration density}
-that explains a $12\%$ discrepancy in earlier estimates.
-
-We are explicit about logical status throughout: the combinatorial pillar
-(Theorem~\ref{thm:count}) is fully proved; the geometric pillar
-(Theorem~\ref{thm:geometric}) proves $\theta_3 = 5/8$ for cascade moduli
-subject to Condition~W3 (Siegel zero exclusion), verified in the companion
-paper~\cite{WakilW3}; the correspondence between configuration density and
-analytic level of distribution for $k \geq 4$ is conjectural
-(Conjecture~\ref{conj:general}).
+proposed as the level of distribution of $k$-fold sieves with constitutional
+structure. The formula rests on a counting postulate: a system of depth $k$ is
+one in which exactly $k$ of the $2^k$ binary configurations are eliminated,
+which gives configuration density $(2^k-k)/2^k$. This is a postulate, not a
+consequence of the binary model: if a configuration is invalid whenever some
+constraint fails, there are $2^k-1$ invalid configurations, not $k$. For $k=3$
+the formula gives $5/8$. We record the Eisenstein-integer arithmetic attached to
+the moduli $q = 3^K$ (the ramification $(3) = (1-\omega)^2$ and the cyclicity of
+$(\Z/3^K\Z)^*$) and explain why it does not yield a level of distribution $5/8$:
+the summed estimate over the moduli $3^K$ holds for every exponent up to $1$ by
+a trivial argument, while the per-modulus statement would go beyond what the
+Generalised Riemann Hypothesis gives. The value $5/8$ for cascade moduli is
+therefore a conjecture. Pascadi's exponent $5/8$ for general moduli with
+triply-well-factorable weights has a different origin, and its agreement with
+$\theta_3$ is a numerical coincidence. The correspondence between $\thetak$ and
+analytic levels of distribution is conjectural for every $k$, and for $k = 4, 5$
+no object to which a prediction would apply has been specified.
 \end{abstract}
 
 \maketitle
+
+\noindent\textbf{Revision note (November 2026).}
+The Counting Theorem of the first version is now a postulate
+(Postulate~\ref{post:count}): its induction proof was wrong, and under the
+paper's own binary model there are $2^k-1$ invalid configurations, not $k$.
+The ``geometric proof'' of $\theta_3 = 5/8$ is withdrawn: the filtration has
+$2K$ steps, not three; the Kloosterman bound $q^{3/8}$ is false; and the summed
+estimate of the former Theorem~5.7 holds for every exponent up to $1$, so $5/8$
+for cascade moduli is now stated as a conjecture. The claims that the formula
+unifies Bombieri--Vinogradov and Pascadi, that Khayyam's Triangle is its
+combinatorial origin, and that $\theta_5 = 27/32$ together with GPY would give
+infinitely many twin primes are withdrawn, as is the ``empirical'' column of
+Table~\ref{tab:validation}, for which no method, code or data existed. The
+assignment $k=3$ to twin primes and the Sophie Germain ``non-instance'' are
+withdrawn. The pattern-density discussion is corrected (the difference is about
+$9\%$, and the large-sieve claim is withdrawn), the ``Ramanujan principle'' is
+removed, the appendix on Watt's theorem and Condition~W3 is corrected, and the
+Bombieri--Vinogradov and Pascadi references are fixed.
+
 \tableofcontents
 
 %% ─────────────────────────────────────────────────────────────────────────────
@@ -109,39 +119,54 @@ analytic level of distribution for $k \geq 4$ is conjectural
 
 \subsection{The formula and its meaning}
 
-The Bombieri--Vinogradov theorem~\cite{BV1965} establishes that primes are
-equidistributed in arithmetic progressions to modulus $x^{1/2}$: the level of
-distribution is $\thetaBV = 1/2$. This barrier stood for nearly six decades before
-Zhang~\cite{Zhang2014} proved $\theta = 1/2 + \delta$ for small $\delta$ and
-smooth moduli, and Pascadi~\cite{Pascadi2025} recently proved $\theta = 5/8$ for
-triply-well-factorable sieve weights.
+The Bombieri--Vinogradov theorem~\cite{Bombieri1965,Vinogradov1965} states
+that for every $A > 0$ there is $B = B(A)$ such that
+\[
+  \sum_{q \leq x^{1/2}(\log x)^{-B}} \max_{\gcd(a,q)=1}
+  \left| \psi(x;q,a) - \frac{x}{\varphi(q)} \right| \ll \frac{x}{(\log x)^A},
+\]
+where $\psi(x;q,a) = \sum_{n \leq x,\ n \equiv a\,(q)} \Lambda(n)$. This is an
+average over moduli; in this sense primes have level of distribution
+$\thetaBV = 1/2$. Levels beyond $1/2$ are known in modified settings
+(well-factorable weights and a fixed residue class, or smooth moduli):
+Bombieri, Friedlander and Iwaniec~\cite{BFI1986} obtained $4/7$ in 1986;
+Zhang~\cite{Zhang2014} obtained $1/2 + 1/584$ for smooth moduli, improved to
+$1/2 + 7/300$ by Polymath~\cite{Polymath2014}; and for triply-well-factorable
+weights Maynard~\cite{Maynard2020} obtained $3/5$, Lichtman~\cite{Lichtman2023}
+$66/107$, and Pascadi~\cite{Pascadi2025} $5/8$, for general moduli.
 
-This paper asks and answers: is there a universal formula for $\thetak$ as a
-function of sieve depth $k$? The answer is
+This paper studies the formula
 \begin{equation}
 \label{eq:formula}
   \thetak = \frac{2^k - k}{2^k},
 \end{equation}
-giving $\thetak[1] = 1/2$ (Bombieri--Vinogradov), $\thetak[3] = 5/8$ (Pascadi;
-Theorem~\ref{thm:geometric} below), and $\thetak[4] = 3/4$ (predicted). Formula
-\eqref{eq:formula} is not an empirical fit: it is derived from first principles in
-two independent ways, one combinatorial and one geometric.
+proposed as a universal formula for the level of distribution as a function of
+sieve depth $k$. It gives $\theta_1 = \theta_2 = 1/2$, $\theta_3 = 5/8$ and
+$\theta_4 = 3/4$. Formula~\eqref{eq:formula} is not derived: it follows from a
+counting postulate (Postulate~\ref{post:count}), and its relation to analytic
+levels of distribution is conjectural (Conjecture~\ref{conj:general}). The value
+$\theta_3 = 5/8$ agrees with Pascadi's exponent; we regard this as a numerical
+coincidence (Section~\ref{sec:known}).
 
-\subsection{The insight: Ramanujan's principle}
+\subsection{About the title}
+\label{sec:title}
 
-In his work on partition functions and modular forms, Ramanujan observed that
-certain numbers---notably $24$ in the Dedekind eta function and partition
-congruences mod $5, 7, 11$---force exact asymptotic formulas through their
-structural properties alone, not by coincidence. Just as $24$ is forced by the
-modular properties of $\eta(\tau)$, the number $3$ forces $\theta = 5/8$ in
-sieve theory: it is the first odd prime, the unique prime ramifying in
-$\mathbb{Q}(\omega)$, and twin primes constitutionally require $p \equiv 2
-\pmod{3}$ for all $p > 3$. Given this forcing, the configuration space has $2^3
-= 8$ dimensions; three constitutional constraints eliminate three configurations;
-and $\theta_3 = 5/8$ is inevitable---not chosen, not approximated, forced.
+The title is an homage to Ramanujan. The first version of this subsection
+attributed to him a ``principle'' that certain numbers force exact asymptotic
+formulas through their structural properties alone; no such principle appears in
+his work, and no result of Ramanujan is used in this paper. (His partition
+congruences, such as $p(5n+4) \equiv 0 \pmod{5}$~\cite{Ramanujan1919}, are
+congruences rather than asymptotic formulas; the asymptotic formula for the
+partition function is due to Hardy and Ramanujan~\cite{HardyRamanujan1918}.)
 
-Formula~\eqref{eq:formula} is the general statement of this principle for all
-sieve depths $k$.
+The first version also argued that the prime $3$ forces $\theta = 5/8$: twin
+primes require $p \equiv 2 \pmod{3}$ for $p > 3$, and this was taken to give
+three constitutional constraints on a configuration space with $2^3 = 8$
+elements. That argument is withdrawn. For $p > 3$, twin primes satisfy the
+single condition $p \equiv 2 \pmod{3}$; the conditions modulo $9$ and $27$ are
+implied by it, so by the independence requirement of
+Definition~\ref{def:constitutional}(b) the depth is $1$, not $3$
+(Example~\ref{ex:twin}).
 
 \subsection{Logical status}
 \label{sec:logstatus}
@@ -149,38 +174,49 @@ sieve depths $k$.
 We state the logical status of every significant claim.
 
 \begin{itemize}
-  \item[\textbf{[Proved]}] Theorem~\ref{thm:count}: exactly $k$ configurations
-    are invalid in a $k$-level constitutional sieve.
-  \item[\textbf{[Proved]}] Proposition~\ref{prop:density}: configuration density
-    is $(2^k - k)/2^k$.
-  \item[\textbf{[Proved]}] Proposition~\ref{prop:two-densities}: pattern density
-    and configuration density are distinct; the large sieve connects to
-    configuration density.
-  \item[\textbf{[Proved]}] Proposition~\ref{prop:khayyam-count}: the mod-$3$
-    Sierpi\'nski structure of Khayyam's Triangle is the combinatorial origin of
-    the constitutional count.
-  \item[\textbf{[Proved]}] Theorem~\ref{thm:geometric}: $\theta_3 = 5/8$ for
-    cascade moduli via Eisenstein integer geometry, subject to
-    Condition~W3~\cite{WakilW3}.
-  \item[\textbf{[Conjectured]}] Conjecture~\ref{conj:general}: configuration
-    density equals analytic level of distribution for general $k$.
-  \item[\textbf{[Conjectured]}] Conjecture~\ref{conj:twinprime}: $\theta_5 =
-    27/32$, which would imply twin prime infinitude via GPY~\cite{GPY2009}.
+  \item[\textbf{[Postulate]}] Postulate~\ref{post:count}: a system of depth $k$
+    has exactly $k$ eliminated configurations among $2^k$. This is not a
+    theorem: in the binary model of Definition~\ref{def:config} the number of
+    invalid configurations is $2^k - 1$ (Proposition~\ref{prop:binary}, proved).
+    The configuration density $(2^k - k)/2^k$
+    (Proposition~\ref{prop:density}) follows from the postulate.
+  \item[\textbf{[Proved]}] Proposition~\ref{prop:two-densities}: the numbers
+    $416/729$ and $5/8$ differ by about $9\%$, and the first is not a density of
+    residue classes. The earlier claim that the large sieve ``connects to''
+    configuration density is withdrawn.
+  \item[\textbf{[Proved]}] Proposition~\ref{prop:khayyam-count}: the
+    proportion of nonzero entries in the first $3^K$ rows of Khayyam's Triangle
+    mod~$3$ is $2^{K+1}/(3^K+1) \to 0$. It does not match $(2^K - K)/2^K$, and the
+    triangle is not a combinatorial origin of formula~\eqref{eq:formula}.
+  \item[\textbf{[Proved]}] Proposition~\ref{prop:trivial} (trivial): the summed
+    estimate over the moduli $3^K$ (Theorem~5.7 of the first version) holds for
+    every exponent up to $1$, so it carries no information about $5/8$.
+  \item[\textbf{[Conjectured]}] Conjecture~\ref{conj:cascade}: per-modulus
+    equidistribution for $3^K \leq x^{5/8-\varepsilon}$. This would go beyond
+    the Generalised Riemann Hypothesis.
+  \item[\textbf{[Conjectured]}] Conjecture~\ref{conj:general}: $\thetak$ equals
+    an analytic level of distribution for general $k$.
+  \item[\textbf{[Withdrawn]}] The ``geometric proof'' of $\theta_3 = 5/8$
+    (Remark~\ref{rem:withdrawn}); the twin-prime threshold conjecture
+    (Remark~\ref{rem:twinprime}); the empirical column of
+    Table~\ref{tab:validation}; the Sophie Germain non-instance
+    (Remark~\ref{rem:sg}).
 \end{itemize}
 
-\subsection{Position in the program}
+\subsection{Position in the programme}
 
-This paper is the fourth in a six-paper program on constitutional sieve
-theory~\cite{WakilKhayyam,WakilSC,WakilShannon,WakilEisenstein,WakilW3}.
-The combinatorial foundation is established in Section~\ref{sec:khayyam} and
-traced to~\cite{WakilKhayyam}. The full geometric proof appears
-in~\cite{WakilEisenstein} with Condition~W3 verified in~\cite{WakilW3}. The
-structural parallel with information theory is documented in~\cite{WakilShannon}.
-The present paper focuses on the derivation of the universal formula and the
-distinction between the two densities.
+This paper is the fifth in a nine-paper programme (p01--p09) on constitutional
+sieve theory~\cite{WakilCF,WakilKhayyam,WakilSC,WakilEisenstein,WakilShannon,WakilW3}.
+The counting formula is introduced in~\cite{WakilCF}, where it is also a
+postulate. The level $5/8$ for the moduli $3^K$ is a conjecture
+of~\cite{WakilEisenstein}. Condition~W3 of~\cite{WakilW3} is true, with a
+one-line proof (Appendix~\ref{app:watt}), and does not bear on any level of
+distribution. The comparison with information theory is
+in~\cite{WakilShannon}. The present paper discusses the formula and the
+distinction between two densities.
 
 %% ─────────────────────────────────────────────────────────────────────────────
-\section{Khayyam's Triangle and Constitutional Residues}
+\section{Khayyam's Triangle Modulo~$3$}
 \label{sec:khayyam}
 %% ─────────────────────────────────────────────────────────────────────────────
 
@@ -200,46 +236,49 @@ In particular, $\binom{n}{k} \not\equiv 0 \pmod{p}$ if and only if $k_i \leq
 n_i$ for all $i$.
 \end{lemma}
 
-\begin{proposition}[Khayyam's Triangle and constitutional structure]
+\begin{proposition}[Nonzero entries of Khayyam's Triangle mod~$3$]
 \label{prop:khayyam-count}
-In Khayyam's Triangle modulo~$3$, the nonzero entries form a self-similar
-Sierpi\'nski pattern governed by Lemma~\ref{lem:lucas} with $p=3$. For $q =
-3^K$, this structure partitions configurations of a $K$-level cascade sieve into
-those compatible with the constitutional constraint (exactly $2^K - K$ valid
-configurations) and those that are not (exactly $K$ invalid), matching the count
-of Theorem~\ref{thm:count}.
+For $K \geq 0$, the first $3^K$ rows ($0 \leq n < 3^K$) of Khayyam's Triangle
+modulo~$3$ contain exactly $6^K$ nonzero entries out of $3^K(3^K+1)/2$, a
+proportion
+\[
+  \frac{2^{K+1}}{3^K + 1}.
+\]
+For $K = 1, 2, 3, 4, 5$ this is $1, 4/5, 4/7, 16/41, 16/61$, and it tends to
+$0$ as $K \to \infty$.
 \end{proposition}
 
 \begin{proof}
-By Lemma~\ref{lem:lucas} with $p=3$, the nonzero entries in row $n$ of
-Khayyam's Triangle mod~$3$ are those $k$ for which every base-$3$ digit of $k$
-is at most the corresponding digit of $n$. The nonzero entries replicate at each
-scale by a factor of~$3$, with a zero-filled interior triangle---the Sierpi\'nski
-pattern.
-
-The valid configurations in a $K$-level cascade sieve correspond exactly to the
-nonzero entries at scale $K$: at each level $j \leq K$, the constitutional
-constraint eliminates exactly one configuration (the one where the constraint
-fails at that level), leaving $2^K - K$ valid. This matches
-Theorem~\ref{thm:count} below.
+Write $n = \sum_{i<K} n_i 3^i$. By Lemma~\ref{lem:lucas} with $p=3$, the number
+of $k$ with $\binom{n}{k} \not\equiv 0 \pmod{3}$ is $\prod_{i<K}(n_i+1)$.
+Summing over the $3^K$ choices of digits gives $(1+2+3)^K = 6^K$. The first $3^K$
+rows contain $\sum_{n<3^K}(n+1) = 3^K(3^K+1)/2$ entries, and
+$2 \cdot 6^K/(3^K(3^K+1)) = 2^{K+1}/(3^K+1)$.
 \end{proof}
 
 \begin{remark}
 \label{rem:two-faces}
-The Sierpi\'nski structure of Khayyam's Triangle mod~$3$ and the Eisenstein
-filtration of Section~\ref{sec:geometric} are two faces of the same structure:
-the former is combinatorial, the latter algebraic. The connection is made precise
-in~\cite{WakilKhayyam}, which should be read alongside the present paper.
+The first version of Proposition~\ref{prop:khayyam-count} asserted that the
+Sierpi\'nski structure partitions the configurations of a $K$-level cascade sieve
+into exactly $2^K - K$ valid and $K$ invalid ones, matching the count of
+Section~\ref{sec:combinatorial}; its proof restated that count by forward
+reference. The assertion is withdrawn: the proportion in
+Proposition~\ref{prop:khayyam-count} tends to $0$, whereas $(2^K - K)/2^K$ tends
+to $1$, and no correspondence between nonzero entries and configurations is
+established. The first version also described the Sierpi\'nski pattern and the
+Eisenstein filtration of Section~\ref{sec:geometric} as ``two faces of the same
+structure''; no such connection is established.
 \end{remark}
 
 %% ─────────────────────────────────────────────────────────────────────────────
-\section{The Combinatorial Pillar}
+\section{The Counting Postulate}
 \label{sec:combinatorial}
 %% ─────────────────────────────────────────────────────────────────────────────
 
 \subsection{Configuration space and constitutional constraints}
 
 \begin{definition}[Configuration space]
+\label{def:config}
 For a $k$-level sieve, the configuration space is $\mathcal{C}_k = \{0,1\}^k$,
 with $|\mathcal{C}_k| = 2^k$. Each configuration $c = (c_1, \ldots, c_k)$
 records whether the constitutional constraint is satisfied ($c_i = 1$) or fails
@@ -250,138 +289,178 @@ records whether the constitutional constraint is satisfied ($c_i = 1$) or fails
 \label{def:constitutional}
 A constraint at level $i$ is \emph{constitutional} if:
 \begin{enumerate}[label=(\alph*)]
-  \item it is forced by the problem structure---not a free parameter;
-  \item it is CRT-independent of constraints at other levels; and
-  \item it eliminates exactly one configuration class at that level.
+  \item it is forced by the problem structure---not a free parameter; and
+  \item it is independent of the constraints at the other levels, in the sense
+    that it is not implied by them. (For congruence conditions to pairwise
+    coprime moduli the Chinese Remainder Theorem guarantees this; for nested
+    moduli such as $3, 9, 27$ it does not.)
 \end{enumerate}
 \end{definition}
 
-\begin{example}[Twin primes, $k=3$]
+\begin{example}[Twin primes]
 \label{ex:twin}
 For a twin prime pair $(p, p+2)$ with $p > 3$: if $p \equiv 0 \pmod{3}$ then
 $3 \mid p$; if $p \equiv 1 \pmod{3}$ then $3 \mid (p+2)$. Only $p \equiv 2
-\pmod{3}$ permits both members to avoid divisibility by~$3$. This constraint is
-constitutional by Definition~\ref{def:constitutional}. The three nested levels
-use moduli $3, 9, 27$, giving $k = 3$ and $|\mathcal{C}_3| = 8$.
+\pmod{3}$ permits both members to avoid divisibility by~$3$. This constraint
+satisfies Definition~\ref{def:constitutional}(a). The first version took
+``three nested levels'' with moduli $3, 9, 27$, giving $k = 3$ and
+$|\mathcal{C}_3| = 8$. The conditions at the moduli $9$ and $27$ are not
+independent of the condition modulo~$3$: $p$ and $p+2$ are both prime to $9$
+(or to $27$) exactly when they are both prime to~$3$, so the admissible residues
+modulo $9$ and $27$ are exactly the $3$ and $9$ lifts of $2 \bmod 3$. These
+conditions fail Definition~\ref{def:constitutional}(b), and by that criterion
+twin primes have depth~$1$. The assignment $k = 3$ to twin primes (and to the
+cascade moduli $3^K$) is a proposal of the
+programme~\cite{WakilCF,WakilEisenstein} that is currently unsupported.
 \end{example}
 
-\subsection{The counting theorem}
+\subsection{The counting postulate}
 
-\begin{theorem}[Nested constraint count]
-\label{thm:count}
-For a $k$-fold sieve with constitutional constraints at each of $k$ nested
-levels, exactly $k$ configurations in $\mathcal{C}_k$ are invalid.
-\end{theorem}
+\begin{postulate}[Nested constraint count]
+\label{post:count}
+A $k$-fold sieve with constitutional constraints at $k$ nested levels is said to
+have \emph{depth} $k$. For such a sieve we postulate that exactly $k$
+configuration classes in $\mathcal{C}_k$ are eliminated, one for each level, so
+that $2^k - k$ remain.
+\end{postulate}
+
+The first version stated Postulate~\ref{post:count} as a theorem, with a proof by
+induction on $k$. That proof is wrong: on passing from $k-1$ to $k$ levels, each
+of the $k-1$ previously invalid configurations splits into two, so they
+contribute $2(k-1)$ invalid configurations, not $k-1$. The postulate is not a
+consequence of Definition~\ref{def:config}, as the next proposition shows. It is
+the definition of what we mean by depth $k$, and the formula $\thetak$ below is
+stipulated, not derived.
+
+\begin{proposition}[The binary model]
+\label{prop:binary}
+In $\mathcal{C}_k = \{0,1\}^k$, call $c$ \emph{valid} if $c_i = 1$ for all $i$,
+and \emph{invalid} otherwise (some constraint fails). Then exactly one
+configuration is valid and $2^k - 1$ are invalid. For each $i$, exactly
+$2^{k-1}$ configurations fail constraint~$i$, and exactly $k$ configurations fail
+exactly one constraint.
+\end{proposition}
 
 \begin{proof}
-By induction on $k$.
-
-\emph{Base case} ($k=1$). One level, two configurations $\{0,1\}$. The
-constitutional constraint eliminates exactly one (where the constraint fails).
-Invalid count: $1 = k$. \checkmark
-
-\emph{Inductive step.} Assume the result for $k-1$: a $(k-1)$-fold sieve has
-exactly $k-1$ invalid configurations out of $2^{k-1}$.
-
-Passing to $k$ levels, each configuration in $\mathcal{C}_{k-1}$ splits into
-two in $\mathcal{C}_k$ (the new level either holds or fails). The previously
-invalid $k-1$ configurations remain invalid (failure at any earlier level is
-sufficient for invalidity). The new level-$k$ constitutional constraint
-eliminates exactly one new configuration class that was valid at levels
-$1, \ldots, k-1$ but fails at level $k$, by
-Definition~\ref{def:constitutional}(c).
-
-Total invalid: $(k-1) + 1 = k$.
+The only valid configuration is $(1, \ldots, 1)$, so the other $2^k - 1$ are
+invalid. Fixing $c_i = 0$ leaves $2^{k-1}$ choices for the remaining coordinates.
+A configuration that fails exactly one constraint is determined by which
+constraint fails.
 \end{proof}
+
+Thus in the binary model the number of invalid configurations is $2^k - 1$ for
+every $k$ (for example $7$, not $3$, when $k = 3$). The revised Lean file P05
+proves this as \texttt{invalid\_count}.
 
 \begin{proposition}[Configuration density]
 \label{prop:density}
-For a $k$-fold sieve with constitutional structure,
+For a sieve of depth $k$ in the sense of Postulate~\ref{post:count},
 \[
   \rhoc_k = \frac{2^k - k}{2^k}.
 \]
 \end{proposition}
 
 \begin{proof}
-Immediate from Theorem~\ref{thm:count}: $2^k - k$ valid configurations out of
-$2^k$ total.
+Immediate from Postulate~\ref{post:count}: $2^k - k$ of the $2^k$ configuration
+classes remain.
 \end{proof}
 
-Table~\ref{tab:density} displays the configuration density for $k = 1, \ldots, 6$.
+Table~\ref{tab:density} displays the configuration density for $k = 1, \ldots, 6$,
+together with the number of invalid configurations in the binary model.
 
 \begin{table}[h]
 \centering
-\caption{Configuration density $\rhoc_k = (2^k - k)/2^k$.}
+\caption{Configuration density $\rhoc_k = (2^k - k)/2^k$ under
+  Postulate~\ref{post:count}. The last column is the number of invalid
+  configurations in the binary model of Proposition~\ref{prop:binary}.}
 \label{tab:density}
-\begin{tabular}{rrrrl}
+\begin{tabular}{rrrrlr}
 \toprule
-$k$ & $2^k$ & Invalid & Valid & $\rhoc_k$ \\
+$k$ & $2^k$ & Eliminated & Remaining & $\rhoc_k$ & $2^k - 1$ \\
+    &       & (postulated) &         &           & (binary) \\
 \midrule
-$1$ & $2$  & $1$ & $1$  & $1/2$ \\
-$2$ & $4$  & $2$ & $2$  & $1/2$ \\
-$3$ & $8$  & $3$ & $5$  & $5/8$ \\
-$4$ & $16$ & $4$ & $12$ & $3/4$ \\
-$5$ & $32$ & $5$ & $27$ & $27/32$ \\
-$6$ & $64$ & $6$ & $58$ & $29/32$ \\
+$1$ & $2$  & $1$ & $1$  & $1/2$   & $1$ \\
+$2$ & $4$  & $2$ & $2$  & $1/2$   & $3$ \\
+$3$ & $8$  & $3$ & $5$  & $5/8$   & $7$ \\
+$4$ & $16$ & $4$ & $12$ & $3/4$   & $15$ \\
+$5$ & $32$ & $5$ & $27$ & $27/32$ & $31$ \\
+$6$ & $64$ & $6$ & $58$ & $29/32$ & $63$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 %% ─────────────────────────────────────────────────────────────────────────────
-\section{Two Densities: A Critical Distinction}
+\section{Two Densities}
 \label{sec:densities}
 %% ─────────────────────────────────────────────────────────────────────────────
 
 Earlier attempts to compute $\theta_3$ via ternary residue analysis obtained
-approximately $0.571$ rather than $5/8 = 0.625$. This $12\%$ discrepancy traces
-to a conflation of two distinct concepts.
+approximately $0.571$ rather than $5/8 = 0.625$. The first version described
+this as a $12\%$ discrepancy explained by a conflation of two densities. The
+difference is about $9\%$ ($0.625/0.5706 - 1 \approx 9.5\%$, or
+$1 - 0.5706/0.625 \approx 8.7\%$), and the ``pattern density'' is the smaller of
+the two numbers. We record what the two numbers are.
 
-\begin{proposition}[Pattern density vs.\ configuration density]
+\begin{proposition}[Two numbers]
 \label{prop:two-densities}
-The following two quantities are distinct for $k \geq 3$:
 \begin{enumerate}[label=(\arabic*)]
-  \item \emph{Pattern density} $\rhop_k$: the fraction of specific residue
-    patterns modulo $3^k$ that are viable:
+  \item The ``pattern density'' of the first version is
     \[
-      \rhop_3 = \prod_{i=1}^{3}\!\bigl(1 - 3^{-i}\bigr) \approx 0.571.
+      \rhop_3 = \prod_{i=1}^{3}\!\bigl(1 - 3^{-i}\bigr) = \frac{416}{729}
+      \approx 0.5706.
     \]
-  \item \emph{Configuration density} $\rhoc_k$: the fraction of
-    constraint-satisfaction configurations that are valid:
-    \[
-      \rhoc_3 = \frac{5}{8} = 0.625.
-    \]
+    This equals $|\mathrm{GL}_3(\mathbb{F}_3)|/3^9$, the probability that a
+    random $3 \times 3$ matrix over $\mathbb{F}_3$ is invertible. It is not a
+    proportion of residue classes modulo $27$: the proportion of residues
+    modulo $27$ prime to $3$ is $18/27 = 2/3$, and the proportion admissible for
+    twin primes ($p$ and $p+2$ both prime to $3$) is $9/27 = 1/3$.
+  \item Under Postulate~\ref{post:count}, $\rhoc_3 = 5/8 = 0.625$. In the binary
+    model of Proposition~\ref{prop:binary}, in which a configuration is valid
+    when all its coordinates equal $1$, the proportion of valid configurations
+    is $1/2^k$ (that is, $1/8$ for $k = 3$), and $2^k - 1$ configurations are
+    invalid.
 \end{enumerate}
-The Montgomery--Vaughan large sieve connects to configuration density, not
-pattern density, because Dirichlet characters are indexed by
-constraint-satisfaction classes, not by specific residue values.
+In particular $\rhop_3 < \rhoc_3$.
 \end{proposition}
 
 \begin{proof}
-Pattern density counts residue classes modulo $3^k$ avoiding all constitutional
-obstacles, via an Euler product over small primes. Configuration density counts
-binary vectors in $\{0,1\}^k$ with all coordinates equal to $1$.
-
-In the Montgomery--Vaughan large sieve~\cite{MV1973}, the relevant sum runs
-over Dirichlet characters $\chi \pmod{q}$ compatible with the constitutional
-constraint. Compatibility is a binary condition at each level (the character is
-trivial on the forced residue class, or it is not), matching configuration
-density. Pattern density imposes a stricter condition (specific residue values),
-overcounting the excluded characters and undercounting the viable ones. This is
-why $\theta_3 = 0.625$ matches $\rhoc_3$ and not the incorrect $0.571$.
+(1) $(2/3)(8/9)(26/27) = 416/729$, and
+$|\mathrm{GL}_3(\mathbb{F}_3)| = (3^3-1)(3^3-3)(3^3-3^2) = 26 \cdot 24 \cdot 18
+= 27 \cdot 416$, so $|\mathrm{GL}_3(\mathbb{F}_3)|/3^9 = 416/729$. There are
+$\varphi(27) = 18$ residues modulo $27$ prime to $3$, and $9$ of them are
+$\equiv 2 \pmod{3}$. (2) is Postulate~\ref{post:count} and
+Proposition~\ref{prop:binary}.
 \end{proof}
 
+\begin{remark}
+\label{rem:largesieve}
+The first version asserted that the Montgomery--Vaughan large
+sieve~\cite{MV1973} ``connects to configuration density, not pattern density,
+because Dirichlet characters are indexed by constraint-satisfaction classes''.
+This is withdrawn. The large sieve inequality sums over all primitive characters
+modulo $q$ for every $q \leq Q$; the characters modulo $q$ are indexed by the
+dual group of $(\Z/q\Z)^*$, not by binary constraint classes, and there is no
+``compatible'' subfamily. The first version's proof also defined configuration
+density by ``all coordinates equal to $1$'', which is the binary model of
+Proposition~\ref{prop:binary} and gives $1/2^k$, not $(2^k - k)/2^k$. No relation
+between either number and a level of distribution is established; the
+conjectured relation for $\rhoc_k$ is Conjecture~\ref{conj:general}.
+\end{remark}
+
 %% ─────────────────────────────────────────────────────────────────────────────
-\section{The Geometric Pillar: Eisenstein Integers and $\theta_3 = 5/8$}
+\section{Eisenstein Integers and the Moduli $3^K$}
 \label{sec:geometric}
 %% ─────────────────────────────────────────────────────────────────────────────
 
-The combinatorial pillar establishes that configuration density is $(2^k -
-k)/2^k$. The geometric pillar independently proves that for cascade moduli $q =
-3^K$, the analytic level of distribution is exactly $\theta = 5/8$, with the
-reason transparent: two structural facts about $\Zomega$, each contributing
-exactly half the improvement over the Weil bound. The full proof is in the
-companion paper~\cite{WakilEisenstein}; we summarise the key steps here for
-self-containedness.
+The first version of this section claimed a ``geometric proof'' that, for the
+cascade moduli $q = 3^K$, the analytic level of distribution is exactly $5/8$,
+via two structural facts about $\Zomega$ each contributing half the improvement
+over the Weil bound. That claim is withdrawn. This section keeps the correct
+Eisenstein-integer arithmetic, states what is true about the summed estimate
+(Proposition~\ref{prop:trivial}: it holds for every exponent up to $1$), and
+records the per-modulus statement as a conjecture
+(Conjecture~\ref{conj:cascade}). The steps of the withdrawn argument are listed
+in Remark~\ref{rem:withdrawn}.
 
 \subsection{The Eisenstein integers and ramification of 3}
 
@@ -410,12 +489,13 @@ Since $1 + \omega + \omega^2 = 0$, we have $3 = -\omega^2(1-\omega)^2$.
 A rational prime $\ell > 3$ is \emph{inert} in $\Zomega$ (stays prime) if
 $\ell \equiv 2 \pmod{3}$, and \emph{splits} as $\ell = \pi\bar{\pi}$ if $\ell
 \equiv 1 \pmod{3}$. By Example~\ref{ex:twin}, every twin prime $p > 3$ satisfies
-$p \equiv 2 \pmod{3}$ (inert) while $p+2 \equiv 1 \pmod{3}$ (splits). Twin
-primes are precisely the inert-split pairs of the Eisenstein lattice.
+$p \equiv 2 \pmod{3}$ (inert) while $p+2 \equiv 1 \pmod{3}$ (splits). So twin
+pairs with $p > 3$ are inert--split pairs; this restates $p \equiv 2 \pmod{3}$
+and adds no further constraint.
 
-\subsection{Part I: Eisenstein filtration forces triply-factorable weights}
+\subsection{The $(1-\omega)$-adic filtration}
 
-\begin{proposition}[Three-level filtration]
+\begin{proposition}[The $(1-\omega)$-adic filtration]
 \label{prop:filtration}
 The ring $\Zomega/(3^K)$ carries the filtration
 \[
@@ -431,23 +511,11 @@ From Proposition~\ref{prop:ramification}, $(3) = (1-\omega)^2$, so $(3^K) =
 (1-\omega)^{2K}$. Each successive quotient is $\Zomega/(1-\omega) \cong \Z/3\Z$.
 \end{proof}
 
-\begin{corollary}[Triply-well-factorable weights]
-\label{cor:factorable}
-The filtration of Proposition~\ref{prop:filtration} induces a canonical
-three-scale decomposition on sieve weights $w(3^j)$, $0 \leq j \leq K$:
-writing $d = d_1 d_2 d_3$ with $d_i = 3^{j_i}$ concentrated at scale $i$,
-the weight decomposes as $w(d) = \alpha(d_1)\beta(d_2)\gamma(d_3)$.
-\end{corollary}
+The filtration has $2K$ steps, each with quotient $\mathbb{F}_3$; nothing in it
+singles out three levels. (The first version called it a ``three-level
+filtration''.)
 
-Using three-fold Cauchy--Schwarz over the filtration, the error term in the
-primes-in-progressions sum satisfies
-\[
-  E_{II} \ll x^{1/2} Q^{1/2} \cdot Q^{1/4 + \varepsilon},
-\]
-giving power-saving when $Q \ll x^{2/3 - \varepsilon}$. The ceiling from the
-Eisenstein filtration alone (using only the Weil bound) is $\theta \leq 2/3$.
-
-\subsection{Part II: Cyclic group structure improves $2/3$ to $5/8$}
+\subsection{Cyclicity of $(\Z/3^K\Z)^*$ and Kloosterman sums}
 
 \begin{lemma}[Cyclic structure]
 \label{lem:cyclic}
@@ -459,81 +527,148 @@ $\varphi(3^K) = 2 \cdot 3^{K-1}$; the unit group of $\Z/p^K\Z$ is cyclic for
 all odd prime powers $p^K$.
 \end{proof}
 
-The cyclic structure contrasts with squarefree moduli $q = p_1 \cdots p_r$, for
-which $(\Z/q\Z)^* \cong \prod_i (\Z/p_i\Z)^*$ is a product of groups of
-varying orders. The product structure obstructs the uniform character cancellation
-that a single cyclic group enables.
+Since $(\Z/p^K\Z)^*$ is cyclic for every odd prime $p$, cyclicity does not
+distinguish $3$ among the odd primes. The first version contrasted it with
+squarefree moduli, claiming that a product of unit groups ``obstructs the
+uniform character cancellation that a single cyclic group enables''. That claim
+is unsupported and is withdrawn: Weil's bound for Kloosterman sums holds for
+squarefree moduli as well, and the known levels beyond $1/2$ (Section~\ref{sec:known})
+concern general moduli.
 
-\begin{proposition}[Enhanced Kloosterman cancellation]
+For integers $a, b$ and $q \geq 1$, let
+$S(a, b; q) = \sum_{x \in (\Z/q\Z)^*} e\bigl((a x + b \bar{x})/q\bigr)$ be the
+Kloosterman sum, where $\bar{x}$ is the inverse of $x$ modulo $q$ and
+$e(t) = e^{2\pi i t}$.
+
+\begin{proposition}[The Kloosterman bound $q^{3/8}$ fails]
 \label{prop:kloosterman}
-For $q = 3^K$, the cyclic structure of $(\Z/3^K\Z)^*$ yields
+For every $q \geq 1$,
 \[
-  \sum_{3^K \leq Q} |S(a, b; 3^K)| \ll Q^{3/8 + \varepsilon}.
+  \sum_{a \bmod q} |S(a, 1; q)|^2 = q\,\varphi(q).
 \]
-Substituting into the Cauchy--Schwarz bound: $E_{II} \ll x^{1/2} Q^{1/2} \cdot
-Q^{3/16 + \varepsilon}$. Power-saving requires $Q \ll x^{5/8 - \varepsilon}$.
-The ceiling with both filtration and cyclic enhancement is $\theta = 5/8$.
+Consequently $\max_{a} |S(a, 1; q)| \geq \varphi(q)^{1/2}$, which for $q = 3^K$
+equals $(2/3)^{1/2} q^{1/2}$. In particular no bound
+$|S(a, b; 3^K)| \ll (3^K)^{3/8 + \varepsilon}$ uniform in $a, b$ can hold.
 \end{proposition}
 
-\begin{proof}[Proof sketch]
-Primitive characters modulo $3^K$ are characters of the cyclic group
-$\Z/(2 \cdot 3^{K-1}\Z)$. The associated $L$-functions satisfy a subconvexity
-bound improving the convexity estimate by $1/8$, via Watt's
-theorem~\cite{Watt1995}: the spectral mean value for characters of a single
-cyclic group of order $2 \cdot 3^{K-1}$ gives moment estimates yielding
-$|S(a, b; 3^K)| \ll (3^K)^{3/8+\varepsilon}$. Watt's parameter conditions are
-verified in~\cite{WakilEisenstein}, Appendix~A.
+\begin{proof}
+Expanding the square and summing over $a$ first,
+\[
+  \sum_{a \bmod q} |S(a,1;q)|^2
+  = \sum_{x, y \in (\Z/q\Z)^*} e\Bigl(\frac{\bar{x} - \bar{y}}{q}\Bigr)
+    \sum_{a \bmod q} e\Bigl(\frac{a(x-y)}{q}\Bigr)
+  = q \sum_{x \in (\Z/q\Z)^*} 1 = q\,\varphi(q).
+\]
+The sum has $q$ terms, so the largest $|S(a,1;q)|^2$ is at least
+$\varphi(q)$.
 \end{proof}
 
-\begin{theorem}[Geometric proof of $\theta_3 = 5/8$]
-\label{thm:geometric}
-For any $A > 0$ and $\varepsilon > 0$,
+\begin{remark}[The withdrawn argument]
+\label{rem:withdrawn}
+The first version derived $\theta_3 = 5/8$ for cascade moduli from the following
+steps, all of which are withdrawn.
+\begin{enumerate}[label=(\roman*)]
+  \item A ``three-level filtration'' of $\Zomega/(3^K)$. The filtration has
+    $2K$ steps (Proposition~\ref{prop:filtration}).
+  \item A corollary stating that the filtration induces a canonical
+    decomposition $w(d) = \alpha(d_1)\beta(d_2)\gamma(d_3)$, $d_i = 3^{j_i}$, of
+    sieve weights on powers of $3$, called triply well-factorable. The
+    factorisation $3^j = 3^{j_1}3^{j_2}3^{j_3}$ is not unique; triple
+    well-factorability in the sense of Maynard, Lichtman and Pascadi is the
+    condition that for every factorisation $D = Q_1Q_2Q_3$ the weight is a
+    Dirichlet convolution $\alpha * \beta * \gamma$ with $\alpha, \beta, \gamma$
+    supported on $[1,Q_1]$, $[1,Q_2]$, $[1,Q_3]$; and weights supported on powers
+    of $3$ do not detect primes.
+  \item A bound $E_{II} \ll x^{1/2}Q^{1/2} \cdot Q^{1/4+\varepsilon}$ for the
+    Type~II error, described as giving a ``ceiling $\theta \leq 2/3$''. No
+    derivation was given, and a range in which a method gives a power saving is
+    a lower bound for the level, not a ceiling.
+  \item The Kloosterman bound $|S(a,b;3^K)| \ll (3^K)^{3/8+\varepsilon}$, which
+    is false (Proposition~\ref{prop:kloosterman}). Its proof sketch invoked
+    Watt's theorem, which concerns the Riemann zeta function and not characters
+    modulo $q$ (Appendix~\ref{app:watt}).
+  \item The claim that (iv) ``improves $2/3$ to $5/8$''. Since $5/8 < 2/3$, this
+    would lower the level; and even granting (iv), the stated bound
+    $x^{1/2}Q^{1/2} \cdot Q^{3/16+\varepsilon} = x^{1/2}Q^{11/16+\varepsilon}$
+    gives a power saving for $Q \leq x^{8/11-\delta}$, not $x^{5/8}$.
+\end{enumerate}
+\end{remark}
+
+\subsection{What is true about the moduli $3^K$}
+
+\begin{proposition}[The summed estimate is trivial]
+\label{prop:trivial}
+For every $A > 0$,
 \[
-  \sum_{\substack{K \geq 1 \\ 3^K \leq x^{5/8-\varepsilon}}}
-  \max_{\gcd(a,3^K)=1}
-  \left| \sum_{\substack{n \leq x \\ n \equiv a\,(3^K)}} \Lambda(n)
-    - \frac{x}{\varphi(3^K)} \right|
-  \ll \frac{x}{(\log x)^A}.
+  \sum_{\substack{K \geq 1 \\ 3^K \leq x}}
+  \max_{\gcd(a,3)=1}
+  \left| \psi(x;3^K,a) - \frac{x}{\varphi(3^K)} \right|
+  \ll_A \frac{x}{(\log x)^A}.
 \]
-The value $5/8$ is uniquely forced: the Eisenstein filtration alone gives ceiling
-$2/3$; the cyclic cancellation alone cannot be deployed without the triply-factorable
-weights; together they force $5/8$ and nothing else.
-\end{theorem}
+In particular the estimate holds with the range $3^K \leq x^{5/8-\varepsilon}$
+of Theorem~5.7 of the first version replaced by $3^K \leq x^{\theta}$ for any
+$\theta \leq 1$.
+\end{proposition}
 
 \begin{proof}
-Apply the Vaughan decomposition~\cite{Vaughan1980} with $U = x^{1/3}$. Type~I
-sums are handled by standard M\"obius cancellation. For Type~II sums, decompose
-$w(d) = \alpha(d_1)\beta(d_2)\gamma(d_3)$ by Corollary~\ref{cor:factorable},
-apply three-fold Cauchy--Schwarz, then apply Proposition~\ref{prop:kloosterman}.
-The combined bound gives $E_{II} \ll x^{1-\varepsilon}$ for $Q = x^{5/8-\varepsilon}$,
-subject to Condition~W3 verified in~\cite{WakilW3}.
+Let $L = (\log x)^{A+1}$. For $3^K \leq L$ the Siegel--Walfisz theorem gives
+$\max_a |\psi(x;3^K,a) - x/\varphi(3^K)| \ll_A x\exp(-c\sqrt{\log x})$, and there
+are $O(\log\log x)$ such $K$. For $3^K > L$, the trivial bounds
+$\psi(x;q,a) \leq (x/q + 1)\log x$ and $x/\varphi(3^K) = 3x/(2 \cdot 3^K)$ give
+$|\psi(x;3^K,a) - x/\varphi(3^K)| \leq (x/3^K + 1)\log x + 3x/(2 \cdot 3^K)$.
+Summing this geometric series over the $O(\log x)$ values of $K$ with
+$L < 3^K \leq x$ gives $\ll x\log x/L + (\log x)^2 \ll x/(\log x)^A$.
 \end{proof}
 
+Proposition~\ref{prop:trivial} uses only the Siegel--Walfisz theorem and the
+trivial bound: no Eisenstein-integer arithmetic, Kloosterman sums or
+Condition~W3. Theorem~5.7 of the first version is therefore true, but its
+exponent $5/8$ plays no role, and the assertions that $5/8$ is ``uniquely
+forced'' and that the filtration and cyclicity ``force $5/8$ and nothing else''
+are withdrawn. The sum involves only $O(\log x)$ moduli, so it is not a level of
+distribution in the usual sense. The meaningful statement is per modulus.
+
+\begin{conjecture}[Cascade moduli; cf.~\cite{WakilEisenstein}]
+\label{conj:cascade}
+For every $\varepsilon > 0$ and $A > 0$, uniformly for $q = 3^K \leq
+x^{5/8-\varepsilon}$,
+\[
+  \max_{\gcd(a,3)=1} \left| \psi(x;q,a) - \frac{x}{\varphi(q)} \right|
+  \ll_{\varepsilon,A} \frac{x}{\varphi(q)(\log x)^A}.
+\]
+\end{conjecture}
+
+For a single modulus the Generalised Riemann Hypothesis gives this only for
+$q \leq x^{1/2-\varepsilon}$, so Conjecture~\ref{conj:cascade} would go beyond
+GRH. The best known results for prime-power moduli are those of
+Barban--Linnik--Tshudakov (exponent $3/8$), Gallagher ($2/5$) and Huxley
+($5/12$); Banks and Shparlinski obtain lower bounds of the correct order for
+$\psi(x;q,a)$ for prime-power moduli up to $x^{0.4736}$. Montgomery's conjecture predicts the statement for every exponent
+below $1$, so $5/8$ would be a proved exponent rather than a sharp one.
+
 %% ─────────────────────────────────────────────────────────────────────────────
-\section{The Universal Formula}
+\section{The Formula $\thetak$}
 \label{sec:formula}
 %% ─────────────────────────────────────────────────────────────────────────────
 
 \subsection{Statement}
 
-Combining Propositions~\ref{prop:density} and~\ref{prop:two-densities} with the
-geometric proof at $k=3$:
-
-\begin{theorem}[Ramanujan's Dimensional Forcing]
-\label{thm:ramanujan}
-For $k$-fold sieves with constitutional structure and $k$ independent nested
-constraint levels, the configuration density is
+\begin{definition}[Ramanujan's Dimensional Forcing formula]
+\label{def:formula}
+For a sieve of depth $k$ in the sense of Postulate~\ref{post:count}, set
 \[
-  \thetak = \frac{2^k - k}{2^k}.
+  \thetak := \rhoc_k = \frac{2^k - k}{2^k}.
 \]
-This equals the analytic level of distribution when sieve weights are $k$-fold
-factorable over cascade moduli, as forced by the structure of $\Zomega$ for
-$k=3$ \emph{(}Theorem~\ref{thm:geometric}\emph{)}.
-For $k=1$: $\thetak[1] = 1/2$ \emph{(}Bombieri--Vinogradov~\cite{BV1965}\emph{)}.
-For $k=3$: $\thetak[3] = 5/8$ \emph{(}Pascadi~\cite{Pascadi2025};
-Theorem~\ref{thm:geometric}\emph{)}.
-For general $k$: Conjecture~\ref{conj:general} below.
-\end{theorem}
+\end{definition}
+
+The first version stated this as a theorem which asserted, in addition, that
+$\thetak$ equals the analytic level of distribution when sieve weights are
+$k$-fold factorable over cascade moduli, citing Bombieri--Vinogradov for $k=1$
+and Pascadi together with its own Theorem~5.7 for $k=3$. Those assertions are
+withdrawn. The equality with an analytic level is unproved for every $k$ and is
+the content of Conjecture~\ref{conj:general}; for $k=3$ see
+Section~\ref{sec:geometric}, and for the comparison with known levels see
+Section~\ref{sec:known}.
 
 \subsection{The Fibonacci remark}
 
@@ -549,136 +684,174 @@ $F_5 = 5$, $F_6 = 8$; $F_5/F_6 = 5/8$.
 \begin{remark}
 The value $\theta_3 = 5/8 = 0.625$ lies just above $1/\varphi \approx 0.618$,
 where $\varphi = (1+\sqrt{5})/2$ is the golden ratio, with
-$|\theta_3 - 1/\varphi| \approx 0.007$. Formula~\eqref{eq:formula} is derived
-independently of Fibonacci considerations; the coincidence at $k=3$ is noted
-without over-interpretation.
+$|\theta_3 - 1/\varphi| \approx 0.007$. Formula~\eqref{eq:formula} does not
+involve Fibonacci numbers; the coincidence at $k=3$ is noted without
+over-interpretation.
 \end{remark}
 
-\subsection{Validation}
+\subsection{Comparison with known levels}
+\label{sec:known}
 
-Table~\ref{tab:validation} validates formula~\eqref{eq:formula} against
-independent proofs and computational simulations.
+Table~\ref{tab:validation} compares formula~\eqref{eq:formula} with known
+results.
 
 \begin{table}[h]
 \centering
-\caption{Validation of $\thetak = (2^k - k)/2^k$.}
+\caption{Formula~\eqref{eq:formula} and known results.}
 \label{tab:validation}
-\begin{tabular}{cccll}
+\begin{tabular}{ccp{4.6cm}p{5.2cm}}
 \toprule
-$k$ & Formula & Proven & Empirical & Status \\
+$k$ & Formula & Known result & Status \\
 \midrule
-$1$ & $1/2$   & Zhang 2014; BV 1965 & ---
-  & External proof \\
-$3$ & $5/8$   & Pascadi 2025; Thm.~\ref{thm:geometric}
-  & $0.624 \pm 0.002$ & Two independent proofs \\
-$4$ & $3/4$   & ---  & $0.749 \pm 0.003$ & Computational \\
-$5$ & $27/32$ & ---  & $0.843 \pm 0.004$ & Computational \\
+$1$ & $1/2$   & Bombieri--Vinogradov: level $1/2$ for primes, on average
+  over $q$~\cite{Bombieri1965,Vinogradov1965}
+  & Numerical agreement; the $1/2$ comes from the large sieve, not from a
+    constraint count \\
+$3$ & $5/8$   & Pascadi: $5/8$ for general moduli with
+  triply-well-factorable weights~\cite{Pascadi2025}
+  & Numerical coincidence; for the moduli $3^K$, conjectural
+    (Conjecture~\ref{conj:cascade}) \\
+$4$ & $3/4$   & ---  & No object specified \\
+$5$ & $27/32$ & ---  & No object specified \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Empirical measurements are from prime distribution over $[2, 10^6]$ in cascade
-moduli; all $p > 0.05$ against the formula predictions.
+The first version of Table~\ref{tab:validation} contained an ``empirical''
+column ($0.624 \pm 0.002$, $0.749 \pm 0.003$ and $0.843 \pm 0.004$ for
+$k = 3, 4, 5$), attributed to ``prime distribution over $[2, 10^6]$ in cascade
+moduli''. No statistic, method or code was given, the data described do not
+depend on $k$, and no object is specified for $k = 4, 5$. The column is
+withdrawn. The first version also listed Zhang (2014) as a proof of
+$\theta_1 = 1/2$; Zhang's level exceeds $1/2$.
+
+Levels beyond $1/2$ are known in modified settings: $4/7$ for well-factorable
+weights~\cite{BFI1986}; $1/2 + 1/584$~\cite{Zhang2014} and
+$1/2 + 7/300$~\cite{Polymath2014} for smooth moduli; and
+$3/5$~\cite{Maynard2020}, $66/107$~\cite{Lichtman2023} and
+$5/8$~\cite{Pascadi2025} for triply-well-factorable weights. Every value of
+$\thetak$ has a power of $2$ as its denominator, so none of $4/7$, $3/5$,
+$66/107$, $1/2 + 1/584 = 293/584$ and $1/2 + 7/300 = 157/300$ is of the form $(2^k-k)/2^k$; all of them lie
+strictly between $\theta_2 = 1/2$ and $\theta_3 = 5/8$. The same weight class
+gives $3/5$, $66/107$ and $5/8$ through different analytic inputs, so the
+exponent is not determined by a count of constraints. Pascadi's $5/8$ is
+obtained from large-sieve inequalities for exceptional Maass forms together with
+the Kim--Sarnak bound; it concerns general moduli and not the moduli $3^K$, and
+its agreement with $\theta_3$ is a numerical coincidence, not evidence for
+formula~\eqref{eq:formula}.
 
 \subsection{Consequences and conjectures}
 
 \begin{conjecture}[General forcing]
 \label{conj:general}
-For any $k$-fold constitutional sieve with $k$ independent nested constraint
-levels, the analytic level of distribution equals the configuration density:
-$\thetak = (2^k - k)/2^k$.
-
-The missing step for $k \geq 4$ is identifying the algebraic structure
-(analogous to $\Zomega$ for $k=3$) that forces $k$-fold factorable weights and
-enables the corresponding Cauchy--Schwarz and cancellation estimates.
+For any $k$-fold constitutional sieve of depth $k$
+(Postulate~\ref{post:count}), the analytic level of distribution equals the
+configuration density $\thetak = (2^k - k)/2^k$.
 \end{conjecture}
 
-\begin{conjecture}[Twin prime threshold]
-\label{conj:twinprime}
-$\theta_5 = 27/32$ holds analytically. Combined with the Goldston--Pintz--Y\i{}ld\i{}r\i{}m
-theorem~\cite{GPY2009}, this would imply the existence of infinitely many twin
-primes.
-\end{conjecture}
+Conjecture~\ref{conj:general} is not yet a precise statement: no system has been
+shown to have depth $k \geq 2$ in the sense of Definition~\ref{def:constitutional},
+and the sequence and family of moduli whose level is meant have not been
+specified. For $k = 3$ the programme proposes the moduli $3^K$
+(Conjecture~\ref{conj:cascade}); for $k \geq 4$ no candidate has been proposed.
 
-\begin{remark}
-Conjecture~\ref{conj:twinprime} requires $\theta_5 = 27/32 > 1/2$ over a
-moduli family broad enough to serve as GPY input---not merely over cascade
-moduli $3^K$. This extension is the principal open step in the program; see the
-discussion in~\cite{WakilSC}, Section~4.3.
+\begin{remark}[The twin-prime threshold conjecture is withdrawn]
+\label{rem:twinprime}
+The first version stated a conjecture that $\theta_5 = 27/32$ holds
+analytically and that, combined with the Goldston--Pintz--Y\i{}ld\i{}r\i{}m
+theorem~\cite{GPY2009}, this would imply infinitely many twin primes. The
+implication is false, and the conjecture is withdrawn. No level of distribution
+is known to imply infinitely many twin primes: a level $\theta > 1/2$ gives
+bounded gaps between primes~\cite{GPY2009}; even level $1 - \varepsilon$ (the
+Elliott--Halberstam conjecture) gives gaps at most $12$~\cite{Maynard2015}, and
+at most $6$ under the generalised Elliott--Halberstam
+conjecture~\cite{Polymath8b}; and the parity barrier prevents these sieve methods
+from reaching gap $2$. Moreover, no object of depth $5$ has been specified.
 \end{remark}
 
-\begin{proposition}[Elliott--Halberstam consistency]
+\begin{proposition}[Limit of $\thetak$]
 \label{prop:eh}
 $\displaystyle\lim_{k \to \infty} \thetak = \lim_{k \to \infty}
-\left(1 - \frac{k}{2^k}\right) = 1$, consistent with the Elliott--Halberstam
-conjecture~\cite{EH1970}.
+\left(1 - \frac{k}{2^k}\right) = 1$.
 \end{proposition}
 
 \begin{proof}
 $k/2^k \to 0$ as $k \to \infty$ by l'H\^opital's rule.
 \end{proof}
 
+The first version described Proposition~\ref{prop:eh} as consistency with the
+Elliott--Halberstam conjecture~\cite{EH1970}. That conjecture concerns all moduli
+$q \leq x^{1-\varepsilon}$, while $\thetak < 1$ for every $k$, so the limit
+carries no evidential weight.
+
 \subsection{The $\theta_k$ hierarchy}
 
-Table~\ref{tab:hierarchy} displays the full hierarchy for $k = 1, \ldots, 5$,
-including the Sophie Germain non-instance documented in~\cite{WakilShannon}.
+Table~\ref{tab:hierarchy} displays the hierarchy for $k = 1, \ldots, 5$.
 
 \begin{table}[h]
 \centering
-\caption{The $\thetak$ hierarchy. Note $k=2$ gives $\theta_2 = 1/2$: coupled
-  constraints effectively reduce to one independent constraint level.}
+\caption{The $\thetak$ hierarchy. Since $\theta_1 = \theta_2 = 1/2$, the value
+  $1/2$ cannot distinguish depth $1$ from depth $2$.}
 \label{tab:hierarchy}
-\begin{tabular}{cccl}
+\begin{tabular}{ccp{4.8cm}p{5.4cm}}
 \toprule
-$k$ & $\thetak$ & Instance & Status \\
+$k$ & $\thetak$ & Proposed instance & Status \\
 \midrule
-$1$ & $1/2$   & Bombieri--Vinogradov & Proved, 1965 \\
-$2$ & $1/2$   & Sophie Germain (coupled) & Confirmed non-instance~\cite{WakilShannon} \\
-$3$ & $5/8$   & Twin primes; cascade moduli & Proved (Pascadi; Thm.~\ref{thm:geometric}) \\
-$4$ & $3/4$   & 4-element constellation & Open prediction \\
-$5$ & $27/32$ & 5-element constellation & Conjectured (twin prime threshold) \\
+$1$ & $1/2$   & Bombieri--Vinogradov & Level $1/2$ proved (1965); not derived
+  from a constraint count \\
+$2$ & $1/2$   & None established & --- \\
+$3$ & $5/8$   & Twin primes; cascade moduli & Unsupported: twin primes have
+  depth $1$ (Example~\ref{ex:twin}); $5/8$ for the moduli $3^K$ is conjectural
+  (Conjecture~\ref{conj:cascade}) \\
+$4$ & $3/4$   & None specified & No object defined \\
+$5$ & $27/32$ & None specified & No object defined \\
 \bottomrule
 \end{tabular}
 \end{table}
 
+\begin{remark}[Sophie Germain pairs]
+\label{rem:sg}
+The first version listed Sophie Germain pairs $(p, 2p+1)$ as a ``confirmed
+non-instance'' at $k = 2$. For $p > 3$ they satisfy the single condition
+$p \equiv 2 \pmod{3}$, the same as twin primes. Since $\theta_1 = \theta_2 =
+1/2$, assigning them depth $1$ or depth $2$ predicts the same value, so the
+example cannot discriminate between depths and is not a falsification test. A
+level of distribution for Sophie Germain pairs is not a defined notion, and no
+such result is known. The entry is withdrawn.
+\end{remark}
+
 %% ─────────────────────────────────────────────────────────────────────────────
 \appendix
-\section{Verification of Watt's Conditions}
+\section{Watt's Theorem and Condition W3}
 \label{app:watt}
 %% ─────────────────────────────────────────────────────────────────────────────
 
-Proposition~\ref{prop:kloosterman} invokes Watt's theorem~\cite{Watt1995} for
-the mean value of Dirichlet $L$-functions over primitive characters modulo $3^K$.
-Three conditions must be verified.
+The first version of this appendix ``verified'' three conditions W1--W3 for an
+application of Watt's theorem~\cite{Watt1995} to Dirichlet $L$-functions
+modulo $3^K$. Watt's theorem is a mean-value estimate in the $t$-aspect for
+$\int |\zeta(1/2+it)|^4 |M(it)|^2\,dt$, where $M$ is a Dirichlet polynomial; it
+involves no characters modulo $q$ and has no conditions W1--W3. The
+``verification'' of W1 and W2 is withdrawn, as is the use of Watt's theorem for
+Kloosterman sums (Remark~\ref{rem:withdrawn}(iv)).
 
-\textbf{W1 (Modulus structure).} The moduli $q = 3^K$ are prime powers; the
-associated character groups $(\Z/3^K\Z)^*$ are cyclic of order $2 \cdot 3^{K-1}$.
-Watt's theorem applies to characters of cyclic groups. \checkmark
-
-\textbf{W2 (Smooth weight condition).} The sieve weights $\alpha(d_1)\beta(d_2)\gamma(d_3)$
-from Corollary~\ref{cor:factorable} satisfy the support and boundedness conditions
-required by Watt's Theorem~1~\cite{Watt1995}: support in $[1, Q^{1/3}]$ per
-factor, with $|\alpha|, |\beta|, |\gamma| \leq \tau(n)^C$ for some fixed $C$.
-\checkmark
-
-\textbf{W3 (Absence of Siegel zeros).} No Siegel zero exists for $L(s, \chi)$
-with $\chi$ a primitive character modulo $3^K$. This is the content of
-Condition~W3 in~\cite{WakilW3}, verified via the CM structure of $\Q(\omega)$:
-the existence of a Siegel zero for a character of $(\Z/3^K\Z)^*$ would
-contradict the known zero-free region for $L$-functions of CM fields. \checkmark
-
-All three conditions hold; Proposition~\ref{prop:kloosterman} is valid subject
-to the verification in~\cite{WakilW3}.
+\textbf{Condition W3.} No $L(s,\chi)$ with $\chi$ primitive modulo $3^K$ has a
+real zero in $\sigma > 1 - c/\log 3^K$. This statement is true, with a one-line
+proof: $(\Z/3^K\Z)^*$ is cyclic of even order, so the only real non-principal
+character modulo $3^K$ is the one induced from $\chi_{-3}$ modulo~$3$; an
+exceptional zero can only belong to a real character; so any such zero would be
+a zero of the single fixed $L$-function $L(s,\chi_{-3})$, which is positive on
+$(0,1]$. No CM theory is needed (the first version's appeal to a zero-free region
+for $L$-functions of CM fields is withdrawn), W3 makes no result unconditional,
+and nothing in it is specific to $3$: $(\Z/\ell^K\Z)^*$ is cyclic for every odd
+prime $\ell$. W3 is not needed for Proposition~\ref{prop:trivial}, which uses
+only the Siegel--Walfisz theorem.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section*{Acknowledgements}
 %% ─────────────────────────────────────────────────────────────────────────────
 
-We thank Srinivasa Ramanujan posthumously: his principle that structural
-properties of certain numbers force exact arithmetic formulas---not by
-coincidence but by necessity---is the motivating insight of this paper. That the
-same principle governs both partition congruences and sieve levels would, we hope,
-have interested him.
+The title of this paper is an homage to Srinivasa Ramanujan; no result of his is
+used (see Section~\ref{sec:title}).
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \begin{thebibliography}{99}
@@ -686,10 +859,15 @@ have interested him.
 
 %% ── Analytic number theory ────────────────────────────────────────────────────
 
-\bibitem{BV1965}
-E.~Bombieri and A.~I.~Vinogradov,
+\bibitem{Bombieri1965}
+E.~Bombieri,
 On the large sieve,
 \emph{Mathematika} \textbf{12} (1965), 201--225.
+
+\bibitem{BFI1986}
+E.~Bombieri, J.~B.~Friedlander, and H.~Iwaniec,
+Primes in arithmetic progressions to large moduli,
+\emph{Acta Math.} \textbf{156} (1986), 203--251.
 
 \bibitem{EH1970}
 P.~D.~T.~A.~Elliott and H.~Halberstam,
@@ -701,10 +879,33 @@ D.~A.~Goldston, J.~Pintz, and C.~Y.~Y{\i}ld{\i}r{\i}m,
 Primes in tuples~I,
 \emph{Ann.\ of Math.} \textbf{170} (2009), 819--862.
 
+\bibitem{HardyRamanujan1918}
+G.~H.~Hardy and S.~Ramanujan,
+Asymptotic formulae in combinatory analysis,
+\emph{Proc.\ London Math.\ Soc.\ (2)} \textbf{17} (1918), 75--115.
+
+\bibitem{Lichtman2023}
+J.~D.~Lichtman,
+Primes in arithmetic progressions to large moduli, and Goldbach beyond the
+square-root barrier,
+arXiv:2309.08522, 2023.
+
 \bibitem{Lucas1878}
 \'E.~Lucas,
 Th\'eorie des fonctions num\'eriques simplement p\'eriodiques,
-\emph{Amer.\ J.\ Math.} \textbf{1} (1878), 184--196.
+\emph{Amer.\ J.\ Math.} \textbf{1} (1878), 184--196, 197--240, 289--321.
+
+\bibitem{Maynard2015}
+J.~Maynard,
+Small gaps between primes,
+\emph{Ann.\ of Math.} \textbf{181} (2015), 383--413.
+
+\bibitem{Maynard2020}
+J.~Maynard,
+Primes in arithmetic progressions to large moduli~II: well-factorable
+estimates,
+\emph{Mem.\ Amer.\ Math.\ Soc.} \textbf{306} (2025), no.~1543;
+arXiv:2006.07088.
 
 \bibitem{MV1973}
 H.~L.~Montgomery and R.~C.~Vaughan,
@@ -713,13 +914,28 @@ The large sieve,
 
 \bibitem{Pascadi2025}
 A.~Pascadi,
-Level of distribution $5/8$ for smooth moduli,
-arXiv:2505.00653v2, 2025.
+On the exponents of distribution of primes and smooth numbers,
+arXiv:2505.00653, 2025.
 
-\bibitem{Vaughan1980}
-R.~C.~Vaughan,
-An elementary method in prime number theory,
-\emph{Acta Arith.} \textbf{37} (1980), 111--115.
+\bibitem{Polymath2014}
+D.~H.~J.~Polymath,
+New equidistribution estimates of Zhang type,
+\emph{Algebra Number Theory} \textbf{8} (2014), 2067--2199.
+
+\bibitem{Polymath8b}
+D.~H.~J.~Polymath,
+Variants of the Selberg sieve, and bounded intervals containing many primes,
+\emph{Res.\ Math.\ Sci.} \textbf{1} (2014), Article~12.
+
+\bibitem{Ramanujan1919}
+S.~Ramanujan,
+Some properties of $p(n)$, the number of partitions of $n$,
+\emph{Proc.\ Cambridge Philos.\ Soc.} \textbf{19} (1919), 207--210.
+
+\bibitem{Vinogradov1965}
+A.~I.~Vinogradov,
+The density hypothesis for Dirichlet $L$-series,
+\emph{Izv.\ Akad.\ Nauk SSSR Ser.\ Mat.} \textbf{29} (1965), 903--934.
 
 \bibitem{Watt1995}
 N.~Watt,
@@ -731,36 +947,40 @@ Y.~Zhang,
 Bounded gaps between primes,
 \emph{Ann.\ of Math.} \textbf{179} (2014), 1121--1174.
 
-%% ── Companion papers (Wakil's Program) ───────────────────────────────────────
+%% ── Companion papers (Wakil's Programme) ─────────────────────────────────────
+
+\bibitem{WakilCF}
+K.~Wakil,
+Constitutional Forcing,
+ARC Institute of Knowware, preprint, 2026.
 
 \bibitem{WakilKhayyam}
 K.~Wakil,
-Khayyam's triangle: historical restoration and the geometry hidden in the
-numbers,
+Khayyam's Triangle: Historical Restoration and the Geometry Hidden in the
+Numbers,
 ARC Institute of Knowware, preprint, 2026.
 
 \bibitem{WakilSC}
 K.~Wakil,
-Spherical cow philosophy: a methodological framework for mathematical
-discovery,
+Spherical Cow Philosophy: A Methodological Framework for Mathematical
+Discovery,
 ARC Institute of Knowware, preprint, 2026.
 
 \bibitem{WakilShannon}
 K.~Wakil,
-The Shannon--Wakil effect: constitutional forcing as a universal pattern
-in information theory and prime arithmetic,
+The Shannon--Wakil Effect: Constitutional Forcing as a Universal Pattern
+in Information Theory and Prime Arithmetic,
 ARC Institute of Knowware, preprint, 2026.
 
 \bibitem{WakilEisenstein}
 K.~Wakil,
-Ternary forcing on the hexagonal lattice: Eisenstein integers, cascade
-moduli, and level of distribution~$5/8$,
+Ternary Forcing on the Hexagonal Lattice: Eisenstein Integers, Cascade
+Moduli, and a Conjectured Level of Distribution~$5/8$,
 ARC Institute of Knowware, preprint, 2026.
 
 \bibitem{WakilW3}
 K.~Wakil,
-Condition~W3: absence of Siegel zeros for characters modulo~$3^K$ via
-CM~structure of~$\Z[\omega]$,
+Condition~W3: Absence of Siegel Zeros for Characters Modulo~$3^K$,
 ARC Institute of Knowware, preprint, 2026.
 
 \end{thebibliography}

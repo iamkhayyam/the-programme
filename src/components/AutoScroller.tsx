@@ -27,7 +27,6 @@ export default function AutoScroller() {
                <span className="font-plex-mono text-[0.5rem] text-mid uppercase tracking-[0.2em] opacity-70 mb-1">Menu</span>
                <Link to="/preprints" onClick={() => setIsExpanded(false)} className="text-[0.7rem] text-light hover:text-accent uppercase tracking-widest font-medium transition-colors">Papers</Link>
                <Link to="/essays" onClick={() => setIsExpanded(false)} className="text-[0.7rem] text-light hover:text-accent uppercase tracking-widest font-medium transition-colors">Essays</Link>
-               <Link to="/constitutional-proof" onClick={() => setIsExpanded(false)} className="text-[0.7rem] text-light hover:text-accent uppercase tracking-widest font-medium transition-colors">SCRIPT</Link>
                <a href="https://github.com/iamkhayyam/the-programme" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-[0.7rem] text-light hover:text-accent uppercase tracking-widest font-medium transition-colors">
                  GitHub <ExternalLink size={10} />
                </a>

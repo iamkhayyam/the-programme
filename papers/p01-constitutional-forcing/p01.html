@@ -1,289 +1,1899 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Constitutional Forcing — Wakil 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Constitutional Forcing</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<!-- xhtml,mathjax,charset=utf-8,html --> 
+<meta name="src" content="p01.tex" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
-@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
-:root{--linen:#e8e4dc;--ink:#111;--mid:#444;--light:#888;--rule:#ccc;--lrule:#ddd;--bg:#faf9f6;--note-bg:#f4f2ee;--accent:#8B0000;--link:#1a3a7c;--sidebar-w:220px;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{font-size:14px;}
-body{background:var(--linen);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;}
-.site-header{border-bottom:1px solid var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:50px;background:var(--linen);position:sticky;top:0;z-index:100;}
-.site-logo{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.88rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);text-decoration:none;line-height:1.1;}
-.site-logo span{display:block;font-size:.58rem;letter-spacing:.22em;color:var(--light);font-weight:300;}
-.site-nav{display:flex;gap:1.8rem;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;}
-.site-nav a{color:var(--ink);text-decoration:none;}
-.preprint-bar{border-bottom:1px solid var(--rule);padding:.5rem 2rem;display:flex;align-items:center;justify-content:space-between;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);font-family:'IBM Plex Mono',monospace;}
-.preprint-bar .series-tag{color:var(--ink);font-weight:500;}
-.page-body{max-width:1080px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:var(--sidebar-w) 1fr;gap:0;}
-.sidebar{border-right:1px solid var(--rule);padding:2.5rem 1.8rem 2.5rem 0;position:sticky;top:50px;height:calc(100vh - 50px);overflow-y:auto;}
-.sb-label{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
-.sb-num{font-family:'IBM Plex Sans',sans-serif;font-size:3.2rem;font-weight:300;line-height:1;color:var(--ink);letter-spacing:-.02em;margin-bottom:1.8rem;}
-.sb-meta{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;color:var(--light);line-height:2;text-transform:uppercase;margin-bottom:1.8rem;}
-.sb-meta strong{color:var(--ink);display:block;font-weight:500;font-size:.55rem;margin-top:.6rem;}
-.sb-meta strong:first-child{margin-top:0;}
-.sb-links{margin-bottom:1.8rem;}
-.sb-link{display:block;font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;text-transform:uppercase;color:var(--link);text-decoration:none;padding:.35rem 0;border-bottom:1px solid var(--lrule);line-height:1.4;}
-.sb-link:last-child{border-bottom:none;}
-.sb-link:hover{color:var(--accent);}
-.sb-link .sb-link-label{color:var(--light);display:block;font-size:.48rem;}
-.series-index{list-style:none;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.04em;line-height:2.1;text-transform:uppercase;color:var(--light);}
-.series-index a{color:var(--light);text-decoration:none;}
-.series-index a:hover{color:var(--ink);}
-.series-index .curr{color:var(--ink);font-weight:500;}
-.series-index .curr::before{content:'→ ';}
-.paper{padding:2.5rem 0 4rem 2.8rem;background:var(--bg);min-height:calc(100vh - 50px);}
-.paper-header{text-align:center;padding-bottom:2rem;border-bottom:1px solid var(--rule);margin-bottom:2rem;}
-.paper-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--light);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem;}
-.paper-label a{color:var(--link);text-decoration:none;}
-h1.title{font-family:'STIX Two Text','Times New Roman',serif;font-weight:600;font-size:1.45rem;line-height:1.35;color:var(--ink);margin-bottom:1rem;}
-.authors{font-family:'IBM Plex Sans',sans-serif;font-size:.82rem;color:var(--mid);margin-bottom:.4rem;}
-.affiliation{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--light);font-style:italic;margin-bottom:1rem;}
-.paper-date{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--light);}
-.abstract-block{margin:0 2rem 1.5rem;padding:1.2rem 1.5rem;background:var(--note-bg);border:1px solid var(--rule);}
-.abs-label{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mid);margin-bottom:.7rem;text-align:center;}
-.abstract-block p{font-family:'STIX Two Text',serif;font-size:.88rem;line-height:1.65;color:var(--mid);text-align:justify;margin:0;}
-.keywords{margin:.8rem 2rem 1.5rem;font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;color:var(--light);text-align:center;}
-.keywords strong{color:var(--mid);font-weight:500;}
-.paper-meta-strip{display:flex;gap:1.5rem;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;padding:.8rem 1rem;border-top:1px solid var(--lrule);border-bottom:1px solid var(--lrule);}
-.meta-pill{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--light);}
-.meta-pill a{color:var(--link);text-decoration:none;border-bottom:1px solid var(--lrule);}
-.meta-pill a:hover{color:var(--accent);}
-.paper-body{font-family:'STIX Two Text','Times New Roman',serif;font-size:1rem;line-height:1.72;color:var(--ink);max-width:640px;}
-.paper-body p{text-align:justify;margin-bottom:.9em;hyphens:auto;}
-.paper-body h2{font-family:'STIX Two Text',serif;font-weight:600;font-size:1.05rem;color:var(--ink);margin:2.2rem 0 .8rem;counter-increment:section;}
-.paper-body h2::before{content:counter(section) '.  ';color:var(--accent);}
-.paper-body{counter-reset:section;}
-.paper-body h3{font-family:'STIX Two Text',serif;font-weight:600;font-size:.92rem;color:var(--mid);margin:1.5rem 0 .5rem;font-style:italic;}
-.eq-label{display:flex;align-items:center;justify-content:space-between;margin:1.2rem 0;}
-.eq-content{flex:1;text-align:center;font-family:'STIX Two Text',serif;font-size:1.02rem;}
-.eq-num{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);width:44px;text-align:right;}
-.env-block{margin:1.4rem 0;padding:1rem 1.2rem;font-family:'STIX Two Text',serif;font-size:.95rem;line-height:1.65;}
-.env-block.theorem{border:1px solid var(--rule);border-left:4px solid var(--ink);background:var(--note-bg);}
-.env-block.proposition{border:1px solid var(--rule);border-left:4px solid var(--mid);background:var(--note-bg);}
-.env-block.lemma{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
-.env-block.corollary{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
-.env-block.definition{border:1px solid var(--rule);border-left:4px solid var(--accent);background:#fff8f8;}
-.env-block.remark{border-left:3px solid var(--accent);background:#fff8f8;padding:.8rem 1.2rem;}
-.env-block.conjecture{border:1px dashed var(--rule);border-left:4px dashed var(--ink);background:var(--note-bg);}
-.env-label{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);margin-bottom:.5rem;}
-.env-block.remark .env-label,.env-block.definition .env-label{color:var(--accent);}
-.proof{margin:.5rem 0 1.2rem 1.5rem;font-family:'STIX Two Text',serif;font-size:.92rem;line-height:1.65;color:var(--mid);}
-.proof-label{font-family:'IBM Plex Sans',sans-serif;font-style:italic;font-size:.8rem;color:var(--light);margin-bottom:.3rem;}
-.qed{float:right;font-size:1rem;color:var(--mid);}
-table.formal{width:100%;border-collapse:collapse;margin:1.2rem 0 1rem;font-size:.85rem;font-family:'STIX Two Text',serif;}
-table.formal th{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid var(--ink);border-top:1px solid var(--ink);padding:.5rem .8rem;text-align:left;}
-table.formal td{padding:.45rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;}
-table.formal tr:last-child td{border-bottom:1px solid var(--ink);}
-.table-caption{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--mid);text-align:center;margin-bottom:1.5rem;font-style:italic;}
-.table-caption strong{font-style:normal;font-weight:500;}
-em{font-style:italic;}strong{font-weight:600;}
-sup{font-size:.7em;vertical-align:super;color:var(--accent);}
-sub{font-size:.7em;vertical-align:sub;}
-.next-paper{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--ink);max-width:640px;}
-.next-label{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
-.next-title{font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;}
-.next-title a{color:var(--ink);text-decoration:none;}
-.next-title a:hover{color:var(--link);}
-.next-desc{font-family:'STIX Two Text',serif;font-size:.88rem;color:var(--light);margin-top:.25rem;font-style:italic;}
-.references{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);max-width:640px;}
-.ref-list{list-style:none;counter-reset:refs;}
-.ref-list li{counter-increment:refs;padding-left:36px;position:relative;margin-bottom:.6rem;font-family:'STIX Two Text',serif;font-size:.82rem;line-height:1.5;color:var(--mid);}
-.ref-list li::before{content:'['counter(refs)']';position:absolute;left:0;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);}
-.site-footer{border-top:1px solid var(--ink);padding:.9rem 2rem;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);}
-@media(max-width:760px){.page-body{grid-template-columns:1fr;}.sidebar{position:static;height:auto;border-right:none;border-bottom:1px solid var(--rule);padding:1.5rem 0;}.paper{padding:1.5rem 0;}.preprint-bar{display:none;}.series-index{display:none;}.abstract-block{margin:0 0 1.5rem;}}
-</style>
-</head>
-<body>
+ 
+/* start css.sty */
+.cmr-10{font-size:83%;}
+.cmcsc-10{font-size:83%;}
+.cmti-10{font-size:83%; font-style: italic;}
+.cmbx-12{ font-weight: bold;}
+.cmbx-12{ font-weight: bold;}
+.cmti-12{ font-style: italic;}
+.cmtt-12{font-family: monospace,monospace;}
+.cmtt-12{font-family: monospace,monospace;}
+.cmtt-12{font-family: monospace,monospace;}
+.cmr-10x-x-109{font-size:90%;}
+.cmtt-10x-x-109{font-size:90%;font-family: monospace,monospace;}
+.cmtt-10x-x-109{font-family: monospace,monospace;}
+.cmtt-10x-x-109{font-family: monospace,monospace;}
+.cmbx-10{font-size:83%; font-weight: bold;}
+.cmbx-10{ font-weight: bold;}
+.cmtt-10{font-size:83%;font-family: monospace,monospace;}
+.cmtt-10{font-family: monospace,monospace;}
+.cmtt-10{font-family: monospace,monospace;}
+.small-caps{font-variant: small-caps; }
+p{margin-top:0;margin-bottom:0}
+p.indent{text-indent:0;}
+p + p{margin-top:1em;}
+p + div, p + pre {margin-top:1em;}
+div + p, pre + p {margin-top:1em;}
+a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+@media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+img.math{vertical-align:middle;}
+div.par-math-display, div.math-display{text-align:center;}
+li p.indent { text-indent: 0em }
+li p:first-child{ margin-top:0em; }
+li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
+li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+code.verb{font-family:monospace,monospace;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
+.hline:first-child{border-bottom:1px solid black;border-top:none;}
+.tabbing-right {text-align:right;}
+div.float, div.figure {margin-left: auto; margin-right: auto;}
+div.float img {text-align:center;}
+div.figure img {text-align:center;}
+.marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.reversemarginpar{float:left;}
+table.equation {width:100%;}
+.equation td{text-align:center; }
+td.equation { margin-top:1em; margin-bottom:1em; } 
+td.equation-label { width:5%; text-align:center; }
+td.eqnarray4 { width:5%; white-space: normal; }
+td.eqnarray2 { width:5%; }
+table.eqnarray-star, table.eqnarray {width:100%;}
+div.eqnarray{text-align:center;}
+div.array {text-align:center;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.pmatrix img{vertical-align:middle;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.bar-css {text-decoration:overline;}
+img.cdots{vertical-align:middle;}
+span.footnote-mark{ vertical-align: super; font-size:80%; }
+div.submaketitle{ text-align:left; margin-top:2em; border-top: 1px solid black; border-bottom: 1px solid black; margin-left:5%; margin-right:5%; font-size:85%; line-height: 95%;}
+div.submaketitle div {margin-top:0.5em; margin-bottom:0.5em; }
+div.submaketitle p { margin-top:0em; margin-bottom:0em; }
+div.abstract{ margin-top: 2em; text-align:left; margin-right:15pt; margin-left:15pt; }
+div.addresses p {margin-top:0em; margin-bottom:0em; }
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; text-align:center; }
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption span.id{font-weight: bold; white-space: nowrap; }
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.qed {width:2ex; float:right; text-align:right;}
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+div.translators {text-align:right; margin-bottom:0.7em;}
+.sectionHead{text-align:center;}
+.equation td{text-align:center; }
+.equation-star td{text-align:center; }
+table.equation-star { width:100%; }
+table.equation { width:100%; }
+table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:95%; margin-left:5%; white-space: nowrap;}
+table.align-star, table.alignat-star, table.xalignat-star, table.flalign-star {margin-left:auto; margin-right:auto; white-space: nowrap;}
+td.align-label { width:5%; text-align:center; }
+td.align-odd { text-align:right; padding-right:0.3em;}
+td.align-even { text-align:left; padding-right:0.6em;}
+table.multline, table.multline-star {width:100%;}
+td.gather {text-align:center; }
+table.gather {width:100%;}
+div.gather-star {text-align:center;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
+.hline:first-child{border-bottom:1px solid black;border-top:none;}
+div.array {text-align:center;}
+dl.enumerate-enumitem{display:grid; grid-template-columns: 3ch 1fr; align-items: top; row-gap:1ch;}
+tr#TBL-1-1- {border-top:0.13159em solid #000;} 
+tr#TBL-1-1- {border-bottom:0.08224em solid #000}
+tr#TBL-1-7- {border-bottom:0.13159em solid #000}
+tr#TBL-2-1- {border-top:0.13159em solid #000;} 
+tr#TBL-2-1- {border-bottom:0.08224em solid #000}
+tr#TBL-2-10- {border-bottom:0.13159em solid #000}
+/* end css.sty */
 
-<header class="site-header">
-  <a href="https://knowware.institute" class="site-logo">KNOWWARE<span>THE &nbsp; A.R.C &nbsp; INSTITUTE</span></a>
-  <nav class="site-nav">
-    <a href="../../papers/index.html">Pre-Print</a>
-    <a href="https://knowware.institute/contact">Contact</a>
-  </nav>
-</header>
 
-<div class="preprint-bar">
-  <span>ARC Institute of Knowware · February 2026</span>
-  <span class="series-tag">Constitutional Sieve Programme · Nine Papers</span>
-  <span>math.NT · 11N35 · Fisher Creek Ranch, Alberta</span>
-</div>
+body{max-width:48rem;margin:2rem auto;padding:0 1rem;font-family:"STIX Two Text","Times New Roman",serif;font-size:17px;line-height:1.55;color:#1a1a1a;background:#faf9f6}
+h2,h3,h4{line-height:1.3} .maketitle{text-align:center;margin-bottom:2rem} table{border-collapse:collapse;margin:1rem auto} td{padding:2px 8px}
+img{max-width:100%;height:auto} .abstract{margin:1.5rem 0;padding:1rem 1.25rem;background:#f4f2ee}
+@media (prefers-color-scheme: dark){body{background:#151515;color:#e8e6e1} .abstract{background:#222} a{color:#9bb8ff}}
+</style> 
+<script>window.MathJax = { tex: { tags: "ams", macros: {"Z": "\\mathbb{Z}", "Q": "\\mathbb{Q}", "R": "\\mathbb{R}", "Ck": "\\mathcal{C}_k", "thetak": "\\theta_k", "rhoc": "\\rho^{\\mathrm{config}}"} } }; </script> 
+ <script type="text/javascript" async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml-full.js"></script>  
+</head><body 
+>
+  <div class="maketitle">
+  <h2 class="titleHead">
+CONSTITUTIONAL FORCING
+  </h2>
+  <div class="authors"><span class="author" >
+<span 
+class="cmr-10">KHAYYAM WAKIL</span>
+  </span></div>
+         <div class="abstract">
+       <!--l. 63--><p class="noindent" ><span class="title">
+       <span 
+class="cmcsc-10">A<span 
+class="small-caps">b</span><span 
+class="small-caps">s</span><span 
+class="small-caps">t</span><span 
+class="small-caps">r</span><span 
+class="small-caps">a</span><span 
+class="small-caps">c</span><span 
+class="small-caps">t</span>.</span> </span><span 
+class="cmr-10">We  introduce  and  formally  deﬁne  </span><span 
+class="cmti-10">Constitutional  Forcing</span><span 
+class="cmr-10">:  a  proposed</span>
+       <span 
+class="cmr-10">mechanism by which the algebraic structure of a mathematical system would determine a</span>
+       <span 
+class="cmr-10">governing constant, leaving no freedom in its value.</span>
+       </p><!--l. 68--><p class="indent" >  <span 
+class="cmr-10">A system of depth</span> \(k\) <span 
+class="cmr-10">is deﬁned to have exactly</span> \(k\) <span 
+class="cmr-10">independent </span><span 
+class="cmti-10">constitutional constraints</span><span 
+class="cmr-10">, operating</span>
+       <span 
+class="cmr-10">on a binary conﬁguration space of size</span> \(2^k\)<span 
+class="cmr-10">, and we postulate that exactly</span> \(k\) <span 
+class="cmr-10">conﬁguration</span>
+       <span 
+class="cmr-10">classes are eliminated, leaving</span> \(2^k - k\) <span 
+class="cmr-10">valid conﬁgurations. The governing constant is then the</span>
+       <span 
+class="cmr-10">conﬁguration density </span>\begin {equation*}  \thetak = \frac {2^k - k}{2^k}.  \end {equation*} <span 
+class="cmr-10">This count is a postulate, not a theorem: if a conﬁguration is</span>
+       <span 
+class="cmr-10">called invalid whenever some constraint fails, there are</span> \(2^k - 1\) <span 
+class="cmr-10">invalid conﬁgurations, not</span>
+       \(k\)<span 
+class="cmr-10">.</span>
+       </p><!--l. 80--><p class="indent" >  <span 
+class="cmr-10">We examine three candidate instances. The Bombieri–Vinogradov level of distribution</span> \(1/2\) <span 
+class="cmr-10">is</span>
+       <span 
+class="cmr-10">assigned depth</span> \(k = 1\)<span 
+class="cmr-10">, but the assignment rests on the binary predicate “prime or not prime”, and the</span>
+       <span 
+class="cmr-10">same reasoning would assign</span> \(1/2\) <span 
+class="cmr-10">to any predicate. The cascade moduli</span> \(q = 3^K\) <span 
+class="cmr-10">are proposed as a</span>
+       <span 
+class="cmr-10">depth-</span>\(3\) <span 
+class="cmr-10">system with conjectured level</span> \(\theta _3 = 5/8\)<span 
+class="cmr-10"> </span><span class="cite"><span 
+class="cmr-10">[</span><a 
+href="#XWakilEisenstein"><span 
+class="cmr-10">16</span></a><span 
+class="cmr-10">]</span></span><span 
+class="cmr-10">; this assignment is currently unsupported.</span>
+       <span 
+class="cmr-10">Shannon’s theorems</span><span 
+class="cmr-10"> </span><span class="cite"><span 
+class="cmr-10">[</span><a 
+href="#XShannon1948"><span 
+class="cmr-10">11</span></a><span 
+class="cmr-10">]</span></span> <span 
+class="cmr-10">give the constants</span> \(H/\log |\mathcal {A}|\) <span 
+class="cmr-10">and</span> \(C\)<span 
+class="cmr-10">, not</span> \(1/2\)<span 
+class="cmr-10">, and are retained only as a</span>
+       <span 
+class="cmr-10">proposed analogy. We state the Constitutional Forcing Conjecture: every system with</span> \(k\)
+       <span 
+class="cmr-10">independent constitutional constraints has</span> \(\thetak = (2^k - k)/2^k\) <span 
+class="cmr-10">as its governing constant, and every depth</span> \(k \geq 1\) <span 
+class="cmr-10">is</span>
+       <span 
+class="cmr-10">realised.</span>
+       </p><!--l. 92--><p class="indent" >  <span 
+class="cmr-10">This paper is the ﬁrst of a nine-paper programme (p01–p09). The remaining eight papers develop</span>
+       <span 
+class="cmr-10">the proposed instances, their consequences and the cross-domain comparisons.</span></p></div>
+<div class="submaketitle">
+  <div class="date" >
+<!--l. 97--><p class="indent" >  <span 
+class="cmti-12">Date</span>: February 2026; revised November 2026.</p></div>
+  <div class="subjclass">
+<!--l. 97--><p class="indent" >  2020 <span 
+class="cmti-12">Mathematics Subject Classiﬁcation.  </span>11N35, 11N13, 94A15, 01A99 .</p></div>
+  <div class="keywords">
+<!--l. 97--><p class="indent" >  <span 
+class="cmti-12">Key words and phrases. </span>constitutional forcing, constitutional constraint, conﬁguration density,
+governing constant, sieve theory, level of distribution, Shannon entropy, channel capacity,
+\(k\)-hierarchy, Shannon–Wakil eﬀect, cross-domain structure.</p></div></div></div>
+<!--l. 99--><p class="noindent" ><span 
+class="cmbx-12">Revision note (November 2026). </span>The Counting Theorem of the February version is withdrawn
+as a theorem: its induction miscounts (under the paper’s own semantics there are \(2^k - 1\) invalid
+conﬁgurations, not \(k\)), and the count \(k\) is now stated as a postulate (Postulate <a 
+href="#x1-9001r6">2.6<!--tex4ht:ref: post:count --></a>). The Kolmogorov
+“\(\alpha = 3/4\)” instance is withdrawn: the formula gives \(\theta _2 = 1/2\), and Kolmogorov’s \(3/4\) is the exponent in \(\eta /L \sim \mathrm {Re}^{-3/4}\), obtained by
+                                                                                         
+                                                                                         
+dimensional analysis <span class="cite">[<a 
+href="#XKolmogorov1941">6</a>]</span>. The Bombieri–Vinogradov statement is corrected: it is an average over
+moduli, GRH does not raise its level, and levels above \(1/2\) are known for well-factorable weights. The
+cascade-moduli instance is downgraded to a proposal: \(\theta _W = 5/8\) is a conjecture, and the three “levels”
+modulo \(3\), \(9\) and \(27\) are not independent. The Shannon instance is downgraded to a proposed analogy,
+the Sophie Germain “non-instance” is reduced to a remark, and the Pascadi citation is
+corrected. The programme table now lists the nine papers p01–p09 with their revised
+status.
+</p>
+  <h3 class="sectionHead"><a 
+ id="x1-1000"></a>Contents</h3>
+  <div class="tableofcontents"><span class="sectionToc" ><a 
+href="#x1-1000" id="QQ2-1-1">Contents</a></span><br /><span class="sectionToc" > 1.  <a 
+href="#x1-20001" id="QQ2-1-2">What Constitutional Forcing Is</a></span><br /><span class="subsectionToc" > 1.1.  <a 
+href="#x1-30001.1" id="QQ2-1-3">The problem
+this paper addresses</a></span><br /><span class="subsectionToc" > 1.2.  <a 
+href="#x1-40001.2" id="QQ2-1-4">Status of the proposal</a></span><br /><span class="subsectionToc" > 1.3.  <a 
+href="#x1-50001.3" id="QQ2-1-5">Relationship
+to the Shannon–Wakil Eﬀect</a></span><br /><span class="sectionToc" > 2.  <a 
+href="#x1-60002" id="QQ2-1-6">The Deﬁnitions</a></span><br /><span class="subsectionToc" > 2.1.  <a 
+href="#x1-70002.1" id="QQ2-1-7">Constitutional
+constraints</a></span><br /><span class="subsectionToc" > 2.2.  <a 
+href="#x1-80002.2" id="QQ2-1-8">Constitutional  Forcing</a></span><br /><span class="subsectionToc" > 2.3.  <a 
+href="#x1-90002.3" id="QQ2-1-9">The  counting
+postulate</a></span><br /><span class="sectionToc" > 3.  <a 
+href="#x1-100003" id="QQ2-1-11">Three Candidate Instances</a></span><br /><span class="subsectionToc" > 3.1.  <a 
+href="#x1-110003.1" id="QQ2-1-12">Prime arithmetic:
+Bombieri–Vinogradov (\(k = 1\))</a></span><br /><span class="subsectionToc" > 3.2.  <a 
+href="#x1-120003.2" id="QQ2-1-13">Prime arithmetic: cascade moduli
+(proposed \(k = 3\))</a></span><br /><span class="subsectionToc" > 3.3.  <a 
+href="#x1-130003.3" id="QQ2-1-14">Information theory: Shannon’s theorems (a proposed
+analogy)</a></span><br /><span class="sectionToc" > 4.  <a 
+href="#x1-140004" id="QQ2-1-15">Non-Instances and Falsiﬁability</a></span><br /><span class="sectionToc" > 5.  <a 
+href="#x1-150005" id="QQ2-1-16">The Constitutional
+Forcing Conjecture</a></span><br /><span class="sectionToc" > 6.  <a 
+href="#x1-160006" id="QQ2-1-17">Position in the Nine-Paper Programme</a></span><br /><span class="sectionToc" > 7.  <a 
+href="#x1-170007" id="QQ2-1-19">What
+Constitutional Forcing Is Not</a></span><br /><span class="subsectionToc" > 7.1.  <a 
+href="#x1-180007.1" id="QQ2-1-20">Not, at present, more than
+an analogy across domains</a></span><br /><span class="subsectionToc" > 7.2.  <a 
+href="#x1-190007.2" id="QQ2-1-21">Numerology, and how to avoid
+it</a></span><br /><span class="subsectionToc" > 7.3.  <a 
+href="#x1-200007.3" id="QQ2-1-22">Not a claim of isomorphism</a></span><br /><span class="sectionToc" ><a 
+href="#x1-21000" id="QQ2-1-23">Acknowledgements</a></span><br /><span class="sectionToc" ><a 
+href="#x1-22000" id="QQ2-1-24">References</a></span><br />
+  </div>
+  <h3 class="sectionHead"><span class="titlemark">1. </span> <a 
+ id="x1-20001"></a>What Constitutional Forcing Is</h3>
+<!--l. 122--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">1.1. </span> <a 
+ id="x1-30001.1"></a><span 
+class="cmbx-12">The problem this paper addresses.</span></span>
+  Some constants in mathematics invite the question “why this value and not another?” The
+Bombieri–Vinogradov exponent \(1/2\) is an example. This paper proposes a framework in which such a
+constant would be read oﬀ from the number of independent structural constraints on the
+system, and it states the framework precisely enough that each proposed instance can be
+checked.
+</p><!--l. 130--><p class="indent" >  We call it <span 
+class="cmti-12">Constitutional Forcing</span>. The name is deliberate. A constitutional constraint is one that
+is not imposed from outside the system but is <span 
+class="cmti-12">inherent to its constitution</span>—to what the
+system fundamentally is. Constitutional Forcing, if it occurs, is the situation in which a
+system’s own constitution leaves no room for any governing constant other than the one it
+has.
+</p>
+<!--l. 137--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">1.2. </span> <a 
+ id="x1-40001.2"></a><span 
+class="cmbx-12">Status of the proposal.</span></span>
+                                                                                         
+                                                                                         
+  The two arithmetic candidates examined in Section <a 
+href="#x1-100003">3<!--tex4ht:ref: sec:instances --></a> rest, so far, on numerical coincidences: the
+Bombieri–Vinogradov exponent \(1/2\) equals \(\theta _1\), and the exponent \(5/8\) that Pascadi <span class="cite">[<a 
+href="#XPascadi2025">9</a>]</span> obtained for primes
+with triply-well-factorable weights to general moduli equals \(\theta _3\). A coincidence of this kind is not
+evidence. Section <a 
+href="#x1-100003">3<!--tex4ht:ref: sec:instances --></a> checks each candidate against the deﬁnition and records that none currently
+satisﬁes it in full.
+</p><!--l. 147--><p class="indent" >  The purpose of this paper is therefore to ﬁx the deﬁnitions on which the eight companion papers
+rely, and to state precisely what would have to be proved for a system to count as an
+instance.
+</p>
+<!--l. 151--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">1.3. </span> <a 
+ id="x1-50001.3"></a><span 
+class="cmbx-12">Relationship to the Shannon–Wakil Eﬀect.</span></span>
+  In the programme’s terminology, Constitutional Forcing is the proposed <span 
+class="cmti-12">mechanism </span>and the
+Shannon–Wakil Eﬀect <span class="cite">[<a 
+href="#XWakilShannon">18</a>]</span> the proposed <span 
+class="cmti-12">observable</span>: the reduction of an exponential conﬁguration
+space to its valid part. The intended relationship is: \[ \text {Constitutional Forcing} \;\xrightarrow {\text {acts on}}\; \text {exponential space} \;\xrightarrow {\text {produces}}\; \text {Shannon--Wakil Effect}. \] The present paper supplies the deﬁnitions on
+which <span class="cite">[<a 
+href="#XWakilShannon">18</a>]</span> relies.
+</p>
+  <h3 class="sectionHead"><span class="titlemark">2. </span> <a 
+ id="x1-60002"></a>The Deﬁnitions</h3>
+<!--l. 171--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">2.1. </span> <a 
+ id="x1-70002.1"></a><span 
+class="cmbx-12">Constitutional constraints.</span></span>
+</p>
+  <div class="newtheorem">
+<!--l. 173--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7001r1"></a>
+<span 
+class="cmbx-12">Deﬁnition 2.1 </span>(Constitutional constraint)<span 
+class="cmbx-12">.</span>  </span> Let \(S\) be a mathematical system with a binary
+conﬁguration space at each operational level. A constraint \(\mathcal {C}_i\) at level \(i\) is <span 
+class="cmti-12">constitutional </span>if it satisﬁes
+all three of the following:
+          </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+  (C1) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">Intrinsic.</span>  \(\mathcal {C}_i\)  is  forced  by  the  irreducible  algebraic  structure  of  \(S\)—it  is  not  a  free
+       parameter, an external imposition, or a modelling choice.
+          </dd><dt class="enumerate-enumitem">
+  (C2) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">Independent.</span> \(\mathcal {C}_i\) is structurally independent of constraints at other levels: it cannot be
+       derived from, or reduced to, a combination of constraints at levels \(j \neq i\).
+          </dd><dt class="enumerate-enumitem">
+  (C3) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">Binary-eliminating.</span> \(\mathcal {C}_i\) eliminates exactly one conﬁguration class at level \(i\). It does not
+       eliminate more (over-constrained) or fewer (under-constrained). How the eliminated
+       classes are counted in the full conﬁguration space is ﬁxed by Postulate <a 
+href="#x1-9001r6">2.6<!--tex4ht:ref: post:count --></a> below.</dd></dl>
+  </div>
+<!--l. 191--><p class="indent" >
+</p>
+                                                                                         
+                                                                                         
+  <div class="newtheorem">
+<!--l. 193--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7005r2"></a>
+<span 
+class="cmti-12">Remark </span>2.2<span 
+class="cmti-12">.</span>  </span>Condition (C1) is the most important and the hardest to fake. The test is
+counterfactual: <span 
+class="cmti-12">could one choose a diﬀerent value without changing the algebraic structure</span>
+<span 
+class="cmti-12">of the system? </span>If yes, the constraint is not constitutional. If no—if changing the constraint
+requires changing what the system fundamentally is—then it is.
+</p>
+  </div>
+<!--l. 199--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 201--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7006r3"></a>
+<span 
+class="cmti-12">Remark </span>2.3<span 
+class="cmti-12">.</span>  </span>Condition  (C2)  is  what  distinguishes  Constitutional  Forcing  from  ordinary
+constraint satisfaction. A system with \(k\) coupled constraints (each derivable from a single
+underlying  constraint)  has  eﬀective  depth  \(1\),  not  depth  \(k\).  An  example  is  twin-prime
+admissibility modulo powers of \(3\): for \(p &gt; 3\), the pair \((p, p+2)\) avoids divisibility by \(3\) if and only if \(p \equiv 2 \pmod 3\), and every
+lift of this class to modulus \(9\) or \(27\) again avoids it, so the “conditions” modulo \(9\) and \(27\) are implied
+by the condition modulo \(3\) (Section <a 
+href="#x1-120003.2">3.2<!--tex4ht:ref: sec:cascade --></a>). Note also that \(\theta _1 = \theta _2 = 1/2\) (checked in the accompanying Lean
+ﬁles), so the value \(1/2\) alone cannot distinguish depth \(1\) from depth \(2\).
+</p>
+  </div>
+<!--l. 212--><p class="indent" >
+</p>
+<!--l. 214--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">2.2. </span> <a 
+ id="x1-80002.2"></a><span 
+class="cmbx-12">Constitutional Forcing.</span></span>
+</p>
+  <div class="newtheorem">
+<!--l. 216--><p class="noindent" ><span class="head">
+<a 
+ id="x1-8001r4"></a>
+<span 
+class="cmbx-12">Deﬁnition 2.4 </span>(Constitutional Forcing)<span 
+class="cmbx-12">.</span>  </span> A system \(S\) exhibits <span 
+class="cmti-12">Constitutional Forcing of depth</span> \(k\)
+if:
+          </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+(CF1) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">Conﬁguration space.</span> \(S\) has a binary conﬁguration space \(\Ck = \{0,1\}^k\) of size \(2^k\) at depth \(k\). Each
+       conﬁguration \(c = (c_1, \ldots , c_k)\) records whether the constraint at level \(i\) is satisﬁed (\(c_i = 1\)) or violated (\(c_i = 0\)).
+          </dd><dt class="enumerate-enumitem">
+(CF2) </dt><dd 
+class="enumerate-enumitem">\(k\) <span 
+class="cmti-12">independent constitutional constraints.</span> \(S\) has exactly \(k\) constitutional constraints \(\mathcal {C}_1, \ldots , \mathcal {C}_k\) in
+       the sense of Deﬁnition <a 
+href="#x1-7001r1">2.1<!--tex4ht:ref: def:constitutional --></a>, one per level.
+                                                                                         
+                                                                                         
+          </dd><dt class="enumerate-enumitem">
+(CF3) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">Counting postulate. </span>Exactly \(k\) conﬁgurations of \(\Ck \) are invalid, one attributed to each \(\mathcal {C}_i\)
+       (Postulate <a 
+href="#x1-9001r6">2.6<!--tex4ht:ref: post:count --></a>), so that the valid conﬁgurations number \(2^k - k\) and the governing constant is the
+       conﬁguration density \begin {equation}  \label {eq:theta} \thetak = \frac {2^k - k}{2^k}.  \end {equation}<a 
+ id="x1-8005r1"></a>
+          </dd><dt class="enumerate-enumitem">
+(CF4) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">Uniqueness. </span>The governing constant of \(S\) (for example, its level of distribution) equals \(\thetak \), and
+       it cannot be changed without either removing a constitutional constraint (reducing depth)
+       or adding one (increasing depth).</dd></dl>
+  </div>
+<!--l. 240--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 242--><p class="noindent" ><span class="head">
+<a 
+ id="x1-8007r5"></a>
+<span 
+class="cmti-12">Remark </span>2.5<span 
+class="cmti-12">.</span>  </span>In this revision the formula \((2^k - k)/2^k\) is part of the deﬁnition, through the counting
+postulate in (CF3); it is not derived. Condition (CF4) carries the substantive content: for a
+given system it asserts that the system’s governing constant equals \(\thetak \) and is rigid. Verifying
+(CF4) for a particular system is a mathematical claim about that system and needs its own
+proof.
+</p>
+  </div>
+<!--l. 249--><p class="indent" >
+</p>
+<!--l. 251--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">2.3. </span> <a 
+ id="x1-90002.3"></a><span 
+class="cmbx-12">The counting postulate.</span></span>
+  The February version stated the following as a theorem (the “Counting Theorem”) and gave
+a proof by induction. The proof is invalid (Remark <a 
+href="#x1-9002r7">2.7<!--tex4ht:ref: rem:count --></a>), and the statement is now a
+postulate.
+</p>
+  <div class="newtheorem">
+<!--l. 257--><p class="noindent" ><span class="head">
+<a 
+ id="x1-9001r6"></a>
+<span 
+class="cmbx-12">Postulate 2.6 </span>(Counting postulate)<span 
+class="cmbx-12">.</span>  </span> In a system of depth \(k\), exactly \(k\) conﬁguration classes
+in \(\Ck = \{0,1\}^k\) are eliminated, one by each constitutional constraint.
+</p>
+  </div>
+<!--l. 261--><p class="indent" >
+</p><!--l. 263--><p class="indent" >  Granting Postulate <a 
+href="#x1-9001r6">2.6<!--tex4ht:ref: post:count --></a>, the valid conﬁgurations number \(2^k - k\) out of \(2^k\), and the conﬁguration density
+is \(\thetak = (2^k - k)/2^k\), as in (<a 
+href="#x1-8005r1">1<!--tex4ht:ref: eq:theta --></a>).
+                                                                                         
+                                                                                         
+</p>
+  <div class="newtheorem">
+<!--l. 267--><p class="noindent" ><span class="head">
+<a 
+ id="x1-9002r7"></a>
+<span 
+class="cmti-12">Remark </span>2.7 (Why this is not a theorem)<span 
+class="cmti-12">.</span>  </span> Under (CF1), \(c_i = 1\) exactly when constraint \(i\) holds.
+If  a  conﬁguration  is  called  invalid  whenever  some  constraint  fails,  then  a  single  failing
+constraint already invalidates the \(2^{k-1}\) conﬁgurations with \(c_i = 0\); in total \(2^k - 1\) conﬁgurations are invalid
+and exactly one, \((1, \ldots , 1)\), is valid, for every \(k\) (for \(k = 3\): seven invalid, not three). The revised Lean ﬁle
+P05 proves this count as <span 
+class="cmtt-12">invalid</span><span 
+class="cmtt-12">_count</span>. The withdrawn induction overlooked that each of
+the \(k - 1\) conﬁgurations invalid at depth \(k - 1\) splits into two at depth \(k\). The count \(k\) is therefore an
+additional assumption about which conﬁguration classes are counted as eliminated, not a
+consequence of (CF1) and (CF2).
+</p>
+  </div>
+<!--l. 279--><p class="indent" >
+</p><!--l. 281--><p class="indent" >  Table <a 
+href="#x1-90031">1<!--tex4ht:ref: tab:theta --></a> displays the conﬁguration densities for \(k = 1, \ldots , 6\).
+                                                                                         
+                                                                                         
+</p><!--l. 284--><p class="indent" >  <a 
+ id="x1-90031"></a></p><hr class="float" /><div class="float" 
+>
+                                                                                         
+                                                                                         
+ <div class="caption" 
+><span class="id">Table 1:  </span><span  
+class="content">Conﬁguration  densities  \(\thetak = (2^k - k)/2^k\)  under  Postulate <a 
+href="#x1-9001r6">2.6<!--tex4ht:ref: post:count --></a>.  The  “Invalid”  column  is  the
+postulated count \(k\); if “invalid” meant “some constraint fails”, it would be \(2^k - 1\).</span></div><!--tex4ht:label?: x1-90031 -->
+<div class="tabular">
+ <table id="TBL-1" class="tabular" 
+ 
+><colgroup id="TBL-1-1g"><col 
+id="TBL-1-1" /><col 
+id="TBL-1-2" /><col 
+id="TBL-1-3" /><col 
+id="TBL-1-4" /><col 
+id="TBL-1-5" /></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-1-1-"><td  style="white-space:nowrap; text-align:right;" id="TBL-1-1-1"  
+class="td11"> \(k\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-1-2"  
+class="td11"> \(2^k\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-1-3"  
+class="td11"> Invalid </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-1-4"  
+class="td11"> Valid </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-1-5"  
+class="td11"> \(\thetak \) </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-2-"><td  style="white-space:nowrap; text-align:right;" id="TBL-1-2-1"  
+class="td11"> \(1\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-2-2"  
+class="td11"> \(2\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-2-3"  
+class="td11">      \(1\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-2-4"  
+class="td11">     \(1\) </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-2-5"  
+class="td11"> \(1/2\) </td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-3-"><td  style="white-space:nowrap; text-align:right;" id="TBL-1-3-1"  
+class="td11">  \(2\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-3-2"  
+class="td11">  \(4\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-3-3"  
+class="td11">  \(2\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-3-4"  
+class="td11">  \(2\) </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-3-5"  
+class="td11">  \(1/2\)</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-4-"><td  style="white-space:nowrap; text-align:right;" id="TBL-1-4-1"  
+class="td11"> \(3\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-4-2"  
+class="td11"> \(8\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-4-3"  
+class="td11">      \(3\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-4-4"  
+class="td11">     \(5\) </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-4-5"  
+class="td11"> \(5/8\) </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-5-"><td  style="white-space:nowrap; text-align:right;" id="TBL-1-5-1"  
+class="td11"> \(4\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-5-2"  
+class="td11"> \(16\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-5-3"  
+class="td11">      \(4\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-5-4"  
+class="td11">     \(12\) </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-5-5"  
+class="td11"> \(3/4\) </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-6-"><td  style="white-space:nowrap; text-align:right;" id="TBL-1-6-1"  
+class="td11"> \(5\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-6-2"  
+class="td11"> \(32\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-6-3"  
+class="td11">      \(5\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-6-4"  
+class="td11">     \(27\) </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-6-5"  
+class="td11"> \(27/32\) </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-7-"><td  style="white-space:nowrap; text-align:right;" id="TBL-1-7-1"  
+class="td11"> \(6\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-7-2"  
+class="td11"> \(64\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-7-3"  
+class="td11">      \(6\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-7-4"  
+class="td11">     \(58\) </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-7-5"  
+class="td11"> \(29/32\) </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-8-"><td  style="white-space:nowrap; text-align:right;" id="TBL-1-8-1"  
+class="td11">  </td></tr></table>                                                                                    </div>
+                                                                                         
+                                                                                         
+  </div><hr class="endfloat" />
+  <h3 class="sectionHead"><span class="titlemark">3. </span> <a 
+ id="x1-100003"></a>Three Candidate Instances</h3>
+<!--l. 309--><p class="noindent" >We examine three candidate instances against Deﬁnition <a 
+href="#x1-8001r4">2.4<!--tex4ht:ref: def:CF --></a>. None of them currently satisﬁes the
+deﬁnition in full; for each we record what holds and what does not.
+</p>
+<!--l. 313--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">3.1. </span> <a 
+ id="x1-110003.1"></a><span 
+class="cmbx-12">Prime arithmetic: Bombieri–Vinogradov (</span>\(k = 1\)<span 
+class="cmbx-12">).</span></span>
+  The Bombieri–Vinogradov theorem <span class="cite">[<a 
+href="#XBombieri1965">3</a>, <a 
+href="#XVinogradov1965">12</a>]</span> states that for every \(A &gt; 0\) there is \(B = B(A)\) such that \[ \sum _{q \leq x^{1/2}(\log x)^{-B}} \; \max _{(a,q) = 1} \Bigl | \psi (x;q,a) - \frac {x}{\varphi (q)} \Bigr | \ll _A \frac {x}{(\log x)^A}. \] It is a
+statement on average over the moduli, not one for each \(q \leq x^{1/2}\). The exponent \(1/2\) is its level of
+distribution.
+</p>
+  <div class="newtheorem">
+<!--l. 326--><p class="noindent" ><span class="head">
+<a 
+ id="x1-11001r1"></a>
+<span 
+class="cmbx-12">Proposal 3.1 </span>(Bombieri–Vinogradov as a depth-\(1\) system)<span 
+class="cmbx-12">.</span>  </span>   It   is   proposed   that   the
+Bombieri–Vinogradov level of distribution \(1/2\) is an instance of Constitutional Forcing at depth
+\(k = 1\).
+</p>
+  </div>
+<!--l. 330--><p class="indent" >
+</p><!--l. 332--><p class="noindent" ><span 
+class="cmti-12">Check against Deﬁnition</span><span 
+class="cmti-12"> </span><a 
+href="#x1-8001r4"><span 
+class="cmti-12">2.4</span><!--tex4ht:ref: def:CF --></a><span 
+class="cmti-12">. </span>(CF1): Conﬁguration space \(\{0,1\}^1 = \{0,1\}\), size \(2\).
+</p><!--l. 335--><p class="indent" >  (CF2): The proposed constraint is primality. A positive integer either is prime (\(c_1 = 1\))
+or is not (\(c_1 = 0\)); the constraint is intrinsic, and there is only one. But the same reasoning
+applies verbatim to any predicate on the integers (being squarefree, being a sum of
+two squares, …), and would assign each of them depth \(1\) and constant \(1/2\). As applied here,
+(CF2) therefore contains nothing speciﬁc to the primes or to the Bombieri–Vinogradov
+theorem.
+</p><!--l. 343--><p class="indent" >  (CF3): Under Postulate <a 
+href="#x1-9001r6">2.6<!--tex4ht:ref: post:count --></a>, one conﬁguration is invalid and one valid, so \(\theta _1 = 1/2\).
+</p><!--l. 346--><p class="indent" >  (CF4): Not established, and the justiﬁcation given in the February version was incorrect. The
+Generalised Riemann Hypothesis does not raise the level beyond \(1/2\): for a single modulus it gives the
+expected asymptotic only for \(q \leq x^{1/2-\varepsilon }\), and a level beyond \(1/2\) for general moduli is the content of the separate
+Elliott–Halberstam conjecture. Levels beyond \(1/2\) are known unconditionally in restricted settings: \(1/2 + 1/584\)
+(Zhang <span class="cite">[<a 
+href="#XZhang2014">13</a>]</span>) and \(1/2 + 7/300\) (Polymath <span class="cite">[<a 
+href="#XPolymath2014">10</a>]</span>) for smooth squarefree moduli; and, for a ﬁxed residue class and
+suitably well-factorable weights, \(4/7\) (Bombieri–Friedlander–Iwaniec <span class="cite">[<a 
+href="#XBFI1986">4</a>]</span>), \(3/5\) (Maynard <span class="cite">[<a 
+href="#XMaynard2020">8</a>]</span>), \(66/107\)
+(Lichtman <span class="cite">[<a 
+href="#XLichtman2023">7</a>]</span>) and \(5/8\) (Pascadi <span class="cite">[<a 
+href="#XPascadi2025">9</a>]</span>). None of \(4/7\), \(3/5\) or \(66/107\) has the form \((2^k - k)/2^k\), so the claim of the February
+version that any improvement on \(1/2\) requires an increase of depth is not supported. Pascadi’s
+theorem concerns general moduli; it does not restrict to cascade moduli and does not “increase the
+depth”.
+                                                                                         
+                                                                                         
+</p>
+<!--l. 362--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">3.2. </span> <a 
+ id="x1-120003.2"></a><span 
+class="cmbx-12">Prime arithmetic: cascade moduli (proposed</span> \(k = 3\)<span 
+class="cmbx-12">).</span></span>
+  For cascade moduli \(q = 3^K\), the companion paper <span class="cite">[<a 
+href="#XWakilEisenstein">16</a>]</span> conjectures a level of distribution \(\theta _W = 5/8\). The February
+version presented this as an established depth-\(3\) instance. Both the arithmetic statement and the
+depth assignment are, at present, unsupported.
+</p>
+  <div class="newtheorem">
+<!--l. 370--><p class="noindent" ><span class="head">
+<a 
+ id="x1-12001r2"></a>
+<span 
+class="cmbx-12">Proposal 3.2 </span>(Cascade moduli as a depth-\(3\) system)<span 
+class="cmbx-12">.</span>  </span> It is proposed that primes have level
+of distribution \(\theta _3 = 5/8\) to the moduli \(q = 3^K\), and that this is an instance of Constitutional Forcing at
+depth \(k = 3\). Both parts are conjectural.
+</p>
+  </div>
+<!--l. 375--><p class="indent" >
+</p><!--l. 377--><p class="noindent" ><span 
+class="cmti-12">Check against Deﬁnition</span><span 
+class="cmti-12"> </span><a 
+href="#x1-8001r4"><span 
+class="cmti-12">2.4</span><!--tex4ht:ref: def:CF --></a><span 
+class="cmti-12">. </span>(CF1): Conﬁguration space \(\{0,1\}^3\), size \(8\).
+</p><!--l. 380--><p class="indent" >  (CF2): The February version proposed three constraints on a twin prime pair \((p, p+2)\) with \(p &gt; 3\), at the
+moduli \(3\), \(9\) and \(27\). Only the ﬁrst is a constraint. Modulo \(3\), \(p \equiv 2\) is the only class for which neither \(p\) nor \(p + 2\) is
+divisible by \(3\). Modulo \(9\) and \(27\) nothing further is excluded: each of the \(3\) (respectively \(9\)) lifts of \(2 \bmod 3\) keeps
+both \(p\) and \(p + 2\) prime to \(3\). The conditions modulo \(9\) and \(27\) are implied by the condition modulo \(3\), so (C2)
+fails and, by the paper’s own criterion, the depth is \(1\). Nor does \(\Z [\omega ]\) supply three levels: since \((3) = (1-\omega )^2\), the \((1-\omega )\)-adic
+ﬁltration of \(\Z [\omega ]/(3^K)\) has \(2K\) steps, each with quotient \(\mathbb {F}_3\). The “eight conﬁguration classes” were never
+deﬁned.
+</p><!--l. 392--><p class="indent" >  (CF3): With one constraint, Postulate <a 
+href="#x1-9001r6">2.6<!--tex4ht:ref: post:count --></a> gives \(\theta _1 = 1/2\). The value \(5/8\) would require three independent
+constraints, and none has been exhibited beyond the ﬁrst.
+</p><!--l. 396--><p class="indent" >  (CF4): Not established. Twin-prime admissibility and the level of distribution of primes to the
+moduli \(3^K\) are, moreover, diﬀerent objects. The arithmetic statement itself is open in its meaningful
+form: </p>
+          <ul class="itemize1">
+       <li class="itemize">
+       <!--l. 400--><p class="indent" >   The  summed  statement  \[ \sum _{3^K \leq x^{\theta }} \max _{(a,3) = 1} \Bigl | \psi (x;3^K,a) - \frac {x}{\varphi (3^K)} \Bigr | \ll \frac {x}{(\log x)^A} \]  holds  for  <span 
+class="cmti-12">every  </span>ﬁxed  \(\theta &lt; 1\):  for  \(3^K &gt; (\log x)^{A+1}\)  the  trivial  bound  \(\ll x \log x / 3^K\)  sums
+       geometrically, and the Siegel–Walﬁsz theorem covers the \(O(\log \log x)\) remaining moduli. In this
+       form it carries no information about \(5/8\).
+          </p></li>
+       <li class="itemize">
+       <!--l. 410--><p class="indent" >   The  per-modulus  version  (the  expected  asymptotic  for  \(\psi (x;3^K,a)\)  for  each  \(3^K \leq x^{5/8-\varepsilon }\))  would  go
+       beyond what GRH gives (\(x^{1/2}\)). For prime-power moduli the best known ranges are \(3/8\)
+       (Barban–Linnik–Tshudakov <span class="cite">[<a 
+href="#XBLT1964">2</a>]</span>), \(2/5\) (Gallagher <span class="cite">[<a 
+href="#XGallagher1972">5</a>]</span>) and \(5/12\) (Huxley), with lower bounds
+       of the correct order up to \(x^{0.4736}\) (Banks–Shparlinski); see <span class="cite">[<a 
+href="#XBaierPujahari2022">1</a>]</span> for an account.</p></li></ul>
+<!--l. 418--><p class="noindent" >The “uniqueness of \(5/8\)” cited in the February version (an Eisenstein “ceiling \(2/3\)” combined with
+cyclic-group cancellation) is withdrawn. Pascadi’s exponent \(5/8\) <span class="cite">[<a 
+href="#XPascadi2025">9</a>]</span> concerns smooth numbers, and
+primes with triply-well-factorable weights, in progressions to general moduli; its numerical
+                                                                                         
+                                                                                         
+agreement with \(\theta _3\) is a coincidence, not evidence.
+</p>
+<!--l. 424--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">3.3. </span> <a 
+ id="x1-130003.3"></a><span 
+class="cmbx-12">Information theory: Shannon’s theorems (a proposed analogy).</span></span>
+  The February version presented Shannon’s asymptotic equipartition property (AEP) and
+channel coding theorem <span class="cite">[<a 
+href="#XShannon1948">11</a>]</span> as depth-\(1\) instances. They do not satisfy Deﬁnition <a 
+href="#x1-8001r4">2.4<!--tex4ht:ref: def:CF --></a>, because their
+governing constants are not \(\theta _1 = 1/2\). </p>
+          <ul class="itemize1">
+       <li class="itemize">
+       <!--l. 432--><p class="indent" >   <span 
+class="cmti-12">AEP. </span>For a memoryless source with alphabet \(\mathcal {A}\) and entropy \(H\) (logarithms to base \(2\)),
+       the typical set has about \(2^{nH}\) of the \(|\mathcal {A}|^n\) sequences of length \(n\). The natural constant is the
+       exponent ratio \(H/\log |\mathcal {A}|\), which takes every value in \([0,1]\): it is \(0.469\) for a Bernoulli\((0.1)\) source and \(0.811\) for
+       a Bernoulli\((0.25)\) source. The typical set’s share of \(\mathcal {A}^n\) is about \(2^{-n(\log |\mathcal {A}| - H)}\), which tends to \(0\) unless the
+       source is uniform.
+          </p></li>
+       <li class="itemize">
+       <!--l. 440--><p class="indent" >   <span 
+class="cmti-12">Channel coding. </span>The capacity is \(C = \max _{p(x)} I(X;Y)\). For a binary symmetric channel with crossover
+       probability \(\rho \) it is \(1 - h(\rho )\), where \(h\) is the binary entropy function; again this takes every value
+       in \([0,1]\).</p></li></ul>
+<!--l. 445--><p class="noindent" >What the two theorems share with Deﬁnition <a 
+href="#x1-8001r4">2.4<!--tex4ht:ref: def:CF --></a> is a binary split (typical or atypical; rate achievable
+or not). As with primality in Section <a 
+href="#x1-110003.1">3.1<!--tex4ht:ref: sec:BV --></a>, a binary split by itself would assign depth \(1\) to
+any predicate. We therefore retain the comparison only as a proposed analogy: in both
+settings a condition intrinsic to the system singles out part of an exponential space, and a
+constant ﬁxed by the system governs its size. Whether the analogy can be sharpened into
+an instance of Deﬁnition <a 
+href="#x1-8001r4">2.4<!--tex4ht:ref: def:CF --></a> is open; as it stands, the constants \(H/\log |\mathcal {A}|\) and \(C\) do not equal
+\(\theta _1\).
+</p>
+  <h3 class="sectionHead"><span class="titlemark">4. </span> <a 
+ id="x1-140004"></a>Non-Instances and Falsiﬁability</h3>
+<!--l. 460--><p class="noindent" >A framework that cannot be wrong is not mathematics. For Constitutional Forcing to make
+predictions, the depth \(k\) of a system—its constraints, with (C2) checked—must be ﬁxed before
+its governing constant is compared with \(\thetak \). Constitutional Forcing at depth \(k\) requires
+<span 
+class="cmti-12">genuinely </span>independent constraints, in the sense of (C2), not merely the appearance of
+independence; Section <a 
+href="#x1-120003.2">3.2<!--tex4ht:ref: sec:cascade --></a> gives an example where apparent independence fails. The
+February version did not meet this standard, and its proposed non-instance did not test the
+framework.
+</p>
+  <div class="newtheorem">
+<!--l. 469--><p class="noindent" ><span class="head">
+<a 
+ id="x1-14001r1"></a>
+<span 
+class="cmti-12">Remark </span>4.1 (Sophie Germain pairs)<span 
+class="cmti-12">.</span>  </span> The February version treated Sophie Germain pairs \((p, 2p+1)\)
+                                                                                         
+                                                                                         
+as a “non-instance” of depth \(2\) with eﬀective depth \(1\), on the ground that “\(2p+1\) is odd” follows
+from “\(p\) is odd”. That is no constraint at all: \(2p + 1\) is odd for every integer \(p\). The genuine local
+coupling is modulo \(3\): for \(p &gt; 3\), the conditions \(3 \nmid p\) and \(3 \nmid 2p+1\) together force \(p \equiv 2 \pmod 3\), the same single condition
+as for twin primes. Since \(\theta _1 = \theta _2 = 1/2\), the example cannot discriminate between depths \(1\) and \(2\) and is
+not a falsiﬁcation test. Moreover, a “level of distribution of Sophie Germain pairs” is not a
+deﬁned notion, and no ﬁnite computation can conﬁrm an asymptotic level, so the claimed
+computational conﬁrmation is withdrawn. The accompanying Lean ﬁles check \(\theta _1 = \theta _2\) and the mod-\(3\)
+fact.
+</p>
+  </div>
+<!--l. 483--><p class="indent" >
+</p>
+  <h3 class="sectionHead"><span class="titlemark">5. </span> <a 
+ id="x1-150005"></a>The Constitutional Forcing Conjecture</h3>
+  <div class="newtheorem">
+<!--l. 490--><p class="noindent" ><span class="head">
+<a 
+ id="x1-15001r1"></a>
+<span 
+class="cmbx-12">Conjecture 5.1 </span>(Constitutional Forcing Conjecture)<span 
+class="cmbx-12">.</span>  </span>   <span 
+class="cmti-12">Let</span>   \(S\)   <span 
+class="cmti-12">be   a   system   exhibiting</span>
+<span 
+class="cmti-12">Constitutional Forcing of depth</span> \(k\) <span 
+class="cmti-12">in the sense of Deﬁnition</span><span 
+class="cmti-12"> </span><a 
+href="#x1-8001r4"><span 
+class="cmti-12">2.4</span><!--tex4ht:ref: def:CF --></a><span 
+class="cmti-12">. Then the governing constant</span>
+<span 
+class="cmti-12">of</span> \(S\) <span 
+class="cmti-12">is uniquely forced to be </span>\[ \thetak = \frac {2^k - k}{2^k}, \] <span 
+class="cmti-12">and this value is achievable: there exist systems exhibiting</span>
+<span 
+class="cmti-12">Constitutional Forcing at every depth</span> \(k \geq 1\)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 500--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 502--><p class="noindent" ><span class="head">
+<a 
+ id="x1-15002r2"></a>
+<span 
+class="cmti-12">Remark </span>5.2<span 
+class="cmti-12">.</span>  </span>Conjecture <a 
+href="#x1-15001r1">5.1<!--tex4ht:ref: conj:CF --></a> has two parts. Under Deﬁnition <a 
+href="#x1-8001r4">2.4<!--tex4ht:ref: def:CF --></a> the value \(\thetak \) is built into
+(CF3) through Postulate <a 
+href="#x1-9001r6">2.6<!--tex4ht:ref: post:count --></a>, so the <span 
+class="cmti-12">uniqueness  </span>part holds by deﬁnition and carries no
+independent content. The substantive content is the <span 
+class="cmti-12">achievability </span>part: for each \(k\), a system
+must be exhibited whose \(k\) constraints are ﬁxed in advance and satisfy (C1)–(C3), and whose
+governing constant is proved to equal \(\thetak \), as (CF4) requires. No depth is currently realised
+in this sense: the \(k = 1\) candidates of Section <a 
+href="#x1-100003">3<!--tex4ht:ref: sec:instances --></a> rest on binary splits that would assign \(1/2\) to any
+predicate,  and  the  \(k = 3\)  candidate  is  unsupported.  The  February  version  singled  out  \(k = 4\),  with
+governing constant \(3/4\), as the ﬁrst open case; in fact every depth, including \(k = 1\), is open in this
+sense. Table <a 
+href="#x1-90031">1<!--tex4ht:ref: tab:theta --></a> is the programme’s prediction set, and it becomes falsiﬁable only when \(k\) is
+ﬁxed for a system before its constant is known.
+</p>
+                                                                                         
+                                                                                         
+  </div>
+<!--l. 516--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 518--><p class="noindent" ><span class="head">
+<a 
+ id="x1-15003r3"></a>
+<span 
+class="cmti-12">Remark </span>5.3<span 
+class="cmti-12">.</span>  </span>The  companion  paper <span class="cite">[<a 
+href="#XWakilShannon">18</a>]</span>  discusses  a  version  of  this  conjecture  in  the
+terminology of the Shannon–Wakil Eﬀect. The February version of this remark attributed
+to <span class="cite">[<a 
+href="#XWakilShannon">18</a>]</span> a category of Shannon–Wakil systems and a functor to \((0,1)\); no such construction appears
+there, and none is claimed here.
+</p>
+  </div>
+<!--l. 524--><p class="indent" >
+</p>
+  <h3 class="sectionHead"><span class="titlemark">6. </span> <a 
+ id="x1-160006"></a>Position in the Nine-Paper Programme</h3>
+<!--l. 531--><p class="noindent" >This paper is p01, the ﬁrst of a nine-paper programme. Table <a 
+href="#x1-160012">2<!--tex4ht:ref: tab:program --></a> lists the papers with the status of
+their main claims after the November 2026 revision.
+                                                                                         
+                                                                                         
+</p><!--l. 535--><p class="indent" >  <a 
+ id="x1-160012"></a></p><hr class="float" /><div class="float" 
+>
+                                                                                         
+                                                                                         
+ <div class="caption" 
+><span class="id">Table 2: </span><span  
+class="content">The nine-paper programme and the revised status of each paper’s main claim.</span></div><!--tex4ht:label?: x1-160012 -->
+                                                                                         
+                                                                                         
+<div class="tabular">
+ <table id="TBL-2" class="tabular" 
+ 
+><colgroup id="TBL-2-1g"><col 
+id="TBL-2-1" /><col 
+id="TBL-2-2" /><col 
+id="TBL-2-3" /></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-2-1-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-1-1"  
+class="td11"> <span 
+class="cmr-10x-x-109">Paper </span></td><td  style="white-space:normal; text-align:left;" id="TBL-2-1-2"  
+class="td11"> <!--l. 544--><p class="noindent" ><span 
+class="cmr-10x-x-109">Title</span>                                         </p></td><td  style="white-space:normal; text-align:left;" id="TBL-2-1-3"  
+class="td11"> <!--l. 544--><p class="noindent" ><span 
+class="cmr-10x-x-109">Main</span>
+ <span 
+class="cmr-10x-x-109">claim</span>
+ <span 
+class="cmr-10x-x-109">and</span>
+ <span 
+class="cmr-10x-x-109">revised</span>
+ <span 
+class="cmr-10x-x-109">status</span>                                             </p></td>
 
-<div class="page-body">
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-2-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-2-1"  
+class="td11">  <span 
+class="cmr-10x-x-109">p01   </span></td><td  style="white-space:normal; text-align:left;" id="TBL-2-2-2"  
+class="td11"> <!--l. 546--><p class="noindent" ><span 
+class="cmr-10x-x-109">Constitutional</span>
+ <span 
+class="cmr-10x-x-109">Forcing</span>
+ <span 
+class="cmr-10x-x-109">(this</span>
+ <span 
+class="cmr-10x-x-109">paper)</span>                                       </p></td><td  style="white-space:normal; text-align:left;" id="TBL-2-2-3"  
+class="td11"> <!--l. 547--><p class="noindent" ><span 
+class="cmr-10x-x-109">Framework;</span>
+ <span 
+class="cmr-10x-x-109">the</span>
+ <span 
+class="cmr-10x-x-109">count</span>
+ \(k\)
+ <span 
+class="cmr-10x-x-109">is</span>
+ <span 
+class="cmr-10x-x-109">a</span>
+ <span 
+class="cmr-10x-x-109">postulate;</span>
+ <span 
+class="cmr-10x-x-109">no</span>
+ <span 
+class="cmr-10x-x-109">instance</span>
+ <span 
+class="cmr-10x-x-109">established</span>                                      </p></td>
+</tr><tr 
+class="vspace" style="font-size:2.0pt"><td 
+>&nbsp;</td><td 
+>&nbsp;</td><td 
+>&nbsp;</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-3-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-3-1"  
+class="td11">  <span 
+class="cmr-10x-x-109">p02   </span></td><td  style="white-space:normal; text-align:left;" id="TBL-2-3-2"  
+class="td11"> <!--l. 549--><p class="noindent" ><span 
+class="cmr-10x-x-109">Khayyam’s</span>
+ <span 
+class="cmr-10x-x-109">Triangle:</span>
+ <span 
+class="cmr-10x-x-109">Historical</span>
+ <span 
+class="cmr-10x-x-109">Restoration</span>
+ <span 
+class="cmr-10x-x-109">and</span>
+ <span 
+class="cmr-10x-x-109">the</span>
+ <span 
+class="cmr-10x-x-109">Geometry</span>
+ <span 
+class="cmr-10x-x-109">Hidden</span>
+ <span 
+class="cmr-10x-x-109">in</span>
+ <span 
+class="cmr-10x-x-109">the</span>
+ <span 
+class="cmr-10x-x-109">Numbers</span><span 
+class="cmr-10x-x-109"> </span><span class="cite"><span 
+class="cmr-10x-x-109">[</span><a 
+href="#XWakilKhayyam"><span 
+class="cmr-10x-x-109">14</span></a><span 
+class="cmr-10x-x-109">]</span></span>                             </p></td><td  style="white-space:normal; text-align:left;" id="TBL-2-3-3"  
+class="td11"> <!--l. 551--><p class="noindent" ><span 
+class="cmr-10x-x-109">History</span>
+ <span 
+class="cmr-10x-x-109">of</span>
+ <span 
+class="cmr-10x-x-109">the</span>
+ <span 
+class="cmr-10x-x-109">arithmetic</span>
+ <span 
+class="cmr-10x-x-109">triangle</span>
+ <span 
+class="cmr-10x-x-109">and</span>
+ <span 
+class="cmr-10x-x-109">its</span>
+ <span 
+class="cmr-10x-x-109">mod-</span>\(3\)
+ <span 
+class="cmr-10x-x-109">fractal;</span>
+ <span 
+class="cmr-10x-x-109">the</span>
+ <span 
+class="cmr-10x-x-109">claimed</span>
+ <span 
+class="cmr-10x-x-109">link</span>
+ <span 
+class="cmr-10x-x-109">between</span>
+ <span 
+class="cmr-10x-x-109">the</span>
+ <span 
+class="cmr-10x-x-109">fractal</span>
+ <span 
+class="cmr-10x-x-109">and</span>
+ \(\thetak \)
+ <span 
+class="cmr-10x-x-109">is</span>
+ <span 
+class="cmr-10x-x-109">withdrawn</span>                                       </p></td>
+</tr><tr 
+class="vspace" style="font-size:2.0pt"><td 
+>&nbsp;</td><td 
+>&nbsp;</td><td 
+>&nbsp;</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-4-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-4-1"  
+class="td11">  <span 
+class="cmr-10x-x-109">p03   </span></td><td  style="white-space:normal; text-align:left;" id="TBL-2-4-2"  
+class="td11"> <!--l. 553--><p class="noindent" ><span 
+class="cmr-10x-x-109">Spherical</span>
+ <span 
+class="cmr-10x-x-109">Cow</span>
+ <span 
+class="cmr-10x-x-109">Philosophy:</span>
+ <span 
+class="cmr-10x-x-109">A</span>
+ <span 
+class="cmr-10x-x-109">Methodological</span>
+ <span 
+class="cmr-10x-x-109">Framework</span>
+ <span 
+class="cmr-10x-x-109">for</span>
+ <span 
+class="cmr-10x-x-109">Mathematical</span>
+ <span 
+class="cmr-10x-x-109">Discovery</span><span 
+class="cmr-10x-x-109"> </span><span class="cite"><span 
+class="cmr-10x-x-109">[</span><a 
+href="#XWakilSC"><span 
+class="cmr-10x-x-109">15</span></a><span 
+class="cmr-10x-x-109">]</span></span>                            </p></td><td  style="white-space:normal; text-align:left;" id="TBL-2-4-3"  
+class="td11"> <!--l. 555--><p class="noindent" ><span 
+class="cmr-10x-x-109">Methodology;</span>
+ <span 
+class="cmr-10x-x-109">its</span>
+ <span 
+class="cmr-10x-x-109">arithmetic</span>
+ <span 
+class="cmr-10x-x-109">examples</span>
+ <span 
+class="cmr-10x-x-109">are</span>
+ <span 
+class="cmr-10x-x-109">corrected</span>                                         </p></td>
+</tr><tr 
+class="vspace" style="font-size:2.0pt"><td 
+>&nbsp;</td><td 
+>&nbsp;</td><td 
+>&nbsp;</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-5-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-5-1"  
+class="td11">  <span 
+class="cmr-10x-x-109">p04   </span></td><td  style="white-space:normal; text-align:left;" id="TBL-2-5-2"  
+class="td11"> <!--l. 556--><p class="noindent" ><span 
+class="cmr-10x-x-109">Ternary</span>
+ <span 
+class="cmr-10x-x-109">Forcing</span>
+ <span 
+class="cmr-10x-x-109">on</span>
+ <span 
+class="cmr-10x-x-109">the</span>
+ <span 
+class="cmr-10x-x-109">Hexagonal</span>
+ <span 
+class="cmr-10x-x-109">Lattice:</span>
+ <span 
+class="cmr-10x-x-109">Eisenstein</span>
+ <span 
+class="cmr-10x-x-109">Integers,</span>
+ <span 
+class="cmr-10x-x-109">Cascade</span>
+ <span 
+class="cmr-10x-x-109">Moduli,</span>
+ <span 
+class="cmr-10x-x-109">and</span>
+ <span 
+class="cmr-10x-x-109">a</span>
+ <span 
+class="cmr-10x-x-109">Conjectured</span>
+ <span 
+class="cmr-10x-x-109">Level</span>
+ <span 
+class="cmr-10x-x-109">of</span>
+ <span 
+class="cmr-10x-x-109">Distribution</span>
+ <span 
+class="cmr-10x-x-109">5/8</span><span 
+class="cmr-10x-x-109"> </span><span class="cite"><span 
+class="cmr-10x-x-109">[</span><a 
+href="#XWakilEisenstein"><span 
+class="cmr-10x-x-109">16</span></a><span 
+class="cmr-10x-x-109">]</span></span>                                     </p></td><td  style="white-space:normal; text-align:left;" id="TBL-2-5-3"  
+class="td11"> <!--l. 559--><p class="noindent" >\(\theta _W = 5/8\)
+ <span 
+class="cmr-10x-x-109">for</span>
+ <span 
+class="cmr-10x-x-109">the</span>
+ <span 
+class="cmr-10x-x-109">moduli</span>
+ \(3^K\)<span 
+class="cmr-10x-x-109">:</span>
+ <span 
+class="cmr-10x-x-109">a</span>
+ <span 
+class="cmr-10x-x-109">conjecture</span>                                       </p></td>
+</tr><tr 
+class="vspace" style="font-size:2.0pt"><td 
+>&nbsp;</td><td 
+>&nbsp;</td><td 
+>&nbsp;</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-6-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-6-1"  
+class="td11">  <span 
+class="cmr-10x-x-109">p05   </span></td><td  style="white-space:normal; text-align:left;" id="TBL-2-6-2"  
+class="td11"> <!--l. 560--><p class="noindent" ><span 
+class="cmr-10x-x-109">Ramanujan’s</span>
+ <span 
+class="cmr-10x-x-109">Dimensional</span>
+ <span 
+class="cmr-10x-x-109">Forcing:</span>
+ <span 
+class="cmr-10x-x-109">A</span>
+ <span 
+class="cmr-10x-x-109">Universal</span>
+ <span 
+class="cmr-10x-x-109">Formula</span>
+ <span 
+class="cmr-10x-x-109">for</span>
+ <span 
+class="cmr-10x-x-109">Sieve</span>
+ <span 
+class="cmr-10x-x-109">Levels</span><span 
+class="cmr-10x-x-109"> </span><span class="cite"><span 
+class="cmr-10x-x-109">[</span><a 
+href="#XWakilRamanujan"><span 
+class="cmr-10x-x-109">17</span></a><span 
+class="cmr-10x-x-109">]</span></span>                                 </p></td><td  style="white-space:normal; text-align:left;" id="TBL-2-6-3"  
+class="td11"> <!--l. 562--><p class="noindent" ><span 
+class="cmr-10x-x-109">The</span>
+ <span 
+class="cmr-10x-x-109">formula</span>
+ \(\thetak = (2^k - k)/2^k\)<span 
+class="cmr-10x-x-109">,</span>
+ <span 
+class="cmr-10x-x-109">as</span>
+ <span 
+class="cmr-10x-x-109">a</span>
+ <span 
+class="cmr-10x-x-109">postulate</span>                                         </p></td>
+</tr><tr 
+class="vspace" style="font-size:2.0pt"><td 
+>&nbsp;</td><td 
+>&nbsp;</td><td 
+>&nbsp;</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-7-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-7-1"  
+class="td11">  <span 
+class="cmr-10x-x-109">p06   </span></td><td  style="white-space:normal; text-align:left;" id="TBL-2-7-2"  
+class="td11"> <!--l. 563--><p class="noindent" ><span 
+class="cmr-10x-x-109">The</span>
+ <span 
+class="cmr-10x-x-109">Shannon–Wakil</span>
+ <span 
+class="cmr-10x-x-109">Eﬀect:</span>
+ <span 
+class="cmr-10x-x-109">Constitutional</span>
+ <span 
+class="cmr-10x-x-109">Forcing</span>
+ <span 
+class="cmr-10x-x-109">as</span>
+ <span 
+class="cmr-10x-x-109">a</span>
+ <span 
+class="cmr-10x-x-109">Universal</span>
+ <span 
+class="cmr-10x-x-109">Pattern</span>
+ <span 
+class="cmr-10x-x-109">in</span>
+ <span 
+class="cmr-10x-x-109">Information</span>
+ <span 
+class="cmr-10x-x-109">Theory</span>
+ <span 
+class="cmr-10x-x-109">and</span>
+ <span 
+class="cmr-10x-x-109">Prime</span>
+ <span 
+class="cmr-10x-x-109">Arithmetic</span><span 
+class="cmr-10x-x-109"> </span><span class="cite"><span 
+class="cmr-10x-x-109">[</span><a 
+href="#XWakilShannon"><span 
+class="cmr-10x-x-109">18</span></a><span 
+class="cmr-10x-x-109">]</span></span>                           </p></td><td  style="white-space:normal; text-align:left;" id="TBL-2-7-3"  
+class="td11"> <!--l. 565--><p class="noindent" ><span 
+class="cmr-10x-x-109">Proposed</span>
+ <span 
+class="cmr-10x-x-109">analogy</span>
+ <span 
+class="cmr-10x-x-109">between</span>
+ <span 
+class="cmr-10x-x-109">Shannon’s</span>
+ <span 
+class="cmr-10x-x-109">theorems</span>
+ <span 
+class="cmr-10x-x-109">and</span>
+ <span 
+class="cmr-10x-x-109">the</span>
+ \(\thetak \)
+ <span 
+class="cmr-10x-x-109">scheme</span>                                            </p></td>
+</tr><tr 
+class="vspace" style="font-size:2.0pt"><td 
+>&nbsp;</td><td 
+>&nbsp;</td><td 
+>&nbsp;</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-8-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-8-1"  
+class="td11">  <span 
+class="cmr-10x-x-109">p07   </span></td><td  style="white-space:normal; text-align:left;" id="TBL-2-8-2"  
+class="td11"> <!--l. 567--><p class="noindent" ><span 
+class="cmr-10x-x-109">Condition</span>
+ <span 
+class="cmr-10x-x-109">W3:</span>
+ <span 
+class="cmr-10x-x-109">Absence</span>
+ <span 
+class="cmr-10x-x-109">of</span>
+ <span 
+class="cmr-10x-x-109">Siegel</span>
+ <span 
+class="cmr-10x-x-109">Zeros</span>
+ <span 
+class="cmr-10x-x-109">for</span>
+ <span 
+class="cmr-10x-x-109">Characters</span>
+ <span 
+class="cmr-10x-x-109">Modulo</span>
+ \(3^K\)<span 
+class="cmr-10x-x-109"> </span><span class="cite"><span 
+class="cmr-10x-x-109">[</span><a 
+href="#XWakilW3"><span 
+class="cmr-10x-x-109">19</span></a><span 
+class="cmr-10x-x-109">]</span></span>                                         </p></td><td  style="white-space:normal; text-align:left;" id="TBL-2-8-3"  
+class="td11"> <!--l. 569--><p class="noindent" ><span 
+class="cmr-10x-x-109">True,</span>
+ <span 
+class="cmr-10x-x-109">with</span>
+ <span 
+class="cmr-10x-x-109">a</span>
+ <span 
+class="cmr-10x-x-109">one-line</span>
+ <span 
+class="cmr-10x-x-109">proof</span>
+ <span 
+class="cmr-10x-x-109">from</span>
+ <span 
+class="cmr-10x-x-109">the</span>
+ <span 
+class="cmr-10x-x-109">cyclicity</span>
+ <span 
+class="cmr-10x-x-109">of</span>
+ \((\Z /3^K\Z )^\times \)<span 
+class="cmr-10x-x-109">;</span>
+ <span 
+class="cmr-10x-x-109">aﬀects</span>
+ <span 
+class="cmr-10x-x-109">no</span>
+ <span 
+class="cmr-10x-x-109">level</span>
+ <span 
+class="cmr-10x-x-109">of</span>
+ <span 
+class="cmr-10x-x-109">distribution</span>                                     </p></td>
+</tr><tr 
+class="vspace" style="font-size:2.0pt"><td 
+>&nbsp;</td><td 
+>&nbsp;</td><td 
+>&nbsp;</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-9-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-9-1"  
+class="td11">  <span 
+class="cmr-10x-x-109">p08   </span></td><td  style="white-space:normal; text-align:left;" id="TBL-2-9-2"  
+class="td11"> <!--l. 571--><p class="noindent" ><span 
+class="cmr-10x-x-109">The</span>
+ <span 
+class="cmr-10x-x-109">Lemke</span>
+ <span 
+class="cmr-10x-x-109">Oliver–Soundararajan</span>
+ <span 
+class="cmr-10x-x-109">Bias</span>
+ <span 
+class="cmr-10x-x-109">and</span>
+ <span 
+class="cmr-10x-x-109">Ternary</span>
+ <span 
+class="cmr-10x-x-109">Constitutional</span>
+ <span 
+class="cmr-10x-x-109">Structure</span><span 
+class="cmr-10x-x-109"> </span><span class="cite"><span 
+class="cmr-10x-x-109">[</span><a 
+href="#XWakilBias"><span 
+class="cmr-10x-x-109">20</span></a><span 
+class="cmr-10x-x-109">]</span></span>                             </p></td><td  style="white-space:normal; text-align:left;" id="TBL-2-9-3"  
+class="td11"> <!--l. 573--><p class="noindent" ><span 
+class="cmr-10x-x-109">The</span>
+ <span 
+class="cmr-10x-x-109">bias</span>
+ <span 
+class="cmr-10x-x-109">in</span>
+ <span 
+class="cmr-10x-x-109">consecutive</span>
+ <span 
+class="cmr-10x-x-109">primes;</span>
+ <span 
+class="cmr-10x-x-109">the</span>
+ <span 
+class="cmr-10x-x-109">claimed</span>
+ <span 
+class="cmr-10x-x-109">ternary</span>
+ <span 
+class="cmr-10x-x-109">explanation</span>
+ <span 
+class="cmr-10x-x-109">of</span>
+ <span 
+class="cmr-10x-x-109">it</span>
+ <span 
+class="cmr-10x-x-109">is</span>
+ <span 
+class="cmr-10x-x-109">withdrawn</span>                                       </p></td>
+</tr><tr 
+class="vspace" style="font-size:2.0pt"><td 
+>&nbsp;</td><td 
+>&nbsp;</td><td 
+>&nbsp;</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-10-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-10-1"  
+class="td11">  <span 
+class="cmr-10x-x-109">p09   </span></td><td  style="white-space:normal; text-align:left;" id="TBL-2-10-2"  
+class="td11"> <!--l. 575--><p class="noindent" ><span 
+class="cmr-10x-x-109">The</span>
+ <span 
+class="cmr-10x-x-109">Constitutional</span>
+ <span 
+class="cmr-10x-x-109">Constant</span>
+ \(\theta _{\mathrm {FFT}} = 1/2\)<span 
+class="cmr-10x-x-109">:</span>
+ <span 
+class="cmr-10x-x-109">Conjugate</span>
+ <span 
+class="cmr-10x-x-109">Symmetry</span>
+ <span 
+class="cmr-10x-x-109">of</span>
+ <span 
+class="cmr-10x-x-109">the</span>
+ <span 
+class="cmr-10x-x-109">Real</span>
+ <span 
+class="cmr-10x-x-109">Discrete</span>
+ <span 
+class="cmr-10x-x-109">Fourier</span>
+ <span 
+class="cmr-10x-x-109">Transform</span><span 
+class="cmr-10x-x-109"> </span><span class="cite"><span 
+class="cmr-10x-x-109">[</span><a 
+href="#XWakilFFT"><span 
+class="cmr-10x-x-109">21</span></a><span 
+class="cmr-10x-x-109">]</span></span>                            </p></td><td  style="white-space:normal; text-align:left;" id="TBL-2-10-3"  
+class="td11"> <!--l. 577--><p class="noindent" ><span 
+class="cmr-10x-x-109">The</span>
+ <span 
+class="cmr-10x-x-109">DFT</span>
+ <span 
+class="cmr-10x-x-109">of</span>
+ <span 
+class="cmr-10x-x-109">a</span>
+ <span 
+class="cmr-10x-x-109">real</span>
+ <span 
+class="cmr-10x-x-109">signal</span>
+ <span 
+class="cmr-10x-x-109">of</span>
+ <span 
+class="cmr-10x-x-109">length</span>
+ \(N\)
+ <span 
+class="cmr-10x-x-109">has</span>
+ \(N\)
+ <span 
+class="cmr-10x-x-109">independent</span>
+ <span 
+class="cmr-10x-x-109">real</span>
+ <span 
+class="cmr-10x-x-109">parameters</span>
+ <span 
+class="cmr-10x-x-109">(a</span>
+ <span 
+class="cmr-10x-x-109">standard</span>
+ <span 
+class="cmr-10x-x-109">fact);</span>
+ <span 
+class="cmr-10x-x-109">its</span>
+ <span 
+class="cmr-10x-x-109">depth</span>
+ <span 
+class="cmr-10x-x-109">is</span>
+ <span 
+class="cmr-10x-x-109">not</span>
+ <span 
+class="cmr-10x-x-109">identiﬁed,</span>
+ <span 
+class="cmr-10x-x-109">since</span>
+ \(\theta _1 = \theta _2\)                                                     </p></td>
 
-  <aside class="sidebar">
-    <div class="sb-label">Paper</div>
-    <div class="sb-num">01</div>
-    <div class="sb-meta">
-      <strong>Author</strong>Khayyam Wakil
-      <strong>Published</strong>February 2026
-      <strong>Series</strong>Constitutional Sieve Programme
-      <strong>MSC 2020</strong>11N35, 11N13, 94A15, 76F02
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-11-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-11-1"  
+class="td11">       </td></tr></table>                                                                               </div>
+                                                                                         
+  </div><hr class="endfloat" />
+<!--l. 584--><p class="noindent" >The logical dependency structure is: \[ \text {p01} \;\longrightarrow \; \begin {cases} \text {p02, p05, p06, p08, p09} &amp; \text {(proposed instances and comparisons)} \\ \text {p03} &amp; \text {(methodology)} \\ \text {p04, p07} &amp; \text {(arithmetic of the moduli $3^K$)} \end {cases} \] A reader interested in the arithmetic should read p01, p05,
+p04 and p07 in order. A reader interested in the cross-domain comparisons should read p01, p02,
+p03, p06 and p09.
+</p>
+  <h3 class="sectionHead"><span class="titlemark">7. </span> <a 
+ id="x1-170007"></a>What Constitutional Forcing Is Not</h3>
+<!--l. 602--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">7.1. </span> <a 
+ id="x1-180007.1"></a><span 
+class="cmbx-12">Not, at present, more than an analogy across domains.</span></span>
+  The February version claimed that Constitutional Forcing is not an analogy between number
+theory and information theory but a common, causal mechanism that both instantiate. That claim
+is withdrawn. Section <a 
+href="#x1-130003.3">3.3<!--tex4ht:ref: sec:shannon --></a> shows that the information-theoretic constants are not \(\theta _1\); the comparison
+is a proposed analogy, and no causal link is claimed.
+</p>
+<!--l. 610--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">7.2. </span> <a 
+ id="x1-190007.2"></a><span 
+class="cmbx-12">Numerology, and how to avoid it.</span></span>
+  The formula \(\thetak = (2^k-k)/2^k\) is not derived from the deﬁnitions: it is the counting postulate (Postulate <a 
+href="#x1-9001r6">2.6<!--tex4ht:ref: post:count --></a>), and
+the February claim that “the formula is a theorem, not a ﬁt” is withdrawn. Whether the
+framework is more than numerology therefore depends on whether \(k\) can be ﬁxed for a system
+independently of the constant to be explained. The risk is concrete: if \(k\) or the size of the
+conﬁguration space may be chosen after the target value is known, the formula can
+be made to match many constants, and since \(\theta _1 = \theta _2 = 1/2\) the value \(1/2\) cannot identify the depth
+at all. A candidate instance should therefore (i) use the conﬁguration space \(\{0,1\}^k\); (ii) ﬁx \(k\)
+and the constraints, with (C2) checked, before any comparison with a known constant;
+and (iii) prove (CF4) for the system. None of the candidates in Section <a 
+href="#x1-100003">3<!--tex4ht:ref: sec:instances --></a> meets all
+three conditions at present, and the Sophie Germain example (Remark <a 
+href="#x1-14001r1">4.1<!--tex4ht:ref: rem:sophie --></a>) is not a
+test.
+</p>
+<!--l. 629--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">7.3. </span> <a 
+ id="x1-200007.3"></a><span 
+class="cmbx-12">Not a claim of isomorphism.</span></span>
+  We do not claim that prime arithmetic and information theory are isomorphic, or that there is a
+functor between them as mathematical objects. The February version claimed that
+both exhibit Constitutional Forcing; in this revision we claim only a proposed analogy
+(Section <a 
+href="#x1-130003.3">3.3<!--tex4ht:ref: sec:shannon --></a>). Two physical systems that both obey Hamiltonian dynamics share a
+structural description without being isomorphic; here, even the shared description is not yet
+established.
+</p>
+  <h3 class="sectionHead"><a 
+ id="x1-21000"></a>Acknowledgements</h3>
+<!--l. 642--><p class="noindent" >The programme owes its inspiration to Omar Khayyam (c. 1048–1131), after whom the arithmetic
+triangle is named in Iran, and to Claude Shannon, whose 1948 theorems prompted the
+cross-domain comparison of Section <a 
+href="#x1-130003.3">3.3<!--tex4ht:ref: sec:shannon --></a>.
+                                                                                         
+                                                                                         
+</p>
+  <h3 class="sectionHead"><a 
+ id="x1-22000"></a>References</h3>
+<!--l. 648--><p class="noindent" >
+    </p><div class="thebibliography">
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[1]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XBaierPujahari2022"></a><span 
+class="cmr-10">S.</span><span 
+class="cmr-10"> Baier and S.</span><span 
+class="cmr-10"> Pujahari, A Bombieri–Vinogradov-type theorem with prime power moduli, </span><span 
+class="cmti-10">Acta</span>
+    <span 
+class="cmti-10">Arith.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">204 </span><span 
+class="cmr-10">(2022), 115–140; arXiv:2107.04348.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[2]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XBLT1964"></a><span 
+class="cmr-10">M.</span><span 
+class="cmr-10"> B.</span><span 
+class="cmr-10"> Barban,  Yu.</span><span 
+class="cmr-10"> V.</span><span 
+class="cmr-10"> Linnik  and  N.</span><span 
+class="cmr-10"> G.</span><span 
+class="cmr-10"> Tshudakov,  On  prime  numbers  in  an  arithmetic</span>
+    <span 
+class="cmr-10">progression with a prime-power diﬀerence, </span><span 
+class="cmti-10">Acta Arith.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">9 </span><span 
+class="cmr-10">(1964), 375–390.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[3]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XBombieri1965"></a><span 
+class="cmr-10">E.</span><span 
+class="cmr-10"> Bombieri, On the large sieve, </span><span 
+class="cmti-10">Mathematika </span><span 
+class="cmbx-10">12 </span><span 
+class="cmr-10">(1965), 201–225.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[4]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XBFI1986"></a><span 
+class="cmr-10">E.</span><span 
+class="cmr-10"> Bombieri, J.</span><span 
+class="cmr-10"> B.</span><span 
+class="cmr-10"> Friedlander and H.</span><span 
+class="cmr-10"> Iwaniec, Primes in arithmetic progressions to large moduli,</span>
+    <span 
+class="cmti-10">Acta Math.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">156 </span><span 
+class="cmr-10">(1986), 203–251.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[5]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XGallagher1972"></a><span 
+class="cmr-10">P.</span><span 
+class="cmr-10"> X.</span><span 
+class="cmr-10"> Gallagher,  Primes  in  progressions  to  prime-power  modulus,  </span><span 
+class="cmti-10">Invent.</span><span 
+class="cmti-10"> Math.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">16  </span><span 
+class="cmr-10">(1972),</span>
+    <span 
+class="cmr-10">191–201.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[6]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XKolmogorov1941"></a><span 
+class="cmr-10">A.</span><span 
+class="cmr-10"> N.</span><span 
+class="cmr-10"> Kolmogorov, The local structure of turbulence in incompressible viscous ﬂuid for very large</span>
+    <span 
+class="cmr-10">Reynolds numbers, </span><span 
+class="cmti-10">Dokl.</span><span 
+class="cmti-10"> Akad.</span><span 
+class="cmti-10"> Nauk SSSR </span><span 
+class="cmbx-10">30 </span><span 
+class="cmr-10">(1941), 301–305.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[7]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XLichtman2023"></a><span 
+class="cmr-10">J.</span><span 
+class="cmr-10"> D.</span><span 
+class="cmr-10"> Lichtman,  Primes  in  arithmetic  progressions  to  large  moduli,  and  Goldbach  beyond  the</span>
+    <span 
+class="cmr-10">square-root barrier, arXiv:2309.08522, 2023.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[8]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XMaynard2020"></a><span 
+class="cmr-10">J.</span><span 
+class="cmr-10"> Maynard,  Primes  in  arithmetic  progressions  to  large  moduli  II:  well-factorable  estimates,</span>
+    <span 
+class="cmti-10">Mem.</span><span 
+class="cmti-10"> Amer.</span><span 
+class="cmti-10"> Math.</span><span 
+class="cmti-10"> Soc.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">306 </span><span 
+class="cmr-10">(2025), no.</span><span 
+class="cmr-10"> 1543; arXiv:2006.07088.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[9]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XPascadi2025"></a><span 
+class="cmr-10">A.</span><span 
+class="cmr-10"> Pascadi, On the exponents of distribution of primes and smooth numbers, arXiv:2505.00653,</span>
+    <span 
+class="cmr-10">2025.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[10]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XPolymath2014"></a><span 
+class="cmr-10">D.</span><span 
+class="cmr-10"> H.</span><span 
+class="cmr-10"> J.</span><span 
+class="cmr-10"> Polymath,  New  equidistribution  estimates  of  Zhang  type,  </span><span 
+class="cmti-10">Algebra  Number  Theory  </span><span 
+class="cmbx-10">8</span>
+    <span 
+class="cmr-10">(2014), 2067–2199.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[11]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XShannon1948"></a><span 
+class="cmr-10">C.</span><span 
+class="cmr-10"> E.</span><span 
+class="cmr-10"> Shannon, A mathematical theory of communication, </span><span 
+class="cmti-10">Bell System Tech.</span><span 
+class="cmti-10"> J. </span><span 
+class="cmbx-10">27 </span><span 
+class="cmr-10">(1948), 379–423,</span>
+    <span 
+class="cmr-10">623–656.</span>
+    </p>
+                                                                                         
+                                                                                         
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[12]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XVinogradov1965"></a><span 
+class="cmr-10">A.</span><span 
+class="cmr-10"> I.</span><span 
+class="cmr-10"> Vinogradov, The density hypothesis for Dirichlet</span> \(L\)<span 
+class="cmr-10">-series, </span><span 
+class="cmti-10">Izv.</span><span 
+class="cmti-10"> Akad.</span><span 
+class="cmti-10"> Nauk SSSR Ser.</span><span 
+class="cmti-10"> Mat.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">29</span>
+    <span 
+class="cmr-10">(1965), 903–934.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[13]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XZhang2014"></a><span 
+class="cmr-10">Y.</span><span 
+class="cmr-10"> Zhang, Bounded gaps between primes, </span><span 
+class="cmti-10">Ann.</span><span 
+class="cmti-10"> of Math.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">179 </span><span 
+class="cmr-10">(2014), 1121–1174.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[14]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilKhayyam"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Khayyam’s Triangle: Historical Restoration and the Geometry Hidden in the Numbers,</span>
+    <span 
+class="cmr-10">ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[15]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilSC"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Spherical Cow Philosophy: A Methodological Framework for Mathematical Discovery,</span>
+    <span 
+class="cmr-10">ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[16]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilEisenstein"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Ternary Forcing on the Hexagonal Lattice: Eisenstein Integers, Cascade Moduli, and a</span>
+    <span 
+class="cmr-10">Conjectured Level of Distribution</span><span 
+class="cmr-10"> </span>\(5/8\)<span 
+class="cmr-10">, ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[17]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilRamanujan"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Ramanujan’s Dimensional Forcing: A Universal Formula for Sieve Levels, ARC Institute</span>
+    <span 
+class="cmr-10">of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[18]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilShannon"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, The Shannon–Wakil Eﬀect: Constitutional Forcing as a Universal Pattern in Information</span>
+    <span 
+class="cmr-10">Theory and Prime Arithmetic, ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[19]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilW3"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil,  Condition  W3:  Absence  of  Siegel  Zeros  for  Characters  Modulo</span><span 
+class="cmr-10"> </span>\(3^K\)<span 
+class="cmr-10">,  ARC  Institute  of</span>
+    <span 
+class="cmr-10">Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[20]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilBias"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil,  The  Lemke  Oliver–Soundararajan  Bias  and  Ternary  Constitutional  Structure,  ARC</span>
+    <span 
+class="cmr-10">Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[21]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilFFT"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil,  The  Constitutional  Constant</span>  \(\theta _{\mathrm {FFT}} = 1/2\)<span 
+class="cmr-10">:  Conjugate  Symmetry  of  the  Real  Discrete  Fourier</span>
+    <span 
+class="cmr-10">Transform, ARC Institute of Knowware, preprint, 2026.</span>
+</p>
     </div>
-    <div class="sb-links">
-      <a class="sb-link" href="p01.pdf" target="_blank">
-        <span class="sb-link-label">Download · PDF</span>
-        p01.pdf → View
-      </a>
-      <a class="sb-link" href="p01.tex" target="_blank">
-        <span class="sb-link-label">LaTeX Source</span>
-        p01.tex → View
-      </a>
-    </div>
-    <div class="sb-label" style="margin-bottom:.6rem;">Programme Index</div>
-    <ul class="series-index">
-      <li class="curr"><a href="p01.html">01 · Constitutional Forcing</a></li>
-      <li><a href="../p02-khayyams-triangle/p02.html">02 · Khayyam's Triangle</a></li>
-      <li><a href="../p03-constitutional-signatures/p03.html">03 · Spherical Cow Philosophy</a></li>
-      <li><a href="../p04-that-eisenstein-guy/p04.html">04 · Eisenstein, θ = 5/8</a></li>
-      <li><a href="../p05-ramanujans-formula/p05.html">05 · Ramanujan's Formula</a></li>
-      <li><a href="../p06-shannon-wakil/p06.html">06 · Shannon–Wakil Effect</a></li>
-      <li><a href="../p07-condition_w3/p07.html">07 · Condition W3</a></li>
-      <li><a href="../p08-prime-bias-ternary-bridge/p08.html">08 · Prime Digit Bias</a></li>
-      <li><a href="../p09-wakil-theta-fft/p09.html">09 · DFT Constitutional Constant</a></li>
-    </ul>
-  </aside>
+  <div class="addresses">
+<!--l. 767--><p class="indent" >  <span class="address-title"></span><span class="address"><span 
+class="cmcsc-10">T<span 
+class="small-caps">h</span><span 
+class="small-caps">e</span> ARC I<span 
+class="small-caps">n</span><span 
+class="small-caps">s</span><span 
+class="small-caps">t</span><span 
+class="small-caps">i</span><span 
+class="small-caps">t</span><span 
+class="small-caps">u</span><span 
+class="small-caps">t</span><span 
+class="small-caps">e</span> <span 
+class="small-caps">o</span><span 
+class="small-caps">f</span> K<span 
+class="small-caps">n</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">w</span><span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">e</span>, C<span 
+class="small-caps">a</span><span 
+class="small-caps">l</span><span 
+class="small-caps">g</span><span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">y</span>, A<span 
+class="small-caps">l</span><span 
+class="small-caps">b</span><span 
+class="small-caps">e</span><span 
+class="small-caps">r</span><span 
+class="small-caps">t</span><span 
+class="small-caps">a</span>, C<span 
+class="small-caps">a</span><span 
+class="small-caps">n</span><span 
+class="small-caps">a</span><span 
+class="small-caps">d</span><span 
+class="small-caps">a</span></span></span>
+</p><!--l. 767--><p class="indent" >  <span class="email-title">   <span 
+class="cmti-10">Email address</span><span 
+class="cmr-10">: </span></span><span class="email"><span 
+class="cmtt-10">the@knowware.institute</span></span>
+</p>
+  </div> 
+</body></html> 
 
-  <article class="paper">
+                                                                                         
 
-    <div class="paper-header">
-      <div class="paper-label">Preprint · ARC Institute of Knowware · February 2026</div>
-      <h1 class="title">Constitutional Forcing</h1>
-      <div class="authors">Khayyam Wakil</div>
-      <div class="affiliation">The ARC Institute of Knowware, Calgary, Alberta, Canada</div>
-      <div class="paper-date">Submitted February 2026 &nbsp;·&nbsp; Constitutional Sieve Programme, Paper 01 of 09</div>
-    </div>
 
-    <div class="abstract-block">
-      <div class="abs-label">Abstract</div>
-      <p>We introduce and formally define <em>Constitutional Forcing</em>: a mechanism by which the irreducible algebraic structure of a mathematical system uniquely determines a governing constant, leaving no freedom in its value. The constant is not fitted, not approximated, and not chosen — it is forced. Changing it requires changing the structure of the system itself.</p>
-      <p style="margin-top:.7em;">A system of depth <em>k</em> has exactly <em>k</em> independent <em>constitutional constraints</em>, operating on a binary configuration space of size 2<sup><em>k</em></sup>. Each constraint eliminates exactly one configuration class, leaving 2<sup><em>k</em></sup> − <em>k</em> valid configurations. The forced governing constant is the configuration density <em>θ<sub>k</sub></em> = (2<sup><em>k</em></sup> − <em>k</em>)/2<sup><em>k</em></sup>.</p>
-      <p style="margin-top:.7em;">We exhibit three proven instances across three independent domains: prime arithmetic (<em>k</em>=1, <em>k</em>=3), information theory (<em>k</em>=1), and fluid dynamics (<em>k</em>=2). We prove the Counting Theorem: exactly <em>k</em> configurations are invalid in any <em>k</em>-fold constitutionally constrained system. This paper is the foundation of a nine-paper programme. The remaining eight papers prove the instances, derive consequences, and explore the cross-domain structure of the mechanism.</p>
-    </div>
-
-    <div class="keywords">
-      <strong>Keywords:</strong> constitutional forcing, constitutional constraint, configuration density, forced governing constant, sieve theory, level of distribution, Shannon entropy, Kolmogorov scaling, <em>k</em>-hierarchy, Shannon–Wakil effect
-    </div>
-
-    <div class="paper-meta-strip">
-      <span class="meta-pill">MSC 2020: 11N35 (primary) · 11N13 · 94A15 · 76F02 · 01A99</span>
-      <span class="meta-pill"><a href="../../papers/index.html">preprints.knowware.institute</a></span>
-      <span class="meta-pill"><a href="https://github.com/knowware-institute/constitutional-forcing">p01.tex source</a></span>
-    </div>
-
-    <div class="paper-body">
-
-      <h2>What Constitutional Forcing Is</h2>
-
-      <p>The Bombieri–Vinogradov theorem establishes that primes are equidistributed in arithmetic progressions to modulus <em>x</em><sup>1/2</sup>. The level of distribution is <em>θ</em> = 1/2. For sixty years this was considered, by most experts, to be the effective ceiling of classical sieve methods. It is not a computation; it is a structural fact about binary arithmetic progressions.</p>
-
-      <p>In 2025, Pascadi proved a level of distribution <em>θ</em> = 5/8 for smooth, triply-well-factorable moduli. In the companion paper [4] we prove <em>θ</em> = 5/8 for cascade moduli <em>q</em> = 3<sup><em>K</em></sup> via the algebraic geometry of the Eisenstein integers. Two paths. One value. Neither chosen.</p>
-
-      <p>This paper asks: what is the mechanism? Why 5/8? Why not 3/5, or 2/3, or some other rational number? The answer is Constitutional Forcing. Both results are instances of the same structural phenomenon, as is the Bombieri–Vinogradov barrier itself.</p>
-
-      <h2>The Definitions</h2>
-
-      <div class="env-block definition">
-        <div class="env-label">Definition 2.1 — Constitutional Constraint</div>
-        A constraint <em>C</em> on a system <em>S</em> is <em>constitutional</em> if it satisfies three conditions: (CF1) <em>Intrinsic</em> — it is forced by the irreducible algebraic structure of <em>S</em>, not a free parameter or modelling choice; (CF2) <em>Independent</em> — it is structurally separate from other constitutional constraints, not derivable from them; (CF3) <em>Binary-eliminating</em> — it eliminates exactly one configuration class from the relevant configuration space.
-      </div>
-
-      <div class="env-block definition">
-        <div class="env-label">Definition 2.2 — Constitutional Forcing of Depth <em>k</em></div>
-        A system <em>S</em> exhibits <em>Constitutional Forcing of depth k</em> if: it has a binary configuration space <em>C<sub>k</sub></em> = {0,1}<sup><em>k</em></sup> of size 2<sup><em>k</em></sup>; exactly <em>k</em> independent constitutional constraints operate on <em>C<sub>k</sub></em>; the forced governing constant is <em>θ<sub>k</sub></em> = (2<sup><em>k</em></sup> − <em>k</em>)/2<sup><em>k</em></sup>; and no other value is consistent with the structure.
-      </div>
-
-      <h2>Three Instances</h2>
-
-      <h3>3.1 Bombieri–Vinogradov: <em>k</em> = 1, <em>θ</em> = 1/2</h3>
-
-      <p>For arithmetic progressions over all moduli <em>q</em> ≤ <em>x</em><sup>1/2</sup>, one constitutional constraint operates: each progression must be coprime to its modulus. This eliminates one configuration class (gcd(<em>a</em>, <em>q</em>) > 1). Formula: <em>θ</em><sub>1</sub> = (2 − 1)/2 = 1/2. The Bombieri–Vinogradov theorem is constitutionally forced.</p>
-
-      <h3>3.2 Cascade Moduli: <em>k</em> = 3, <em>θ</em> = 5/8</h3>
-
-      <p>For arithmetic progressions over cascade moduli <em>q</em> = 3<sup><em>K</em></sup>, three constitutional constraints operate, arising from the structure of Z[<em>ω</em>]: (i) coprimality; (ii) ramification (3) = (1−<em>ω</em>)<sup>2</sup> forces triply-factorable weights; (iii) the cyclic group (Z/3<sup><em>K</em></sup>Z)* provides independent Kloosterman cancellation. Formula: <em>θ</em><sub>3</sub> = (8 − 3)/8 = 5/8.</p>
-
-      <h3>3.3 Kolmogorov's 3/4: <em>k</em> = 2</h3>
-
-      <p>For the triadic interaction space of vorticity in an incompressible fluid (8 triadic states), two constitutional constraints operate: incompressibility (∇·<em>u</em> = 0) and helicity orthogonality (<em>ω</em><sup>+</sup> ⊥ <em>ω</em><sup>−</sup>). Formula: <em>θ</em><sub>2</sub> = (4 − 2)/4 = 3/4. Kolmogorov's 1941 exponent is constitutionally forced. This is the first <em>a priori</em> structural derivation of an exponent validated empirically for 84 years.</p>
-
-      <h2>The Counting Theorem</h2>
-
-      <div class="env-block theorem">
-        <div class="env-label">Theorem 4.1 — Counting Theorem</div>
-        Let <em>S</em> exhibit Constitutional Forcing of depth <em>k</em>. Then exactly <em>k</em> configurations in <em>C<sub>k</sub></em> = {0,1}<sup><em>k</em></sup> are invalid, and the forced governing constant is <em>θ<sub>k</sub></em> = (2<sup><em>k</em></sup> − <em>k</em>)/2<sup><em>k</em></sup>.
-      </div>
-
-      <div class="proof">
-        <div class="proof-label">Proof.</div>
-        By induction on <em>k</em>. <em>Base case</em> (<em>k</em> = 1): one constraint, space {0,1}, one invalid configuration, forced constant 1/2. <em>Inductive step</em>: assume the claim holds for depth <em>k</em>−1. Passing from depth <em>k</em>−1 to depth <em>k</em>, each old configuration splits into two daughter configurations. The <em>k</em>−1 previously invalid configurations remain invalid (each splits into two daughters, both still invalid — the inherited constraint persists). The new independent constitutional constraint eliminates exactly one additional configuration class. Total invalid: (<em>k</em>−1) + 1 = <em>k</em>. Valid: 2<sup><em>k</em></sup> − <em>k</em>. Forced constant: (2<sup><em>k</em></sup> − <em>k</em>)/2<sup><em>k</em></sup>. <span class="qed">□</span>
-      </div>
-
-      <h2>Non-Instances and Falsifiability</h2>
-
-      <p>A framework that cannot be wrong is not a framework. We document a confirmed non-instance.</p>
-
-      <div class="env-block proposition">
-        <div class="env-label">Proposition 5.1 — Sophie Germain Non-Instance</div>
-        Sophie Germain prime pairs (<em>p</em>, 2<em>p</em>+1) exhibit Constitutional Forcing of depth <em>k</em> = 2, not depth <em>k</em> = 3. The mod-3 residue of 2<em>p</em>+1 is determined by that of <em>p</em> — both satisfy <em>p</em> ≡ 2 (mod 3) — giving only two independent constitutional constraints. Predicted level of distribution: <em>θ</em><sub>2</sub> = (4−2)/4 = 1/2. No enhancement over Bombieri–Vinogradov. Confirmed computationally.
-      </div>
-
-      <h2>The Constitutional Forcing Conjecture</h2>
-
-      <div class="env-block conjecture">
-        <div class="env-label">Conjecture 6.1 — Constitutional Forcing Conjecture</div>
-        Every mathematical system with exactly <em>k</em> independent constitutional constraints on a binary configuration space of size 2<sup><em>k</em></sup> exhibits the forced governing constant <em>θ<sub>k</sub></em> = (2<sup><em>k</em></sup> − <em>k</em>)/2<sup><em>k</em></sup>. The correspondence between configuration density and analytic level of distribution for <em>k</em> ≥ 4 is conjectural and is the principal open problem of the programme.
-      </div>
-
-      <h2>Position in the Nine-Paper Programme</h2>
-
-      <table class="formal">
-        <tr><th>Paper</th><th>Content</th><th>Status</th></tr>
-        <tr><td>01 (this)</td><td>Constitutional Forcing: definition, Counting Theorem, three instances</td><td>Proved</td></tr>
-        <tr><td>02</td><td>Khayyam's Triangle: historical restoration, mod-3 fractal, combinatorial origin</td><td>Proved</td></tr>
-        <tr><td>03</td><td>Spherical Cow Philosophy: methodological framework, falsifiability</td><td>Proved</td></tr>
-        <tr><td>04</td><td>Eisenstein integers, cascade moduli, θ = 5/8 (geometric proof)</td><td>Proved (conditional W3)</td></tr>
-        <tr><td>05</td><td>Ramanujan's formula: universal formula θ<sub>k</sub> = (2<sup>k</sup>−k)/2<sup>k</sup></td><td>Proved</td></tr>
-        <tr><td>06</td><td>Shannon–Wakil Effect: information theory parallel</td><td>Proved</td></tr>
-        <tr><td>07</td><td>Condition W3: Siegel zero exclusion via CM structure of Z[ω]</td><td>Proved</td></tr>
-        <tr><td>08</td><td>Prime digit bias (Lemke Oliver–Soundararajan) explained</td><td>Proved</td></tr>
-        <tr><td>09</td><td>DFT constitutional constant θ<sub>FFT</sub> = 1/2</td><td>Proved</td></tr>
-      </table>
-      <div class="table-caption"><strong>Table 1.</strong> Structure of the nine-paper Constitutional Sieve Programme.</div>
-
-      <div class="next-paper">
-        <div class="next-label">Next in Programme</div>
-        <div class="next-title"><a href="../p02-khayyams-triangle/p02.html">02 · Khayyam's Triangle →</a></div>
-        <div class="next-desc">Historical Restoration and the Geometry Hidden in the Numbers. The mod-3 fractal that sat inside the most studied triangle in mathematics for nine centuries: the direct combinatorial ancestor of cascade moduli and θ<sub>W</sub> = 5/8.</div>
-      </div>
-
-      <div class="references">
-        <h2 style="counter-increment:none;">References</h2>
-        <ol class="ref-list">
-          <li>V. Bombieri, "On the large sieve," <em>Mathematika</em> 12 (1965), 201–225.</li>
-          <li>A. Vinogradov, "The density hypothesis for Dirichlet L-series," <em>Izv. Akad. Nauk SSSR</em> 29 (1965).</li>
-          <li>A. N. Kolmogorov, "The local structure of turbulence," <em>C. R. Acad. Sci. USSR</em> 30 (1941), 301–305.</li>
-          <li>K. Wakil, "Ternary Forcing on the Hexagonal Lattice: Eisenstein Integers, Cascade Moduli, and Level of Distribution 5/8," Constitutional Sieve Programme Paper 04 (2026).</li>
-          <li>K. Wakil, "Condition W3: Absence of Siegel Zeros for Characters Modulo 3<sup>K</sup> via the CM Structure of Z[ω]," Constitutional Sieve Programme Paper 07 (2026).</li>
-          <li>A. Pascadi, "Primes with restricted digits and large gaps between primes," arXiv:2505.00653v2 (2025).</li>
-          <li>C. E. Shannon, "A Mathematical Theory of Communication," <em>Bell Syst. Tech. J.</em> 27 (1948), 379–423.</li>
-        </ol>
-      </div>
-
-    </div>
-  </article>
-</div>
-
-<footer class="site-footer">
-  <span>Knowware is measured in lifetimes</span>
-  <span>Constitutional Sieve Programme · Paper 01 of 09</span>
-  <span>Registered · Canada</span>
-</footer>
-
-</body>
-</html>

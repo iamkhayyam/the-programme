@@ -1,0 +1,137 @@
+== p01-constitutional-forcing
+  L165: Definition 2.1 [Constitutional constraint] def:constitutional
+  L183: Remark 2.2 [] 
+  L191: Remark 2.3 [] 
+  L204: Definition 2.4 [Constitutional Forcing] def:CF
+  L229: Remark 2.5 [] 
+  L242: Theorem 2.6 [Counting Theorem] thm:count
+  L308: Proposition 3.1 [BV is constitutionally forced] prop:BV
+  L339: Proposition 3.2 [Cascade moduli are constitutionally forced] prop:cascade
+  L375: Proposition 3.3 [Shannon's constants are constitutionally forced] prop:shannon
+  L414: Proposition 3.4 [Kolmogorov's exponent is constitutionally forced] prop:kolmogorov
+  L446: Remark 3.5 [] 
+  L466: Proposition 4.1 [Sophie Germain non-instance] prop:sophie
+  L490: Remark 4.2 [] 
+  L503: Conjecture 5.1 [Constitutional Forcing Conjecture] conj:CF
+  L515: Remark 5.2 [] 
+  L528: Remark 5.3 [] 
+== p02-khayyams-triangle
+  L95: Lemma 4.1 [Lucas \cite{lucas1878}] lem:lucas
+  L105: Proposition 4.2 [\cite{sierpinski1915,reiter1993}] prop:fractal
+  L113: Remark 4.3 [] 
+== p03-constitutional-signatures
+  L196: Example 2.1 [Irrationality of $\sqrt{2}$] 
+  L205: Example 2.2 [Infinitude of primes, Euclid] 
+  L223: Example 2.3 [The $\theta = 1/2$ barrier for twin primes] ex:twinprime-barrier
+  L299: Definition 3.1 [Spherical Cow Methodology] def:methodology
+  L335: Principle 3.2 [Spherical Cow] prin:sc
+  L355: Proposition 4.1 [Twin Prime Constitution] prop:constitution
+  L368: Remark 4.2 [] 
+  L492: Proposition 5.1 [Sophie Germain Non-Instance, {\cite[Theorem~7.1]{WakilShanno] prop:sg
+  L503: Remark 5.2 [] 
+  L516: Criterion 5.3 [Apply spherical cow philosophy when:] crit:apply
+  L533: Criterion 5.4 [Prefer classical methods when:] crit:classical
+  L543: Remark 5.5 [The $k=4$ open prediction] rem:k4
+== p04-that-eisenstein-guy
+  L115: Theorem 1.1 [Level of distribution for cascade moduli] thm:main
+  L173: Lemma 2.1 [Norm of $1-\omega$] lem:norm
+  L183: Proposition 2.2 [Ramification] prop:ramification
+  L194: Remark 2.3 [] 
+  L204: Proposition 2.4 [Three-level filtration] prop:filtration
+  L224: Corollary 2.5 [Triply-well-factorable weights] cor:factorable
+  L247: Proposition 2.6 [Type~II error via three-fold Cauchy--Schwarz] prop:cs
+  L270: Corollary 2.7 [Filtration ceiling] cor:ceiling23
+  L283: Lemma 3.1 [Cyclic structure] lem:cyclic
+  L293: Remark 3.2 [] 
+  L304: Proposition 3.3 [Kloosterman cancellation beyond Weil] prop:kloosterman
+  L384: Theorem 5.1 [Uniqueness of $\theta = 5/8$] thm:uniqueness
+  L426: Proposition 6.1 [Legendre duality of Eisenstein norm] prop:legendre
+  L442: Remark 6.2 [] 
+  L449: Proposition 6.3 [Inert-split characterisation] prop:inertsplit
+  L462: Corollary 6.4 [Twin primes as inert-split pairs] cor:twinprime
+  L478: Remark 6.5 [] 
+== p05-ramanujans-formula
+  L187: Definition 2.1 [Khayyam's Triangle mod~$3$] 
+  L192: Lemma 2.2 [Lucas~\cite{Lucas1878}] lem:lucas
+  L203: Proposition 2.3 [Khayyam's Triangle and constitutional structure] prop:khayyam-count
+  L227: Remark 2.4 [] rem:two-faces
+  L242: Definition 3.1 [Configuration space] 
+  L249: Definition 3.2 [Constitutional constraint] def:constitutional
+  L259: Example 3.3 [Twin primes, $k=3$] ex:twin
+  L270: Theorem 3.4 [Nested constraint count] thm:count
+  L297: Proposition 3.5 [Configuration density] prop:density
+  L339: Proposition 4.1 [Pattern density vs.\ configuration density] prop:two-densities
+  L392: Lemma 5.1 [] lem:norm
+  L401: Proposition 5.2 [Ramification of $3$] prop:ramification
+  L418: Proposition 5.3 [Three-level filtration] prop:filtration
+  L434: Corollary 5.4 [Triply-well-factorable weights] cor:factorable
+  L452: Lemma 5.5 [Cyclic structure] lem:cyclic
+  L467: Proposition 5.6 [Enhanced Kloosterman cancellation] prop:kloosterman
+  L488: Theorem 5.7 [Geometric proof of $\theta_3 = 5/8$] thm:geometric
+  L522: Theorem 6.1 [Ramanujan's Dimensional Forcing] thm:ramanujan
+  L540: Proposition 6.2 [Fibonacci identity] prop:fibonacci
+  L549: Remark 6.3 [] 
+  L585: Conjecture 6.4 [General forcing] conj:general
+  L596: Conjecture 6.5 [Twin prime threshold] conj:twinprime
+  L603: Remark 6.6 [] 
+  L610: Proposition 6.7 [Elliott--Halberstam consistency] prop:eh
+== p06-shannon-wakil
+  L200: Definition 2.1 [Shannon--Wakil Effect] def:sw
+  L223: Remark 2.2 [] 
+  L240: Theorem 3.1 [AEP,~{\cite[Theorem~3.1.2]{CoverThomas2006}}] thm:aep
+  L252: Proposition 3.2 [AEP Exhibits SW Effect] prop:aep-sw
+  L279: Theorem 4.1 [Channel Coding,~{\cite[Theorems~7.7.1,~7.7.2]{CoverThomas200] thm:channel
+  L293: Proposition 4.2 [Channel Coding Exhibits SW Effect] prop:channel-sw
+  L309: Remark 4.3 [] rem:two-shannon
+  L322: Theorem 5.1 [Cascade Moduli Forcing,~{\cite[Theorem~1.1]{WakilEisenstein}] thm:cascade
+  L344: Proposition 5.2 [Cascade Forcing Exhibits SW Effect] prop:cascade-sw
+  L452: Theorem 7.1 [Sophie Germain Non-Instance,~{\cite[Theorem~7.1]{WakilShanno] thm:sg
+  L465: Remark 7.2 [] 
+  L499: Remark 8.1 [] 
+  L512: Conjecture 9.1 [Constitutional Forcing Conjecture] conj:cfc
+  L526: Remark 9.2 [] 
+  L577: Remark 11.1 [Open prediction] rem:k4
+== p07-condition_w3
+  L127: Theorem 1.1 [Condition W3] thm:W3
+  L162: Proposition 2.1 [CM structure of $\Qomega$] prop:CM
+  L176: Proposition 2.2 [Ramification of $3$] prop:ram
+  L189: Remark 2.3 [] 
+  L198: Definition 2.4 [Hecke Gr\"ossencharacter] def:hecke
+  L210: Proposition 2.5 [Canonical lifting] prop:lift
+  L265: Remark 2.6 [] rem:conductor-match
+  L282: Proposition 3.1 [CM field properties of $\Qomega$] prop:CM-props
+  L309: Theorem 3.2 [Stark--Baker~{\cite{Stark1967,Baker1966,GoldfeldSzpiro1995}}] thm:starkbaker
+  L342: Remark 3.3 [Scope and effectivity] rem:scope
+  L354: Corollary 3.4 [Zero-free region for $\Psi_\chi$] cor:zfr-psi
+  L384: Lemma 4.1 [$L$-function factorisation] lem:factor
+  L431: Remark 4.2 [] rem:chieps
+  L483: Proposition 5.1 [Specificity of the CM argument] prop:specific
+  L528: Remark 5.2 [] 
+  L544: Proposition 6.1 [Coherence of the Eisenstein proof] prop:coherence
+  L588: Theorem 7.1 [Watt conditions: complete verification] thm:watt-complete
+  L605: Corollary 7.2 [Unconditional level of distribution] cor:unconditional
+== p08-prime-bias-ternary-bridge
+  L256: Definition 3.1 [Constitutional Constraint] def:constraint
+  L269: Theorem 3.2 [Constitutional Signature, {\cite[Prop.~4.1]{Wakil26b}}] thm:signature
+  L288: Remark 3.3 [] 
+  L295: Theorem 3.4 [Ternary Equilibrium] thm:equilibrium
+  L414: Proposition 4.1 [Min-Gap Ternary Transition Structure] prop:mingap
+  L430: Remark 4.2 [] 
+  L503: Proposition 5.1 [Snail's Pace Identification] prop:snail
+== p09-wakil-theta-fft
+  L114: Theorem 1.1 [Informal] thm:informal
+  L169: Definition 2.1 [DFT] def:dft
+  L178: Definition 2.2 [Spectral energy, energy fraction] def:energy
+  L187: Definition 2.3 [Constitutional constant $\thetaFFT$] def:theta
+  L204: Theorem 3.1 [Constitutional constant] thm:main
+  L254: Corollary 3.2 [Energy conservation] cor:energy
+  L268: Remark 3.3 [No entropy loss] rem:entropy
+  L368: Proposition 5.1 [] prop:complex
+  L400: Corollary 5.2 [] cor:quantised
+  L410: Proposition 5.3 [Adversarial upper bound] prop:adversarial
+  L430: Proposition 5.4 [Numerical stability] prop:numerical
+  L445: Remark 5.5 [Origin of observed deviations] 
+  L505: Proposition 6.1 [Constitutional redundancy duality] prop:duality
+  L545: Conjecture 6.2 [Ternary resonance] conj:ternary
+  L579: Theorem 7.1 [Compression lower bound] thm:compression
+  L651: Conjecture 8.1 [Constitutional universality] conj:universality

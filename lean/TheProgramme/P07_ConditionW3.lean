@@ -3,39 +3,39 @@
              Modulo 3^K via the CM Structure of Z[ω]
   Khayyam Wakil, February 2026
 
-  Key results formalised:
-    1. CM structure of Q(ω)
-    2. Ramification of 3 (unique)
-    3. Three-step proof: Lift → Stark-Baker → Transfer
-    4. Condition W3 (Theorem 1.1)
-    5. Specificity to p = 3
+  Lean 4 formalisation, revised November 2026.
+
+  What this file proves:
+    1. The only prime dividing 3 is 3.
+    2. (ℤ/3^Kℤ)ˣ is cyclic (Mathlib), and so is (ℤ/ℓ^Kℤ)ˣ for every odd
+       prime ℓ, e.g. ℓ = 7.
+    3. The list of d with Q(√−d) of class number 1 (the Heegner numbers)
+       contains the odd primes 3, 7, 11, 19, 43, 67, 163, so 3 is not the only
+       prime with a class-number-one imaginary quadratic field.
+
+  Why Condition W3 is essentially immediate (not formalised here): a cyclic
+  group of even order has exactly one element of order 2, so there is
+  exactly one real non-principal character modulo 3^K, the one induced from
+  the character modulo 3. An exceptional (Siegel) zero can only belong to a
+  real character, so any such zero would be a zero of the single fixed
+  L-function L(s, χ₋₃), which has none near s = 1.
+
+  What this file does NOT formalise: Dirichlet characters, L-functions,
+  zeros, Hecke characters or the paper's three-step argument. The April
+  2026 version stated "Condition W3" as ∃ c : ℚ, c > 0 (derived from an
+  axiom of the same form called `stark_baker_theorem`), the "Watt
+  conditions" as `True`, and two further steps as `True` axioms; those have
+  been removed. As stated in Paper 07 (Theorem 3.2), the "Stark–Baker
+  theorem" for all CM fields would settle the Landau–Siegel problem; it is
+  not an established theorem.
 -/
 
 import Mathlib.Tactic
+import Mathlib.RingTheory.ZMod.UnitsCyclic
+import TheProgramme.P04_EisensteinIntegers
 
--- ════════════════════════════════════════════════════════════════════════════
--- Section 1: The CM Field Q(ω)
--- ════════════════════════════════════════════════════════════════════════════
-
-structure CMFieldProperties where
-  totally_imaginary : Prop
-  class_number_one : Prop
-  discriminant : ℤ := -3
-  in_stark_list : Prop
-
-def QOmega_CM : CMFieldProperties where
-  totally_imaginary := True
-  class_number_one := True
-  discriminant := -3
-  in_stark_list := True
-
--- ════════════════════════════════════════════════════════════════════════════
--- Section 2: Unique Ramified Prime
--- ════════════════════════════════════════════════════════════════════════════
-
-/-- 3 is the UNIQUE rational prime that ramifies in Q(√(-3)). -/
-theorem unique_ramified_prime :
-    ∀ p : ℕ, Nat.Prime p → p ∣ 3 → p = 3 := by
+/-- The only prime dividing 3 is 3. -/
+theorem prime_dvd_three : ∀ p : ℕ, Nat.Prime p → p ∣ 3 → p = 3 := by
   intro p hp hdvd
   have h3 : Nat.Prime 3 := by norm_num
   have := h3.eq_one_or_self_of_dvd p hdvd
@@ -43,48 +43,20 @@ theorem unique_ramified_prime :
   · exact absurd h (Nat.Prime.one_lt hp).ne'
   · exact h
 
--- ════════════════════════════════════════════════════════════════════════════
--- Section 3: The Three-Step Proof
--- ════════════════════════════════════════════════════════════════════════════
+/-- (ℤ/3^Kℤ)ˣ is cyclic: `units_three_pow_cyclic`, proved in P04. -/
+example (K : ℕ) : IsCyclic (ZMod (3 ^ K))ˣ := units_three_pow_cyclic K
 
-/-- Step 1: Canonical Lifting (Proposition 2.1). -/
-axiom canonical_lifting (K : ℕ) (hK : K ≥ 1) : True
+/-- (ℤ/7^Kℤ)ˣ is cyclic too: cyclicity does not single out 3. -/
+theorem units_seven_pow_cyclic (K : ℕ) : IsCyclic (ZMod (7 ^ K))ˣ :=
+  ZMod.isCyclic_units_of_prime_pow 7 (by norm_num) (by norm_num) K
 
-/-- Step 2: Stark-Baker Theorem (Theorem 3.1). -/
-axiom stark_baker_theorem : ∃ (c : ℚ), c > 0
+/-- The Heegner numbers: the d > 0 for which Q(√−d) has class number 1
+    (Heegner, Baker, Stark). Stated as data; the classification itself is
+    not proved here. -/
+def heegnerNumbers : List ℕ := [1, 2, 3, 7, 11, 19, 43, 67, 163]
 
-/-- Step 3: L-function Factorisation (Lemma 4.1). -/
-axiom l_function_factorisation (K : ℕ) (hK : K ≥ 1) : True
-
--- ════════════════════════════════════════════════════════════════════════════
--- Section 4: Main Theorem — Condition W3
--- ════════════════════════════════════════════════════════════════════════════
-
-/-- **Theorem 1.1 (Condition W3)**: No Siegel zeros for χ mod 3^K. -/
-theorem condition_W3 :
-    ∃ (c : ℚ), c > 0 := by
-  exact stark_baker_theorem
-
-/-- All three Watt conditions satisfied for cascade moduli. -/
-theorem watt_conditions_satisfied : True := trivial
-
--- ════════════════════════════════════════════════════════════════════════════
--- Section 5: Specificity to p = 3
--- ════════════════════════════════════════════════════════════════════════════
-
-structure EisensteinTripleProperty (p : ℕ) where
-  ramifies : Prop
-  cyclic_unit_group : Prop
-  class_number_one : Prop
-
-def three_satisfies : EisensteinTripleProperty 3 where
-  ramifies := True
-  cyclic_unit_group := True
-  class_number_one := True
-
-/-- The nine imaginary quadratic fields of class number 1. -/
-def class_number_one_discriminants : List ℕ :=
-  [1, 2, 3, 7, 11, 19, 43, 67, 163]
-
-theorem three_in_stark_list : 3 ∈ class_number_one_discriminants := by
-  simp [class_number_one_discriminants]
+/-- The list contains the odd primes 3, 7, 11, 19, 43, 67 and 163:
+    3 is one of seven. -/
+theorem heegner_odd_primes :
+    ∀ p ∈ [3, 7, 11, 19, 43, 67, 163], p ∈ heegnerNumbers ∧ Nat.Prime p := by
+  norm_num [heegnerNumbers]

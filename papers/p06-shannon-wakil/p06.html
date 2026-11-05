@@ -1,234 +1,1523 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Shannon–Wakil Effect — Wakil 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>The Shannon–Wakil Eﬀect</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<!-- xhtml,mathjax,charset=utf-8,html --> 
+<meta name="src" content="p06.tex" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
-@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
-:root{--linen:#e8e4dc;--ink:#111;--mid:#444;--light:#888;--rule:#ccc;--lrule:#ddd;--bg:#faf9f6;--note-bg:#f4f2ee;--accent:#8B0000;--link:#1a3a7c;--sidebar-w:220px;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{font-size:14px;}
-body{background:var(--linen);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;}
-.site-header{border-bottom:1px solid var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:50px;background:var(--linen);position:sticky;top:0;z-index:100;}
-.site-logo{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.88rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);text-decoration:none;line-height:1.1;}
-.site-logo span{display:block;font-size:.58rem;letter-spacing:.22em;color:var(--light);font-weight:300;}
-.site-nav{display:flex;gap:1.8rem;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;}
-.site-nav a{color:var(--ink);text-decoration:none;}
-.preprint-bar{border-bottom:1px solid var(--rule);padding:.5rem 2rem;display:flex;align-items:center;justify-content:space-between;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);font-family:'IBM Plex Mono',monospace;}
-.preprint-bar .series-tag{color:var(--ink);font-weight:500;}
-.page-body{max-width:1080px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:var(--sidebar-w) 1fr;gap:0;}
-.sidebar{border-right:1px solid var(--rule);padding:2.5rem 1.8rem 2.5rem 0;position:sticky;top:50px;height:calc(100vh - 50px);overflow-y:auto;}
-.sb-label{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
-.sb-num{font-family:'IBM Plex Sans',sans-serif;font-size:3.2rem;font-weight:300;line-height:1;color:var(--ink);letter-spacing:-.02em;margin-bottom:1.8rem;}
-.sb-meta{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;color:var(--light);line-height:2;text-transform:uppercase;margin-bottom:1.8rem;}
-.sb-meta strong{color:var(--ink);display:block;font-weight:500;font-size:.55rem;margin-top:.6rem;}
-.sb-meta strong:first-child{margin-top:0;}
-.sb-links{margin-bottom:1.8rem;}
-.sb-link{display:block;font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;text-transform:uppercase;color:var(--link);text-decoration:none;padding:.35rem 0;border-bottom:1px solid var(--lrule);line-height:1.4;}
-.sb-link:last-child{border-bottom:none;}
-.sb-link:hover{color:var(--accent);}
-.sb-link .sb-link-label{color:var(--light);display:block;font-size:.48rem;}
-.series-index{list-style:none;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.04em;line-height:2.1;text-transform:uppercase;color:var(--light);}
-.series-index a{color:var(--light);text-decoration:none;}
-.series-index a:hover{color:var(--ink);}
-.series-index .curr{color:var(--ink);font-weight:500;}
-.series-index .curr::before{content:'→ ';}
-.paper{padding:2.5rem 0 4rem 2.8rem;background:var(--bg);min-height:calc(100vh - 50px);}
-.paper-header{text-align:center;padding-bottom:2rem;border-bottom:1px solid var(--rule);margin-bottom:2rem;}
-.paper-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--light);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem;}
-.paper-label a{color:var(--link);text-decoration:none;}
-h1.title{font-family:'STIX Two Text','Times New Roman',serif;font-weight:600;font-size:1.45rem;line-height:1.35;color:var(--ink);margin-bottom:1rem;}
-.authors{font-family:'IBM Plex Sans',sans-serif;font-size:.82rem;color:var(--mid);margin-bottom:.4rem;}
-.affiliation{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--light);font-style:italic;margin-bottom:1rem;}
-.paper-date{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--light);}
-.abstract-block{margin:0 2rem 1.5rem;padding:1.2rem 1.5rem;background:var(--note-bg);border:1px solid var(--rule);}
-.abs-label{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mid);margin-bottom:.7rem;text-align:center;}
-.abstract-block p{font-family:'STIX Two Text',serif;font-size:.88rem;line-height:1.65;color:var(--mid);text-align:justify;margin:0;}
-.keywords{margin:.8rem 2rem 1.5rem;font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;color:var(--light);text-align:center;}
-.keywords strong{color:var(--mid);font-weight:500;}
-.paper-meta-strip{display:flex;gap:1.5rem;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;padding:.8rem 1rem;border-top:1px solid var(--lrule);border-bottom:1px solid var(--lrule);}
-.meta-pill{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--light);}
-.meta-pill a{color:var(--link);text-decoration:none;border-bottom:1px solid var(--lrule);}
-.meta-pill a:hover{color:var(--accent);}
-.paper-body{font-family:'STIX Two Text','Times New Roman',serif;font-size:1rem;line-height:1.72;color:var(--ink);max-width:640px;}
-.paper-body p{text-align:justify;margin-bottom:.9em;hyphens:auto;}
-.paper-body h2{font-family:'STIX Two Text',serif;font-weight:600;font-size:1.05rem;color:var(--ink);margin:2.2rem 0 .8rem;counter-increment:section;}
-.paper-body h2::before{content:counter(section) '.  ';color:var(--accent);}
-.paper-body{counter-reset:section;}
-.paper-body h3{font-family:'STIX Two Text',serif;font-weight:600;font-size:.92rem;color:var(--mid);margin:1.5rem 0 .5rem;font-style:italic;}
-.eq-label{display:flex;align-items:center;justify-content:space-between;margin:1.2rem 0;}
-.eq-content{flex:1;text-align:center;font-family:'STIX Two Text',serif;font-size:1.02rem;}
-.eq-num{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);width:44px;text-align:right;}
-.env-block{margin:1.4rem 0;padding:1rem 1.2rem;font-family:'STIX Two Text',serif;font-size:.95rem;line-height:1.65;}
-.env-block.theorem{border:1px solid var(--rule);border-left:4px solid var(--ink);background:var(--note-bg);}
-.env-block.proposition{border:1px solid var(--rule);border-left:4px solid var(--mid);background:var(--note-bg);}
-.env-block.lemma{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
-.env-block.corollary{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
-.env-block.definition{border:1px solid var(--rule);border-left:4px solid var(--accent);background:#fff8f8;}
-.env-block.remark{border-left:3px solid var(--accent);background:#fff8f8;padding:.8rem 1.2rem;}
-.env-block.conjecture{border:1px dashed var(--rule);border-left:4px dashed var(--ink);background:var(--note-bg);}
-.env-label{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);margin-bottom:.5rem;}
-.env-block.remark .env-label,.env-block.definition .env-label{color:var(--accent);}
-.proof{margin:.5rem 0 1.2rem 1.5rem;font-family:'STIX Two Text',serif;font-size:.92rem;line-height:1.65;color:var(--mid);}
-.proof-label{font-family:'IBM Plex Sans',sans-serif;font-style:italic;font-size:.8rem;color:var(--light);margin-bottom:.3rem;}
-.qed{float:right;font-size:1rem;color:var(--mid);}
-table.formal{width:100%;border-collapse:collapse;margin:1.2rem 0 1rem;font-size:.85rem;font-family:'STIX Two Text',serif;}
-table.formal th{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid var(--ink);border-top:1px solid var(--ink);padding:.5rem .8rem;text-align:left;}
-table.formal td{padding:.45rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;}
-table.formal tr:last-child td{border-bottom:1px solid var(--ink);}
-.table-caption{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--mid);text-align:center;margin-bottom:1.5rem;font-style:italic;}
-.table-caption strong{font-style:normal;font-weight:500;}
-em{font-style:italic;}strong{font-weight:600;}
-sup{font-size:.7em;vertical-align:super;color:var(--accent);}
-sub{font-size:.7em;vertical-align:sub;}
-.next-paper{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--ink);max-width:640px;}
-.next-label{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
-.next-title{font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;}
-.next-title a{color:var(--ink);text-decoration:none;}
-.next-title a:hover{color:var(--link);}
-.next-desc{font-family:'STIX Two Text',serif;font-size:.88rem;color:var(--light);margin-top:.25rem;font-style:italic;}
-.references{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);max-width:640px;}
-.ref-list{list-style:none;counter-reset:refs;}
-.ref-list li{counter-increment:refs;padding-left:36px;position:relative;margin-bottom:.6rem;font-family:'STIX Two Text',serif;font-size:.82rem;line-height:1.5;color:var(--mid);}
-.ref-list li::before{content:'['counter(refs)']';position:absolute;left:0;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);}
-.site-footer{border-top:1px solid var(--ink);padding:.9rem 2rem;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);}
-@media(max-width:760px){.page-body{grid-template-columns:1fr;}.sidebar{position:static;height:auto;border-right:none;border-bottom:1px solid var(--rule);padding:1.5rem 0;}.paper{padding:1.5rem 0;}.preprint-bar{display:none;}.series-index{display:none;}.abstract-block{margin:0 0 1.5rem;}}
-</style>
+ 
+/* start css.sty */
+.cmr-10{font-size:83%;}
+.cmcsc-10{font-size:83%;}
+.cmti-10{font-size:83%; font-style: italic;}
+.cmbx-12{ font-weight: bold;}
+.cmbx-12{ font-weight: bold;}
+.cmti-12{ font-style: italic;}
+.cmtt-12{font-family: monospace,monospace;}
+.cmtt-12{font-family: monospace,monospace;}
+.cmbx-10{font-size:83%; font-weight: bold;}
+.cmbx-10{ font-weight: bold;}
+.cmtt-10{font-size:83%;font-family: monospace,monospace;}
+.cmtt-10{font-family: monospace,monospace;}
+.small-caps{font-variant: small-caps; }
+p{margin-top:0;margin-bottom:0}
+p.indent{text-indent:0;}
+p + p{margin-top:1em;}
+p + div, p + pre {margin-top:1em;}
+div + p, pre + p {margin-top:1em;}
+a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+@media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+img.math{vertical-align:middle;}
+div.par-math-display, div.math-display{text-align:center;}
+li p.indent { text-indent: 0em }
+li p:first-child{ margin-top:0em; }
+li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
+li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+code.verb{font-family:monospace,monospace;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
+.hline:first-child{border-bottom:1px solid black;border-top:none;}
+.tabbing-right {text-align:right;}
+div.float, div.figure {margin-left: auto; margin-right: auto;}
+div.float img {text-align:center;}
+div.figure img {text-align:center;}
+.marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.reversemarginpar{float:left;}
+table.equation {width:100%;}
+.equation td{text-align:center; }
+td.equation { margin-top:1em; margin-bottom:1em; } 
+td.equation-label { width:5%; text-align:center; }
+td.eqnarray4 { width:5%; white-space: normal; }
+td.eqnarray2 { width:5%; }
+table.eqnarray-star, table.eqnarray {width:100%;}
+div.eqnarray{text-align:center;}
+div.array {text-align:center;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.pmatrix img{vertical-align:middle;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.bar-css {text-decoration:overline;}
+img.cdots{vertical-align:middle;}
+span.footnote-mark{ vertical-align: super; font-size:80%; }
+div.submaketitle{ text-align:left; margin-top:2em; border-top: 1px solid black; border-bottom: 1px solid black; margin-left:5%; margin-right:5%; font-size:85%; line-height: 95%;}
+div.submaketitle div {margin-top:0.5em; margin-bottom:0.5em; }
+div.submaketitle p { margin-top:0em; margin-bottom:0em; }
+div.abstract{ margin-top: 2em; text-align:left; margin-right:15pt; margin-left:15pt; }
+div.addresses p {margin-top:0em; margin-bottom:0em; }
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; text-align:center; }
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption span.id{font-weight: bold; white-space: nowrap; }
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.qed {width:2ex; float:right; text-align:right;}
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+div.translators {text-align:right; margin-bottom:0.7em;}
+.sectionHead{text-align:center;}
+.equation td{text-align:center; }
+.equation-star td{text-align:center; }
+table.equation-star { width:100%; }
+table.equation { width:100%; }
+table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:95%; margin-left:5%; white-space: nowrap;}
+table.align-star, table.alignat-star, table.xalignat-star, table.flalign-star {margin-left:auto; margin-right:auto; white-space: nowrap;}
+td.align-label { width:5%; text-align:center; }
+td.align-odd { text-align:right; padding-right:0.3em;}
+td.align-even { text-align:left; padding-right:0.6em;}
+table.multline, table.multline-star {width:100%;}
+td.gather {text-align:center; }
+table.gather {width:100%;}
+div.gather-star {text-align:center;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
+.hline:first-child{border-bottom:1px solid black;border-top:none;}
+div.array {text-align:center;}
+dl.enumerate-enumitem{display:grid; grid-template-columns: 3ch 1fr; align-items: top; row-gap:1ch;}
+tr#TBL-3-1- {border-top:0.13159em solid #000;} 
+tr#TBL-3-1- {border-bottom:0.08224em solid #000}
+tr#TBL-3-6- {border-bottom:0.13159em solid #000}
+tr#TBL-4-1- {border-top:0.13159em solid #000;} 
+tr#TBL-4-1- {border-bottom:0.08224em solid #000}
+tr#TBL-4-6- {border-bottom:0.13159em solid #000}
+/* end css.sty */
 
-</head>
-<body>
-<header class="site-header">
-  <a href="https://knowware.institute" class="site-logo">KNOWWARE<span>THE &nbsp; A.R.C &nbsp; INSTITUTE</span></a>
-  <nav class="site-nav"><a href="../../papers/index.html">Pre-Print</a><a href="https://knowware.institute/contact">Contact</a></nav>
-</header>
-<div class="preprint-bar">
-  <span>ARC Institute of Knowware · 2026</span>
-  <span class="series-tag">Constitutional Sieve Programme · Nine Papers</span>
-  <span>cs.IT / math.NT · 94A15, 11N35 · Fisher Creek Ranch, Alberta</span>
-</div>
-<div class="page-body">
-  <aside class="sidebar">
-    <div class="sb-label">Paper</div><div class="sb-num">06</div>
-    <div class="sb-meta"><strong>Author</strong>Khayyam Wakil<strong>Published</strong>February 2026<strong>Series</strong>Constitutional Sieve Programme<strong>MSC 2020</strong>94A15, 94A24, 11N35, 11N13</div>
-    <div class="sb-links">
-      <a class="sb-link" href="p06.pdf" target="_blank">
-        <span class="sb-link-label">Download · PDF</span>
-        p06.pdf → View
-      </a>
-      <a class="sb-link" href="p06.tex" target="_blank">
-        <span class="sb-link-label">LaTeX Source</span>
-        p06.tex → View
-      </a>
+
+body{max-width:48rem;margin:2rem auto;padding:0 1rem;font-family:"STIX Two Text","Times New Roman",serif;font-size:17px;line-height:1.55;color:#1a1a1a;background:#faf9f6}
+h2,h3,h4{line-height:1.3} .maketitle{text-align:center;margin-bottom:2rem} table{border-collapse:collapse;margin:1rem auto} td{padding:2px 8px}
+img{max-width:100%;height:auto} .abstract{margin:1.5rem 0;padding:1rem 1.25rem;background:#f4f2ee}
+@media (prefers-color-scheme: dark){body{background:#151515;color:#e8e6e1} .abstract{background:#222} a{color:#9bb8ff}}
+</style> 
+<script>window.MathJax = { tex: { tags: "ams", macros: {"Z": "\\mathbb{Z}", "Q": "\\mathbb{Q}", "thetaW": "\\theta_W", "thetaBV": "\\theta_{BV}", "Zomega": "\\Z[\\omega]", "Lamb": "\\Lambda"} } }; </script> 
+ <script type="text/javascript" async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml-full.js"></script>  
+</head><body 
+>
+  <div class="maketitle">
+  <h2 class="titleHead">
+THE SHANNON–WAKIL EFFECT: CONSTITUTIONAL FORCING AS A
+UNIVERSAL PATTERN IN INFORMATION THEORY AND PRIME
+ARITHMETIC
+  </h2>
+  <div class="authors"><span class="author" >
+<span 
+class="cmr-10">KHAYYAM WAKIL</span>
+  </span></div>
+         <div class="abstract">
+       <!--l. 68--><p class="noindent" ><span class="title">
+       <span 
+class="cmcsc-10">A<span 
+class="small-caps">b</span><span 
+class="small-caps">s</span><span 
+class="small-caps">t</span><span 
+class="small-caps">r</span><span 
+class="small-caps">a</span><span 
+class="small-caps">c</span><span 
+class="small-caps">t</span>.</span> </span><span 
+class="cmr-10">We formalize a structural pattern that we call the </span><span 
+class="cmti-10">Shannon–Wakil eﬀect</span><span 
+class="cmr-10">: an</span>
+       <span 
+class="cmr-10">exponential  conﬁguration  space  on  which  a  natural  measure  concentrates  onto  a  strict</span>
+       <span 
+class="cmr-10">subspace whose size, on the exponential scale, is a ﬁxed fraction</span> \(\theta ^* \in (0,1)\) <span 
+class="cmr-10">of the whole. Shannon’s</span>
+       <span 
+class="cmr-10">Asymptotic Equipartition Property (AEP) is an instance: for a source with</span> \(0 &lt; H &lt; \log _2|\mathcal {A}|\)<span 
+class="cmr-10">, the</span> \(|\mathcal {A}|^n\) <span 
+class="cmr-10">sequences</span>
+       <span 
+class="cmr-10">concentrate onto a typical set of size</span> \(2^{n(H+o(1))}\)<span 
+class="cmr-10">, so</span> \(\theta ^* = H/\log _2|\mathcal {A}|\)<span 
+class="cmr-10">, although the typical set is a vanishing fraction</span>
+       <span 
+class="cmr-10">of</span> \(\mathcal {A}^n\)<span 
+class="cmr-10">. Shannon’s Channel Coding Theorem shares only the size condition: the largest reliable</span>
+       <span 
+class="cmr-10">codebook in</span> \(\mathcal {X}^n\) <span 
+class="cmr-10">has</span> \(2^{n(C+o(1))}\) <span 
+class="cmr-10">codewords, with</span> \(C = \max _{p(x)} I(X;Y)\)<span 
+class="cmr-10">, but no measure given by the channel concentrates on</span>
+       <span 
+class="cmr-10">it. These constants vary continuously with the source and the channel and are not values of</span>
+       <span 
+class="cmr-10">the</span> \(k\)<span 
+class="cmr-10">-hierarchy</span> \(\theta _k = (2^k - k)/2^k\)<span 
+class="cmr-10">.</span>
+       </p><!--l. 83--><p class="indent" >  <span 
+class="cmr-10">The ﬁrst version also claimed a third, arithmetic instance: primes modulo powers of</span> \(3\)<span 
+class="cmr-10">,</span>
+       <span 
+class="cmr-10">governed by</span> \(\thetaW = 5/8\)<span 
+class="cmr-10">. That claim is withdrawn. Primes are equidistributed between the residue</span>
+       <span 
+class="cmr-10">classes</span> \(1\) <span 
+class="cmr-10">and</span> \(2\) <span 
+class="cmr-10">modulo</span> \(3\)<span 
+class="cmr-10">, so they do not concentrate on the proposed subspace; the summed</span>
+       <span 
+class="cmr-10">estimate  over  the  moduli</span>  \(3^K\)  <span 
+class="cmr-10">holds  for  every  exponent  up  to</span>  \(1\)<span 
+class="cmr-10">;  and</span>  \(\thetaW = 5/8\)  <span 
+class="cmr-10">for  these  moduli  is</span>
+       <span 
+class="cmr-10">a  conjecture  of  the  companion  paper</span><span 
+class="cmr-10"> </span><span class="cite"><span 
+class="cmr-10">[</span><a 
+href="#XWakilEisenstein"><span 
+class="cmr-10">12</span></a><span 
+class="cmr-10">]</span></span><span 
+class="cmr-10">.  The  Sophie  Germain  “non-instance”  cannot</span>
+       <span 
+class="cmr-10">discriminate between depths, since</span> \(\theta _1 = \theta _2 = 1/2\)<span 
+class="cmr-10">, and is withdrawn as a test. We record the remaining</span>
+       <span 
+class="cmr-10">parallels as informal analogies and state the Constitutional Forcing Conjecture, in which</span>
+       <span 
+class="cmr-10">the counting formula is a postulate.</span></p></div>
+<div class="submaketitle">
+  <div class="date" >
+<!--l. 95--><p class="indent" >  <span 
+class="cmti-12">Date</span>: February 2026; revised November 2026.</p></div>
+  <div class="subjclass">
+<!--l. 95--><p class="indent" >  2020 <span 
+class="cmti-12">Mathematics Subject Classiﬁcation.  </span>94A15, 94A24, 11N35, 11N13, 11R04 .</p></div>
+  <div class="keywords">
+<!--l. 95--><p class="indent" >  <span 
+class="cmti-12">Key words and phrases. </span>Shannon entropy, channel capacity, asymptotic equipartition property,
+constitutional forcing, level of distribution, cascade moduli, Eisenstein integers, twin primes,
+Sophie Germain primes, \(k\)-hierarchy, structural parallel.</p></div></div></div>
+<!--l. 97--><p class="noindent" ><span 
+class="cmbx-12">Revision note (November 2026). </span>The arithmetic “third instance” is withdrawn: primes do not
+concentrate on the class \(2 \bmod 3\) (Proposition <a 
+href="#x1-9002r2">5.2<!--tex4ht:ref: prop:cascade-sw --></a> now shows that (SW3) fails), Theorem 5.1 of
+the ﬁrst version is replaced by the trivial estimate that it is (Proposition <a 
+href="#x1-9001r1">5.1<!--tex4ht:ref: prop:trivial-sum --></a>), and \(\thetaW = 5/8\) is
+stated as a conjecture. The Sophie Germain “theorem”, its citation of itself and the
+                                                                                         
+                                                                                         
+unreproducible statistic \(\delta \cdot \log x = 2.38 \pm 0.18\) are withdrawn, and so is the claim that information theory
+supplies \(k = 1\) instances. The false capacity formula \(C = \log |\mathcal {X}| - \min H(X|Y)\) is replaced by \(C = \max _{p(x)} I(X;Y)\), and the degraded-channel
+remark is corrected. Proposition <a 
+href="#x1-7002r2">3.2<!--tex4ht:ref: prop:aep-sw --></a> now carries the hypotheses it needs, and channel
+coding is recast on \(\mathcal {X}^n\), where it satisﬁes only the size conditions. The “ﬁve structural
+correspondences” and the “[Proven]” labels on them are replaced by informal analogies,
+and the “three-level ﬁltration”, the “\(8\) conﬁguration dimensions” and the \(5/4\) “gain” are
+removed. The Bombieri–Vinogradov and Pascadi references and a duplicate label are
+corrected.
+</p>
+  <h3 class="sectionHead"><a 
+ id="x1-1000"></a>Contents</h3>
+  <div class="tableofcontents"><span class="sectionToc" ><a 
+href="#x1-1000" id="QQ2-1-1">Contents</a></span><br /><span class="sectionToc" > 1.  <a 
+href="#x1-20001" id="QQ2-1-2">Introduction</a></span><br /><span class="subsectionToc" > 1.1.  <a 
+href="#x1-30001.1" id="QQ2-1-3">Two instances and a withdrawn
+third</a></span><br /><span class="subsectionToc" > 1.2.  <a 
+href="#x1-40001.2" id="QQ2-1-4">What this paper claims and does not claim</a></span><br /><span class="subsectionToc" > 1.3.  <a 
+href="#x1-50001.3" id="QQ2-1-5">Position
+in the programme</a></span><br /><span class="sectionToc" > 2.  <a 
+href="#x1-60002" id="QQ2-1-6">The Shannon–Wakil Eﬀect: Deﬁnition</a></span><br /><span class="sectionToc" > 3.  <a 
+href="#x1-70003" id="QQ2-1-7">First
+Instance: Shannon’s AEP</a></span><br /><span class="sectionToc" > 4.  <a 
+href="#x1-80004" id="QQ2-1-8">Shannon’s Channel Coding Theorem:
+A Partial Instance</a></span><br /><span class="sectionToc" > 5.  <a 
+href="#x1-90005" id="QQ2-1-9">The Proposed Third Instance: Cascade
+Moduli</a></span><br /><span class="sectionToc" > 6.  <a 
+href="#x1-100006" id="QQ2-1-10">Structural Analogies</a></span><br /><span class="subsectionToc" > 6.1.  <a 
+href="#x1-110006.1" id="QQ2-1-11">The analogy table</a></span><br /><span class="subsectionToc" > 6.2.  <a 
+href="#x1-120006.2" id="QQ2-1-12">The
+formula analogy</a></span><br /><span class="subsectionToc" > 6.3.  <a 
+href="#x1-130006.3" id="QQ2-1-13">The reduction analogy</a></span><br /><span class="sectionToc" > 7.  <a 
+href="#x1-140007" id="QQ2-1-14">Sophie Germain
+Primes</a></span><br /><span class="sectionToc" > 8.  <a 
+href="#x1-150008" id="QQ2-1-15">The  \(k\)-Hierarchy</a></span><br /><span class="sectionToc" > 9.  <a 
+href="#x1-160009" id="QQ2-1-17">The  Constitutional  Forcing
+Conjecture</a></span><br /><span class="sectionToc" > 10.  <a 
+href="#x1-1700010" id="QQ2-1-18">Shannon–Wakil Eﬀect vs. Analogies</a></span><br /><span class="sectionToc" > 11.  <a 
+href="#x1-1800011" id="QQ2-1-19">Discussion
+and  Open  Problems</a></span><br /><span class="subsectionToc" > 11.1.  <a 
+href="#x1-1900011.1" id="QQ2-1-20">Chronology</a></span><br /><span class="subsectionToc" > 11.2.  <a 
+href="#x1-2000011.2" id="QQ2-1-21">No  object  for
+\(k=4\)</a></span><br /><span class="subsectionToc" > 11.3.  <a 
+href="#x1-2100011.3" id="QQ2-1-22">The  ratio  \(5/4\)</a></span><br /><span class="subsectionToc" > 11.4.  <a 
+href="#x1-2200011.4" id="QQ2-1-23">Channel  capacity  and  levels  of
+distribution</a></span><br /><span class="sectionToc" ><a 
+href="#x1-23000" id="QQ2-1-24">Acknowledgements</a></span><br /><span class="sectionToc" ><a 
+href="#x1-24000" id="QQ2-1-25">References</a></span><br />
+  </div>
+  <h3 class="sectionHead"><span class="titlemark">1. </span> <a 
+ id="x1-20001"></a>Introduction</h3>
+<!--l. 120--><p class="noindent" >Every mathematician knows at some level that information theory and number theory are diﬀerent
+subjects. Information theory studies the storage and transmission of data; number theory studies
+the arithmetic structure of integers. They have diﬀerent objects, diﬀerent tools, and diﬀerent
+communities.
+</p><!--l. 125--><p class="indent" >  This paper proposes a structural parallel between the two and tests it.
+</p><!--l. 127--><p class="indent" >  In 1948 Shannon published the two results that deﬁne the fundamental limits of compression
+and communication <span class="cite">[<a 
+href="#XShannon1948">1</a>]</span>. The Asymptotic Equipartition Property (AEP) says that most
+sequences are typical: the \(|\mathcal {A}|^n\) possible sequences of length \(n\) concentrate on an eﬀective
+set of size \(2^{n(H+o(1))}\), governed by the entropy \(H\); when \(H &lt; \log _2|\mathcal {A}|\) this set is a vanishing fraction of \(\mathcal {A}^n\). The
+Channel Coding Theorem says that reliable communication at rate \(R\) is possible for \(R &lt; C\) and
+impossible for \(R &gt; C\), where \(C\) is the channel capacity. Shannon’s 1948 argument for the coding
+theorem was a random-coding sketch; rigorous proofs followed (Feinstein, 1954). In
+both cases the governing constant is a continuous function of the source or channel
+statistics.
+</p><!--l. 139--><p class="indent" >  The ﬁrst version of this paper proposed an analogous arithmetic instance: that the
+algebraic structure of \(\Zomega \) forces primes in arithmetic progressions modulo the cascade
+moduli \(3^K\) to concentrate onto an eﬀective subspace, governed by \(\thetaW = 5/8\). Section <a 
+href="#x1-90005">5<!--tex4ht:ref: sec:cascade --></a> shows that
+                                                                                         
+                                                                                         
+this proposal fails: primes are equidistributed between the classes \(1\) and \(2\) modulo \(3\), the
+summed estimate behind it holds for every exponent up to \(1\), and \(\thetaW = 5/8\) for these moduli is a
+conjecture <span class="cite">[<a 
+href="#XWakilEisenstein">12</a>]</span>.
+</p>
+<!--l. 147--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">1.1. </span> <a 
+ id="x1-30001.1"></a><span 
+class="cmbx-12">Two instances and a withdrawn third.</span></span>
+          </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   (1) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmbx-12">Shannon  AEP  (1948).  </span>For  \(0 &lt; H &lt; \log _2|\mathcal {A}|\),  source  sequences  of  length  \(n\)  concentrate  onto  \(2^{n(H+o(1))}\)
+       typical sequences out of \(|\mathcal {A}|^n\). Governing constant: \(H/\log _2|\mathcal {A}|\), a continuous function of the source
+       distribution \(p\) (Proposition <a 
+href="#x1-7002r2">3.2<!--tex4ht:ref: prop:aep-sw --></a>).
+          </dd><dt class="enumerate-enumitem">
+   (2) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmbx-12">Shannon Channel Coding (1948). </span>Reliable codes exist at all rates \(R &lt; C\) and not at
+       rates \(R &gt; C\), where \(C = \max _{p(x)} I(X;Y)\). Governing constant: \(C/\log _2|\mathcal {X}|\), a continuous function of the channel \(p(y|x)\). This case
+       satisﬁes only the size conditions of the deﬁnition (Proposition <a 
+href="#x1-8002r2">4.2<!--tex4ht:ref: prop:channel-sw --></a>).
+          </dd><dt class="enumerate-enumitem">
+   (3) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmbx-12">Cascade  moduli  (proposed  in  the  ﬁrst  version). </span>This  is  not  an  instance
+       (Proposition <a 
+href="#x1-9002r2">5.2<!--tex4ht:ref: prop:cascade-sw --></a>); \(\thetaW = 5/8\) for the moduli \(3^K\) is conjectural <span class="cite">[<a 
+href="#XWakilEisenstein">12</a>]</span>.</dd></dl>
+<!--l. 167--><p class="indent" >  Sophie Germain primes, presented in the ﬁrst version as a conﬁrmed non-instance, are discussed
+in Section <a 
+href="#x1-140007">7<!--tex4ht:ref: sec:sg --></a>: the example cannot discriminate between depths.
+</p>
+<!--l. 171--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">1.2. </span> <a 
+ id="x1-40001.2"></a><span 
+class="cmbx-12">What this paper claims and does not claim.</span></span>
+  We attach logical-status labels to every signiﬁcant claim. Here we state the top-level
+ones.
+</p>
+          <ul class="itemize1">
+       <li class="itemize">
+       <!--l. 178--><p class="indent" >   Under  the  hypotheses  \(0 &lt; H &lt; \log _2|\mathcal {A}|\)  and  \(\varepsilon _n \to 0\)  with  \(n\varepsilon _n^2 \to \infty \),  the  AEP  satisﬁes  (SW1)–(SW4)  with  \(\theta ^* = H/\log _2|\mathcal {A}|\)
+       (Proposition <a 
+href="#x1-7002r2">3.2<!--tex4ht:ref: prop:aep-sw --></a>).
+          </p></li>
+       <li class="itemize">
+       <!--l. 183--><p class="indent" >   Channel  coding,  recast  on  \(\mathcal {X}^n\),  satisﬁes  the  size  conditions  with  \(\theta ^* = C/\log _2|\mathcal {X}|\)  but  not  the
+       concentration condition (Proposition <a 
+href="#x1-8002r2">4.2<!--tex4ht:ref: prop:channel-sw --></a>).
+          </p></li>
+       <li class="itemize">
+       <!--l. 187--><p class="indent" >   The  cascade-moduli  system  does  not  satisfy  (SW3)  (Proposition <a 
+href="#x1-9002r2">5.2<!--tex4ht:ref: prop:cascade-sw --></a>),  and
+       the  summed  estimate  of  the  ﬁrst  version  holds  for  every  exponent  up  to  \(1\)
+       (Proposition <a 
+href="#x1-9001r1">5.1<!--tex4ht:ref: prop:trivial-sum --></a>).
+          </p></li>
+       <li class="itemize">
+                                                                                         
+                                                                                         
+       <!--l. 191--><p class="indent" >   \(\thetaW = 5/8\) for the moduli \(3^K\), per modulus <span class="cite">[<a 
+href="#XWakilEisenstein">12</a>]</span>; this would go beyond the Generalised Riemann
+       Hypothesis.
+          </p></li>
+       <li class="itemize">
+       <!--l. 195--><p class="indent" >   The Sophie Germain remark of Section <a 
+href="#x1-140007">7<!--tex4ht:ref: sec:sg --></a>; it is not a test of the framework.
+          </p></li>
+       <li class="itemize">
+       <!--l. 198--><p class="indent" >   The parallels of Section <a 
+href="#x1-100006">6<!--tex4ht:ref: sec:correspondences --></a>. They are informal analogies, not theorems.
+          </p></li>
+       <li class="itemize">
+       <!--l. 202--><p class="indent" >   The Constitutional Forcing Conjecture (Conjecture <a 
+href="#x1-16001r1">9.1<!--tex4ht:ref: conj:cfc --></a>), whose hypothesis (iii) is
+       a postulate.
+          </p></li>
+       <li class="itemize">
+       <!--l. 205--><p class="indent" >   Specifying any object for \(k = 4\) (Remark <a 
+href="#x1-20001r1">11.1<!--tex4ht:ref: rem:k4 --></a>); without one, \(\theta _4 = 3/4\) is not a testable prediction.
+          </p></li>
+       <li class="itemize">
+       <!--l. 209--><p class="indent" >   A functorial or categorical equivalence between information theory and number
+       theory.</p></li></ul>
+<!--l. 213--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">1.3. </span> <a 
+ id="x1-50001.3"></a><span 
+class="cmbx-12">Position in the programme.</span></span>
+  This paper is the sixth in a nine-paper programme (p01–p09) on constitutional sieve
+theory <span class="cite">[<a 
+href="#XWakilCF">9</a>, <a 
+href="#XWakilKhayyam">10</a>, <a 
+href="#XWakilSC">11</a>, <a 
+href="#XWakilEisenstein">12</a>, <a 
+href="#XWakilRamanujan">13</a>, <a 
+href="#XWakilW3">14</a>]</span>. The formula \(\theta _k = (2^k - k)/2^k\) is obtained in <span class="cite">[<a 
+href="#XWakilCF">9</a>, <a 
+href="#XWakilRamanujan">13</a>]</span> from a counting postulate. The
+level \(\thetaW = 5/8\) for the moduli \(3^K\) is a conjecture of <span class="cite">[<a 
+href="#XWakilEisenstein">12</a>]</span>. Condition W3 of <span class="cite">[<a 
+href="#XWakilW3">14</a>]</span> is true, with a one-line proof
+from the cyclicity of \((\Z /3^K\Z )^*\), and does not bear on any level of distribution. The methodological
+framework is articulated in <span class="cite">[<a 
+href="#XWakilSC">11</a>]</span>.
+</p>
+  <h3 class="sectionHead"><span class="titlemark">2. </span> <a 
+ id="x1-60002"></a>The Shannon–Wakil Eﬀect: Deﬁnition</h3>
+  <div class="newtheorem">
+<!--l. 229--><p class="noindent" ><span class="head">
+<a 
+ id="x1-6001r1"></a>
+<span 
+class="cmbx-12">Deﬁnition 2.1 </span>(Shannon–Wakil Eﬀect)<span 
+class="cmbx-12">.</span>  </span> A system \(\mathcal {S} = (\mathcal {C}_n, \mu _n)_{n \geq 1}\), consisting of ﬁnite sets \(\mathcal {C}_n\) and probability
+measures \(\mu _n\) on them, exhibits the <span 
+class="cmti-12">Shannon–Wakil eﬀect </span>with governing constant \(\Phi (\mathcal {S}) = \theta ^*\) if:
+          </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+(SW1) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmbx-12">Exponential conﬁguration space.</span> \(|\mathcal {C}_n|\) grows exponentially in \(n\): \(|\mathcal {C}_n| = e^{n(r + o(1))}\) for some \(r &gt; 0\).
+          </dd><dt class="enumerate-enumitem">
+(SW2) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmbx-12">Intrinsic structural constraint.</span> \(\mu _n\) is a measure or distributional law intrinsic to
+       \(\mathcal {S}\)—not an external parameter.
+          </dd><dt class="enumerate-enumitem">
+(SW3) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmbx-12">Dimensional reduction. </span>There exist eﬀective subspaces \(\mathcal {E}_n \subsetneq \mathcal {C}_n\) with \(|\mathcal {E}_n| = e^{n(\theta ^* r + o(1))}\) for some \(\theta ^* \in (0,1)\), onto
+                                                                                         
+                                                                                         
+       which \(\mu _n\) concentrates: \(\mu _n(\mathcal {C}_n \setminus \mathcal {E}_n) \to 0\).
+          </dd><dt class="enumerate-enumitem">
+(SW4) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmbx-12">Determination of the governing constant. </span>The constant \(\theta ^*\) is determined by the
+       data of \(\mathcal {S}\).</dd></dl>
+  </div>
+<!--l. 250--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 252--><p class="noindent" ><span class="head">
+<a 
+ id="x1-6006r2"></a>
+<span 
+class="cmti-12">Remark </span>2.2<span 
+class="cmti-12">.</span>  </span> (SW1) and (SW3) are the mathematical content of Deﬁnition <a 
+href="#x1-6001r1">2.1<!--tex4ht:ref: def:sw --></a>. (SW2) and
+(SW4) are informal requirements: “intrinsic” is not deﬁned, and any quantity deﬁned from \(\mathcal {S}\)
+is determined by \(\mathcal {S}\), so (SW4) adds nothing beyond requiring \(\theta ^*\) to be deﬁned from the system.
+The ﬁrst version called (SW4) “the critical one”, required \(\theta ^*\) to be “uniquely determined by the
+algebraic structure”, and asserted that in the cascade case changing \(\theta ^*\) “would require changing
+the prime \(3\) itself”. Entropy and capacity are continuous functions of real parameters, not
+algebraic invariants, and the cascade case is withdrawn (Section <a 
+href="#x1-90005">5<!--tex4ht:ref: sec:cascade --></a>); those statements are
+withdrawn.
+</p>
+  </div>
+<!--l. 264--><p class="indent" >
+</p>
+  <h3 class="sectionHead"><span class="titlemark">3. </span> <a 
+ id="x1-70003"></a>First Instance: Shannon’s AEP</h3>
+<!--l. 270--><p class="noindent" >Let \(\mathcal {A}\) be a ﬁnite alphabet with probability distribution \(p\) on \(\mathcal {A}\). Let \(X_1, X_2, \ldots \) be i.i.d. with law \(p\). The entropy is
+\(H = H(p) = -\sum _{a \in \mathcal {A}} p(a) \log _2 p(a)\).
+</p>
+  <div class="newtheorem">
+<!--l. 274--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7001r1"></a>
+<span 
+class="cmbx-12">Theorem 3.1 </span>(AEP, <span class="cite">[<a 
+href="#XCoverThomas2006">2</a>, Theorem 3.1.2]</span>)<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">For any</span> \(\varepsilon &gt; 0\)<span 
+class="cmti-12">, the typical set </span>\[ T_\varepsilon ^{(n)} = \left \{ x^n \in \mathcal {A}^n : \left | -\frac {1}{n} \log _2 p(x^n) - H \right | &lt; \varepsilon \right \} \] <span 
+class="cmti-12">satisﬁes: </span>(i) \(\Pr [X^n \in T_\varepsilon ^{(n)}] \to 1\)<span 
+class="cmti-12">; </span>(ii) \(|T_\varepsilon ^{(n)}| \leq 2^{n(H+\varepsilon )}\)<span 
+class="cmti-12">;</span>
+(iii) <span 
+class="cmti-12">for large</span> \(n\)<span 
+class="cmti-12">,</span> \(|T_\varepsilon ^{(n)}| \geq (1-\varepsilon )2^{n(H-\varepsilon )}\)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 284--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 286--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7002r2"></a>
+                                                                                         
+                                                                                         
+<span 
+class="cmbx-12">Proposition 3.2 </span>(AEP Exhibits SW Eﬀect)<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">Suppose</span> \(0 &lt; H(p) &lt; \log _2|\mathcal {A}|\)<span 
+class="cmti-12">, and let</span> \(\varepsilon _n \to 0\) <span 
+class="cmti-12">with</span> \(n\varepsilon _n^2 \to \infty \)<span 
+class="cmti-12">. Then the system</span> \(\mathcal {S}_{AEP} = (\mathcal {A}^n, p^{\otimes n})\)
+<span 
+class="cmti-12">satisﬁes </span>(SW1)–(SW4) <span 
+class="cmti-12">with eﬀective subspaces</span> \(\mathcal {E}_n = T_{\varepsilon _n}^{(n)}\) <span 
+class="cmti-12">and governing constant</span> \(\theta ^* = H/\log _2|\mathcal {A}|\)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 294--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 297--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>(SW1): \(|\mathcal {A}^n| = e^{nr}\) with \(r = \ln |\mathcal {A}| &gt; 0\). (SW2): \(p^{\otimes n}\) is the i.i.d. law of the source. (SW3): \(-\frac {1}{n}\log _2 p(X^n)\) is the mean of \(n\)
+i.i.d. copies of \(-\log _2 p(X_1)\), which has mean \(H\) and ﬁnite variance \(\sigma ^2\), so by Chebyshev’s inequality \(\Pr [X^n \notin T_{\varepsilon _n}^{(n)}] \leq \sigma ^2/(n\varepsilon _n^2) \to 0\). Every \(x^n \in T_{\varepsilon _n}^{(n)}\)
+has \(2^{-n(H+\varepsilon _n)} &lt; p(x^n) &lt; 2^{-n(H-\varepsilon _n)}\), so \((1-o(1))\,2^{n(H-\varepsilon _n)} \leq |T_{\varepsilon _n}^{(n)}| \leq 2^{n(H+\varepsilon _n)}\). Hence \(|T_{\varepsilon _n}^{(n)}| = 2^{n(H+o(1))} = e^{n(\theta ^* r + o(1))}\) with \(\theta ^* = H/\log _2|\mathcal {A}| \in (0,1)\), and \(T_{\varepsilon _n}^{(n)} \neq \mathcal {A}^n\) once \(\varepsilon _n &lt; \log _2|\mathcal {A}| - H\). (SW4): \(\theta ^*\) is a function of \(p\). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+  <div class="newtheorem">
+<!--l. 311--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7003r3"></a>
+<span 
+class="cmti-12">Remark </span>3.3<span 
+class="cmti-12">.</span>  </span> The hypotheses are needed. For the uniform source every \(x^n\) has \(-\frac {1}{n}\log _2 p(x^n) = H\), so the typical
+set is all of \(\mathcal {A}^n\) and the exponent ratio is \(1\); for a deterministic source it is \(0\). With \(\varepsilon \) ﬁxed,
+Theorem <a 
+href="#x1-7001r1">3.1<!--tex4ht:ref: thm:aep --></a> pins \(|T_\varepsilon ^{(n)}|\) only between \(2^{n(H \pm \varepsilon )}\). The typical set is a vanishing fraction of \(\mathcal {A}^n\): \(|T_{\varepsilon _n}^{(n)}|/|\mathcal {A}|^n = 2^{-n(\log _2|\mathcal {A}| - H + o(1))} \to 0\). The governing
+constant \(H/\log _2|\mathcal {A}|\) takes every value in \((0,1)\) as \(p\) varies (for example \(0.918\ldots \) for \(p = (1/3, 2/3)\)); it is not \(1/2\) in general.
+</p>
+  </div>
+<!--l. 322--><p class="indent" >
+</p>
+  <h3 class="sectionHead"><span class="titlemark">4. </span> <a 
+ id="x1-80004"></a>Shannon’s Channel Coding Theorem: A Partial Instance</h3>
+<!--l. 328--><p class="noindent" >A discrete memoryless channel is a conditional distribution \(p(y|x)\) from input alphabet \(\mathcal {X}\) to output
+alphabet \(\mathcal {Y}\). The channel capacity is \[ C = \max _{p(x)} I(X;Y) = \max _{p(x)} \sum _{x,y} p(x)p(y|x) \log \frac {p(y|x)}{p(y)}. \]
+</p>
+  <div class="newtheorem">
+<!--l. 335--><p class="noindent" ><span class="head">
+<a 
+ id="x1-8001r1"></a>
+<span 
+class="cmbx-12">Theorem 4.1 </span>(Channel Coding, <span class="cite">[<a 
+href="#XCoverThomas2006">2</a>, Ch. 7]</span>)<span 
+class="cmbx-12">.</span>  </span> (Achievability)  <span 
+class="cmti-12">For any</span> \(R &lt; C\) <span 
+class="cmti-12">and</span> \(\varepsilon &gt; 0\)<span 
+class="cmti-12">, there exist</span>
+<span 
+class="cmti-12">codes of rate</span> \(R\) <span 
+class="cmti-12">and blocklength</span> \(n\) <span 
+class="cmti-12">with maximal error probability</span> \(&lt; \varepsilon \) <span 
+class="cmti-12">for all suﬃciently large</span> \(n\)<span 
+class="cmti-12">.</span>
+</p><!--l. 341--><p class="indent" >  (Converse) <span 
+class="cmti-12">For any</span> \(R &gt; C\)<span 
+class="cmti-12">, every sequence of codes of rate</span> \(R\) <span 
+class="cmti-12">has error probability bounded away</span>
+<span 
+class="cmti-12">from</span> \(0\)<span 
+class="cmti-12">.</span>
+                                                                                         
+                                                                                         
+</p>
+  </div>
+<!--l. 343--><p class="indent" >
+</p><!--l. 345--><p class="indent" >  The ﬁrst version took as conﬁguration space the set of all codebooks of rate \(R\) and blocklength \(n\).
+There are \(|\mathcal {X}|^{n \cdot 2^{nR}}\) of them, which is doubly exponential in \(n\), so that choice violates (SW1); the ﬁrst version
+nevertheless asserted (SW1). It also took the channel law \(p(y|x)\) as the measure, but \(p(y|x)\) is not a measure on
+codebooks. We use instead \(\mathcal {C}_n = \mathcal {X}^n\), in which a codebook is a subset. For \(0 &lt; \varepsilon &lt; 1\) let \(M^*(n,\varepsilon )\) be the largest
+number of codewords in a code of blocklength \(n\) with maximal error probability at most
+\(\varepsilon \).
+</p>
+  <div class="newtheorem">
+<!--l. 354--><p class="noindent" ><span class="head">
+<a 
+ id="x1-8002r2"></a>
+<span 
+class="cmbx-12">Proposition 4.2 </span>(Channel coding and the SW conditions)<span 
+class="cmbx-12">.</span>  </span>  <span 
+class="cmti-12">Suppose</span>  \(0 &lt; C &lt; \log _2|\mathcal {X}|\)<span 
+class="cmti-12">.  Then  </span>\[ \lim _{\varepsilon \to 0}\, \liminf _{n \to \infty } \tfrac {1}{n}\log _2 M^*(n,\varepsilon ) = \lim _{\varepsilon \to 0}\, \limsup _{n \to \infty } \tfrac {1}{n}\log _2 M^*(n,\varepsilon ) = C. \]  <span 
+class="cmti-12">Thus  a</span>
+<span 
+class="cmti-12">largest codebook</span> \(\mathcal {E}_n \subsetneq \mathcal {X}^n\) <span 
+class="cmti-12">with maximal error at most</span> \(\varepsilon \) <span 
+class="cmti-12">has</span> \(|\mathcal {E}_n| = 2^{n(C+o(1))}\) <span 
+class="cmti-12">in this iterated sense, and (SW1) and</span>
+<span 
+class="cmti-12">the size part of (SW3) hold with</span> \(\theta ^* = C/\log _2|\mathcal {X}|\)<span 
+class="cmti-12">. The concentration part of (SW3) has no counterpart:</span>
+<span 
+class="cmti-12">no measure on</span> \(\mathcal {X}^n\) <span 
+class="cmti-12">given by the channel concentrates on</span> \(\mathcal {E}_n\)<span 
+class="cmti-12">. Channel coding is therefore not an</span>
+<span 
+class="cmti-12">instance of Deﬁnition</span><span 
+class="cmti-12"> </span><a 
+href="#x1-6001r1"><span 
+class="cmti-12">2.1</span><!--tex4ht:ref: def:sw --></a> <span 
+class="cmti-12">as stated.</span>
+</p>
+  </div>
+<!--l. 370--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 373--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>By achievability, \(\liminf _n \frac {1}{n}\log _2 M^*(n,\varepsilon ) \geq R\) for every \(R &lt; C\) and every \(\varepsilon &gt; 0\). A code with maximal error at most \(\varepsilon \) has
+average error at most \(\varepsilon \), so Fano’s inequality gives \((1-\varepsilon )\log _2 M \leq nC + 1\) for its size \(M\), and \(\limsup _n \frac {1}{n}\log _2 M^*(n,\varepsilon ) \leq C/(1-\varepsilon )\). Let \(\varepsilon \to 0\). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+  <div class="newtheorem">
+<!--l. 381--><p class="noindent" ><span class="head">
+<a 
+ id="x1-8003r3"></a>
+<span 
+class="cmti-12">Remark </span>4.3<span 
+class="cmti-12">.</span>  </span> The AEP satisﬁes Deﬁnition <a 
+href="#x1-6001r1">2.1<!--tex4ht:ref: def:sw --></a> (Proposition <a 
+href="#x1-7002r2">3.2<!--tex4ht:ref: prop:aep-sw --></a>); channel coding satisﬁes
+only its size conditions (Proposition <a 
+href="#x1-8002r2">4.2<!--tex4ht:ref: prop:channel-sw --></a>). The ﬁrst version took the fact that one deﬁnition
+“captures both source coding and channel coding limits” as evidence that Deﬁnition <a 
+href="#x1-6001r1">2.1<!--tex4ht:ref: def:sw --></a> is
+the right one; that inference is withdrawn. As with the AEP, the constant \(C/\log _2|\mathcal {X}|\) varies continuously
+with the channel: for the binary symmetric channel with crossover probability \(\epsilon \) it is \(1 - H(\epsilon )\), which
+equals \(1/2\) only at \(\epsilon \approx 0.110\).
+                                                                                         
+                                                                                         
+</p>
+  </div>
+<!--l. 391--><p class="indent" >
+</p>
+  <h3 class="sectionHead"><span class="titlemark">5. </span> <a 
+ id="x1-90005"></a>The Proposed Third Instance: Cascade Moduli</h3>
+<!--l. 398--><p class="noindent" >The ﬁrst version stated, as its third instance, the estimate below with the range \(3^K \leq x^{5/8-\varepsilon }\), citing
+Theorem 1.1 of the ﬁrst version of <span class="cite">[<a 
+href="#XWakilEisenstein">12</a>]</span>. It asserted that \(5/8\) is “uniquely forced” by a “three-level
+Eisenstein ﬁltration” of \(\Zomega /(3^K)\) and the cyclicity of \((\Z /3^K\Z )^*\), and that no \(\theta &gt; 5/8\) is achievable for cascade moduli. In fact
+the estimate holds for every exponent up to \(1\).
+</p>
+  <div class="newtheorem">
+<!--l. 405--><p class="noindent" ><span class="head">
+<a 
+ id="x1-9001r1"></a>
+<span 
+class="cmbx-12">Proposition 5.1 </span>(The summed estimate is trivial)<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">For every</span> \(A &gt; 0\)<span 
+class="cmti-12">, </span>\[ \sum _{\substack {K \geq 1 \\ 3^K \leq x}} \max _{\gcd (a,3)=1} \left | \sum _{\substack {n \leq x \\ n \equiv a\,(3^K)}} \Lambda (n) - \frac {x}{\varphi (3^K)} \right | \ll _A \frac {x}{(\log x)^A}. \]
+</p>
+  </div>
+<!--l. 415--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 418--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>Write \(\psi (x;q,a)\) for the inner sum and let \(L = (\log x)^{A+1}\). For \(3^K \leq L\) the Siegel–Walﬁsz theorem gives \(\max _a |\psi (x;3^K,a) - x/\varphi (3^K)| \ll _A x\exp (-c\sqrt {\log x})\), and there
+are \(O(\log \log x)\) such \(K\). For \(3^K &gt; L\), the trivial bounds \(\psi (x;q,a) \leq (x/q + 1)\log x\) and \(x/\varphi (3^K) = 3x/(2 \cdot 3^K)\) give \(|\psi (x;3^K,a) - x/\varphi (3^K)| \leq (x/3^K + 1)\log x + 3x/(2 \cdot 3^K)\). Summing over the \(O(\log x)\) values of \(K\) with \(L &lt; 3^K \leq x\) gives \(\ll x\log x/L + (\log x)^2 \ll x/(\log x)^A\). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+<!--l. 428--><p class="indent" >  So the estimate of the ﬁrst version is true, but its exponent plays no role, and the claims that \(5/8\) is
+“uniquely forced” and that “no \(\theta &gt; 5/8\) is achievable” are withdrawn. The \((1-\omega )\)-adic ﬁltration of \(\Zomega /(3^K)\) has \(2K\)
+steps, each with quotient \(\mathbb {F}_3\), not three levels, and it does not determine the value \(5/8\). The
+meaningful statement is per modulus: for \(q = 3^K \leq x^{5/8-\varepsilon }\), \(\max _{a}|\psi (x;q,a) - x/\varphi (q)| \ll x/(\varphi (q)(\log x)^A)\). This is a conjecture of <span class="cite">[<a 
+href="#XWakilEisenstein">12</a>]</span>. For a single modulus
+the Generalised Riemann Hypothesis gives it only for \(q \leq x^{1/2-\varepsilon }\), and the best known results for
+prime-power moduli are those of Barban–Linnik–Tshudakov (exponent \(3/8\)), Gallagher
+(\(2/5\)) and Huxley (\(5/12\)); Banks and Shparlinski obtain lower bounds of the correct order for
+moduli up to \(x^{0.4736}\). Pascadi’s exponent \(5/8\) <span class="cite">[<a 
+href="#XPascadi2025">7</a>]</span> concerns smooth numbers, and primes with
+triply-well-factorable weights, in arithmetic progressions to general moduli; it is obtained by
+spectral methods and is unrelated to the moduli \(3^K\) or to \(\Zomega \). Its agreement with \(\theta _3\) is a numerical
+coincidence.
+</p><!--l. 445--><p class="indent" >  In <span class="cite">[<a 
+href="#XWakilCF">9</a>, <a 
+href="#XWakilRamanujan">13</a>]</span> the value \(5/8 = (2^3 - 3)/2^3\) comes from a counting postulate: a system of depth \(k\) has exactly \(k\) of its \(2^k\)
+binary conﬁgurations eliminated. It is not derived: if “invalid” means “some constraint fails”, there
+are \(2^k - 1\) invalid conﬁgurations. The assignment of depth \(3\) to cascade moduli or twin primes is proposed
+                                                                                         
+                                                                                         
+and currently unsupported: for \(p &gt; 3\) twin primes satisfy only \(p \equiv 2 \pmod {3}\), and the conditions modulo \(9\) and \(27\) are
+implied by it.
+</p>
+  <div class="newtheorem">
+<!--l. 453--><p class="noindent" ><span class="head">
+<a 
+ id="x1-9002r2"></a>
+<span 
+class="cmbx-12">Proposition 5.2 </span>(Cascade moduli do not exhibit the SW eﬀect)<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">Let</span> \(\mathcal {C}_K = (\Z /3^K\Z )^*\)<span 
+class="cmti-12">, let</span> \(\mathcal {E}_K = \{a \in \mathcal {C}_K : a \equiv 2 \pmod {3}\}\)<span 
+class="cmti-12">, and let</span> \(\mu _K\) <span 
+class="cmti-12">be the</span>
+<span 
+class="cmti-12">limiting distribution, as</span> \(x \to \infty \)<span 
+class="cmti-12">, of the primes</span> \(p \leq x\) <span 
+class="cmti-12">among the classes of</span> \(\mathcal {C}_K\)<span 
+class="cmti-12">. Then (SW1) holds, but</span> \(\mu _K(\mathcal {C}_K \setminus \mathcal {E}_K) = 1/2\) <span 
+class="cmti-12">for</span>
+<span 
+class="cmti-12">every</span> \(K\) <span 
+class="cmti-12">and</span> \(\log |\mathcal {E}_K|/\log |\mathcal {C}_K| \to 1\)<span 
+class="cmti-12">. So (SW3) fails on both counts.</span>
+</p>
+  </div>
+<!--l. 461--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 464--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>\(|\mathcal {C}_K| = \varphi (3^K) = 2 \cdot 3^{K-1}\), which is exponential in \(K\). By the prime number theorem for arithmetic progressions,
+\(\mu _K\) is the uniform distribution on \(\mathcal {C}_K\), and exactly half of the classes lie in \(\mathcal {E}_K\). Finally \(|\mathcal {E}_K| = 3^{K-1}\), so \(\log |\mathcal {E}_K|/\log |\mathcal {C}_K| = (K-1)\log 3/(\log 2 + (K-1)\log 3) \to 1\). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+<!--l. 471--><p class="indent" >  The ﬁrst version asserted that “primes concentrate onto the inert sublattice \(\mathcal {E}_K\)” and that
+“the level of distribution \(5/8\) measures the depth of this concentration”. The condition \(p \equiv 2 \pmod {3}\)
+constrains the smaller member of a twin-prime pair (and Sophie Germain primes \(p &gt; 3\)),
+not primes in general, and Proposition <a 
+href="#x1-9001r1">5.1<!--tex4ht:ref: prop:trivial-sum --></a> concerns all primes through \(\Lambda (n)\). “Depth of
+concentration” was not deﬁned, and \(5/8\) is not the exponent ratio of any set deﬁned in this
+paper. Levels of distribution are downward closed (if a level \(\theta \) holds, so does every smaller
+one), so \(5/8\) cannot be “the unique value consistent” with any structure. Condition W3
+of <span class="cite">[<a 
+href="#XWakilW3">14</a>]</span> is true, with a one-line proof from the cyclicity of \((\Z /3^K\Z )^*\), and does not bear on the
+level.
+</p>
+  <h3 class="sectionHead"><span class="titlemark">6. </span> <a 
+ id="x1-100006"></a>Structural Analogies</h3>
+<!--l. 488--><p class="noindent" >The ﬁrst version called the parallels below “ﬁve structural correspondences” and labelled them
+proven; the ﬁve were never listed. We present them as informal analogies (matchings of roles), not
+as theorems, isomorphisms or functorial equivalences. The arithmetic case is withdrawn
+(Section <a 
+href="#x1-90005">5<!--tex4ht:ref: sec:cascade --></a>); its column records what the ﬁrst version proposed and what is actually the
+case.
+                                                                                         
+                                                                                         
+</p>
+<!--l. 495--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">6.1. </span> <a 
+ id="x1-110006.1"></a><span 
+class="cmbx-12">The analogy table.</span></span>
+</p>
+<div class="center" 
+>
+<!--l. 498--><p class="noindent" >
+</p>
+ <table id="TBL-3" class="tabular" 
+ 
+><colgroup id="TBL-3-1g"><col 
+id="TBL-3-1" /><col 
+id="TBL-3-2" /><col 
+id="TBL-3-3" /><col 
+id="TBL-3-4" /></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-3-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-1-1"  
+class="td11"> <span 
+class="cmbx-12">Role             </span></td><td  style="white-space:normal; text-align:left;" id="TBL-3-1-2"  
+class="td11"> <!--l. 524--><p class="noindent" >Shannon AEP        </p></td><td  style="white-space:normal; text-align:left;" id="TBL-3-1-3"  
+class="td11"> <!--l. 524--><p class="noindent" >Channel Coding     </p></td><td  style="white-space:normal; text-align:left;" id="TBL-3-1-4"  
+class="td11"> <!--l. 524--><p class="noindent" >Cascade     moduli
+ (withdrawn)          </p></td>
+
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-2-1"  
+class="td11"> <span 
+class="cmbx-12">Conﬁg.</span><span 
+class="cmbx-12"> space  </span></td><td  style="white-space:normal; text-align:left;" id="TBL-3-2-2"  
+class="td11"> <!--l. 524--><p class="noindent" >\(\mathcal {A}^n\), size \(|\mathcal {A}|^n\)                   </p></td><td  style="white-space:normal; text-align:left;" id="TBL-3-2-3"  
+class="td11"> <!--l. 524--><p class="noindent" >\(\mathcal {X}^n\), size \(|\mathcal {X}|^n\)                   </p></td><td  style="white-space:normal; text-align:left;" id="TBL-3-2-4"  
+class="td11"> <!--l. 524--><p class="noindent" >\((\Z /3^K\Z )^*\), size \(2{\cdot }3^{K-1}\)                   </p></td>
+</tr><tr 
+class="vspace" style="font-size:4.0pt"><td 
+>&nbsp;</td><td 
+>&nbsp;</td><td 
+>&nbsp;</td><td 
+>&nbsp;</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-3-1"  
+class="td11"> <span 
+class="cmbx-12">Constraint      </span></td><td  style="white-space:normal; text-align:left;" id="TBL-3-3-2"  
+class="td11"> <!--l. 524--><p class="noindent" >i.i.d. law \(p^{\otimes n}\)              </p></td><td  style="white-space:normal; text-align:left;" id="TBL-3-3-3"  
+class="td11"> <!--l. 524--><p class="noindent" >Channel \(p(y|x)\)               </p></td><td  style="white-space:normal; text-align:left;" id="TBL-3-3-4"  
+class="td11"> <!--l. 524--><p class="noindent" >Residue condition \(a \equiv 2 \pmod {3}\)  </p></td>
+</tr><tr 
+class="vspace" style="font-size:4.0pt"><td 
+>&nbsp;</td><td 
+>&nbsp;</td><td 
+>&nbsp;</td><td 
+>&nbsp;</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-4-1"  
+class="td11"> <span 
+class="cmbx-12">Eﬀ.</span><span 
+class="cmbx-12"> subspace  </span></td><td  style="white-space:normal; text-align:left;" id="TBL-3-4-2"  
+class="td11"> <!--l. 524--><p class="noindent" >Typical set \(T_{\varepsilon _n}^{(n)}\)           </p></td><td  style="white-space:normal; text-align:left;" id="TBL-3-4-3"  
+class="td11"> <!--l. 524--><p class="noindent" >Largest      reliable
+ codebook              </p></td><td  style="white-space:normal; text-align:left;" id="TBL-3-4-4"  
+class="td11"> <!--l. 524--><p class="noindent" >Classes   \(\mathcal {E}_K\);   primes
+ do not concentrate
+ there                    </p></td>
+</tr><tr 
+class="vspace" style="font-size:4.0pt"><td 
+>&nbsp;</td><td 
+>&nbsp;</td><td 
+>&nbsp;</td><td 
+>&nbsp;</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-5-1"  
+class="td11"> <span 
+class="cmbx-12">Gov.</span><span 
+class="cmbx-12"> constant </span></td><td  style="white-space:normal; text-align:left;" id="TBL-3-5-2"  
+class="td11"> <!--l. 524--><p class="noindent" >\(H/\log _2|\mathcal {A}|\)                 </p></td><td  style="white-space:normal; text-align:left;" id="TBL-3-5-3"  
+class="td11"> <!--l. 524--><p class="noindent" >\(C/\log _2|\mathcal {X}|\)                 </p></td><td  style="white-space:normal; text-align:left;" id="TBL-3-5-4"  
+class="td11"> <!--l. 524--><p class="noindent" >None;  \(5/8\)  is  not  an
+ exponent ratio here </p></td>
+</tr><tr 
+class="vspace" style="font-size:4.0pt"><td 
+>&nbsp;</td><td 
+>&nbsp;</td><td 
+>&nbsp;</td><td 
+>&nbsp;</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-6-1"  
+class="td11"> <span 
+class="cmbx-12">Mechanism     </span></td><td  style="white-space:normal; text-align:left;" id="TBL-3-6-2"  
+class="td11"> <!--l. 524--><p class="noindent" >Law     of     large
+ numbers               </p></td><td  style="white-space:normal; text-align:left;" id="TBL-3-6-3"  
+class="td11"> <!--l. 524--><p class="noindent" >Random     coding;
+ Fano                    </p></td><td  style="white-space:normal; text-align:left;" id="TBL-3-6-4"  
+class="td11"> <!--l. 524--><p class="noindent" >None established    </p></td>
+
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-3-7-1"  
+class="td11">               </td></tr></table>                                                                     </div>
+<!--l. 528--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">6.2. </span> <a 
+ id="x1-120006.2"></a><span 
+class="cmbx-12">The formula analogy.</span></span>
+  The ﬁrst version asserted that all three governing constants obey \[ \theta ^* = \frac {\text {total} - \text {constraint}}{\text {total}}. \] Any \(\theta \in [0,1]\) can be written in
+this form (take total \(T\) and constraint \((1-\theta )T\)), so the form constrains nothing. Speciﬁcally:
+</p>
+          <ul class="itemize1">
+       <li class="itemize">
+       <!--l. 538--><p class="indent" >   <span 
+class="cmbx-12">AEP</span>: \(H = \log _2|\mathcal {A}| - D(p \| u)\), where \(D(p\|u)\) is the Kullback–Leibler divergence from the uniform distribution \(u\)
+       on \(\mathcal {A}\). This identity is correct, and gives \(H/\log _2|\mathcal {A}| = 1 - D(p\|u)/\log _2|\mathcal {A}|\).
+          </p></li>
+       <li class="itemize">
+       <!--l. 543--><p class="indent" >   <span 
+class="cmbx-12">Channel Coding</span>: the ﬁrst version wrote \(C = \log |\mathcal {X}| - \min _{p(x)} H(X|Y)\). That formula is false: a point mass
+       \(p(x)\) gives \(H(X|Y) = 0\), so it would give \(C = \log |\mathcal {X}|\) for every channel. The correct formula is \(C = \max _{p(x)} I(X;Y) = \max _{p(x)}\bigl [H(X) - H(X|Y)\bigr ]\), a maximum
+       of a diﬀerence rather than a ﬁxed total minus a ﬁxed constraint. For a symmetric
+       channel it equals \(\log _2|\mathcal {Y}| - H(\mathbf {r})\), where \(\mathbf {r}\) is a row of the transition matrix <span class="cite">[<a 
+href="#XCoverThomas2006">2</a>, Ch. 7]</span>; for the binary
+       symmetric channel with crossover probability \(\epsilon \) this is \(1 - H(\epsilon )\).
+          </p></li>
+       <li class="itemize">
+       <!--l. 554--><p class="indent" >   <span 
+class="cmbx-12">Cascade moduli</span>: \(\thetaW = (2^k - k)/2^k\) with \(k = 3\), read as \(8\) conﬁgurations of which \(3\) are eliminated. The ﬁrst
+       version said that the Eisenstein ﬁltration “provides \(2^k = 8\) total conﬁguration dimensions”.
+       The ﬁltration has \(2K\) steps and provides no such count, \(\{0,1\}^3\) has \(8\) points (not \(8\) dimensions),
+       and the elimination count is the postulate of <span class="cite">[<a 
+href="#XWakilCF">9</a>, <a 
+href="#XWakilRamanujan">13</a>]</span>.</p></li></ul>
+                                                                                         
+                                                                                         
+<!--l. 562--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">6.3. </span> <a 
+ id="x1-130006.3"></a><span 
+class="cmbx-12">The reduction analogy.</span></span>
+</p>
+          <ul class="itemize1">
+       <li class="itemize">
+       <!--l. 565--><p class="indent" >   <span 
+class="cmbx-12">AEP</span>: typical sequences are those whose empirical log-probability per symbol is
+       close to the entropy.
+          </p></li>
+       <li class="itemize">
+       <!--l. 567--><p class="indent" >   <span 
+class="cmbx-12">Channel Coding</span>: in the random-coding proof of achievability, decoding uses joint
+       typicality of codewords and channel outputs.
+          </p></li>
+       <li class="itemize">
+       <!--l. 569--><p class="indent" >   <span 
+class="cmbx-12">Cascade moduli</span>: no analogue. Primes are equidistributed between the inert and
+       the split classes (Proposition <a 
+href="#x1-9002r2">5.2<!--tex4ht:ref: prop:cascade-sw --></a>).</p></li></ul>
+  <h3 class="sectionHead"><span class="titlemark">7. </span> <a 
+ id="x1-140007"></a>Sophie Germain Primes</h3>
+<!--l. 578--><p class="noindent" >The ﬁrst version presented Sophie Germain pairs \((p, 2p+1)\) as a “conﬁrmed non-instance”. It stated as a
+theorem, with a citation to itself, that they have dimensional parameter \(k = 2\) because the residue of \(2p+1\)
+modulo \(3\) is determined by that of \(p\); that their predicted level of distribution is \(\theta _2 = 1/2\); and that a
+computation gives \(\delta \cdot \log x = 2.38 \pm 0.18\), “inconsistent with \(\theta &gt; 1/2\) at \(p &lt; 0.001\)”. All of this is withdrawn. We keep only the following
+remark.
+</p>
+  <div class="newtheorem">
+<!--l. 586--><p class="noindent" ><span class="head">
+<a 
+ id="x1-14001r1"></a>
+<span 
+class="cmti-12">Remark </span>7.1 (Sophie Germain pairs; heuristic)<span 
+class="cmti-12">.</span>  </span> For \(p &gt; 3\), if \(p \equiv 1 \pmod {3}\) then \(3 \mid 2p+1\), so Sophie Germain primes \(p &gt; 3\)
+satisfy \(p \equiv 2 \pmod {3}\). This is the same single condition as for the smaller member of a twin-prime pair,
+where the residue of \(p+2\) is equally determined by that of \(p\); the “coupling” argument for \(k = 2\) would
+therefore apply to twin primes too. Since \(\theta _1 = \theta _2 = 1/2\), assigning either depth predicts \(1/2\), so the example
+cannot discriminate between depths and is not a falsiﬁcation test. A “level of distribution of
+Sophie Germain pairs” is not a deﬁned notion, and no such result is known. The quantity
+\(\delta \) of the ﬁrst version was never deﬁned, and no ﬁnite computation can conﬁrm or refute an
+asymptotic level of distribution.
+</p>
+  </div>
+<!--l. 598--><p class="indent" >
+</p><!--l. 600--><p class="indent" >  The ﬁrst version compared this coupling to a degraded channel, saying that a degraded channel
+has lower capacity “because extra dependence between input and output is introduced”. That is
+backwards. Degradation \(X \to Y \to Z\) destroys input–output dependence: \(I(X;Z) \leq I(X;Y)\) by the data-processing inequality, so
+the degraded channel has capacity at most that of the original. With this correction the analogy to
+                                                                                         
+                                                                                         
+“coupling reduces \(k\)” does not hold.
+</p>
+  <h3 class="sectionHead"><span class="titlemark">8. </span> <a 
+ id="x1-150008"></a>The \(k\)-Hierarchy</h3>
+<!--l. 612--><p class="noindent" >The formula \(\theta _k = (2^k - k)/2^k\), obtained from the counting postulate of <span class="cite">[<a 
+href="#XWakilCF">9</a>, <a 
+href="#XWakilRamanujan">13</a>]</span>, assigns a value to each depth \(k\).
+Table <a 
+href="#x1-150011">1<!--tex4ht:ref: tab:hierarchy --></a> displays the ﬁrst ﬁve levels with the status of each proposed instance.
+                                                                                         
+                                                                                         
+</p><!--l. 617--><p class="indent" >  <a 
+ id="x1-150011"></a></p><hr class="float" /><div class="float" 
+>
+                                                                                         
+                                                                                         
+ <div class="caption" 
+><span class="id">Table 1: </span><span  
+class="content">The \(k\)-hierarchy of constitutional sieve levels.</span></div><!--tex4ht:label?: x1-150011 -->
+<div class="tabular">
+ <table id="TBL-4" class="tabular" 
+ 
+><colgroup id="TBL-4-1g"><col 
+id="TBL-4-1" /><col 
+id="TBL-4-2" /><col 
+id="TBL-4-3" /><col 
+id="TBL-4-4" /><col 
+id="TBL-4-5" /></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-4-1-"><td  style="white-space:nowrap; text-align:center;" id="TBL-4-1-1"  
+class="td11"> \(k\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-1-2"  
+class="td11"> \(2^k\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-1-3"  
+class="td11"> \(2^k - k\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-1-4"  
+class="td11"> \(\theta _k\) </td><td  style="white-space:normal; text-align:left;" id="TBL-4-1-5"  
+class="td11"> <!--l. 623--><p class="noindent" >Status                                             </p></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-2-"><td  style="white-space:nowrap; text-align:center;" id="TBL-4-2-1"  
+class="td11"> \(1\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-2-2"  
+class="td11"> \(2\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-2-3"  
+class="td11"> \(1\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-2-4"  
+class="td11"> \(1/2\) </td><td  style="white-space:normal; text-align:left;" id="TBL-4-2-5"  
+class="td11"> <!--l. 625--><p class="noindent" >Bombieri–Vinogradov     level     \(1/2\)     for
+ primes <span class="cite">[<a 
+href="#XBombieri1965">3</a>, <a 
+href="#XVinogradov1965">8</a>]</span>; not derived from \((2-1)/2\)           </p></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-3-"><td  style="white-space:nowrap; text-align:center;" id="TBL-4-3-1"  
+class="td11"> \(2\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-3-2"  
+class="td11"> \(4\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-3-3"  
+class="td11"> \(2\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-3-4"  
+class="td11"> \(1/2\) </td><td  style="white-space:normal; text-align:left;" id="TBL-4-3-5"  
+class="td11"> <!--l. 627--><p class="noindent" >None established (Sophie Germain does
+ not discriminate; Remark <a 
+href="#x1-14001r1">7.1<!--tex4ht:ref: rem:sg --></a>)              </p></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-4-"><td  style="white-space:nowrap; text-align:center;" id="TBL-4-4-1"  
+class="td11"> \(3\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-4-2"  
+class="td11"> \(8\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-4-3"  
+class="td11"> \(5\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-4-4"  
+class="td11"> \(5/8\) </td><td  style="white-space:normal; text-align:left;" id="TBL-4-4-5"  
+class="td11"> <!--l. 629--><p class="noindent" >Cascade moduli: conjectural <span class="cite">[<a 
+href="#XWakilEisenstein">12</a>]</span>; not an
+ SW instance (Proposition <a 
+href="#x1-9002r2">5.2<!--tex4ht:ref: prop:cascade-sw --></a>)             </p></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-5-"><td  style="white-space:nowrap; text-align:center;" id="TBL-4-5-1"  
+class="td11"> \(4\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-5-2"  
+class="td11"> \(16\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-5-3"  
+class="td11"> \(12\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-5-4"  
+class="td11"> \(3/4\) </td><td  style="white-space:normal; text-align:left;" id="TBL-4-5-5"  
+class="td11"> <!--l. 631--><p class="noindent" >No object speciﬁed (Remark <a 
+href="#x1-20001r1">11.1<!--tex4ht:ref: rem:k4 --></a>)        </p></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-6-"><td  style="white-space:nowrap; text-align:center;" id="TBL-4-6-1"  
+class="td11"> \(5\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-6-2"  
+class="td11"> \(32\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-6-3"  
+class="td11"> \(27\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-6-4"  
+class="td11"> \(27/32\) </td><td  style="white-space:normal; text-align:left;" id="TBL-4-6-5"  
+class="td11"> <!--l. 632--><p class="noindent" >No object speciﬁed                             </p></td>
+
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-7-"><td  style="white-space:nowrap; text-align:center;" id="TBL-4-7-1"  
+class="td11">  </td></tr></table>                                                                                    </div>
+                                                                                         
+                                                                                         
+  </div><hr class="endfloat" />
+  <div class="newtheorem">
+<!--l. 637--><p class="noindent" ><span class="head">
+<a 
+ id="x1-15002r1"></a>
+<span 
+class="cmti-12">Remark </span>8.1<span 
+class="cmti-12">.</span>  </span>Note that \(k=1\) and \(k=2\) both give \(\theta = 1/2\). Bombieri–Vinogradov gives level \(1/2\) for primes on
+average over moduli \(q \leq x^{1/2}(\log x)^{-B}\); that \(1/2\) comes from the large sieve inequality, not from a count of
+constraints. Levels beyond \(1/2\) are known for primes with well-factorable weights and a ﬁxed
+residue class: \(4/7\) <span class="cite">[<a 
+href="#XBFI1986">4</a>]</span>, \(3/5\) <span class="cite">[<a 
+href="#XMaynard2020">6</a>]</span>, \(66/107\) <span class="cite">[<a 
+href="#XLichtman2023">5</a>]</span> and \(5/8\) <span class="cite">[<a 
+href="#XPascadi2025">7</a>]</span>. None of \(4/7\), \(3/5\) and \(66/107\) is of the form \((2^k - k)/2^k\). The ﬁrst version
+described \(k=2\) as “a non-instance of the enhanced eﬀect” and \(k=3\) as “the ﬁrst genuinely new level”;
+no system of depth \(2\) or \(3\) is established.
+</p>
+  </div>
+<!--l. 647--><p class="indent" >
+</p>
+  <h3 class="sectionHead"><span class="titlemark">9. </span> <a 
+ id="x1-160009"></a>The Constitutional Forcing Conjecture</h3>
+  <div class="newtheorem">
+<!--l. 653--><p class="noindent" ><span class="head">
+<a 
+ id="x1-16001r1"></a>
+<span 
+class="cmbx-12">Conjecture 9.1 </span>(Constitutional Forcing Conjecture)<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">Let</span> \(\mathcal {S}\) <span 
+class="cmti-12">be a system in which:</span>
+          </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+    <span 
+class="cmti-12">(i)</span> </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">the conﬁguration space is exponential with growth rate</span> \(r &gt; 0\)<span 
+class="cmti-12">;</span>
+          </dd><dt class="enumerate-enumitem">
+   <span 
+class="cmti-12">(ii)</span> </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">the structural law is intrinsic (not an external parameter);</span>
+          </dd><dt class="enumerate-enumitem">
+  <span 
+class="cmti-12">(iii)</span> </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">the system has depth</span> \(k\) <span 
+class="cmti-12">in the sense of the counting postulate of</span><span 
+class="cmti-12"> </span><span class="cite">[<a 
+href="#XWakilCF">9</a>, <a 
+href="#XWakilRamanujan">13</a>]</span><span 
+class="cmti-12">: exactly</span> \(k\) <span 
+class="cmti-12">of</span>
+       <span 
+class="cmti-12">its</span> \(2^k\) <span 
+class="cmti-12">binary conﬁguration classes are eliminated by its</span> \(k\) <span 
+class="cmti-12">independent constitutional</span>
+       <span 
+class="cmti-12">constraints.</span></dd></dl>
+<!--l. 664--><p class="noindent" ><span 
+class="cmti-12">Then</span> \(\mathcal {S}\) <span 
+class="cmti-12">exhibits the Shannon–Wakil eﬀect with governing constant</span> \(\theta ^* = (2^k - k)/2^k\)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 666--><p class="indent" >
+</p><!--l. 668--><p class="noindent" >If a conﬁguration \(c \in \{0,1\}^k\) is called invalid when some constraint fails (\(c_i = 0\) for some \(i\)), then \(k\) constraints
+invalidate \(2^k - 1\) conﬁgurations, not \(k\). Hypothesis (iii) is therefore a postulate about the system, not a
+consequence of its having \(k\) binary constraints.
+</p>
+  <div class="newtheorem">
+<!--l. 673--><p class="noindent" ><span class="head">
+<a 
+ id="x1-16005r2"></a>
+                                                                                         
+                                                                                         
+<span 
+class="cmti-12">Remark </span>9.2<span 
+class="cmti-12">.</span>  </span>The ﬁrst version said that Conjecture <a 
+href="#x1-16001r1">9.1<!--tex4ht:ref: conj:cfc --></a> “encompasses information theory
+(\(k=1\): entropy/capacity)” and “prime constellations (\(k=3\): twin primes via Eisenstein structure)”.
+Neither holds. The Shannon constants \(H/\log _2|\mathcal {A}|\) and \(C/\log _2|\mathcal {X}|\) are continuous functions of the source and the
+channel and take every value in \((0,1)\), so they are not values \(\theta _k\), and in particular not \(\theta _1 = 1/2\); and twin
+primes have depth \(1\) by the programme’s own independence criterion (Section <a 
+href="#x1-90005">5<!--tex4ht:ref: sec:cascade --></a>). No system
+is currently known that satisﬁes (iii) and exhibits the eﬀect, so the conjecture is at present a
+proposal. It would be refuted by a system satisfying (i)–(iii) whose governing constant diﬀers
+from \(\theta _k\).
+</p>
+  </div>
+<!--l. 685--><p class="indent" >
+</p>
+  <h3 class="sectionHead"><span class="titlemark">10. </span> <a 
+ id="x1-1700010"></a>Shannon–Wakil Eﬀect vs. Analogies</h3>
+<!--l. 691--><p class="noindent" >It is important to distinguish the Shannon–Wakil eﬀect from informal analogy.
+</p><!--l. 693--><p class="indent" >  An <span 
+class="cmti-12">analogy </span>between two ﬁelds observes superﬁcial similarity and draws heuristic inspiration.
+The comparison is suggestive but not formally veriﬁable. Analogies are valuable but limited:
+they can be wrong in ways that are hard to detect, and they generate no falsiﬁable
+predictions.
+</p><!--l. 698--><p class="indent" >  The ﬁrst version argued that the Shannon–Wakil eﬀect diﬀers from an analogy in three ways. As
+revised, the situation is as follows.
+</p><!--l. 701--><p class="indent" >  <span 
+class="cmbx-12">First</span>, only the AEP satisﬁes Deﬁnition <a 
+href="#x1-6001r1">2.1<!--tex4ht:ref: def:sw --></a> (Proposition <a 
+href="#x1-7002r2">3.2<!--tex4ht:ref: prop:aep-sw --></a>). Channel coding satisﬁes its size
+conditions only (Proposition <a 
+href="#x1-8002r2">4.2<!--tex4ht:ref: prop:channel-sw --></a>), and the cascade case fails (SW3) (Proposition <a 
+href="#x1-9002r2">5.2<!--tex4ht:ref: prop:cascade-sw --></a>).
+</p><!--l. 706--><p class="indent" >  <span 
+class="cmbx-12">Second</span>, the framework has not yet produced a falsiﬁable prediction. The Sophie Germain
+example cannot discriminate between depths (Remark <a 
+href="#x1-14001r1">7.1<!--tex4ht:ref: rem:sg --></a>), and no object is speciﬁed for \(k=4\)
+(Remark <a 
+href="#x1-20001r1">11.1<!--tex4ht:ref: rem:k4 --></a>).
+</p><!--l. 711--><p class="indent" >  <span 
+class="cmbx-12">Third</span>, the “formula correspondence” is not quantitatively precise: any \(\theta \in [0,1]\) can be written as \((\text {total} - \text {constraint})/\text {total}\)
+(Section <a 
+href="#x1-120006.2">6.2<!--tex4ht:ref: sec:formula --></a>).
+</p><!--l. 716--><p class="indent" >  The parallels of Section <a 
+href="#x1-100006">6<!--tex4ht:ref: sec:correspondences --></a> are therefore, at present, informal analogies in the sense of the
+preceding paragraph.
+</p>
+  <h3 class="sectionHead"><span class="titlemark">11. </span> <a 
+ id="x1-1800011"></a>Discussion and Open Problems</h3>
+<!--l. 723--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">11.1. </span> <a 
+ id="x1-1900011.1"></a><span 
+class="cmbx-12">Chronology.</span></span>
+  Shannon’s paper appeared in 1948 <span class="cite">[<a 
+href="#XShannon1948">1</a>]</span>. It contains the AEP (for ergodic Markov sources) and the
+channel coding theorem, the latter proved by a random-coding argument that was made rigorous
+later (Feinstein, 1954). The arithmetic case was proposed in 2026 and is not established
+(Section <a 
+href="#x1-90005">5<!--tex4ht:ref: sec:cascade --></a>). The ﬁrst version argued that the gap between the two guarantees that neither result
+was constructed to match the other; since the arithmetic case is withdrawn, the chronology carries
+no evidential weight.
+                                                                                         
+                                                                                         
+</p>
+<!--l. 733--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">11.2. </span> <a 
+ id="x1-2000011.2"></a><span 
+class="cmbx-12">No object for</span> \(k=4\)<span 
+class="cmbx-12">.</span></span>
+</p>
+  <div class="newtheorem">
+<!--l. 735--><p class="noindent" ><span class="head">
+<a 
+ id="x1-20001r1"></a>
+<span 
+class="cmti-12">Remark </span>11.1 (No object for \(k = 4\))<span 
+class="cmti-12">.</span>  </span> The formula gives \(\theta _4 = (2^4 - 4)/2^4 = 12/16 = 3/4\). The ﬁrst version predicted “a prime
+constellation with exactly \(k = 4\) independent modular constraints, exhibiting level of distribution
+\(\theta = 3/4\)”. No such object (sequence, family of moduli or sieve) is speciﬁed, and a level of distribution
+is a property of a sequence in arithmetic progressions, not of a constellation. So \(\theta _4 = 3/4\) is not at
+present a testable prediction. Specifying such an object is the open problem.
+</p>
+  </div>
+<!--l. 744--><p class="indent" >
+</p>
+<!--l. 746--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">11.3. </span> <a 
+ id="x1-2100011.3"></a><span 
+class="cmbx-12">The ratio</span> \(5/4\)<span 
+class="cmbx-12">.</span></span>
+  The ﬁrst version called \(\thetaW / \thetaBV = (5/8)/(1/2) = 5/4\) the gain in level of distribution achieved by the Eisenstein structure over
+Bombieri–Vinogradov. That interpretation is withdrawn. Bombieri–Vinogradov is an average
+over all moduli \(q \leq x^{1/2}(\log x)^{-B}\), whereas the cascade family has \(O(\log x)\) moduli. For that family the summed
+estimate holds trivially up to exponent \(1\) (Proposition <a 
+href="#x1-9001r1">5.1<!--tex4ht:ref: prop:trivial-sum --></a>), and the per-modulus level \(5/8\) is
+conjectural. Levels above \(1/2\) for general moduli are known with well-factorable weights
+(Section <a 
+href="#x1-150008">8<!--tex4ht:ref: sec:hierarchy --></a>).
+</p>
+<!--l. 757--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">11.4. </span> <a 
+ id="x1-2200011.4"></a><span 
+class="cmbx-12">Channel capacity and levels of distribution.</span></span>
+  Both the channel capacity \(C = \max _{p(x)} I(X;Y)\) and a level of distribution are deﬁned as suprema. For the moduli \(3^K\)
+the supremum of the admissible \(\theta \) depends on the formulation: for the summed estimate of
+Proposition <a 
+href="#x1-9001r1">5.1<!--tex4ht:ref: prop:trivial-sum --></a> it is \(1\), and in the per-modulus form it is unknown (Montgomery’s conjecture
+predicts \(1\)). If \(5/8\) were proved for these moduli, it would be a lower bound for that supremum, not the
+supremum itself. The ﬁrst version’s claim that this “maximisation correspondence is the most
+precise of the ﬁve” is withdrawn.
+</p>
+  <h3 class="sectionHead"><a 
+ id="x1-23000"></a>Acknowledgements</h3>
+<!--l. 771--><p class="noindent" >We thank Claude Shannon posthumously; his 1948 paper contains both the AEP and the Channel
+Coding Theorem.
+                                                                                         
+                                                                                         
+</p>
+  <h3 class="sectionHead"><a 
+ id="x1-24000"></a>References</h3>
+<!--l. 775--><p class="noindent" >
+    </p><div class="thebibliography">
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[1]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XShannon1948"></a><span 
+class="cmr-10">C.</span><span 
+class="cmr-10"> E.</span><span 
+class="cmr-10"> Shannon,  A  mathematical  theory  of  communication,  </span><span 
+class="cmti-10">Bell  System  Tech.</span><span 
+class="cmti-10"> J.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">27  </span><span 
+class="cmr-10">(1948),</span>
+    <span 
+class="cmr-10">379–423, 623–656.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[2]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XCoverThomas2006"></a><span 
+class="cmr-10">T.</span><span 
+class="cmr-10"> M.</span><span 
+class="cmr-10"> Cover and J.</span><span 
+class="cmr-10"> A.</span><span 
+class="cmr-10"> Thomas, </span><span 
+class="cmti-10">Elements of Information Theory</span><span 
+class="cmr-10">, 2nd ed., Wiley-Interscience,</span>
+    <span 
+class="cmr-10">Hoboken, NJ, 2006.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[3]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XBombieri1965"></a><span 
+class="cmr-10">E.</span><span 
+class="cmr-10"> Bombieri, On the large sieve, </span><span 
+class="cmti-10">Mathematika</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">12 </span><span 
+class="cmr-10">(1965), 201–225.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[4]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XBFI1986"></a><span 
+class="cmr-10">E.</span><span 
+class="cmr-10"> Bombieri, J.</span><span 
+class="cmr-10"> B.</span><span 
+class="cmr-10"> Friedlander, and H.</span><span 
+class="cmr-10"> Iwaniec, Primes in arithmetic progressions to large moduli,</span>
+    <span 
+class="cmti-10">Acta Math.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">156 </span><span 
+class="cmr-10">(1986), 203–251.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[5]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XLichtman2023"></a><span 
+class="cmr-10">J.</span><span 
+class="cmr-10"> D.</span><span 
+class="cmr-10"> Lichtman,  Primes  in  arithmetic  progressions  to  large  moduli,  and  Goldbach  beyond  the</span>
+    <span 
+class="cmr-10">square-root barrier, arXiv:2309.08522, 2023.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[6]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XMaynard2020"></a><span 
+class="cmr-10">J.</span><span 
+class="cmr-10"> Maynard,  Primes  in  arithmetic  progressions  to  large  moduli</span><span 
+class="cmr-10"> II:  well-factorable  estimates,</span>
+    <span 
+class="cmti-10">Mem.</span><span 
+class="cmti-10"> Amer.</span><span 
+class="cmti-10"> Math.</span><span 
+class="cmti-10"> Soc.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">306 </span><span 
+class="cmr-10">(2025), no.</span><span 
+class="cmr-10"> 1543; arXiv:2006.07088.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[7]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XPascadi2025"></a><span 
+class="cmr-10">A.</span><span 
+class="cmr-10"> Pascadi, On the exponents of distribution of primes and smooth numbers, arXiv:2505.00653,</span>
+    <span 
+class="cmr-10">2025.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[8]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XVinogradov1965"></a><span 
+class="cmr-10">A.</span><span 
+class="cmr-10"> I.</span><span 
+class="cmr-10"> Vinogradov, The density hypothesis for Dirichlet</span> \(L\)<span 
+class="cmr-10">-series, </span><span 
+class="cmti-10">Izv.</span><span 
+class="cmti-10"> Akad.</span><span 
+class="cmti-10"> Nauk SSSR Ser.</span><span 
+class="cmti-10"> Mat.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">29</span>
+    <span 
+class="cmr-10">(1965), 903–934.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[9]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilCF"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Constitutional Forcing, ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[10]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilKhayyam"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Khayyam’s Triangle: Historical Restoration and the Geometry Hidden in the Numbers,</span>
+    <span 
+class="cmr-10">ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[11]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilSC"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Spherical Cow Philosophy: A Methodological Framework for Mathematical Discovery,</span>
+    <span 
+class="cmr-10">ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[12]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilEisenstein"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Ternary Forcing on the Hexagonal Lattice: Eisenstein Integers, Cascade Moduli, and a</span>
+    <span 
+class="cmr-10">Conjectured Level of Distribution</span><span 
+class="cmr-10"> </span>\(5/8\)<span 
+class="cmr-10">, ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+                                                                                         
+                                                                                         
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[13]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilRamanujan"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Ramanujan’s Dimensional Forcing: A Universal Formula for Sieve Levels, ARC Institute</span>
+    <span 
+class="cmr-10">of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[14]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilW3"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil,  Condition</span><span 
+class="cmr-10"> W3:  Absence  of  Siegel  Zeros  for  Characters  Modulo</span><span 
+class="cmr-10"> </span>\(3^K\)<span 
+class="cmr-10">,  ARC  Institute  of</span>
+    <span 
+class="cmr-10">Knowware, preprint, 2026.</span>
+</p>
     </div>
-    <div class="sb-label" style="margin-bottom:.6rem;">Programme Index</div>
-    <ul class="series-index">
-      <li class=""><a href="../p01-constitutional-forcing/p01.html">01 · Constitutional Forcing</a></li>
-      <li class=""><a href="../p02-khayyams-triangle/p02.html">02 · Khayyam's Triangle</a></li>
-      <li class=""><a href="../p03-constitutional-signatures/p03.html">03 · Spherical Cow Philosophy</a></li>
-      <li class=""><a href="../p04-that-eisenstein-guy/p04.html">04 · Eisenstein, θ = 5/8</a></li>
-      <li class=""><a href="../p05-ramanujans-formula/p05.html">05 · Ramanujan's Formula</a></li>
-      <li class="curr"><a href="p06.html">06 · Shannon–Wakil Effect</a></li>
-      <li class=""><a href="../p07-condition_w3/p07.html">07 · Condition W3</a></li>
-      <li class=""><a href="../p08-prime-bias-ternary-bridge/p08.html">08 · Prime Digit Bias</a></li>
-      <li class=""><a href="../p09-wakil-theta-fft/p09.html">09 · DFT Constitutional Constant</a></li>
-    </ul>
-  </aside>
-  <article class="paper">
-    <div class="paper-header">
-      <div class="paper-label">Preprint · ARC Institute of Knowware · February 2026</div>
-      <h1 class="title">The Shannon–Wakil Effect: Constitutional Forcing as a Universal Pattern in Information Theory and Prime Arithmetic</h1>
-      <div class="authors">Khayyam Wakil</div>
-      <div class="affiliation">The ARC Institute of Knowware, Calgary, Alberta, Canada</div>
-      <div class="paper-date">Submitted February 2026 &nbsp;·&nbsp; Constitutional Sieve Programme, Paper 06 of 09</div>
-    </div>
-    <div class="abstract-block">
-      <div class="abs-label">Abstract</div>
-      <p>We identify, formalize, and provide three proven instances of a structural phenomenon we call the <em>Shannon–Wakil effect</em>: an exponential configuration space undergoes forced dimensional reduction to a strict subspace, governed by a constant that is uniquely determined by the algebraic structure of the system and cannot be altered without changing that structure.</p>
-      <p style="margin-top:.7em;">The first two instances are both due to Shannon (1948). The Asymptotic Equipartition Property shows that |𝒜|<sup><em>n</em></sup> sequences concentrate onto a typical set of size ≈ 2<sup><em>nH</em></sup>, where entropy <em>H</em> is forced by the source distribution. The Channel Coding Theorem shows that reliable communication is possible only at rates <em>R</em> &lt; <em>C</em>, where channel capacity <em>C</em> is forced by the channel. The third instance is the cascade moduli result: primes modulo powers of 3 concentrate onto an effective subspace governed by level of distribution θ<sub>W</sub> = 5/8, forced by the algebraic structure of Z[ω].</p>
-      <p style="margin-top:.7em;">We exhibit a confirmed non-instance (Sophie Germain prime pairs at θ = 1/2), demonstrating that the framework is falsifiable.</p>
-    </div>
-    <div class="keywords"><strong>Keywords:</strong> Shannon entropy, channel capacity, asymptotic equipartition property, constitutional forcing, level of distribution, cascade moduli, Eisenstein integers, twin primes, Sophie Germain primes, <em>k</em>-hierarchy, structural parallel</div>
-    <div class="paper-meta-strip">
-      <span class="meta-pill">MSC 2020: 94A15 (primary) · 94A24 · 11N35 · 11N13</span>
-      <span class="meta-pill"><a href="../../papers/index.html">preprints.knowware.institute</a></span>
-      <span class="meta-pill"><a href="https://github.com/knowware-institute/constitutional-forcing">p06.tex source</a></span>
-    </div>
-    <div class="paper-body">
+  <div class="addresses">
+<!--l. 862--><p class="indent" >  <span class="address-title"></span><span class="address"><span 
+class="cmcsc-10">T<span 
+class="small-caps">h</span><span 
+class="small-caps">e</span> ARC I<span 
+class="small-caps">n</span><span 
+class="small-caps">s</span><span 
+class="small-caps">t</span><span 
+class="small-caps">i</span><span 
+class="small-caps">t</span><span 
+class="small-caps">u</span><span 
+class="small-caps">t</span><span 
+class="small-caps">e</span> <span 
+class="small-caps">o</span><span 
+class="small-caps">f</span> K<span 
+class="small-caps">n</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">w</span><span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">e</span>, C<span 
+class="small-caps">a</span><span 
+class="small-caps">l</span><span 
+class="small-caps">g</span><span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">y</span>, A<span 
+class="small-caps">l</span><span 
+class="small-caps">b</span><span 
+class="small-caps">e</span><span 
+class="small-caps">r</span><span 
+class="small-caps">t</span><span 
+class="small-caps">a</span>, C<span 
+class="small-caps">a</span><span 
+class="small-caps">n</span><span 
+class="small-caps">a</span><span 
+class="small-caps">d</span><span 
+class="small-caps">a</span></span></span>
+</p><!--l. 862--><p class="indent" >  <span class="email-title">   <span 
+class="cmti-10">Email address</span><span 
+class="cmr-10">: </span></span><span class="email"><span 
+class="cmtt-10">the@knowware.institute</span></span>
+</p>
+  </div> 
+</body></html> 
 
-      <h2>Introduction</h2>
-      <p>Every mathematician knows at some level that information theory and number theory are different subjects. Information theory studies the storage and transmission of data; number theory studies the arithmetic structure of integers. They have different objects, different tools, and different communities.</p>
-      <p>This paper documents a precise structural parallel between the two, visible only after both sides are independently understood. In 1948, Shannon proved two theorems that together define the fundamental limits of compression and communication. In 2026, a companion paper established an analogous phenomenon in analytic number theory. The governing constants in both cases are not chosen — they are uniquely forced by the algebraic structure of the underlying mathematical object. We call all three results instances of the Shannon–Wakil effect.</p>
+                                                                                         
 
-      <h2>The Shannon–Wakil Effect: Definition</h2>
-      <div class="env-block definition">
-        <div class="env-label">Definition 2.1 — Shannon–Wakil Effect</div>
-        A system exhibits the <em>Shannon–Wakil effect</em> if: (i) it has an exponential configuration space of size <em>B</em><sup><em>n</em></sup> or 2<sup><em>k</em></sup>; (ii) algebraic structure forces dimensional reduction to a strict subspace; (iii) the governing constant of that reduction is uniquely determined by the structure and cannot be altered without changing the system; (iv) the reduction is not approximated or fitted — it is exact and structural.
-      </div>
 
-      <h2>First Instance: Shannon's AEP (1948)</h2>
-      <div class="env-block theorem">
-        <div class="env-label">Theorem 3.1 — Asymptotic Equipartition Property (Shannon 1948)</div>
-        For any ε > 0, the typical set <em>T</em><sub>ε</sub><sup>(<em>n</em>)</sup> = {<em>x</em><sup><em>n</em></sup> ∈ 𝒜<sup><em>n</em></sup> : |−(1/<em>n</em>) log<sub>2</sub> <em>p</em>(<em>x</em><sup><em>n</em></sup>) − <em>H</em>| &lt; ε} satisfies: (i) Pr[<em>X</em><sup><em>n</em></sup> ∈ <em>T</em><sub>ε</sub><sup>(<em>n</em>)</sup>] → 1; (ii) |<em>T</em><sub>ε</sub><sup>(<em>n</em>)</sup>| ≤ 2<sup><em>n</em>(<em>H</em>+ε)</sup>; (iii) |<em>T</em><sub>ε</sub><sup>(<em>n</em>)</sup>| ≥ (1−ε)2<sup><em>n</em>(<em>H</em>−ε)</sup> for large <em>n</em>.
-      </div>
-      <p>The Shannon–Wakil structure: configuration space |𝒜|<sup><em>n</em></sup>; forced reduction to ≈ 2<sup><em>nH</em></sup>; governing constant <em>H</em> = −Σ <em>p</em> log <em>p</em> forced uniquely by the source distribution. You cannot change <em>H</em> without changing the source. It is not fitted. It is forced.</p>
-
-      <h2>Second Instance: Channel Coding Theorem (1948)</h2>
-      <div class="env-block theorem">
-        <div class="env-label">Theorem 4.1 — Channel Coding Theorem (Shannon 1948)</div>
-        (Achievability) For any <em>R</em> &lt; <em>C</em> and ε > 0, codes of rate <em>R</em> and block-length <em>n</em> exist with error probability &lt; ε for all sufficiently large <em>n</em>. (Converse) For any <em>R</em> &gt; <em>C</em>, every sequence of codes of rate <em>R</em> has error probability bounded away from 0. Channel capacity: <em>C</em> = max<sub><em>p</em>(<em>x</em>)</sub> <em>I</em>(<em>X</em>;<em>Y</em>).
-      </div>
-      <p>The Shannon–Wakil structure: code space 2<sup><em>nR</em></sup>; forced reduction to reliable codes only for <em>R</em> &lt; <em>C</em>; governing constant <em>C</em> = max <em>I</em>(<em>X</em>;<em>Y</em>) forced uniquely by the channel. The supremum structure of <em>C</em> and the supremum structure of level of distribution θ<sub>W</sub> are formally identical: both are the maximum rate at which a forced concentration holds.</p>
-
-      <h2>Third Instance: Cascade Moduli Forcing (2026)</h2>
-      <div class="env-block theorem">
-        <div class="env-label">Theorem 5.1 — Cascade Moduli Forcing (Companion Paper [4])</div>
-        For any <em>A</em> > 0 and ε > 0, Σ<sub>3<sup>K</sup> ≤ x<sup>5/8−ε</sup></sub> max<sub>gcd(<em>a</em>,3<sup>K</sup>)=1</sub> |ψ(<em>x</em>; 3<sup>K</sup>, <em>a</em>) − <em>x</em>/φ(3<sup>K</sup>)| ≪ <em>x</em>/(log <em>x</em>)<sup><em>A</em></sup>. The level of distribution θ<sub>W</sub> = 5/8 is the supremum of valid equidistribution rates, forced by the algebraic structure of Z[ω]. It cannot be changed without changing the structure.
-      </div>
-
-      <h2>The Five Structural Correspondences</h2>
-      <table class="formal">
-        <tr><th>#</th><th>Shannon AEP</th><th>Channel Coding</th><th>Cascade Moduli</th></tr>
-        <tr><td>1</td><td>|𝒜|<sup><em>n</em></sup> possible sequences</td><td>2<sup><em>nR</em></sup> possible codes</td><td>All progressions mod 3<sup><em>K</em></sup></td></tr>
-        <tr><td>2</td><td>Concentrates on ≈ 2<sup><em>nH</em></sup></td><td>Reliable only at <em>R</em> &lt; <em>C</em></td><td>Concentrates on <em>x</em><sup>θ<sub>W</sub></sup></td></tr>
-        <tr><td>3</td><td><em>H</em> forced by source <em>p</em>(<em>x</em>)</td><td><em>C</em> forced by channel <em>p</em>(<em>y</em>|<em>x</em>)</td><td>θ<sub>W</sub> forced by Z[ω] structure</td></tr>
-        <tr><td>4</td><td>Entropy maximisation</td><td>Mutual information supremum</td><td>Equidistribution supremum</td></tr>
-        <tr><td>5</td><td>θ₁ = (2−1)/2 = 1/2</td><td>θ₁ = 1/2 (binary channel)</td><td>θ₃ = (8−3)/8 = 5/8</td></tr>
-      </table>
-      <div class="table-caption"><strong>Table 1.</strong> Five structural correspondences between the three instances of the Shannon–Wakil effect. Each is precise, not metaphorical.</div>
-
-      <div class="env-block remark">
-        <div class="env-label">Remark — The 77-Year Gap</div>
-        Shannon's results: 1948. The cascade moduli result: 2026. Gap: 77 years. The structural parallel was invisible until both sides were independently established. Shannon had never heard of cascade moduli; this programme was not built by analogy from information theory. The independence of the two paths is part of the evidence that the mechanism is real: two separate fields, different tools, different communities, decades apart, forced to the same formal structure by the same underlying phenomenon.
-      </div>
-
-      <h2>The Shannon–Wakil Constant Ratio</h2>
-      <div class="env-block proposition">
-        <div class="env-label">Proposition 8.1 — Shannon–Wakil Constant Ratio</div>
-        The ratio θ<sub>W</sub>/θ<sub>BV</sub> = (5/8)/(1/2) = 5/4 is the information-theoretic gain from exploiting the algebraic structure of Z[ω] relative to a generic (unstructured) channel. Whether this ratio has a channel-capacity interpretation — that is, whether there exists a channel whose capacity is exactly 5/4 times the capacity of the corresponding binary channel — is an open problem.
-      </div>
-
-      <div class="next-paper">
-        <div class="next-label">Next in Programme</div>
-        <div class="next-title"><a href="../p07-condition_w3/p07.html">07 · Condition W3 →</a></div>
-        <div class="next-desc">Absence of Siegel Zeros for Characters Modulo 3<sup>K</sup> via the CM Structure of Z[ω]. The foundation check: proving that the pathological zeros that would undermine the main theorem cannot exist — via the same Eisenstein structure that forces θ = 5/8.</div>
-      </div>
-
-      <div class="references">
-        <h2 style="counter-increment:none;">References</h2>
-        <ol class="ref-list">
-          <li>C. E. Shannon, "A Mathematical Theory of Communication," <em>Bell Syst. Tech. J.</em> 27 (1948), 379–423.</li>
-          <li>T. Cover and J. Thomas, <em>Elements of Information Theory</em>, 2nd ed. Wiley, 2006.</li>
-          <li>K. Wakil, "Ramanujan's Dimensional Forcing," Constitutional Sieve Programme Paper 05 (2026).</li>
-          <li>K. Wakil, "Ternary Forcing on the Hexagonal Lattice," Constitutional Sieve Programme Paper 04 (2026).</li>
-          <li>K. Wakil, "Spherical Cow Philosophy," Constitutional Sieve Programme Paper 03 (2026).</li>
-        </ol>
-      </div>
-    </div>
-  </article>
-</div>
-<footer class="site-footer">
-  <span>Knowware is measured in lifetimes</span><span>Constitutional Sieve Programme · Paper 06 of 09</span><span>Registered · Canada</span>
-</footer>
-</body></html>

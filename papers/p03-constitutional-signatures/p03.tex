@@ -37,7 +37,7 @@
 \author{Khayyam Wakil}
 \address{The ARC Institute of Knowware, Calgary, Alberta, Canada}
 \email{the@knowware.institute}
-\date{February 2026}
+\date{February 2026; revised November 2026}
 
 \keywords{mathematical methodology, constitutional forcing, spherical cow,
   empirical constitution, twin primes, sieve theory, methodological pluralism,
@@ -63,30 +63,47 @@ hierarchy: instead of deriving special cases from universal axioms, we identify
 structural constraints that are empirically universal within a domain, derive
 what they force rigorously, and validate predictions across independent domains.
 
-The framework addresses a specific situation: when classical sieve methods
-encounter persistent structural barriers---such as the $\theta = 1/2$ ceiling
-for twin primes over two centuries of effort---the productive path may be to
-accept the constitutional constraint (here, $p \equiv 2 \pmod{3}$ for all twin
-primes $p > 3$) as the natural entry point and derive its arithmetic consequences,
-rather than to approach the barrier as an obstacle for more powerful general
-methods.
+The framework addresses a specific situation: when classical methods encounter
+persistent structural barriers---such as the parity barrier that keeps sieve
+methods from twin primes, or the level $1/2$ of the Bombieri--Vinogradov
+theorem (1965), which for general moduli has been exceeded only in restricted
+settings---the productive path may be to accept a constitutional constraint
+(here, $p \equiv 2 \pmod{3}$ for all twin primes $p > 3$) as the natural entry
+point and derive its arithmetic consequences, rather than to approach the
+barrier as an obstacle for more powerful general methods.
 
-Applied to twin primes, this methodology motivates the cascade moduli framework
-proved in the companion paper~\cite{WakilEisenstein}, achieves level of
-distribution $\theta_W = 5/8$ for cascade moduli $q = 3^K$, and connects the
-arithmetic result to a structural parallel in information theory documented
-in~\cite{WakilShannon}. The combinatorial foundation is traced to the mod-$3$
-fractal of Khayyam's Triangle~\cite{WakilKhayyam}. The framework is explicitly
-falsifiable: it predicts a confirmed non-instance (Sophie Germain primes at
-$\theta = 1/2$) and an open prediction ($k = 4$ constellation at $\theta = 3/4$)
-via the $k$-hierarchy of~\cite{WakilShannon}.
+Applied to twin primes, this methodology motivated the cascade moduli framework
+of the companion paper~\cite{WakilEisenstein}, which conjectures a level of
+distribution $\theta_W = 5/8$ for the moduli $q = 3^K$, and a proposed analogy
+with information theory~\cite{WakilShannon}. We show that the consequences
+claimed for the twin-prime constitution in the February version are not forced
+by it, and we use the case study to sharpen the methodology: a consequence that
+depends on a further choice is not forced, and a prediction counts only if it is
+fixed before the comparison and could fail.
 
-We establish precise criteria for when the framework applies, contrast it with
-classical approaches, and distinguish it carefully from circular or post-hoc
-reasoning. Logical status labels are attached to every claim.
+We give criteria for when the framework applies, contrast it with classical
+approaches, and distinguish it from circular or post-hoc reasoning. Logical
+status labels are attached to every claim.
 \end{abstract}
 
 \maketitle
+
+\noindent\textbf{Revision note (November 2026).}
+The ``five forced consequences'' of the twin-prime constitution are no longer
+claimed to be forced; Section~\ref{sec:forced} explains, item by item, why they
+are not, and $\theta_W = 5/8$ is described as the conjecture it is. The
+statement that a level of distribution $\theta > 1/2$ would yield twin primes
+is withdrawn: because of the parity barrier, no level of distribution does so.
+The Sophie Germain ``computational confirmation'' is withdrawn, the comparison
+with Shannon's AEP is corrected (the typical set is a vanishing fraction of the
+space, the opposite of the $\theta_k$ pattern), and the degraded-channel remark
+is reversed. The history of the $\theta = 1/2$ barrier is corrected
+(Bombieri--Vinogradov, 1965; levels above $1/2$ are known for well-factorable
+weights), as are the Bombieri and Pascadi citations, and the unverifiable Clark
+quotation is removed. Smaller errors are fixed: the 78-year gap, the hypotheses
+of G\"odel's theorem, the physics analogy and dangling cross-references; the
+programme is now described as nine papers.
+
 \tableofcontents
 
 %% ─────────────────────────────────────────────────────────────────────────────
@@ -97,14 +114,9 @@ reasoning. Logical status labels are attached to every claim.
 
 When physicists model heat transfer from a cow, they make a radical
 simplification: assume a spherical cow. Strip away legs, spots, tail, digestive
-complexity---keep only mass distribution and thermal properties. As
-Clark~\cite{Clark2020} articulates:
-\begin{quote}
-Make it as simple as possible in order to take your understanding beyond the
-simple\ldots Without saying ``a cow is a sphere''---an imperfect, simple
-description---we would never have been in the position to describe it accurately
-at all.
-\end{quote}
+complexity---keep only mass distribution and thermal properties. The point of
+the joke is that a deliberately crude description can be the first step
+towards an accurate one.
 The spherical cow succeeds because it knows what to \emph{ignore}. Domain-specific
 details obscure the essential physics. By ignoring the irrelevant, physicists
 isolate what matters, solve the simplified problem, and add complexity back
@@ -128,29 +140,39 @@ asking ``how do we overcome this barrier?'', ask ``what constraint is this
 barrier telling us is constitutional?'' Accept that constraint as the productive
 entry point. Derive what it forces. Validate the consequences.
 
-\subsection{Position in the program}
+\subsection{Position in the programme}
 
-This paper is the methodological companion to a five-paper arithmetic
-program~\cite{WakilKhayyam,WakilRamanujan,WakilEisenstein,WakilW3,WakilShannon}.
+This paper is p03 of a nine-paper programme. Its role is methodological: it
+explains the reasoning behind the programme's arithmetic papers and, in this
+revision, uses them as a case study of where that reasoning holds and where it
+fails. The other eight papers, with the revised status of their main claims,
+are:
 
 \begin{itemize}
-  \item \cite{WakilKhayyam} establishes the historical and combinatorial
-    foundation: Khayyam's Triangle mod~$3$ and the fractal structure that
-    underlies the cascade moduli framework.
-  \item \cite{WakilRamanujan} derives the universal formula
-    $\theta_k = (2^k - k)/2^k$ from combinatorial first principles and proves
-    it analytically for $k = 3$.
-  \item \cite{WakilEisenstein} establishes $\theta_W = 5/8$ for cascade
-    moduli $q = 3^K$ via the geometry of the Eisenstein integers $\mathbb{Z}[\omega]$.
-  \item \cite{WakilW3} verifies the Siegel zero condition (Condition~W3)
-    required by~\cite{WakilEisenstein} via the CM structure of $\mathbb{Q}(\omega)$.
-  \item \cite{WakilShannon} documents the structural parallel between the
-    arithmetic result and Shannon's theorems in information theory, and states
-    the falsifiable $k$-hierarchy predictions.
+  \item \cite{WakilCF} (p01) defines Constitutional Forcing; the formula
+    $\theta_k = (2^k - k)/2^k$ rests on a counting postulate, not a theorem.
+  \item \cite{WakilKhayyam} (p02) gives the history of Khayyam's Triangle and
+    its mod-$3$ fractal; the claimed link between the fractal and $\theta_k$ is
+    withdrawn.
+  \item \cite{WakilEisenstein} (p04) conjectures $\theta_W = 5/8$ for cascade
+    moduli $q = 3^K$, using the arithmetic of the Eisenstein integers
+    $\mathbb{Z}[\omega]$.
+  \item \cite{WakilRamanujan} (p05) states the formula
+    $\theta_k = (2^k - k)/2^k$ as a postulate.
+  \item \cite{WakilShannon} (p06) proposes an analogy between the arithmetic
+    programme and Shannon's theorems in information theory.
+  \item \cite{WakilW3} (p07) treats Condition~W3, the absence of Siegel zeros
+    for characters modulo $3^K$; it is true, with a one-line proof from the
+    cyclicity of $(\mathbb{Z}/3^K\mathbb{Z})^\times$, and it affects no level
+    of distribution.
+  \item \cite{WakilBias} (p08) discusses the Lemke Oliver--Soundararajan bias
+    in consecutive primes; its claimed ternary explanation is withdrawn.
+  \item \cite{WakilFFT} (p09) treats the conjugate symmetry of the real
+    discrete Fourier transform.
 \end{itemize}
 
-The present paper explains \emph{why} that program is structured the way it is,
-and what methodological principle makes it natural and non-arbitrary.
+The present paper explains \emph{why} that programme is structured the way it
+is, and what methodological principle motivated it.
 
 \subsection{What this paper claims and does not claim}
 \label{sec:claims}
@@ -159,25 +181,29 @@ We attach logical-status labels to every significant claim throughout.
 Here we state the top-level ones explicitly.
 
 \begin{itemize}
-  \item[\textbf{[Claimed]}] Accepting $p \equiv 2 \pmod{3}$ as the constitutional
-    entry point for twin primes is methodologically productive: it motivates the
-    cascade moduli framework and leads to the proved result $\theta_W = 5/8$
-    of~\cite{WakilEisenstein}.
+  \item[\textbf{[Claimed]}] Accepting a proved structural fact as the
+    \emph{productive entry point} to a hard problem is a legitimate
+    methodological move. In the twin-prime case study, the entry point
+    $p \equiv 2 \pmod{3}$ motivated the cascade moduli framework
+    of~\cite{WakilEisenstein}, whose central statement $\theta_W = 5/8$ is a
+    conjecture.
 
   \item[\textbf{[Claimed]}] The constitution $p \equiv 2 \pmod{3}$ is a theorem
     (provable in two lines), not an axiom. Accepting a proved fact as the
     \emph{productive entry point}---rather than a consequence to be derived
     from something deeper---is the methodological move this paper advocates.
 
-  \item[\textbf{[Claimed]}] The framework is falsifiable. The Sophie Germain
-    non-instance (Section~\ref{sec:noncircular}) was predicted and confirmed.
-    The $k=4$ prediction (Section~\ref{sec:decisioncriteria}) is open and testable.
+  \item[\textbf{[Claimed]}] The framework can be made falsifiable, provided
+    every prediction, including the value of every parameter, is fixed before
+    it is compared with known values. The $k = 4$ prediction
+    (Remark~\ref{rem:k4}) is open but does not yet meet this standard. The
+    Sophie Germain example of the February version is not a test
+    (Remark~\ref{rem:sg}).
 
-  \item[\textbf{[Not claimed]}] That constitutional forcing alone proves twin
-    prime infinitude. The result $\theta_W = 5/8$ is established for cascade
-    moduli $q = 3^K$; extending this to the full moduli input required by
-    GPY~\cite{GPY2009} is the principal open step identified
-    in~\cite{WakilEisenstein}.
+  \item[\textbf{[Not claimed]}] That constitutional forcing, or any level of
+    distribution, proves twin prime infinitude. Even level $\theta = 1$ gives
+    only bounded gaps by GPY-type sieves, and the parity barrier blocks gap $2$
+    (Example~\ref{ex:twinprime-barrier}).
 
   \item[\textbf{[Not claimed]}] That twin prime infinitude is independent of
     ZFC in the technical G\"odel--Cohen sense. We make no claim about
@@ -220,21 +246,36 @@ unprovable, but because the productive formulation has not yet been identified.
 The barrier is information: it is telling us something about the structure of
 the problem.
 
-\begin{example}[The $\theta = 1/2$ barrier for twin primes]
+\begin{example}[The $\theta = 1/2$ barrier and the parity barrier for twin primes]
 \label{ex:twinprime-barrier}
 The Goldston--Pintz--Y{\i}ld{\i}r{\i}m theorem~\cite{GPY2009} shows that a
 level of distribution $\theta > 1/2$ for primes in arithmetic progressions
-would imply the existence of infinitely many prime pairs with bounded gaps,
-and in particular---via a refinement---would yield infinitely many twin primes.
-Classical Bombieri--Vinogradov~\cite{BV1965} gives $\theta = 1/2$ for
-\emph{all} moduli. Zhang~\cite{Zhang2014} achieved $\theta = 1/2 + \delta$
-for a small $\delta > 0$ and smooth moduli, proving bounded gaps. Maynard and
-Tao~\cite{Maynard2015} improved the gap bound substantially. But the gap
-$= 2$ (twin primes specifically) remained out of reach.
+would imply the existence of infinitely many prime pairs with bounded gaps.
+The Bombieri--Vinogradov theorem~\cite{Bombieri1965,Vinogradov1965} gives
+$\theta = 1/2$ on average over the moduli $q \leq x^{1/2}(\log x)^{-B}$; it is
+not a statement about each modulus, and even the Generalised Riemann Hypothesis
+gives the expected asymptotic for a single modulus only for
+$q \leq x^{1/2-\varepsilon}$. Zhang~\cite{Zhang2014} obtained a level
+$1/2 + \delta$, for a small $\delta > 0$, for smooth squarefree moduli, which
+sufficed for a variant of GPY and proved bounded gaps. Maynard and
+Tao~\cite{Maynard2015} then obtained bounded gaps from level $1/2$ (indeed from
+any positive level) and improved the gap bound substantially. But gap $2$ (twin
+primes specifically) remains out of reach, and not for want of a higher level:
+under the Elliott--Halberstam conjecture (level $1$) these methods give gaps at
+most $12$~\cite{Maynard2015}, under its generalised form at most
+$6$~\cite{Polymath8b}, and Selberg's parity barrier prevents such sieve
+methods from reaching gap $2$ at any level of distribution.
 
-The barrier at $\theta = 1/2$ for general moduli is not arbitrary. It reflects
-the limits of the large sieve in full generality. Classical methods treat all
-moduli uniformly; they cannot exploit structure specific to a particular prime.
+The level $1/2$ for general moduli reflects the large sieve inequality, but it
+is not absolute: for a fixed residue class and suitably well-factorable sieve
+weights, the levels $4/7$~\cite{BFI1986}, $3/5$~\cite{Maynard2020},
+$66/107$~\cite{Lichtman2023} and $5/8$~\cite{Pascadi2025} are known. Structure
+specific to a single prime is also exploited classically: for prime-power moduli
+$q = p^N$ the expected asymptotic is known for $q \leq x^{3/8-\varepsilon}$
+(Barban--Linnik--Tshudakov~\cite{BLT1964}), extended to $2/5$
+(Gallagher~\cite{Gallagher1972}) and $5/12$ (Huxley), with lower bounds of the
+correct order up to $x^{0.4736}$ (Banks--Shparlinski); see~\cite{BaierPujahari2022}
+for an account. All of these prime-power exponents are below $1/2$.
 \end{example}
 
 The spherical cow response to Example~\ref{ex:twinprime-barrier} is not to
@@ -242,24 +283,31 @@ work harder on the general barrier. It is to ask: \emph{what constitutional
 structure do twin primes carry that distinguishes them from the general case?}
 
 The answer---$p \equiv 2 \pmod{3}$ for all twin primes $p > 3$---is a two-line
-theorem. Accepting it as the productive entry point leads immediately to cascade
-moduli, Eisenstein integer geometry, and $\theta_W = 5/8$
-(see~\cite{WakilRamanujan,WakilEisenstein}).
+theorem. In this programme, accepting it as the entry point led to the cascade
+moduli $q = 3^K$, to the Eisenstein integers, and to the conjecture
+$\theta_W = 5/8$ of~\cite{WakilEisenstein}. Section~\ref{sec:forced} explains why
+none of these is forced by the constitution. Because of the parity barrier, no
+improvement in the level of distribution would by itself settle the twin prime
+conjecture; the case study illustrates the method, not a route to that
+conjecture.
 
 \subsection{The structural limitation of the classical approach}
 \label{sec:limitation}
 
-Classical methods seek \emph{universal} patterns: results that hold for all
+Many classical methods seek \emph{universal} patterns: results that hold for all
 moduli, all primes, all arithmetic progressions. This universality is their
 strength and their limitation. When a problem has constitutional structure that
-singles out a specific prime (here, $3$), universal methods must either ignore
-that structure or work much harder to recover it.
+singles out a specific prime (here, $3$), universal methods may ignore that
+structure.
 
 Spherical cow philosophy embraces the specific structure from the outset. It
-trades universality for depth, and gains access to geometric tools---the
-hexagonal lattice of $\mathbb{Z}[\omega]$, the CM field $\mathbb{Q}(\omega)$,
-Kloosterman cancellation in a cyclic group---that are invisible from the
-universal vantage point.
+trades universality for depth. The tools it brings in---the hexagonal lattice
+of $\mathbb{Z}[\omega]$, the CM field $\mathbb{Q}(\omega)$, character sums over
+the cyclic group $(\mathbb{Z}/3^K\mathbb{Z})^\times$---are not invisible to
+classical methods: the prime-power-modulus literature cited in
+Example~\ref{ex:twinprime-barrier} uses the cyclic and $p$-adic structure of
+$(\mathbb{Z}/p^N\mathbb{Z})^\times$ systematically. What the methodology changes
+is the order in which questions are asked, not the tools available.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section{Spherical Cow Philosophy: The Framework}
@@ -312,7 +360,9 @@ Find a constraint that is:
 
 \noindent\textbf{Step 2: Derive forced consequences.}
 Using rigorous mathematics, determine what the constitutional constraint
-\emph{forces}. Do not add hypotheses; derive consequences.
+\emph{forces}. Do not add hypotheses; derive consequences. A consequence that
+depends on a further choice (of a family of moduli, of a number of levels, of a
+counting rule) is not forced; record the choice as a hypothesis.
 
 \noindent\textbf{Step 3: Validate within the domain.}
 Check that the forced consequences match domain observations, both
@@ -325,7 +375,9 @@ that the constitution is fundamental, not accidental.
 
 \noindent\textbf{Step 5: Generate falsifiable predictions.}
 Identify consequences of the constitution that have not yet been observed,
-and check whether they hold or fail. A framework that makes and confirms
+and check whether they hold or fail. A prediction must be fixed, including the
+value of every parameter, before it is compared with known values, and it must
+be capable of failing. A framework that makes and confirms such
 predictions---and identifies genuine non-instances---is more than decorative.
 \end{definition}
 
@@ -343,7 +395,7 @@ How to validate: cross-domain prediction and confirmed non-instances.
 The physics analogy is precise. A physicist ignores the cow's legs and spots
 to isolate thermal properties. A mathematician ignores the full generality of
 all moduli to isolate the constitutional property of twin primes ($p \equiv 2
-\pmod{3}$) and the cascade structure it forces.
+\pmod{3}$) and to ask what structure it suggests.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section{Case Study: Twin Primes}
@@ -372,95 +424,131 @@ entry point}---to ask what arithmetic structure it forces, rather than treating
 it as a consequence to be recovered from something more general.
 \end{remark}
 
-\subsection{The forced consequences}
+\subsection{The proposed consequences, and why they are not forced}
 \label{sec:forced}
 
 Given Proposition~\ref{prop:constitution}, the spherical cow methodology asks:
-what does $p \equiv 2 \pmod{3}$ force?
+what does $p \equiv 2 \pmod{3}$ force? The February version listed five
+``forced consequences''. We record each, with what is actually true.
 
 \begin{enumerate}[label=(\arabic*)]
-  \item \textbf{Cascade structure.} By the Chinese Remainder Theorem,
-    $\gcd(3^K, \ell) = 1$ for all primes $\ell \neq 3$, so modular conditions
-    modulo $3^K$ and modulo $\ell$ are independent. The constitutional condition
-    forces attention to the specific family of moduli $q = 3^K$---the
-    \emph{cascade moduli}.
+  \item \textbf{Cascade structure.} The constitution is a condition
+    modulo~$3$, so it suggests the moduli $q = 3^K$---the \emph{cascade
+    moduli}. It does not force them, and it imposes nothing modulo $9$ or $27$
+    beyond $p \equiv 2 \pmod 3$: every lift of $2 \bmod 3$ to modulus $3^K$
+    keeps both $p$ and $p + 2$ prime to~$3$. (That conditions modulo $3^K$ and
+    modulo a prime $\ell \neq 3$ are independent is the Chinese Remainder
+    Theorem, whose hypothesis $\gcd(3^K, \ell) = 1$ is not a consequence of the
+    constitution.)
 
   \item \textbf{Eisenstein geometry.} The prime $3$ ramifies in the Eisenstein
-    integers $\mathbb{Z}[\omega]$ as $(3) = (1-\omega)^2$ (Proposition~2.2
-    of~\cite{WakilEisenstein}). A twin prime $p \equiv 2 \pmod{3}$ is
-    \emph{inert} in $\mathbb{Z}[\omega]$; its companion $p+2 \equiv 1 \pmod{3}$
-    \emph{splits}. Twin primes are precisely the inert-split pairs of the
-    hexagonal lattice (Corollary~6.4 of~\cite{WakilEisenstein}).
+    integers $\mathbb{Z}[\omega]$ as $(3) = (1-\omega)^2$, and a prime
+    $\ell > 3$ is \emph{inert} if $\ell \equiv 2 \pmod{3}$ and \emph{splits} if
+    $\ell \equiv 1 \pmod{3}$. So for a twin pair $(p, p+2)$ with $p > 3$, $p$ is
+    inert and $p + 2$ splits. This is true, but it is a restatement of the
+    constitution, not a new constraint.
 
-  \item \textbf{Three-level filtration.} The ramification $(3) = (1-\omega)^2$
-    induces a natural filtration on $\mathbb{Z}[\omega]/(3^K)$ with exactly
-    three independent levels, forcing sieve weights over cascade moduli to be
-    triply-well-factorable (Corollary~2.5 of~\cite{WakilEisenstein}).
+  \item \textbf{Three-level filtration} (withdrawn). The February version
+    claimed a filtration of $\mathbb{Z}[\omega]/(3^K)$ with exactly three
+    independent levels. Since $(3^K) = (1-\omega)^{2K}$, the
+    $(1-\omega)$-adic filtration has $2K$ steps, each with quotient
+    $\mathbb{F}_3$. ``Triply-well-factorable'' is a property imposed on sieve
+    weights for general moduli~\cite{Lichtman2023,Pascadi2025}; it is not
+    forced by $\mathbb{Z}[\omega]$.
 
-  \item \textbf{Level of distribution $\theta_W = 5/8$.} Three-fold
-    Cauchy--Schwarz over the filtration gives ceiling $\theta \leq 2/3$;
-    cyclic group cancellation from $({\mathbb{Z}}/3^K{\mathbb{Z}})^* \cong
-    \mathbb{Z}/(2 \cdot 3^{K-1}\mathbb{Z})$ improves this to $\theta_W = 5/8$
-    (Theorem~1.1 of~\cite{WakilEisenstein}, with Condition~W3 verified
-    in~\cite{WakilW3}).
+  \item \textbf{Level of distribution $\theta_W = 5/8$} (conjecture). The
+    February version described a ceiling $\theta \leq 2/3$ from three-fold
+    Cauchy--Schwarz which cyclic-group cancellation ``improves'' to $5/8$.
+    Since $5/8 < 2/3$ that would be a weaker exponent, not an improvement, and
+    the argument rested on a pointwise Kloosterman bound $q^{3/8}$ for
+    $q = 3^K$ that is false: Weil's bound $2q^{1/2}$ is essentially sharp for
+    these moduli (for each $3 \leq K \leq 7$ some $|S(1,b;3^K)|$ exceeds
+    $1.99 \cdot 3^{K/2}$). As
+    stated in~\cite{WakilEisenstein}, the estimate summed over the moduli
+    $3^K \leq x^{\theta}$ holds for every fixed $\theta < 1$ (by the trivial
+    bound for $3^K > (\log x)^{A+1}$ and the Siegel--Walfisz theorem for the
+    $O(\log\log x)$ smaller moduli), so it cannot single out $5/8$; the per-modulus version would go
+    beyond what GRH gives. $\theta_W = 5/8$ is therefore a conjecture.
+    Condition~W3~\cite{WakilW3} is true, with a one-line proof from the
+    cyclicity of $(\mathbb{Z}/3^K\mathbb{Z})^\times$, but the summed estimate
+    does not need it and it makes nothing unconditional.
 
-  \item \textbf{Combinatorial origin.} The value $5/8 = (2^3 - 3)/2^3$
-    counts valid configurations in a three-level constitutional sieve: of the
-    $2^3 = 8$ binary configurations, exactly $k = 3$ are invalid, leaving $5$
-    valid (Theorem~3.4 of~\cite{WakilRamanujan}). This count traces to the
-    mod-$3$ Sierpi\'nski structure of Khayyam's Triangle
-    (Proposition~2.3 of~\cite{WakilRamanujan}, and~\cite{WakilKhayyam}).
+  \item \textbf{Combinatorial origin} (withdrawn). The value
+    $5/8 = (2^3 - 3)/2^3$ is the configuration density at depth $k = 3$ under
+    the counting postulate of~\cite{WakilCF,WakilRamanujan}. It is not derived:
+    if ``invalid'' means that some constraint fails, $2^3 - 1 = 7$ of the $8$
+    configurations are invalid. The depth $3$ is not supported by items (1) or
+    (3). Nor does the value trace to the mod-$3$ Sierpi\'nski structure of
+    Khayyam's Triangle: in the first $3^K$ rows the proportion of entries not
+    divisible by $3$ is $2^{K+1}/(3^K + 1)$, that is
+    $1, 4/5, 4/7, 16/41, \ldots \to 0$, whereas $(2^K - K)/2^K \to 1$.
 \end{enumerate}
 
-All five consequences are forced by the single constitutional fact of
-Proposition~\ref{prop:constitution}. None requires additional hypotheses.
+None of the five is forced by Proposition~\ref{prop:constitution} alone. Item
+(2) restates it; items (1), (3) and (5) rest on choices---of moduli, of a
+number of levels, of a counting rule---that the constitution does not
+determine; and item (4) is a conjecture. This is the main methodological lesson
+of the case study: Step~2 of Definition~\ref{def:methodology} must be carried
+out with the rigour of a proof, and a consequence that depends on a choice is a
+hypothesis, not a forced consequence.
 
-\subsection{The GPY connection and the open step}
+\subsection{The GPY connection}
 \label{sec:gpy}
 
-The Goldston--Pintz--Y{\i}ld{\i}r{\i}m theorem~\cite{GPY2009} requires a level
-of distribution $\theta > 1/2$ over a sufficiently broad family of moduli to
-conclude twin prime infinitude. The result $\theta_W = 5/8$ established
-in~\cite{WakilEisenstein} applies to cascade moduli $q = 3^K$: a one-parameter
-family indexed by powers of a single prime.
+The Goldston--Pintz--Y{\i}ld{\i}r{\i}m method~\cite{GPY2009} uses a level of
+distribution $\theta > 1/2$, for sieve weights supported on squarefree moduli,
+to obtain bounded gaps between primes. No level of distribution, even
+$\theta = 1$, yields twin primes by these methods
+(Example~\ref{ex:twinprime-barrier}). The moduli $3^K$ with $K \geq 2$ are not
+squarefree, so they do not occur among the moduli used by GPY-type sieves.
 
-\textbf{[Open]} Extending $\theta_W = 5/8$ to a moduli family broad
-enough to serve as GPY input is the principal open step in this program.
-Two avenues are identified in~\cite{WakilEisenstein}: (a) combining cascade
-moduli with smooth moduli via Pascadi's result~\cite{Pascadi2025}; (b) developing
-a GPY variant that works with the specific cascade family directly.
+\textbf{[Withdrawn]} The February version described the extension of
+$\theta_W = 5/8$ to a family of moduli broad enough to serve as GPY input as
+``the principal open step'' towards twin primes, with one avenue through
+Pascadi's result~\cite{Pascadi2025}. That step would not lead to twin primes.
+Pascadi's theorem---equidistribution of smooth numbers, and of primes with
+triply-well-factorable weights, in arithmetic progressions to general moduli up
+to $x^{5/8-o(1)}$---concerns general moduli, not the moduli $3^K$; its agreement
+with $\theta_3 = 5/8$ is a numerical coincidence.
 
-We do not claim this step is complete. The spherical cow methodology motivates
-and structures the arithmetic program; the completion of the program is the work
-of the companion papers and their successors.
+The spherical cow methodology motivated and structured the arithmetic
+programme. At present the programme's central arithmetic statement is a
+conjecture.
 
-\subsection{Cross-domain validation: Shannon's theorems}
+\subsection{Cross-domain comparison: Shannon's theorems}
 \label{sec:shannon}
 
-The same constitutional structure---an exponential space forced by an intrinsic
-constraint onto a strict subspace with a uniquely determined governing
-constant---appears in Shannon's two foundational theorems of 1948~\cite{Shannon1948},
-as documented in detail in~\cite{WakilShannon}.
+The programme compares the twin-prime case with Shannon's two foundational
+theorems of 1948~\cite{Shannon1948}; see~\cite{WakilShannon}.
 
 \begin{itemize}
-  \item \textbf{Asymptotic Equipartition Property.} $|\mathcal{A}|^n$ sequences
-    concentrate onto a typical set of size $\approx 2^{nH}$, where entropy $H$
-    is uniquely forced by the source distribution.
-  \item \textbf{Channel Coding Theorem.} Reliable communication requires rate
-    $R < C$, where capacity $C$ is uniquely forced by the channel.
+  \item \textbf{Asymptotic Equipartition Property.} Of the $|\mathcal{A}|^n$
+    sequences of length $n$ from a memoryless source, a typical set of about
+    $2^{nH}$ sequences carries almost all of the probability; the entropy $H$
+    is determined by the source distribution.
+  \item \textbf{Channel Coding Theorem.} Reliable communication is possible at
+    rates $R < C$ and not at rates $R > C$, where the capacity
+    $C = \max_{p(x)} I(X;Y)$ is determined by the channel.
 \end{itemize}
 
-Both are instances of the same pattern as the cascade moduli result: a structural
-constraint forces an exponential space to concentrate onto a subspace, governed
-by a constant that is uniquely determined by the constraint and cannot be altered
-without changing the underlying structure. The formal definition and proof that
-all three instances satisfy the same conditions are given in~\cite{WakilShannon}.
+The comparison is an analogy, and in one respect an inverse one. In the AEP the
+typical set is a vanishing fraction of the space:
+$|A_\varepsilon^{(n)}|/|\mathcal{A}|^n \leq 2^{-n(\log|\mathcal{A}| - H - \varepsilon)}
+\to 0$ unless the source is uniform (logarithms to base $2$, $\varepsilon$
+small). In the $\theta_k$ scheme the valid fraction $1 - k/2^k$ tends to $1$:
+the constraints remove a vanishing fraction. Moreover the governing constants
+$H/\log|\mathcal{A}|$ and $C$ take every value in $[0,1]$, so they are not
+$\theta_1 = 1/2$~\cite[Section~3.3]{WakilCF}. The two settings are therefore
+not instances of a single pattern; at most they share the feature that a
+constant fixed by the structure of the system governs the size of a
+distinguished subset. The comparison remains a proposed analogy.
 
-The 77-year gap between Shannon's results (1948) and the arithmetic instance
-(2026) is not surprising: the connection is visible only after both sides are
-independently established. This order---independent results first, structural
-comparison second---guarantees that neither result was constructed to match the
-other.
+Shannon's results (1948) precede the arithmetic conjecture (2026) by 78 years.
+Chronology alone does not show that neither side was constructed to match the
+other: the value $5/8$ coincides with Pascadi's exponent for general
+moduli~\cite{Pascadi2025}, which predates the companion papers. A comparison is
+free of post-hoc fitting only if its parameters (here $k$) are fixed before the
+constants are compared.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section{Non-Circularity and Falsifiability}
@@ -473,41 +561,52 @@ A potential objection: the framework accepts the constitution, derives
 consequences, and validates against observations in the same domain. Is this
 circular?
 
-It is not, for three reasons.
+The answer depends on how the methodology is carried out, and the case study
+shows both the safeguard and the failure.
 
 \textbf{First}, the constitution is a theorem (Proposition~\ref{prop:constitution}),
 not an assumption. Accepting a proved fact as the entry point is not circular;
 it is a choice of direction.
 
-\textbf{Second}, the consequences are derived by rigorous mathematics (CRT,
-Eisenstein geometry, Cauchy--Schwarz, Watt's theorem), not assumed. The
-derivation could in principle have produced a different value of $\theta$, or
-no useful bound at all. The fact that it produces $5/8 > 1/2$ is a non-trivial
-output.
+\textbf{Second}, the methodology is non-circular only if the consequences are
+genuinely derived. In the case study they were not: the value $5/8$ entered as
+an input, through the choice of three levels (items (3) and (5) of
+Section~\ref{sec:forced}), and the estimate of~\cite{WakilEisenstein} as stated
+holds for every $\theta < 1$, so it cannot single out $5/8$.
 
-\textbf{Third}, and most importantly, the framework makes \emph{falsifiable
-predictions that were confirmed before the verification was run}. The Sophie
-Germain non-instance is the clearest example.
+\textbf{Third}, a falsifiable prediction must be one that could fail. The
+Sophie Germain example offered in the February version as a confirmed
+prediction is not one.
 
-\begin{proposition}[Sophie Germain Non-Instance, {\cite[Theorem~7.1]{WakilShannon}}]
-\label{prop:sg}
-Sophie Germain prime pairs $(p, 2p+1)$ have dimensional parameter $k = 2$: the
-mod-$3$ residue of $2p+1$ is determined by that of $p$ (both satisfy
-$p \equiv 2 \pmod{3}$), giving only two independent constraint levels rather
-than three. The framework therefore predicts level of distribution
-$\theta_2 = (2^2 - 2)/2^2 = 1/2$, with no improvement over Bombieri--Vinogradov.
-Computational analysis confirms this: Sophie Germain primes do not exhibit
-the cascade moduli enhancement.
-\end{proposition}
+\begin{remark}[Sophie Germain primes: not a test]
+\label{rem:sg}
+For $p > 3$, if $p$ and $2p+1$ are both prime then $p \equiv 2 \pmod{3}$---the
+same single condition as for twin primes. In both cases the partner ($p + 2$
+or $2p + 1$) is an affine function of $p$, so its residue modulo $3^K$ is
+determined by that of $p$. The February version assigned Sophie Germain pairs
+depth $k = 2$ and twin primes depth $k = 3$, but their local structure does not
+distinguish them: modulo every prime $\ell \geq 3$ both exclude exactly two
+residue classes of $p$ (for $\ell = 3$ the same classes, $0$ and $1$; for
+$\ell \geq 5$ different ones, $\{0, -2\}$ against $\{0, -1/2\}$), so their
+local densities, and their Hardy--Littlewood constants, are equal.
+Since $\theta_1 = \theta_2 = 1/2$, the ``prediction'' $\theta = 1/2$ could not
+fail whichever depth is assigned. Moreover, a level of distribution is a
+property of primes in arithmetic progressions, the same input for every
+admissible tuple, so a ``level of distribution of Sophie Germain pairs'' is not
+a defined notion; and no finite computation can confirm an asymptotic level.
+The example, and its claimed computational confirmation, are withdrawn as
+evidence.
+\end{remark}
 
 \begin{remark}
-The Sophie Germain prediction follows the same logic as the twin prime result:
-coupled constraints reduce the effective dimensionality. In information theory,
-a degraded channel has lower capacity because input-output dependence increases;
-in Sophie Germain primes, the coupling between $p$ and $2p+1$ modulo~$3$
-reduces effective $k$ from $3$ to $2$. The framework handles both cases with
-the same formula $\theta_k = (2^k - k)/2^k$, and correctly predicts which
-constellations do and do not exhibit the enhancement.
+The February version compared the Sophie Germain coupling with a degraded
+channel, saying that a degraded channel has lower capacity because input--output
+dependence increases. That is backwards. For a degraded channel
+$X \to Y \to Z$ the data-processing inequality gives
+$I(X;Z) \leq I(X;Y)$, so the capacity $\max_{p(x)} I(X;Z)$ is at most
+$\max_{p(x)} I(X;Y)$ because input--output dependence \emph{decreases}. In any
+case, by Remark~\ref{rem:sg} the coupling in Sophie Germain pairs is the same
+as in twin primes, so the comparison distinguishes nothing.
 \end{remark}
 
 \subsection{Decision criteria: when to use this framework}
@@ -526,7 +625,8 @@ constellations do and do not exhibit the enhancement.
     independent fields, suggesting the constitution captures something
     fundamental rather than domain-specific.
   \item \textbf{Falsifiable predictions}: The framework generates predictions
-    about cases not yet examined, which can confirm or refute it.
+    about cases not yet examined, fixed in advance, which can confirm or
+    refute it.
 \end{enumerate}
 \end{criterion}
 
@@ -542,12 +642,17 @@ constellations do and do not exhibit the enhancement.
 
 \begin{remark}[The $k=4$ open prediction]
 \label{rem:k4}
-The most immediate falsifiable prediction of this framework is the existence of
-a prime constellation with $k = 4$ independent modular constraints achieving
-level of distribution $\theta_4 = (2^4 - 4)/2^4 = 3/4$
-(see Table~3 of~\cite{WakilShannon}). Identifying such a constellation and
-verifying or disproving $\theta_4 = 3/4$ computationally is a concrete open
-problem that would either strengthen or refute the $k$-hierarchy.
+The programme proposes, as its next prediction, a prime constellation with
+$k = 4$ independent modular constraints and governing constant
+$\theta_4 = (2^4 - 4)/2^4 = 3/4$ (see Table~1 of~\cite{WakilCF}). In its
+present form this is not yet a prediction with operational content. A level of
+distribution is a property of primes in arithmetic progressions, the same input
+for every admissible tuple, so ``the level of distribution of a
+constellation'' would first have to be defined; the four constraints, and their
+independence, would have to be fixed before any comparison; and since a level
+of distribution is an asymptotic statement, a finite computation could
+illustrate it but neither verify nor disprove it. Supplying these is an open
+problem.
 \end{remark}
 
 %% ─────────────────────────────────────────────────────────────────────────────
@@ -565,27 +670,31 @@ because they are empirically universal and computationally verifiable. The
 \emph{derivation} from those constraints remains fully rigorous. The shift is
 in what counts as the productive starting point, not in what counts as a proof.
 
-The physics analogy is again precise. Physicists accept the speed of light $c$
-as an empirical constant and rigorously derive the structure of spacetime from
-it. The derivation (special relativity, $E = mc^2$, time dilation) is
-mathematically exact; the starting point is empirical. Spherical cow philosophy
+The physics analogy is again apt. Physicists accept the invariance of the
+speed of light in all inertial frames---an empirically supported postulate
+(Einstein's second postulate)---and rigorously derive the structure of
+spacetime from it. The derivation (special relativity, $E = mc^2$, time
+dilation) is mathematically exact; the starting point is empirical. Spherical cow philosophy
 proposes the same division of labour for mathematics: accept the constitutional
 constraint empirically, derive its consequences rigorously.
 
 \subsection{G\"odel, independence, and the scope of this claim}
 \label{sec:godel}
 
-G\"odel's incompleteness theorems~\cite{Godel1931} establish that any consistent
-formal system containing arithmetic has true statements unprovable within the
-system. Cohen~\cite{Cohen1963} demonstrated that the continuum hypothesis is
-independent of ZFC.
+G\"odel's incompleteness theorems~\cite{Godel1931} establish that any
+consistent, effectively axiomatisable formal system containing enough
+arithmetic has true arithmetical statements unprovable within the system.
+(Effective axiomatisability is essential: the set of all true arithmetical
+statements is consistent and complete.) Cohen~\cite{Cohen1963}, completing
+earlier work of G\"odel, showed that the continuum hypothesis is independent
+of ZFC.
 
 We do \emph{not} claim that twin prime infinitude is independent of ZFC.
-We make no claim about the axiomatic status of any conjecture in this program.
+We make no claim about the axiomatic status of any conjecture in this programme.
 
 What we do claim is narrower and more useful: \emph{for problems where classical
 methods have encountered structural barriers, accepting an empirical constitution
-as the entry point is a productive methodological choice}. This claim is
+as the entry point can be a productive methodological choice}. This claim is
 independent of whether the problem is independent of ZFC. It applies whenever
 the constitutional structure is the productive formulation, regardless of the
 problem's status in formal logic.
@@ -605,8 +714,9 @@ Mathematics benefits from multiple methodologies:
 
 These are not competing methodologies. They are tools for different situations.
 The contribution of this paper is to articulate the conditions under which the
-last tool is the right one, and to demonstrate its application through the
-arithmetic program of~\cite{WakilRamanujan,WakilEisenstein,WakilW3,WakilShannon}.
+last tool is the right one, and to illustrate its application---including the
+ways it can go wrong---through the arithmetic programme
+of~\cite{WakilRamanujan,WakilEisenstein,WakilW3,WakilShannon}.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section{Conclusion}
@@ -618,21 +728,24 @@ Spherical cow philosophy provides a methodological complement to classical
 proof-by-contradiction for problems where structural barriers persist. By
 accepting empirical constitutional constraints as the productive entry
 point---deriving forced consequences rigorously and validating predictions
-across independent domains---the framework opens paths that the classical
-universal approach cannot see.
+across independent domains---the framework may open paths that a purely
+universal approach does not emphasise.
 
-The key results demonstrated in this program:
+What the twin-prime case study shows:
 \begin{enumerate}[label=(\arabic*)]
-  \item The constitution $p \equiv 2 \pmod{3}$ forces cascade structure, Eisenstein
-    geometry, and level of distribution $\theta_W = 5/8$ for cascade
-    moduli~\cite{WakilEisenstein,WakilW3}.
-  \item The same structural pattern---exponential space forced onto a strict
-    subspace by an intrinsic constraint---appears in Shannon's AEP and Channel
-    Coding Theorem, documented in~\cite{WakilShannon}.
-  \item The Sophie Germain non-instance confirms the framework's predictive
-    power: coupled constraints reduce effective dimensionality exactly as the
-    formula predicts.
-  \item The $k=4$ open prediction provides a concrete falsifiability test.
+  \item The constitution $p \equiv 2 \pmod{3}$ is a theorem. It motivated the
+    cascade moduli and the conjecture $\theta_W = 5/8$~\cite{WakilEisenstein},
+    which is open; Condition~W3~\cite{WakilW3} is true but affects no level of
+    distribution. None of these is forced by the constitution.
+  \item The comparison with Shannon's AEP and Channel Coding
+    Theorem~\cite{WakilShannon} is a proposed analogy. In the AEP the
+    distinguished subset is a vanishing fraction of the space, the opposite of
+    the $\theta_k$ pattern.
+  \item The Sophie Germain example is not a test of the framework: its local
+    densities are the same as those of twin primes, and the value $1/2$ is
+    predicted at both depths $1$ and $2$.
+  \item The $k = 4$ prediction becomes a falsifiability test only once its
+    terms are defined and fixed in advance.
 \end{enumerate}
 
 \subsection{The philosophical shift}
@@ -642,43 +755,34 @@ From: mathematics begins with axioms and proceeds by deduction.
 To: mathematics also begins with constitutional constraints and proceeds by
 rigorous derivation of their forced consequences.
 
-This is not a rejection of rigour. The derivations in~\cite{WakilEisenstein,
-WakilW3} are as rigorous as any analytic number theory. The shift is in what
+This is not a rejection of rigour. The methodology stands or falls with the
+rigour of its derivations, and the case study shows that each claimed
+consequence must be checked as carefully as any proof. The shift is in what
 counts as the \emph{starting point}, not in what counts as a \emph{proof}.
 
 \subsection{Final reflection}
 
-Omar Khayyam spent his life finding geometry hidden in numbers and in the sky.
-His calendar was accurate to within a second per year, computed with naked-eye
-instruments and geometric sight~\cite{WakilKhayyam}. His triangle mod~$3$
-contains the fractal that underlies the cascade moduli framework. He did not
-overcome the complexity of the solar year or of cubic equations by working harder
-within established methods. He found a different entry point.
+Omar Khayyam is remembered for finding geometry in numbers: he classified the
+cubic equations and solved them by intersecting conic sections, and he took
+part in the calendar reform adopted in 1079~\cite{WakilKhayyam}. He did not
+find an arithmetic solution of the general cubic, and said so; the geometry of
+conic sections gave him a different entry point.
 
-The spherical cow reveals what matters. Khayyam knew this. The companion papers
-make it rigorous.
+The spherical cow reveals what matters---provided one then checks that what was
+kept really forces what is claimed.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section*{Acknowledgements}
 %% ─────────────────────────────────────────────────────────────────────────────
 
-The author thanks Claude Shannon posthumously: his 1948 paper established two
-instances of the Shannon--Wakil effect before either the effect or the arithmetic
-instance were identified. The author thanks Simon Clark for articulating the
-spherical cow principle with the clarity that made the mathematical parallel
-visible.
+The author acknowledges Claude Shannon's 1948 paper, whose theorems prompted the
+cross-domain comparison discussed in Section~\ref{sec:shannon}.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \begin{thebibliography}{99}
 %% ─────────────────────────────────────────────────────────────────────────────
 
 %% ── Foundational references ───────────────────────────────────────────────────
-
-\bibitem{Clark2020}
-S.~Clark,
-\emph{Assume a Spherical Cow: A Physicist's Guide to Understanding the
-Universe},
-Quadrille Publishing, 2020.
 
 \bibitem{Shannon1948}
 C.~E.~Shannon,
@@ -698,10 +802,35 @@ The independence of the continuum hypothesis,
 
 %% ── Sieve theory ──────────────────────────────────────────────────────────────
 
-\bibitem{BV1965}
-E.~Bombieri and A.~I.~Vinogradov,
+\bibitem{BaierPujahari2022}
+S.~Baier and S.~Pujahari,
+A Bombieri--Vinogradov-type theorem with prime power moduli,
+\emph{Acta Arith.}\ \textbf{204} (2022), 115--140; arXiv:2107.04348.
+
+\bibitem{BLT1964}
+M.~B.~Barban, Yu.~V.~Linnik and N.~G.~Tshudakov,
+On prime numbers in an arithmetic progression with a prime-power difference,
+\emph{Acta Arith.}\ \textbf{9} (1964), 375--390.
+
+\bibitem{Bombieri1965}
+E.~Bombieri,
 On the large sieve,
 \emph{Mathematika}\ \textbf{12} (1965), 201--225.
+
+\bibitem{BFI1986}
+E.~Bombieri, J.~B.~Friedlander and H.~Iwaniec,
+Primes in arithmetic progressions to large moduli,
+\emph{Acta Math.}\ \textbf{156} (1986), 203--251.
+
+\bibitem{Gallagher1972}
+P.~X.~Gallagher,
+Primes in progressions to prime-power modulus,
+\emph{Invent.\ Math.}\ \textbf{16} (1972), 191--201.
+
+\bibitem{Vinogradov1965}
+A.~I.~Vinogradov,
+The density hypothesis for Dirichlet $L$-series,
+\emph{Izv.\ Akad.\ Nauk SSSR Ser.\ Mat.}\ \textbf{29} (1965), 903--934.
 
 \bibitem{GPY2009}
 D.~A.~Goldston, J.~Pintz, and C.~Y.~Y{\i}ld{\i}r{\i}m,
@@ -718,40 +847,73 @@ J.~Maynard,
 Small gaps between primes,
 \emph{Ann.\ of Math.}\ \textbf{181} (2015), 383--413.
 
+\bibitem{Maynard2020}
+J.~Maynard,
+Primes in arithmetic progressions to large moduli II: well-factorable
+estimates,
+\emph{Mem.\ Amer.\ Math.\ Soc.}\ \textbf{306} (2025), no.~1543;
+arXiv:2006.07088.
+
+\bibitem{Lichtman2023}
+J.~D.~Lichtman,
+Primes in arithmetic progressions to large moduli, and Goldbach beyond the
+square-root barrier,
+arXiv:2309.08522, 2023.
+
 \bibitem{Pascadi2025}
 A.~Pascadi,
-Level of distribution $5/8$ for smooth moduli,
-arXiv:2505.00653v2, 2025.
+On the exponents of distribution of primes and smooth numbers,
+arXiv:2505.00653, 2025.
+
+\bibitem{Polymath8b}
+D.~H.~J.~Polymath,
+Variants of the Selberg sieve, and bounded intervals containing many primes,
+\emph{Res.\ Math.\ Sci.}\ \textbf{1} (2014), Art.~12.
 
 %% ── Companion papers (Wakil's Program) ───────────────────────────────────────
 
-\bibitem{WakilKhayyam}
+\bibitem{WakilCF}
 K.~Wakil,
-Khayyam's triangle: historical restoration and the geometry hidden in the
-numbers,
+Constitutional Forcing,
 ARC Institute of Knowware, preprint, 2026.
 
-\bibitem{WakilRamanujan}
+\bibitem{WakilKhayyam}
 K.~Wakil,
-Ramanujan's dimensional forcing: a universal formula for sieve levels,
+Khayyam's Triangle: Historical Restoration and the Geometry Hidden in the
+Numbers,
 ARC Institute of Knowware, preprint, 2026.
 
 \bibitem{WakilEisenstein}
 K.~Wakil,
-Ternary forcing on the hexagonal lattice: Eisenstein integers, cascade
-moduli, and level of distribution~$5/8$,
+Ternary Forcing on the Hexagonal Lattice: Eisenstein Integers, Cascade
+Moduli, and a Conjectured Level of Distribution~$5/8$,
 ARC Institute of Knowware, preprint, 2026.
 
-\bibitem{WakilW3}
+\bibitem{WakilRamanujan}
 K.~Wakil,
-Condition~W3: absence of Siegel zeros for characters modulo~$3^K$ via
-CM~structure of~$\mathbb{Z}[\omega]$,
+Ramanujan's Dimensional Forcing: A Universal Formula for Sieve Levels,
 ARC Institute of Knowware, preprint, 2026.
 
 \bibitem{WakilShannon}
 K.~Wakil,
-The Shannon--Wakil effect: constitutional forcing as a universal pattern
-in information theory and prime arithmetic,
+The Shannon--Wakil Effect: Constitutional Forcing as a Universal Pattern
+in Information Theory and Prime Arithmetic,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilW3}
+K.~Wakil,
+Condition~W3: Absence of Siegel Zeros for Characters Modulo~$3^K$,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilBias}
+K.~Wakil,
+The Lemke Oliver--Soundararajan Bias and Ternary Constitutional Structure,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilFFT}
+K.~Wakil,
+The Constitutional Constant $\theta_{\mathrm{FFT}} = 1/2$: Conjugate Symmetry
+of the Real Discrete Fourier Transform,
 ARC Institute of Knowware, preprint, 2026.
 
 \end{thebibliography}
