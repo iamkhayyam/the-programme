@@ -229,7 +229,7 @@ export default function Home() {
               Faces of One Object
             </h2>
             <p className="mb-8 text-[1rem] text-mid italic font-garamond">
-              The instances the programme puts forward, across four domains and a millennium. The papers that set them out are under revision.
+              The instances the programme puts forward, with their status after the November 2026 revision.
             </p>
 
             <div className="responsive-table-container">
@@ -244,33 +244,27 @@ export default function Home() {
                 </thead>
                 <tbody>
                   <tr className="border-b border-rule">
-                    <td data-label="Domain">Combinatorics</td>
-                    <td data-label="Year">1070</td>
-                    <td data-label="Mathematician">Khayyam</td>
-                    <td data-label="Instance">The mod-3 fractal of Khayyam's Triangle</td>
-                  </tr>
-                  <tr className="border-b border-rule">
                     <td data-label="Domain">Information theory</td>
                     <td data-label="Year">1948</td>
                     <td data-label="Mathematician">Shannon</td>
-                    <td data-label="Instance">AEP + Channel Coding Theorem</td>
+                    <td data-label="Instance">AEP + Channel Coding Theorem — a proposed analogy; their constants are H/log|A| and C</td>
                   </tr>
                   <tr className="border-b border-rule font-medium">
                     <td data-label="Domain">Algebraic number theory</td>
                     <td data-label="Year">2026</td>
                     <td data-label="Mathematician">Wakil</td>
-                    <td data-label="Instance">θ<sub>W</sub> = 5/8 claimed for cascade moduli q = 3<sup>K</sup></td>
+                    <td data-label="Instance">θ<sub>W</sub> = 5/8 for each modulus q = 3<sup>K</sup> — a conjecture</td>
                   </tr>
                   <tr className="border-b border-rule text-light italic">
                     <td data-label="Domain">Signal processing</td>
                     <td data-label="Year">2026*</td>
                     <td data-label="Mathematician">Wakil</td>
-                    <td data-label="Instance">θ<sub>FFT</sub> = 1/2, DFT conjugate symmetry — a classical property, named 2026</td>
+                    <td data-label="Instance">θ<sub>FFT</sub> = 1/2, DFT conjugate symmetry — a classical theorem, named 2026</td>
                   </tr>
                 </tbody>
               </table>
               <div className="mt-4 font-plex-mono text-[0.55rem] text-light leading-relaxed max-w-[800px]">
-                * Conjugate symmetry was not discovered in 2026. It is a classical property of the discrete Fourier transform, used in every FFT. It was read as a Constitutional Forcing instance in 2026 — which is a different thing.
+                * Conjugate symmetry was not discovered in 2026. It is a classical property of the discrete Fourier transform, used in every FFT. It was read as a Constitutional Forcing instance in 2026 — which is a different thing. Khayyam's Triangle (Paper 02) motivates the programme's interest in the prime 3 but is not counted as an instance: its mod-3 fractal does not supply the arithmetic.
               </div>
             </div>
           </section>
@@ -282,8 +276,8 @@ export default function Home() {
               Constitutional Sieve Programme
             </h2>
             <p className="mb-12 max-w-[800px] border-l-2 border-accent pl-4 text-[0.95rem] leading-relaxed text-mid">
-              <span className="font-plex-mono text-[0.6rem] tracking-[0.15em] uppercase text-light block mb-1">Revision notice · November 2026</span>
-              The papers below are being revised. Earlier versions contained errors, including a Kolmogorov 3/4 instance that does not hold and a misattribution of Pascadi's 5/8 result. Their status labels reflect this.
+              <span className="font-plex-mono text-[0.6rem] tracking-[0.15em] uppercase text-light block mb-1">Revised · November 2026</span>
+              All nine papers were revised in November 2026 after an audit found errors in the earlier versions, including a Kolmogorov 3/4 instance that does not hold and a misattribution of Pascadi's 5/8 result. Each paper opens with a revision note, and the status labels below give each paper's main claim as it now stands.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-rule border border-rule">
