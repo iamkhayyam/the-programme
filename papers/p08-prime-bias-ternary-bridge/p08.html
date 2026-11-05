@@ -1,217 +1,1646 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prime Digit Bias: The Ternary Constitutional Explanation — Wakil 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>The Lemke Oliver–Soundararajan Bias
+and Ternary Constitutional Structure
+</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<!-- xhtml,mathjax,charset=utf-8,html --> 
+<meta name="src" content="p08.tex" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
-@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
-:root{--linen:#e8e4dc;--ink:#111;--mid:#444;--light:#888;--rule:#ccc;--lrule:#ddd;--bg:#faf9f6;--note-bg:#f4f2ee;--accent:#8B0000;--link:#1a3a7c;--sidebar-w:220px;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{font-size:14px;}
-body{background:var(--linen);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;}
-.site-header{border-bottom:1px solid var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:50px;background:var(--linen);position:sticky;top:0;z-index:100;}
-.site-logo{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.88rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);text-decoration:none;line-height:1.1;}
-.site-logo span{display:block;font-size:.58rem;letter-spacing:.22em;color:var(--light);font-weight:300;}
-.site-nav{display:flex;gap:1.8rem;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;}
-.site-nav a{color:var(--ink);text-decoration:none;}
-.preprint-bar{border-bottom:1px solid var(--rule);padding:.5rem 2rem;display:flex;align-items:center;justify-content:space-between;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);font-family:'IBM Plex Mono',monospace;}
-.preprint-bar .series-tag{color:var(--ink);font-weight:500;}
-.page-body{max-width:1080px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:var(--sidebar-w) 1fr;gap:0;}
-.sidebar{border-right:1px solid var(--rule);padding:2.5rem 1.8rem 2.5rem 0;position:sticky;top:50px;height:calc(100vh - 50px);overflow-y:auto;}
-.sb-label{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
-.sb-num{font-family:'IBM Plex Sans',sans-serif;font-size:3.2rem;font-weight:300;line-height:1;color:var(--ink);letter-spacing:-.02em;margin-bottom:1.8rem;}
-.sb-meta{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;color:var(--light);line-height:2;text-transform:uppercase;margin-bottom:1.8rem;}
-.sb-meta strong{color:var(--ink);display:block;font-weight:500;font-size:.55rem;margin-top:.6rem;}
-.sb-meta strong:first-child{margin-top:0;}
-.sb-links{margin-bottom:1.8rem;}
-.sb-link{display:block;font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;text-transform:uppercase;color:var(--link);text-decoration:none;padding:.35rem 0;border-bottom:1px solid var(--lrule);line-height:1.4;}
-.sb-link:last-child{border-bottom:none;}
-.sb-link:hover{color:var(--accent);}
-.sb-link .sb-link-label{color:var(--light);display:block;font-size:.48rem;}
-.series-index{list-style:none;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.04em;line-height:2.1;text-transform:uppercase;color:var(--light);}
-.series-index a{color:var(--light);text-decoration:none;}
-.series-index a:hover{color:var(--ink);}
-.series-index .curr{color:var(--ink);font-weight:500;}
-.series-index .curr::before{content:'→ ';}
-.paper{padding:2.5rem 0 4rem 2.8rem;background:var(--bg);min-height:calc(100vh - 50px);}
-.paper-header{text-align:center;padding-bottom:2rem;border-bottom:1px solid var(--rule);margin-bottom:2rem;}
-.paper-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--light);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem;}
-.paper-label a{color:var(--link);text-decoration:none;}
-h1.title{font-family:'STIX Two Text','Times New Roman',serif;font-weight:600;font-size:1.45rem;line-height:1.35;color:var(--ink);margin-bottom:1rem;}
-.authors{font-family:'IBM Plex Sans',sans-serif;font-size:.82rem;color:var(--mid);margin-bottom:.4rem;}
-.affiliation{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--light);font-style:italic;margin-bottom:1rem;}
-.paper-date{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--light);}
-.abstract-block{margin:0 2rem 1.5rem;padding:1.2rem 1.5rem;background:var(--note-bg);border:1px solid var(--rule);}
-.abs-label{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mid);margin-bottom:.7rem;text-align:center;}
-.abstract-block p{font-family:'STIX Two Text',serif;font-size:.88rem;line-height:1.65;color:var(--mid);text-align:justify;margin:0;}
-.keywords{margin:.8rem 2rem 1.5rem;font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;color:var(--light);text-align:center;}
-.keywords strong{color:var(--mid);font-weight:500;}
-.paper-meta-strip{display:flex;gap:1.5rem;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;padding:.8rem 1rem;border-top:1px solid var(--lrule);border-bottom:1px solid var(--lrule);}
-.meta-pill{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--light);}
-.meta-pill a{color:var(--link);text-decoration:none;border-bottom:1px solid var(--lrule);}
-.meta-pill a:hover{color:var(--accent);}
-.paper-body{font-family:'STIX Two Text','Times New Roman',serif;font-size:1rem;line-height:1.72;color:var(--ink);max-width:640px;}
-.paper-body p{text-align:justify;margin-bottom:.9em;hyphens:auto;}
-.paper-body h2{font-family:'STIX Two Text',serif;font-weight:600;font-size:1.05rem;color:var(--ink);margin:2.2rem 0 .8rem;counter-increment:section;}
-.paper-body h2::before{content:counter(section) '.  ';color:var(--accent);}
-.paper-body{counter-reset:section;}
-.paper-body h3{font-family:'STIX Two Text',serif;font-weight:600;font-size:.92rem;color:var(--mid);margin:1.5rem 0 .5rem;font-style:italic;}
-.eq-label{display:flex;align-items:center;justify-content:space-between;margin:1.2rem 0;}
-.eq-content{flex:1;text-align:center;font-family:'STIX Two Text',serif;font-size:1.02rem;}
-.eq-num{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);width:44px;text-align:right;}
-.env-block{margin:1.4rem 0;padding:1rem 1.2rem;font-family:'STIX Two Text',serif;font-size:.95rem;line-height:1.65;}
-.env-block.theorem{border:1px solid var(--rule);border-left:4px solid var(--ink);background:var(--note-bg);}
-.env-block.proposition{border:1px solid var(--rule);border-left:4px solid var(--mid);background:var(--note-bg);}
-.env-block.lemma{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
-.env-block.corollary{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
-.env-block.definition{border:1px solid var(--rule);border-left:4px solid var(--accent);background:#fff8f8;}
-.env-block.remark{border-left:3px solid var(--accent);background:#fff8f8;padding:.8rem 1.2rem;}
-.env-block.conjecture{border:1px dashed var(--rule);border-left:4px dashed var(--ink);background:var(--note-bg);}
-.env-label{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);margin-bottom:.5rem;}
-.env-block.remark .env-label,.env-block.definition .env-label{color:var(--accent);}
-.proof{margin:.5rem 0 1.2rem 1.5rem;font-family:'STIX Two Text',serif;font-size:.92rem;line-height:1.65;color:var(--mid);}
-.proof-label{font-family:'IBM Plex Sans',sans-serif;font-style:italic;font-size:.8rem;color:var(--light);margin-bottom:.3rem;}
-.qed{float:right;font-size:1rem;color:var(--mid);}
-table.formal{width:100%;border-collapse:collapse;margin:1.2rem 0 1rem;font-size:.85rem;font-family:'STIX Two Text',serif;}
-table.formal th{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid var(--ink);border-top:1px solid var(--ink);padding:.5rem .8rem;text-align:left;}
-table.formal td{padding:.45rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;}
-table.formal tr:last-child td{border-bottom:1px solid var(--ink);}
-.table-caption{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--mid);text-align:center;margin-bottom:1.5rem;font-style:italic;}
-.table-caption strong{font-style:normal;font-weight:500;}
-em{font-style:italic;}strong{font-weight:600;}
-sup{font-size:.7em;vertical-align:super;color:var(--accent);}
-sub{font-size:.7em;vertical-align:sub;}
-.next-paper{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--ink);max-width:640px;}
-.next-label{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
-.next-title{font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;}
-.next-title a{color:var(--ink);text-decoration:none;}
-.next-title a:hover{color:var(--link);}
-.next-desc{font-family:'STIX Two Text',serif;font-size:.88rem;color:var(--light);margin-top:.25rem;font-style:italic;}
-.references{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);max-width:640px;}
-.ref-list{list-style:none;counter-reset:refs;}
-.ref-list li{counter-increment:refs;padding-left:36px;position:relative;margin-bottom:.6rem;font-family:'STIX Two Text',serif;font-size:.82rem;line-height:1.5;color:var(--mid);}
-.ref-list li::before{content:'['counter(refs)']';position:absolute;left:0;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);}
-.site-footer{border-top:1px solid var(--ink);padding:.9rem 2rem;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);}
-@media(max-width:760px){.page-body{grid-template-columns:1fr;}.sidebar{position:static;height:auto;border-right:none;border-bottom:1px solid var(--rule);padding:1.5rem 0;}.paper{padding:1.5rem 0;}.preprint-bar{display:none;}.series-index{display:none;}.abstract-block{margin:0 0 1.5rem;}}
-</style>
+ 
+/* start css.sty */
+.ecrm-1440{font-size:116%;}
+.eccc1440-{font-size:116%;}
+.ecrm-1095{font-size:83%;}
+.ectt-1095{font-size:83%; font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecbx-1095{font-size:83%; font-weight: bold;}
+.ecbx-1095{ font-weight: bold;}
+.ecbx-1095{ font-weight: bold;}
+.ecbx-1095{ font-weight: bold;}
+.ecbx-1095{ font-weight: bold;}
+.ecbx-1095{ font-weight: bold;}
+.ecbx-1095{ font-weight: bold;}
+.ecbx-1095{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.small-caps{font-variant: small-caps; }
+p{margin-top:0;margin-bottom:0}
+p.indent{text-indent:0;}
+p + p{margin-top:1em;}
+p + div, p + pre {margin-top:1em;}
+div + p, pre + p {margin-top:1em;}
+a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+@media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+img.math{vertical-align:middle;}
+div.par-math-display, div.math-display{text-align:center;}
+li p.indent { text-indent: 0em }
+li p:first-child{ margin-top:0em; }
+li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
+li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+code.verb{font-family:monospace,monospace;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
+.hline:first-child{border-bottom:1px solid black;border-top:none;}
+.tabbing-right {text-align:right;}
+div.float, div.figure {margin-left: auto; margin-right: auto;}
+div.float img {text-align:center;}
+div.figure img {text-align:center;}
+.marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.reversemarginpar{float:left;}
+table.equation {width:100%;}
+.equation td{text-align:center; }
+td.equation { margin-top:1em; margin-bottom:1em; } 
+td.equation-label { width:5%; text-align:center; }
+td.eqnarray4 { width:5%; white-space: normal; }
+td.eqnarray2 { width:5%; }
+table.eqnarray-star, table.eqnarray {width:100%;}
+div.eqnarray{text-align:center;}
+div.array {text-align:center;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.pmatrix img{vertical-align:middle;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.bar-css {text-decoration:overline;}
+img.cdots{vertical-align:middle;}
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption span.id{font-weight: bold; white-space: nowrap; }
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+div.abstract p {margin-left:5%; margin-right:5%;}
+div.abstract {width:100%;}
+.abstracttitle{text-align:center;margin-bottom:1em;}
+.subsectionToc, .likesubsectionToc {margin-left:1em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:2em;}
+.paragraphToc, .likeparagraphToc {margin-left:3em;}
+.subparagraphToc, .likesubparagraphToc {margin-left:4em;}
+.equation td{text-align:center; }
+.equation-star td{text-align:center; }
+table.equation-star { width:100%; }
+table.equation { width:100%; }
+table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:95%; margin-left:5%; white-space: nowrap;}
+table.align-star, table.alignat-star, table.xalignat-star, table.flalign-star {margin-left:auto; margin-right:auto; white-space: nowrap;}
+td.align-label { width:5%; text-align:center; }
+td.align-odd { text-align:right; padding-right:0.3em;}
+td.align-even { text-align:left; padding-right:0.6em;}
+table.multline, table.multline-star {width:100%;}
+td.gather {text-align:center; }
+table.gather {width:100%;}
+div.gather-star {text-align:center;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
+.hline:first-child{border-bottom:1px solid black;border-top:none;}
+div.array {text-align:center;}
+.rotatebox{display: inline-block;}
+.mdframed{margin-top:1em;margin-bottom:1em;}
+dl.enumerate-enumitem{display:grid; grid-template-columns: 3ch 1fr; align-items: top; row-gap:1ch;}
+tr#TBL-2-1- {border-top:0.13156em solid #000;} 
+tr#TBL-2-1- {border-bottom:0.08223em solid #000}
+tr#TBL-2-6- {border-bottom:0.08223em solid #000}
+tr#TBL-2-11- {border-bottom:0.13156em solid #000}
+#mdframed-1{border:1.4pt solid #B20000; background-color: #FFF2F2; color:#000000;}
+#TBL-3-4{border-right:1px solid black;}
+tr#TBL-3-1- {border-top:0.13156em solid #000;} 
+tr#TBL-3-2- {border-bottom:0.08223em solid #000}
+tr#TBL-3-5- {border-bottom:0.08223em solid #000}
+tr#TBL-3-8- {border-bottom:0.08223em solid #000}
+tr#TBL-3-11- {border-bottom:0.08223em solid #000}
+tr#TBL-3-14- {border-bottom:0.08223em solid #000}
+tr#TBL-3-18- {border-bottom:0.08223em solid #000}
+td#TBL-3-19-1{border-right:solid black 0.4pt;}
+td#TBL-3-19-1{border-right:solid black 0.4pt;}
+tr#TBL-3-19- {border-bottom:0.13156em solid #000}
+#mdframed-2{border:1.2pt solid #000099; background-color: #F5F5FF; color:#000000;}
+#mdframed-3{border:1.4pt solid #B20000; background-color: #FFF2F2; color:#000000;}
+#mdframed-4{border:1.4pt solid #B20000; background-color: #FFF2F2; color:#000000;}
+tr#TBL-4-1- {border-top:0.13156em solid #000;} 
+tr#TBL-4-1- {border-bottom:0.08223em solid #000}
+tr#TBL-4-7- {border-bottom:0.13156em solid #000}
+/* end css.sty */
 
-</head>
-<body>
-<header class="site-header">
-  <a href="https://knowware.institute" class="site-logo">KNOWWARE<span>THE &nbsp; A.R.C &nbsp; INSTITUTE</span></a>
-  <nav class="site-nav"><a href="../../papers/index.html">Pre-Print</a><a href="https://knowware.institute/contact">Contact</a></nav>
-</header>
-<div class="preprint-bar">
-  <span>ARC Institute of Knowware · 2026</span>
-  <span class="series-tag">Constitutional Sieve Programme · Nine Papers</span>
-  <span>math.NT · 11N05, 11N13 · Fisher Creek Ranch, Alberta</span>
+
+body{max-width:48rem;margin:2rem auto;padding:0 1rem;font-family:"STIX Two Text","Times New Roman",serif;font-size:17px;line-height:1.55;color:#1a1a1a;background:#faf9f6}
+h2,h3,h4{line-height:1.3} .maketitle{text-align:center;margin-bottom:2rem} table{border-collapse:collapse;margin:1rem auto} td{padding:2px 8px}
+img{max-width:100%;height:auto} .abstract{margin:1.5rem 0;padding:1rem 1.25rem;background:#f4f2ee}
+@media (prefers-color-scheme: dark){body{background:#151515;color:#e8e6e1} .abstract{background:#222} a{color:#9bb8ff}}
+</style> 
+<script>window.MathJax = { tex: { tags: "ams", macros: {"Forb": "\\mathcal{F}", "CI": "\\mathcal{C}_{\\mathrm{I}}", "CII": "\\mathcal{C}_{\\mathrm{II}}", "mgap": ["g_{\\min}(#1 \\to #2)", 2]} } }; </script> 
+ <script type="text/javascript" async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml-full.js"></script>  
+</head><body 
+>
+   <div class="maketitle">
+                                                                                       
+                                                                                       
+                                                                                       
+                                                                                       
+
+<h2 class="titleHead">The Lemke Oliver–Soundararajan Bias<br />
+and Ternary Constitutional Structure<br /><br />
+</h2>
+     <div class="author" ><span 
+class="ecrm-1440">Khayyam Wakil</span>
+<br /> <span 
+class="ecrm-1095">ARC Institute of Knowware</span>
+<br />  <span 
+class="ecrm-1095">Calgary, Alberta, Canada</span>
+<br />  <a 
+href="mailto:the@knowware.institute" ><span 
+class="ectt-1095">the@knowware.institute</span></a> </div><br />
+<div class="date" ><span 
+class="ecrm-1440">March 2026; revised November 2026</span></div>
+   </div>
+<!--l. 97--><p class="noindent" ><span 
+class="ecti-1200">This paper was not planned. On the Friday afternoon before submitting the Constitutional</span>
+<span 
+class="ecti-1200">Forcing programme to peer review, the author read a popular account of the Lemke</span>
+<span 
+class="ecti-1200">Oliver–Soundararajan prime digit bias. The ﬁrst version of this paper, written within that</span>
+<span 
+class="ecti-1200">afternoon and without calculation, proposed that the bias is a projection of the mod</span><span 
+class="ecti-1200"> 3 structure</span>
+<span 
+class="ecti-1200">of the primes. The present revision tests that proposal against recomputed data and against the</span>
+<span 
+class="ecti-1200">Hardy–Littlewood singular series. It does not survive. What remains is an account of the</span>
+<span 
+class="ecti-1200">genuine, but ordinary, part that the prime</span><span 
+class="ecti-1200"> 3 plays inside the Lemke Oliver–Soundararajan</span>
+<span 
+class="ecti-1200">explanation.</span>
+</p>
+   <div 
+class="abstract" 
+>
+   <h3 class="abstracttitle">
+<span 
+class="ecbx-1095">Abstract</span>
+</h3>
+      <!--l. 108--><p class="noindent" ><span 
+class="ecrm-1095">In  2016  Lemke  Oliver  and  Soundararajan  observed  that  consecutive  primes  are</span>
+      <span 
+class="ecrm-1095">biased  against  repeating  their  residue  modulo</span><span 
+class="ecrm-1095"> </span>\(q\)<span 
+class="ecrm-1095">,  for  instance  their  last  decimal</span>
+      <span 
+class="ecrm-1095">digit.  In  the  same  paper  they  explained  the  bias  by  a  heuristic  built  on  the</span>
+      <span 
+class="ecrm-1095">Hardy–Littlewood prime</span> \(k\)<span 
+class="ecrm-1095">-tuples conjecture, with explicit lower-order terms whose</span>
+      <span 
+class="ecrm-1095">leading part has size</span> \(\log \log x/\log x\)<span 
+class="ecrm-1095">. The ﬁrst version of the present paper proposed a diﬀerent,</span>
+      <span 
+class="ecrm-1095">“ternary constitutional” mechanism: that the bias is the base-10 projection of the</span>
+      <span 
+class="ecrm-1095">mod</span><span 
+class="ecrm-1095"> 3 constraint on primes, that the</span> \(p=3\) <span 
+class="ecrm-1095">factor of the singular series vanishes for gaps</span>
+      <span 
+class="ecrm-1095">divisible by</span><span 
+class="ecrm-1095"> 3, and that the slow decay of the bias is the Siegel–Walﬁsz rate. We test</span>
+                                                                                       
+                                                                                       
+      <span 
+class="ecrm-1095">these claims against a recomputation of the consecutive-prime transition counts for</span>
+      <span 
+class="ecrm-1095">the ﬁrst</span> \(10^8\) <span 
+class="ecrm-1095">and</span> \(10^9\) <span 
+class="ecrm-1095">primes. All three are false. The local factor at</span> \(p = 3\) <span 
+class="ecrm-1095">is</span> \(3/2\)<span 
+class="ecrm-1095">, its maximum, for</span>
+      <span 
+class="ecrm-1095">gaps divisible by</span><span 
+class="ecrm-1095"> 3 and</span> \(3/4\) <span 
+class="ecrm-1095">otherwise; gap</span><span 
+class="ecrm-1095"> 6 is the most common gap;</span> \(\mathfrak {S}(2)\) <span 
+class="ecrm-1095">is the smallest</span>
+      <span 
+class="ecrm-1095">even-gap singular-series value, not the largest; the last digit of a prime carries no</span>
+      <span 
+class="ecrm-1095">information about its residue mod</span><span 
+class="ecrm-1095"> 3; and the bias is about the same modulo</span><span 
+class="ecrm-1095"> 4 as</span>
+      <span 
+class="ecrm-1095">modulo</span><span 
+class="ecrm-1095"> 3. A simple Hardy–Littlewood model with the correct</span> \(p = 3\) <span 
+class="ecrm-1095">factor reproduces</span>
+      <span 
+class="ecrm-1095">the base-10 transition matrix to</span> \(0.85\) <span 
+class="ecrm-1095">percentage points (RMS); the factor claimed in the</span>
+      <span 
+class="ecrm-1095">ﬁrst version gives</span> \(5.9\) <span 
+class="ecrm-1095">points and largely removes the diagonal suppression. We conclude</span>
+      <span 
+class="ecrm-1095">that the Lemke Oliver–Soundararajan explanation accounts for the bias, and that</span>
+      <span 
+class="ecrm-1095">the ternary-constitutional explanation, as originally stated, is not supported. The</span>
+      <span 
+class="ecrm-1095">prime</span><span 
+class="ecrm-1095"> 3 enters only in the ordinary way, through the singular series, which weights</span>
+      <span 
+class="ecrm-1095">gaps divisible by</span><span 
+class="ecrm-1095"> 3 twice as heavily as other gaps.</span>
+</p>
 </div>
-<div class="page-body">
-  <aside class="sidebar">
-    <div class="sb-label">Paper</div><div class="sb-num">08</div>
-    <div class="sb-meta"><strong>Author</strong>Khayyam Wakil<strong>Published</strong>February 2026<strong>Series</strong>Constitutional Sieve Programme<strong>MSC 2020</strong>11N05, 11N13, 11A41, 94A17</div>
-    <div class="sb-links">
-      <a class="sb-link" href="p08.pdf" target="_blank">
-        <span class="sb-link-label">Download · PDF</span>
-        p08.pdf → View
-      </a>
-      <a class="sb-link" href="p08.tex" target="_blank">
-        <span class="sb-link-label">LaTeX Source</span>
-        p08.tex → View
-      </a>
-    </div>
-    <div class="sb-label" style="margin-bottom:.6rem;">Programme Index</div>
-    <ul class="series-index">
-      <li class=""><a href="../p01-constitutional-forcing/p01.html">01 · Constitutional Forcing</a></li>
-      <li class=""><a href="../p02-khayyams-triangle/p02.html">02 · Khayyam's Triangle</a></li>
-      <li class=""><a href="../p03-constitutional-signatures/p03.html">03 · Spherical Cow Philosophy</a></li>
-      <li class=""><a href="../p04-that-eisenstein-guy/p04.html">04 · Eisenstein, θ = 5/8</a></li>
-      <li class=""><a href="../p05-ramanujans-formula/p05.html">05 · Ramanujan's Formula</a></li>
-      <li class=""><a href="../p06-shannon-wakil/p06.html">06 · Shannon–Wakil Effect</a></li>
-      <li class=""><a href="../p07-condition_w3/p07.html">07 · Condition W3</a></li>
-      <li class="curr"><a href="p08.html">08 · Prime Digit Bias</a></li>
-      <li class=""><a href="../p09-wakil-theta-fft/p09.html">09 · DFT Constitutional Constant</a></li>
-    </ul>
-  </aside>
-  <article class="paper">
-    <div class="paper-header">
-      <div class="paper-label">Preprint · ARC Institute of Knowware · February 2026</div>
-      <h1 class="title">Prime Digit Bias: The Ternary Constitutional Explanation of the Lemke Oliver–Soundararajan Effect</h1>
-      <div class="authors">Khayyam Wakil</div>
-      <div class="affiliation">The ARC Institute of Knowware, Calgary, Alberta, Canada</div>
-      <div class="paper-date">Submitted February 2026 &nbsp;·&nbsp; Constitutional Sieve Programme, Paper 08 of 09</div>
-    </div>
-    <div class="abstract-block">
-      <div class="abs-label">Abstract</div>
-      <p>In 2016, Lemke Oliver and Soundararajan published a striking computational discovery: the last digits of consecutive primes exhibit a strong repulsion bias that contradicts naïve randomness assumptions and persists — though diminishing — across all number bases tested. The authors correctly traced this to the Hardy–Littlewood prime constellations conjecture, but could not identify the underlying mechanistic cause: why the structure exists, why it holds across all bases, and why the diminishment rate is precisely what it is.</p>
-      <p style="margin-top:.7em;">We demonstrate that the bias is not mysterious: it is the direct base-10 projection of ternary constitutional pressure governing prime distribution. The observed digit-repulsion is a shadow of the mod-3 constraint under which all primes (except 2 and 3) reside in remainder classes {1, 2}, and under which all twin prime pairs satisfy <em>p</em> ≡ 2 (mod 3). The <em>snail's pace</em> of diminishment is identified as the Siegel–Walfisz convergence rate of ternary class equilibration — not an empirical curiosity, but a fundamental quantity in analytic number theory appearing in a context where it was not previously recognized.</p>
-    </div>
-    <div class="keywords"><strong>Keywords:</strong> prime digit bias, ternary constitutional structure, Lemke Oliver–Soundararajan, mod-3 constraints, minimum gap structure, twin primes, parity barrier, Siegel–Walfisz theorem, cascade moduli</div>
-    <div class="paper-meta-strip">
-      <span class="meta-pill">MSC 2020: 11N05 (primary) · 11N13 · 11A41 · 94A17</span>
-      <span class="meta-pill"><a href="../../papers/index.html">preprints.knowware.institute</a></span>
-      <span class="meta-pill"><a href="https://github.com/knowware-institute/constitutional-forcing">p08.tex source</a></span>
-    </div>
-    <div class="paper-body">
+<!--l. 130--><p class="noindent" ><span 
+class="ecbx-1200">Revision note (November 2026). </span>The main claim of the ﬁrst version, that the bias is
+explained by ternary constitutional structure, is withdrawn, and the title has changed
+accordingly. The “observed” transition matrix, whose rows for the digits 3, 7 and 9 were wrong,
+has been replaced by a matrix recomputed for the ﬁrst \(10^8\) primes (the range of Lemke Oliver and
+Soundararajan’s table), and all four ﬁgures, which showed that matrix or the withdrawn
+mechanism, have been removed. Section <a 
+href="#x1-90004">4<!--tex4ht:ref: sec:mechanism --></a> now states the singular-series facts correctly: the \(p=3\)
+factor is \(3/2\) or \(3/4\), never zero; \(\mathfrak {S}(2)\) is the minimum even-gap value; and \(\mathfrak {S}(10) \approx 1.76\). The minimum-gap
+ternary-class rule, the identiﬁcation of the “snail’s pace” with the Siegel–Walﬁsz rate, and the
+base-independence argument are withdrawn because the data refute them. The twin-prime
+count, the description of the parity barrier, the prime-gap bounds, the Pascadi reference and a
+misattributed quotation have been corrected, and two quotations that could not be
+traced to any source have been removed. The level \(5/8\) for moduli \(3^K\) is now described as a
+conjecture.
+</p><!--l. 147--><p class="noindent" ><span 
+class="ecbx-1200">Keywords: </span>prime digit bias, consecutive primes, Lemke Oliver–Soundararajan, Hardy–Littlewood
+singular series, mod 3 structure, twin primes, parity barrier
+</p><!--l. 151--><p class="noindent" ><span 
+class="ecbx-1200">MSC2020: </span>11N05 (primary), 11N13, 11A41 (secondary)
+</p>
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-10001"></a>Introduction</h3>
+<!--l. 158--><p class="noindent" >In 2016 Lemke Oliver and Soundararajan [<a 
+href="#XLOS16">LOS16</a>] published a result that anyone
+with a computer can check. If the last digits of consecutive primes were independent,
+each of the four digits \(\{1, 3, 7, 9\}\) would follow any other about 25% of the time. They do not.
+Among the ﬁrst \(10^8\) primes, a prime ending in 1 is followed by another prime ending in 1
+only 18.5% of the time, and among the ﬁrst \(10^9\) primes a prime ending in 9 is followed
+by a prime ending in 1 about 65% more often than by another prime ending in 9
+(Section <a 
+href="#x1-20002">2<!--tex4ht:ref: sec:findings --></a>). The same kind of bias is observed for other moduli (Section <a 
+href="#x1-160006.1">6.1<!--tex4ht:ref: sec:bases --></a>), and it is
+predicted for every modulus \(q \geq 3\), not only for last digits (which are residues modulo 10).
+                                                                                       
+                                                                                       
+It fades as the primes grow, but slowly: “at a snail’s pace”, in the words of Quanta
+Magazine [<a 
+href="#XKla16">Kla16</a>].
+</p><!--l. 170--><p class="indent" >   Lemke Oliver and Soundararajan also explained the bias, in the same paper. From the
+Hardy–Littlewood prime \(k\)-tuples conjecture [<a 
+href="#XHL23">HL23</a>], together with uniformity assumptions, they
+derived a conjectural asymptotic formula for the number of consecutive primes in each pair of
+residue classes modulo \(q\). Its second-order terms are explicit. The leading correction has size \(\log \log x/\log x\) and
+depends only on \(\varphi (q)\) and on whether the two classes coincide; this is why the bias appears for
+every modulus \(q \geq 3\) and why it decays slowly. The argument is a heuristic, not a proof,
+since it rests on the \(k\)-tuples conjecture. But it is quantitative, and it ﬁts the data
+well.
+</p><!--l. 179--><p class="indent" >   The ﬁrst version of this paper proposed a diﬀerent explanation: that the bias is “the base-10
+projection of ternary constitutional pressure”, that is, of the fact that every prime \(p &gt; 3\) lies in one of
+the classes \(1, 2 \pmod 3\). It asserted that
+      </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+  (i) </dt><dd 
+class="enumerate-enumitem">the \(p = 3\) factor of the Hardy–Littlewood singular series vanishes for gaps divisible by 3;
+      </dd><dt class="enumerate-enumitem">
+ (ii) </dt><dd 
+class="enumerate-enumitem">gap 2 has the largest even-gap singular series and gap 10 a value below 1;
+      </dd><dt class="enumerate-enumitem">
+ (iii) </dt><dd 
+class="enumerate-enumitem">the ternary class of the smallest gap compatible with a digit transition governs
+      whether that transition is enhanced or suppressed; and
+      </dd><dt class="enumerate-enumitem">
+ (iv) </dt><dd 
+class="enumerate-enumitem">the “snail’s pace” is the Siegel–Walﬁsz rate at which primes become equidistributed
+      modulo 3.</dd></dl>
+<!--l. 191--><p class="noindent" >This revision checks each assertion against the singular series and against recomputed data. All
+four are false (Sections <a 
+href="#x1-90004">4<!--tex4ht:ref: sec:mechanism --></a>–<a 
+href="#x1-150006">6<!--tex4ht:ref: sec:validation --></a>).
+</p><!--l. 195--><p class="noindent" ><span 
+class="ecbx-1200">Main result (revised, informal). </span><span 
+class="ecti-1200">The Lemke Oliver–Soundararajan bias is accounted for by</span>
+<span 
+class="ecti-1200">their Hardy–Littlewood heuristic. The prime</span><span 
+class="ecti-1200"> 3 enters that heuristic through its local factor,</span> \(3/2\) <span 
+class="ecti-1200">for</span>
+<span 
+class="ecti-1200">gaps divisible by</span><span 
+class="ecti-1200"> 3 and</span> \(3/4\) <span 
+class="ecti-1200">for other gaps, which favours gaps divisible by</span><span 
+class="ecti-1200"> 3. This factor</span>
+<span 
+class="ecti-1200">visibly shapes the base-10 transition matrix, but it is one local factor among many, and</span>
+<span 
+class="ecti-1200">it is not what produces the diagonal suppression, which is an eﬀect of gap length.</span>
+<span 
+class="ecti-1200">The ternary-constitutional mechanism of the ﬁrst version is not supported by the</span>
+<span 
+class="ecti-1200">data.</span>
+</p><!--l. 204--><p class="noindent" ><span 
+class="ecbx-1200">Organisation. </span>Section <a 
+href="#x1-20002">2<!--tex4ht:ref: sec:findings --></a> recalls the Lemke Oliver–Soundararajan ﬁndings, with
+recomputed data. Section <a 
+href="#x1-50003">3<!--tex4ht:ref: sec:framework --></a> records the elementary mod 3 facts. Section <a 
+href="#x1-90004">4<!--tex4ht:ref: sec:mechanism --></a> states
+the singular-series facts correctly and tests the ﬁrst version’s mechanism against the
+data. Section <a 
+href="#x1-140005">5<!--tex4ht:ref: sec:snail --></a> discusses the rate of decay. Section <a 
+href="#x1-150006">6<!--tex4ht:ref: sec:validation --></a> treats base dependence, the
+parity barrier, and the relation to the Constitutional Forcing programme. Section <a 
+href="#x1-190007">7<!--tex4ht:ref: sec:conclusion --></a>
+concludes.
+                                                                                       
+                                                                                       
+</p><!--l. 213--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-20002"></a>The Lemke Oliver–Soundararajan Findings</h3>
+<!--l. 217--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">2.1   </span> <a 
+ id="x1-30002.1"></a>The Observation</h4>
+<!--l. 219--><p class="noindent" >For consecutive primes \(p_n\) and \(p_{n+1}\), consider the frequency with which the last digit of \(p_n\) is followed by
+each possible last digit of \(p_{n+1}\). The last digits of primes greater than 5 are drawn from \(\{1, 3, 7, 9\}\), and if
+consecutive primes behaved independently each transition would occur with frequency about \(1/4 = 25\%\).
+Lemke Oliver and Soundararajan [<a 
+href="#XLOS16">LOS16</a>] tabulated these transitions for the ﬁrst \(10^8\)
+primes.
+</p><!--l. 226--><p class="indent" >   Table <a 
+href="#x1-30011">1<!--tex4ht:ref: tab:matrix --></a> gives the matrix recomputed with a segmented sieve over the ﬁrst \(10^9\) primes. The
+sieve reproduces the standard values of \(\pi (10^k)\) for \(6 \leq k \leq 10\), of \(p_{10^k}\) for \(6 \leq k \leq 9\), and the twin-prime count \(\pi _2(10^8) = 440{,}312\); for
+the ﬁrst \(10^8\) primes its counts for the row “ends in 1” agree with the published counts
+of [<a 
+href="#XLOS16">LOS16</a>] to within one, the diﬀerence being an endpoint convention. (The code and
+raw output are kept with the programme’s audit material, <span 
+class="ectt-1200">audit/scripts/p08</span>.)
+Each row of the \(10^8\) block contains about \(2.5 \times 10^7\) transitions, and each row of the \(10^9\) block about
+\(2.5 \times 10^8\).
+</p>
+   <div class="table">
+                                                                                       
+                                                                                       
+<!--l. 235--><p class="indent" >   <a 
+ id="x1-30011"></a></p><hr class="float" /><div class="float" 
+>
+                                                                                       
+                                                                                       
+ <div class="caption" 
+><span class="id">Table 1: </span><span  
+class="content">Last-digit transitions between consecutive primes: percentage of transitions from
+a prime \(p_n\) ending in the row digit to a next prime \(p_{n+1}\) ending in the column digit, recomputed
+for \(n \leq 10^8\) (so \(p_n \leq 2{,}038{,}074{,}743\), the range of the table in [<a 
+href="#XLOS16">LOS16</a>]) and for \(n \leq 10^9\) (\(p_n \leq 22{,}801{,}763{,}489\)).</span></div><!--tex4ht:label?: x1-30011 -->
+<div class="tabular">
+ <table id="TBL-2" class="tabular" 
+ 
+><colgroup id="TBL-2-1g"><col 
+id="TBL-2-1" /><col 
+id="TBL-2-2" /><col 
+id="TBL-2-3" /><col 
+id="TBL-2-4" /><col 
+id="TBL-2-5" /></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-2-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-1-1"  
+class="td11"> \(p_n \to p_{n+1}\)        </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-1-2"  
+class="td11"> ends in 1  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-1-3"  
+class="td11"> ends in 3  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-1-4"  
+class="td11"> ends in 7  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-1-5"  
+class="td11"> ends in 9  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-2-"><td colspan="5" style="white-space:nowrap; text-align:left;" id="TBL-2-2-1"  
+class="td11"> <div class="multicolumn"  style="white-space:nowrap; text-align:left;"><span 
+class="ecti-1200">First</span> \(10^8\) <span 
+class="ecti-1200">primes</span></div>
+</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-3-1"  
+class="td11"> ends in 1  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-3-2"  
+class="td11">   18.49    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-3-3"  
+class="td11">   29.72    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-3-4"  
+class="td11">   30.02    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-3-5"  
+class="td11">   21.77    </td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-4-1"  
+class="td11"> ends in 3 </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-4-2"  
+class="td11"> 24.04 </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-4-3"  
+class="td11"> 17.77 </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-4-4"  
+class="td11"> 28.17 </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-4-5"  
+class="td11"> 30.01</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-5-1"  
+class="td11"> ends in 7  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-5-2"  
+class="td11">   25.50    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-5-3"  
+class="td11">   27.02    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-5-4"  
+class="td11">   17.76    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-5-5"  
+class="td11">   29.73    </td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-6-1"  
+class="td11"> ends in 9 </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-6-2"  
+class="td11"> 31.97 </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-6-3"  
+class="td11"> 25.49 </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-6-4"  
+class="td11"> 24.05 </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-6-5"  
+class="td11"> 18.49</td>
 
-      <h2>Introduction: The Mystery That Wasn't</h2>
-      <p>In March 2016, Robert Lemke Oliver and Kannan Soundararajan submitted a paper that became briefly famous beyond number theory: consecutive primes are not equidistributed in their last digits. If the last digit of a prime is 1, the next prime is far less likely to also end in 1 than chance would predict. The bias is strong, computationally unambiguous, and holds — with diminishing strength — across all bases tested.</p>
-      <p>The authors were admirably honest: they could explain <em>that</em> the bias follows from the Hardy–Littlewood conjecture, but not <em>why</em> the underlying structure exists. They called it "surprising" and "deeply unsettling." We show the structure is neither: it is the forced shadow of the ternary constitutional constraint governing prime distribution.</p>
-
-      <h2>The Ternary Constitutional Framework</h2>
-      <div class="env-block theorem">
-        <div class="env-label">Theorem 3.1 — Constitutional Signature (from [3])</div>
-        Let (<em>p</em>, <em>p</em>+2) be a twin prime pair with <em>p</em> > 3. Then <em>p</em> ≡ 2 (mod 3) and <em>p</em>+2 ≡ 1 (mod 3).
-      </div>
-      <div class="env-block theorem">
-        <div class="env-label">Theorem 3.2 — Ternary Equilibrium</div>
-        Let π₁(<em>N</em>) and π₂(<em>N</em>) denote the number of primes <em>p</em> ≤ <em>N</em> with <em>p</em> ≡ 1 (mod 3) and <em>p</em> ≡ 2 (mod 3) respectively. Then π₁(<em>N</em>)/π(<em>N</em>) → 1/2 and π₂(<em>N</em>)/π(<em>N</em>) → 1/2 as <em>N</em> → ∞, by Dirichlet's theorem on primes in arithmetic progressions.
-      </div>
-      <p>The bias mechanism is this: since all primes > 3 live in classes {1, 2} mod 3 (never class {0}), and since twin primes constitutionally require the pair (2 mod 3, 1 mod 3), consecutive primes cannot both occupy the same ternary class in quick succession. This constitutional pressure propagates into the base-10 last-digit distribution as a repulsion bias — primes avoid repeating their last digit because repeating it would require both to occupy the same ternary residue class, which is constitutionally disfavoured at short gaps.</p>
-
-      <h2>Deriving the Lemke Oliver–Soundararajan Bias</h2>
-      <p>Let <em>p<sub>n</sub></em> ≡ <em>r</em> (mod 10) and <em>p<sub>n+1</sub></em> ≡ <em>s</em> (mod 10). The ternary projection maps (<em>r</em>, <em>s</em>) to residue classes mod 3. For the pair (<em>r</em>, <em>s</em>) = (1, 1): both digits project to 1 mod 3. This requires consecutive primes both in class 1 mod 3. The constitutional pressure at short gaps disfavours this. For the pair (1, 3) = (1 mod 3, 0 mod 3): but primes are never 0 mod 3, so this pair is constitutionally forbidden entirely. The structure of the bias table — which pairs are suppressed, which enhanced — is exactly the shadow of the ternary constitutional constraint projected into base 10.</p>
-
-      <div class="env-block proposition">
-        <div class="env-label">Proposition 4.1 — Base-10 Projection of Ternary Pressure</div>
-        For base-10 digits <em>r</em>, <em>s</em> ∈ {1, 3, 7, 9} (the digits coprime to 10 that can appear as last digits of primes > 5), the observed Lemke Oliver–Soundararajan repulsion bias satisfies: the suppression of the pair (<em>r</em>, <em>s</em>) relative to equidistribution is positively correlated with the probability that both <em>r</em> and <em>s</em> are in the same ternary class mod 3. The enhancement of cross-class pairs relative to equidistribution is positively correlated with the constitutional twin-prime constraint.
-      </div>
-
-      <h2>The Snail's Pace: Identifying the Convergence Rate</h2>
-      <p>Lemke Oliver and Soundararajan observed that the bias diminishes as primes grow, but slowly — a "snail's pace" that they could not identify analytically. We identify it precisely: it is the Siegel–Walfisz convergence rate of ternary class equilibration.</p>
-      <div class="env-block theorem">
-        <div class="env-label">Theorem 5.1 — Siegel–Walfisz Rate</div>
-        By the Siegel–Walfisz theorem, for any <em>A</em> > 0 and all <em>q</em> ≤ (log <em>N</em>)<sup><em>A</em></sup>, the error in the equidistribution of primes modulo <em>q</em> is ≪ <em>N</em>/(log <em>N</em>)<sup><em>A</em></sup>. For <em>q</em> = 3 and the classes 1, 2 mod 3, this means the ternary imbalance (which drives the digit bias) decays as O(1/(log <em>N</em>)<sup><em>A</em></sup>) for any fixed <em>A</em>. This is the "snail's pace" — not a mysterious empirical observation, but the Siegel–Walfisz rate applied to ternary equilibration, appearing in the digit-bias context where it was not previously recognized.
-      </div>
-
-      <h2>Validation and Context</h2>
-      <div class="env-block remark">
-        <div class="env-label">Remark — Mechanistic vs. Descriptive Explanation</div>
-        This explanation is mechanistic, not descriptive. The Lemke Oliver–Soundararajan paper showed that the bias follows from the Hardy–Littlewood conjecture — a descriptive reduction to a more fundamental conjecture. The present paper identifies the structural reason <em>why</em> the conjecture itself encodes such behaviour: the ternary constitutional constraint <em>p</em> ≡ 2 (mod 3) for twin primes propagates the repulsion pressure that manifests as the digit bias. One is a derivation; the other is an explanation.
-      </div>
-
-      <div class="next-paper">
-        <div class="next-label">Next in Programme</div>
-        <div class="next-title"><a href="../p09-wakil-theta-fft/p09.html">09 · The DFT Constitutional Constant →</a></div>
-        <div class="next-desc">θ<sub>FFT</sub> = 1/2. The conjugate-mirror symmetry of the Discrete Fourier Transform, named and formalised as a constitutional constant. Empirical confirmation across datasets. The structural parallel with Khayyam's Triangle modulo 2.</div>
-      </div>
-
-      <div class="references">
-        <h2 style="counter-increment:none;">References</h2>
-        <ol class="ref-list">
-          <li>R. J. Lemke Oliver and K. Soundararajan, "Unexpected biases in the distribution of consecutive primes," <em>Proc. Natl. Acad. Sci. USA</em> 113 (2016), E4446–E4454. <a href="https://arxiv.org/abs/1603.03720" style="color:var(--link)">arXiv:1603.03720</a></li>
-          <li>G. H. Hardy and J. E. Littlewood, "Some problems of 'Partitio Numerorum' III," <em>Acta Math.</em> 44 (1923), 1–70.</li>
-          <li>K. Wakil, "Spherical Cow Philosophy," Constitutional Sieve Programme Paper 03 (2026).</li>
-          <li>E. C. Walfisz, <em>Weylsche Exponentialsummen in der neueren Zahlentheorie</em>. VEB Deutscher Verlag, 1963.</li>
-          <li>A. Pascadi, arXiv:2505.00653v2 (2025). <a href="https://arxiv.org/abs/2505.00653" style="color:var(--link)">arXiv:2505.00653</a></li>
-        </ol>
-      </div>
-    </div>
-  </article>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-7-"><td colspan="5" style="white-space:nowrap; text-align:left;" id="TBL-2-7-1"  
+class="td11"> <div class="multicolumn"  style="white-space:nowrap; text-align:left;"><span 
+class="ecti-1200">First</span> \(10^9\) <span 
+class="ecti-1200">primes</span></div>
+</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-8-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-8-1"  
+class="td11"> ends in 1  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-8-2"  
+class="td11">   19.00    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-8-3"  
+class="td11">   29.30    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-8-4"  
+class="td11">   29.43    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-8-5"  
+class="td11">   22.28    </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-9-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-9-1"  
+class="td11"> ends in 3  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-9-2"  
+class="td11">   24.25    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-9-3"  
+class="td11">   18.45    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-9-4"  
+class="td11">   27.87    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-9-5"  
+class="td11">   29.43    </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-10-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-10-1"  
+class="td11"> ends in 7  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-10-2"  
+class="td11">   25.44    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-10-3"  
+class="td11">   26.83    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-10-4"  
+class="td11">   18.44    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-10-5"  
+class="td11">   29.30    </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-11-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-11-1"  
+class="td11"> ends in 9  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-11-2"  
+class="td11">   31.31    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-11-3"  
+class="td11">   25.43    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-11-4"  
+class="td11">   24.26    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-11-5"  
+class="td11">   19.00    </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-12-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-12-1"  
+class="td11">         </td></tr></table>                                                                         </div>
+                                                                                       
+                                                                                       
+   </div><hr class="endfloat" />
+   </div>
+<!--l. 262--><p class="indent" >   The headline ﬁnding is that <span 
+class="ecti-1200">consecutive primes avoid repeating their last digit</span>: every
+diagonal entry is below 25%. Among the ﬁrst \(10^8\) primes the suppression is strongest for the digits
+3 and 7 (17.8%) and weakest for 1 and 9 (18.5%). The ratio of \(9 \to 1\) to \(9 \to 9\) is \(1.73\) for the ﬁrst \(10^8\) primes and \(1.65\)
+for the ﬁrst \(10^9\); that is the “65% more often” of Section <a 
+href="#x1-10001">1<!--tex4ht:ref: sec:intro --></a>. Relative to the uniform 25%, \(9 \to 1\) is
+enhanced by a factor \(1.28\) (ﬁrst \(10^8\) primes).
+</p><!--l. 269--><p class="indent" >   The matrix is also symmetric under \((a \to b) \mapsto (-b \to -a) \pmod {10}\): for instance \(3 \to 1\) is 24.04% and \(9 \to 7\) is 24.05%. Corresponding
+entries agree to within \(0.02\) percentage points for the ﬁrst \(10^8\) primes. This is the symmetry \(n \mapsto -n\), under
+which Hardy–Littlewood densities are invariant.
+</p><!--l. 274--><p class="indent" >   The ﬁrst version of this paper printed a diﬀerent matrix, described as approximate data for
+the ﬁrst billion primes and attributed to [<a 
+href="#XLOS16">LOS16</a>]. Only its ﬁrst row was close to the data. Its
+rows for the digits 3, 7 and 9 were wrong by as much as 14 percentage points (for example \(3 \to 1\)
+was given as 38% and \(3 \to 9\) as 20%, against 24.04% and 30.01%), and they violated the
+symmetry just described. That matrix, and every conclusion drawn from it, has been
+withdrawn.
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">2.2   </span> <a 
+ id="x1-40002.2"></a>The Lemke Oliver–Soundararajan Explanation</h4>
+<!--l. 283--><p class="noindent" >Lemke Oliver and Soundararajan derived the bias from the Hardy–Littlewood prime \(k\)-tuples
+conjecture [<a 
+href="#XHL23">HL23</a>], which predicts the density of prime pairs \((p, p+h)\) through the singular series \(\mathfrak {S}(h)\)
+(Section <a 
+href="#x1-110004.2">4.2<!--tex4ht:ref: sec:singular --></a>). Let \(\pi (x; q, (a,b))\) count the primes \(p_n \leq x\) with \(p_n \equiv a\) and \(p_{n+1} \equiv b \pmod q\). Their conjecture [<a 
+href="#XLOS16">LOS16</a>] reads \[ \pi (x; q, (a,b)) = \frac {\operatorname {li}(x)}{\varphi (q)^2} \left (1 + c_1(q;a,b)\,\frac {\log \log x}{\log x} + c_2(q;a,b)\,\frac {1}{\log x} + O\!\left ((\log x)^{-7/4}\right )\right ), \] with \(c_1(q;a,b) = 1/2\) for \(a \not \equiv b\) and
+\(c_1(q;a,a) = 1/2 - \varphi (q)/2\). The coeﬃcient \(c_2(q;a,b)\) is explicit; it is computed from the Hardy–Littlewood singular series and
+depends on the pair \((a,b)\). The leading correction is negative on the diagonal for every \(q \geq 3\), which is the
+diagonal suppression; it depends only on \(\varphi (q)\), which is why the eﬀect looks alike for diﬀerent
+moduli; and it decays like \(\log \log x/\log x\), which is the slow decay. The ﬁner structure of the oﬀ-diagonal
+entries comes from \(c_2\). Lemke Oliver and Soundararajan studied the distribution of these biases
+further in [<a 
+href="#XLOS17">LOS17</a>].
+</p><!--l. 303--><p class="indent" >   Their argument is a heuristic: it assumes the \(k\)-tuples conjecture in a uniform form. It is
+nevertheless quantitative and it agrees well with the data, and nothing in the present paper
+supplies an alternative to it.
+</p><!--l. 308--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x1-50003"></a>The Ternary Constitutional Framework</h3>
+<!--l. 312--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">3.1   </span> <a 
+ id="x1-60003.1"></a>Core Deﬁnitions</h4>
+                                                                                       
+                                                                                       
+<!--l. 314--><p class="noindent" >We work with remainder classes modulo 3. Every integer \(n\) belongs to exactly one of three
+classes: </p>
+      <ul class="itemize1">
+      <li class="itemize">
+      <!--l. 317--><p class="noindent" >\(n \equiv 0 \pmod {3}\): the <span 
+class="ecbx-1200">Forbidden Class </span>(divisible by 3);
+      </p></li>
+      <li class="itemize">
+      <!--l. 318--><p class="noindent" >\(n \equiv 1 \pmod {3}\): <span 
+class="ecbx-1200">Constitutional Class</span><span 
+class="ecbx-1200"> I</span>;
+      </p></li>
+      <li class="itemize">
+      <!--l. 319--><p class="noindent" >\(n \equiv 2 \pmod {3}\): <span 
+class="ecbx-1200">Constitutional Class</span><span 
+class="ecbx-1200"> II</span>.</p></li></ul>
+   <div class="newtheorem">
+<!--l. 322--><p class="noindent" ><span class="head">
+<a 
+ id="x1-6001r1"></a>
+<span 
+class="ecbx-1200">Deﬁnition 3.1 </span>(Constitutional Constraint)<span 
+class="ecbx-1200">.</span>  </span> A prime \(p &gt; 3\) is <span 
+class="ecti-1200">constitutionally constrained</span>: it
+must satisfy \(p \equiv 1\) or \(p \equiv 2 \pmod {3}\). The Forbidden Class is closed to primes greater than 3.
+</p>
+   </div>
+<!--l. 327--><p class="indent" >
+</p><!--l. 329--><p class="indent" >   This is elementary: any integer \(n &gt; 3\) with \(n \equiv 0 \pmod {3}\) is divisible by 3 and hence composite. Therefore all
+primes \(p &gt; 3\) lie in \(\{p : p \equiv 1 \text { or } 2 \pmod {3}\}\).
+</p><!--l. 333--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">3.2   </span> <a 
+ id="x1-70003.2"></a>The Twin Prime Constitutional Signature</h4>
+<!--l. 335--><p class="noindent" >The following fact is classical and elementary.
+</p>
+   <div class="newtheorem">
+<!--l. 337--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7001r2"></a>
+<span 
+class="ecbx-1200">Theorem 3.2 </span>(Constitutional Signature)<span 
+class="ecbx-1200">.</span>  </span> <span 
+class="ecti-1200">Let</span> \((p, p+2)\) <span 
+class="ecti-1200">be a twin prime pair with</span> \(p &gt; 3\)<span 
+class="ecti-1200">. Then </span>\[ p \equiv 2 \pmod {3} \quad \text {and} \quad p + 2 \equiv 1 \pmod {3}. \]
+</p>
+   </div>
+<!--l. 343--><p class="indent" >
+                                                                                       
+                                                                                       
+</p>
+   <div class="proof">
+<!--l. 346--><p class="indent" >   <span class="head">
+<span 
+class="ecti-1200">Proof.</span> </span>Among any three consecutive integers, exactly one is divisible by 3. </p>
+      <ul class="itemize1">
+      <li class="itemize">
+      <!--l. 348--><p class="noindent" >If \(p \equiv 0 \pmod {3}\): then \(p = 3\) (the only such prime), excluded.
+      </p></li>
+      <li class="itemize">
+      <!--l. 349--><p class="noindent" >If \(p \equiv 1 \pmod {3}\): then \(p + 2 \equiv 0 \pmod {3}\), so \(p + 2 &gt; 3\) is composite. Contradiction.
+      </p></li>
+      <li class="itemize">
+      <!--l. 351--><p class="noindent" >If \(p \equiv 2 \pmod {3}\): then \(p + 2 \equiv 1 \pmod {3}\). Neither \(p\) nor \(p + 2\) is divisible by 3. Both may be prime.                          __</p></li></ul>
 </div>
-<footer class="site-footer">
-  <span>Knowware is measured in lifetimes</span><span>Constitutional Sieve Programme · Paper 08 of 09</span><span>Registered · Canada</span>
-</footer>
-</body></html>
+   <div class="newtheorem">
+<!--l. 356--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7002r3"></a>
+<span 
+class="ecti-1200">Remark </span>3.3<span 
+class="ecti-1200">.</span>  </span>There are \(3{,}424{,}506\) twin prime pairs \((p, p+2)\) with \(p \leq 10^9\). The pair \((3,5)\) is excluded by the hypothesis
+\(p &gt; 3\); the remaining \(3{,}424{,}505\) pairs all have \(p \equiv 2 \pmod 3\), as the theorem requires. The count is a check on the
+computation, not additional evidence for a two-line proof.
+</p>
+   </div>
+<!--l. 361--><p class="indent" >
+</p>
+   <div class="newtheorem">
+<!--l. 363--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7003r4"></a>
+<span 
+class="ecti-1200">Remark </span>3.4<span 
+class="ecti-1200">.</span>  </span> The same argument applies to any even gap \(h\). If \(3 \nmid h\), a pair of primes \((p, p+h)\) with \(p &gt; 3\) is
+possible for only one class of \(p \bmod 3\) (namely \(p \equiv 2\) if \(h \equiv 2\), and \(p \equiv 1\) if \(h \equiv 1 \pmod 3\)). If \(3 \mid h\), both classes are possible. Gaps
+divisible by 3 are therefore <span 
+class="ecti-1200">less </span>constrained modulo 3, not forbidden. This is the source
+of the \(p = 3\) factor in the singular series (Section <a 
+href="#x1-110004.2">4.2<!--tex4ht:ref: sec:singular --></a>).
+</p>
+   </div>
+<!--l. 371--><p class="indent" >
+                                                                                       
+                                                                                       
+</p><!--l. 373--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">3.3   </span> <a 
+ id="x1-80003.3"></a>The Ternary Equilibrium</h4>
+   <div class="newtheorem">
+<!--l. 375--><p class="noindent" ><span class="head">
+<a 
+ id="x1-8001r5"></a>
+<span 
+class="ecbx-1200">Theorem 3.5 </span>(Ternary Equilibrium; de la Vallée Poussin [<a 
+href="#XdlVP96">dlVP96</a>])<span 
+class="ecbx-1200">.</span>  </span> <span 
+class="ecti-1200">Let</span> \(\pi _1(N)\) <span 
+class="ecti-1200">and</span> \(\pi _2(N)\) <span 
+class="ecti-1200">denote</span>
+<span 
+class="ecti-1200">the number of primes</span> \(p \leq N\) <span 
+class="ecti-1200">with</span> \(p \equiv 1 \pmod {3}\) <span 
+class="ecti-1200">and</span> \(p \equiv 2 \pmod {3}\) <span 
+class="ecti-1200">respectively. Then </span>\[ \frac {\pi _1(N)}{\pi (N)} \to \frac {1}{2} \quad \text {and} \quad \frac {\pi _2(N)}{\pi (N)} \to \frac {1}{2} \quad \text {as } N \to \infty . \]
+</p>
+   </div>
+<!--l. 383--><p class="indent" >
+</p><!--l. 385--><p class="noindent" >This is the case \(q = 3\) of the prime number theorem for arithmetic progressions, proved by de la
+Vallée Poussin [<a 
+href="#XdlVP96">dlVP96</a>]. Dirichlet [<a 
+href="#XDir37">Dir37</a>] had proved earlier that each of the two classes
+contains inﬁnitely many primes.
+</p>
+   <div class="newtheorem">
+<!--l. 389--><p class="noindent" ><span class="head">
+<a 
+ id="x1-8002r6"></a>
+<span 
+class="ecti-1200">Remark </span>3.6 (Last digits carry no ternary information)<span 
+class="ecti-1200">.</span>  </span> Since  \(\gcd (10, 3) = 1\),  the  Chinese  remainder
+theorem identiﬁes the reduced residues modulo 30 with pairs (reduced residue mod 10,
+reduced  residue  mod 3).  By  the  prime  number  theorem  for  arithmetic  progressions
+modulo 30, each of the eight reduced classes mod 30 contains asymptotically \(1/8\) of the
+primes.  Hence  the  last  digit  of  a  prime  and  its  class  modulo 3  are  asymptotically
+independent: a prime ending in 3 or 9 is no more likely than any other to be \(\equiv 1\) or \(\equiv 2 \pmod 3\), and none
+is \(\equiv 0\) except 3 itself. In particular, the last digit is not a “projection” of the class modulo 3.
+</p>
+   </div>
+<!--l. 399--><p class="indent" >
+</p><!--l. 402--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
+ id="x1-90004"></a>The Hardy–Littlewood Explanation and the Role of the Prime 3</h3>
+<!--l. 406--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.1   </span> <a 
+ id="x1-100004.1"></a>Minimum Gaps and the Withdrawn Mechanism</h4>
+                                                                                       
+                                                                                       
+<!--l. 408--><p class="noindent" >Each last-digit transition \((d_1 \to d_2)\) has a <span 
+class="ecti-1200">minimum possible gap</span> \(\mgap {d_1}{d_2}\): the smallest positive even integer \(g\) with
+\(d_1 + g \equiv d_2 \pmod {10}\). Since all prime gaps for \(p &gt; 5\) are even, the possible gaps for the transition are exactly \(g, g + 10, g + 20, \ldots \) The values
+are listed in Table <a 
+href="#x1-100012">2<!--tex4ht:ref: tab:mingaps --></a>; this part of the ﬁrst version was correct.</p>
+<div class="mdframed" id="mdframed-1">
+<!--l. 415--><p class="noindent" ><span 
+class="ecbx-1200">Withdrawn claim (ﬁrst version)</span>
+</p><!--l. 415--><p class="noindent" >The ﬁrst version claimed that the ternary class of \(\mgap {d_1}{d_2}\) governs whether the transition is enhanced,
+suppressed or “redistributed”: gap-2 transitions enhanced because they carry the twin-prime
+signature, same-digit transitions suppressed because \(\mathfrak {S}(10)\) is the smallest singular series, and gap-6
+transitions redistributed because the \(p = 3\) Euler factor vanishes for gaps divisible by 3. Each of
+these three statements is false (Sections <a 
+href="#x1-110004.2">4.2<!--tex4ht:ref: sec:singular --></a>–<a 
+href="#x1-130004.4">4.4<!--tex4ht:ref: sec:model --></a>), and the rule as a whole is refuted by the
+data.</p>
+   </div>
+   <div class="table">
+                                                                                       
+                                                                                       
+<!--l. 425--><p class="indent" >   <a 
+ id="x1-100012"></a></p><hr class="float" /><div class="float" 
+>
+                                                                                       
+                                                                                       
+ <div class="caption" 
+><span class="id">Table 2: </span><span  
+class="content">The sixteen last-digit transitions, grouped by minimum gap. “Observed” is the
+recomputed frequency for the ﬁrst \(10^8\) primes (Table <a 
+href="#x1-30011">1<!--tex4ht:ref: tab:matrix --></a>). The last three columns are the crude
+Hardy–Littlewood model of Section <a 
+href="#x1-130004.4">4.4<!--tex4ht:ref: sec:model --></a> at \(x = 2.04 \times 10^9\), with three choices of the \(p = 3\) local factor: the
+correct one (\(3/2\) if \(3 \mid h\), \(3/4\) otherwise); the one claimed in the ﬁrst version (\(0\) if \(3 \mid h\), \(1/2\) otherwise); and
+none (factor \(1\)). All entries are percentages of the row.</span></div><!--tex4ht:label?: x1-100012 -->
+<div class="tabular">
+ <table id="TBL-3" class="tabular" 
+ 
+><colgroup id="TBL-3-1g"><col 
+id="TBL-3-1" /><col 
+id="TBL-3-2" /><col 
+id="TBL-3-3" /><col 
+id="TBL-3-4" /></colgroup><colgroup id="TBL-3-5g"><col 
+id="TBL-3-5" /><col 
+id="TBL-3-6" /><col 
+id="TBL-3-7" /></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-3-1-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-1-1"  
+class="td11">          </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-1-2"  
+class="td11">    </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-1-3"  
+class="td11">   </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-1-4"  
+class="td11">                    </td><td colspan="3" style="white-space:nowrap; text-align:center;" id="TBL-3-1-5"  
+class="td11">         <div class="multicolumn"  style="white-space:nowrap; text-align:center;"><span 
+class="ecrm-1095">Model,</span> \(p=3\) <span 
+class="ecrm-1095">factor</span></div>
+</td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-2-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-2-1"  
+class="td11"> <span 
+class="ecrm-1095">Transition  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-2-2"  
+class="td11">  \(\mgap {d_1}{d_2}\)  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-2-3"  
+class="td11">  \(g \bmod 3\)  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-2-4"  
+class="td11">      <span 
+class="ecrm-1095">Observed          </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-2-5"  
+class="td11"> <span 
+class="ecrm-1095">correct  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-2-6"  
+class="td11"> <span 
+class="ecrm-1095">ﬁrst version  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-2-7"  
+class="td11"> <span 
+class="ecrm-1095">none  </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-3-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-3-1"  
+class="td11">     \(9 \to 1\)     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-3-2"  
+class="td11">  <span 
+class="ecrm-1095">2  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-3-3"  
+class="td11"> <span 
+class="ecrm-1095">2  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-3-4"  
+class="td11">        <span 
+class="ecrm-1095">31.97             </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-3-5"  
+class="td11">  <span 
+class="ecrm-1095">31.15   </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-3-6"  
+class="td11">    <span 
+class="ecrm-1095">27.25      </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-3-7"  
+class="td11"> <span 
+class="ecrm-1095">29.69  </span></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-4-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-4-1"  
+class="td11">  \(1 \to 3\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-4-2"  
+class="td11"> <span 
+class="ecrm-1095">2 </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-4-3"  
+class="td11"> <span 
+class="ecrm-1095">2 </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-4-4"  
+class="td11"> <span 
+class="ecrm-1095">29.72 </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-4-5"  
+class="td11"> <span 
+class="ecrm-1095">30.33 </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-4-6"  
+class="td11"> <span 
+class="ecrm-1095">31.46 </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-4-7"  
+class="td11"> <span 
+class="ecrm-1095">30.71</span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-5-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-5-1"  
+class="td11">     \(7 \to 9\)     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-5-2"  
+class="td11">  <span 
+class="ecrm-1095">2  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-5-3"  
+class="td11"> <span 
+class="ecrm-1095">2  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-5-4"  
+class="td11">        <span 
+class="ecrm-1095">29.73             </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-5-5"  
+class="td11">  <span 
+class="ecrm-1095">29.51   </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-5-6"  
+class="td11">    <span 
+class="ecrm-1095">28.47      </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-5-7"  
+class="td11"> <span 
+class="ecrm-1095">29.14  </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-6-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-6-1"  
+class="td11">     \(3 \to 7\)     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-6-2"  
+class="td11">  <span 
+class="ecrm-1095">4  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-6-3"  
+class="td11"> <span 
+class="ecrm-1095">1  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-6-4"  
+class="td11">        <span 
+class="ecrm-1095">28.17             </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-6-5"  
+class="td11">  <span 
+class="ecrm-1095">26.91   </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-6-6"  
+class="td11">    <span 
+class="ecrm-1095">33.74      </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-6-7"  
+class="td11"> <span 
+class="ecrm-1095">29.33  </span></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-7-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-7-1"  
+class="td11">  \(7 \to 1\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-7-2"  
+class="td11"> <span 
+class="ecrm-1095">4 </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-7-3"  
+class="td11"> <span 
+class="ecrm-1095">1 </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-7-4"  
+class="td11"> <span 
+class="ecrm-1095">25.50 </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-7-5"  
+class="td11"> <span 
+class="ecrm-1095">24.96 </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-7-6"  
+class="td11"> <span 
+class="ecrm-1095">31.58 </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-7-7"  
+class="td11"> <span 
+class="ecrm-1095">27.29</span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-8-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-8-1"  
+class="td11">     \(9 \to 3\)     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-8-2"  
+class="td11">  <span 
+class="ecrm-1095">4  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-8-3"  
+class="td11"> <span 
+class="ecrm-1095">1  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-8-4"  
+class="td11">        <span 
+class="ecrm-1095">25.49             </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-8-5"  
+class="td11">  <span 
+class="ecrm-1095">26.36   </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-8-6"  
+class="td11">    <span 
+class="ecrm-1095">30.23      </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-8-7"  
+class="td11"> <span 
+class="ecrm-1095">27.81  </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-9-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-9-1"  
+class="td11">     \(1 \to 7\)     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-9-2"  
+class="td11">  <span 
+class="ecrm-1095">6  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-9-3"  
+class="td11"> <span 
+class="ecrm-1095">0  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-9-4"  
+class="td11">        <span 
+class="ecrm-1095">30.02             </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-9-5"  
+class="td11">  <span 
+class="ecrm-1095">28.31   </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-9-6"  
+class="td11">    <span 
+class="ecrm-1095">19.45      </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-9-7"  
+class="td11"> <span 
+class="ecrm-1095">25.34  </span></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-10-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-10-1"  
+class="td11">  \(3 \to 9\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-10-2"  
+class="td11"> <span 
+class="ecrm-1095">6 </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-10-3"  
+class="td11"> <span 
+class="ecrm-1095">0 </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-10-4"  
+class="td11"> <span 
+class="ecrm-1095">30.01 </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-10-5"  
+class="td11"> <span 
+class="ecrm-1095">29.70 </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-10-6"  
+class="td11"> <span 
+class="ecrm-1095">18.80 </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-10-7"  
+class="td11"> <span 
+class="ecrm-1095">25.84</span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-11-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-11-1"  
+class="td11">     \(7 \to 3\)     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-11-2"  
+class="td11">  <span 
+class="ecrm-1095">6  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-11-3"  
+class="td11"> <span 
+class="ecrm-1095">0  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-11-4"  
+class="td11">        <span 
+class="ecrm-1095">27.02             </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-11-5"  
+class="td11">  <span 
+class="ecrm-1095">27.55   </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-11-6"  
+class="td11">    <span 
+class="ecrm-1095">17.60      </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-11-7"  
+class="td11"> <span 
+class="ecrm-1095">24.05  </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-12-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-12-1"  
+class="td11">     \(3 \to 1\)     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-12-2"  
+class="td11">  <span 
+class="ecrm-1095">8  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-12-3"  
+class="td11"> <span 
+class="ecrm-1095">2  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-12-4"  
+class="td11">        <span 
+class="ecrm-1095">24.04             </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-12-5"  
+class="td11">  <span 
+class="ecrm-1095">24.00   </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-12-6"  
+class="td11">    <span 
+class="ecrm-1095">23.59      </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-12-7"  
+class="td11"> <span 
+class="ecrm-1095">23.85  </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-13-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-13-1"  
+class="td11">     \(9 \to 7\)     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-13-2"  
+class="td11">  <span 
+class="ecrm-1095">8  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-13-3"  
+class="td11"> <span 
+class="ecrm-1095">2  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-13-4"  
+class="td11">        <span 
+class="ecrm-1095">24.05             </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-13-5"  
+class="td11">  <span 
+class="ecrm-1095">23.50   </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-13-6"  
+class="td11">    <span 
+class="ecrm-1095">21.13      </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-13-7"  
+class="td11"> <span 
+class="ecrm-1095">22.61  </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-14-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-14-1"  
+class="td11">     \(1 \to 9\)     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-14-2"  
+class="td11">  <span 
+class="ecrm-1095">8  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-14-3"  
+class="td11"> <span 
+class="ecrm-1095">2  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-14-4"  
+class="td11">        <span 
+class="ecrm-1095">21.77             </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-14-5"  
+class="td11">  <span 
+class="ecrm-1095">22.88   </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-14-6"  
+class="td11">    <span 
+class="ecrm-1095">24.39      </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-14-7"  
+class="td11"> <span 
+class="ecrm-1095">23.39  </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-15-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-15-1"  
+class="td11">     \(1 \to 1\)     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-15-2"  
+class="td11"> <span 
+class="ecrm-1095">10  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-15-3"  
+class="td11"> <span 
+class="ecrm-1095">1  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-15-4"  
+class="td11">        <span 
+class="ecrm-1095">18.49             </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-15-5"  
+class="td11">  <span 
+class="ecrm-1095">18.48   </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-15-6"  
+class="td11">    <span 
+class="ecrm-1095">24.70      </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-15-7"  
+class="td11"> <span 
+class="ecrm-1095">20.57  </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-16-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-16-1"  
+class="td11">     \(3 \to 3\)     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-16-2"  
+class="td11"> <span 
+class="ecrm-1095">10  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-16-3"  
+class="td11"> <span 
+class="ecrm-1095">1  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-16-4"  
+class="td11">        <span 
+class="ecrm-1095">17.77             </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-16-5"  
+class="td11">  <span 
+class="ecrm-1095">19.39   </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-16-6"  
+class="td11">    <span 
+class="ecrm-1095">23.88      </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-16-7"  
+class="td11"> <span 
+class="ecrm-1095">20.98  </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-17-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-17-1"  
+class="td11">     \(7 \to 7\)     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-17-2"  
+class="td11"> <span 
+class="ecrm-1095">10  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-17-3"  
+class="td11"> <span 
+class="ecrm-1095">1  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-17-4"  
+class="td11">        <span 
+class="ecrm-1095">17.76             </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-17-5"  
+class="td11">  <span 
+class="ecrm-1095">17.98   </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-17-6"  
+class="td11">    <span 
+class="ecrm-1095">22.35      </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-17-7"  
+class="td11"> <span 
+class="ecrm-1095">19.52  </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-18-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-18-1"  
+class="td11">     \(9 \to 9\)     </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-18-2"  
+class="td11"> <span 
+class="ecrm-1095">10  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-18-3"  
+class="td11"> <span 
+class="ecrm-1095">1  </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-18-4"  
+class="td11">        <span 
+class="ecrm-1095">18.49             </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-18-5"  
+class="td11">  <span 
+class="ecrm-1095">18.99   </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-18-6"  
+class="td11">    <span 
+class="ecrm-1095">21.39      </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-18-7"  
+class="td11"> <span 
+class="ecrm-1095">19.89  </span></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-19-"><td colspan="4" style="white-space:nowrap; text-align:right;" id="TBL-3-19-1"  
+class="td11"> <div class="multicolumn"  style="white-space:nowrap; text-align:right;"><span 
+class="ecrm-1095">RMS diﬀerence from observed (percentage points)</span></div>  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-19-5"  
+class="td11">  <span 
+class="ecrm-1095">0.85   </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-19-6"  
+class="td11">    <span 
+class="ecrm-1095">5.94       </span></td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-19-7"  
+class="td11">  <span 
+class="ecrm-1095">2.36  </span></td>
+
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-20-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-20-1"  
+class="td11">           </td></tr></table>                                                                         </div>
+                                                                                       
+                                                                                       
+   </div><hr class="endfloat" />
+   </div>
+   <h4 class="subsectionHead"><span class="titlemark">4.2   </span> <a 
+ id="x1-110004.2"></a>The Singular Series and the Factor at \(p = 3\)</h4>
+<!--l. 471--><p class="noindent" >For even \(h &gt; 0\), the Hardy–Littlewood conjecture [<a 
+href="#XHL23">HL23</a>] predicts \[ \#\{p \leq x : p \text { and } p + h \text { prime}\} \sim \mathfrak {S}(h)\, \frac {x}{(\log x)^2}, \qquad \mathfrak {S}(h) = \prod _{p} \frac {1 - \nu _p(h)/p}{(1 - 1/p)^2}, \] where \(\nu _p(h)\) is the number of
+residue classes modulo \(p\) occupied by \(\{0, h\}\): \(\nu _p(h) = 1\) if \(p \mid h\) and \(\nu _p(h) = 2\) otherwise. (These pairs need not be
+consecutive primes.) Evaluating the local factors gives the familiar form \[ \mathfrak {S}(h) = 2C_2 \prod _{\substack {p \mid h \\ p &gt; 2}} \frac {p-1}{p-2}, \qquad 2C_2 = 2\prod _{p &gt; 2}\frac {p(p-2)}{(p-1)^2} \approx 1.3203 . \] A local factor
+vanishes only when \(\nu _p = p\), which for a pair happens only at \(p = 2\) with \(h\) odd; for even \(h\) no factor
+vanishes.</p>
+<div class="mdframed" id="mdframed-2">
+<!--l. 490--><p class="noindent" ><span 
+class="ecbx-1200">Correct statement</span>
+</p><!--l. 490--><p class="noindent" >At \(p = 3\) the local factor is \[ \mathfrak {S}_3(h) = \frac {1 - \nu _3(h)/3}{(1 - 1/3)^2} = \frac {\chi _3(h)/2}{2/3} = \begin {cases} 3/2 &amp; \text {if } 3 \mid h, \\ 3/4 &amp; \text {if } 3 \nmid h, \end {cases} \] where \(\chi _3(h) = \#\{j \in \{1, 2\} : j + h \not \equiv 0 \pmod 3\}\) counts the classes of \(p \bmod 3\) for which \(p + h\) is also prime to 3 (Remark <a 
+href="#x1-7003r4">3.4<!--tex4ht:ref: rem:gaps-mod3 --></a>).
+Thus \(\chi _3(h)/2\) is the chance that \(p + h\) is prime to 3 given that \(p\) is, and \(2/3\) is the same chance for a random
+integer. The factor is <span 
+class="ecti-1200">largest </span>for gaps divisible by 3, and gaps divisible by 3 receive twice the
+weight of other gaps.</p>
+   </div>
+<!--l. 507--><p class="indent" >   The ﬁrst version wrote this factor as \((1 - 1/3)^{-1}(1 - \chi _3/\varphi (3))\) and concluded that it vanishes for \(3 \mid h\) and equals \(1/2\)
+otherwise. That formula inverts the role of \(\chi _3\), which counts the favourable classes, and
+uses the normalisation \((1-1/3)^{-1}\) instead of \((1-1/3)^{-2}\); even on its own terms it gives \(3/4\), not \(1/2\), for \(3 \nmid h\). It is
+withdrawn, together with the claim that gap-6 transitions “map primes to the Forbidden
+class”.
+</p><!--l. 514--><p class="indent" >   The resulting values are \begin {gather*}  \mathfrak {S}(2) = \mathfrak {S}(4) = \mathfrak {S}(8) \approx 1.3203, \qquad \mathfrak {S}(6) = \mathfrak {S}(12) \approx 2.6406, \\ \mathfrak {S}(10) \approx 1.7604, \qquad \mathfrak {S}(14) \approx 1.5844, \qquad \mathfrak {S}(30) \approx 3.5209 .  \end {gather*} Since every factor \((p-1)/(p-2)\) exceeds 1, \(\mathfrak {S}(2) = 2C_2\) is the <span 
+class="ecti-1200">smallest </span>value over even \(h\),
+attained exactly when \(h\) is a power of 2. It is not the largest, as the ﬁrst version stated, and \(\mathfrak {S}(10) \approx 1.76\) is
+greater than 1, not less.
+</p><!--l. 527--><p class="indent" >   The data agree. Gap 6 is the most common gap between consecutive primes among the
+ﬁrst \(10^6\), \(10^7\), \(10^8\) and \(10^9\) primes. Among the ﬁrst \(10^8\) primes it occurs \(11{,}604{,}547\) times, against \(6{,}497{,}407\) for gap 2 (a
+ratio of \(1.79\)); among the ﬁrst \(10^9\) primes the counts are \(105{,}002{,}853\) and \(58{,}047{,}180\) (ratio \(1.81\)). Gaps 2 and 4, which
+have the same singular series, are equally common: their ratio is \(0.9998\) among the ﬁrst \(10^8\)
+primes.
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.3   </span> <a 
+ id="x1-120004.3"></a>What the Transition Data Show</h4>
+<!--l. 537--><p class="noindent" ><span 
+class="ecbx-1200">The minimum-gap ternary class does not determine the eﬀect. </span>Averaging the observed
+entries of Table <a 
+href="#x1-100012">2<!--tex4ht:ref: tab:mingaps --></a> by minimum gap gives \(30.47\%\) for gap 2 (\(g \equiv 2 \bmod 3\)), \(26.39\%\) for gap 4 (\(g \equiv 1\)), \(29.02\%\) for gap 6 (\(g \equiv 0\)), \(23.29\%\) for gap 8 (\(g \equiv 2\))
+and \(18.13\%\) for gap 10 (\(g \equiv 1\)). Gap 2 and gap 8 have the same ternary class, yet every gap-8 transition is
+below 25%. Gap 4 and gap 10 have the same class, yet gap 4 is above 25% and gap 10 is the
+most suppressed. Apart from gap 6, the averages decrease with the size of the gap. Gap 6 is
+raised by the \(p = 3\) factor \(3/2\). This is what the Hardy–Littlewood heuristic predicts, and it is the
+opposite of “redistribution”.
+</p><!--l. 548--><p class="noindent" ><span 
+class="ecbx-1200">Gap-6 transitions are enhanced, not redistributed. </span>The transitions \(1 \to 7\) (30.02%) and \(3 \to 9\)
+(30.01%) are the most frequent transitions in their rows. In particular \(1 \to 7\) is slightly more frequent
+                                                                                       
+                                                                                       
+than the gap-2 transition \(1 \to 3\) (29.72%; the corresponding values for the ﬁrst \(10^9\) primes are 29.43%
+and 29.30%).
+</p><!--l. 555--><p class="noindent" ><span 
+class="ecbx-1200">Gap-2 transitions are not dominated by twin primes. </span>The three transitions \(9 \to 1\), \(1 \to 3\) and \(7 \to 9\) have
+the same set of possible gaps, \(\{2, 12, 22, \ldots \}\). Among the ﬁrst \(10^8\) primes only 27.09% of the \(9 \to 1\) transitions have
+gap 2, while 38.06% have gap 12, which is divisible by 3; for \(1 \to 3\) the shares are 29.15% and
+37.56%, and for \(7 \to 9\) they are 29.16% and 37.55%. The claim that these transitions are enhanced
+because they “carry the twin-prime signature” is therefore withdrawn. The fact that \(9 \to 1\) exceeds \(1 \to 3\) is
+a matter of competition within a row: from the digit 1 the competitor \(1 \to 7\) has minimum gap 6
+and is boosted by the \(p = 3\) factor, while from 9 the competitor \(9 \to 3\) has minimum gap 4. In
+the model of Section <a 
+href="#x1-130004.4">4.4<!--tex4ht:ref: sec:model --></a>, removing the \(p = 3\) factor reverses the order of the two entries
+(Table <a 
+href="#x1-100012">2<!--tex4ht:ref: tab:mingaps --></a>).
+</p><!--l. 568--><p class="noindent" ><span 
+class="ecbx-1200">The diagonal suppression is a gap-length eﬀect. </span>Every same-digit gap is a
+multiple of 10, so it receives the extra \(p = 5\) factor \(4/3\); the singular series <span 
+class="ecti-1200">favours </span>the diagonal.
+Same-digit transitions are suppressed all the same, because they need a gap of at
+least 10, and it is less likely that no prime occurs in a long interval. In the Lemke
+Oliver–Soundararajan conjecture this is the negative ﬁrst-order term \(c_1(q;a,a)\log \log x/\log x\) (Section <a 
+href="#x1-20002">2<!--tex4ht:ref: sec:findings --></a>).
+The suppression survives when all ternary information is removed: with the \(p=3\) factor
+set to 1, the model still gives diagonal entries between 19.5% and 21.0%. The same
+holds modulo 3, where the singular series favours the diagonal even more strongly:
+same-class gaps are multiples of 6 and receive the <span 
+class="ecti-1200">maximal</span> \(p = 3\) factor, yet the frequency
+of a repeated class modulo 3 is \(44.67\%\) for the ﬁrst \(10^8\) primes and \(45.15\%\) for the ﬁrst \(10^9\), below the
+uniform 50%.
+</p><!--l. 582--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.4   </span> <a 
+ id="x1-130004.4"></a>A Crude Hardy–Littlewood Model</h4>
+<!--l. 585--><p class="noindent" >To compare the three choices of \(p = 3\) factor directly, consider the model \[ P(d_1 \to d_2) \;\propto \sum _{\substack {h &gt; 0 \\ h \equiv d_2 - d_1 \ (10)}} \mathfrak {S}'(h)\, e^{-h/\log x}, \] normalised over each row,
+where \(\mathfrak {S}'(h)\) is the product of the local factors of \(\mathfrak {S}(h)\) over primes \(p \nmid 10\) (the factors at 2 and 5 are ﬁxed
+by conditioning on residues modulo 10), and \(e^{-h/\log x}\) is a Cramér-type probability that no
+prime lies in between. We take \(x = 2.04 \times 10^9\), the size of the \(10^8\)-th prime, truncate the product at \(p &lt; 20{,}000\)
+and the sum at \(h &lt; 40\log x\). This is not the Lemke Oliver–Soundararajan conjecture, only a
+simple model built from the same ingredients; the code is <span 
+class="ectt-1200">model.py </span>in the audit
+material.
+</p><!--l. 599--><p class="indent" >   The results are in Table <a 
+href="#x1-100012">2<!--tex4ht:ref: tab:mingaps --></a>. With the correct \(p = 3\) factor the model reproduces the observed
+matrix to an RMS error of \(0.85\) percentage points. It is crude: its largest error is \(1.7\) points (for \(1 \to 7\), \(28.31\%\)
+against \(30.02\%\)), and it places \(1 \to 7\) below \(1 \to 3\), whereas the data place it slightly above. With no \(p = 3\) factor the
+RMS error rises to \(2.36\) points. With the factor claimed in the ﬁrst version it is \(5.94\) points: that factor
+predicts \(1 \to 7 = 19.45\%\) against an observed \(30.02\%\), and it raises the diagonal entries to between \(21.39\%\) and \(24.70\%\)
+(observed: \(17.76\%\) to \(18.49\%\)), largely removing the diagonal suppression that the ﬁrst version set out to
+explain.
+</p>
+                                                                                       
+                                                                                       
+   <div class="newtheorem">
+<!--l. 609--><p class="noindent" ><span class="head">
+<a 
+ id="x1-13001r1"></a>
+<span 
+class="ecti-1200">Remark </span>4.1<span 
+class="ecti-1200">.</span>  </span>The model and the Lemke Oliver–Soundararajan conjecture both rest on
+the Hardy–Littlewood conjecture, and neither is a proof. What the comparison shows is
+that the prime 3 matters, through its ordinary local factor \(3/2\) or \(3/4\), and that the mechanism
+proposed in the ﬁrst version (a vanishing factor and “redistribution”) is contradicted by
+the data. No further “mechanistic layer” beneath the singular series is needed to account
+for the matrix, and the ﬁrst version’s description of the singular series as “the quantitative
+expression of ternary constitutional structure” is withdrawn: the factor at 3 is one local
+factor among the factors at all primes.
+</p>
+   </div>
+<!--l. 618--><p class="indent" >
+</p><!--l. 621--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
+ id="x1-140005"></a>The Snail’s Pace: The Rate of Decay</h3>
+<!--l. 625--><p class="noindent" >The bias fades as the primes grow, but slowly. The phrase “at a snail’s pace” is Quanta
+Magazine’s [<a 
+href="#XKla16">Kla16</a>], not Lemke Oliver and Soundararajan’s. Their conjecture gives the rate
+explicitly: the leading correction is \(c_1(q;a,b)\log \log x/\log x\) (Section <a 
+href="#x1-20002">2<!--tex4ht:ref: sec:findings --></a>), which decays even more slowly than
+\(1/\log x\).</p>
+<div class="mdframed" id="mdframed-3">
+<!--l. 631--><p class="noindent" ><span 
+class="ecbx-1200">Withdrawn claim (ﬁrst version)</span>
+</p><!--l. 631--><p class="noindent" >The ﬁrst version identiﬁed the snail’s pace with the Siegel–Walﬁsz rate of equidistribution of
+primes modulo 3, \(|\pi _1(N) - \pi _2(N)| = O(N \exp (-c\sqrt {\log N}))\), and stated that the digit bias diminishes “at exactly the rate” of that
+bound. The identiﬁcation, the corresponding proposition, and the ﬁgure that illustrated it are
+withdrawn.</p>
+   </div>
+<!--l. 638--><p class="indent" >   The identiﬁcation fails for four reasons.
+</p><!--l. 640--><p class="indent" >
+      </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+  (a) </dt><dd 
+class="enumerate-enumitem">The bias concerns <span 
+class="ecti-1200">pairs </span>of consecutive primes. It is present even though single primes
+      are very well distributed among the residue classes, so a bound for \(|\pi _1(N) - \pi _2(N)|\) cannot be its
+      rate. In any case the last digit carries no information about the class modulo 3
+      (Remark <a 
+href="#x1-8002r6">3.6<!--tex4ht:ref: rem:crt --></a>).
+      </dd><dt class="enumerate-enumitem">
+ (b) </dt><dd 
+class="enumerate-enumitem">The bound \(N\exp (-c\sqrt {\log N})\) is an upper bound for the error, coming from the classical zero-free
+      region for the ﬁxed modulus 3; the Siegel–Walﬁsz theorem [<a 
+href="#XWal36">Wal36</a>] makes such a
+                                                                                       
+                                                                                       
+      bound uniform for moduli \(q \leq (\log N)^A\). It is not the true size of the error, and “at exactly the
+      rate” of an \(O\)-bound has no meaning.
+      </dd><dt class="enumerate-enumitem">
+  (c) </dt><dd 
+class="enumerate-enumitem">The true size is much smaller. The recomputed diﬀerences \(\pi (x;3,2) - \pi (x;3,1)\) are \(190\), \(420\), \(2107\) and \(6264\) at \(x = 10^7, 10^8, 10^9, 10^{10}\), while \(\sqrt {x}/\log x \approx 196\), \(543\), \(1526\),
+      \(4343\). This is the size of Chebyshev’s bias: under the generalised Riemann hypothesis and
+      a linear-independence hypothesis, \((\log x/\sqrt {x})(\pi (x;3,2) - \pi (x;3,1))\) has a limiting logarithmic distribution [<a 
+href="#XRS94">RS94</a>].
+      The relative imbalance \((\pi (x;3,2) - \pi (x;3,1))/\pi (x)\) is \(4.1 \times 10^{-5}\) at \(x = 10^9\), whereas the diagonal entries of Table <a 
+href="#x1-30011">1<!--tex4ht:ref: tab:matrix --></a> for the ﬁrst
+      \(10^8\) primes lie on average \(6.9\) percentage points below 25%.
+      </dd><dt class="enumerate-enumitem">
+ (d) </dt><dd 
+class="enumerate-enumitem">The two quantities do not decay together. From \(x = 10^7\) to \(x = 10^{10}\) the relative mod-3 imbalance
+      falls by a factor of about \(21\), from \(2.9 \times 10^{-4}\) to \(1.4 \times 10^{-5}\). Over a comparable range (the ﬁrst \(10^6\) primes,
+      up to \(1.5 \times 10^7\), to the ﬁrst \(10^9\) primes, up to \(2.3 \times 10^{10}\)) the mean diagonal deﬁcit of the base-10 matrix
+      falls only from \(8.50\) to \(6.28\) percentage points, a factor of \(1.35\).</dd></dl>
+<!--l. 667--><p class="indent" >   Finally, \(\exp (-c\sqrt {\log N})\) decays <span 
+class="ecti-1200">faster </span>than any ﬁxed power of \(1/\log N\), and hence faster than \(\log \log N/\log N\); a quantity that
+decays this fast cannot be the slow decay that Lemke Oliver and Soundararajan derived. The
+ﬁrst version’s Figure 3, which asserted the opposite and plotted a hypothetical curve as
+“conﬁrmation”, has been removed.
+</p>
+   <h3 class="sectionHead"><span class="titlemark">6   </span> <a 
+ id="x1-150006"></a>Other Moduli, Parity, and the Programme</h3>
+<!--l. 679--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">6.1   </span> <a 
+ id="x1-160006.1"></a>Other Moduli</h4><div class="mdframed" id="mdframed-4">
+<!--l. 683--><p class="noindent" ><span 
+class="ecbx-1200">Withdrawn claim (ﬁrst version)</span>
+</p><!--l. 683--><p class="noindent" >The ﬁrst version argued that the bias is base-independent because “the mechanism operates in
+mod-3 arithmetic”: in every base the prime last digits map to ternary classes, and the ternary
+class of the minimum gap determines the transition structure. That argument, and the ﬁgure
+that illustrated it for bases 6, 10 and 16, are withdrawn.</p>
+   </div>
+<!--l. 690--><p class="noindent" >The argument fails on its own terms. When \(\gcd (b, 3) = 1\), as for \(b = 10\) and \(b = 16\), the last digit in base \(b\) carries no
+information about the class modulo 3 (Remark <a 
+href="#x1-8002r6">3.6<!--tex4ht:ref: rem:crt --></a>); for instance, primes ending in 3 or 9 in
+base 10 are not divisible by 3, and the ﬁgure’s count of “Forbidden-class prime terminal digits”
+contradicted Deﬁnition <a 
+href="#x1-6001r1">3.1<!--tex4ht:ref: def:constraint --></a>. When \(3 \mid b\), as for \(b = 6\), the last digit of a prime \(p &gt; 3\) is determined by \(p \bmod 6\), that is,
+by \(p \bmod 3\); the same-digit gaps are then multiples of 6 and receive the <span 
+class="ecti-1200">maximal</span> \(p = 3\) factor, yet the
+diagonal is suppressed (Section <a 
+href="#x1-120004.3">4.3<!--tex4ht:ref: sec:data --></a>).
+</p><!--l. 699--><p class="indent" >   The correct statement is the one of Lemke Oliver and Soundararajan: their conjecture is
+formulated for every modulus \(q\), and its ﬁrst-order term depends only on \(\varphi (q)\) and on whether \(a \equiv b\). The
+data ﬁt this. Modulo 4, where there is no ternary digit structure at all, the frequency of a
+                                                                                       
+                                                                                       
+repeated class is \(45.04\%\) for the ﬁrst \(10^8\) primes and \(45.48\%\) for the ﬁrst \(10^9\), close to the values \(44.67\%\) and \(45.15\%\) modulo 3;
+both moduli have \(\varphi (q) = 2\).
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">6.2   </span> <a 
+ id="x1-170006.2"></a>The Parity Barrier</h4>
+<!--l. 708--><p class="noindent" >Selberg’s parity problem [<a 
+href="#XSel49">Sel49</a>] is the observation that classical sieve methods cannot
+distinguish integers with an even number of prime factors from integers with an odd number; in
+other words, they cannot detect the parity of \(\Omega (n)\), the sign of the Liouville function. It has nothing
+to do with working “modulo 2”. The ﬁrst version described it as a statement about “sieve
+methods operating modulo 2” and cited a diﬀerent paper of Selberg’s, on the elementary
+proof of the prime number theorem for arithmetic progressions; both are corrected
+here.
+</p><!--l. 716--><p class="indent" >   For bounded gaps between primes the history is as follows. Zhang [<a 
+href="#XZha14">Zha14</a>] proved that \(\liminf (p_{n+1} - p_n) \leq 7 \times 10^7\).
+Maynard [<a 
+href="#XMay15">May15</a>] obtained 600, and 12 under the Elliott–Halberstam conjecture. The
+Polymath8b project [<a 
+href="#XPol14">Pol14</a>] obtained 246 unconditionally, using the Bombieri–Vinogradov level
+of distribution \(1/2\) [<a 
+href="#XBom65">Bom65</a>, <a 
+href="#XVin65">Vin65</a>], and 6 under the generalised Elliott–Halberstam
+conjecture. The value 246 is therefore set by the level of distribution, not by the
+parity problem. It is the parity problem that prevents these sieve methods from going
+below 6 even under the generalised Elliott–Halberstam conjecture, and so from reaching
+gap 2.
+</p><!--l. 726--><p class="indent" >   The ﬁrst version also gave a table of “ternary signatures” of gaps and claimed that gap 2
+is the only even gap avoiding the Forbidden class, so that a ternary method could
+isolate twin primes where sieves fail. That claim is withdrawn. The table silently
+ﬁxed \(p \equiv 2 \pmod 3\); for \(p \equiv 1\), the pair \((p, p+4)\) avoids the Forbidden class, as does \((p, p+8)\) for \(p \equiv 2\). The correct statement
+is Remark <a 
+href="#x1-7003r4">3.4<!--tex4ht:ref: rem:gaps-mod3 --></a>: each gap not divisible by 3 allows exactly one class of \(p \bmod 3\), and each
+gap divisible by 3 allows both. Table <a 
+href="#x1-170013">3<!--tex4ht:ref: tab:gaps --></a> lists the consequences for the ﬁrst six even
+gaps.
+</p>
+   <div class="table">
+                                                                                       
+                                                                                       
+<!--l. 735--><p class="indent" >   <a 
+ id="x1-170013"></a></p><hr class="float" /><div class="float" 
+>
+                                                                                       
+                                                                                       
+ <div class="caption" 
+><span class="id">Table 3: </span><span  
+class="content">Small even gaps: the classes of \(p \bmod 3\) for which \((p, p+h)\) can be a pair of primes with \(p &gt; 3\), the
+local factor at \(p = 3\), the singular series, and the number of times \(h\) occurs as a gap between
+consecutive primes among the ﬁrst \(10^8\) primes.</span></div><!--tex4ht:label?: x1-170013 -->
+<div class="tabular">
+ <table id="TBL-4" class="tabular" 
+ 
+><colgroup id="TBL-4-1g"><col 
+id="TBL-4-1" /><col 
+id="TBL-4-2" /><col 
+id="TBL-4-3" /><col 
+id="TBL-4-4" /><col 
+id="TBL-4-5" /><col 
+id="TBL-4-6" /></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-4-1-"><td  style="white-space:nowrap; text-align:center;" id="TBL-4-1-1"  
+class="td11">  \(h\)  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-1-2"  
+class="td11"> \(h \bmod 3\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-1-3"  
+class="td11"> classes of \(p \bmod 3\)  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-1-4"  
+class="td11"> \(\mathfrak {S}_3(h)\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-1-5"  
+class="td11">    \(\mathfrak {S}(h)\)    </td><td  style="white-space:nowrap; text-align:right;" id="TBL-4-1-6"  
+class="td11"> consecutive gaps  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-2-"><td  style="white-space:nowrap; text-align:center;" id="TBL-4-2-1"  
+class="td11"> 2  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-2-2"  
+class="td11"> 2  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-2-3"  
+class="td11">     2       </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-2-4"  
+class="td11"> \(3/4\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-2-5"  
+class="td11"> 1.3203  </td><td  style="white-space:nowrap; text-align:right;" id="TBL-4-2-6"  
+class="td11">       6,497,407  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-3-"><td  style="white-space:nowrap; text-align:center;" id="TBL-4-3-1"  
+class="td11"> 4  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-3-2"  
+class="td11"> 1  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-3-3"  
+class="td11">     1       </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-3-4"  
+class="td11"> \(3/4\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-3-5"  
+class="td11"> 1.3203  </td><td  style="white-space:nowrap; text-align:right;" id="TBL-4-3-6"  
+class="td11">       6,496,371  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-4-"><td  style="white-space:nowrap; text-align:center;" id="TBL-4-4-1"  
+class="td11"> 6  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-4-2"  
+class="td11"> 0  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-4-3"  
+class="td11">    1, 2      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-4-4"  
+class="td11"> \(3/2\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-4-5"  
+class="td11"> 2.6406  </td><td  style="white-space:nowrap; text-align:right;" id="TBL-4-4-6"  
+class="td11">      11,604,547  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-5-"><td  style="white-space:nowrap; text-align:center;" id="TBL-4-5-1"  
+class="td11"> 8  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-5-2"  
+class="td11"> 2  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-5-3"  
+class="td11">     2       </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-5-4"  
+class="td11"> \(3/4\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-5-5"  
+class="td11"> 1.3203  </td><td  style="white-space:nowrap; text-align:right;" id="TBL-4-5-6"  
+class="td11">       5,157,442  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-6-"><td  style="white-space:nowrap; text-align:center;" id="TBL-4-6-1"  
+class="td11"> 10  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-6-2"  
+class="td11"> 1  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-6-3"  
+class="td11">     1       </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-6-4"  
+class="td11"> \(3/4\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-6-5"  
+class="td11"> 1.7604  </td><td  style="white-space:nowrap; text-align:right;" id="TBL-4-6-6"  
+class="td11">       6,682,808  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-7-"><td  style="white-space:nowrap; text-align:center;" id="TBL-4-7-1"  
+class="td11"> 12  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-7-2"  
+class="td11"> 0  </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-7-3"  
+class="td11">    1, 2      </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-7-4"  
+class="td11"> \(3/2\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-4-7-5"  
+class="td11"> 2.6406  </td><td  style="white-space:nowrap; text-align:right;" id="TBL-4-7-6"  
+class="td11">       8,621,685  </td>
+
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-4-8-"><td  style="white-space:nowrap; text-align:center;" id="TBL-4-8-1"  
+class="td11">    </td></tr></table>                                                                                </div>
+                                                                                       
+                                                                                       
+   </div><hr class="endfloat" />
+   </div>
+<!--l. 758--><p class="indent" >   In particular cousin primes \((p, p+4)\) are as common as twin primes, as \(\mathfrak {S}(4) = \mathfrak {S}(2)\) predicts, and gap 6 is the
+most common gap. The condition \(p \equiv 2 \pmod 3\) for twin primes is a local condition of exactly the kind that
+every sieve, and the singular series, already take into account. It does not bear on the parity
+problem.
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">6.3   </span> <a 
+ id="x1-180006.3"></a>Relation to the Constitutional Forcing Programme</h4>
+<!--l. 767--><p class="noindent" >This paper is p08 of the Constitutional Forcing programme [<a 
+href="#XWakil26">Wakil26</a>], which consists of nine
+papers, p01–p09. The ﬁrst version described the programme as having established
+a level of distribution \(\theta _W = 5/8\) for primes over cascade moduli \(q = 3^K\). That level is a conjecture
+(p04 [<a 
+href="#XWakil26d">Wakil26d</a>]). For prime-power moduli the known results are well below \(5/8\), and a level of \(5/8\) for
+each individual modulus \(3^K\) would go beyond what the generalised Riemann hypothesis
+gives. The value \(5/8\) also appears in Pascadi’s work [<a 
+href="#XPas25">Pas25</a>] on smooth numbers and
+on primes with triply-well-factorable weights, for general moduli; that result does
+not concern moduli \(3^K\), and the agreement of the two numbers is a coincidence, not
+evidence.
+</p><!--l. 777--><p class="indent" >   The digit bias is independent of all of this. Its explanation requires the Hardy–Littlewood
+heuristic and nothing from the programme. The ﬁrst version’s claims that the digit bias and the
+cascade-moduli level are “projections of the same underlying structure”, and that the
+explanation needs only the elementary mod 3 constraint and the Siegel–Walﬁsz theorem, are
+withdrawn. The second claim was in any case inconsistent with the ﬁrst version’s
+own remark that the explanation inherits the assumptions of the Hardy–Littlewood
+conjecture.
+</p><!--l. 786--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">7   </span> <a 
+ id="x1-190007"></a>Conclusion</h3>
+<!--l. 790--><p class="noindent" >The Lemke Oliver–Soundararajan bias is easy to check: Soundararajan told Nature [<a 
+href="#XLam16">Lam16</a>]
+that everyone they told about it ended up writing a program to check it for themselves. It was
+explained, heuristically but quantitatively, in the paper that announced it [<a 
+href="#XLOS16">LOS16</a>]. This paper
+tested a diﬀerent explanation, ternary constitutional structure, against recomputed data for the
+ﬁrst \(10^8\) and \(10^9\) primes. The explanation does not survive:
+      </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+  (i) </dt><dd 
+class="enumerate-enumitem">The diagonal suppression is a gap-length eﬀect, the negative ﬁrst-order term of the
+      Lemke Oliver–Soundararajan conjecture. It is not a singular-series penalty: \(\mathfrak {S}(10) \approx 1.76\) exceeds
+      \(\mathfrak {S}(2) \approx 1.32\), which is the smallest even-gap value, and the same-class gaps modulo 3 receive
+      the maximal \(p = 3\) factor and are still suppressed.
+                                                                                       
+                                                                                       
+      </dd><dt class="enumerate-enumitem">
+ (ii) </dt><dd 
+class="enumerate-enumitem">The slow decay is the \(\log \log x/\log x\) term of that conjecture. It is not the Siegel–Walﬁsz rate; the
+      mod-3 imbalance of single primes is of order \(\sqrt {x}/\log x\), far smaller than the digit bias, and it
+      decays far faster.
+      </dd><dt class="enumerate-enumitem">
+ (iii) </dt><dd 
+class="enumerate-enumitem">The  bias  is  not  a  base-10  projection  of  mod-3  structure:  last  digits  carry  no
+      information about the class mod 3, and the bias modulo 4 is about the same as
+      modulo 3.
+      </dd><dt class="enumerate-enumitem">
+ (iv) </dt><dd 
+class="enumerate-enumitem">The rule that the ternary class of the minimum gap governs each transition is
+      contradicted by the data (gap 2 against gap 8, gap 4 against gap 10), and the \(p = 3\)
+      factor does not vanish for gaps divisible by 3: it is \(3/2\), its maximum.</dd></dl>
+<!--l. 813--><p class="indent" >   What the prime 3 does contribute is its ordinary local factor in the singular series, \(3/2\) for gaps
+divisible by 3 and \(3/4\) otherwise. This is why 6 is the most common gap between consecutive
+primes in the computed range. The factor also boosts the transitions \(1 \to 7\), \(3 \to 9\) and \(7 \to 3\) (in the model of
+Section <a 
+href="#x1-130004.4">4.4<!--tex4ht:ref: sec:model --></a>, removing it lowers \(1 \to 7\) from \(28.31\%\) to \(25.34\%\)), and in that model it accounts for \(9 \to 1\) exceeding \(1 \to 3\). This
+eﬀect is part of the Lemke Oliver–Soundararajan explanation, not an alternative to it. The
+elementary fact that twin primes \(p &gt; 3\) satisfy \(p \equiv 2 \pmod 3\) (Theorem <a 
+href="#x1-7001r2">3.2<!--tex4ht:ref: thm:signature --></a>) is true, but it explains none of the
+bias.
+</p><!--l. 823--><p class="indent" >   The conclusion of the ﬁrst version is therefore reversed. The Lemke Oliver–Soundararajan
+explanation accounts for the bias, and the ternary-constitutional explanation, as originally
+stated, is not supported.
+</p><!--l. 831--><p class="noindent" >
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-20000"></a>References</h3>
+<!--l. 831--><p class="noindent" >
+     </p><div class="thebibliography">
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XLOS16"></a>[LOS16] <span class="bibsp">   </span></span>   R. J.   Lemke Oliver   and   K. Soundararajan,       Unexpected   biases
+     in   the   distribution   of   consecutive   primes,      <span 
+class="ecti-1200">Proc.  Natl.  Acad.  Sci.  USA</span>,
+     113(31):E4446–E4454, 2016.  <a 
+href="https://arxiv.org/abs/1603.03720" >arXiv:1603.03720 [math.NT]</a>.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XLOS17"></a>[LOS17] <span class="bibsp">   </span></span> R. J. Lemke Oliver and K. Soundararajan, The distribution of consecutive
+     prime biases and sums of sawtooth random variables,  <a 
+href="https://arxiv.org/abs/1709.06168" >arXiv:1709.06168 [math.NT]</a>,
+     2017.
+     </p>
+                                                                                       
+                                                                                       
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XHL23"></a>[HL23] <span class="bibsp">   </span></span> G. H. Hardy and J. E. Littlewood, Some problems of ‘Partitio numerorum’;
+     III: on the expression of a number as a sum of primes, <span 
+class="ecti-1200">Acta Math.</span>, 44:1–70, 1923.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XDir37"></a>[Dir37] <span class="bibsp">   </span></span> P. G. L. Dirichlet,  Beweis des Satzes, dass jede unbegrenzte arithmetische
+     Progression, deren erstes Glied und Diﬀerenz ganze Zahlen ohne gemeinschaftlichen
+     Factor  sind,  unendlich  viele  Primzahlen  enthält,    <span 
+class="ecti-1200">Abhandlungen  der  K</span><span 
+class="ecti-1200">öniglich</span>
+     <span 
+class="ecti-1200">Preussischen Akademie der Wissenschaften</span>, pages 45–81, 1837.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XdlVP96"></a>[dlVP96] <span class="bibsp">   </span></span>  C.-J.  de  la  Vallée  Poussin,   Recherches  analytiques  sur  la  théorie  des
+     nombres premiers, <span 
+class="ecti-1200">Ann. Soc. Sci. Bruxelles</span>, 20, 1896.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XWal36"></a>[Wal36] <span class="bibsp">   </span></span> A. Walﬁsz, Zur additiven Zahlentheorie. II, <span 
+class="ecti-1200">Math. Z.</span>, 40:592–607, 1936.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XRS94"></a>[RS94] <span class="bibsp">   </span></span>  M. Rubinstein  and  P. Sarnak,    Chebyshev’s  bias,    <span 
+class="ecti-1200">Experiment.  Math.</span>,
+     3(3):173–197, 1994.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XBom65"></a>[Bom65] <span class="bibsp">   </span></span> E. Bombieri, On the large sieve, <span 
+class="ecti-1200">Mathematika</span>, 12:201–225, 1965.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XVin65"></a>[Vin65] <span class="bibsp">   </span></span> A. I. Vinogradov,  The density hypothesis for Dirichlet \(L\)-series,  <span 
+class="ecti-1200">Izv. Akad.</span>
+     <span 
+class="ecti-1200">Nauk SSSR Ser. Mat.</span>, 29, 1965.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XSel49"></a>[Sel49] <span class="bibsp">   </span></span>  A. Selberg,   On  elementary  methods  in  prime  number  theory  and  their
+     limitations,   In  <span 
+class="ecti-1200">Den  11te  Skandinaviske  Matematikerkongress,  Trondheim,  1949</span>,
+     Johan Grundt Tanums Forlag, Oslo, 1952.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XZha14"></a>[Zha14] <span class="bibsp">   </span></span> Y. Zhang, Bounded gaps between primes, <span 
+class="ecti-1200">Ann. of Math.</span>, 179(3):1121–1174,
+     2014.
+     </p>
+                                                                                       
+                                                                                       
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XMay15"></a>[May15] <span class="bibsp">   </span></span> J. Maynard,  Small gaps between primes,  <span 
+class="ecti-1200">Ann. of Math.</span>, 181(1):383–413,
+     2015.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XPol14"></a>[Pol14] <span class="bibsp">   </span></span> D. H. J. Polymath,  Variants of the Selberg sieve, and bounded intervals
+     containing many primes, <span 
+class="ecti-1200">Res. Math. Sci.</span>, 1, Art. 12, 2014.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XPas25"></a>[Pas25] <span class="bibsp">   </span></span> A. Pascadi, On the exponents of distribution of primes and smooth numbers,
+     <a 
+href="https://arxiv.org/abs/2505.00653" >arXiv:2505.00653</a>, 2025.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XWakil26"></a>[Wakil26] <span class="bibsp">   </span></span> K. Wakil, Constitutional Forcing, ARC Institute of Knowware, preprint,
+     2026.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XWakil26d"></a>[Wakil26d] <span class="bibsp">   </span></span> K. Wakil, Ternary Forcing on the Hexagonal Lattice: Eisenstein Integers,
+     Cascade Moduli, and a Conjectured Level of Distribution 5/8,  ARC Institute of
+     Knowware, preprint, 2026.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XKla16"></a>[Kla16] <span class="bibsp">   </span></span> E. Klarreich, Mathematicians discover prime conspiracy, <span 
+class="ecti-1200">Quanta Magazine</span>,
+     13 March 2016.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XLam16"></a>[Lam16] <span class="bibsp">   </span></span> E. Lamb,   Peculiar pattern found in “random”  prime numbers,   <span 
+class="ecti-1200">Nature</span>
+     (news), 14 March 2016; reprinted in <span 
+class="ecti-1200">Scientiﬁc American</span>.
+</p>
+     </div>
+    
+</body></html> 
+
+                                                                                       
+
+

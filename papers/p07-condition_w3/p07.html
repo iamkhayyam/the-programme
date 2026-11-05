@@ -1,224 +1,1110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Condition W3 — Wakil 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Condition W3</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<!-- xhtml,mathjax,charset=utf-8,html --> 
+<meta name="src" content="p07.tex" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
-@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
-:root{--linen:#e8e4dc;--ink:#111;--mid:#444;--light:#888;--rule:#ccc;--lrule:#ddd;--bg:#faf9f6;--note-bg:#f4f2ee;--accent:#8B0000;--link:#1a3a7c;--sidebar-w:220px;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{font-size:14px;}
-body{background:var(--linen);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;}
-.site-header{border-bottom:1px solid var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:50px;background:var(--linen);position:sticky;top:0;z-index:100;}
-.site-logo{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.88rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);text-decoration:none;line-height:1.1;}
-.site-logo span{display:block;font-size:.58rem;letter-spacing:.22em;color:var(--light);font-weight:300;}
-.site-nav{display:flex;gap:1.8rem;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;}
-.site-nav a{color:var(--ink);text-decoration:none;}
-.preprint-bar{border-bottom:1px solid var(--rule);padding:.5rem 2rem;display:flex;align-items:center;justify-content:space-between;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);font-family:'IBM Plex Mono',monospace;}
-.preprint-bar .series-tag{color:var(--ink);font-weight:500;}
-.page-body{max-width:1080px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:var(--sidebar-w) 1fr;gap:0;}
-.sidebar{border-right:1px solid var(--rule);padding:2.5rem 1.8rem 2.5rem 0;position:sticky;top:50px;height:calc(100vh - 50px);overflow-y:auto;}
-.sb-label{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
-.sb-num{font-family:'IBM Plex Sans',sans-serif;font-size:3.2rem;font-weight:300;line-height:1;color:var(--ink);letter-spacing:-.02em;margin-bottom:1.8rem;}
-.sb-meta{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;color:var(--light);line-height:2;text-transform:uppercase;margin-bottom:1.8rem;}
-.sb-meta strong{color:var(--ink);display:block;font-weight:500;font-size:.55rem;margin-top:.6rem;}
-.sb-meta strong:first-child{margin-top:0;}
-.sb-links{margin-bottom:1.8rem;}
-.sb-link{display:block;font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;text-transform:uppercase;color:var(--link);text-decoration:none;padding:.35rem 0;border-bottom:1px solid var(--lrule);line-height:1.4;}
-.sb-link:last-child{border-bottom:none;}
-.sb-link:hover{color:var(--accent);}
-.sb-link .sb-link-label{color:var(--light);display:block;font-size:.48rem;}
-.series-index{list-style:none;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.04em;line-height:2.1;text-transform:uppercase;color:var(--light);}
-.series-index a{color:var(--light);text-decoration:none;}
-.series-index a:hover{color:var(--ink);}
-.series-index .curr{color:var(--ink);font-weight:500;}
-.series-index .curr::before{content:'→ ';}
-.paper{padding:2.5rem 0 4rem 2.8rem;background:var(--bg);min-height:calc(100vh - 50px);}
-.paper-header{text-align:center;padding-bottom:2rem;border-bottom:1px solid var(--rule);margin-bottom:2rem;}
-.paper-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--light);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem;}
-.paper-label a{color:var(--link);text-decoration:none;}
-h1.title{font-family:'STIX Two Text','Times New Roman',serif;font-weight:600;font-size:1.45rem;line-height:1.35;color:var(--ink);margin-bottom:1rem;}
-.authors{font-family:'IBM Plex Sans',sans-serif;font-size:.82rem;color:var(--mid);margin-bottom:.4rem;}
-.affiliation{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--light);font-style:italic;margin-bottom:1rem;}
-.paper-date{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--light);}
-.abstract-block{margin:0 2rem 1.5rem;padding:1.2rem 1.5rem;background:var(--note-bg);border:1px solid var(--rule);}
-.abs-label{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mid);margin-bottom:.7rem;text-align:center;}
-.abstract-block p{font-family:'STIX Two Text',serif;font-size:.88rem;line-height:1.65;color:var(--mid);text-align:justify;margin:0;}
-.keywords{margin:.8rem 2rem 1.5rem;font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;color:var(--light);text-align:center;}
-.keywords strong{color:var(--mid);font-weight:500;}
-.paper-meta-strip{display:flex;gap:1.5rem;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;padding:.8rem 1rem;border-top:1px solid var(--lrule);border-bottom:1px solid var(--lrule);}
-.meta-pill{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--light);}
-.meta-pill a{color:var(--link);text-decoration:none;border-bottom:1px solid var(--lrule);}
-.meta-pill a:hover{color:var(--accent);}
-.paper-body{font-family:'STIX Two Text','Times New Roman',serif;font-size:1rem;line-height:1.72;color:var(--ink);max-width:640px;}
-.paper-body p{text-align:justify;margin-bottom:.9em;hyphens:auto;}
-.paper-body h2{font-family:'STIX Two Text',serif;font-weight:600;font-size:1.05rem;color:var(--ink);margin:2.2rem 0 .8rem;counter-increment:section;}
-.paper-body h2::before{content:counter(section) '.  ';color:var(--accent);}
-.paper-body{counter-reset:section;}
-.paper-body h3{font-family:'STIX Two Text',serif;font-weight:600;font-size:.92rem;color:var(--mid);margin:1.5rem 0 .5rem;font-style:italic;}
-.eq-label{display:flex;align-items:center;justify-content:space-between;margin:1.2rem 0;}
-.eq-content{flex:1;text-align:center;font-family:'STIX Two Text',serif;font-size:1.02rem;}
-.eq-num{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);width:44px;text-align:right;}
-.env-block{margin:1.4rem 0;padding:1rem 1.2rem;font-family:'STIX Two Text',serif;font-size:.95rem;line-height:1.65;}
-.env-block.theorem{border:1px solid var(--rule);border-left:4px solid var(--ink);background:var(--note-bg);}
-.env-block.proposition{border:1px solid var(--rule);border-left:4px solid var(--mid);background:var(--note-bg);}
-.env-block.lemma{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
-.env-block.corollary{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
-.env-block.definition{border:1px solid var(--rule);border-left:4px solid var(--accent);background:#fff8f8;}
-.env-block.remark{border-left:3px solid var(--accent);background:#fff8f8;padding:.8rem 1.2rem;}
-.env-block.conjecture{border:1px dashed var(--rule);border-left:4px dashed var(--ink);background:var(--note-bg);}
-.env-label{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);margin-bottom:.5rem;}
-.env-block.remark .env-label,.env-block.definition .env-label{color:var(--accent);}
-.proof{margin:.5rem 0 1.2rem 1.5rem;font-family:'STIX Two Text',serif;font-size:.92rem;line-height:1.65;color:var(--mid);}
-.proof-label{font-family:'IBM Plex Sans',sans-serif;font-style:italic;font-size:.8rem;color:var(--light);margin-bottom:.3rem;}
-.qed{float:right;font-size:1rem;color:var(--mid);}
-table.formal{width:100%;border-collapse:collapse;margin:1.2rem 0 1rem;font-size:.85rem;font-family:'STIX Two Text',serif;}
-table.formal th{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid var(--ink);border-top:1px solid var(--ink);padding:.5rem .8rem;text-align:left;}
-table.formal td{padding:.45rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;}
-table.formal tr:last-child td{border-bottom:1px solid var(--ink);}
-.table-caption{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--mid);text-align:center;margin-bottom:1.5rem;font-style:italic;}
-.table-caption strong{font-style:normal;font-weight:500;}
-em{font-style:italic;}strong{font-weight:600;}
-sup{font-size:.7em;vertical-align:super;color:var(--accent);}
-sub{font-size:.7em;vertical-align:sub;}
-.next-paper{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--ink);max-width:640px;}
-.next-label{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
-.next-title{font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;}
-.next-title a{color:var(--ink);text-decoration:none;}
-.next-title a:hover{color:var(--link);}
-.next-desc{font-family:'STIX Two Text',serif;font-size:.88rem;color:var(--light);margin-top:.25rem;font-style:italic;}
-.references{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);max-width:640px;}
-.ref-list{list-style:none;counter-reset:refs;}
-.ref-list li{counter-increment:refs;padding-left:36px;position:relative;margin-bottom:.6rem;font-family:'STIX Two Text',serif;font-size:.82rem;line-height:1.5;color:var(--mid);}
-.ref-list li::before{content:'['counter(refs)']';position:absolute;left:0;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);}
-.site-footer{border-top:1px solid var(--ink);padding:.9rem 2rem;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);}
-@media(max-width:760px){.page-body{grid-template-columns:1fr;}.sidebar{position:static;height:auto;border-right:none;border-bottom:1px solid var(--rule);padding:1.5rem 0;}.paper{padding:1.5rem 0;}.preprint-bar{display:none;}.series-index{display:none;}.abstract-block{margin:0 0 1.5rem;}}
-</style>
+ 
+/* start css.sty */
+.cmr-10{font-size:83%;}
+.cmcsc-10{font-size:83%;}
+.cmbx-12{ font-weight: bold;}
+.cmbx-12{ font-weight: bold;}
+.cmti-12{ font-style: italic;}
+.cmti-10{font-size:83%; font-style: italic;}
+.cmbx-10{font-size:83%; font-weight: bold;}
+.cmbx-10{ font-weight: bold;}
+.cmtt-10{font-size:83%;font-family: monospace,monospace;}
+.small-caps{font-variant: small-caps; }
+p{margin-top:0;margin-bottom:0}
+p.indent{text-indent:0;}
+p + p{margin-top:1em;}
+p + div, p + pre {margin-top:1em;}
+div + p, pre + p {margin-top:1em;}
+a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+@media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+img.math{vertical-align:middle;}
+div.par-math-display, div.math-display{text-align:center;}
+li p.indent { text-indent: 0em }
+li p:first-child{ margin-top:0em; }
+li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
+li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+code.verb{font-family:monospace,monospace;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
+.hline:first-child{border-bottom:1px solid black;border-top:none;}
+.tabbing-right {text-align:right;}
+div.float, div.figure {margin-left: auto; margin-right: auto;}
+div.float img {text-align:center;}
+div.figure img {text-align:center;}
+.marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.reversemarginpar{float:left;}
+table.equation {width:100%;}
+.equation td{text-align:center; }
+td.equation { margin-top:1em; margin-bottom:1em; } 
+td.equation-label { width:5%; text-align:center; }
+td.eqnarray4 { width:5%; white-space: normal; }
+td.eqnarray2 { width:5%; }
+table.eqnarray-star, table.eqnarray {width:100%;}
+div.eqnarray{text-align:center;}
+div.array {text-align:center;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.pmatrix img{vertical-align:middle;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.bar-css {text-decoration:overline;}
+img.cdots{vertical-align:middle;}
+span.footnote-mark{ vertical-align: super; font-size:80%; }
+div.submaketitle{ text-align:left; margin-top:2em; border-top: 1px solid black; border-bottom: 1px solid black; margin-left:5%; margin-right:5%; font-size:85%; line-height: 95%;}
+div.submaketitle div {margin-top:0.5em; margin-bottom:0.5em; }
+div.submaketitle p { margin-top:0em; margin-bottom:0em; }
+div.abstract{ margin-top: 2em; text-align:left; margin-right:15pt; margin-left:15pt; }
+div.addresses p {margin-top:0em; margin-bottom:0em; }
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; text-align:center; }
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption span.id{font-weight: bold; white-space: nowrap; }
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.qed {width:2ex; float:right; text-align:right;}
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+div.translators {text-align:right; margin-bottom:0.7em;}
+.sectionHead{text-align:center;}
+.equation td{text-align:center; }
+.equation-star td{text-align:center; }
+table.equation-star { width:100%; }
+table.equation { width:100%; }
+table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:95%; margin-left:5%; white-space: nowrap;}
+table.align-star, table.alignat-star, table.xalignat-star, table.flalign-star {margin-left:auto; margin-right:auto; white-space: nowrap;}
+td.align-label { width:5%; text-align:center; }
+td.align-odd { text-align:right; padding-right:0.3em;}
+td.align-even { text-align:left; padding-right:0.6em;}
+table.multline, table.multline-star {width:100%;}
+td.gather {text-align:center; }
+table.gather {width:100%;}
+div.gather-star {text-align:center;}
+dl.enumerate-enumitem{display:grid; grid-template-columns: 3ch 1fr; align-items: top; row-gap:1ch;}
+/* end css.sty */
 
-</head>
-<body>
-<header class="site-header">
-  <a href="https://knowware.institute" class="site-logo">KNOWWARE<span>THE &nbsp; A.R.C &nbsp; INSTITUTE</span></a>
-  <nav class="site-nav"><a href="../../papers/index.html">Pre-Print</a><a href="https://knowware.institute/contact">Contact</a></nav>
-</header>
-<div class="preprint-bar">
-  <span>ARC Institute of Knowware · 2026</span>
-  <span class="series-tag">Constitutional Sieve Programme · Nine Papers</span>
-  <span>math.NT · 11M20, 11R42, 11N13 · Fisher Creek Ranch, Alberta</span>
-</div>
-<div class="page-body">
-  <aside class="sidebar">
-    <div class="sb-label">Paper</div><div class="sb-num">07</div>
-    <div class="sb-meta"><strong>Author</strong>Khayyam Wakil<strong>Published</strong>February 2026<strong>Series</strong>Constitutional Sieve Programme<strong>MSC 2020</strong>11M20, 11R42, 11N13, 11R37</div>
-    <div class="sb-links">
-      <a class="sb-link" href="p07.pdf" target="_blank">
-        <span class="sb-link-label">Download · PDF</span>
-        p07.pdf → View
-      </a>
-      <a class="sb-link" href="p07.tex" target="_blank">
-        <span class="sb-link-label">LaTeX Source</span>
-        p07.tex → View
-      </a>
+
+body{max-width:48rem;margin:2rem auto;padding:0 1rem;font-family:"STIX Two Text","Times New Roman",serif;font-size:17px;line-height:1.55;color:#1a1a1a;background:#faf9f6}
+h2,h3,h4{line-height:1.3} .maketitle{text-align:center;margin-bottom:2rem} table{border-collapse:collapse;margin:1rem auto} td{padding:2px 8px}
+img{max-width:100%;height:auto} .abstract{margin:1.5rem 0;padding:1rem 1.25rem;background:#f4f2ee}
+@media (prefers-color-scheme: dark){body{background:#151515;color:#e8e6e1} .abstract{background:#222} a{color:#9bb8ff}}
+</style> 
+<script>window.MathJax = { tex: { tags: "ams", macros: {"Z": "\\mathbb{Z}", "Q": "\\mathbb{Q}", "C": "\\mathbb{C}", "R": "\\mathbb{R}", "F": "\\mathbb{F}", "Zomega": "\\Z[\\omega]", "Qomega": "\\Q(\\omega)", "K": "\\mathcal{K}", "OK": "\\mathcal{O}_{\\K}", "Nf": "\\mathrm{N}", "disc": "\\mathrm{disc}", "cond": "\\mathfrak{f}", "pp": "\\mathfrak{p}", "qq": "\\mathfrak{q}"} } }; </script> 
+ <script type="text/javascript" async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml-full.js"></script>  
+</head><body 
+>
+  <div class="maketitle">
+  <h2 class="titleHead">
+CONDITION W3: ABSENCE OF SIEGEL ZEROS FOR CHARACTERS
+MODULO \(3^K\)
+  </h2>
+  <div class="authors"><span class="author" >
+<span 
+class="cmr-10">KHAYYAM WAKIL</span>
+  </span></div>
+         <div class="abstract">
+       <!--l. 64--><p class="noindent" ><span class="title">
+       <span 
+class="cmcsc-10">A<span 
+class="small-caps">b</span><span 
+class="small-caps">s</span><span 
+class="small-caps">t</span><span 
+class="small-caps">r</span><span 
+class="small-caps">a</span><span 
+class="small-caps">c</span><span 
+class="small-caps">t</span>.</span> </span><span 
+class="cmr-10">We prove Condition</span><span 
+class="cmr-10"> W3: for every primitive Dirichlet character</span> \(\chi \) <span 
+class="cmr-10">modulo</span> \(q = 3^K\)<span 
+class="cmr-10">, the</span>
+       \(L\)<span 
+class="cmr-10">-function</span> \(L(s, \chi )\) <span 
+class="cmr-10">has no real zero in the region</span> \(\sigma &gt; 1 - c/\!\log q\)<span 
+class="cmr-10">, for an absolute, eﬀectively computable constant</span> \(c &gt; 0\)<span 
+class="cmr-10">.</span>
+       <span 
+class="cmr-10">The statement is classical, and its proof takes one line: the group</span> \((\Z /3^K\Z )^\times \) <span 
+class="cmr-10">is cyclic of even order, so</span>
+       <span 
+class="cmr-10">the only real non-principal character modulo</span> \(3^K\) <span 
+class="cmr-10">is the one induced from the character</span> \(\chi _{-3}\) <span 
+class="cmr-10">modulo</span>
+       \(3\)<span 
+class="cmr-10">; an exceptional zero can only belong to a real character; and</span> \(L(\sigma ,\chi _{-3}) &gt; 0\) <span 
+class="cmr-10">for</span> \(\sigma &gt; 0\)<span 
+class="cmr-10">. As context we record,</span>
+       <span 
+class="cmr-10">with corrections, the arithmetic of</span> \(\Q (\omega )\) <span 
+class="cmr-10">that the original version used: the base change</span> \(\chi \circ \mathrm {N}\) <span 
+class="cmr-10">of a</span>
+       <span 
+class="cmr-10">character</span> \(\chi \) <span 
+class="cmr-10">modulo</span> \(3^K\) <span 
+class="cmr-10">takes the value</span> \(\chi (n)^2\) <span 
+class="cmr-10">on the ideal</span> \((n)\)<span 
+class="cmr-10">, its conductor is</span> \(\mathfrak p^{2K-1}\) <span 
+class="cmr-10">for</span> \(K \geq 2\)<span 
+class="cmr-10">, and</span> \(L(s,\chi \circ \mathrm {N}) = L(s,\chi )L(s,\chi \chi _{-3})\)<span 
+class="cmr-10">. Condition</span><span 
+class="cmr-10"> W3</span>
+       <span 
+class="cmr-10">does not make any level of distribution unconditional, and nothing in it is speciﬁc to the</span>
+       <span 
+class="cmr-10">prime</span> \(3\)<span 
+class="cmr-10">.</span></p></div>
+<div class="submaketitle">
+  <div class="date" >
+<!--l. 82--><p class="indent" >  <span 
+class="cmti-12">Date</span>: February 2026; revised November 2026.</p></div>
+  <div class="subjclass">
+<!--l. 82--><p class="indent" >  2020 <span 
+class="cmti-12">Mathematics Subject Classiﬁcation.  </span>11M20, 11R42, 11R11 .</p></div>
+  <div class="keywords">
+<!--l. 82--><p class="indent" >  <span 
+class="cmti-12">Key words and phrases. </span>Siegel zeros, exceptional zeros, Dirichlet \(L\)-functions, cyclic groups, Hecke
+characters, Eisenstein integers, cascade moduli.</p></div></div></div>
+<!--l. 84--><p class="noindent" ><span 
+class="cmbx-12">Revision note (November 2026). </span>The proof through a “Stark–Baker theorem” for CM ﬁelds is
+replaced by the one-line cyclicity argument, and the former Theorem 3.2 is withdrawn: as stated,
+it would solve the Landau–Siegel zero problem. The lifting identity \(\chi (n) = \Psi _\chi ((n))\) of the former Proposition 2.5
+is withdrawn: the base change \(\chi \circ \Nf \) gives \(\chi (n)^2\), its conductor is \(\pp ^{2K-1}\) (not \(\pp ^{2K}\)) for \(K \geq 2\), and the norm map onto \((\Z /3^K\Z )^\times \) has
+image of index \(2\). The claim that the argument is speciﬁc to \(3\) (former Proposition 5.1) is
+withdrawn, as is the statement that \(2\) splits in \(\Zomega \) (it is inert, since \(-3 \equiv 5 \pmod 8\)). The table of “Watt
+conditions” (former Theorem 7.1), the claim that W3 implies \(\theta _f \leq 7/32\), the zero-density estimate
+quoted with it, and the “unconditional level of distribution \(5/8\)” (former Corollary 7.2) are
+withdrawn. The case \(K = 1\), the Minkowski bound and the computation of \(\Nf (1-\omega )\) are corrected, and
+the reference to a “[NOTE]” in the companion paper, which does not exist there, is
+removed.
+</p>
+                                                                                         
+                                                                                         
+  <h3 class="sectionHead"><a 
+ id="x1-1000"></a>Contents</h3>
+  <div class="tableofcontents"><span class="sectionToc" ><a 
+href="#x1-1000" id="QQ2-1-1">Contents</a></span><br /><span class="sectionToc" > 1.  <a 
+href="#x1-20001" id="QQ2-1-2">Setup and Statement</a></span><br /><span class="subsectionToc" > 1.1.  <a 
+href="#x1-30001.1" id="QQ2-1-3">Context</a></span><br /><span class="subsectionToc" > 1.2.  <a 
+href="#x1-40001.2" id="QQ2-1-4">Main
+theorem</a></span><br /><span class="subsectionToc" > 1.3.  <a 
+href="#x1-50001.3" id="QQ2-1-5">Notation and conventions</a></span><br /><span class="sectionToc" > 2.  <a 
+href="#x1-60002" id="QQ2-1-6">Proof of Condition
+W3</a></span><br /><span class="sectionToc" > 3.  <a 
+href="#x1-70003" id="QQ2-1-7">The ﬁeld \(\mathbb {Q}(\omega )\) (context)</a></span><br /><span class="sectionToc" > 4.  <a 
+href="#x1-80004" id="QQ2-1-8">Base change of characters modulo \(3^K\)
+(context)</a></span><br /><span class="subsectionToc" > 4.1.  <a 
+href="#x1-90004.1" id="QQ2-1-9">Hecke characters of ﬁnite order</a></span><br /><span class="subsectionToc" > 4.2.  <a 
+href="#x1-100004.2" id="QQ2-1-10">The base change
+\(\chi \circ \mathrm{N}\)</a></span><br /><span class="subsectionToc" > 4.3.  <a 
+href="#x1-110004.3" id="QQ2-1-11">The \(L\)-function factorisation</a></span><br /><span class="sectionToc" > 5.  <a 
+href="#x1-120005" id="QQ2-1-12">The former “Stark–Baker
+theorem” (withdrawn)</a></span><br /><span class="sectionToc" > 6.  <a 
+href="#x1-130006" id="QQ2-1-13">Relation to the companion paper and
+to Watt’s theorem</a></span><br /><span class="sectionToc" ><a 
+href="#x1-14000" id="QQ2-1-14">References</a></span><br />
+  </div>
+  <h3 class="sectionHead"><span class="titlemark">1. </span> <a 
+ id="x1-20001"></a>Setup and Statement</h3>
+<!--l. 107--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">1.1. </span> <a 
+ id="x1-30001.1"></a><span 
+class="cmbx-12">Context.</span></span>
+  This paper is p07 of a nine-paper programme <span class="cite">[<a 
+href="#XWakilCF">9</a>]</span>. The companion paper <span class="cite">[<a 
+href="#XWakilEisenstein">10</a>]</span> (p04) concerns
+primes in arithmetic progressions to the moduli \(q = 3^K\). The original version of the present paper
+presented Condition W3 below as the third of three hypotheses “(W1)–(W3)” of Watt’s
+theorem <span class="cite">[<a 
+href="#XWatt1995">8</a>]</span>, and claimed that proving it made a level of distribution \(5/8\) for these moduli
+unconditional. Both claims are withdrawn (Section <a 
+href="#x1-130006">6<!--tex4ht:ref: sec:relation --></a>): Watt’s theorem has no such hypotheses,
+and the level \(5/8\) for each single modulus \(3^K\) is a conjecture in <span class="cite">[<a 
+href="#XWakilEisenstein">10</a>]</span>, which would go beyond what the
+Generalised Riemann Hypothesis gives. The name “Condition W3” is kept as a label for the
+following classical statement.
+</p>
+<!--l. 121--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">1.2. </span> <a 
+ id="x1-40001.2"></a><span 
+class="cmbx-12">Main theorem.</span></span>
+</p>
+  <div class="newtheorem">
+<!--l. 123--><p class="noindent" ><span class="head">
+<a 
+ id="x1-4001r1"></a>
+<span 
+class="cmbx-12">Theorem 1.1 </span>(Condition W3)<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">Let</span> \(K \geq 1\) <span 
+class="cmti-12">and let</span> \(\chi \) <span 
+class="cmti-12">be a primitive Dirichlet character modulo</span> \(q = 3^K\)<span 
+class="cmti-12">.</span>
+<span 
+class="cmti-12">Then</span> \(L(s,\chi )\) <span 
+class="cmti-12">has no real zero in the region </span>\[ \sigma &gt; 1 - \frac {c}{\log q} \] <span 
+class="cmti-12">for an absolute, eﬀectively computable constant</span> \(c &gt; 0\)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 131--><p class="indent" >
+  The proof (Section <a 
+href="#x1-60002">2<!--tex4ht:ref: sec:proof --></a>) uses only the cyclicity of \((\Z /3^K\Z )^\times \), the classical zero-free region for Dirichlet
+\(L\)-functions, and the positivity of \(L(\sigma ,\chi _{-3})\). Sections <a 
+href="#x1-70003">3<!--tex4ht:ref: sec:field --></a> and <a 
+href="#x1-80004">4<!--tex4ht:ref: sec:basechange --></a> record, with corrections, the arithmetic of \(\Qomega \) that
+the original version used; it is context only and is not needed for the proof. Section <a 
+href="#x1-120005">5<!--tex4ht:ref: sec:stark --></a> explains why
+the “Stark–Baker theorem” of the original version is withdrawn, and Section <a 
+href="#x1-130006">6<!--tex4ht:ref: sec:relation --></a> explains
+why W3 has no consequence for any level of distribution beyond the Siegel–Walﬁsz
+range.
+                                                                                         
+                                                                                         
+</p>
+<!--l. 143--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">1.3. </span> <a 
+ id="x1-50001.3"></a><span 
+class="cmbx-12">Notation and conventions.</span></span>
+  Throughout: \(\omega = e^{2\pi i/3}\), so \(\omega ^2 + \omega + 1 = 0\). We write \(\K = \Qomega = \Q (\sqrt {-3})\), with ring of integers \(\OK = \Zomega \). The prime \(\pp = (1-\omega )\) is the unique prime of \(\Zomega \) above \(3\),
+with \(\Nf (\pp ) = 3\) and \((3) = \pp ^2\). We write \(\varepsilon = \chi _{-3} = \bigl (\tfrac {-3}{\cdot }\bigr )\) for the non-principal character modulo \(3\), which is the quadratic character of \(\K /\Q \).
+For a Dirichlet character \(\chi \), \(\cond (\chi )\) is its conductor. All constants are absolute and eﬀectively computable
+unless stated otherwise.
+</p>
+  <h3 class="sectionHead"><span class="titlemark">2. </span> <a 
+ id="x1-60002"></a>Proof of Condition W3</h3>
+  <div class="newtheorem">
+<!--l. 160--><p class="noindent" ><span class="head">
+<a 
+ id="x1-6001r1"></a>
+<span 
+class="cmbx-12">Lemma 2.1 </span>(Real characters modulo \(3^K\))<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">For</span> \(K \geq 1\)<span 
+class="cmti-12">, the group</span> \((\Z /3^K\Z )^\times \) <span 
+class="cmti-12">is cyclic of order</span> \(2\cdot 3^{K-1}\)<span 
+class="cmti-12">, and there</span>
+<span 
+class="cmti-12">is exactly one real non-principal character modulo</span> \(3^K\)<span 
+class="cmti-12">, namely the character induced by</span> \(\chi _{-3}\)<span 
+class="cmti-12">. Its</span>
+\(L\)<span 
+class="cmti-12">-function is</span> \(L(s,\chi _{-3})\)<span 
+class="cmti-12">. In particular, for</span> \(K \geq 2\) <span 
+class="cmti-12">every primitive character modulo</span> \(3^K\) <span 
+class="cmti-12">is complex.</span>
+</p>
+  </div>
+<!--l. 167--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 170--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>The powers of \(2\) modulo \(9\) are \(2, 4, 8, 7, 5, 1\), so \(2\) is a primitive root modulo \(9\), hence modulo every
+\(3^K\) <span class="cite">[<a 
+href="#XIrelandRosen1990">4</a>, Ch. 4]</span> (and trivially modulo \(3\)). The character group of a cyclic group of even order is
+cyclic of the same order and has exactly one element of order \(2\). The character induced by \(\chi _{-3}\)
+is real and non-principal, so it is that element. Since \(\chi _{-3}(n) = 0\) already when \(3 \mid n\), the induced character
+coincides with \(\chi _{-3}\) as a function on \(\Z \), and the two \(L\)-functions are equal. Its conductor is \(3\), so it is
+not primitive modulo \(3^K\) for \(K \geq 2\). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+  <div class="newtheorem">
+<!--l. 181--><p class="noindent" ><span class="head">
+<a 
+ id="x1-6002r2"></a>
+<span 
+class="cmbx-12">Lemma 2.2 </span>(Positivity of \(L(\sigma ,\chi _{-3})\))<span 
+class="cmbx-12">.</span>  </span> \(L(\sigma ,\chi _{-3}) &gt; 0\) <span 
+class="cmti-12">for every real</span> \(\sigma &gt; 0\)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 184--><p class="indent" >
+</p>
+                                                                                         
+                                                                                         
+  <div class="proof">
+<!--l. 187--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>For \(\sigma &gt; 0\) the series \(\sum _n \chi _{-3}(n)n^{-\sigma }\) converges, and grouping consecutive non-zero terms gives \[ L(\sigma ,\chi _{-3}) = \sum _{m \geq 0}\bigl ((3m+1)^{-\sigma } - (3m+2)^{-\sigma }\bigr ), \] a series of
+positive terms. <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+<!--l. 195--><p class="noindent" >For example, \(L(0,\chi _{-3}) = 1/3\) and \(L(1,\chi _{-3}) = \pi /(3\sqrt 3) = 0.6045\ldots \).
+</p>
+  <div class="newtheorem">
+<!--l. 198--><p class="noindent" ><span class="head">
+<a 
+ id="x1-6003r3"></a>
+<span 
+class="cmbx-12">Theorem 2.3 </span>(Classical zero-free region; see <span class="cite">[<a 
+href="#XDavenport2000">2</a>, Ch. 14]</span>)<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">There is an absolute, eﬀectively</span>
+<span 
+class="cmti-12">computable constant</span> \(c_0 \in (0,1]\) <span 
+class="cmti-12">with the following property. Let</span> \(q \geq 3\) <span 
+class="cmti-12">and let</span> \(\chi \) <span 
+class="cmti-12">be a non-principal character</span>
+<span 
+class="cmti-12">modulo</span> \(q\)<span 
+class="cmti-12">. If</span> \(\chi \) <span 
+class="cmti-12">is not real,</span> \(L(s,\chi )\) <span 
+class="cmti-12">has no zero in the region</span> \(\sigma \geq 1 - c_0/\log \bigl (q(|t|+2)\bigr )\)<span 
+class="cmti-12">. If</span> \(\chi \) <span 
+class="cmti-12">is real,</span> \(L(s,\chi )\) <span 
+class="cmti-12">has at most one zero in this</span>
+<span 
+class="cmti-12">region, and such a zero is real and simple.</span>
+</p>
+  </div>
+<!--l. 206--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 208--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof of Theorem</span><span 
+class="cmti-12"> </span><a 
+href="#x1-4001r1"><span 
+class="cmti-12">1.1</span><!--tex4ht:ref: thm:W3 --></a><span 
+class="cmti-12">.</span> </span> Let \(c = c_0/2\), with \(c_0\) as in Theorem <a 
+href="#x1-6003r3">2.3<!--tex4ht:ref: thm:classical --></a>, and suppose that \(\beta \) is a real zero of \(L(s,\chi )\)
+with \(\beta &gt; 1 - c/\log q\). Since \(L(s,\chi ) \neq 0\) for \(\sigma \geq 1\), we have \(\beta &lt; 1\). Since \(q \geq 3\), \(\log (2q) \leq 2\log q\), so \(\beta &gt; 1 - c_0/\log (2q)\), and \(s = \beta \) lies in the region of Theorem <a 
+href="#x1-6003r3">2.3<!--tex4ht:ref: thm:classical --></a> (with \(t = 0\)).
+</p><!--l. 215--><p class="indent" >  If \(K \geq 2\), then \(\chi \) is not real (Lemma <a 
+href="#x1-6001r1">2.1<!--tex4ht:ref: lem:real --></a>), and Theorem <a 
+href="#x1-6003r3">2.3<!--tex4ht:ref: thm:classical --></a> excludes \(\beta \). If \(K = 1\), the only primitive
+character modulo \(3\) is \(\chi = \chi _{-3}\), and \(L(\beta ,\chi _{-3}) &gt; 0\) by Lemma <a 
+href="#x1-6002r2">2.2<!--tex4ht:ref: lem:positive --></a>. In either case we reach a contradiction. <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+  <div class="newtheorem">
+<!--l. 221--><p class="noindent" ><span class="head">
+<a 
+ id="x1-6004r4"></a>
+<span 
+class="cmti-12">Remark </span>2.4 (The one-line argument, and a slightly stronger statement)<span 
+class="cmti-12">.</span>  </span>  In  one  line:  \((\Z /3^K\Z )^\times \)  is
+cyclic of even order, so the only real non-principal character modulo \(3^K\) is induced from \(\chi _{-3}\); an
+exceptional zero can only belong to a real character; so any exceptional zero modulo \(3^K\) would
+be a zero of the single ﬁxed function \(L(s,\chi _{-3})\), which is positive on \((0,1]\). The same argument shows that
+no non-principal character modulo \(3^K\), primitive or not, has a zero in the region of Theorem <a 
+href="#x1-6003r3">2.3<!--tex4ht:ref: thm:classical --></a>
+                                                                                         
+                                                                                         
+with \(q = 3^K\): the moduli \(3^K\) have no exceptional zero. Consequently the prime number theorem for
+arithmetic progressions to these moduli holds in the Siegel–Walﬁsz range with eﬀectively
+computable constants <span class="cite">[<a 
+href="#XDavenport2000">2</a>, Ch. 20]</span>.
+</p>
+  </div>
+<!--l. 233--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 235--><p class="noindent" ><span class="head">
+<a 
+ id="x1-6005r5"></a>
+<span 
+class="cmti-12">Remark </span>2.5 (Nothing here is speciﬁc to \(3\))<span 
+class="cmti-12">.</span>  </span> The proof uses only that \((\Z /3^K\Z )^\times \) is cyclic of even order
+and that one ﬁxed real \(L\)-function has no real zero near \(1\). For every odd prime \(\ell \), \((\Z /\ell ^K\Z )^\times \) is cyclic of
+even order, and the only real non-principal character modulo \(\ell ^K\) is induced from the Legendre
+symbol \((\cdot /\ell )\). Hence, for each ﬁxed \(\ell \), the same argument proves Condition W3 for the moduli \(\ell ^K\),
+with a constant \(c_\ell &gt; 0\) that depends on \(\ell \) (through the largest real zero of \(L(s,(\cdot /\ell ))\) in \((0,1)\), if there is one). A
+constant uniform in \(\ell \) would exclude Siegel zeros for the real characters of prime conductor,
+which is an open problem. Likewise, the ﬁeld \(\Qomega \) plays no special role: \(\Q (\sqrt {-7})\), \(\Q (\sqrt {-11})\), \(\Q (\sqrt {-19})\), \(\Q (\sqrt {-43})\), \(\Q (\sqrt {-67})\) and \(\Q (\sqrt {-163})\) also have
+class number \(1\), and each is ramiﬁed at a single prime \(\ell \), with \((\ell ) = \mathfrak l^2\).
+</p>
+  </div>
+<!--l. 250--><p class="indent" >
+</p>
+  <h3 class="sectionHead"><span class="titlemark">3. </span> <a 
+ id="x1-70003"></a>The ﬁeld \(\Qomega \) (context)</h3>
+  <div class="newtheorem">
+<!--l. 257--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7001r1"></a>
+<span 
+class="cmbx-12">Proposition 3.1 </span>(Arithmetic of \(\Qomega \))<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">The ﬁeld</span> \(\K = \Qomega = \Q (\sqrt {-3})\) <span 
+class="cmti-12">is imaginary quadratic, hence a CM ﬁeld; its</span>
+<span 
+class="cmti-12">maximal totally real subﬁeld is</span> \(\Q \)<span 
+class="cmti-12">. Its ring of integers is</span> \(\Zomega \)<span 
+class="cmti-12">, its discriminant is</span> \(-3\)<span 
+class="cmti-12">, its class number</span>
+<span 
+class="cmti-12">is</span> \(h_\K = 1\)<span 
+class="cmti-12">, and its unit group is</span> \(\mu _6 = \{\pm 1, \pm \omega , \pm \omega ^2\}\)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 263--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 266--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>Since \(-3 \equiv 1 \pmod 4\), the ring of integers is \(\Z \bigl [\tfrac {1+\sqrt {-3}}{2}\bigr ] = \Zomega \), with discriminant \(-3\). The Minkowski bound equals \((2/\pi )\sqrt {3} \approx 1.10\), so
+                                                                                         
+                                                                                         
+every ideal class contains an integral ideal of norm at most \(1.10\), that is, of norm \(1\); hence \(h_\K = 1\). The
+units are the six solutions of \(a^2 - ab + b^2 = 1\), namely \(\pm 1, \pm \omega , \pm \omega ^2\). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+  <div class="newtheorem">
+<!--l. 274--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7002r2"></a>
+<span 
+class="cmti-12">Remark </span>3.2<span 
+class="cmti-12">.</span>  </span>\(\K \) is one of the nine imaginary quadratic ﬁelds of class number one, \(\Q (\sqrt {-d})\) with \(d \in \{1,2,3,7,11,19,43,67,163\}\), as
+proved by Heegner <span class="cite">[<a 
+href="#XHeegner1952">3</a>]</span>, Baker <span class="cite">[<a 
+href="#XBaker1966">1</a>]</span> and Stark <span class="cite">[<a 
+href="#XStark1967">7</a>]</span>. That \(\Zomega \) is a principal ideal domain was known
+long before; the class-number-one theorem plays no role in this paper.
+</p>
+  </div>
+<!--l. 280--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 282--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7003r3"></a>
+<span 
+class="cmbx-12">Proposition 3.3 </span>(Ramiﬁcation of \(3\))<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">In</span> \(\Zomega \)<span 
+class="cmti-12">, the rational prime</span> \(3\) <span 
+class="cmti-12">ramiﬁes:</span> \((3) = \pp ^2\) <span 
+class="cmti-12">where</span> \(\pp = (1-\omega )\) <span 
+class="cmti-12">and</span> \(\Nf (\pp ) = 3\)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 286--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 289--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>\(\Nf (1-\omega ) = (1-\omega )(1-\bar \omega ) = 1 - (\omega + \bar \omega ) + \omega \bar \omega = 1 - (-1) + 1 = 3\); equivalently, \(\Nf (a+b\omega ) = a^2-ab+b^2\) gives \(\Nf (1-\omega ) = 1+1+1 = 3\). Since \(1+\omega +\omega ^2=0\), we have \(3 = -\omega ^2(1-\omega )^2\), and \(-\omega ^2 \in \Zomega ^\times \). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+  <div class="newtheorem">
+<!--l. 295--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7004r4"></a>
+<span 
+class="cmti-12">Remark </span>3.4<span 
+class="cmti-12">.</span>  </span>The prime \(3\) is the only rational prime that ramiﬁes in \(\K \): a prime \(\ell \) ramiﬁes in \(\K \) if
+and only if \(\ell \mid \disc (\K ) = -3\) <span class="cite">[<a 
+href="#XNeukirch1999">6</a>]</span>. This is not special to \(3\): in the same way, \(\ell \) is the only prime ramiﬁed in \(\Q (\sqrt {-\ell })\) for \(\ell = 7, 11, 19, 43, 67, 163\)
+(Remark <a 
+href="#x1-6005r5">2.5<!--tex4ht:ref: rem:notspecific --></a>).
+</p>
+  </div>
+                                                                                         
+                                                                                         
+<!--l. 301--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 303--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7005r5"></a>
+<span 
+class="cmbx-12">Lemma 3.5 </span>(Splitting of primes \(\ell \neq 3\))<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">A prime</span> \(\ell \neq 3\) <span 
+class="cmti-12">splits in</span> \(\K \) <span 
+class="cmti-12">into two distinct primes of norm</span> \(\ell \) <span 
+class="cmti-12">if</span>
+\(\ell \equiv 1 \pmod 3\)<span 
+class="cmti-12">, and is inert, with</span> \(\Zomega /(\ell ) \cong \F _{\ell ^2}\)<span 
+class="cmti-12">, if</span> \(\ell \equiv 2 \pmod 3\)<span 
+class="cmti-12">. In particular</span> \(2\) <span 
+class="cmti-12">is inert and</span> \(\Zomega /(2) \cong \F _4\)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 309--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 312--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>Since  \(\Zomega \cong \Z [x]/(x^2+x+1)\),  the  prime  \(\ell \)  splits  if  \(x^2 + x + 1\)  has  a  root  modulo  \(\ell \)  and  is  inert  otherwise  (the
+Dedekind–Kummer criterion <span class="cite">[<a 
+href="#XNeukirch1999">6</a>]</span>; for \(\ell \neq 3\) there is no repeated root, as the discriminant of \(x^2+x+1\) is \(-3\)).
+A root \(r\) satisﬁes \(r^3 = 1\) and \(r \neq 1\) (as \(3 \not \equiv 0 \pmod \ell \)), so a root exists if and only if \(\F _\ell ^\times \) has an element of order \(3\), that is,
+if and only if \(3 \mid \ell - 1\). For \(\ell = 2\) this agrees with the usual criterion for \(2\) in \(\Q (\sqrt d)\) with \(d \equiv 1 \pmod 4\) (\(2\) splits if \(d \equiv 1 \pmod 8\) and is inert
+if \(d \equiv 5 \pmod 8\)), since \(-3 \equiv 5 \pmod 8\). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+  <h3 class="sectionHead"><span class="titlemark">4. </span> <a 
+ id="x1-80004"></a>Base change of characters modulo \(3^K\) (context)</h3>
+<!--l. 329--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">4.1. </span> <a 
+ id="x1-90004.1"></a><span 
+class="cmbx-12">Hecke characters of ﬁnite order.</span></span>
+  Let \(\mathfrak m\) be a nonzero ideal of \(\OK \). Since \(\K \) is imaginary quadratic, a Hecke character of ﬁnite order of \(\K \)
+with modulus \(\mathfrak m\) is a homomorphism \(\Psi \) from the group of fractional ideals of \(\K \) prime to \(\mathfrak m\) to \(\C ^\times \) such that \(\Psi ((\alpha )) = 1\)
+for every \(\alpha \in \OK \) with \(\alpha \equiv 1 \pmod {\mathfrak m}\); that is, a character of the ray class group modulo \(\mathfrak m\). Its conductor \(\cond (\Psi )\) is the smallest
+such modulus. We put \(\Psi (\mathfrak a) = 0\) for integral ideals \(\mathfrak a\) not prime to \(\mathfrak m\), and \[ L(s, \Psi ) = \sum _{\mathfrak a} \Psi (\mathfrak a)\Nf (\mathfrak a)^{-s} = \prod _{\qq } \bigl (1 - \Psi (\qq )\,\Nf (\qq )^{-s}\bigr )^{-1}, \qquad \Re s &gt; 1, \] where \(\mathfrak a\) runs over nonzero integral
+ideals and \(\qq \) over prime ideals.
+</p>
+<!--l. 347--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">4.2. </span> <a 
+ id="x1-100004.2"></a><span 
+class="cmbx-12">The base change</span> \(\chi \circ \Nf \)<span 
+class="cmbx-12">.</span></span>
+</p>
+  <div class="newtheorem">
+<!--l. 349--><p class="noindent" ><span class="head">
+<a 
+ id="x1-10001r1"></a>
+                                                                                         
+                                                                                         
+<span 
+class="cmbx-12">Proposition 4.1 </span>(Base change of characters modulo \(3^K\))<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">Let</span> \(K \geq 1\)<span 
+class="cmti-12">, let</span> \(\chi \) <span 
+class="cmti-12">be a Dirichlet character modulo</span>
+\(3^K\)<span 
+class="cmti-12">, and put</span> \(\Psi _\chi (\mathfrak a) = \chi (\Nf \mathfrak a)\) <span 
+class="cmti-12">for nonzero integral ideals</span> \(\mathfrak a\) <span 
+class="cmti-12">of</span> \(\Zomega \) <span 
+class="cmti-12">(so</span> \(\Psi _\chi (\mathfrak a) = 0\) <span 
+class="cmti-12">if</span> \(\pp \mid \mathfrak a\)<span 
+class="cmti-12">).</span>
+          </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+    <span 
+class="cmti-12">(i)</span> </dt><dd 
+class="enumerate-enumitem">\(\Psi _\chi \) <span 
+class="cmti-12">is a Hecke character of ﬁnite order with modulus</span> \(\pp ^{2K}\)<span 
+class="cmti-12">, and</span> \(\Psi _\chi ((n)) = \chi (n)^2\) <span 
+class="cmti-12">for every</span> \(n \in \Z \)<span 
+class="cmti-12">.</span>
+          </dd><dt class="enumerate-enumitem">
+   <span 
+class="cmti-12">(ii)</span> </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">The image of the norm map</span> \((\OK /\pp ^{2K})^\times \to (\Z /3^K\Z )^\times \) <span 
+class="cmti-12">is the subgroup</span> \(\{n \equiv 1 \pmod 3\}\)<span 
+class="cmti-12">, of index</span><span 
+class="cmti-12"> </span>\(2\)<span 
+class="cmti-12">. Consequently</span> \(\Psi _\chi = \Psi _{\chi \varepsilon }\)<span 
+class="cmti-12">, and the map</span>
+       \(\chi \mapsto \Psi _\chi \) <span 
+class="cmti-12">is two-to-one.</span>
+          </dd><dt class="enumerate-enumitem">
+  <span 
+class="cmti-12">(iii)</span> </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">If</span> \(\chi \) <span 
+class="cmti-12">is primitive, then</span> \(\Psi _\chi \) <span 
+class="cmti-12">is the trivial character when</span> \(K = 1\)<span 
+class="cmti-12">, and</span> \(\cond (\Psi _\chi ) = \pp ^{2K-1}\) <span 
+class="cmti-12">when</span> \(K \geq 2\)<span 
+class="cmti-12">.</span></dd></dl>
+  </div>
+<!--l. 365--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 368--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>(i) The norm is multiplicative, so \(\Psi _\chi \) is multiplicative, and since units have norm \(1\), \(\Psi _\chi ((\alpha )) = \chi (\Nf \alpha )\) does
+not depend on the generator \(\alpha \). If \(\alpha \in \OK \) and \(\alpha \equiv 1 \pmod {\pp ^{2K}}\), then \(\alpha = 1 + 3^K\beta \) with \(\beta \in \OK \), and \(\Nf (\alpha ) = 1 + 3^K\operatorname {Tr}(\beta ) + 3^{2K}\Nf (\beta ) \equiv 1 \pmod {3^K}\), so \(\Psi _\chi ((\alpha )) = 1\). Finally \(\Nf ((n)) = n^2\).
+</p><!--l. 375--><p class="indent" >  (ii) For \(\alpha = a + b\omega \) we have \(\Nf (\alpha ) = a^2 - ab + b^2 \equiv (a+b)^2 \pmod 3\), so every norm prime to \(3\) is \(\equiv 1 \pmod 3\). Conversely, the squares in the cyclic group \((\Z /3^K\Z )^\times \)
+of order \(2\cdot 3^{K-1}\) form its unique subgroup of index \(2\), which is therefore \(\{n \equiv 1 \pmod 3\}\), and \(m^2 = \Nf (m)\) for \(m \in \Z \). Hence the image
+is exactly \(\{n \equiv 1 \pmod 3\}\). Two characters modulo \(3^K\) agree on this subgroup if and only if they are equal
+or diﬀer by the unique non-trivial character trivial on it, which is \(\varepsilon \); this gives the last two
+assertions.
+</p><!--l. 385--><p class="indent" >  (iii) For \(K = 1\), \(\chi = \varepsilon \), and \(\varepsilon (\Nf \mathfrak a) = 1\) for every \(\mathfrak a\) prime to \(\pp \), by (ii). Let \(K \geq 2\). One checks that \(\operatorname {Tr}(\OK ) = \Z \) and \(\operatorname {Tr}(\pp ) = 3\Z \) (indeed \(\operatorname {Tr}((1-\omega )(a+b\omega )) = 3a\)); since
+\(\pp ^{2j} = 3^j\OK \), it follows that \(\operatorname {Tr}(\pp ^m) = 3^{\lceil m/2\rceil }\Z \). If \(\alpha = 1 + \beta \) with \(\beta \in \pp ^{2K-1}\), then \(\Nf (\alpha ) = 1 + \operatorname {Tr}(\beta ) + \Nf (\beta ) \equiv 1 \pmod {3^K}\), because \(\operatorname {Tr}(\beta ) \in 3^K\Z \) and \(\Nf (\beta ) \in 3^{2K-1}\Z \). So \(\pp ^{2K-1}\) is a modulus for \(\Psi _\chi \). On the other hand,
+for \(t \in \Z \) the element \(\alpha = 1 + 3^{K-1}t\) is \(\equiv 1 \pmod {\pp ^{2K-2}}\), and \(\Nf (\alpha ) = (1+3^{K-1}t)^2 \equiv 1 + 2\cdot 3^{K-1}t \pmod {3^K}\) because \(2K - 2 \geq K\); these values run through all classes \(\equiv 1 \pmod {3^{K-1}}\). A primitive \(\chi \) is
+non-trivial on that subgroup, so \(\pp ^{2K-2}\) is not a modulus for \(\Psi _\chi \), and \(\cond (\Psi _\chi ) = \pp ^{2K-1}\). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+<!--l. 402--><p class="indent" >  The conductor in (iii) agrees with the conductor–discriminant formula \(|\disc (\K )|\cdot \Nf \cond (\Psi _\chi ) = \cond (\chi )\,\cond (\chi \varepsilon )\), which for \(K \geq 2\) reads
+\(3 \cdot 3^{2K-1} = 3^K\cdot 3^K\).
+</p>
+  <div class="newtheorem">
+<!--l. 406--><p class="noindent" ><span class="head">
+<a 
+ id="x1-10005r2"></a>
+<span 
+class="cmti-12">Remark </span>4.2 (The lifting identity of the original version)<span 
+class="cmti-12">.</span>  </span>  The   original   version   (former
+Proposition 2.5) claimed, for every primitive \(\chi \) modulo \(3^K\), a primitive Hecke character \(\Psi _\chi \) of
+conductor \(\pp ^{2K}\) with \(\chi (n) = \Psi _\chi ((n))\) for all \(n\) prime to \(3\). No such character exists when \(\chi \) is odd: since \((n) = (-n)\), any function
+of ideals takes the same value at \(n\) and \(-n\), which forces \(\chi (-1) = 1\). Half of the characters modulo \(3^K\) are
+odd, because \(-1\) is the element of order \(2\) of the cyclic group \((\Z /3^K\Z )^\times \). The construction actually given
+                                                                                         
+                                                                                         
+was \(\Psi _\chi = \chi \circ \Nf \), for which (i) gives \(\chi (n)^2\); its conductor is \(\pp ^{2K-1}\), not \(\pp ^{2K}\), by (iii); and the norm map is not surjective,
+by (ii). In particular the ramiﬁcation of \(3\) does not make conductors “match”. The opposite
+is true: for a prime \(\ell \neq 3\), which is unramiﬁed, the base change of a primitive character modulo \(\ell ^K\)
+has conductor exactly \(\ell ^K\OK \), whereas at the ramiﬁed prime \(3\) the conductor drops to \(\pp ^{2K-1}\).
+</p>
+  </div>
+<!--l. 422--><p class="indent" >
+</p>
+<!--l. 424--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">4.3. </span> <a 
+ id="x1-110004.3"></a><span 
+class="cmbx-12">The</span> \(L\)<span 
+class="cmbx-12">-function factorisation.</span></span>
+</p>
+  <div class="newtheorem">
+<!--l. 426--><p class="noindent" ><span class="head">
+<a 
+ id="x1-11001r3"></a>
+<span 
+class="cmbx-12">Lemma 4.3 </span>(\(L\)-function factorisation)<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">For every Dirichlet character</span> \(\chi \) <span 
+class="cmti-12">modulo</span> \(3^K\)<span 
+class="cmti-12">,</span> \(K \geq 1\)<span 
+class="cmti-12">, </span>\[ L(s, \Psi _\chi ) = L(s, \chi ) \cdot L(s, \chi \varepsilon ) \qquad (\Re s &gt; 1), \] <span 
+class="cmti-12">and hence</span>
+<span 
+class="cmti-12">for all</span> \(s\)<span 
+class="cmti-12">, by analytic continuation.</span>
+</p>
+  </div>
+<!--l. 433--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 436--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>Both sides are Euler products; we compare the local factors at each rational prime \(\ell \).
+</p><!--l. 439--><p class="indent" >  \(\ell = 3\)<span 
+class="cmti-12">.</span> \(\Psi _\chi (\pp ) = \chi (3) = 0\), and \(\chi (3) = \chi \varepsilon (3) = 0\), so both local factors are \(1\).
+</p><!--l. 442--><p class="indent" >  \(\ell \equiv 1 \pmod {3}\) <span 
+class="cmti-12">(split). </span>Write \(\ell \Zomega = \qq _1\qq _2\) with \(\qq _1 \neq \qq _2\) of norm \(\ell \). The local factor of \(L(s, \Psi _\chi )\) is \((1-\chi (\ell )\ell ^{-s})^{-2}\). Since \(\varepsilon (\ell ) = 1\), this equals the product of
+the local factors of \(L(s,\chi )\) and \(L(s,\chi \varepsilon )\).
+</p><!--l. 448--><p class="indent" >  \(\ell \equiv 2 \pmod {3}\) <span 
+class="cmti-12">(inert, including</span> \(\ell = 2\)<span 
+class="cmti-12">). </span>Then \(\ell \Zomega = \qq \) is a prime of norm \(\ell ^2\), and \(\Psi _\chi (\qq ) = \chi (\ell ^2) = \chi (\ell )^2\). Since \(\varepsilon (\ell ) = -1\), the product of the local factors
+of \(L(s,\chi )\) and \(L(s,\chi \varepsilon )\) is \((1-\chi (\ell )\ell ^{-s})^{-1}(1+\chi (\ell )\ell ^{-s})^{-1} = (1-\chi (\ell )^2\ell ^{-2s})^{-1}\), the local factor of \(L(s,\Psi _\chi )\). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+  <div class="newtheorem">
+<!--l. 456--><p class="noindent" ><span class="head">
+<a 
+ id="x1-11002r4"></a>
+<span 
+class="cmti-12">Remark </span>4.4 (The twist \(\chi \varepsilon \), and the case \(K = 1\))<span 
+class="cmti-12">.</span>  </span> For \(K \geq 2\) and \(\chi \) primitive, \(\chi \varepsilon \) is again primitive modulo \(3^K\),
+since \(\varepsilon \) is trivial on \(\{n \equiv 1 \pmod {3^{K-1}}\}\), and \(\Psi _{\chi \varepsilon } = \Psi _\chi \). For \(K = 1\), \(\chi = \varepsilon \), and \(\chi \varepsilon = \varepsilon ^2\) is the principal character modulo \(3\), of conductor \(1\). Then
+\(\Psi _\varepsilon \) is trivial, and Lemma <a 
+href="#x1-11001r3">4.3<!--tex4ht:ref: lem:factor --></a> reads \(\zeta _\K (s)(1 - 3^{-s}) = L(s,\varepsilon )\,\zeta (s)(1-3^{-s})\), that is, \(\zeta _\K (s) = \zeta (s)L(s,\varepsilon )\). The original version stated that \(\chi \varepsilon \) is non-principal
+of conductor \(3^K\) for all \(K \geq 1\), and that \(\Psi _\varepsilon \) is primitive of conductor \(\pp ^2\); both are false for \(K = 1\). Indeed the
+                                                                                         
+                                                                                         
+ray class group of \(\K \) modulo \(\pp ^2\) is trivial, since the six units map onto \((\OK /\pp ^2)^\times \), which has order \(6\); so no
+non-trivial character of conductor \(\pp ^2\) exists.
+</p>
+  </div>
+<!--l. 471--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 473--><p class="noindent" ><span class="head">
+<a 
+ id="x1-11003r5"></a>
+<span 
+class="cmti-12">Remark </span>4.5<span 
+class="cmti-12">.</span>  </span>Lemma <a 
+href="#x1-11001r3">4.3<!--tex4ht:ref: lem:factor --></a> expresses \(L(s,\Psi _\chi )\) through two Dirichlet \(L\)-functions modulo \(3^K\). A zero-free
+region for \(L(s,\Psi _\chi )\) is therefore the same statement as a zero-free region for the pair \(L(s,\chi )\), \(L(s,\chi \varepsilon )\), and the
+passage to \(\Qomega \) adds nothing to Section <a 
+href="#x1-60002">2<!--tex4ht:ref: sec:proof --></a>.
+</p>
+  </div>
+<!--l. 479--><p class="indent" >
+</p>
+  <h3 class="sectionHead"><span class="titlemark">5. </span> <a 
+ id="x1-120005"></a>The former “Stark–Baker theorem” (withdrawn)</h3>
+<!--l. 486--><p class="noindent" >The original version derived Theorem <a 
+href="#x1-4001r1">1.1<!--tex4ht:ref: thm:W3 --></a> from the following statement, presented as a
+“Stark–Baker theorem” (former Theorem 3.2): <span 
+class="cmti-12">for every CM ﬁeld</span> \(F\) <span 
+class="cmti-12">and every Hecke character</span> \(\Psi \) <span 
+class="cmti-12">of</span> \(F\)
+<span 
+class="cmti-12">of conductor</span> \(\mathfrak f\)<span 
+class="cmti-12">,</span> \(L(s,\Psi )\) <span 
+class="cmti-12">has no real zero in</span> \(\sigma &gt; 1 - c_F/\log (\Nf (\mathfrak f)\,|\disc (F)|)\)<span 
+class="cmti-12">, with</span> \(c_F &gt; 0\) <span 
+class="cmti-12">eﬀective and depending only on</span> \([F:\Q ]\)<span 
+class="cmti-12">. </span>This is not a known
+theorem, and it is withdrawn, together with its proof sketch and the former Remark 3.3 and
+Corollary 3.4.
+</p><!--l. 495--><p class="indent" >  As stated it would solve the Landau–Siegel zero problem. Take \(F = \Q (\sqrt {-d})\), any imaginary quadratic ﬁeld
+(hence a CM ﬁeld of degree \(2\)), and \(\Psi \) trivial. Then \(L(s,\Psi ) = \zeta _F(s) = \zeta (s)L(s,\chi _{d_F})\), where \(d_F\) is the discriminant of \(F\) and \(\chi _{d_F}\) the
+associated quadratic character, and \(\zeta (\sigma ) &lt; 0\) for \(0 &lt; \sigma &lt; 1\). The statement would therefore give that \(L(s,\chi _{d_F})\)
+has no real zero in \(\sigma &gt; 1 - c/\log |d_F|\) for every imaginary quadratic ﬁeld, with \(c\) absolute and eﬀective.
+That is the open Landau–Siegel problem for these characters; via the class number
+formula it would also give an eﬀective lower bound \(h(d_F) \gg |d_F|^{1/2}/\log |d_F|\), far beyond the known eﬀective lower
+bounds.
+</p><!--l. 507--><p class="indent" >  What Heegner <span class="cite">[<a 
+href="#XHeegner1952">3</a>]</span>, Baker <span class="cite">[<a 
+href="#XBaker1966">1</a>]</span> and Stark <span class="cite">[<a 
+href="#XStark1967">7</a>]</span> proved is the class-number-one theorem: the nine
+ﬁelds listed after Proposition <a 
+href="#x1-7001r1">3.1<!--tex4ht:ref: prop:CM --></a> are the only imaginary quadratic ﬁelds of class number \(1\). It gives
+no zero-free region for Hecke \(L\)-functions of \(\Qomega \). The remark that Siegel zeros “remain possible” only for
+non-CM ﬁelds is also withdrawn, since every imaginary quadratic ﬁeld is a CM ﬁeld.
+None of this aﬀects Theorem <a 
+href="#x1-4001r1">1.1<!--tex4ht:ref: thm:W3 --></a>, whose proof in Section <a 
+href="#x1-60002">2<!--tex4ht:ref: sec:proof --></a> uses only the cyclicity of
+\((\Z /3^K\Z )^\times \).
+</p>
+  <h3 class="sectionHead"><span class="titlemark">6. </span> <a 
+ id="x1-130006"></a>Relation to the companion paper and to Watt’s theorem</h3>
+<!--l. 522--><p class="noindent" >The original Sections 5–7 (a proposition that the argument is speciﬁc to \(3\), a “coherence”
+                                                                                         
+                                                                                         
+proposition, a table verifying “Watt’s conditions” W1–W3, and a corollary asserting that the level
+of distribution \(\theta _W = 5/8\) for cascade moduli holds unconditionally) are withdrawn, for the following
+reasons.
+</p><!--l. 528--><p class="indent" >
+          </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   (1) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">Watt’s theorem has no conditions W1–W3. </span>N. Watt <span class="cite">[<a 
+href="#XWatt1995">8</a>]</span> proves a mean-value estimate
+       in the \(t\)-aspect for \(\int _0^T|\zeta (\tfrac 12+it)|^4\,\bigl |\sum _{m\leq M}a_m m^{-it}\bigr |^2\,dt\). It involves no family of Dirichlet characters modulo \(q\) and has no
+       hypotheses “\(M \leq q\)”, “\(MR \leq q^2\)” or “no Siegel zeros”. Moreover, with the parameters \(M = Q^{2/3}\) and \(R = Q^{1/3}\) used in
+       the original version of <span class="cite">[<a 
+href="#XWakilEisenstein">10</a>]</span>, “W1” fails for every \(3^K &lt; Q^{2/3}\) and “W2” for every \(3^K &lt; Q^{1/2}\), so these were
+       not veriﬁed for the family either (former Theorem 7.1).
+          </dd><dt class="enumerate-enumitem">
+   (2) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">W3 is unrelated to</span> \(\theta \leq 7/32\)<span 
+class="cmti-12">. </span>The bound \(\theta \leq 7/32\) is the Kim–Sarnak bound <span class="cite">[<a 
+href="#XKimSarnak2003">5</a>]</span> \(\lambda _1 \geq 1/4 - (7/64)^2\) towards Selberg’s
+       eigenvalue conjecture, written in the normalisation \(\theta = \sqrt {1 - 4\lambda _1}\). It is an unconditional theorem
+       about  Maass  forms  of  every  level,  and  neither  the  absence  of  Siegel  zeros  nor
+       any zero-density estimate implies it. The derivation of it in the original version is
+       withdrawn, together with the zero-density estimate quoted there, whose exponent
+       and source we could not conﬁrm.
+          </dd><dt class="enumerate-enumitem">
+   (3) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">W3 makes nothing unconditional. </span>Theorem 1.1 of <span class="cite">[<a 
+href="#XWakilEisenstein">10</a>]</span>, a sum over the moduli \(3^K \leq x^\theta \), holds
+       for every ﬁxed \(\theta &lt; 1\) by the trivial bound and the Siegel–Walﬁsz theorem. It does not need
+       W3, although Remark <a 
+href="#x1-6004r4">2.4<!--tex4ht:ref: rem:oneline --></a> makes its implied constant eﬀective. The per-modulus
+       statement for \(3^K\) up to \(x^{5/8-\varepsilon }\) is a conjecture in <span class="cite">[<a 
+href="#XWakilEisenstein">10</a>]</span>, which would go beyond the Generalised
+       Riemann Hypothesis. A zero-free region of width \(c/\log q\) cannot help with it: for \(q = x^\theta \) one has \(x^{1 - c/\log q} = e^{-c/\theta }x\), so
+       such a region gives no saving for moduli of size a power of \(x\). The former Corollary 7.2
+       is therefore withdrawn. (Its reference to an annotation “[NOTE]” in <span class="cite">[<a 
+href="#XWakilEisenstein">10</a>]</span> was also
+       wrong: there is none.)
+          </dd><dt class="enumerate-enumitem">
+   (4) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">No “coherence”. </span>The former Proposition 6.1 asserted that one fact, the ramiﬁcation
+       \((3) = \pp ^2\), drives three steps of <span class="cite">[<a 
+href="#XWakilEisenstein">10</a>]</span>: a three-level ﬁltration, Kloosterman cancellation beyond
+       the Weil bound, and a conductor match. All three are false. The \((1-\omega )\)-adic ﬁltration of
+       \(\Zomega /(3^K)\) has \(2K\) steps, not three. The bound \(|S(a,b;3^K)| \ll (3^K)^{3/8+\varepsilon }\) fails, since \(S(1,1;3^K) = 2\cdot 3^{K/2}\cos (4\pi /3^K)\) for even \(K \geq 2\) (see <span class="cite">[<a 
+href="#XWakilEisenstein">10</a>]</span>); and cyclicity of
+       \((\Z /\ell ^K\Z )^\times \) holds for every odd prime \(\ell \) and has nothing to do with \(\Zomega \). The conductor does not
+       match (Remark <a 
+href="#x1-10005r2">4.2<!--tex4ht:ref: rem:nolift --></a>).
+          </dd><dt class="enumerate-enumitem">
+   (5) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">Not speciﬁc to</span> \(3\)<span 
+class="cmti-12">. </span>The former Proposition 5.1 is withdrawn; see Remark <a 
+href="#x1-6005r5">2.5<!--tex4ht:ref: rem:notspecific --></a>. Its proof
+       also stated that \(2\) splits in \(\K \) “since \(-3 \equiv 1 \pmod 8\)”. In fact \(-3 \equiv 5 \pmod 8\), and \(2\) is inert (Lemma <a 
+href="#x1-7005r5">3.5<!--tex4ht:ref: lem:split --></a>). Its third
+       property, that characters of \((\Z /3^K\Z )^\times \) correspond precisely to Hecke characters of \(\K \) of conductor
+       \(\pp ^{2K}\), is false as well: the map \(\chi \mapsto \chi \circ \Nf \) is two-to-one (Proposition <a 
+href="#x1-10001r1">4.1<!--tex4ht:ref: prop:lift --></a>(ii)), and the ray class group
+       of \(\K \) modulo \(\pp ^{2K}\) has order \(3^{2K-2}\), not \(2\cdot 3^{K-1}\).</dd></dl>
+  <h3 class="sectionHead"><a 
+ id="x1-14000"></a>References</h3>
+<!--l. 582--><p class="noindent" >
+    </p><div class="thebibliography">
+                                                                                         
+                                                                                         
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[1]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XBaker1966"></a><span 
+class="cmr-10">A.</span><span 
+class="cmr-10"> Baker, Linear forms in the logarithms of algebraic numbers, </span><span 
+class="cmti-10">Mathematika </span><span 
+class="cmbx-10">13 </span><span 
+class="cmr-10">(1966), 204–216.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[2]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XDavenport2000"></a><span 
+class="cmr-10">H.</span><span 
+class="cmr-10"> Davenport, </span><span 
+class="cmti-10">Multiplicative Number Theory</span><span 
+class="cmr-10">, 3rd ed., revised by H.</span><span 
+class="cmr-10"> L.</span><span 
+class="cmr-10"> Montgomery, Graduate</span>
+    <span 
+class="cmr-10">Texts in Mathematics</span><span 
+class="cmr-10"> 74, Springer, New York, 2000.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[3]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XHeegner1952"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Heegner, Diophantische Analysis und Modulfunktionen, </span><span 
+class="cmti-10">Math.</span><span 
+class="cmti-10"> Z. </span><span 
+class="cmbx-10">56 </span><span 
+class="cmr-10">(1952), 227–253.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[4]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XIrelandRosen1990"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Ireland and M.</span><span 
+class="cmr-10"> Rosen, </span><span 
+class="cmti-10">A Classical Introduction to Modern Number Theory</span><span 
+class="cmr-10">, 2nd ed., Graduate</span>
+    <span 
+class="cmr-10">Texts in Mathematics</span><span 
+class="cmr-10"> 84, Springer, New York, 1990.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[5]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XKimSarnak2003"></a><span 
+class="cmr-10">H.</span><span 
+class="cmr-10"> H.</span><span 
+class="cmr-10"> Kim, Functoriality for the exterior square of</span> \(\mathrm {GL}_4\) <span 
+class="cmr-10">and the symmetric fourth of</span> \(\mathrm {GL}_2\) <span 
+class="cmr-10">(with Appendix</span><span 
+class="cmr-10"> 2</span>
+    <span 
+class="cmr-10">by H.</span><span 
+class="cmr-10"> H.</span><span 
+class="cmr-10"> Kim and P.</span><span 
+class="cmr-10"> Sarnak), </span><span 
+class="cmti-10">J.</span><span 
+class="cmti-10"> Amer.</span><span 
+class="cmti-10"> Math.</span><span 
+class="cmti-10"> Soc. </span><span 
+class="cmbx-10">16 </span><span 
+class="cmr-10">(2003), 139–183.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[6]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XNeukirch1999"></a><span 
+class="cmr-10">J.</span><span 
+class="cmr-10"> Neukirch, </span><span 
+class="cmti-10">Algebraic Number Theory</span><span 
+class="cmr-10">, Springer, Berlin, 1999.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[7]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XStark1967"></a><span 
+class="cmr-10">H.</span><span 
+class="cmr-10"> M.</span><span 
+class="cmr-10"> Stark,  A  complete  determination  of  the  complex  quadratic  ﬁelds  of  class-number  one,</span>
+    <span 
+class="cmti-10">Michigan Math.</span><span 
+class="cmti-10"> J. </span><span 
+class="cmbx-10">14 </span><span 
+class="cmr-10">(1967), 1–27.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[8]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWatt1995"></a><span 
+class="cmr-10">N.</span><span 
+class="cmr-10"> Watt, Kloosterman sums and a mean value for Dirichlet polynomials, </span><span 
+class="cmti-10">J.</span><span 
+class="cmti-10"> Number Theory </span><span 
+class="cmbx-10">53</span>
+    <span 
+class="cmr-10">(1995), 179–210.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[9]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilCF"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Constitutional Forcing, ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[10]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilEisenstein"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Ternary Forcing on the Hexagonal Lattice: Eisenstein Integers, Cascade Moduli, and a</span>
+    <span 
+class="cmr-10">Conjectured Level of Distribution</span><span 
+class="cmr-10"> </span>\(5/8\)<span 
+class="cmr-10">, ARC Institute of Knowware, preprint, 2026.</span>
+</p>
     </div>
-    <div class="sb-label" style="margin-bottom:.6rem;">Programme Index</div>
-    <ul class="series-index">
-      <li class=""><a href="../p01-constitutional-forcing/p01.html">01 · Constitutional Forcing</a></li>
-      <li class=""><a href="../p02-khayyams-triangle/p02.html">02 · Khayyam's Triangle</a></li>
-      <li class=""><a href="../p03-constitutional-signatures/p03.html">03 · Spherical Cow Philosophy</a></li>
-      <li class=""><a href="../p04-that-eisenstein-guy/p04.html">04 · Eisenstein, θ = 5/8</a></li>
-      <li class=""><a href="../p05-ramanujans-formula/p05.html">05 · Ramanujan's Formula</a></li>
-      <li class=""><a href="../p06-shannon-wakil/p06.html">06 · Shannon–Wakil Effect</a></li>
-      <li class="curr"><a href="p07.html">07 · Condition W3</a></li>
-      <li class=""><a href="../p08-prime-bias-ternary-bridge/p08.html">08 · Prime Digit Bias</a></li>
-      <li class=""><a href="../p09-wakil-theta-fft/p09.html">09 · DFT Constitutional Constant</a></li>
-    </ul>
-  </aside>
-  <article class="paper">
-    <div class="paper-header">
-      <div class="paper-label">Preprint · ARC Institute of Knowware · February 2026</div>
-      <h1 class="title">Condition W3: Absence of Siegel Zeros for Characters Modulo 3<sup><em>K</em></sup> via the CM Structure of Z[ω]</h1>
-      <div class="authors">Khayyam Wakil</div>
-      <div class="affiliation">The ARC Institute of Knowware, Calgary, Alberta, Canada</div>
-      <div class="paper-date">Submitted February 2026 &nbsp;·&nbsp; Constitutional Sieve Programme, Paper 07 of 09</div>
-    </div>
-    <div class="abstract-block">
-      <div class="abs-label">Abstract</div>
-      <p>We prove Condition W3: for every primitive Dirichlet character χ modulo <em>q</em> = 3<sup><em>K</em></sup>, the <em>L</em>-function <em>L</em>(<em>s</em>, χ) has no real zero in the region σ > 1 − <em>c</em>/log <em>q</em> for an absolute, effectively computable constant <em>c</em> > 0. This closes the gap marked [NOTE] in the companion paper [4] and renders the main theorem of that paper — level of distribution θ<sub>W</sub> = 5/8 for cascade moduli — unconditional.</p>
-      <p style="margin-top:.7em;">The proof has three steps, each using the same algebraic structure. <strong>Step 1 (Lifting).</strong> Every primitive character χ (mod 3<sup><em>K</em></sup>) lifts canonically to a primitive Hecke Grössencharacter Ψ<sub>χ</sub> of K = Q(ω) = Q(√−3) of conductor 𝔭<sup>2<em>K</em></sup>, where 𝔭 = (1−ω) is the unique prime of Z[ω] above 3. <strong>Step 2 (Stark–Baker).</strong> Since K is a CM field of class number 1, the Stark–Baker theorem excludes Siegel zeros for <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>) in an effective zero-free region. <strong>Step 3 (Transfer).</strong> The factorisation <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>) = <em>L</em>(<em>s</em>, χ)·<em>L</em>(<em>s</em>, χε) transfers the zero-free region to <em>L</em>(<em>s</em>, χ).</p>
-    </div>
-    <div class="keywords"><strong>Keywords:</strong> Siegel zeros, exceptional zeros, Dirichlet <em>L</em>-functions, Hecke Grössencharacters, CM fields, Eisenstein integers, Stark–Baker theorem, cascade moduli, Watt's theorem, level of distribution</div>
-    <div class="paper-meta-strip">
-      <span class="meta-pill">MSC 2020: 11M20 (primary) · 11R42 · 11N13 · 11R37</span>
-      <span class="meta-pill"><a href="../../papers/index.html">preprints.knowware.institute</a></span>
-      <span class="meta-pill"><a href="https://github.com/knowware-institute/constitutional-forcing">p07.tex source</a></span>
-    </div>
-    <div class="paper-body">
+  <div class="addresses">
+<!--l. 644--><p class="indent" >  <span class="address-title"></span><span class="address"><span 
+class="cmcsc-10">T<span 
+class="small-caps">h</span><span 
+class="small-caps">e</span> ARC I<span 
+class="small-caps">n</span><span 
+class="small-caps">s</span><span 
+class="small-caps">t</span><span 
+class="small-caps">i</span><span 
+class="small-caps">t</span><span 
+class="small-caps">u</span><span 
+class="small-caps">t</span><span 
+class="small-caps">e</span> <span 
+class="small-caps">o</span><span 
+class="small-caps">f</span> K<span 
+class="small-caps">n</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">w</span><span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">e</span>, C<span 
+class="small-caps">a</span><span 
+class="small-caps">l</span><span 
+class="small-caps">g</span><span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">y</span>, A<span 
+class="small-caps">l</span><span 
+class="small-caps">b</span><span 
+class="small-caps">e</span><span 
+class="small-caps">r</span><span 
+class="small-caps">t</span><span 
+class="small-caps">a</span>, C<span 
+class="small-caps">a</span><span 
+class="small-caps">n</span><span 
+class="small-caps">a</span><span 
+class="small-caps">d</span><span 
+class="small-caps">a</span></span></span>
+</p><!--l. 644--><p class="indent" >  <span class="email-title">   <span 
+class="cmti-10">Email address</span><span 
+class="cmr-10">: </span></span><span class="email"><span 
+class="cmtt-10">the@knowware.institute</span></span>
+</p>
+  </div> 
+</body></html> 
 
-      <h2>Setup and Statement</h2>
-      <p>Watt's theorem [3] converts triply-well-factorable sieve weights into a level-of-distribution bound, provided three conditions hold for the relevant Dirichlet characters. Conditions W1 and W2 are parameter bounds verified directly in the companion paper [4], Appendix A. Condition W3 — no Siegel zeros — is what this paper proves.</p>
+                                                                                         
 
-      <div class="env-block theorem">
-        <div class="env-label">Theorem 1.1 — Condition W3</div>
-        Let <em>K</em> ≥ 1 and let χ be a primitive Dirichlet character modulo <em>q</em> = 3<sup><em>K</em></sup>. Then <em>L</em>(<em>s</em>, χ) has no real zero in the region σ > 1 − <em>c</em>/log <em>q</em> for an absolute, effectively computable constant <em>c</em> > 0. Consequently, Watt's condition θ<sub>f</sub> ≤ 7/32 holds for this character family, and Watt's theorem applies unconditionally to cascade moduli, rendering Theorem 1.1 of [4] (level of distribution θ<sub>W</sub> = 5/8) unconditional.
-      </div>
 
-      <h2>Step 1: Lifting to a Hecke Character</h2>
-      <p>The key algebraic fact is that the ramification (3) = 𝔭² in Z[ω] makes the conductor of the lifted character in K = Q(ω) match the conductor of χ in Q exactly.</p>
-
-      <div class="env-block proposition">
-        <div class="env-label">Proposition 2.1 — Canonical Lifting</div>
-        Let χ be a primitive Dirichlet character modulo 3<sup><em>K</em></sup>. There exists a unique primitive Hecke Grössencharacter Ψ<sub>χ</sub> of K = Q(√−3) of conductor 𝔣 = 𝔭<sup>2<em>K</em></sup> such that χ(<em>n</em>) = Ψ<sub>χ</sub>((<em>n</em>)) for all <em>n</em> coprime to 3. The factorisation <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>) = <em>L</em>(<em>s</em>, χ)·<em>L</em>(<em>s</em>, χε) holds, where ε = (−3/·) is the quadratic character of K/Q.
-      </div>
-      <div class="proof">
-        <div class="proof-label">Proof sketch.</div>
-        The lifting is canonical because the ramification (3) = 𝔭² forces N(𝔭<sup>2K</sup>) = 3<sup>2K</sup> = <em>q</em>², but the conductor of Ψ<sub>χ</sub> restricted to Q recovers <em>q</em> exactly, since the ramification index e = 2 cancels in the conductor computation. The factorisation follows from the standard decomposition of Hecke <em>L</em>-functions over quadratic extensions. <span class="qed">□</span>
-      </div>
-
-      <h2>Step 2: The Stark–Baker Theorem for CM Fields</h2>
-      <div class="env-block theorem">
-        <div class="env-label">Theorem 2.1 — Stark–Baker (1967/1968)</div>
-        Let F be a CM field and let Ψ be a Hecke character of F of conductor 𝔣. Then <em>L</em>(<em>s</em>, Ψ) has no real zero in the region σ > 1 − <em>c</em><sub>F</sub>/log(N(𝔣)·|disc(F)|) for an effectively computable constant <em>c</em><sub>F</sub> > 0 depending only on [F:Q].
-      </div>
-
-      <div class="env-block proposition">
-        <div class="env-label">Proposition 3.1 — CM Structure of Q(ω)</div>
-        The field K = Q(ω) = Q(√−3) is a CM field: totally imaginary, quadratic over Q, with discriminant disc(K) = −3. Its class number is 1 (Z[ω] is a principal ideal domain). The Minkowski bound for Z[ω] is (2/π)√3 &lt; 2, so every ideal class contains an ideal of norm 1, i.e. the unit ideal. These properties together make K the optimal field for the Stark–Baker argument: the effective constant <em>c</em><sub>K</sub> is explicit and the zero-free region is the largest possible for a quadratic CM field.
-      </div>
-
-      <h2>Step 3: Transfer to <em>L</em>(<em>s</em>, χ)</h2>
-      <p>From Proposition 2.1: <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>) = <em>L</em>(<em>s</em>, χ)·<em>L</em>(<em>s</em>, χε). If <em>L</em>(<em>s</em>, χ) had a real zero β in the region σ > 1 − <em>c</em>/log <em>q</em>, then <em>L</em>(β, Ψ<sub>χ</sub>) = <em>L</em>(β, χ)·<em>L</em>(β, χε) = 0. But Stark–Baker (Theorem 2.1) guarantees no such zero for <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>). Contradiction. Hence <em>L</em>(<em>s</em>, χ) has no such zero. <span class="qed">□</span></p>
-
-      <h2>Specificity to <em>q</em> = 3<sup><em>K</em></sup></h2>
-      <div class="env-block theorem">
-        <div class="env-label">Theorem 5.1 — The Argument is Specific to Cascade Moduli</div>
-        The three properties of 3 in Z[ω] that make the proof work — (i) total ramification (3) = 𝔭²; (ii) cyclic unit group (Z/3<sup>K</sup>Z)* of order 2·3<sup>K−1</sup>; (iii) unique CM field Q(√−3) with class number 1 — do not simultaneously hold for any other prime-power family q = p<sup>K</sup>. The argument for Condition W3 is constitutionally specific to cascade moduli. This is not a limitation; it is part of the forcing.
-      </div>
-
-      <h2>Full Coherence: One Structure, Three Applications</h2>
-      <p>The Eisenstein structure of Z[ω] does three things at once: (1) it forces the triply-well-factorable decomposition of sieve weights (Part I of [4]); (2) it provides the cyclic Kloosterman cancellation that improves θ from 2/3 to 5/8 (Part II of [4]); (3) it provides the CM field structure that prevents Siegel zeros (this paper). The same algebraic structure does all three jobs simultaneously. This coherence is constitutional — not designed in, but forced by what Z[ω] is.</p>
-
-      <div class="next-paper">
-        <div class="next-label">Next in Programme</div>
-        <div class="next-title"><a href="../p08-prime-bias-ternary-bridge/p08.html">08 · Prime Digit Bias →</a></div>
-        <div class="next-desc">The Lemke Oliver–Soundararajan bias explained mechanistically. The mystery of why consecutive prime last digits avoid each other — and why the diminishment rate is precisely the Siegel–Walfisz convergence rate of ternary class equilibration.</div>
-      </div>
-
-      <div class="references">
-        <h2 style="counter-increment:none;">References</h2>
-        <ol class="ref-list">
-          <li>H. M. Stark, "A complete determination of the complex quadratic fields of class-number one," <em>Michigan Math. J.</em> 14 (1967), 1–27.</li>
-          <li>A. Baker, "Linear forms in the logarithms of algebraic numbers IV," <em>Mathematika</em> 15 (1968), 204–216.</li>
-          <li>A. Watt, "Kloosterman sums and a mean value for Dirichlet polynomials," <em>J. Number Theory</em> 53 (1995), 179–210.</li>
-          <li>K. Wakil, "Ternary Forcing on the Hexagonal Lattice," Constitutional Sieve Programme Paper 04 (2026).</li>
-          <li>H. Goldfeld and L. Szpiro, "Bounds for the order of the Tate-Shafarevich group," <em>Compositio Math.</em> 97 (1995), 71–87.</li>
-        </ol>
-      </div>
-    </div>
-  </article>
-</div>
-<footer class="site-footer">
-  <span>Knowware is measured in lifetimes</span><span>Constitutional Sieve Programme · Paper 07 of 09</span><span>Registered · Canada</span>
-</footer>
-</body></html>

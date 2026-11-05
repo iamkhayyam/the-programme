@@ -1,193 +1,1564 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Spherical Cow Philosophy — Wakil 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Spherical Cow Philosophy</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<!-- xhtml,mathjax,charset=utf-8,html --> 
+<meta name="src" content="p03.tex" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
-@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
-:root{--linen:#e8e4dc;--ink:#111;--mid:#444;--light:#888;--rule:#ccc;--lrule:#ddd;--bg:#faf9f6;--note-bg:#f4f2ee;--accent:#8B0000;--link:#1a3a7c;--sidebar-w:220px;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{font-size:14px;}
-body{background:var(--linen);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;}
-.site-header{border-bottom:1px solid var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:50px;background:var(--linen);position:sticky;top:0;z-index:100;}
-.site-logo{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.88rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);text-decoration:none;line-height:1.1;}
-.site-logo span{display:block;font-size:.58rem;letter-spacing:.22em;color:var(--light);font-weight:300;}
-.site-nav{display:flex;gap:1.8rem;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;}
-.site-nav a{color:var(--ink);text-decoration:none;}
-.preprint-bar{border-bottom:1px solid var(--rule);padding:.5rem 2rem;display:flex;align-items:center;justify-content:space-between;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);font-family:'IBM Plex Mono',monospace;}
-.preprint-bar .series-tag{color:var(--ink);font-weight:500;}
-.page-body{max-width:1080px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:var(--sidebar-w) 1fr;gap:0;}
-.sidebar{border-right:1px solid var(--rule);padding:2.5rem 1.8rem 2.5rem 0;position:sticky;top:50px;height:calc(100vh - 50px);overflow-y:auto;}
-.sb-label{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
-.sb-num{font-family:'IBM Plex Sans',sans-serif;font-size:3.2rem;font-weight:300;line-height:1;color:var(--ink);letter-spacing:-.02em;margin-bottom:1.8rem;}
-.sb-meta{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;color:var(--light);line-height:2;text-transform:uppercase;margin-bottom:1.8rem;}
-.sb-meta strong{color:var(--ink);display:block;font-weight:500;font-size:.55rem;margin-top:.6rem;}
-.sb-meta strong:first-child{margin-top:0;}
-.sb-links{margin-bottom:1.8rem;}
-.sb-link{display:block;font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;text-transform:uppercase;color:var(--link);text-decoration:none;padding:.35rem 0;border-bottom:1px solid var(--lrule);line-height:1.4;}
-.sb-link:last-child{border-bottom:none;}
-.sb-link:hover{color:var(--accent);}
-.sb-link .sb-link-label{color:var(--light);display:block;font-size:.48rem;}
-.series-index{list-style:none;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.04em;line-height:2.1;text-transform:uppercase;color:var(--light);}
-.series-index a{color:var(--light);text-decoration:none;}
-.series-index a:hover{color:var(--ink);}
-.series-index .curr{color:var(--ink);font-weight:500;}
-.series-index .curr::before{content:'→ ';}
-.paper{padding:2.5rem 0 4rem 2.8rem;background:var(--bg);min-height:calc(100vh - 50px);}
-.paper-header{text-align:center;padding-bottom:2rem;border-bottom:1px solid var(--rule);margin-bottom:2rem;}
-.paper-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--light);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem;}
-.paper-label a{color:var(--link);text-decoration:none;}
-h1.title{font-family:'STIX Two Text','Times New Roman',serif;font-weight:600;font-size:1.45rem;line-height:1.35;color:var(--ink);margin-bottom:1rem;}
-.authors{font-family:'IBM Plex Sans',sans-serif;font-size:.82rem;color:var(--mid);margin-bottom:.4rem;}
-.affiliation{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--light);font-style:italic;margin-bottom:1rem;}
-.paper-date{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--light);}
-.abstract-block{margin:0 2rem 1.5rem;padding:1.2rem 1.5rem;background:var(--note-bg);border:1px solid var(--rule);}
-.abs-label{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mid);margin-bottom:.7rem;text-align:center;}
-.abstract-block p{font-family:'STIX Two Text',serif;font-size:.88rem;line-height:1.65;color:var(--mid);text-align:justify;margin:0;}
-.keywords{margin:.8rem 2rem 1.5rem;font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;color:var(--light);text-align:center;}
-.keywords strong{color:var(--mid);font-weight:500;}
-.paper-meta-strip{display:flex;gap:1.5rem;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;padding:.8rem 1rem;border-top:1px solid var(--lrule);border-bottom:1px solid var(--lrule);}
-.meta-pill{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--light);}
-.meta-pill a{color:var(--link);text-decoration:none;border-bottom:1px solid var(--lrule);}
-.meta-pill a:hover{color:var(--accent);}
-.paper-body{font-family:'STIX Two Text','Times New Roman',serif;font-size:1rem;line-height:1.72;color:var(--ink);max-width:640px;}
-.paper-body p{text-align:justify;margin-bottom:.9em;hyphens:auto;}
-.paper-body h2{font-family:'STIX Two Text',serif;font-weight:600;font-size:1.05rem;color:var(--ink);margin:2.2rem 0 .8rem;counter-increment:section;}
-.paper-body h2::before{content:counter(section) '.  ';color:var(--accent);}
-.paper-body{counter-reset:section;}
-.paper-body h3{font-family:'STIX Two Text',serif;font-weight:600;font-size:.92rem;color:var(--mid);margin:1.5rem 0 .5rem;font-style:italic;}
-.eq-label{display:flex;align-items:center;justify-content:space-between;margin:1.2rem 0;}
-.eq-content{flex:1;text-align:center;font-family:'STIX Two Text',serif;font-size:1.02rem;}
-.eq-num{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);width:44px;text-align:right;}
-.env-block{margin:1.4rem 0;padding:1rem 1.2rem;font-family:'STIX Two Text',serif;font-size:.95rem;line-height:1.65;}
-.env-block.theorem{border:1px solid var(--rule);border-left:4px solid var(--ink);background:var(--note-bg);}
-.env-block.proposition{border:1px solid var(--rule);border-left:4px solid var(--mid);background:var(--note-bg);}
-.env-block.lemma{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
-.env-block.corollary{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
-.env-block.definition{border:1px solid var(--rule);border-left:4px solid var(--accent);background:#fff8f8;}
-.env-block.remark{border-left:3px solid var(--accent);background:#fff8f8;padding:.8rem 1.2rem;}
-.env-block.conjecture{border:1px dashed var(--rule);border-left:4px dashed var(--ink);background:var(--note-bg);}
-.env-label{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);margin-bottom:.5rem;}
-.env-block.remark .env-label,.env-block.definition .env-label{color:var(--accent);}
-.proof{margin:.5rem 0 1.2rem 1.5rem;font-family:'STIX Two Text',serif;font-size:.92rem;line-height:1.65;color:var(--mid);}
-.proof-label{font-family:'IBM Plex Sans',sans-serif;font-style:italic;font-size:.8rem;color:var(--light);margin-bottom:.3rem;}
-.qed{float:right;font-size:1rem;color:var(--mid);}
-table.formal{width:100%;border-collapse:collapse;margin:1.2rem 0 1rem;font-size:.85rem;font-family:'STIX Two Text',serif;}
-table.formal th{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid var(--ink);border-top:1px solid var(--ink);padding:.5rem .8rem;text-align:left;}
-table.formal td{padding:.45rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;}
-table.formal tr:last-child td{border-bottom:1px solid var(--ink);}
-.table-caption{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--mid);text-align:center;margin-bottom:1.5rem;font-style:italic;}
-.table-caption strong{font-style:normal;font-weight:500;}
-em{font-style:italic;}strong{font-weight:600;}
-sup{font-size:.7em;vertical-align:super;color:var(--accent);}
-sub{font-size:.7em;vertical-align:sub;}
-.next-paper{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--ink);max-width:640px;}
-.next-label{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
-.next-title{font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;}
-.next-title a{color:var(--ink);text-decoration:none;}
-.next-title a:hover{color:var(--link);}
-.next-desc{font-family:'STIX Two Text',serif;font-size:.88rem;color:var(--light);margin-top:.25rem;font-style:italic;}
-.references{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);max-width:640px;}
-.ref-list{list-style:none;counter-reset:refs;}
-.ref-list li{counter-increment:refs;padding-left:36px;position:relative;margin-bottom:.6rem;font-family:'STIX Two Text',serif;font-size:.82rem;line-height:1.5;color:var(--mid);}
-.ref-list li::before{content:'['counter(refs)']';position:absolute;left:0;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);}
-.site-footer{border-top:1px solid var(--ink);padding:.9rem 2rem;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);}
-@media(max-width:760px){.page-body{grid-template-columns:1fr;}.sidebar{position:static;height:auto;border-right:none;border-bottom:1px solid var(--rule);padding:1.5rem 0;}.paper{padding:1.5rem 0;}.preprint-bar{display:none;}.series-index{display:none;}.abstract-block{margin:0 0 1.5rem;}}
-</style>
+ 
+/* start css.sty */
+.cmr-10{font-size:83%;}
+.cmcsc-10{font-size:83%;}
+.cmti-10{font-size:83%; font-style: italic;}
+.cmbx-12{ font-weight: bold;}
+.cmbx-12{ font-weight: bold;}
+.cmti-12{ font-style: italic;}
+.cmbx-10{font-size:83%; font-weight: bold;}
+.cmbx-10{ font-weight: bold;}
+.cmtt-10{font-size:83%;font-family: monospace,monospace;}
+.small-caps{font-variant: small-caps; }
+p{margin-top:0;margin-bottom:0}
+p.indent{text-indent:0;}
+p + p{margin-top:1em;}
+p + div, p + pre {margin-top:1em;}
+div + p, pre + p {margin-top:1em;}
+a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+@media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+img.math{vertical-align:middle;}
+div.par-math-display, div.math-display{text-align:center;}
+li p.indent { text-indent: 0em }
+li p:first-child{ margin-top:0em; }
+li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
+li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+code.verb{font-family:monospace,monospace;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
+.hline:first-child{border-bottom:1px solid black;border-top:none;}
+.tabbing-right {text-align:right;}
+div.float, div.figure {margin-left: auto; margin-right: auto;}
+div.float img {text-align:center;}
+div.figure img {text-align:center;}
+.marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.reversemarginpar{float:left;}
+table.equation {width:100%;}
+.equation td{text-align:center; }
+td.equation { margin-top:1em; margin-bottom:1em; } 
+td.equation-label { width:5%; text-align:center; }
+td.eqnarray4 { width:5%; white-space: normal; }
+td.eqnarray2 { width:5%; }
+table.eqnarray-star, table.eqnarray {width:100%;}
+div.eqnarray{text-align:center;}
+div.array {text-align:center;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.pmatrix img{vertical-align:middle;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.bar-css {text-decoration:overline;}
+img.cdots{vertical-align:middle;}
+span.footnote-mark{ vertical-align: super; font-size:80%; }
+div.submaketitle{ text-align:left; margin-top:2em; border-top: 1px solid black; border-bottom: 1px solid black; margin-left:5%; margin-right:5%; font-size:85%; line-height: 95%;}
+div.submaketitle div {margin-top:0.5em; margin-bottom:0.5em; }
+div.submaketitle p { margin-top:0em; margin-bottom:0em; }
+div.abstract{ margin-top: 2em; text-align:left; margin-right:15pt; margin-left:15pt; }
+div.addresses p {margin-top:0em; margin-bottom:0em; }
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; text-align:center; }
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption span.id{font-weight: bold; white-space: nowrap; }
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.qed {width:2ex; float:right; text-align:right;}
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+div.translators {text-align:right; margin-bottom:0.7em;}
+.sectionHead{text-align:center;}
+.equation td{text-align:center; }
+.equation-star td{text-align:center; }
+table.equation-star { width:100%; }
+table.equation { width:100%; }
+table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:95%; margin-left:5%; white-space: nowrap;}
+table.align-star, table.alignat-star, table.xalignat-star, table.flalign-star {margin-left:auto; margin-right:auto; white-space: nowrap;}
+td.align-label { width:5%; text-align:center; }
+td.align-odd { text-align:right; padding-right:0.3em;}
+td.align-even { text-align:left; padding-right:0.6em;}
+table.multline, table.multline-star {width:100%;}
+td.gather {text-align:center; }
+table.gather {width:100%;}
+div.gather-star {text-align:center;}
+dl.enumerate-enumitem{display:grid; grid-template-columns: 3ch 1fr; align-items: top; row-gap:1ch;}
+/* end css.sty */
 
-</head>
-<body>
-<header class="site-header">
-  <a href="https://knowware.institute" class="site-logo">KNOWWARE<span>THE &nbsp; A.R.C &nbsp; INSTITUTE</span></a>
-  <nav class="site-nav"><a href="../../papers/index.html">Pre-Print</a><a href="https://knowware.institute/contact">Contact</a></nav>
-</header>
-<div class="preprint-bar">
-  <span>ARC Institute of Knowware · 2026</span>
-  <span class="series-tag">Constitutional Sieve Programme · Nine Papers</span>
-  <span>math.NT / 00A30 · Fisher Creek Ranch, Alberta</span>
-</div>
-<div class="page-body">
-  <aside class="sidebar">
-    <div class="sb-label">Paper</div><div class="sb-num">03</div>
-    <div class="sb-meta"><strong>Author</strong>Khayyam Wakil<strong>Published</strong>February 2026<strong>Series</strong>Constitutional Sieve Programme<strong>MSC 2020</strong>00A30, 00A35, 11N35, 11N36</div>
-    <div class="sb-links">
-      <a class="sb-link" href="p03.pdf" target="_blank">
-        <span class="sb-link-label">Download · PDF</span>
-        p03.pdf → View
-      </a>
-      <a class="sb-link" href="p03.tex" target="_blank">
-        <span class="sb-link-label">LaTeX Source</span>
-        p03.tex → View
-      </a>
-    </div>
-    <div class="sb-label" style="margin-bottom:.6rem;">Programme Index</div>
-    <ul class="series-index">
-      <li class=""><a href="../p01-constitutional-forcing/p01.html">01 · Constitutional Forcing</a></li>
-      <li class=""><a href="../p02-khayyams-triangle/p02.html">02 · Khayyam's Triangle</a></li>
-      <li class="curr"><a href="p03.html">03 · Spherical Cow Philosophy</a></li>
-      <li class=""><a href="../p04-that-eisenstein-guy/p04.html">04 · Eisenstein, θ = 5/8</a></li>
-      <li class=""><a href="../p05-ramanujans-formula/p05.html">05 · Ramanujan's Formula</a></li>
-      <li class=""><a href="../p06-shannon-wakil/p06.html">06 · Shannon–Wakil Effect</a></li>
-      <li class=""><a href="../p07-condition_w3/p07.html">07 · Condition W3</a></li>
-      <li class=""><a href="../p08-prime-bias-ternary-bridge/p08.html">08 · Prime Digit Bias</a></li>
-      <li class=""><a href="../p09-wakil-theta-fft/p09.html">09 · DFT Constitutional Constant</a></li>
-    </ul>
-  </aside>
-  <article class="paper">
-    <div class="paper-header">
-      <div class="paper-label">Preprint · ARC Institute of Knowware · February 2026</div>
-      <h1 class="title">Spherical Cow Philosophy: A Methodological Framework for Mathematical Discovery</h1>
-      <div class="authors">Khayyam Wakil</div>
-      <div class="affiliation">The ARC Institute of Knowware, Calgary, Alberta, Canada</div>
-      <div class="paper-date">Submitted February 2026 &nbsp;·&nbsp; Constitutional Sieve Programme, Paper 03 of 09</div>
-    </div>
-    <div class="abstract-block">
-      <div class="abs-label">Abstract</div>
-      <p>We present <em>spherical cow philosophy</em> — a methodological framework for mathematical discovery that complements classical proof-by-contradiction by accepting empirical constitutional constraints as foundational and deriving their forced consequences. Named after the physics heuristic of modelling complex systems through essential simplification, the approach inverts the usual hierarchy: instead of deriving special cases from universal axioms, we identify structural constraints that are empirically universal within a domain, derive what they force rigorously, and validate predictions across independent domains.</p>
-      <p style="margin-top:.7em;">The framework addresses a specific situation: when classical sieve methods encounter persistent structural barriers — such as the θ = 1/2 ceiling for twin primes over two centuries of effort — the productive path may be to accept the constitutional constraint (here, <em>p</em> ≡ 2 (mod 3) for all twin primes <em>p</em> > 3) as the natural entry point and derive its arithmetic consequences. The framework is explicitly falsifiable: it predicts a confirmed non-instance (Sophie Germain primes at θ = 1/2) and an open prediction (<em>k</em> = 4 constellation at θ = 3/4).</p>
-    </div>
-    <div class="keywords"><strong>Keywords:</strong> mathematical methodology, constitutional forcing, spherical cow, empirical constitution, twin primes, sieve theory, methodological pluralism, structural barriers, cross-domain validation</div>
-    <div class="paper-meta-strip">
-      <span class="meta-pill">MSC 2020: 00A30 (primary) · 00A35 · 11N35 · 11N36</span>
-      <span class="meta-pill"><a href="../../papers/index.html">preprints.knowware.institute</a></span>
-      <span class="meta-pill"><a href="https://github.com/knowware-institute/constitutional-forcing">p03.tex source</a></span>
-    </div>
-    <div class="paper-body">
-      <h2>Introduction: The Physics Analogy</h2>
-      <p>When physicists model heat transfer from a cow, they make a radical simplification: assume the cow is spherical. Strip away legs, spots, digestive complexity — keep only mass distribution and thermal properties. The spherical cow succeeds not despite its unrealism but because of it: it knows what to ignore. The simplification reveals what matters.</p>
-      <p>Classical mathematics has three canonical responses to a hard problem: assume falsehood and derive a contradiction; build from axioms toward the target; exhaust the available toolkit. These approaches work brilliantly when the problem is provable from accepted axioms. When they encounter a persistent structural barrier — one that resists centuries of effort by the best available methods — the barrier is information. It may be signalling that the productive formulation has not yet been identified.</p>
-      <p>Spherical cow philosophy provides a complementary response: <em>instead of asking how to overcome the barrier, ask what constitutional constraint the barrier is telling you exists</em>. Accept that constraint as the productive entry point. Derive what it forces. Validate the consequences.</p>
 
-      <h2>The Twin Prime Constitution</h2>
-      <div class="env-block theorem">
-        <div class="env-label">Proposition 4.1 — Twin Prime Constitutional Signature</div>
-        Every twin prime pair (<em>p</em>, <em>p</em>+2) with <em>p</em> > 3 satisfies <em>p</em> ≡ 2 (mod 3) and <em>p</em>+2 ≡ 1 (mod 3).
-      </div>
-      <div class="proof">
-        <div class="proof-label">Proof.</div>
-        Among any three consecutive integers, exactly one is divisible by 3. For the pair (<em>p</em>, <em>p</em>+2): if <em>p</em> ≡ 0 (mod 3), then 3 ∣ <em>p</em>, contradicting primality. If <em>p</em> ≡ 1 (mod 3), then <em>p</em>+2 ≡ 0 (mod 3), contradicting primality of <em>p</em>+2. Therefore <em>p</em> ≡ 2 (mod 3) and <em>p</em>+2 ≡ 0+1 = 1 (mod 3). <span class="qed">□</span>
-      </div>
-      <p>This is not a hypothesis. It is a theorem. Guaranteed, inescapable. The primes cannot escape their own constitution. Spherical cow philosophy says: accept this as the entry point, not a consequence to derive. The constitutional signature forces a specific modular structure, which forces specific algebraic geometry (the Eisenstein integers), which forces the level of distribution θ = 5/8.</p>
-
-      <h2>Non-Circularity and Falsifiability</h2>
-      <p>The critical objection to spherical cow philosophy is circularity: if we accept constraints as given rather than proving them, have we proved anything? The answer is that we accept <em>theorems</em> as entry points, not assumptions. Proposition 4.1 is proved. The question is which direction to go from it: the spherical cow approach starts there and asks what it forces, rather than treating it as a consequence to derive from something more fundamental.</p>
-      <div class="env-block proposition">
-        <div class="env-label">Proposition 5.1 — Sophie Germain Falsification</div>
-        Sophie Germain prime pairs (<em>p</em>, 2<em>p</em>+1) do not exhibit the cascade moduli enhancement. The framework predicts depth <em>k</em> = 2 (not 3), giving θ₂ = 1/2. This is confirmed computationally: Sophie Germain pairs show no improvement over Bombieri–Vinogradov. The framework correctly identifies which prime constellations benefit and which do not.
-      </div>
-      <p>This is the Sophie Germain falsification: the framework makes a testable prediction (no enhancement), and the prediction is confirmed. A framework that cannot be wrong is not a framework. This one can be, and has been tested.</p>
-
-      <div class="next-paper">
-        <div class="next-label">Next in Programme</div>
-        <div class="next-title"><a href="../p04-that-eisenstein-guy/p04.html">04 · Ternary Forcing on the Hexagonal Lattice →</a></div>
-        <div class="next-desc">Eisenstein Integers, Cascade Moduli, and Level of Distribution 5/8. The geometric proof: why the prime 3 ramifies as a perfect square in Z[ω], and how that single algebraic fact forces θ<sub>W</sub> = 5/8.</div>
-      </div>
+body{max-width:48rem;margin:2rem auto;padding:0 1rem;font-family:"STIX Two Text","Times New Roman",serif;font-size:17px;line-height:1.55;color:#1a1a1a;background:#faf9f6}
+h2,h3,h4{line-height:1.3} .maketitle{text-align:center;margin-bottom:2rem} table{border-collapse:collapse;margin:1rem auto} td{padding:2px 8px}
+img{max-width:100%;height:auto} .abstract{margin:1.5rem 0;padding:1rem 1.25rem;background:#f4f2ee}
+@media (prefers-color-scheme: dark){body{background:#151515;color:#e8e6e1} .abstract{background:#222} a{color:#9bb8ff}}
+</style> 
+<script>window.MathJax = { tex: { tags: "ams", macros: {} } }; </script> 
+ <script type="text/javascript" async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml-full.js"></script>  
+</head><body 
+>
+  <div class="maketitle">
+  <h2 class="titleHead">
+SPHERICAL COW PHILOSOPHY: A METHODOLOGICAL
+FRAMEWORK FOR MATHEMATICAL DISCOVERY
+  </h2>
+  <div class="authors"><span class="author" >
+<span 
+class="cmr-10">KHAYYAM WAKIL</span>
+  </span></div>
+         <div class="abstract">
+       <!--l. 56--><p class="noindent" ><span class="title">
+       <span 
+class="cmcsc-10">A<span 
+class="small-caps">b</span><span 
+class="small-caps">s</span><span 
+class="small-caps">t</span><span 
+class="small-caps">r</span><span 
+class="small-caps">a</span><span 
+class="small-caps">c</span><span 
+class="small-caps">t</span>.</span> </span><span 
+class="cmr-10">We  present  </span><span 
+class="cmti-10">spherical  cow  philosophy</span><span 
+class="cmr-10">—a  methodological  framework  for</span>
+       <span 
+class="cmr-10">mathematical  discovery  that  complements  classical  proof-by-contradiction  by  accepting</span>
+       <span 
+class="cmr-10">empirical constitutional constraints as foundational and deriving their forced consequences.</span>
+       <span 
+class="cmr-10">Named  after  the  physics  heuristic  of  modelling  complex  systems  through  essential</span>
+       <span 
+class="cmr-10">simpliﬁcation, the approach inverts the usual hierarchy: instead of deriving special cases from</span>
+       <span 
+class="cmr-10">universal axioms, we identify structural constraints that are empirically universal within</span>
+       <span 
+class="cmr-10">a domain, derive what they force rigorously, and validate predictions across independent</span>
+       <span 
+class="cmr-10">domains.</span>
+       </p><!--l. 66--><p class="indent" >  <span 
+class="cmr-10">The framework addresses a speciﬁc situation: when classical methods encounter persistent</span>
+       <span 
+class="cmr-10">structural barriers—such as the parity barrier that keeps sieve methods from twin primes,</span>
+       <span 
+class="cmr-10">or the level</span> \(1/2\) <span 
+class="cmr-10">of the Bombieri–Vinogradov theorem (1965), which for general moduli has been</span>
+       <span 
+class="cmr-10">exceeded only in restricted settings—the productive path may be to accept a constitutional</span>
+       <span 
+class="cmr-10">constraint (here,</span> \(p \equiv 2 \pmod {3}\) <span 
+class="cmr-10">for all twin primes</span> \(p &gt; 3\)<span 
+class="cmr-10">) as the natural entry point and derive its arithmetic</span>
+       <span 
+class="cmr-10">consequences, rather than to approach the barrier as an obstacle for more powerful general</span>
+       <span 
+class="cmr-10">methods.</span>
+       </p><!--l. 75--><p class="indent" >  <span 
+class="cmr-10">Applied to twin primes, this methodology motivated the cascade moduli framework of</span>
+       <span 
+class="cmr-10">the companion paper</span><span 
+class="cmr-10"> </span><span class="cite"><span 
+class="cmr-10">[</span><a 
+href="#XWakilEisenstein"><span 
+class="cmr-10">19</span></a><span 
+class="cmr-10">]</span></span><span 
+class="cmr-10">, which conjectures a level of distribution</span> \(\theta _W = 5/8\) <span 
+class="cmr-10">for the moduli</span> \(q = 3^K\)<span 
+class="cmr-10">, and</span>
+       <span 
+class="cmr-10">a proposed analogy with information theory</span><span 
+class="cmr-10"> </span><span class="cite"><span 
+class="cmr-10">[</span><a 
+href="#XWakilShannon"><span 
+class="cmr-10">21</span></a><span 
+class="cmr-10">]</span></span><span 
+class="cmr-10">. We show that the consequences claimed</span>
+       <span 
+class="cmr-10">for the twin-prime constitution in the February version are not forced by it, and we use the</span>
+       <span 
+class="cmr-10">case study to sharpen the methodology: a consequence that depends on a further choice is</span>
+       <span 
+class="cmr-10">not forced, and a prediction counts only if it is ﬁxed before the comparison and could fail.</span>
+       </p><!--l. 84--><p class="indent" >  <span 
+class="cmr-10">We give criteria for when the framework applies, contrast it with classical approaches,</span>
+       <span 
+class="cmr-10">and distinguish it from circular or post-hoc reasoning. Logical status labels are attached to</span>
+       <span 
+class="cmr-10">every claim.</span></p></div>
+<div class="submaketitle">
+  <div class="date" >
+<!--l. 89--><p class="indent" >  <span 
+class="cmti-12">Date</span>: February 2026; revised November 2026.</p></div>
+  <div class="subjclass">
+<!--l. 89--><p class="indent" >  2020 <span 
+class="cmti-12">Mathematics Subject Classiﬁcation.  </span>00A30, 00A35, 11N35, 11N36 .</p></div>
+  <div class="keywords">
+<!--l. 89--><p class="indent" >  <span 
+class="cmti-12">Key words and phrases. </span>mathematical methodology, constitutional forcing, spherical cow,
+empirical constitution, twin primes, sieve theory, methodological pluralism, structural barriers,
+                                                                                         
+                                                                                         
+cross-domain validation.</p></div></div></div>
+<!--l. 91--><p class="noindent" ><span 
+class="cmbx-12">Revision note (November 2026). </span>The “ﬁve forced consequences” of the twin-prime
+constitution are no longer claimed to be forced; Section <a 
+href="#x1-170004.2">4.2<!--tex4ht:ref: sec:forced --></a> explains, item by item, why they are
+not, and \(\theta _W = 5/8\) is described as the conjecture it is. The statement that a level of distribution \(\theta &gt; 1/2\) would yield
+twin primes is withdrawn: because of the parity barrier, no level of distribution does so. The
+Sophie Germain “computational conﬁrmation” is withdrawn, the comparison with Shannon’s AEP
+is corrected (the typical set is a vanishing fraction of the space, the opposite of the
+\(\theta _k\) pattern), and the degraded-channel remark is reversed. The history of the \(\theta = 1/2\) barrier
+is corrected (Bombieri–Vinogradov, 1965; levels above \(1/2\) are known for well-factorable
+weights), as are the Bombieri and Pascadi citations, and the unveriﬁable Clark quotation is
+removed. Smaller errors are ﬁxed: the 78-year gap, the hypotheses of Gödel’s theorem, the
+physics analogy and dangling cross-references; the programme is now described as nine
+papers.
+</p>
+  <h3 class="sectionHead"><a 
+ id="x1-1000"></a>Contents</h3>
+  <div class="tableofcontents"><span class="sectionToc" ><a 
+href="#x1-1000" id="QQ2-1-1">Contents</a></span><br /><span class="sectionToc" > 1.  <a 
+href="#x1-20001" id="QQ2-1-2">Introduction: The Physics Analogy</a></span><br /><span class="subsectionToc" > 1.1.  <a 
+href="#x1-30001.1" id="QQ2-1-3">The original
+spherical cow</a></span><br /><span class="subsectionToc" > 1.2.  <a 
+href="#x1-40001.2" id="QQ2-1-4">The mathematical parallel</a></span><br /><span class="subsectionToc" > 1.3.  <a 
+href="#x1-50001.3" id="QQ2-1-5">Position in the
+programme</a></span><br /><span class="subsectionToc" > 1.4.  <a 
+href="#x1-60001.4" id="QQ2-1-6">What this paper claims and does not claim</a></span><br /><span class="sectionToc" > 2.  <a 
+href="#x1-70002" id="QQ2-1-7">The
+Classical Toolkit and Its Limits</a></span><br /><span class="subsectionToc" > 2.1.  <a 
+href="#x1-80002.1" id="QQ2-1-8">When classical methods
+succeed</a></span><br /><span class="subsectionToc" > 2.2.  <a 
+href="#x1-90002.2" id="QQ2-1-9">Where structural barriers arise</a></span><br /><span class="subsectionToc" > 2.3.  <a 
+href="#x1-100002.3" id="QQ2-1-10">The structural
+limitation of the classical approach</a></span><br /><span class="sectionToc" > 3.  <a 
+href="#x1-110003" id="QQ2-1-11">Spherical Cow Philosophy: The
+Framework</a></span><br /><span class="subsectionToc" > 3.1.  <a 
+href="#x1-120003.1" id="QQ2-1-12">The inversion</a></span><br /><span class="subsectionToc" > 3.2.  <a 
+href="#x1-130003.2" id="QQ2-1-13">The ﬁve steps</a></span><br /><span class="subsectionToc" > 3.3.  <a 
+href="#x1-140003.3" id="QQ2-1-14">The spherical cow
+principle</a></span><br /><span class="sectionToc" > 4.  <a 
+href="#x1-150004" id="QQ2-1-15">Case Study: Twin Primes</a></span><br /><span class="subsectionToc" > 4.1.  <a 
+href="#x1-160004.1" id="QQ2-1-16">The constitution</a></span><br /><span class="subsectionToc" > 4.2.  <a 
+href="#x1-170004.2" id="QQ2-1-17">The
+proposed consequences, and why they are not forced</a></span><br /><span class="subsectionToc" > 4.3.  <a 
+href="#x1-180004.3" id="QQ2-1-18">The
+GPY  connection</a></span><br /><span class="subsectionToc" > 4.4.  <a 
+href="#x1-190004.4" id="QQ2-1-19">Cross-domain  comparison:  Shannon’s
+theorems</a></span><br /><span class="sectionToc" > 5.  <a 
+href="#x1-200005" id="QQ2-1-20">Non-Circularity and Falsiﬁability</a></span><br /><span class="subsectionToc" > 5.1.  <a 
+href="#x1-210005.1" id="QQ2-1-21">Why this is not
+circular</a></span><br /><span class="subsectionToc" > 5.2.  <a 
+href="#x1-220005.2" id="QQ2-1-22">Decision criteria: when to use this framework</a></span><br /><span class="sectionToc" > 6.  <a 
+href="#x1-230006" id="QQ2-1-23">Philosophical
+Foundations</a></span><br /><span class="subsectionToc" > 6.1.  <a 
+href="#x1-240006.1" id="QQ2-1-24">Empiricism and rationalism in mathematics</a></span><br /><span class="subsectionToc" > 6.2.  <a 
+href="#x1-250006.2" id="QQ2-1-25">Gödel,
+independence, and the scope of this claim</a></span><br /><span class="subsectionToc" > 6.3.  <a 
+href="#x1-260006.3" id="QQ2-1-26">Methodological
+pluralism</a></span><br /><span class="sectionToc" > 7.  <a 
+href="#x1-270007" id="QQ2-1-27">Conclusion</a></span><br /><span class="subsectionToc" > 7.1.  <a 
+href="#x1-280007.1" id="QQ2-1-28">Summary</a></span><br /><span class="subsectionToc" > 7.2.  <a 
+href="#x1-290007.2" id="QQ2-1-29">The philosophical
+shift</a></span><br /><span class="subsectionToc" > 7.3.  <a 
+href="#x1-300007.3" id="QQ2-1-30">Final reﬂection</a></span><br /><span class="sectionToc" ><a 
+href="#x1-31000" id="QQ2-1-31">Acknowledgements</a></span><br /><span class="sectionToc" ><a 
+href="#x1-32000" id="QQ2-1-32">References</a></span><br />
+  </div>
+  <h3 class="sectionHead"><span class="titlemark">1. </span> <a 
+ id="x1-20001"></a>Introduction: The Physics Analogy</h3>
+<!--l. 113--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">1.1. </span> <a 
+ id="x1-30001.1"></a><span 
+class="cmbx-12">The original spherical cow.</span></span>
+  When physicists model heat transfer from a cow, they make a radical simpliﬁcation: assume a
+spherical cow. Strip away legs, spots, tail, digestive complexity—keep only mass distribution and
+thermal properties. The point of the joke is that a deliberately crude description can be the ﬁrst
+step towards an accurate one. The spherical cow succeeds because it knows what to <span 
+class="cmti-12">ignore</span>.
+Domain-speciﬁc details obscure the essential physics. By ignoring the irrelevant, physicists isolate
+                                                                                         
+                                                                                         
+what matters, solve the simpliﬁed problem, and add complexity back strategically where it is
+needed.
+</p>
+<!--l. 125--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">1.2. </span> <a 
+ id="x1-40001.2"></a><span 
+class="cmbx-12">The mathematical parallel.</span></span>
+  Classical mathematics has three primary responses to a hard problem:
+          </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   (1) </dt><dd 
+class="enumerate-enumitem">Assume the statement false, derive consequences, seek a contradiction.
+          </dd><dt class="enumerate-enumitem">
+   (2) </dt><dd 
+class="enumerate-enumitem">Build from axioms: prove the statement from more fundamental principles.
+          </dd><dt class="enumerate-enumitem">
+   (3) </dt><dd 
+class="enumerate-enumitem">Exhaust known techniques until something works.</dd></dl>
+<!--l. 133--><p class="noindent" >These work brilliantly when the problem is provable from accepted axioms. When they encounter a
+persistent structural barrier, the barrier itself is information. It may be signalling that the
+productive formulation has not yet been identiﬁed—not that the problem is harder than
+expected.
+</p><!--l. 138--><p class="indent" >  <span 
+class="cmti-12">Spherical cow philosophy </span>provides a complementary response: instead of asking “how do we
+overcome this barrier?”, ask “what constraint is this barrier telling us is constitutional?”
+Accept that constraint as the productive entry point. Derive what it forces. Validate the
+consequences.
+</p>
+<!--l. 143--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">1.3. </span> <a 
+ id="x1-50001.3"></a><span 
+class="cmbx-12">Position in the programme.</span></span>
+  This paper is p03 of a nine-paper programme. Its role is methodological: it explains the
+reasoning behind the programme’s arithmetic papers and, in this revision, uses them as a case
+study of where that reasoning holds and where it fails. The other eight papers, with the revised
+status of their main claims, are:
+</p>
+          <ul class="itemize1">
+       <li class="itemize">
+       <!--l. 152--><p class="indent" >   <span class="cite">[<a 
+href="#XWakilCF">17</a>]</span> (p01) deﬁnes Constitutional Forcing; the formula \(\theta _k = (2^k - k)/2^k\) rests on a counting postulate,
+       not a theorem.
+          </p></li>
+       <li class="itemize">
+       <!--l. 154--><p class="indent" >   <span class="cite">[<a 
+href="#XWakilKhayyam">18</a>]</span> (p02) gives the history of Khayyam’s Triangle and its mod-\(3\) fractal; the claimed
+       link between the fractal and \(\theta _k\) is withdrawn.
+          </p></li>
+       <li class="itemize">
+       <!--l. 157--><p class="indent" >   <span class="cite">[<a 
+href="#XWakilEisenstein">19</a>]</span> (p04) conjectures \(\theta _W = 5/8\) for cascade moduli \(q = 3^K\), using the arithmetic of the Eisenstein
+       integers \(\mathbb {Z}[\omega ]\).
+                                                                                         
+                                                                                         
+          </p></li>
+       <li class="itemize">
+       <!--l. 160--><p class="indent" >   <span class="cite">[<a 
+href="#XWakilRamanujan">20</a>]</span> (p05) states the formula \(\theta _k = (2^k - k)/2^k\) as a postulate.
+          </p></li>
+       <li class="itemize">
+       <!--l. 162--><p class="indent" >   <span class="cite">[<a 
+href="#XWakilShannon">21</a>]</span> (p06) proposes an analogy between the arithmetic programme and Shannon’s
+       theorems in information theory.
+          </p></li>
+       <li class="itemize">
+       <!--l. 164--><p class="indent" >   <span class="cite">[<a 
+href="#XWakilW3">22</a>]</span> (p07) treats Condition W3, the absence of Siegel zeros for characters modulo
+       \(3^K\); it is true, with a one-line proof from the cyclicity of \((\mathbb {Z}/3^K\mathbb {Z})^\times \), and it aﬀects no level of
+       distribution.
+          </p></li>
+       <li class="itemize">
+       <!--l. 168--><p class="indent" >   <span class="cite">[<a 
+href="#XWakilBias">23</a>]</span> (p08) discusses the Lemke Oliver–Soundararajan bias in consecutive primes;
+       its claimed ternary explanation is withdrawn.
+          </p></li>
+       <li class="itemize">
+       <!--l. 170--><p class="indent" >   <span class="cite">[<a 
+href="#XWakilFFT">24</a>]</span> (p09) treats the conjugate symmetry of the real discrete Fourier transform.</p></li></ul>
+<!--l. 174--><p class="indent" >  The present paper explains <span 
+class="cmti-12">why </span>that programme is structured the way it is, and what
+methodological principle motivated it.
+</p>
+<!--l. 177--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">1.4. </span> <a 
+ id="x1-60001.4"></a><span 
+class="cmbx-12">What this paper claims and does not claim.</span></span>
+  We attach logical-status labels to every signiﬁcant claim throughout. Here we state the top-level
+ones explicitly.
+</p>
+          <ul class="itemize1">
+       <li class="itemize">
+       <!--l. 184--><p class="indent" >   Accepting a proved structural fact as the <span 
+class="cmti-12">productive entry point </span>to a hard problem
+       is a legitimate methodological move. In the twin-prime case study, the entry point
+       \(p \equiv 2 \pmod {3}\) motivated the cascade moduli framework of <span class="cite">[<a 
+href="#XWakilEisenstein">19</a>]</span>, whose central statement \(\theta _W = 5/8\) is a
+       conjecture.
+          </p></li>
+       <li class="itemize">
+       <!--l. 191--><p class="indent" >   The constitution \(p \equiv 2 \pmod {3}\) is a theorem (provable in two lines), not an axiom. Accepting a
+       proved fact as the <span 
+class="cmti-12">productive entry point</span>—rather than a consequence to be derived
+       from something deeper—is the methodological move this paper advocates.
+          </p></li>
+       <li class="itemize">
+       <!--l. 196--><p class="indent" >   The framework can be made falsiﬁable, provided every prediction, including the
+       value of every parameter, is ﬁxed before it is compared with known values. The \(k = 4\)
+                                                                                         
+                                                                                         
+       prediction (Remark <a 
+href="#x1-22011r5">5.5<!--tex4ht:ref: rem:k4 --></a>) is open but does not yet meet this standard. The Sophie
+       Germain example of the February version is not a test (Remark <a 
+href="#x1-21001r1">5.1<!--tex4ht:ref: rem:sg --></a>).
+          </p></li>
+       <li class="itemize">
+       <!--l. 203--><p class="indent" >   That  constitutional  forcing,  or  any  level  of  distribution,  proves  twin  prime
+       inﬁnitude. Even level \(\theta = 1\) gives only bounded gaps by GPY-type sieves, and the parity
+       barrier blocks gap \(2\) (Example <a 
+href="#x1-9001r3">2.3<!--tex4ht:ref: ex:twinprime-barrier --></a>).
+          </p></li>
+       <li class="itemize">
+       <!--l. 208--><p class="indent" >   That twin prime inﬁnitude is independent of ZFC in the technical Gödel–Cohen
+       sense. We make no claim about independence. The methodology applies whenever
+       constitutional structure is the productive entry point, regardless of the problem’s
+       axiomatic status.</p></li></ul>
+  <h3 class="sectionHead"><span class="titlemark">2. </span> <a 
+ id="x1-70002"></a>The Classical Toolkit and Its Limits</h3>
+<!--l. 218--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">2.1. </span> <a 
+ id="x1-80002.1"></a><span 
+class="cmbx-12">When classical methods succeed.</span></span>
+  Proof by contradiction is among the most powerful tools in mathematics.
+</p>
+  <div class="newtheorem">
+<!--l. 222--><p class="noindent" ><span class="head">
+<a 
+ id="x1-8001r1"></a>
+<span 
+class="cmbx-12">Example 2.1 </span>(Irrationality of \(\sqrt {2}\))<span 
+class="cmbx-12">.</span>  </span>Assume \(\sqrt {2} = p/q\) in lowest terms. Then \(2q^2 = p^2\), forcing \(p\) even; writing \(p = 2k\)
+gives \(q^2 = 2k^2\), forcing \(q\) even—contradicting lowest terms. Therefore \(\sqrt {2}\) is irrational.
+</p>
+  </div>
+<!--l. 226--><p class="indent" >
+</p><!--l. 228--><p class="indent" >  This works because the statement is provable from the axioms of arithmetic: the assumption of
+rationality produces a genuine logical contradiction.
+</p>
+  <div class="newtheorem">
+<!--l. 231--><p class="noindent" ><span class="head">
+<a 
+ id="x1-8002r2"></a>
+<span 
+class="cmbx-12">Example 2.2 </span>(Inﬁnitude of primes, Euclid)<span 
+class="cmbx-12">.</span>  </span>Suppose there are ﬁnitely many primes \(p_1, \ldots , p_n\). The
+number \(N = p_1 \cdots p_n + 1\) is divisible by none of them, so it has a prime factor not in the list—a contradiction.
+</p>
+  </div>
+<!--l. 235--><p class="indent" >
+                                                                                         
+                                                                                         
+</p><!--l. 237--><p class="indent" >  Both examples share a structure: <span 
+class="cmti-12">the assumption of falsehood leads directly to a contradiction</span>
+<span 
+class="cmti-12">derivable from accepted axioms</span>. Classical proof by contradiction works exactly when this structure
+is present.
+</p>
+<!--l. 241--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">2.2. </span> <a 
+ id="x1-90002.2"></a><span 
+class="cmbx-12">Where structural barriers arise.</span></span>
+  Some problems resist sustained classical eﬀort not because they are unprovable, but because the
+productive formulation has not yet been identiﬁed. The barrier is information: it is telling us
+something about the structure of the problem.
+</p>
+  <div class="newtheorem">
+<!--l. 249--><p class="noindent" ><span class="head">
+<a 
+ id="x1-9001r3"></a>
+<span 
+class="cmbx-12">Example 2.3 </span>(The \(\theta = 1/2\) barrier and the parity barrier for twin primes)<span 
+class="cmbx-12">.</span>
+</span> The Goldston–Pintz–Yıldırım theorem <span class="cite">[<a 
+href="#XGPY2009">10</a>]</span> shows that a level of distribution \(\theta &gt; 1/2\) for primes
+in arithmetic progressions would imply the existence of inﬁnitely many prime pairs with
+bounded gaps. The Bombieri–Vinogradov theorem <span class="cite">[<a 
+href="#XBombieri1965">6</a>, <a 
+href="#XVinogradov1965">9</a>]</span> gives \(\theta = 1/2\) on average over the moduli \(q \leq x^{1/2}(\log x)^{-B}\);
+it is not a statement about each modulus, and even the Generalised Riemann Hypothesis gives
+the expected asymptotic for a single modulus only for \(q \leq x^{1/2-\varepsilon }\). Zhang <span class="cite">[<a 
+href="#XZhang2014">11</a>]</span> obtained a level \(1/2 + \delta \), for a
+small \(\delta &gt; 0\), for smooth squarefree moduli, which suﬃced for a variant of GPY and proved bounded
+gaps. Maynard and Tao <span class="cite">[<a 
+href="#XMaynard2015">12</a>]</span> then obtained bounded gaps from level \(1/2\) (indeed from any
+positive level) and improved the gap bound substantially. But gap \(2\) (twin primes speciﬁcally)
+remains out of reach, and not for want of a higher level: under the Elliott–Halberstam
+conjecture (level \(1\)) these methods give gaps at most \(12\) <span class="cite">[<a 
+href="#XMaynard2015">12</a>]</span>, under its generalised form at most
+\(6\) <span class="cite">[<a 
+href="#XPolymath8b">16</a>]</span>, and Selberg’s parity barrier prevents such sieve methods from reaching gap \(2\) at any
+level of distribution.
+</p><!--l. 269--><p class="indent" >  The level \(1/2\) for general moduli reﬂects the large sieve inequality, but it is not absolute: for
+a ﬁxed residue class and suitably well-factorable sieve weights, the levels \(4/7\) <span class="cite">[<a 
+href="#XBFI1986">7</a>]</span>, \(3/5\) <span class="cite">[<a 
+href="#XMaynard2020">13</a>]</span>, \(66/107\) <span class="cite">[<a 
+href="#XLichtman2023">14</a>]</span>
+and \(5/8\) <span class="cite">[<a 
+href="#XPascadi2025">15</a>]</span> are known. Structure speciﬁc to a single prime is also exploited classically: for
+prime-power moduli \(q = p^N\) the expected asymptotic is known for \(q \leq x^{3/8-\varepsilon }\) (Barban–Linnik–Tshudakov <span class="cite">[<a 
+href="#XBLT1964">5</a>]</span>),
+extended to \(2/5\) (Gallagher <span class="cite">[<a 
+href="#XGallagher1972">8</a>]</span>) and \(5/12\) (Huxley), with lower bounds of the correct order up to \(x^{0.4736}\)
+(Banks–Shparlinski); see <span class="cite">[<a 
+href="#XBaierPujahari2022">4</a>]</span> for an account. All of these prime-power exponents are below \(1/2\).
+</p>
+  </div>
+<!--l. 279--><p class="indent" >
+</p><!--l. 281--><p class="indent" >  The spherical cow response to Example <a 
+href="#x1-9001r3">2.3<!--tex4ht:ref: ex:twinprime-barrier --></a> is not to work harder on the general barrier. It is to
+ask: <span 
+class="cmti-12">what constitutional structure do twin primes carry that distinguishes them from the general</span>
+<span 
+class="cmti-12">case?</span>
+</p><!--l. 285--><p class="indent" >  The answer—\(p \equiv 2 \pmod {3}\) for all twin primes \(p &gt; 3\)—is a two-line theorem. In this programme, accepting it as the
+entry point led to the cascade moduli \(q = 3^K\), to the Eisenstein integers, and to the conjecture \(\theta _W = 5/8\)
+of <span class="cite">[<a 
+href="#XWakilEisenstein">19</a>]</span>. Section <a 
+href="#x1-170004.2">4.2<!--tex4ht:ref: sec:forced --></a> explains why none of these is forced by the constitution. Because of
+the parity barrier, no improvement in the level of distribution would by itself settle
+                                                                                         
+                                                                                         
+the twin prime conjecture; the case study illustrates the method, not a route to that
+conjecture.
+</p>
+<!--l. 294--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">2.3. </span> <a 
+ id="x1-100002.3"></a><span 
+class="cmbx-12">The structural limitation of the classical approach.</span></span>
+  Many classical methods seek <span 
+class="cmti-12">universal </span>patterns: results that hold for all moduli, all primes, all
+arithmetic progressions. This universality is their strength and their limitation. When a problem
+has constitutional structure that singles out a speciﬁc prime (here, \(3\)), universal methods may ignore
+that structure.
+</p><!--l. 303--><p class="indent" >  Spherical cow philosophy embraces the speciﬁc structure from the outset. It trades universality
+for depth. The tools it brings in—the hexagonal lattice of \(\mathbb {Z}[\omega ]\), the CM ﬁeld \(\mathbb {Q}(\omega )\), character sums
+over the cyclic group \((\mathbb {Z}/3^K\mathbb {Z})^\times \)—are not invisible to classical methods: the prime-power-modulus
+literature cited in Example <a 
+href="#x1-9001r3">2.3<!--tex4ht:ref: ex:twinprime-barrier --></a> uses the cyclic and \(p\)-adic structure of \((\mathbb {Z}/p^N\mathbb {Z})^\times \) systematically.
+What the methodology changes is the order in which questions are asked, not the tools
+available.
+</p>
+  <h3 class="sectionHead"><span class="titlemark">3. </span> <a 
+ id="x1-110003"></a>Spherical Cow Philosophy: The Framework</h3>
+<!--l. 316--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">3.1. </span> <a 
+ id="x1-120003.1"></a><span 
+class="cmbx-12">The inversion.</span></span>
+  Classical hierarchy: \[ \text {Universal Axioms} \;\longrightarrow \; \text {General Theorems} \;\longrightarrow \; \text {Special Cases} \;\longrightarrow \; \text {[barrier]} \] Spherical cow hierarchy: \begin {align*}  &amp;\text {Empirical Constitution} \;\longrightarrow \; \text {Forced Consequences}\\ &amp;\quad \longrightarrow \; \text {Cross-Domain Validation} \;\longrightarrow \; \text {Falsifiable Predictions}  \end {align*}
+</p><!--l. 339--><p class="indent" >  The key diﬀerence: we do not try to prove the constitution from something “more basic.” We
+show the constitution generates observed structure across multiple independent domains and
+makes predictions that can be conﬁrmed or refuted.
+</p>
+<!--l. 344--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">3.2. </span> <a 
+ id="x1-130003.2"></a><span 
+class="cmbx-12">The ﬁve steps.</span></span>
+</p>
+  <div class="newtheorem">
+<!--l. 347--><p class="noindent" ><span class="head">
+<a 
+ id="x1-13001r1"></a>
+<span 
+class="cmbx-12">Deﬁnition 3.1 </span>(Spherical Cow Methodology)<span 
+class="cmbx-12">.</span>  </span> Given a domain with a persistent structural
+barrier, the spherical cow methodology proceeds as follows.
+</p><!--l. 353--><p class="noindent" ><span 
+class="cmbx-12">Step 1: Identify the empirical constitution. </span>Find a constraint that is:
+          </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   (a) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">Veriﬁable by direct computation</span>—not an assumption;
+          </dd><dt class="enumerate-enumitem">
+   (b) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">Universal within the domain</span>—all instances satisfy it;
+          </dd><dt class="enumerate-enumitem">
+    (c) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">Simple to state</span>—not complex conditional logic.</dd></dl>
+                                                                                         
+                                                                                         
+<!--l. 361--><p class="noindent" ><span 
+class="cmbx-12">Step 2: Derive forced consequences. </span>Using rigorous mathematics, determine what the
+constitutional constraint <span 
+class="cmti-12">forces</span>. Do not add hypotheses; derive consequences. A consequence that
+depends on a further choice (of a family of moduli, of a number of levels, of a counting rule) is not
+forced; record the choice as a hypothesis.
+</p><!--l. 367--><p class="noindent" ><span 
+class="cmbx-12">Step 3: Validate within the domain. </span>Check that the forced consequences match domain
+observations, both computationally and analytically where possible.
+</p><!--l. 371--><p class="noindent" ><span 
+class="cmbx-12">Step 4: Validate across independent domains. </span>Determine whether the same constitutional
+structure explains phenomena in genuinely independent ﬁelds. Independent conﬁrmation
+strengthens the case that the constitution is fundamental, not accidental.
+</p><!--l. 376--><p class="noindent" ><span 
+class="cmbx-12">Step 5: Generate falsiﬁable predictions. </span>Identify consequences of the constitution that have
+not yet been observed, and check whether they hold or fail. A prediction must be ﬁxed, including
+the value of every parameter, before it is compared with known values, and it must be capable of
+failing. A framework that makes and conﬁrms such predictions—and identiﬁes genuine
+non-instances—is more than decorative.
+</p>
+  </div>
+<!--l. 382--><p class="indent" >
+</p>
+<!--l. 384--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">3.3. </span> <a 
+ id="x1-140003.3"></a><span 
+class="cmbx-12">The spherical cow principle.</span></span>
+</p>
+  <div class="newtheorem">
+<!--l. 387--><p class="noindent" ><span class="head">
+<a 
+ id="x1-14001r2"></a>
+<span 
+class="cmti-12">Principle </span>3.2 (Spherical Cow)<span 
+class="cmti-12">.</span>  </span> What to ignore: domain-speciﬁc complexity that obscures
+constitutional structure.<br 
+class="newline" />What to keep: the constitutional constraint that generates forced consequences.<br 
+class="newline" />How to validate: cross-domain prediction and conﬁrmed non-instances.
+</p>
+  </div>
+<!--l. 393--><p class="indent" >
+  The physics analogy is precise. A physicist ignores the cow’s legs and spots to isolate thermal
+properties. A mathematician ignores the full generality of all moduli to isolate the constitutional
+property of twin primes (\(p \equiv 2 \pmod {3}\)) and to ask what structure it suggests.
+</p>
+  <h3 class="sectionHead"><span class="titlemark">4. </span> <a 
+ id="x1-150004"></a>Case Study: Twin Primes</h3>
+                                                                                         
+                                                                                         
+<!--l. 404--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">4.1. </span> <a 
+ id="x1-160004.1"></a><span 
+class="cmbx-12">The constitution.</span></span>
+</p>
+  <div class="newtheorem">
+<!--l. 407--><p class="noindent" ><span class="head">
+<a 
+ id="x1-16001r1"></a>
+<span 
+class="cmbx-12">Proposition 4.1 </span>(Twin Prime Constitution)<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">Every twin prime</span> \(p &gt; 3\) <span 
+class="cmti-12">satisﬁes</span> \(p \equiv 2 \pmod {3}\)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 410--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 413--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>Among any three consecutive integers, exactly one is divisible by \(3\). For the pair \((p, p+2)\): if \(p \equiv 0 \pmod {3}\)
+then \(3 \mid p\), so \(p\) is not prime (for \(p &gt; 3\)). If \(p \equiv 1 \pmod {3}\) then \(p + 2 \equiv 0 \pmod {3}\), so \(3 \mid p+2\), hence \(p+2\) is not prime (for \(p+2 &gt; 3\)). Therefore \(p \equiv 2 \pmod {3}\). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+  <div class="newtheorem">
+<!--l. 420--><p class="noindent" ><span class="head">
+<a 
+ id="x1-16002r2"></a>
+<span 
+class="cmti-12">Remark </span>4.2<span 
+class="cmti-12">.</span>  </span>Proposition <a 
+href="#x1-16001r1">4.1<!--tex4ht:ref: prop:constitution --></a> is a theorem, not an axiom. The methodological move is not to
+assume it but to <span 
+class="cmti-12">accept it as the productive entry point</span>—to ask what arithmetic structure it
+forces, rather than treating it as a consequence to be recovered from something more general.
+</p>
+  </div>
+<!--l. 425--><p class="indent" >
+</p>
+<!--l. 427--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">4.2. </span> <a 
+ id="x1-170004.2"></a><span 
+class="cmbx-12">The proposed consequences, and why they are not forced.</span></span>
+  Given Proposition <a 
+href="#x1-16001r1">4.1<!--tex4ht:ref: prop:constitution --></a>, the spherical cow methodology asks: what does \(p \equiv 2 \pmod {3}\) force? The
+February version listed ﬁve “forced consequences”. We record each, with what is actually
+true.
+</p><!--l. 434--><p class="indent" >
+          </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   (1) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmbx-12">Cascade structure. </span>The constitution is a condition modulo \(3\), so it suggests the
+       moduli \(q = 3^K\)—the <span 
+class="cmti-12">cascade moduli</span>. It does not force them, and it imposes nothing modulo
+       \(9\) or \(27\) beyond \(p \equiv 2 \pmod 3\): every lift of \(2 \bmod 3\) to modulus \(3^K\) keeps both \(p\) and \(p + 2\) prime to \(3\). (That conditions
+       modulo \(3^K\) and modulo a prime \(\ell \neq 3\) are independent is the Chinese Remainder Theorem,
+                                                                                         
+                                                                                         
+       whose hypothesis \(\gcd (3^K, \ell ) = 1\) is not a consequence of the constitution.)
+          </dd><dt class="enumerate-enumitem">
+   (2) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmbx-12">Eisenstein geometry. </span>The prime \(3\) ramiﬁes in the Eisenstein integers \(\mathbb {Z}[\omega ]\) as \((3) = (1-\omega )^2\), and a
+       prime \(\ell &gt; 3\) is <span 
+class="cmti-12">inert </span>if \(\ell \equiv 2 \pmod {3}\) and <span 
+class="cmti-12">splits </span>if \(\ell \equiv 1 \pmod {3}\). So for a twin pair \((p, p+2)\) with \(p &gt; 3\), \(p\) is inert and \(p + 2\) splits. This is
+       true, but it is a restatement of the constitution, not a new constraint.
+          </dd><dt class="enumerate-enumitem">
+   (3) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmbx-12">Three-level ﬁltration </span>(withdrawn). The February version claimed a ﬁltration of \(\mathbb {Z}[\omega ]/(3^K)\)
+       with exactly three independent levels. Since \((3^K) = (1-\omega )^{2K}\), the \((1-\omega )\)-adic ﬁltration has \(2K\) steps, each with
+       quotient \(\mathbb {F}_3\). “Triply-well-factorable” is a property imposed on sieve weights for general
+       moduli <span class="cite">[<a 
+href="#XLichtman2023">14</a>, <a 
+href="#XPascadi2025">15</a>]</span>; it is not forced by \(\mathbb {Z}[\omega ]\).
+          </dd><dt class="enumerate-enumitem">
+   (4) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmbx-12">Level of distribution</span> \(\theta _W = 5/8\) (conjecture). The February version described a ceiling \(\theta \leq 2/3\) from
+       three-fold Cauchy–Schwarz which cyclic-group cancellation “improves” to \(5/8\). Since \(5/8 &lt; 2/3\)
+       that would be a weaker exponent, not an improvement, and the argument rested on a
+       pointwise Kloosterman bound \(q^{3/8}\) for \(q = 3^K\) that is false: Weil’s bound \(2q^{1/2}\) is essentially sharp for
+       these moduli (for each \(3 \leq K \leq 7\) some \(|S(1,b;3^K)|\) exceeds \(1.99 \cdot 3^{K/2}\)). As stated in <span class="cite">[<a 
+href="#XWakilEisenstein">19</a>]</span>, the estimate summed over
+       the moduli \(3^K \leq x^{\theta }\) holds for every ﬁxed \(\theta &lt; 1\) (by the trivial bound for \(3^K &gt; (\log x)^{A+1}\) and the Siegel–Walﬁsz
+       theorem for the \(O(\log \log x)\) smaller moduli), so it cannot single out \(5/8\); the per-modulus version
+       would go beyond what GRH gives. \(\theta _W = 5/8\) is therefore a conjecture. Condition W3 <span class="cite">[<a 
+href="#XWakilW3">22</a>]</span> is
+       true, with a one-line proof from the cyclicity of \((\mathbb {Z}/3^K\mathbb {Z})^\times \), but the summed estimate does not
+       need it and it makes nothing unconditional.
+          </dd><dt class="enumerate-enumitem">
+   (5) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmbx-12">Combinatorial origin </span>(withdrawn). The value \(5/8 = (2^3 - 3)/2^3\) is the conﬁguration density at depth
+       \(k = 3\) under the counting postulate of <span class="cite">[<a 
+href="#XWakilCF">17</a>, <a 
+href="#XWakilRamanujan">20</a>]</span>. It is not derived: if “invalid” means that
+       some constraint fails, \(2^3 - 1 = 7\) of the \(8\) conﬁgurations are invalid. The depth \(3\) is not supported
+       by items (1) or (3). Nor does the value trace to the mod-\(3\) Sierpiński structure of
+       Khayyam’s Triangle: in the ﬁrst \(3^K\) rows the proportion of entries not divisible by \(3\) is \(2^{K+1}/(3^K + 1)\),
+       that is \(1, 4/5, 4/7, 16/41, \ldots \to 0\), whereas \((2^K - K)/2^K \to 1\).</dd></dl>
+<!--l. 487--><p class="indent" >  None of the ﬁve is forced by Proposition <a 
+href="#x1-16001r1">4.1<!--tex4ht:ref: prop:constitution --></a> alone. Item (2) restates it; items (1), (3)
+and (5) rest on choices—of moduli, of a number of levels, of a counting rule—that the
+constitution does not determine; and item (4) is a conjecture. This is the main methodological
+lesson of the case study: Step 2 of Deﬁnition <a 
+href="#x1-13001r1">3.1<!--tex4ht:ref: def:methodology --></a> must be carried out with the rigour
+of a proof, and a consequence that depends on a choice is a hypothesis, not a forced
+consequence.
+</p>
+<!--l. 495--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">4.3. </span> <a 
+ id="x1-180004.3"></a><span 
+class="cmbx-12">The GPY connection.</span></span>
+  The Goldston–Pintz–Yıldırım method <span class="cite">[<a 
+href="#XGPY2009">10</a>]</span> uses a level of distribution \(\theta &gt; 1/2\), for sieve weights
+supported on squarefree moduli, to obtain bounded gaps between primes. No level of
+distribution, even \(\theta = 1\), yields twin primes by these methods (Example <a 
+href="#x1-9001r3">2.3<!--tex4ht:ref: ex:twinprime-barrier --></a>). The moduli \(3^K\)
+with \(K \geq 2\) are not squarefree, so they do not occur among the moduli used by GPY-type
+sieves.
+</p><!--l. 505--><p class="indent" >  <span 
+class="cmbx-12">[Withdrawn] </span>The February version described the extension of \(\theta _W = 5/8\) to a family of moduli broad
+                                                                                         
+                                                                                         
+enough to serve as GPY input as “the principal open step” towards twin primes, with one
+avenue through Pascadi’s result <span class="cite">[<a 
+href="#XPascadi2025">15</a>]</span>. That step would not lead to twin primes. Pascadi’s
+theorem—equidistribution of smooth numbers, and of primes with triply-well-factorable weights, in
+arithmetic progressions to general moduli up to \(x^{5/8-o(1)}\)—concerns general moduli, not the moduli \(3^K\); its
+agreement with \(\theta _3 = 5/8\) is a numerical coincidence.
+</p><!--l. 514--><p class="indent" >  The spherical cow methodology motivated and structured the arithmetic programme. At present
+the programme’s central arithmetic statement is a conjecture.
+</p>
+<!--l. 518--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">4.4. </span> <a 
+ id="x1-190004.4"></a><span 
+class="cmbx-12">Cross-domain comparison: Shannon’s theorems.</span></span>
+  The programme compares the twin-prime case with Shannon’s two foundational theorems of
+1948 <span class="cite">[<a 
+href="#XShannon1948">1</a>]</span>; see <span class="cite">[<a 
+href="#XWakilShannon">21</a>]</span>.
+</p>
+          <ul class="itemize1">
+       <li class="itemize">
+       <!--l. 525--><p class="indent" >   <span 
+class="cmbx-12">Asymptotic  Equipartition  Property. </span>Of  the  \(|\mathcal {A}|^n\)  sequences  of  length  \(n\)  from  a
+       memoryless  source,  a  typical  set  of  about  \(2^{nH}\)  sequences  carries  almost  all  of  the
+       probability; the entropy \(H\) is determined by the source distribution.
+          </p></li>
+       <li class="itemize">
+       <!--l. 529--><p class="indent" >   <span 
+class="cmbx-12">Channel Coding Theorem. </span>Reliable communication is possible at rates \(R &lt; C\) and
+       not at rates \(R &gt; C\), where the capacity \(C = \max _{p(x)} I(X;Y)\) is determined by the channel.</p></li></ul>
+<!--l. 534--><p class="indent" >  The comparison is an analogy, and in one respect an inverse one. In the AEP the
+typical set is a vanishing fraction of the space: \(|A_\varepsilon ^{(n)}|/|\mathcal {A}|^n \leq 2^{-n(\log |\mathcal {A}| - H - \varepsilon )} \to 0\) unless the source is uniform (logarithms
+to base \(2\), \(\varepsilon \) small). In the \(\theta _k\) scheme the valid fraction \(1 - k/2^k\) tends to \(1\): the constraints remove
+a vanishing fraction. Moreover the governing constants \(H/\log |\mathcal {A}|\) and \(C\) take every value in \([0,1]\), so
+they are not \(\theta _1 = 1/2\) <span class="cite">[<a 
+href="#XWakilCF">17</a>, Section 3.3]</span>. The two settings are therefore not instances of a single
+pattern; at most they share the feature that a constant ﬁxed by the structure of the
+system governs the size of a distinguished subset. The comparison remains a proposed
+analogy.
+</p><!--l. 546--><p class="indent" >  Shannon’s results (1948) precede the arithmetic conjecture (2026) by 78 years. Chronology alone
+does not show that neither side was constructed to match the other: the value \(5/8\) coincides with
+Pascadi’s exponent for general moduli <span class="cite">[<a 
+href="#XPascadi2025">15</a>]</span>, which predates the companion papers. A comparison is
+free of post-hoc ﬁtting only if its parameters (here \(k\)) are ﬁxed before the constants are
+compared.
+</p>
+  <h3 class="sectionHead"><span class="titlemark">5. </span> <a 
+ id="x1-200005"></a>Non-Circularity and Falsiﬁability</h3>
+                                                                                         
+                                                                                         
+<!--l. 557--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">5.1. </span> <a 
+ id="x1-210005.1"></a><span 
+class="cmbx-12">Why this is not circular.</span></span>
+  A potential objection: the framework accepts the constitution, derives consequences, and
+validates against observations in the same domain. Is this circular?
+</p><!--l. 564--><p class="indent" >  The answer depends on how the methodology is carried out, and the case study shows both the
+safeguard and the failure.
+</p><!--l. 567--><p class="indent" >  <span 
+class="cmbx-12">First</span>, the constitution is a theorem (Proposition <a 
+href="#x1-16001r1">4.1<!--tex4ht:ref: prop:constitution --></a>), not an assumption. Accepting a proved
+fact as the entry point is not circular; it is a choice of direction.
+</p><!--l. 571--><p class="indent" >  <span 
+class="cmbx-12">Second</span>, the methodology is non-circular only if the consequences are genuinely derived. In the
+case study they were not: the value \(5/8\) entered as an input, through the choice of three levels (items
+(3) and (5) of Section <a 
+href="#x1-170004.2">4.2<!--tex4ht:ref: sec:forced --></a>), and the estimate of <span class="cite">[<a 
+href="#XWakilEisenstein">19</a>]</span> as stated holds for every \(\theta &lt; 1\), so it cannot single
+out \(5/8\).
+</p><!--l. 577--><p class="indent" >  <span 
+class="cmbx-12">Third</span>, a falsiﬁable prediction must be one that could fail. The Sophie Germain example oﬀered
+in the February version as a conﬁrmed prediction is not one.
+</p>
+  <div class="newtheorem">
+<!--l. 581--><p class="noindent" ><span class="head">
+<a 
+ id="x1-21001r1"></a>
+<span 
+class="cmti-12">Remark </span>5.1 (Sophie Germain primes: not a test)<span 
+class="cmti-12">.</span>  </span> For \(p &gt; 3\), if \(p\) and \(2p+1\) are both prime then \(p \equiv 2 \pmod {3}\)—the
+same  single  condition  as  for  twin  primes.  In  both  cases  the  partner  (\(p + 2\)  or  \(2p + 1\))  is  an  aﬃne
+function of \(p\), so its residue modulo \(3^K\) is determined by that of \(p\). The February version assigned
+Sophie Germain pairs depth \(k = 2\) and twin primes depth \(k = 3\), but nothing in their local structure
+distinguishes them: modulo every prime \(\ell \geq 3\) both exclude exactly two residue classes of \(p\) (for
+\(\ell = 3\), the classes \(0\) and \(1\)). Since \(\theta _1 = \theta _2 = 1/2\), the “prediction” \(\theta = 1/2\) could not fail whichever depth is assigned.
+Moreover, a level of distribution is a property of primes in arithmetic progressions, the same
+input for every admissible tuple, so a “level of distribution of Sophie Germain pairs” is not
+a deﬁned notion; and no ﬁnite computation can conﬁrm an asymptotic level. The example,
+and its claimed computational conﬁrmation, are withdrawn as evidence.
+</p>
+  </div>
+<!--l. 597--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 599--><p class="noindent" ><span class="head">
+<a 
+ id="x1-21002r2"></a>
+<span 
+class="cmti-12">Remark </span>5.2<span 
+class="cmti-12">.</span>  </span>The February version compared the Sophie Germain coupling with a degraded
+channel, saying that a degraded channel has lower capacity because input–output dependence
+increases. That is backwards. For a degraded channel \(X \to Y \to Z\) the data-processing inequality gives
+\(I(X;Z) \leq I(X;Y)\), so the capacity \(\max _{p(x)} I(X;Z)\) is at most \(\max _{p(x)} I(X;Y)\) because input–output dependence <span 
+class="cmti-12">decreases</span>. In any case, by
+Remark <a 
+href="#x1-21001r1">5.1<!--tex4ht:ref: rem:sg --></a> the coupling in Sophie Germain pairs is the same as in twin primes, so the
+comparison distinguishes nothing.
+</p>
+                                                                                         
+                                                                                         
+  </div>
+<!--l. 608--><p class="indent" >
+</p>
+<!--l. 610--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">5.2. </span> <a 
+ id="x1-220005.2"></a><span 
+class="cmbx-12">Decision criteria: when to use this framework.</span></span>
+</p>
+  <div class="newtheorem">
+<!--l. 613--><p class="noindent" ><span class="head">
+<a 
+ id="x1-22001r3"></a>
+<span 
+class="cmbx-12">Criterion 5.3 </span>(Apply spherical cow philosophy when:)<span 
+class="cmbx-12">.</span>  </span>
+          </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   (1) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmbx-12">Structural barrier</span>: Classical methods have encountered a persistent ceiling that
+       is not merely a technical obstacle but appears to reﬂect the limits of the general
+       approach.
+          </dd><dt class="enumerate-enumitem">
+   (2) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmbx-12">Identiﬁable constitution</span>: A constraint exists that is universal within the domain,
+       veriﬁable computationally, and simple to state.
+          </dd><dt class="enumerate-enumitem">
+   (3) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmbx-12">Cross-domain  echo</span>:  The  same  structural  pattern  appears  in  independent
+       ﬁelds,  suggesting  the  constitution  captures  something  fundamental  rather  than
+       domain-speciﬁc.
+          </dd><dt class="enumerate-enumitem">
+   (4) </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmbx-12">Falsiﬁable predictions</span>: The framework generates predictions about cases not yet
+       examined, ﬁxed in advance, which can conﬁrm or refute it.</dd></dl>
+  </div>
+<!--l. 629--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 631--><p class="noindent" ><span class="head">
+<a 
+ id="x1-22006r4"></a>
+<span 
+class="cmbx-12">Criterion 5.4 </span>(Prefer classical methods when:)<span 
+class="cmbx-12">.</span>  </span>
+          </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   (1) </dt><dd 
+class="enumerate-enumitem">The statement is provable from accepted axioms by known techniques.
+          </dd><dt class="enumerate-enumitem">
+   (2) </dt><dd 
+class="enumerate-enumitem">The problem is single-domain without structural echoes elsewhere.
+          </dd><dt class="enumerate-enumitem">
+   (3) </dt><dd 
+class="enumerate-enumitem">No universal constitutional constraint is identiﬁable.
+          </dd><dt class="enumerate-enumitem">
+   (4) </dt><dd 
+class="enumerate-enumitem">Proof by contradiction successfully ﬁnds contradictions.</dd></dl>
+                                                                                         
+                                                                                         
+  </div>
+<!--l. 639--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 641--><p class="noindent" ><span class="head">
+<a 
+ id="x1-22011r5"></a>
+<span 
+class="cmti-12">Remark </span>5.5 (The \(k=4\) open prediction)<span 
+class="cmti-12">.</span>  </span> The  programme  proposes,  as  its  next  prediction,  a
+prime constellation with \(k = 4\) independent modular constraints and governing constant \(\theta _4 = (2^4 - 4)/2^4 = 3/4\) (see
+Table 1 of <span class="cite">[<a 
+href="#XWakilCF">17</a>]</span>). In its present form this is not yet a prediction with operational content. A
+level of distribution is a property of primes in arithmetic progressions, the same input for
+every admissible tuple, so “the level of distribution of a constellation” would ﬁrst have to
+be deﬁned; the four constraints, and their independence, would have to be ﬁxed before any
+comparison; and since a level of distribution is an asymptotic statement, a ﬁnite computation
+could illustrate it but neither verify nor disprove it. Supplying these is an open problem.
+</p>
+  </div>
+<!--l. 654--><p class="indent" >
+</p>
+  <h3 class="sectionHead"><span class="titlemark">6. </span> <a 
+ id="x1-230006"></a>Philosophical Foundations</h3>
+<!--l. 660--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">6.1. </span> <a 
+ id="x1-240006.1"></a><span 
+class="cmbx-12">Empiricism and rationalism in mathematics.</span></span>
+  Classical mathematics is rationalist: truth derives from axioms and logical deduction. Empirical
+observations serve as heuristics, not proofs.
+</p><!--l. 665--><p class="indent" >  Spherical cow philosophy is <span 
+class="cmti-12">methodologically </span>empiricist, without abandoning rigour.
+Constitutional constraints are accepted as entry points because they are empirically universal and
+computationally veriﬁable. The <span 
+class="cmti-12">derivation </span>from those constraints remains fully rigorous.
+The shift is in what counts as the productive starting point, not in what counts as a
+proof.
+</p><!--l. 671--><p class="indent" >  The physics analogy is again apt. Physicists accept the invariance of the speed of light in all
+inertial frames—an empirically supported postulate (Einstein’s second postulate)—and rigorously
+derive the structure of spacetime from it. The derivation (special relativity, \(E = mc^2\), time dilation) is
+mathematically exact; the starting point is empirical. Spherical cow philosophy proposes the same
+division of labour for mathematics: accept the constitutional constraint empirically, derive its
+consequences rigorously.
+</p>
+<!--l. 679--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">6.2. </span> <a 
+ id="x1-250006.2"></a><span 
+class="cmbx-12">G</span><span 
+class="cmbx-12">ödel, independence, and the scope of this claim.</span></span>
+  Gödel’s incompleteness theorems <span class="cite">[<a 
+href="#XGodel1931">2</a>]</span> establish that any consistent, eﬀectively axiomatisable
+formal system containing enough arithmetic has true arithmetical statements unprovable within
+                                                                                         
+                                                                                         
+the system. (Eﬀective axiomatisability is essential: the set of all true arithmetical statements is
+consistent and complete.) Cohen <span class="cite">[<a 
+href="#XCohen1963">3</a>]</span>, completing earlier work of Gödel, showed that the continuum
+hypothesis is independent of ZFC.
+</p><!--l. 690--><p class="indent" >  We do <span 
+class="cmti-12">not </span>claim that twin prime inﬁnitude is independent of ZFC. We make no claim about the
+axiomatic status of any conjecture in this programme.
+</p><!--l. 693--><p class="indent" >  What we do claim is narrower and more useful: <span 
+class="cmti-12">for problems where classical methods have</span>
+<span 
+class="cmti-12">encountered structural barriers, accepting an empirical constitution as the entry point can be a</span>
+<span 
+class="cmti-12">productive methodological choice</span>. This claim is independent of whether the problem is independent
+of ZFC. It applies whenever the constitutional structure is the productive formulation, regardless of
+the problem’s status in formal logic.
+</p>
+<!--l. 700--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">6.3. </span> <a 
+ id="x1-260006.3"></a><span 
+class="cmbx-12">Methodological pluralism.</span></span>
+  Mathematics beneﬁts from multiple methodologies: </p>
+          <ul class="itemize1">
+       <li class="itemize">
+       <!--l. 704--><p class="indent" >   Classical proof by contradiction: for statements provable from axioms.
+          </p></li>
+       <li class="itemize">
+       <!--l. 705--><p class="indent" >   Constructive mathematics: for explicit object construction.
+          </p></li>
+       <li class="itemize">
+       <!--l. 706--><p class="indent" >   Probabilistic methods: for deterministic results via probability (Erdős).
+          </p></li>
+       <li class="itemize">
+       <!--l. 708--><p class="indent" >   Computational veriﬁcation: for ﬁnite cases (four-colour theorem).
+          </p></li>
+       <li class="itemize">
+       <!--l. 709--><p class="indent" >   <span 
+class="cmti-12">Spherical  cow  philosophy</span>:  for  structural  barriers  with  identiﬁable  empirical
+       constitutions and cross-domain echoes.</p></li></ul>
+<!--l. 713--><p class="indent" >  These are not competing methodologies. They are tools for diﬀerent situations. The contribution
+of this paper is to articulate the conditions under which the last tool is the right one, and to
+illustrate its application—including the ways it can go wrong—through the arithmetic programme
+of <span class="cite">[<a 
+href="#XWakilRamanujan">20</a>, <a 
+href="#XWakilEisenstein">19</a>, <a 
+href="#XWakilW3">22</a>, <a 
+href="#XWakilShannon">21</a>]</span>.
+</p>
+  <h3 class="sectionHead"><span class="titlemark">7. </span> <a 
+ id="x1-270007"></a>Conclusion</h3>
+<!--l. 723--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">7.1. </span> <a 
+ id="x1-280007.1"></a><span 
+class="cmbx-12">Summary.</span></span>
+  Spherical cow philosophy provides a methodological complement to classical proof-by-contradiction
+for problems where structural barriers persist. By accepting empirical constitutional constraints as
+the productive entry point—deriving forced consequences rigorously and validating predictions
+                                                                                         
+                                                                                         
+across independent domains—the framework may open paths that a purely universal approach
+does not emphasise.
+</p><!--l. 732--><p class="indent" >  What the twin-prime case study shows:
+          </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   (1) </dt><dd 
+class="enumerate-enumitem">The constitution \(p \equiv 2 \pmod {3}\) is a theorem. It motivated the cascade moduli and the conjecture
+       \(\theta _W = 5/8\) <span class="cite">[<a 
+href="#XWakilEisenstein">19</a>]</span>, which is open; Condition W3 <span class="cite">[<a 
+href="#XWakilW3">22</a>]</span> is true but aﬀects no level of distribution.
+       None of these is forced by the constitution.
+          </dd><dt class="enumerate-enumitem">
+   (2) </dt><dd 
+class="enumerate-enumitem">The  comparison  with  Shannon’s  AEP  and  Channel  Coding  Theorem <span class="cite">[<a 
+href="#XWakilShannon">21</a>]</span>  is  a
+       proposed analogy. In the AEP the distinguished subset is a vanishing fraction of the
+       space, the opposite of the \(\theta _k\) pattern.
+          </dd><dt class="enumerate-enumitem">
+   (3) </dt><dd 
+class="enumerate-enumitem">The Sophie Germain example is not a test of the framework: its local structure is the
+       same as that of twin primes, and the value \(1/2\) is predicted at both depths \(1\) and \(2\).
+          </dd><dt class="enumerate-enumitem">
+   (4) </dt><dd 
+class="enumerate-enumitem">The \(k = 4\) prediction becomes a falsiﬁability test only once its terms are deﬁned and ﬁxed
+       in advance.</dd></dl>
+<!--l. 749--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">7.2. </span> <a 
+ id="x1-290007.2"></a><span 
+class="cmbx-12">The philosophical shift.</span></span>
+  From: mathematics begins with axioms and proceeds by deduction.
+</p><!--l. 753--><p class="indent" >  To: mathematics also begins with constitutional constraints and proceeds by rigorous derivation
+of their forced consequences.
+</p><!--l. 756--><p class="indent" >  This is not a rejection of rigour. The methodology stands or falls with the rigour of its
+derivations, and the case study shows that each claimed consequence must be checked as carefully
+as any proof. The shift is in what counts as the <span 
+class="cmti-12">starting point</span>, not in what counts as a
+<span 
+class="cmti-12">proof</span>.
+</p>
+<!--l. 761--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">7.3. </span> <a 
+ id="x1-300007.3"></a><span 
+class="cmbx-12">Final reﬂection.</span></span>
+  Omar Khayyam is remembered for ﬁnding geometry in numbers: he classiﬁed the
+cubic equations and solved them by intersecting conic sections, and he took part in the
+calendar reform adopted in 1079 <span class="cite">[<a 
+href="#XWakilKhayyam">18</a>]</span>. He did not ﬁnd an arithmetic solution of the
+general cubic, and said so; the geometry of conic sections gave him a diﬀerent entry
+point.
+</p><!--l. 769--><p class="indent" >  The spherical cow reveals what matters—provided one then checks that what was kept really
+forces what is claimed.
+</p>
+  <h3 class="sectionHead"><a 
+ id="x1-31000"></a>Acknowledgements</h3>
+<!--l. 776--><p class="noindent" >The author acknowledges Claude Shannon’s 1948 paper, whose theorems prompted the
+cross-domain comparison discussed in Section <a 
+href="#x1-190004.4">4.4<!--tex4ht:ref: sec:shannon --></a>.
+                                                                                         
+                                                                                         
+</p>
+  <h3 class="sectionHead"><a 
+ id="x1-32000"></a>References</h3>
+<!--l. 780--><p class="noindent" >
+    </p><div class="thebibliography">
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[1]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XShannon1948"></a><span 
+class="cmr-10">C.</span><span 
+class="cmr-10"> E.</span><span 
+class="cmr-10"> Shannon,  A  mathematical  theory  of  communication,  </span><span 
+class="cmti-10">Bell  System  Tech.</span><span 
+class="cmti-10"> J.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">27  </span><span 
+class="cmr-10">(1948),</span>
+    <span 
+class="cmr-10">379–423, 623–656.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[2]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XGodel1931"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> G</span><span 
+class="cmr-10">ödel, </span><span 
+class="cmr-10">Über formal unentscheidbare S</span><span 
+class="cmr-10">ätze der Principia Mathematica und verwandter Systeme</span><span 
+class="cmr-10"> I,</span>
+    <span 
+class="cmti-10">Monatsh.</span><span 
+class="cmti-10"> Math.</span><span 
+class="cmti-10"> Phys.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">38 </span><span 
+class="cmr-10">(1931), 173–198.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[3]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XCohen1963"></a><span 
+class="cmr-10">P.</span><span 
+class="cmr-10"> J.</span><span 
+class="cmr-10"> Cohen,  The  independence  of  the  continuum  hypothesis,  </span><span 
+class="cmti-10">Proc.</span><span 
+class="cmti-10"> Nat.</span><span 
+class="cmti-10"> Acad.</span><span 
+class="cmti-10"> Sci.</span><span 
+class="cmti-10"> USA</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">50</span>
+    <span 
+class="cmr-10">(1963), 1143–1148.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[4]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XBaierPujahari2022"></a><span 
+class="cmr-10">S.</span><span 
+class="cmr-10"> Baier and S.</span><span 
+class="cmr-10"> Pujahari, A Bombieri–Vinogradov type theorem with prime power moduli, </span><span 
+class="cmti-10">Acta</span>
+    <span 
+class="cmti-10">Arith.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">204 </span><span 
+class="cmr-10">(2022); arXiv:2107.04348.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[5]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XBLT1964"></a><span 
+class="cmr-10">M.</span><span 
+class="cmr-10"> B.</span><span 
+class="cmr-10"> Barban,  Yu.</span><span 
+class="cmr-10"> V.</span><span 
+class="cmr-10"> Linnik  and  N.</span><span 
+class="cmr-10"> G.</span><span 
+class="cmr-10"> Tshudakov,  On  prime  numbers  in  an  arithmetic</span>
+    <span 
+class="cmr-10">progression with a prime-power diﬀerence, </span><span 
+class="cmti-10">Acta Arith.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">9 </span><span 
+class="cmr-10">(1964), 375–390.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[6]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XBombieri1965"></a><span 
+class="cmr-10">E.</span><span 
+class="cmr-10"> Bombieri, On the large sieve, </span><span 
+class="cmti-10">Mathematika</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">12 </span><span 
+class="cmr-10">(1965), 201–225.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[7]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XBFI1986"></a><span 
+class="cmr-10">E.</span><span 
+class="cmr-10"> Bombieri, J.</span><span 
+class="cmr-10"> B.</span><span 
+class="cmr-10"> Friedlander and H.</span><span 
+class="cmr-10"> Iwaniec, Primes in arithmetic progressions to large moduli,</span>
+    <span 
+class="cmti-10">Acta Math.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">156 </span><span 
+class="cmr-10">(1986), 203–251.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[8]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XGallagher1972"></a><span 
+class="cmr-10">P.</span><span 
+class="cmr-10"> X.</span><span 
+class="cmr-10"> Gallagher,  Primes  in  progressions  to  prime-power  modulus,  </span><span 
+class="cmti-10">Invent.</span><span 
+class="cmti-10"> Math.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">16  </span><span 
+class="cmr-10">(1972),</span>
+    <span 
+class="cmr-10">191–201.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[9]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XVinogradov1965"></a><span 
+class="cmr-10">A.</span><span 
+class="cmr-10"> I.</span><span 
+class="cmr-10"> Vinogradov, The density hypothesis for Dirichlet</span> \(L\)<span 
+class="cmr-10">-series, </span><span 
+class="cmti-10">Izv.</span><span 
+class="cmti-10"> Akad.</span><span 
+class="cmti-10"> Nauk SSSR Ser.</span><span 
+class="cmti-10"> Mat.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">29</span>
+    <span 
+class="cmr-10">(1965), 903–934.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[10]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XGPY2009"></a><span 
+class="cmr-10">D.</span><span 
+class="cmr-10"> A.</span><span 
+class="cmr-10"> Goldston,  J.</span><span 
+class="cmr-10"> Pintz,  and C.</span><span 
+class="cmr-10"> Y.</span><span 
+class="cmr-10"> Yıldırım,  Primes in tuples</span><span 
+class="cmr-10"> I, </span><span 
+class="cmti-10">Ann.</span><span 
+class="cmti-10"> of Math.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">170 </span><span 
+class="cmr-10">(2009),</span>
+    <span 
+class="cmr-10">819–862.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[11]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XZhang2014"></a><span 
+class="cmr-10">Y.</span><span 
+class="cmr-10"> Zhang, Bounded gaps between primes, </span><span 
+class="cmti-10">Ann.</span><span 
+class="cmti-10"> of Math.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">179 </span><span 
+class="cmr-10">(2014), 1121–1174.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[12]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XMaynard2015"></a><span 
+class="cmr-10">J.</span><span 
+class="cmr-10"> Maynard, Small gaps between primes, </span><span 
+class="cmti-10">Ann.</span><span 
+class="cmti-10"> of Math.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">181 </span><span 
+class="cmr-10">(2015), 383–413.</span>
+    </p>
+                                                                                         
+                                                                                         
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[13]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XMaynard2020"></a><span 
+class="cmr-10">J.</span><span 
+class="cmr-10"> Maynard,  Primes  in  arithmetic  progressions  to  large  moduli  II:  well-factorable  estimates,</span>
+    <span 
+class="cmr-10">arXiv:2006.07088, 2020.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[14]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XLichtman2023"></a><span 
+class="cmr-10">J.</span><span 
+class="cmr-10"> D.</span><span 
+class="cmr-10"> Lichtman,  Primes  in  arithmetic  progressions  to  large  moduli,  and  Goldbach  beyond  the</span>
+    <span 
+class="cmr-10">square-root barrier, arXiv:2309.08522, 2023.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[15]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XPascadi2025"></a><span 
+class="cmr-10">A.</span><span 
+class="cmr-10"> Pascadi, On the exponents of distribution of primes and smooth numbers, arXiv:2505.00653,</span>
+    <span 
+class="cmr-10">2025.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[16]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XPolymath8b"></a><span 
+class="cmr-10">D.</span><span 
+class="cmr-10"> H.</span><span 
+class="cmr-10"> J.</span><span 
+class="cmr-10"> Polymath, Variants of the Selberg sieve, and bounded intervals containing many primes,</span>
+    <span 
+class="cmti-10">Res.</span><span 
+class="cmti-10"> Math.</span><span 
+class="cmti-10"> Sci.</span><span 
+class="cmr-10"> </span><span 
+class="cmbx-10">1 </span><span 
+class="cmr-10">(2014), Art.</span><span 
+class="cmr-10"> 12.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[17]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilCF"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Constitutional Forcing, ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[18]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilKhayyam"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Khayyam’s Triangle: Historical Restoration and the Geometry Hidden in the Numbers,</span>
+    <span 
+class="cmr-10">ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[19]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilEisenstein"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Ternary Forcing on the Hexagonal Lattice: Eisenstein Integers, Cascade Moduli, and a</span>
+    <span 
+class="cmr-10">Conjectured Level of Distribution</span><span 
+class="cmr-10"> </span>\(5/8\)<span 
+class="cmr-10">, ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[20]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilRamanujan"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Ramanujan’s Dimensional Forcing: A Universal Formula for Sieve Levels, ARC Institute</span>
+    <span 
+class="cmr-10">of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[21]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilShannon"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, The Shannon–Wakil Eﬀect: Constitutional Forcing as a Universal Pattern in Information</span>
+    <span 
+class="cmr-10">Theory and Prime Arithmetic, ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[22]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilW3"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil,  Condition</span><span 
+class="cmr-10"> W3:  Absence  of  Siegel  Zeros  for  Characters  Modulo</span><span 
+class="cmr-10"> </span>\(3^K\)<span 
+class="cmr-10">,  ARC  Institute  of</span>
+    <span 
+class="cmr-10">Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[23]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilBias"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil,  The  Lemke  Oliver–Soundararajan  Bias  and  Ternary  Constitutional  Structure,  ARC</span>
+    <span 
+class="cmr-10">Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[24]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilFFT"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil,  The  Constitutional  Constant</span>  \(\theta _{\mathrm {FFT}} = 1/2\)<span 
+class="cmr-10">:  Conjugate  Symmetry  of  the  Real  Discrete  Fourier</span>
+    <span 
+class="cmr-10">Transform, ARC Institute of Knowware, preprint, 2026.</span>
+</p>
     </div>
-  </article>
-</div>
-<footer class="site-footer">
-  <span>Knowware is measured in lifetimes</span><span>Constitutional Sieve Programme · Paper 03 of 09</span><span>Registered · Canada</span>
-</footer>
-</body></html>
+  <div class="addresses">
+<!--l. 918--><p class="indent" >  <span class="address-title"></span><span class="address"><span 
+class="cmcsc-10">T<span 
+class="small-caps">h</span><span 
+class="small-caps">e</span> ARC I<span 
+class="small-caps">n</span><span 
+class="small-caps">s</span><span 
+class="small-caps">t</span><span 
+class="small-caps">i</span><span 
+class="small-caps">t</span><span 
+class="small-caps">u</span><span 
+class="small-caps">t</span><span 
+class="small-caps">e</span> <span 
+class="small-caps">o</span><span 
+class="small-caps">f</span> K<span 
+class="small-caps">n</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">w</span><span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">e</span>, C<span 
+class="small-caps">a</span><span 
+class="small-caps">l</span><span 
+class="small-caps">g</span><span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">y</span>, A<span 
+class="small-caps">l</span><span 
+class="small-caps">b</span><span 
+class="small-caps">e</span><span 
+class="small-caps">r</span><span 
+class="small-caps">t</span><span 
+class="small-caps">a</span>, C<span 
+class="small-caps">a</span><span 
+class="small-caps">n</span><span 
+class="small-caps">a</span><span 
+class="small-caps">d</span><span 
+class="small-caps">a</span></span></span>
+                                                                                         
+                                                                                         
+</p><!--l. 918--><p class="indent" >  <span class="email-title">   <span 
+class="cmti-10">Email address</span><span 
+class="cmr-10">: </span></span><span class="email"><span 
+class="cmtt-10">the@knowware.institute</span></span>
+</p>
+  </div> 
+</body></html> 
+
+                                                                                         
+
+

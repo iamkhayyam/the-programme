@@ -1,235 +1,1938 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ramanujan's Dimensional Forcing — Wakil 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Ramanujan’s Dimensional Forcing</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<!-- xhtml,mathjax,charset=utf-8,html --> 
+<meta name="src" content="p05.tex" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
-@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
-:root{--linen:#e8e4dc;--ink:#111;--mid:#444;--light:#888;--rule:#ccc;--lrule:#ddd;--bg:#faf9f6;--note-bg:#f4f2ee;--accent:#8B0000;--link:#1a3a7c;--sidebar-w:220px;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{font-size:14px;}
-body{background:var(--linen);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;}
-.site-header{border-bottom:1px solid var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:50px;background:var(--linen);position:sticky;top:0;z-index:100;}
-.site-logo{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.88rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);text-decoration:none;line-height:1.1;}
-.site-logo span{display:block;font-size:.58rem;letter-spacing:.22em;color:var(--light);font-weight:300;}
-.site-nav{display:flex;gap:1.8rem;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;}
-.site-nav a{color:var(--ink);text-decoration:none;}
-.preprint-bar{border-bottom:1px solid var(--rule);padding:.5rem 2rem;display:flex;align-items:center;justify-content:space-between;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);font-family:'IBM Plex Mono',monospace;}
-.preprint-bar .series-tag{color:var(--ink);font-weight:500;}
-.page-body{max-width:1080px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:var(--sidebar-w) 1fr;gap:0;}
-.sidebar{border-right:1px solid var(--rule);padding:2.5rem 1.8rem 2.5rem 0;position:sticky;top:50px;height:calc(100vh - 50px);overflow-y:auto;}
-.sb-label{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
-.sb-num{font-family:'IBM Plex Sans',sans-serif;font-size:3.2rem;font-weight:300;line-height:1;color:var(--ink);letter-spacing:-.02em;margin-bottom:1.8rem;}
-.sb-meta{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;color:var(--light);line-height:2;text-transform:uppercase;margin-bottom:1.8rem;}
-.sb-meta strong{color:var(--ink);display:block;font-weight:500;font-size:.55rem;margin-top:.6rem;}
-.sb-meta strong:first-child{margin-top:0;}
-.sb-links{margin-bottom:1.8rem;}
-.sb-link{display:block;font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;text-transform:uppercase;color:var(--link);text-decoration:none;padding:.35rem 0;border-bottom:1px solid var(--lrule);line-height:1.4;}
-.sb-link:last-child{border-bottom:none;}
-.sb-link:hover{color:var(--accent);}
-.sb-link .sb-link-label{color:var(--light);display:block;font-size:.48rem;}
-.series-index{list-style:none;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.04em;line-height:2.1;text-transform:uppercase;color:var(--light);}
-.series-index a{color:var(--light);text-decoration:none;}
-.series-index a:hover{color:var(--ink);}
-.series-index .curr{color:var(--ink);font-weight:500;}
-.series-index .curr::before{content:'→ ';}
-.paper{padding:2.5rem 0 4rem 2.8rem;background:var(--bg);min-height:calc(100vh - 50px);}
-.paper-header{text-align:center;padding-bottom:2rem;border-bottom:1px solid var(--rule);margin-bottom:2rem;}
-.paper-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--light);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem;}
-.paper-label a{color:var(--link);text-decoration:none;}
-h1.title{font-family:'STIX Two Text','Times New Roman',serif;font-weight:600;font-size:1.45rem;line-height:1.35;color:var(--ink);margin-bottom:1rem;}
-.authors{font-family:'IBM Plex Sans',sans-serif;font-size:.82rem;color:var(--mid);margin-bottom:.4rem;}
-.affiliation{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--light);font-style:italic;margin-bottom:1rem;}
-.paper-date{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--light);}
-.abstract-block{margin:0 2rem 1.5rem;padding:1.2rem 1.5rem;background:var(--note-bg);border:1px solid var(--rule);}
-.abs-label{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mid);margin-bottom:.7rem;text-align:center;}
-.abstract-block p{font-family:'STIX Two Text',serif;font-size:.88rem;line-height:1.65;color:var(--mid);text-align:justify;margin:0;}
-.keywords{margin:.8rem 2rem 1.5rem;font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;color:var(--light);text-align:center;}
-.keywords strong{color:var(--mid);font-weight:500;}
-.paper-meta-strip{display:flex;gap:1.5rem;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;padding:.8rem 1rem;border-top:1px solid var(--lrule);border-bottom:1px solid var(--lrule);}
-.meta-pill{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--light);}
-.meta-pill a{color:var(--link);text-decoration:none;border-bottom:1px solid var(--lrule);}
-.meta-pill a:hover{color:var(--accent);}
-.paper-body{font-family:'STIX Two Text','Times New Roman',serif;font-size:1rem;line-height:1.72;color:var(--ink);max-width:640px;}
-.paper-body p{text-align:justify;margin-bottom:.9em;hyphens:auto;}
-.paper-body h2{font-family:'STIX Two Text',serif;font-weight:600;font-size:1.05rem;color:var(--ink);margin:2.2rem 0 .8rem;counter-increment:section;}
-.paper-body h2::before{content:counter(section) '.  ';color:var(--accent);}
-.paper-body{counter-reset:section;}
-.paper-body h3{font-family:'STIX Two Text',serif;font-weight:600;font-size:.92rem;color:var(--mid);margin:1.5rem 0 .5rem;font-style:italic;}
-.eq-label{display:flex;align-items:center;justify-content:space-between;margin:1.2rem 0;}
-.eq-content{flex:1;text-align:center;font-family:'STIX Two Text',serif;font-size:1.02rem;}
-.eq-num{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);width:44px;text-align:right;}
-.env-block{margin:1.4rem 0;padding:1rem 1.2rem;font-family:'STIX Two Text',serif;font-size:.95rem;line-height:1.65;}
-.env-block.theorem{border:1px solid var(--rule);border-left:4px solid var(--ink);background:var(--note-bg);}
-.env-block.proposition{border:1px solid var(--rule);border-left:4px solid var(--mid);background:var(--note-bg);}
-.env-block.lemma{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
-.env-block.corollary{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
-.env-block.definition{border:1px solid var(--rule);border-left:4px solid var(--accent);background:#fff8f8;}
-.env-block.remark{border-left:3px solid var(--accent);background:#fff8f8;padding:.8rem 1.2rem;}
-.env-block.conjecture{border:1px dashed var(--rule);border-left:4px dashed var(--ink);background:var(--note-bg);}
-.env-label{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);margin-bottom:.5rem;}
-.env-block.remark .env-label,.env-block.definition .env-label{color:var(--accent);}
-.proof{margin:.5rem 0 1.2rem 1.5rem;font-family:'STIX Two Text',serif;font-size:.92rem;line-height:1.65;color:var(--mid);}
-.proof-label{font-family:'IBM Plex Sans',sans-serif;font-style:italic;font-size:.8rem;color:var(--light);margin-bottom:.3rem;}
-.qed{float:right;font-size:1rem;color:var(--mid);}
-table.formal{width:100%;border-collapse:collapse;margin:1.2rem 0 1rem;font-size:.85rem;font-family:'STIX Two Text',serif;}
-table.formal th{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid var(--ink);border-top:1px solid var(--ink);padding:.5rem .8rem;text-align:left;}
-table.formal td{padding:.45rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;}
-table.formal tr:last-child td{border-bottom:1px solid var(--ink);}
-.table-caption{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--mid);text-align:center;margin-bottom:1.5rem;font-style:italic;}
-.table-caption strong{font-style:normal;font-weight:500;}
-em{font-style:italic;}strong{font-weight:600;}
-sup{font-size:.7em;vertical-align:super;color:var(--accent);}
-sub{font-size:.7em;vertical-align:sub;}
-.next-paper{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--ink);max-width:640px;}
-.next-label{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
-.next-title{font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;}
-.next-title a{color:var(--ink);text-decoration:none;}
-.next-title a:hover{color:var(--link);}
-.next-desc{font-family:'STIX Two Text',serif;font-size:.88rem;color:var(--light);margin-top:.25rem;font-style:italic;}
-.references{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);max-width:640px;}
-.ref-list{list-style:none;counter-reset:refs;}
-.ref-list li{counter-increment:refs;padding-left:36px;position:relative;margin-bottom:.6rem;font-family:'STIX Two Text',serif;font-size:.82rem;line-height:1.5;color:var(--mid);}
-.ref-list li::before{content:'['counter(refs)']';position:absolute;left:0;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);}
-.site-footer{border-top:1px solid var(--ink);padding:.9rem 2rem;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);}
-@media(max-width:760px){.page-body{grid-template-columns:1fr;}.sidebar{position:static;height:auto;border-right:none;border-bottom:1px solid var(--rule);padding:1.5rem 0;}.paper{padding:1.5rem 0;}.preprint-bar{display:none;}.series-index{display:none;}.abstract-block{margin:0 0 1.5rem;}}
-</style>
+ 
+/* start css.sty */
+.cmr-10{font-size:83%;}
+.cmcsc-10{font-size:83%;}
+.cmbx-12{ font-weight: bold;}
+.cmbx-12{ font-weight: bold;}
+.cmti-12{ font-style: italic;}
+.cmtt-12{font-family: monospace,monospace;}
+.cmtt-12{font-family: monospace,monospace;}
+.cmti-10{font-size:83%; font-style: italic;}
+.cmbx-10{font-size:83%; font-weight: bold;}
+.cmbx-10{ font-weight: bold;}
+.cmtt-10{font-size:83%;font-family: monospace,monospace;}
+.cmtt-10{font-family: monospace,monospace;}
+.small-caps{font-variant: small-caps; }
+p{margin-top:0;margin-bottom:0}
+p.indent{text-indent:0;}
+p + p{margin-top:1em;}
+p + div, p + pre {margin-top:1em;}
+div + p, pre + p {margin-top:1em;}
+a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+@media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+img.math{vertical-align:middle;}
+div.par-math-display, div.math-display{text-align:center;}
+li p.indent { text-indent: 0em }
+li p:first-child{ margin-top:0em; }
+li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
+li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+code.verb{font-family:monospace,monospace;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
+.hline:first-child{border-bottom:1px solid black;border-top:none;}
+.tabbing-right {text-align:right;}
+div.float, div.figure {margin-left: auto; margin-right: auto;}
+div.float img {text-align:center;}
+div.figure img {text-align:center;}
+.marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.reversemarginpar{float:left;}
+table.equation {width:100%;}
+.equation td{text-align:center; }
+td.equation { margin-top:1em; margin-bottom:1em; } 
+td.equation-label { width:5%; text-align:center; }
+td.eqnarray4 { width:5%; white-space: normal; }
+td.eqnarray2 { width:5%; }
+table.eqnarray-star, table.eqnarray {width:100%;}
+div.eqnarray{text-align:center;}
+div.array {text-align:center;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.pmatrix img{vertical-align:middle;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.bar-css {text-decoration:overline;}
+img.cdots{vertical-align:middle;}
+span.footnote-mark{ vertical-align: super; font-size:80%; }
+div.submaketitle{ text-align:left; margin-top:2em; border-top: 1px solid black; border-bottom: 1px solid black; margin-left:5%; margin-right:5%; font-size:85%; line-height: 95%;}
+div.submaketitle div {margin-top:0.5em; margin-bottom:0.5em; }
+div.submaketitle p { margin-top:0em; margin-bottom:0em; }
+div.abstract{ margin-top: 2em; text-align:left; margin-right:15pt; margin-left:15pt; }
+div.addresses p {margin-top:0em; margin-bottom:0em; }
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; text-align:center; }
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption span.id{font-weight: bold; white-space: nowrap; }
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.qed {width:2ex; float:right; text-align:right;}
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+div.translators {text-align:right; margin-bottom:0.7em;}
+.sectionHead{text-align:center;}
+.equation td{text-align:center; }
+.equation-star td{text-align:center; }
+table.equation-star { width:100%; }
+table.equation { width:100%; }
+table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:95%; margin-left:5%; white-space: nowrap;}
+table.align-star, table.alignat-star, table.xalignat-star, table.flalign-star {margin-left:auto; margin-right:auto; white-space: nowrap;}
+td.align-label { width:5%; text-align:center; }
+td.align-odd { text-align:right; padding-right:0.3em;}
+td.align-even { text-align:left; padding-right:0.6em;}
+table.multline, table.multline-star {width:100%;}
+td.gather {text-align:center; }
+table.gather {width:100%;}
+div.gather-star {text-align:center;}
+dl.enumerate-enumitem{display:grid; grid-template-columns: 3ch 1fr; align-items: top; row-gap:1ch;}
+tr#TBL-1-1- {border-top:0.13159em solid #000;} 
+tr#TBL-1-2- {border-bottom:0.08224em solid #000}
+tr#TBL-1-8- {border-bottom:0.13159em solid #000}
+tr#TBL-2-1- {border-top:0.13159em solid #000;} 
+tr#TBL-2-1- {border-bottom:0.08224em solid #000}
+tr#TBL-2-5- {border-bottom:0.13159em solid #000}
+tr#TBL-3-1- {border-top:0.13159em solid #000;} 
+tr#TBL-3-1- {border-bottom:0.08224em solid #000}
+tr#TBL-3-6- {border-bottom:0.13159em solid #000}
+/* end css.sty */
 
-</head>
-<body>
-<header class="site-header">
-  <a href="https://knowware.institute" class="site-logo">KNOWWARE<span>THE &nbsp; A.R.C &nbsp; INSTITUTE</span></a>
-  <nav class="site-nav"><a href="../../papers/index.html">Pre-Print</a><a href="https://knowware.institute/contact">Contact</a></nav>
-</header>
-<div class="preprint-bar">
-  <span>ARC Institute of Knowware · 2026</span>
-  <span class="series-tag">Constitutional Sieve Programme · Nine Papers</span>
-  <span>math.NT · 11N35, 11N36 · Fisher Creek Ranch, Alberta</span>
-</div>
-<div class="page-body">
-  <aside class="sidebar">
-    <div class="sb-label">Paper</div><div class="sb-num">05</div>
-    <div class="sb-meta"><strong>Author</strong>Khayyam Wakil<strong>Published</strong>February 2026<strong>Series</strong>Constitutional Sieve Programme<strong>MSC 2020</strong>11N35, 11N36, 11N13, 05A16</div>
-    <div class="sb-links">
-      <a class="sb-link" href="p05.pdf" target="_blank">
-        <span class="sb-link-label">Download · PDF</span>
-        p05.pdf → View
-      </a>
-      <a class="sb-link" href="p05.tex" target="_blank">
-        <span class="sb-link-label">LaTeX Source</span>
-        p05.tex → View
-      </a>
+
+body{max-width:48rem;margin:2rem auto;padding:0 1rem;font-family:"STIX Two Text","Times New Roman",serif;font-size:17px;line-height:1.55;color:#1a1a1a;background:#faf9f6}
+h2,h3,h4{line-height:1.3} .maketitle{text-align:center;margin-bottom:2rem} table{border-collapse:collapse;margin:1rem auto} td{padding:2px 8px}
+img{max-width:100%;height:auto} .abstract{margin:1.5rem 0;padding:1rem 1.25rem;background:#f4f2ee}
+@media (prefers-color-scheme: dark){body{background:#151515;color:#e8e6e1} .abstract{background:#222} a{color:#9bb8ff}}
+</style> 
+<script>window.MathJax = { tex: { tags: "ams", macros: {"Z": "\\mathbb{Z}", "Q": "\\mathbb{Q}", "Zomega": "\\Z[\\omega]", "thetaW": "\\theta_W", "thetaBV": "\\theta_{BV}", "thetak": "\\theta_k", "rhoc": "\\rho^{\\mathrm{config}}", "rhop": "\\rho^{\\mathrm{pattern}}", "N": "\\operatorname{N}"} } }; </script> 
+ <script type="text/javascript" async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml-full.js"></script>  
+</head><body 
+>
+  <div class="maketitle">
+  <h2 class="titleHead">
+RAMANUJAN’S DIMENSIONAL FORCING: A UNIVERSAL FORMULA
+FOR SIEVE LEVELS
+  </h2>
+  <div class="authors"><span class="author" >
+<span 
+class="cmr-10">KHAYYAM WAKIL</span>
+  </span></div>
+         <div class="abstract">
+       <!--l. 70--><p class="noindent" ><span class="title">
+       <span 
+class="cmcsc-10">A<span 
+class="small-caps">b</span><span 
+class="small-caps">s</span><span 
+class="small-caps">t</span><span 
+class="small-caps">r</span><span 
+class="small-caps">a</span><span 
+class="small-caps">c</span><span 
+class="small-caps">t</span>.</span> </span><span 
+class="cmr-10">We study the formula </span>\[ \thetak = \frac {2^k - k}{2^k} = 1 - \frac {k}{2^k}, \] <span 
+class="cmr-10">proposed as the level of distribution of</span> \(k\)<span 
+class="cmr-10">-fold sieves with</span>
+       <span 
+class="cmr-10">constitutional structure. The formula rests on a counting postulate: a system of depth</span> \(k\) <span 
+class="cmr-10">is</span>
+       <span 
+class="cmr-10">one in which exactly</span> \(k\) <span 
+class="cmr-10">of the</span> \(2^k\) <span 
+class="cmr-10">binary conﬁgurations are eliminated, which gives conﬁguration</span>
+       <span 
+class="cmr-10">density</span> \((2^k-k)/2^k\)<span 
+class="cmr-10">. This is a postulate, not a consequence of the binary model: if a conﬁguration is</span>
+       <span 
+class="cmr-10">invalid whenever some constraint fails, there are</span> \(2^k-1\) <span 
+class="cmr-10">invalid conﬁgurations, not</span> \(k\)<span 
+class="cmr-10">. For</span> \(k=3\) <span 
+class="cmr-10">the formula</span>
+       <span 
+class="cmr-10">gives</span> \(5/8\)<span 
+class="cmr-10">. We record the Eisenstein-integer arithmetic attached to the moduli</span> \(q = 3^K\) <span 
+class="cmr-10">(the ramiﬁcation</span>
+       \((3) = (1-\omega )^2\) <span 
+class="cmr-10">and the cyclicity of</span> \((\Z /3^K\Z )^*\)<span 
+class="cmr-10">) and explain why it does not yield a level of distribution</span> \(5/8\)<span 
+class="cmr-10">: the summed</span>
+       <span 
+class="cmr-10">estimate over the moduli</span> \(3^K\) <span 
+class="cmr-10">holds for every exponent up to</span> \(1\) <span 
+class="cmr-10">by a trivial argument, while the</span>
+       <span 
+class="cmr-10">per-modulus statement would go beyond what the Generalised Riemann Hypothesis gives.</span>
+       <span 
+class="cmr-10">The value</span> \(5/8\) <span 
+class="cmr-10">for cascade moduli is therefore a conjecture. Pascadi’s exponent</span> \(5/8\) <span 
+class="cmr-10">for general</span>
+       <span 
+class="cmr-10">moduli with triply-well-factorable weights has a diﬀerent origin, and its agreement with</span> \(\theta _3\) <span 
+class="cmr-10">is</span>
+       <span 
+class="cmr-10">a numerical coincidence. The correspondence between</span> \(\thetak \) <span 
+class="cmr-10">and analytic levels of distribution</span>
+       <span 
+class="cmr-10">is conjectural for every</span> \(k\)<span 
+class="cmr-10">, and for</span> \(k = 4, 5\) <span 
+class="cmr-10">no object to which a prediction would apply has been</span>
+       <span 
+class="cmr-10">speciﬁed.</span></p></div>
+<div class="submaketitle">
+  <div class="date" >
+<!--l. 94--><p class="indent" >  <span 
+class="cmti-12">Date</span>: February 2026; revised November 2026.</p></div>
+  <div class="subjclass">
+<!--l. 94--><p class="indent" >  2020 <span 
+class="cmti-12">Mathematics Subject Classiﬁcation.  </span>11N35, 11N36, 11N13, 05A10, 11R04 .</p></div>
+  <div class="keywords">
+<!--l. 94--><p class="indent" >  <span 
+class="cmti-12">Key words and phrases. </span>level of distribution, sieve theory, constitutional sieve, Eisenstein
+integers, Kloosterman sums, twin primes, cascade moduli, conﬁguration density, \(k\)-hierarchy.</p></div></div></div>
+<!--l. 96--><p class="noindent" ><span 
+class="cmbx-12">Revision note (November 2026). </span>The Counting Theorem of the ﬁrst version is
+now a postulate (Postulate <a 
+href="#x1-10001r4">3.4<!--tex4ht:ref: post:count --></a>): its induction proof was wrong, and under the paper’s
+own binary model there are \(2^k-1\) invalid conﬁgurations, not \(k\). The “geometric proof” of \(\theta _3 = 5/8\) is
+withdrawn: the ﬁltration has \(2K\) steps, not three; the Kloosterman bound \(q^{3/8}\) is false; and
+the summed estimate of the former Theorem 5.7 holds for every exponent up to \(1\), so \(5/8\)
+for cascade moduli is now stated as a conjecture. The claims that the formula uniﬁes
+Bombieri–Vinogradov and Pascadi, that Khayyam’s Triangle is its combinatorial origin, and
+that \(\theta _5 = 27/32\) together with GPY would give inﬁnitely many twin primes are withdrawn, as is
+the “empirical” column of Table <a 
+href="#x1-200012">2<!--tex4ht:ref: tab:validation --></a>, for which no method, code or data existed. The
+                                                                                         
+                                                                                         
+assignment \(k=3\) to twin primes and the Sophie Germain “non-instance” are withdrawn. The
+pattern-density discussion is corrected (the diﬀerence is about \(9\%\), and the large-sieve claim is
+withdrawn), the “Ramanujan principle” is removed, the appendix on Watt’s theorem and
+Condition W3 is corrected, and the Bombieri–Vinogradov and Pascadi references are
+ﬁxed.
+</p>
+  <h3 class="sectionHead"><a 
+ id="x1-1000"></a>Contents</h3>
+  <div class="tableofcontents"><span class="sectionToc" ><a 
+href="#x1-1000" id="QQ2-1-1">Contents</a></span><br /><span class="sectionToc" > 1.  <a 
+href="#x1-20001" id="QQ2-1-2">Introduction</a></span><br /><span class="subsectionToc" > 1.1.  <a 
+href="#x1-30001.1" id="QQ2-1-3">The    formula    and    its
+meaning</a></span><br /><span class="subsectionToc" > 1.2.  <a 
+href="#x1-40001.2" id="QQ2-1-4">About the title</a></span><br /><span class="subsectionToc" > 1.3.  <a 
+href="#x1-50001.3" id="QQ2-1-5">Logical status</a></span><br /><span class="subsectionToc" > 1.4.  <a 
+href="#x1-60001.4" id="QQ2-1-6">Position in
+the programme</a></span><br /><span class="sectionToc" > 2.  <a 
+href="#x1-70002" id="QQ2-1-7">Khayyam’s Triangle Modulo \(3\)</a></span><br /><span class="sectionToc" > 3.  <a 
+href="#x1-80003" id="QQ2-1-8">The Counting
+Postulate</a></span><br /><span class="subsectionToc" > 3.1.  <a 
+href="#x1-90003.1" id="QQ2-1-9">Conﬁguration space and constitutional constraints</a></span><br /><span class="subsectionToc" > 3.2.  <a 
+href="#x1-100003.2" id="QQ2-1-10">The
+counting postulate</a></span><br /><span class="sectionToc" > 4.  <a 
+href="#x1-110004" id="QQ2-1-12">Two Densities</a></span><br /><span class="sectionToc" > 5.  <a 
+href="#x1-120005" id="QQ2-1-13">Eisenstein Integers and the
+Moduli \(3^K\)</a></span><br /><span class="subsectionToc" > 5.1.  <a 
+href="#x1-130005.1" id="QQ2-1-14">The Eisenstein integers and ramiﬁcation of 3</a></span><br /><span class="subsectionToc" > 5.2.  <a 
+href="#x1-140005.2" id="QQ2-1-15">The
+\((1-\omega )\)-adic ﬁltration</a></span><br /><span class="subsectionToc" > 5.3.  <a 
+href="#x1-150005.3" id="QQ2-1-16">Cyclicity of \((\mathbb {Z}/3^K\mathbb {Z})^*\) and Kloosterman sums</a></span><br /><span class="subsectionToc" > 5.4.  <a 
+href="#x1-160005.4" id="QQ2-1-17">What is
+true about the moduli \(3^K\)</a></span><br /><span class="sectionToc" > 6.  <a 
+href="#x1-170006" id="QQ2-1-18">The Formula \(\theta _k\)</a></span><br /><span class="subsectionToc" > 6.1.  <a 
+href="#x1-180006.1" id="QQ2-1-19">Statement</a></span><br /><span class="subsectionToc" > 6.2.  <a 
+href="#x1-190006.2" id="QQ2-1-20">The
+Fibonacci remark</a></span><br /><span class="subsectionToc" > 6.3.  <a 
+href="#x1-200006.3" id="QQ2-1-21">Comparison with known levels</a></span><br /><span class="subsectionToc" > 6.4.  <a 
+href="#x1-210006.4" id="QQ2-1-23">Consequences
+and conjectures</a></span><br /><span class="subsectionToc" > 6.5.  <a 
+href="#x1-220006.5" id="QQ2-1-24">The \(\theta _k\) hierarchy</a></span><br /><span class="sectionToc" > A.  <a 
+href="#x1-23000A" id="QQ2-1-26">Watt’s Theorem and
+Condition W3</a></span><br /><span class="sectionToc" ><a 
+href="#x1-24000" id="QQ2-1-27">Acknowledgements</a></span><br /><span class="sectionToc" ><a 
+href="#x1-25000" id="QQ2-1-28">References</a></span><br />
+  </div>
+  <h3 class="sectionHead"><span class="titlemark">1. </span> <a 
+ id="x1-20001"></a>Introduction</h3>
+<!--l. 120--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">1.1. </span> <a 
+ id="x1-30001.1"></a><span 
+class="cmbx-12">The formula and its meaning.</span></span>
+  The Bombieri–Vinogradov theorem <span class="cite">[<a 
+href="#XBombieri1965">1</a>, <a 
+href="#XVinogradov1965">15</a>]</span> states that for every \(A &gt; 0\) there is \(B = B(A)\) such that \[ \sum _{q \leq x^{1/2}(\log x)^{-B}} \max _{\gcd (a,q)=1} \left | \psi (x;q,a) - \frac {x}{\varphi (q)} \right | \ll \frac {x}{(\log x)^A}, \]
+where \(\psi (x;q,a) = \sum _{n \leq x,\ n \equiv a\,(q)} \Lambda (n)\). This is an average over moduli; in this sense primes have level of distribution
+\(\thetaBV = 1/2\). Levels beyond \(1/2\) are known in modiﬁed settings (well-factorable weights and a ﬁxed
+residue class, or smooth moduli): Bombieri, Friedlander and Iwaniec <span class="cite">[<a 
+href="#XBFI1986">2</a>]</span> obtained \(4/7\) in
+1986; Zhang <span class="cite">[<a 
+href="#XZhang2014">17</a>]</span> obtained \(1/2 + 1/584\) for smooth moduli, improved to \(1/2 + 7/300\) by Polymath <span class="cite">[<a 
+href="#XPolymath2014">12</a>]</span>; and for
+triply-well-factorable weights Maynard <span class="cite">[<a 
+href="#XMaynard2020">9</a>]</span> obtained \(3/5\), Lichtman <span class="cite">[<a 
+href="#XLichtman2023">6</a>]</span> \(66/107\), and Pascadi <span class="cite">[<a 
+href="#XPascadi2025">11</a>]</span> \(5/8\), for general
+moduli.
+</p><!--l. 138--><p class="indent" >  This paper studies the formula \begin {equation}  \label {eq:formula} \thetak = \frac {2^k - k}{2^k},  \end {equation}<a 
+ id="x1-3001r1"></a> proposed as a universal formula for the level of distribution as a
+function of sieve depth \(k\). It gives \(\theta _1 = \theta _2 = 1/2\), \(\theta _3 = 5/8\) and \(\theta _4 = 3/4\). Formula (<a 
+href="#x1-3001r1">1<!--tex4ht:ref: eq:formula --></a>) is not derived: it follows from a counting
+postulate (Postulate <a 
+href="#x1-10001r4">3.4<!--tex4ht:ref: post:count --></a>), and its relation to analytic levels of distribution is conjectural
+(Conjecture <a 
+href="#x1-21001r4">6.4<!--tex4ht:ref: conj:general --></a>). The value \(\theta _3 = 5/8\) agrees with Pascadi’s exponent; we regard this as a numerical
+coincidence (Section <a 
+href="#x1-200006.3">6.3<!--tex4ht:ref: sec:known --></a>).
+</p>
+<!--l. 151--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">1.2. </span> <a 
+ id="x1-40001.2"></a><span 
+class="cmbx-12">About the title.</span></span>
+  The title is an homage to Ramanujan. The ﬁrst version of this subsection attributed to him a
+“principle” that certain numbers force exact asymptotic formulas through their structural
+properties alone; no such principle appears in his work, and no result of Ramanujan is used
+                                                                                         
+                                                                                         
+in this paper. (His partition congruences, such as \(p(5n+4) \equiv 0 \pmod {5}\) <span class="cite">[<a 
+href="#XRamanujan1919">14</a>]</span>, are congruences rather than
+asymptotic formulas; the asymptotic formula for the partition function is due to Hardy and
+Ramanujan <span class="cite">[<a 
+href="#XHardyRamanujan1918">5</a>]</span>.)
+</p><!--l. 162--><p class="indent" >  The ﬁrst version also argued that the prime \(3\) forces \(\theta = 5/8\): twin primes require \(p \equiv 2 \pmod {3}\) for \(p &gt; 3\), and this was
+taken to give three constitutional constraints on a conﬁguration space with \(2^3 = 8\) elements. That
+argument is withdrawn. For \(p &gt; 3\), twin primes satisfy the single condition \(p \equiv 2 \pmod {3}\); the conditions modulo \(9\) and \(27\)
+are implied by it, so by the independence requirement of Deﬁnition <a 
+href="#x1-9002r2">3.2<!--tex4ht:ref: def:constitutional --></a>(b) the depth is \(1\), not \(3\)
+(Example <a 
+href="#x1-9005r3">3.3<!--tex4ht:ref: ex:twin --></a>).
+</p>
+<!--l. 171--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">1.3. </span> <a 
+ id="x1-50001.3"></a><span 
+class="cmbx-12">Logical status.</span></span>
+  We state the logical status of every signiﬁcant claim.
+</p>
+          <ul class="itemize1">
+       <li class="itemize">
+       <!--l. 177--><p class="indent" >   Postulate <a 
+href="#x1-10001r4">3.4<!--tex4ht:ref: post:count --></a>: a system of depth \(k\) has exactly \(k\) eliminated conﬁgurations among
+       \(2^k\).  This  is  not  a  theorem:  in  the  binary  model  of  Deﬁnition <a 
+href="#x1-9001r1">3.1<!--tex4ht:ref: def:config --></a>  the  number  of
+       invalid  conﬁgurations  is  \(2^k - 1\)  (Proposition <a 
+href="#x1-10002r5">3.5<!--tex4ht:ref: prop:binary --></a>,  proved).  The  conﬁguration  density  \((2^k - k)/2^k\)
+       (Proposition <a 
+href="#x1-10003r6">3.6<!--tex4ht:ref: prop:density --></a>) follows from the postulate.
+          </p></li>
+       <li class="itemize">
+       <!--l. 183--><p class="indent" >   Proposition <a 
+href="#x1-11001r1">4.1<!--tex4ht:ref: prop:two-densities --></a>: the numbers \(416/729\) and \(5/8\) diﬀer by about \(9\%\), and the ﬁrst is not a density
+       of residue classes. The earlier claim that the large sieve “connects to” conﬁguration
+       density is withdrawn.
+          </p></li>
+       <li class="itemize">
+       <!--l. 187--><p class="indent" >   Proposition <a 
+href="#x1-7003r3">2.3<!--tex4ht:ref: prop:khayyam-count --></a>: the proportion of nonzero entries in the ﬁrst \(3^K\) rows of Khayyam’s
+       Triangle mod \(3\) is \(2^{K+1}/(3^K+1) \to 0\). It does not match \((2^K - K)/2^K\), and the triangle is not a combinatorial origin
+       of formula (<a 
+href="#x1-3001r1">1<!--tex4ht:ref: eq:formula --></a>).
+          </p></li>
+       <li class="itemize">
+       <!--l. 191--><p class="indent" >   Proposition <a 
+href="#x1-16001r7">5.7<!--tex4ht:ref: prop:trivial --></a> (trivial): the summed estimate over the moduli \(3^K\) (Theorem 5.7 of
+       the ﬁrst version) holds for every exponent up to \(1\), so it carries no information about
+       \(5/8\).
+          </p></li>
+       <li class="itemize">
+       <!--l. 194--><p class="indent" >   Conjecture <a 
+href="#x1-16002r8">5.8<!--tex4ht:ref: conj:cascade --></a>:  per-modulus  equidistribution  for  \(3^K \leq x^{5/8-\varepsilon }\).  This  would  go  beyond  the
+       Generalised Riemann Hypothesis.
+          </p></li>
+       <li class="itemize">
+       <!--l. 197--><p class="indent" >   Conjecture <a 
+href="#x1-21001r4">6.4<!--tex4ht:ref: conj:general --></a>: \(\thetak \) equals an analytic level of distribution for general \(k\).
+          </p></li>
+                                                                                         
+                                                                                         
+       <li class="itemize">
+       <!--l. 199--><p class="indent" >   The  “geometric  proof”  of  \(\theta _3 = 5/8\)  (Remark <a 
+href="#x1-15003r6">5.6<!--tex4ht:ref: rem:withdrawn --></a>);  the  twin-prime  threshold  conjecture
+       (Remark <a 
+href="#x1-21002r5">6.5<!--tex4ht:ref: rem:twinprime --></a>); the empirical column of Table <a 
+href="#x1-200012">2<!--tex4ht:ref: tab:validation --></a>; the Sophie Germain non-instance
+       (Remark <a 
+href="#x1-22002r7">6.7<!--tex4ht:ref: rem:sg --></a>).</p></li></ul>
+<!--l. 206--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">1.4. </span> <a 
+ id="x1-60001.4"></a><span 
+class="cmbx-12">Position in the programme.</span></span>
+  This paper is the ﬁfth in a nine-paper programme (p01–p09) on constitutional sieve
+theory <span class="cite">[<a 
+href="#XWakilCF">18</a>, <a 
+href="#XWakilKhayyam">19</a>, <a 
+href="#XWakilSC">20</a>, <a 
+href="#XWakilEisenstein">22</a>, <a 
+href="#XWakilShannon">21</a>, <a 
+href="#XWakilW3">23</a>]</span>. The counting formula is introduced in <span class="cite">[<a 
+href="#XWakilCF">18</a>]</span>, where it is also a
+postulate. The level \(5/8\) for the moduli \(3^K\) is a conjecture of <span class="cite">[<a 
+href="#XWakilEisenstein">22</a>]</span>. Condition W3 of <span class="cite">[<a 
+href="#XWakilW3">23</a>]</span> is true, with a
+one-line proof (Appendix <a 
+href="#x1-23000A">A<!--tex4ht:ref: app:watt --></a>), and does not bear on any level of distribution. The comparison with
+information theory is in <span class="cite">[<a 
+href="#XWakilShannon">21</a>]</span>. The present paper discusses the formula and the distinction between
+two densities.
+</p>
+  <h3 class="sectionHead"><span class="titlemark">2. </span> <a 
+ id="x1-70002"></a>Khayyam’s Triangle Modulo \(3\)</h3>
+  <div class="newtheorem">
+<!--l. 223--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7001r1"></a>
+<span 
+class="cmbx-12">Deﬁnition 2.1 </span>(Khayyam’s Triangle mod \(3\))<span 
+class="cmbx-12">.</span>  </span>Khayyam’s Triangle modulo \(3\) is the inﬁnite
+triangular array with entry \(\binom {n}{k} \bmod 3\) in position \((n,k)\), \(0 \leq k \leq n\).
+</p>
+  </div>
+<!--l. 226--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 228--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7002r2"></a>
+<span 
+class="cmbx-12">Lemma 2.2 </span>(Lucas <span class="cite">[<a 
+href="#XLucas1878">7</a>]</span>)<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">For a prime</span> \(p\) <span 
+class="cmti-12">and integers</span> \(0 \leq k \leq n\)<span 
+class="cmti-12">, write</span> \(n = \sum _i n_i p^i\) <span 
+class="cmti-12">and</span> \(k = \sum _i k_i p^i\) <span 
+class="cmti-12">in base</span> \(p\)<span 
+class="cmti-12">. Then </span>\[ \binom {n}{k} \equiv \prod _i \binom {n_i}{k_i} \pmod {p}. \] <span 
+class="cmti-12">In</span>
+<span 
+class="cmti-12">particular,</span> \(\binom {n}{k} \not \equiv 0 \pmod {p}\) <span 
+class="cmti-12">if and only if</span> \(k_i \leq n_i\) <span 
+class="cmti-12">for all</span> \(i\)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 237--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 239--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7003r3"></a>
+                                                                                         
+                                                                                         
+<span 
+class="cmbx-12">Proposition 2.3 </span>(Nonzero entries of Khayyam’s Triangle mod \(3\))<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">For</span> \(K \geq 0\)<span 
+class="cmti-12">, the ﬁrst</span> \(3^K\) <span 
+class="cmti-12">rows (</span>\(0 \leq n &lt; 3^K\)<span 
+class="cmti-12">)</span>
+<span 
+class="cmti-12">of Khayyam’s Triangle modulo</span><span 
+class="cmti-12"> </span>\(3\) <span 
+class="cmti-12">contain exactly</span> \(6^K\) <span 
+class="cmti-12">nonzero entries out of</span> \(3^K(3^K+1)/2\)<span 
+class="cmti-12">, a proportion </span>\[ \frac {2^{K+1}}{3^K + 1}. \] <span 
+class="cmti-12">For</span> \(K = 1, 2, 3, 4, 5\)
+<span 
+class="cmti-12">this is</span> \(1, 4/5, 4/7, 16/41, 16/61\)<span 
+class="cmti-12">, and it tends to</span> \(0\) <span 
+class="cmti-12">as</span> \(K \to \infty \)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 249--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 252--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>Write \(n = \sum _{i&lt;K} n_i 3^i\). By Lemma <a 
+href="#x1-7002r2">2.2<!--tex4ht:ref: lem:lucas --></a> with \(p=3\), the number of \(k\) with \(\binom {n}{k} \not \equiv 0 \pmod {3}\) is \(\prod _{i&lt;K}(n_i+1)\). Summing over the \(3^K\) choices of
+digits gives \((1+2+3)^K = 6^K\). The ﬁrst \(3^K\) rows contain \(\sum _{n&lt;3^K}(n+1) = 3^K(3^K+1)/2\) entries, and \(2 \cdot 6^K/(3^K(3^K+1)) = 2^{K+1}/(3^K+1)\). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+  <div class="newtheorem">
+<!--l. 259--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7004r4"></a>
+<span 
+class="cmti-12">Remark </span>2.4<span 
+class="cmti-12">.</span>  </span> The  ﬁrst  version  of  Proposition <a 
+href="#x1-7003r3">2.3<!--tex4ht:ref: prop:khayyam-count --></a>  asserted  that  the  Sierpiński  structure
+partitions the conﬁgurations of a \(K\)-level cascade sieve into exactly \(2^K - K\) valid and \(K\) invalid ones,
+matching the count of Section <a 
+href="#x1-80003">3<!--tex4ht:ref: sec:combinatorial --></a>; its proof restated that count by forward reference. The
+assertion is withdrawn: the proportion in Proposition <a 
+href="#x1-7003r3">2.3<!--tex4ht:ref: prop:khayyam-count --></a> tends to \(0\), whereas \((2^K - K)/2^K\) tends to \(1\),
+and no correspondence between nonzero entries and conﬁgurations is established. The ﬁrst
+version also described the Sierpiński pattern and the Eisenstein ﬁltration of Section <a 
+href="#x1-120005">5<!--tex4ht:ref: sec:geometric --></a> as
+“two faces of the same structure”; no such connection is established.
+</p>
+  </div>
+<!--l. 271--><p class="indent" >
+</p>
+  <h3 class="sectionHead"><span class="titlemark">3. </span> <a 
+ id="x1-80003"></a>The Counting Postulate</h3>
+<!--l. 278--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">3.1. </span> <a 
+ id="x1-90003.1"></a><span 
+class="cmbx-12">Conﬁguration space and constitutional constraints.</span></span>
+</p>
+  <div class="newtheorem">
+<!--l. 280--><p class="noindent" ><span class="head">
+<a 
+ id="x1-9001r1"></a>
+                                                                                         
+                                                                                         
+<span 
+class="cmbx-12">Deﬁnition 3.1 </span>(Conﬁguration space)<span 
+class="cmbx-12">.</span>  </span> For a \(k\)-level sieve, the conﬁguration space is \(\mathcal {C}_k = \{0,1\}^k\), with \(|\mathcal {C}_k| = 2^k\).
+Each conﬁguration \(c = (c_1, \ldots , c_k)\) records whether the constitutional constraint is satisﬁed (\(c_i = 1\)) or fails (\(c_i = 0\)) at
+level \(i\).
+</p>
+  </div>
+<!--l. 286--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 288--><p class="noindent" ><span class="head">
+<a 
+ id="x1-9002r2"></a>
+<span 
+class="cmbx-12">Deﬁnition 3.2 </span>(Constitutional constraint)<span 
+class="cmbx-12">.</span>  </span> A constraint at level \(i\) is <span 
+class="cmti-12">constitutional</span>
+if:
+          </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   (a) </dt><dd 
+class="enumerate-enumitem">it is forced by the problem structure—not a free parameter; and
+          </dd><dt class="enumerate-enumitem">
+   (b) </dt><dd 
+class="enumerate-enumitem">it is independent of the constraints at the other levels, in the sense that it is not
+       implied by them. (For congruence conditions to pairwise coprime moduli the Chinese
+       Remainder Theorem guarantees this; for nested moduli such as \(3, 9, 27\) it does not.)</dd></dl>
+  </div>
+<!--l. 298--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 300--><p class="noindent" ><span class="head">
+<a 
+ id="x1-9005r3"></a>
+<span 
+class="cmbx-12">Example 3.3 </span>(Twin primes)<span 
+class="cmbx-12">.</span>  </span> For a twin prime pair \((p, p+2)\) with \(p &gt; 3\): if \(p \equiv 0 \pmod {3}\) then \(3 \mid p\); if \(p \equiv 1 \pmod {3}\) then \(3 \mid (p+2)\). Only \(p \equiv 2 \pmod {3}\) permits
+both members to avoid divisibility by \(3\). This constraint satisﬁes Deﬁnition <a 
+href="#x1-9002r2">3.2<!--tex4ht:ref: def:constitutional --></a>(a). The ﬁrst
+version took “three nested levels” with moduli \(3, 9, 27\), giving \(k = 3\) and \(|\mathcal {C}_3| = 8\). The conditions at the moduli \(9\)
+and \(27\) are not independent of the condition modulo \(3\): \(p\) and \(p+2\) are both prime to \(9\) (or to \(27\)) exactly
+when they are both prime to \(3\), so the admissible residues modulo \(9\) and \(27\) are exactly the \(3\)
+and \(9\) lifts of \(2 \bmod 3\). These conditions fail Deﬁnition <a 
+href="#x1-9002r2">3.2<!--tex4ht:ref: def:constitutional --></a>(b), and by that criterion twin primes have
+depth \(1\). The assignment \(k = 3\) to twin primes (and to the cascade moduli \(3^K\)) is a proposal of the
+programme <span class="cite">[<a 
+href="#XWakilCF">18</a>, <a 
+href="#XWakilEisenstein">22</a>]</span> that is currently unsupported.
+</p>
+  </div>
+<!--l. 315--><p class="indent" >
+</p>
+<!--l. 317--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">3.2. </span> <a 
+ id="x1-100003.2"></a><span 
+class="cmbx-12">The counting postulate.</span></span>
+                                                                                         
+                                                                                         
+</p>
+  <div class="newtheorem">
+<!--l. 319--><p class="noindent" ><span class="head">
+<a 
+ id="x1-10001r4"></a>
+<span 
+class="cmbx-12">Postulate 3.4 </span>(Nested constraint count)<span 
+class="cmbx-12">.</span>  </span> A \(k\)-fold sieve with constitutional constraints at \(k\)
+nested levels is said to have <span 
+class="cmti-12">depth</span> \(k\). For such a sieve we postulate that exactly \(k\) conﬁguration
+classes in \(\mathcal {C}_k\) are eliminated, one for each level, so that \(2^k - k\) remain.
+</p>
+  </div>
+<!--l. 325--><p class="indent" >
+  The ﬁrst version stated Postulate <a 
+href="#x1-10001r4">3.4<!--tex4ht:ref: post:count --></a> as a theorem, with a proof by induction on \(k\). That proof is
+wrong: on passing from \(k-1\) to \(k\) levels, each of the \(k-1\) previously invalid conﬁgurations splits into two, so
+they contribute \(2(k-1)\) invalid conﬁgurations, not \(k-1\). The postulate is not a consequence of Deﬁnition <a 
+href="#x1-9001r1">3.1<!--tex4ht:ref: def:config --></a>,
+as the next proposition shows. It is the deﬁnition of what we mean by depth \(k\), and the formula \(\thetak \)
+below is stipulated, not derived.
+</p>
+  <div class="newtheorem">
+<!--l. 335--><p class="noindent" ><span class="head">
+<a 
+ id="x1-10002r5"></a>
+<span 
+class="cmbx-12">Proposition 3.5 </span>(The binary model)<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">In</span> \(\mathcal {C}_k = \{0,1\}^k\)<span 
+class="cmti-12">, call</span> \(c\) valid <span 
+class="cmti-12">if</span> \(c_i = 1\) <span 
+class="cmti-12">for all</span> \(i\)<span 
+class="cmti-12">, and  </span>invalid <span 
+class="cmti-12">otherwise</span>
+<span 
+class="cmti-12">(some constraint fails). Then exactly one conﬁguration is valid and</span> \(2^k - 1\) <span 
+class="cmti-12">are invalid. For each</span> \(i\)<span 
+class="cmti-12">,</span>
+<span 
+class="cmti-12">exactly</span> \(2^{k-1}\) <span 
+class="cmti-12">conﬁgurations fail constraint</span><span 
+class="cmti-12"> </span>\(i\)<span 
+class="cmti-12">, and exactly</span> \(k\) <span 
+class="cmti-12">conﬁgurations fail exactly one constraint.</span>
+</p>
+  </div>
+<!--l. 342--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 345--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>The only valid conﬁguration is \((1, \ldots , 1)\), so the other \(2^k - 1\) are invalid. Fixing \(c_i = 0\) leaves \(2^{k-1}\) choices for
+the remaining coordinates. A conﬁguration that fails exactly one constraint is determined
+by which constraint fails. <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+<!--l. 351--><p class="indent" >  Thus in the binary model the number of invalid conﬁgurations is \(2^k - 1\) for every \(k\) (for example \(7\), not \(3\),
+when \(k = 3\)). The revised Lean ﬁle P05 proves this as <span 
+class="cmtt-12">invalid</span><span 
+class="cmtt-12">_count</span>.
+</p>
+  <div class="newtheorem">
+                                                                                         
+                                                                                         
+<!--l. 355--><p class="noindent" ><span class="head">
+<a 
+ id="x1-10003r6"></a>
+<span 
+class="cmbx-12">Proposition 3.6 </span>(Conﬁguration density)<span 
+class="cmbx-12">.</span>  </span>  <span 
+class="cmti-12">For  a  sieve  of  depth</span>  \(k\)  <span 
+class="cmti-12">in  the  sense  of</span>
+<span 
+class="cmti-12">Postulate</span><span 
+class="cmti-12"> </span><a 
+href="#x1-10001r4"><span 
+class="cmti-12">3.4</span><!--tex4ht:ref: post:count --></a><span 
+class="cmti-12">, </span>\[ \rhoc _k = \frac {2^k - k}{2^k}. \]
+</p>
+  </div>
+<!--l. 361--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 364--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>Immediate from Postulate <a 
+href="#x1-10001r4">3.4<!--tex4ht:ref: post:count --></a>: \(2^k - k\) of the \(2^k\) conﬁguration classes remain. <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+<!--l. 368--><p class="indent" >  Table <a 
+href="#x1-100041">1<!--tex4ht:ref: tab:density --></a> displays the conﬁguration density for \(k = 1, \ldots , 6\), together with the number of invalid
+conﬁgurations in the binary model.
+                                                                                         
+                                                                                         
+</p><!--l. 371--><p class="indent" >  <a 
+ id="x1-100041"></a></p><hr class="float" /><div class="float" 
+>
+                                                                                         
+                                                                                         
+ <div class="caption" 
+><span class="id">Table 1: </span><span  
+class="content">Conﬁguration density \(\rhoc _k = (2^k - k)/2^k\) under Postulate <a 
+href="#x1-10001r4">3.4<!--tex4ht:ref: post:count --></a>. The last column is the number of
+invalid conﬁgurations in the binary model of Proposition <a 
+href="#x1-10002r5">3.5<!--tex4ht:ref: prop:binary --></a>.</span></div><!--tex4ht:label?: x1-100041 -->
+<div class="tabular">
+ <table id="TBL-1" class="tabular" 
+ 
+><colgroup id="TBL-1-1g"><col 
+id="TBL-1-1" /><col 
+id="TBL-1-2" /><col 
+id="TBL-1-3" /><col 
+id="TBL-1-4" /><col 
+id="TBL-1-5" /><col 
+id="TBL-1-6" /></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-1-1-"><td  style="white-space:nowrap; text-align:right;" id="TBL-1-1-1"  
+class="td11"> \(k\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-1-2"  
+class="td11"> \(2^k\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-1-3"  
+class="td11">  Eliminated </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-1-4"  
+class="td11"> Remaining </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-1-5"  
+class="td11"> \(\rhoc _k\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-1-6"  
+class="td11">        \(2^k - 1\) </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-2-"><td  style="white-space:nowrap; text-align:right;" id="TBL-1-2-1"  
+class="td11">  </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-2-2"  
+class="td11">  </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-2-3"  
+class="td11"> (postulated) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-2-4"  
+class="td11">           </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-2-5"  
+class="td11">  </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-2-6"  
+class="td11"> (binary) </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-3-"><td  style="white-space:nowrap; text-align:right;" id="TBL-1-3-1"  
+class="td11"> \(1\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-3-2"  
+class="td11"> \(2\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-3-3"  
+class="td11">           \(1\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-3-4"  
+class="td11">          \(1\) </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-3-5"  
+class="td11"> \(1/2\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-3-6"  
+class="td11">        \(1\) </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-4-"><td  style="white-space:nowrap; text-align:right;" id="TBL-1-4-1"  
+class="td11"> \(2\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-4-2"  
+class="td11"> \(4\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-4-3"  
+class="td11">           \(2\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-4-4"  
+class="td11">          \(2\) </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-4-5"  
+class="td11"> \(1/2\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-4-6"  
+class="td11">        \(3\) </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-5-"><td  style="white-space:nowrap; text-align:right;" id="TBL-1-5-1"  
+class="td11"> \(3\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-5-2"  
+class="td11"> \(8\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-5-3"  
+class="td11">           \(3\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-5-4"  
+class="td11">          \(5\) </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-5-5"  
+class="td11"> \(5/8\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-5-6"  
+class="td11">        \(7\) </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-6-"><td  style="white-space:nowrap; text-align:right;" id="TBL-1-6-1"  
+class="td11"> \(4\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-6-2"  
+class="td11"> \(16\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-6-3"  
+class="td11">           \(4\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-6-4"  
+class="td11">          \(12\) </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-6-5"  
+class="td11"> \(3/4\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-6-6"  
+class="td11">        \(15\) </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-7-"><td  style="white-space:nowrap; text-align:right;" id="TBL-1-7-1"  
+class="td11"> \(5\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-7-2"  
+class="td11"> \(32\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-7-3"  
+class="td11">           \(5\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-7-4"  
+class="td11">          \(27\) </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-7-5"  
+class="td11"> \(27/32\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-7-6"  
+class="td11">        \(31\) </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-8-"><td  style="white-space:nowrap; text-align:right;" id="TBL-1-8-1"  
+class="td11"> \(6\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-8-2"  
+class="td11"> \(64\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-8-3"  
+class="td11">           \(6\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-8-4"  
+class="td11">          \(58\) </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-8-5"  
+class="td11"> \(29/32\) </td><td  style="white-space:nowrap; text-align:right;" id="TBL-1-8-6"  
+class="td11">        \(63\) </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-9-"><td  style="white-space:nowrap; text-align:right;" id="TBL-1-9-1"  
+class="td11">  </td></tr></table>                                                                                    </div>
+                                                                                         
+                                                                                         
+  </div><hr class="endfloat" />
+  <h3 class="sectionHead"><span class="titlemark">4. </span> <a 
+ id="x1-110004"></a>Two Densities</h3>
+<!--l. 397--><p class="noindent" >Earlier attempts to compute \(\theta _3\) via ternary residue analysis obtained approximately \(0.571\) rather than \(5/8 = 0.625\).
+The ﬁrst version described this as a \(12\%\) discrepancy explained by a conﬂation of two densities. The
+diﬀerence is about \(9\%\) (\(0.625/0.5706 - 1 \approx 9.5\%\), or \(1 - 0.5706/0.625 \approx 8.7\%\)), and the “pattern density” is the smaller of the two numbers. We record
+what the two numbers are.
+</p>
+  <div class="newtheorem">
+<!--l. 404--><p class="noindent" ><span class="head">
+<a 
+ id="x1-11001r1"></a>
+<span 
+class="cmbx-12">Proposition 4.1 </span>(Two numbers)<span 
+class="cmbx-12">.</span>  </span>
+          </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   <span 
+class="cmti-12">(1)</span> </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">The “pattern density” of the ﬁrst version is </span>\[ \rhop _3 = \prod _{i=1}^{3}\!\bigl (1 - 3^{-i}\bigr ) = \frac {416}{729} \approx 0.5706. \] <span 
+class="cmti-12">This equals</span> \(|\mathrm {GL}_3(\mathbb {F}_3)|/3^9\)<span 
+class="cmti-12">, the probability that a</span>
+       <span 
+class="cmti-12">random</span> \(3 \times 3\) <span 
+class="cmti-12">matrix over</span> \(\mathbb {F}_3\) <span 
+class="cmti-12">is invertible. It is not a proportion of residue classes modulo</span>
+       \(27\)<span 
+class="cmti-12">: the proportion of residues modulo</span> \(27\) <span 
+class="cmti-12">prime to</span> \(3\) <span 
+class="cmti-12">is</span> \(18/27 = 2/3\)<span 
+class="cmti-12">, and the proportion admissible for</span>
+       <span 
+class="cmti-12">twin primes (</span>\(p\) <span 
+class="cmti-12">and</span> \(p+2\) <span 
+class="cmti-12">both prime to</span> \(3\)<span 
+class="cmti-12">) is</span> \(9/27 = 1/3\)<span 
+class="cmti-12">.</span>
+          </dd><dt class="enumerate-enumitem">
+   <span 
+class="cmti-12">(2)</span> </dt><dd 
+class="enumerate-enumitem"><span 
+class="cmti-12">Under  Postulate</span><span 
+class="cmti-12"> </span><a 
+href="#x1-10001r4"><span 
+class="cmti-12">3.4</span><!--tex4ht:ref: post:count --></a><span 
+class="cmti-12">,</span>  \(\rhoc _3 = 5/8 = 0.625\)<span 
+class="cmti-12">.  In  the  binary  model  of  Proposition</span><span 
+class="cmti-12"> </span><a 
+href="#x1-10002r5"><span 
+class="cmti-12">3.5</span><!--tex4ht:ref: prop:binary --></a><span 
+class="cmti-12">,  in  which  a</span>
+       <span 
+class="cmti-12">conﬁguration  is  valid  when  all  its  coordinates  equal</span>  \(1\)<span 
+class="cmti-12">,  the  proportion  of  valid</span>
+       <span 
+class="cmti-12">conﬁgurations is</span> \(1/2^k\) <span 
+class="cmti-12">(that is,</span> \(1/8\) <span 
+class="cmti-12">for</span> \(k = 3\)<span 
+class="cmti-12">), and</span> \(2^k - 1\) <span 
+class="cmti-12">conﬁgurations are invalid.</span></dd></dl>
+<!--l. 423--><p class="noindent" ><span 
+class="cmti-12">In particular</span> \(\rhop _3 &lt; \rhoc _3\)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 424--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 427--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>(1) \((2/3)(8/9)(26/27) = 416/729\), and \(|\mathrm {GL}_3(\mathbb {F}_3)| = (3^3-1)(3^3-3)(3^3-3^2) = 26 \cdot 24 \cdot 18 = 27 \cdot 416\), so \(|\mathrm {GL}_3(\mathbb {F}_3)|/3^9 = 416/729\). There are \(\varphi (27) = 18\) residues modulo \(27\) prime to \(3\), and \(9\) of them are \(\equiv 2 \pmod {3}\). (2) is
+Postulate <a 
+href="#x1-10001r4">3.4<!--tex4ht:ref: post:count --></a> and Proposition <a 
+href="#x1-10002r5">3.5<!--tex4ht:ref: prop:binary --></a>. <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+  <div class="newtheorem">
+<!--l. 435--><p class="noindent" ><span class="head">
+<a 
+ id="x1-11004r2"></a>
+<span 
+class="cmti-12">Remark </span>4.2<span 
+class="cmti-12">.</span>  </span> The  ﬁrst  version  asserted  that  the  Montgomery–Vaughan  large  sieve <span class="cite">[<a 
+href="#XMV1973">10</a>]</span>
+“connects to conﬁguration density, not pattern density, because Dirichlet characters are
+indexed by constraint-satisfaction classes”. This is withdrawn. The large sieve inequality
+                                                                                         
+                                                                                         
+sums over all primitive characters modulo \(q\) for every \(q \leq Q\); the characters modulo \(q\) are indexed
+by  the  dual  group  of  \((\Z /q\Z )^*\),  not  by  binary  constraint  classes,  and  there  is  no  “compatible”
+subfamily. The ﬁrst version’s proof also deﬁned conﬁguration density by “all coordinates
+equal to \(1\)”, which is the binary model of Proposition <a 
+href="#x1-10002r5">3.5<!--tex4ht:ref: prop:binary --></a> and gives \(1/2^k\), not \((2^k - k)/2^k\). No relation between
+either number and a level of distribution is established; the conjectured relation for \(\rhoc _k\) is
+Conjecture <a 
+href="#x1-21001r4">6.4<!--tex4ht:ref: conj:general --></a>.
+</p>
+  </div>
+<!--l. 448--><p class="indent" >
+</p>
+  <h3 class="sectionHead"><span class="titlemark">5. </span> <a 
+ id="x1-120005"></a>Eisenstein Integers and the Moduli \(3^K\)</h3>
+<!--l. 455--><p class="noindent" >The ﬁrst version of this section claimed a “geometric proof” that, for the cascade moduli \(q = 3^K\), the
+analytic level of distribution is exactly \(5/8\), via two structural facts about \(\Zomega \) each contributing half the
+improvement over the Weil bound. That claim is withdrawn. This section keeps the
+correct Eisenstein-integer arithmetic, states what is true about the summed estimate
+(Proposition <a 
+href="#x1-16001r7">5.7<!--tex4ht:ref: prop:trivial --></a>: it holds for every exponent up to \(1\)), and records the per-modulus statement
+as a conjecture (Conjecture <a 
+href="#x1-16002r8">5.8<!--tex4ht:ref: conj:cascade --></a>). The steps of the withdrawn argument are listed in
+Remark <a 
+href="#x1-15003r6">5.6<!--tex4ht:ref: rem:withdrawn --></a>.
+</p>
+<!--l. 465--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">5.1. </span> <a 
+ id="x1-130005.1"></a><span 
+class="cmbx-12">The Eisenstein integers and ramiﬁcation of 3.</span></span>
+  Let \(\omega = e^{2\pi i/3}\), so \(\omega ^2 + \omega + 1 = 0\). The Eisenstein integers are \(\Zomega = \{a + b\omega : a, b \in \Z \}\) with norm \(\N (a + b\omega ) = a^2 - ab + b^2\).
+</p>
+  <div class="newtheorem">
+<!--l. 471--><p class="noindent" ><span class="head">
+<a 
+ id="x1-13001r1"></a>
+<span 
+class="cmbx-12">Lemma 5.1.</span>  </span> \(\N (1 - \omega ) = 3\)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 474--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 477--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>\(\N (1-\omega ) = 1 - (1)(-1) + (-1)^2 = 3\). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+  <div class="newtheorem">
+                                                                                         
+                                                                                         
+<!--l. 480--><p class="noindent" ><span class="head">
+<a 
+ id="x1-13002r2"></a>
+<span 
+class="cmbx-12">Proposition 5.2 </span>(Ramiﬁcation of \(3\))<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">In</span> \(\Zomega \)<span 
+class="cmti-12">, the prime</span> \(3\) <span 
+class="cmti-12">ramiﬁes:</span> \((3) = (1-\omega )^2 \cdot u\) <span 
+class="cmti-12">for a unit</span> \(u\)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 483--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 486--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>Since \(1 + \omega + \omega ^2 = 0\), we have \(3 = -\omega ^2(1-\omega )^2\). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+<!--l. 489--><p class="indent" >  A rational prime \(\ell &gt; 3\) is <span 
+class="cmti-12">inert </span>in \(\Zomega \) (stays prime) if \(\ell \equiv 2 \pmod {3}\), and <span 
+class="cmti-12">splits </span>as \(\ell = \pi \bar {\pi }\) if \(\ell \equiv 1 \pmod {3}\). By Example <a 
+href="#x1-9005r3">3.3<!--tex4ht:ref: ex:twin --></a>, every twin
+prime \(p &gt; 3\) satisﬁes \(p \equiv 2 \pmod {3}\) (inert) while \(p+2 \equiv 1 \pmod {3}\) (splits). So twin pairs with \(p &gt; 3\) are inert–split pairs; this restates \(p \equiv 2 \pmod {3}\) and
+adds no further constraint.
+</p>
+<!--l. 496--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">5.2. </span> <a 
+ id="x1-140005.2"></a><span 
+class="cmbx-12">The</span> \((1-\omega )\)<span 
+class="cmbx-12">-adic ﬁltration.</span></span>
+</p>
+  <div class="newtheorem">
+<!--l. 498--><p class="noindent" ><span class="head">
+<a 
+ id="x1-14001r3"></a>
+<span 
+class="cmbx-12">Proposition 5.3 </span>(The \((1-\omega )\)-adic ﬁltration)<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">The ring</span> \(\Zomega /(3^K)\) <span 
+class="cmti-12">carries the ﬁltration </span>\[ \Zomega \supset (1-\omega ) \supset (1-\omega )^2 \supset \cdots \supset (1-\omega )^{2K}, \] <span 
+class="cmti-12">with</span> \((3^K) = (1-\omega )^{2K}\) <span 
+class="cmti-12">and each</span>
+<span 
+class="cmti-12">quotient</span> \((1-\omega )^j/(1-\omega )^{j+1} \cong \Z /3\Z \)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 507--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 510--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>From Proposition <a 
+href="#x1-13002r2">5.2<!--tex4ht:ref: prop:ramification --></a>, \((3) = (1-\omega )^2\), so \((3^K) = (1-\omega )^{2K}\). Each successive quotient is \(\Zomega /(1-\omega ) \cong \Z /3\Z \). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+                                                                                         
+                                                                                         
+<!--l. 514--><p class="indent" >  The ﬁltration has \(2K\) steps, each with quotient \(\mathbb {F}_3\); nothing in it singles out three levels. (The ﬁrst
+version called it a “three-level ﬁltration”.)
+</p>
+<!--l. 518--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">5.3. </span> <a 
+ id="x1-150005.3"></a><span 
+class="cmbx-12">Cyclicity of</span> \((\Z /3^K\Z )^*\) <span 
+class="cmbx-12">and Kloosterman sums.</span></span>
+</p>
+  <div class="newtheorem">
+<!--l. 520--><p class="noindent" ><span class="head">
+<a 
+ id="x1-15001r4"></a>
+<span 
+class="cmbx-12">Lemma 5.4 </span>(Cyclic structure)<span 
+class="cmbx-12">.</span>  </span> \((\Z /3^K\Z )^* \cong \Z /(2 \cdot 3^{K-1}\Z )\) <span 
+class="cmti-12">for all</span> \(K \geq 1\)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 523--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 526--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>\(\varphi (3^K) = 2 \cdot 3^{K-1}\); the unit group of \(\Z /p^K\Z \) is cyclic for all odd prime powers \(p^K\). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+<!--l. 530--><p class="indent" >  Since \((\Z /p^K\Z )^*\) is cyclic for every odd prime \(p\), cyclicity does not distinguish \(3\) among the odd primes. The
+ﬁrst version contrasted it with squarefree moduli, claiming that a product of unit groups
+“obstructs the uniform character cancellation that a single cyclic group enables”. That
+claim is unsupported and is withdrawn: Weil’s bound for Kloosterman sums holds for
+squarefree moduli as well, and the known levels beyond \(1/2\) (Section <a 
+href="#x1-200006.3">6.3<!--tex4ht:ref: sec:known --></a>) concern general
+moduli.
+</p><!--l. 538--><p class="indent" >  For integers \(a, b\) and \(q \geq 1\), let \(S(a, b; q) = \sum _{x \in (\Z /q\Z )^*} e\bigl ((a x + b \bar {x})/q\bigr )\) be the Kloosterman sum, where \(\bar {x}\) is the inverse of \(x\) modulo \(q\) and
+\(e(t) = e^{2\pi i t}\).
+</p>
+  <div class="newtheorem">
+<!--l. 543--><p class="noindent" ><span class="head">
+<a 
+ id="x1-15002r5"></a>
+<span 
+class="cmbx-12">Proposition 5.5 </span>(The Kloosterman bound \(q^{3/8}\) fails)<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">For every</span> \(q \geq 1\)<span 
+class="cmti-12">, </span>\[ \sum _{a \bmod q} |S(a, 1; q)|^2 = q\,\varphi (q). \] <span 
+class="cmti-12">Consequently</span> \(\max _{a} |S(a, 1; q)| \geq \varphi (q)^{1/2}\)<span 
+class="cmti-12">, which for</span> \(q = 3^K\)
+<span 
+class="cmti-12">equals</span> \((2/3)^{1/2} q^{1/2}\)<span 
+class="cmti-12">. In particular no bound</span> \(|S(a, b; 3^K)| \ll (3^K)^{3/8 + \varepsilon }\) <span 
+class="cmti-12">uniform in</span> \(a, b\) <span 
+class="cmti-12">can hold.</span>
+</p>
+  </div>
+<!--l. 552--><p class="indent" >
+</p>
+                                                                                         
+                                                                                         
+  <div class="proof">
+<!--l. 555--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>Expanding the square and summing over \(a\) ﬁrst, \[ \sum _{a \bmod q} |S(a,1;q)|^2 = \sum _{x, y \in (\Z /q\Z )^*} e\Bigl (\frac {\bar {x} - \bar {y}}{q}\Bigr ) \sum _{a \bmod q} e\Bigl (\frac {a(x-y)}{q}\Bigr ) = q \sum _{x \in (\Z /q\Z )^*} 1 = q\,\varphi (q). \] The sum has \(q\) terms, so the largest \(|S(a,1;q)|^2\)
+is at least \(\varphi (q)\). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+  <div class="newtheorem">
+<!--l. 566--><p class="noindent" ><span class="head">
+<a 
+ id="x1-15003r6"></a>
+<span 
+class="cmti-12">Remark </span>5.6 (The withdrawn argument)<span 
+class="cmti-12">.</span>  </span> The ﬁrst version derived \(\theta _3 = 5/8\) for cascade moduli from the
+following steps, all of which are withdrawn.
+          </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+    (i) </dt><dd 
+class="enumerate-enumitem">A “three-level ﬁltration” of \(\Zomega /(3^K)\). The ﬁltration has \(2K\) steps (Proposition <a 
+href="#x1-14001r3">5.3<!--tex4ht:ref: prop:filtration --></a>).
+          </dd><dt class="enumerate-enumitem">
+   (ii) </dt><dd 
+class="enumerate-enumitem">A  corollary  stating  that  the  ﬁltration  induces  a  canonical  decomposition  \(w(d) = \alpha (d_1)\beta (d_2)\gamma (d_3)\),  \(d_i = 3^{j_i}\),  of
+       sieve weights on powers of \(3\), called triply well-factorable. The factorisation \(3^j = 3^{j_1}3^{j_2}3^{j_3}\) is not
+       unique; triple well-factorability in the sense of Maynard, Lichtman and Pascadi is the
+       condition that for every factorisation \(D = Q_1Q_2Q_3\) the weight is a Dirichlet convolution \(\alpha * \beta * \gamma \) with \(\alpha , \beta , \gamma \)
+       supported on \([1,Q_1]\), \([1,Q_2]\), \([1,Q_3]\); and weights supported on powers of \(3\) do not detect primes.
+          </dd><dt class="enumerate-enumitem">
+   (iii) </dt><dd 
+class="enumerate-enumitem">A bound \(E_{II} \ll x^{1/2}Q^{1/2} \cdot Q^{1/4+\varepsilon }\) for the Type II error, described as giving a “ceiling \(\theta \leq 2/3\)”. No derivation was
+       given, and a range in which a method gives a power saving is a lower bound for the
+       level, not a ceiling.
+          </dd><dt class="enumerate-enumitem">
+   (iv) </dt><dd 
+class="enumerate-enumitem">The Kloosterman bound \(|S(a,b;3^K)| \ll (3^K)^{3/8+\varepsilon }\), which is false (Proposition <a 
+href="#x1-15002r5">5.5<!--tex4ht:ref: prop:kloosterman --></a>). Its proof sketch invoked
+       Watt’s  theorem,  which  concerns  the  Riemann  zeta  function  and  not  characters
+       modulo \(q\) (Appendix <a 
+href="#x1-23000A">A<!--tex4ht:ref: app:watt --></a>).
+          </dd><dt class="enumerate-enumitem">
+   (v) </dt><dd 
+class="enumerate-enumitem">The claim that (iv) “improves \(2/3\) to \(5/8\)”. Since \(5/8 &lt; 2/3\), this would lower the level; and even
+       granting (iv), the stated bound \(x^{1/2}Q^{1/2} \cdot Q^{3/16+\varepsilon } = x^{1/2}Q^{11/16+\varepsilon }\) gives a power saving for \(Q \leq x^{8/11-\delta }\), not \(x^{5/8}\).</dd></dl>
+  </div>
+<!--l. 595--><p class="indent" >
+</p>
+<!--l. 597--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">5.4. </span> <a 
+ id="x1-160005.4"></a><span 
+class="cmbx-12">What is true about the moduli</span> \(3^K\)<span 
+class="cmbx-12">.</span></span>
+</p>
+  <div class="newtheorem">
+<!--l. 599--><p class="noindent" ><span class="head">
+<a 
+ id="x1-16001r7"></a>
+                                                                                         
+                                                                                         
+<span 
+class="cmbx-12">Proposition 5.7 </span>(The summed estimate is trivial)<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">For every</span> \(A &gt; 0\)<span 
+class="cmti-12">, </span>\[ \sum _{\substack {K \geq 1 \\ 3^K \leq x}} \max _{\gcd (a,3)=1} \left | \psi (x;3^K,a) - \frac {x}{\varphi (3^K)} \right | \ll _A \frac {x}{(\log x)^A}. \] <span 
+class="cmti-12">In particular the estimate</span>
+<span 
+class="cmti-12">holds with the range</span> \(3^K \leq x^{5/8-\varepsilon }\) <span 
+class="cmti-12">of Theorem</span><span 
+class="cmti-12"> 5.7 of the ﬁrst version replaced by</span> \(3^K \leq x^{\theta }\) <span 
+class="cmti-12">for any</span> \(\theta \leq 1\)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 611--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 614--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>Let \(L = (\log x)^{A+1}\). For \(3^K \leq L\) the Siegel–Walﬁsz theorem gives \(\max _a |\psi (x;3^K,a) - x/\varphi (3^K)| \ll _A x\exp (-c\sqrt {\log x})\), and there are \(O(\log \log x)\) such \(K\). For \(3^K &gt; L\), the trivial
+bounds \(\psi (x;q,a) \leq (x/q + 1)\log x\) and \(x/\varphi (3^K) = 3x/(2 \cdot 3^K)\) give \(|\psi (x;3^K,a) - x/\varphi (3^K)| \leq (x/3^K + 1)\log x + 3x/(2 \cdot 3^K)\). Summing this geometric series over the \(O(\log x)\) values of \(K\) with \(L &lt; 3^K \leq x\) gives \(\ll x\log x/L + (\log x)^2 \ll x/(\log x)^A\). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+<!--l. 623--><p class="indent" >  Proposition <a 
+href="#x1-16001r7">5.7<!--tex4ht:ref: prop:trivial --></a> uses only the Siegel–Walﬁsz theorem and the trivial bound: no Eisenstein-integer
+arithmetic, Kloosterman sums or Condition W3. Theorem 5.7 of the ﬁrst version is therefore true,
+but its exponent \(5/8\) plays no role, and the assertions that \(5/8\) is “uniquely forced” and that the ﬁltration
+and cyclicity “force \(5/8\) and nothing else” are withdrawn. The sum involves only \(O(\log x)\) moduli,
+so it is not a level of distribution in the usual sense. The meaningful statement is per
+modulus.
+</p>
+  <div class="newtheorem">
+<!--l. 631--><p class="noindent" ><span class="head">
+<a 
+ id="x1-16002r8"></a>
+<span 
+class="cmbx-12">Conjecture 5.8 </span>(Cascade moduli; cf. <span class="cite">[<a 
+href="#XWakilEisenstein">22</a>]</span>)<span 
+class="cmbx-12">.</span>  </span> <span 
+class="cmti-12">For every</span> \(\varepsilon &gt; 0\) <span 
+class="cmti-12">and</span> \(A &gt; 0\)<span 
+class="cmti-12">, uniformly for</span> \(q = 3^K \leq x^{5/8-\varepsilon }\)<span 
+class="cmti-12">, </span>\[ \max _{\gcd (a,3)=1} \left | \psi (x;q,a) - \frac {x}{\varphi (q)} \right | \ll _{\varepsilon ,A} \frac {x}{\varphi (q)(\log x)^A}. \]
+</p>
+  </div>
+<!--l. 639--><p class="indent" >
+</p><!--l. 641--><p class="indent" >  For a single modulus the Generalised Riemann Hypothesis gives this only for \(q \leq x^{1/2-\varepsilon }\), so Conjecture <a 
+href="#x1-16002r8">5.8<!--tex4ht:ref: conj:cascade --></a>
+would go beyond GRH. The best known results for prime-power moduli are those of
+Barban–Linnik–Tshudakov (exponent \(3/8\)), Gallagher (\(2/5\)) and Huxley (\(5/12\)); Banks and Shparlinski obtain
+lower bounds of the correct order for \(\psi (x;q,a)\) for prime-power moduli up to \(x^{0.4736}\). Montgomery’s conjecture
+predicts the statement for every exponent below \(1\), so \(5/8\) would be a proved exponent rather than a
+sharp one.
+</p>
+  <h3 class="sectionHead"><span class="titlemark">6. </span> <a 
+ id="x1-170006"></a>The Formula \(\thetak \)</h3>
+                                                                                         
+                                                                                         
+<!--l. 654--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">6.1. </span> <a 
+ id="x1-180006.1"></a><span 
+class="cmbx-12">Statement.</span></span>
+</p>
+  <div class="newtheorem">
+<!--l. 656--><p class="noindent" ><span class="head">
+<a 
+ id="x1-18001r1"></a>
+<span 
+class="cmbx-12">Deﬁnition 6.1 </span>(Ramanujan’s Dimensional Forcing formula)<span 
+class="cmbx-12">.</span>  </span> For a sieve of depth \(k\) in the
+sense of Postulate <a 
+href="#x1-10001r4">3.4<!--tex4ht:ref: post:count --></a>, set \[ \thetak := \rhoc _k = \frac {2^k - k}{2^k}. \]
+</p>
+  </div>
+<!--l. 662--><p class="indent" >
+  The ﬁrst version stated this as a theorem which asserted, in addition, that \(\thetak \) equals the analytic
+level of distribution when sieve weights are \(k\)-fold factorable over cascade moduli, citing
+Bombieri–Vinogradov for \(k=1\) and Pascadi together with its own Theorem 5.7 for \(k=3\). Those assertions
+are withdrawn. The equality with an analytic level is unproved for every \(k\) and is the content
+of Conjecture <a 
+href="#x1-21001r4">6.4<!--tex4ht:ref: conj:general --></a>; for \(k=3\) see Section <a 
+href="#x1-120005">5<!--tex4ht:ref: sec:geometric --></a>, and for the comparison with known levels see
+Section <a 
+href="#x1-200006.3">6.3<!--tex4ht:ref: sec:known --></a>.
+</p>
+<!--l. 673--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">6.2. </span> <a 
+ id="x1-190006.2"></a><span 
+class="cmbx-12">The Fibonacci remark.</span></span>
+</p>
+  <div class="newtheorem">
+<!--l. 675--><p class="noindent" ><span class="head">
+<a 
+ id="x1-19001r2"></a>
+<span 
+class="cmbx-12">Proposition 6.2 </span>(Fibonacci identity)<span 
+class="cmbx-12">.</span>  </span> \(\theta _3 = 5/8 = F_5/F_6\)<span 
+class="cmti-12">, where</span> \(F_n\) <span 
+class="cmti-12">is the</span> \(n\)<span 
+class="cmti-12">-th Fibonacci number.</span>
+</p>
+  </div>
+<!--l. 678--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 681--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>\(F_5 = 5\), \(F_6 = 8\); \(F_5/F_6 = 5/8\). <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+  <div class="newtheorem">
+<!--l. 684--><p class="noindent" ><span class="head">
+<a 
+ id="x1-19002r3"></a>
+                                                                                         
+                                                                                         
+<span 
+class="cmti-12">Remark </span>6.3<span 
+class="cmti-12">.</span>  </span>The value \(\theta _3 = 5/8 = 0.625\) lies just above \(1/\varphi \approx 0.618\), where \(\varphi = (1+\sqrt {5})/2\) is the golden ratio, with \(|\theta _3 - 1/\varphi | \approx 0.007\). Formula (<a 
+href="#x1-3001r1">1<!--tex4ht:ref: eq:formula --></a>) does
+not involve Fibonacci numbers; the coincidence at \(k=3\) is noted without over-interpretation.
+</p>
+  </div>
+<!--l. 690--><p class="indent" >
+</p>
+<!--l. 692--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">6.3. </span> <a 
+ id="x1-200006.3"></a><span 
+class="cmbx-12">Comparison with known levels.</span></span>
+  Table <a 
+href="#x1-200012">2<!--tex4ht:ref: tab:validation --></a> compares formula (<a 
+href="#x1-3001r1">1<!--tex4ht:ref: eq:formula --></a>) with known results.
+                                                                                         
+                                                                                         
+</p><!--l. 698--><p class="indent" >  <a 
+ id="x1-200012"></a></p><hr class="float" /><div class="float" 
+>
+                                                                                         
+                                                                                         
+ <div class="caption" 
+><span class="id">Table 2: </span><span  
+class="content">Formula (<a 
+href="#x1-3001r1">1<!--tex4ht:ref: eq:formula --></a>) and known results.</span></div><!--tex4ht:label?: x1-200012 -->
+<div class="tabular">
+ <table id="TBL-2" class="tabular" 
+ 
+><colgroup id="TBL-2-1g"><col 
+id="TBL-2-1" /><col 
+id="TBL-2-2" /><col 
+id="TBL-2-3" /><col 
+id="TBL-2-4" /></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-2-1-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-1-1"  
+class="td11"> \(k\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-1-2"  
+class="td11"> Formula </td><td  style="white-space:normal; text-align:left;" id="TBL-2-1-3"  
+class="td11"> <!--l. 704--><p class="noindent" >Known result                 </p></td><td  style="white-space:normal; text-align:left;" id="TBL-2-1-4"  
+class="td11"> <!--l. 704--><p class="noindent" >Status                               </p></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-2-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-2-1"  
+class="td11"> \(1\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-2-2"  
+class="td11">    \(1/2\)    </td><td  style="white-space:normal; text-align:left;" id="TBL-2-2-3"  
+class="td11"> <!--l. 706--><p class="noindent" >Bombieri–Vinogradov:
+ level   \(1/2\)   for   primes,   on
+ average over \(q\) <span class="cite">[<a 
+href="#XBombieri1965">1</a>, <a 
+href="#XVinogradov1965">15</a>]</span>       </p></td><td  style="white-space:normal; text-align:left;" id="TBL-2-2-4"  
+class="td11"> <!--l. 708--><p class="noindent" >Numerical  agreement;  the  \(1/2\)
+ comes  from  the  large  sieve,
+ not from a constraint count   </p></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-3-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-3-1"  
+class="td11"> \(3\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-3-2"  
+class="td11">    \(5/8\)    </td><td  style="white-space:normal; text-align:left;" id="TBL-2-3-3"  
+class="td11"> <!--l. 710--><p class="noindent" >Pascadi:
+ \(5/8\) for general moduli with
+ triply-well-factorable
+ weights <span class="cite">[<a 
+href="#XPascadi2025">11</a>]</span>                   </p></td><td  style="white-space:normal; text-align:left;" id="TBL-2-3-4"  
+class="td11"> <!--l. 712--><p class="noindent" >Numerical   coincidence;   for
+ the   moduli   \(3^K\),   conjectural
+ (Conjecture <a 
+href="#x1-16002r8">5.8<!--tex4ht:ref: conj:cascade --></a>)                 </p></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-4-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-4-1"  
+class="td11"> \(4\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-4-2"  
+class="td11">    \(3/4\)    </td><td  style="white-space:normal; text-align:left;" id="TBL-2-4-3"  
+class="td11"> <!--l. 714--><p class="noindent" >—                                </p></td><td  style="white-space:normal; text-align:left;" id="TBL-2-4-4"  
+class="td11"> <!--l. 714--><p class="noindent" >No object speciﬁed              </p></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-5-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-5-1"  
+class="td11"> \(5\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-2-5-2"  
+class="td11">    \(27/32\)    </td><td  style="white-space:normal; text-align:left;" id="TBL-2-5-3"  
+class="td11"> <!--l. 715--><p class="noindent" >—                                </p></td><td  style="white-space:normal; text-align:left;" id="TBL-2-5-4"  
+class="td11"> <!--l. 715--><p class="noindent" >No object speciﬁed              </p></td>
+
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-6-"><td  style="white-space:nowrap; text-align:center;" id="TBL-2-6-1"  
+class="td11">  </td></tr></table>                                                                                    </div>
+                                                                                         
+                                                                                         
+  </div><hr class="endfloat" />
+<!--l. 720--><p class="indent" >  The ﬁrst version of Table <a 
+href="#x1-200012">2<!--tex4ht:ref: tab:validation --></a> contained an “empirical” column (\(0.624 \pm 0.002\), \(0.749 \pm 0.003\) and \(0.843 \pm 0.004\) for \(k = 3, 4, 5\)), attributed to
+“prime distribution over \([2, 10^6]\) in cascade moduli”. No statistic, method or code was given,
+the data described do not depend on \(k\), and no object is speciﬁed for \(k = 4, 5\). The column is
+withdrawn. The ﬁrst version also listed Zhang (2014) as a proof of \(\theta _1 = 1/2\); Zhang’s level exceeds
+\(1/2\).
+</p><!--l. 728--><p class="indent" >  Levels beyond \(1/2\) are known in modiﬁed settings: \(4/7\) for well-factorable weights <span class="cite">[<a 
+href="#XBFI1986">2</a>]</span>; \(1/2 + 1/584\) <span class="cite">[<a 
+href="#XZhang2014">17</a>]</span> and \(1/2 + 7/300\) <span class="cite">[<a 
+href="#XPolymath2014">12</a>]</span>
+for smooth moduli; and \(3/5\) <span class="cite">[<a 
+href="#XMaynard2020">9</a>]</span>, \(66/107\) <span class="cite">[<a 
+href="#XLichtman2023">6</a>]</span> and \(5/8\) <span class="cite">[<a 
+href="#XPascadi2025">11</a>]</span> for triply-well-factorable weights. Every value of \(\thetak \) has a
+power of \(2\) as its denominator, so none of \(4/7\), \(3/5\), \(66/107\), \(1/2 + 1/584 = 293/584\) and \(1/2 + 7/300 = 157/300\) is of the form \((2^k-k)/2^k\); all of them lie strictly between \(\theta _2 = 1/2\)
+and \(\theta _3 = 5/8\). The same weight class gives \(3/5\), \(66/107\) and \(5/8\) through diﬀerent analytic inputs, so the exponent is not
+determined by a count of constraints. Pascadi’s \(5/8\) is obtained from large-sieve inequalities for
+exceptional Maass forms together with the Kim–Sarnak bound; it concerns general moduli and
+not the moduli \(3^K\), and its agreement with \(\theta _3\) is a numerical coincidence, not evidence for
+formula (<a 
+href="#x1-3001r1">1<!--tex4ht:ref: eq:formula --></a>).
+</p>
+<!--l. 743--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">6.4. </span> <a 
+ id="x1-210006.4"></a><span 
+class="cmbx-12">Consequences and conjectures.</span></span>
+</p>
+  <div class="newtheorem">
+<!--l. 745--><p class="noindent" ><span class="head">
+<a 
+ id="x1-21001r4"></a>
+<span 
+class="cmbx-12">Conjecture 6.4 </span>(General forcing)<span 
+class="cmbx-12">.</span>  </span>   <span 
+class="cmti-12">For   any</span>   \(k\)<span 
+class="cmti-12">-fold   constitutional   sieve   of   depth</span>   \(k\)
+<span 
+class="cmti-12">(Postulate</span><span 
+class="cmti-12"> </span><a 
+href="#x1-10001r4"><span 
+class="cmti-12">3.4</span><!--tex4ht:ref: post:count --></a><span 
+class="cmti-12">), the analytic level of distribution equals the conﬁguration density</span> \(\thetak = (2^k - k)/2^k\)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 750--><p class="indent" >
+  Conjecture <a 
+href="#x1-21001r4">6.4<!--tex4ht:ref: conj:general --></a> is not yet a precise statement: no system has been shown to have depth \(k \geq 2\) in the
+sense of Deﬁnition <a 
+href="#x1-9002r2">3.2<!--tex4ht:ref: def:constitutional --></a>, and the sequence and family of moduli whose level is meant have not been
+speciﬁed. For \(k = 3\) the programme proposes the moduli \(3^K\) (Conjecture <a 
+href="#x1-16002r8">5.8<!--tex4ht:ref: conj:cascade --></a>); for \(k \geq 4\) no candidate has been
+proposed.
+</p>
+  <div class="newtheorem">
+<!--l. 758--><p class="noindent" ><span class="head">
+<a 
+ id="x1-21002r5"></a>
+<span 
+class="cmti-12">Remark </span>6.5 (The twin-prime threshold conjecture is withdrawn)<span 
+class="cmti-12">.</span>  </span> The ﬁrst version stated a
+conjecture that \(\theta _5 = 27/32\) holds analytically and that, combined with the Goldston–Pintz–Yıldırım
+theorem <span class="cite">[<a 
+href="#XGPY2009">4</a>]</span>, this would imply inﬁnitely many twin primes. The implication is false, and the
+conjecture is withdrawn. No level of distribution is known to imply inﬁnitely many twin
+primes: a level \(\theta &gt; 1/2\) gives bounded gaps between primes <span class="cite">[<a 
+href="#XGPY2009">4</a>]</span>; even level \(1 - \varepsilon \) (the Elliott–Halberstam
+conjecture) gives gaps at most \(12\) <span class="cite">[<a 
+href="#XMaynard2015">8</a>]</span>, and at most \(6\) under the generalised Elliott–Halberstam
+conjecture <span class="cite">[<a 
+href="#XPolymath8b">13</a>]</span>; and the parity barrier prevents these sieve methods from reaching gap \(2\).
+Moreover, no object of depth \(5\) has been speciﬁed.
+                                                                                         
+                                                                                         
+</p>
+  </div>
+<!--l. 770--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 772--><p class="noindent" ><span class="head">
+<a 
+ id="x1-21003r6"></a>
+<span 
+class="cmbx-12">Proposition 6.6 </span>(Limit of \(\thetak \))<span 
+class="cmbx-12">.</span>  </span> \(\displaystyle \lim _{k \to \infty } \thetak = \lim _{k \to \infty } \left (1 - \frac {k}{2^k}\right ) = 1\)<span 
+class="cmti-12">.</span>
+</p>
+  </div>
+<!--l. 776--><p class="indent" >
+</p>
+  <div class="proof">
+<!--l. 779--><p class="indent" >  <span class="head">
+<span 
+class="cmti-12">Proof.</span> </span>\(k/2^k \to 0\) as \(k \to \infty \) by l’Hôpital’s rule. <span class="qed"><span 
+class="msam-10x-x-120">□</span></span>
+</p>
+  </div>
+<!--l. 782--><p class="indent" >  The ﬁrst version described Proposition <a 
+href="#x1-21003r6">6.6<!--tex4ht:ref: prop:eh --></a> as consistency with the Elliott–Halberstam
+conjecture <span class="cite">[<a 
+href="#XEH1970">3</a>]</span>. That conjecture concerns all moduli \(q \leq x^{1-\varepsilon }\), while \(\thetak &lt; 1\) for every \(k\), so the limit carries no
+evidential weight.
+</p>
+<!--l. 787--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">6.5. </span> <a 
+ id="x1-220006.5"></a><span 
+class="cmbx-12">The</span> \(\theta _k\) <span 
+class="cmbx-12">hierarchy.</span></span>
+  Table <a 
+href="#x1-220013">3<!--tex4ht:ref: tab:hierarchy --></a> displays the hierarchy for \(k = 1, \ldots , 5\).
+                                                                                         
+                                                                                         
+</p><!--l. 791--><p class="indent" >  <a 
+ id="x1-220013"></a></p><hr class="float" /><div class="float" 
+>
+                                                                                         
+                                                                                         
+ <div class="caption" 
+><span class="id">Table 3: </span><span  
+class="content">The \(\thetak \) hierarchy. Since \(\theta _1 = \theta _2 = 1/2\), the value \(1/2\) cannot distinguish depth \(1\) from depth \(2\).</span></div><!--tex4ht:label?: x1-220013 -->
+<div class="tabular">
+ <table id="TBL-3" class="tabular" 
+ 
+><colgroup id="TBL-3-1g"><col 
+id="TBL-3-1" /><col 
+id="TBL-3-2" /><col 
+id="TBL-3-3" /><col 
+id="TBL-3-4" /></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-3-1-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-1-1"  
+class="td11"> \(k\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-1-2"  
+class="td11"> \(\thetak \) </td><td  style="white-space:normal; text-align:left;" id="TBL-3-1-3"  
+class="td11"> <!--l. 798--><p class="noindent" >Proposed instance            </p></td><td  style="white-space:normal; text-align:left;" id="TBL-3-1-4"  
+class="td11"> <!--l. 798--><p class="noindent" >Status                                </p></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-2-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-2-1"  
+class="td11"> \(1\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-2-2"  
+class="td11"> \(1/2\) </td><td  style="white-space:normal; text-align:left;" id="TBL-3-2-3"  
+class="td11"> <!--l. 800--><p class="noindent" >Bombieri–Vinogradov        </p></td><td  style="white-space:normal; text-align:left;" id="TBL-3-2-4"  
+class="td11"> <!--l. 800--><p class="noindent" >Level   \(1/2\)   proved   (1965);   not
+ derived   from   a   constraint
+ count                                 </p></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-3-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-3-1"  
+class="td11"> \(2\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-3-2"  
+class="td11"> \(1/2\) </td><td  style="white-space:normal; text-align:left;" id="TBL-3-3-3"  
+class="td11"> <!--l. 802--><p class="noindent" >None established              </p></td><td  style="white-space:normal; text-align:left;" id="TBL-3-3-4"  
+class="td11"> <!--l. 802--><p class="noindent" >—                                      </p></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-4-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-4-1"  
+class="td11">  \(3\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-4-2"  
+class="td11">  \(5/8\) </td><td  style="white-space:normal; text-align:left;" id="TBL-3-4-3"  
+class="td11"> <!--l. 803--><p class="noindent" >Twin primes; cascade
+ moduli                           </p></td><td  style="white-space:normal; text-align:left;" id="TBL-3-4-4"  
+class="td11"> <!--l. 803--><p class="noindent" >Unsupported:   twin   primes
+ have depth \(1\) (Example <a 
+href="#x1-9005r3">3.3<!--tex4ht:ref: ex:twin --></a>); \(5/8\)
+ for the moduli \(3^K\) is conjectural
+ (Conjecture <a 
+href="#x1-16002r8">5.8<!--tex4ht:ref: conj:cascade --></a>)                   </p></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-5-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-5-1"  
+class="td11"> \(4\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-5-2"  
+class="td11"> \(3/4\) </td><td  style="white-space:normal; text-align:left;" id="TBL-3-5-3"  
+class="td11"> <!--l. 806--><p class="noindent" >None speciﬁed                 </p></td><td  style="white-space:normal; text-align:left;" id="TBL-3-5-4"  
+class="td11"> <!--l. 806--><p class="noindent" >No object deﬁned                 </p></td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-6-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-6-1"  
+class="td11"> \(5\) </td><td  style="white-space:nowrap; text-align:center;" id="TBL-3-6-2"  
+class="td11"> \(27/32\) </td><td  style="white-space:normal; text-align:left;" id="TBL-3-6-3"  
+class="td11"> <!--l. 807--><p class="noindent" >None speciﬁed                 </p></td><td  style="white-space:normal; text-align:left;" id="TBL-3-6-4"  
+class="td11"> <!--l. 807--><p class="noindent" >No object deﬁned                 </p></td>
+
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-3-7-"><td  style="white-space:nowrap; text-align:center;" id="TBL-3-7-1"  
+class="td11">  </td></tr></table>                                                                                    </div>
+                                                                                         
+                                                                                         
+  </div><hr class="endfloat" />
+  <div class="newtheorem">
+<!--l. 812--><p class="noindent" ><span class="head">
+<a 
+ id="x1-22002r7"></a>
+<span 
+class="cmti-12">Remark </span>6.7 (Sophie Germain pairs)<span 
+class="cmti-12">.</span>  </span> The ﬁrst version listed Sophie Germain pairs \((p, 2p+1)\) as a
+“conﬁrmed non-instance” at \(k = 2\). For \(p &gt; 3\) they satisfy the single condition \(p \equiv 2 \pmod {3}\), the same as twin primes.
+Since \(\theta _1 = \theta _2 = 1/2\), assigning them depth \(1\) or depth \(2\) predicts the same value, so the example cannot
+discriminate between depths and is not a falsiﬁcation test. A level of distribution for Sophie
+Germain pairs is not a deﬁned notion, and no such result is known. The entry is withdrawn.
+</p>
+  </div>
+<!--l. 821--><p class="indent" >
+</p>
+  <h3 class="sectionHead"><span class="titlemark">Appendix A. </span> <a 
+ id="x1-23000A"></a>Watt’s Theorem and Condition W3</h3>
+<!--l. 829--><p class="noindent" >The ﬁrst version of this appendix “veriﬁed” three conditions W1–W3 for an application of Watt’s
+theorem <span class="cite">[<a 
+href="#XWatt1995">16</a>]</span> to Dirichlet \(L\)-functions modulo \(3^K\). Watt’s theorem is a mean-value estimate in the
+\(t\)-aspect for \(\int |\zeta (1/2+it)|^4 |M(it)|^2\,dt\), where \(M\) is a Dirichlet polynomial; it involves no characters modulo \(q\) and has no
+conditions W1–W3. The “veriﬁcation” of W1 and W2 is withdrawn, as is the use of Watt’s
+theorem for Kloosterman sums (Remark <a 
+href="#x1-15003r6">5.6<!--tex4ht:ref: rem:withdrawn --></a>(iv)).
+</p><!--l. 837--><p class="indent" >  <span 
+class="cmbx-12">Condition W3. </span>No \(L(s,\chi )\) with \(\chi \) primitive modulo \(3^K\) has a real zero in \(\sigma &gt; 1 - c/\log 3^K\). This statement is true, with a
+one-line proof: \((\Z /3^K\Z )^*\) is cyclic of even order, so the only real non-principal character modulo \(3^K\) is the one
+induced from \(\chi _{-3}\) modulo \(3\); an exceptional zero can only belong to a real character; so any such zero
+would be a zero of the single ﬁxed \(L\)-function \(L(s,\chi _{-3})\), which is positive on \((0,1]\). No CM theory is needed (the
+ﬁrst version’s appeal to a zero-free region for \(L\)-functions of CM ﬁelds is withdrawn),
+W3 makes no result unconditional, and nothing in it is speciﬁc to \(3\): \((\Z /\ell ^K\Z )^*\) is cyclic for every
+odd prime \(\ell \). W3 is not needed for Proposition <a 
+href="#x1-16001r7">5.7<!--tex4ht:ref: prop:trivial --></a>, which uses only the Siegel–Walﬁsz
+theorem.
+</p>
+  <h3 class="sectionHead"><a 
+ id="x1-24000"></a>Acknowledgements</h3>
+<!--l. 853--><p class="noindent" >The title of this paper is an homage to Srinivasa Ramanujan; no result of his is used (see
+Section <a 
+href="#x1-40001.2">1.2<!--tex4ht:ref: sec:title --></a>).
+</p>
+  <h3 class="sectionHead"><a 
+ id="x1-25000"></a>References</h3>
+<!--l. 857--><p class="noindent" >
+    </p><div class="thebibliography">
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[1]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XBombieri1965"></a><span 
+class="cmr-10">E.</span><span 
+class="cmr-10"> Bombieri, On the large sieve, </span><span 
+class="cmti-10">Mathematika </span><span 
+class="cmbx-10">12 </span><span 
+class="cmr-10">(1965), 201–225.</span>
+                                                                                         
+                                                                                         
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[2]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XBFI1986"></a><span 
+class="cmr-10">E.</span><span 
+class="cmr-10"> Bombieri, J.</span><span 
+class="cmr-10"> B.</span><span 
+class="cmr-10"> Friedlander, and H.</span><span 
+class="cmr-10"> Iwaniec, Primes in arithmetic progressions to large moduli,</span>
+    <span 
+class="cmti-10">Acta Math. </span><span 
+class="cmbx-10">156 </span><span 
+class="cmr-10">(1986), 203–251.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[3]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XEH1970"></a><span 
+class="cmr-10">P.</span><span 
+class="cmr-10"> D.</span><span 
+class="cmr-10"> T.</span><span 
+class="cmr-10"> A.</span><span 
+class="cmr-10"> Elliott  and  H.</span><span 
+class="cmr-10"> Halberstam,  A  conjecture  in  prime  number  theory,  </span><span 
+class="cmti-10">Symposia</span>
+    <span 
+class="cmti-10">Mathematica </span><span 
+class="cmbx-10">4 </span><span 
+class="cmr-10">(1970), 59–72.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[4]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XGPY2009"></a><span 
+class="cmr-10">D.</span><span 
+class="cmr-10"> A.</span><span 
+class="cmr-10"> Goldston,  J.</span><span 
+class="cmr-10"> Pintz,  and  C.</span><span 
+class="cmr-10"> Y.</span><span 
+class="cmr-10"> Yıldırım,  Primes  in  tuples</span><span 
+class="cmr-10"> I,  </span><span 
+class="cmti-10">Ann.</span><span 
+class="cmti-10"> of Math. </span><span 
+class="cmbx-10">170 </span><span 
+class="cmr-10">(2009),</span>
+    <span 
+class="cmr-10">819–862.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[5]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XHardyRamanujan1918"></a><span 
+class="cmr-10">G.</span><span 
+class="cmr-10"> H.</span><span 
+class="cmr-10"> Hardy  and  S.</span><span 
+class="cmr-10"> Ramanujan,  Asymptotic  formulae  in  combinatory  analysis,  </span><span 
+class="cmti-10">Proc.</span><span 
+class="cmti-10"> London</span>
+    <span 
+class="cmti-10">Math.</span><span 
+class="cmti-10"> Soc.</span><span 
+class="cmti-10"> (2) </span><span 
+class="cmbx-10">17 </span><span 
+class="cmr-10">(1918), 75–115.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[6]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XLichtman2023"></a><span 
+class="cmr-10">J.</span><span 
+class="cmr-10"> D.</span><span 
+class="cmr-10"> Lichtman,  Primes  in  arithmetic  progressions  to  large  moduli,  and  Goldbach  beyond  the</span>
+    <span 
+class="cmr-10">square-root barrier, arXiv:2309.08522, 2023.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[7]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XLucas1878"></a><span 
+class="cmr-10">É.</span><span 
+class="cmr-10"> Lucas, Th</span><span 
+class="cmr-10">éorie des fonctions num</span><span 
+class="cmr-10">ériques simplement p</span><span 
+class="cmr-10">ériodiques, </span><span 
+class="cmti-10">Amer.</span><span 
+class="cmti-10"> J.</span><span 
+class="cmti-10"> Math. </span><span 
+class="cmbx-10">1 </span><span 
+class="cmr-10">(1878),</span>
+    <span 
+class="cmr-10">184–196.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[8]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XMaynard2015"></a><span 
+class="cmr-10">J.</span><span 
+class="cmr-10"> Maynard, Small gaps between primes, </span><span 
+class="cmti-10">Ann.</span><span 
+class="cmti-10"> of Math. </span><span 
+class="cmbx-10">181 </span><span 
+class="cmr-10">(2015), 383–413.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-10">[9]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XMaynard2020"></a><span 
+class="cmr-10">J.</span><span 
+class="cmr-10"> Maynard,  Primes  in  arithmetic  progressions  to  large  moduli</span><span 
+class="cmr-10"> II:  well-factorable  estimates,</span>
+    <span 
+class="cmr-10">arXiv:2006.07088, 2020.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[10]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XMV1973"></a><span 
+class="cmr-10">H.</span><span 
+class="cmr-10"> L.</span><span 
+class="cmr-10"> Montgomery and R.</span><span 
+class="cmr-10"> C.</span><span 
+class="cmr-10"> Vaughan, The large sieve, </span><span 
+class="cmti-10">Mathematika </span><span 
+class="cmbx-10">20 </span><span 
+class="cmr-10">(1973), 119–134.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[11]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XPascadi2025"></a><span 
+class="cmr-10">A.</span><span 
+class="cmr-10"> Pascadi, On the exponents of distribution of primes and smooth numbers, arXiv:2505.00653,</span>
+    <span 
+class="cmr-10">2025.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[12]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XPolymath2014"></a><span 
+class="cmr-10">D.</span><span 
+class="cmr-10"> H.</span><span 
+class="cmr-10"> J.</span><span 
+class="cmr-10"> Polymath,  New  equidistribution  estimates  of  Zhang  type,  </span><span 
+class="cmti-10">Algebra  Number  Theory  </span><span 
+class="cmbx-10">8</span>
+    <span 
+class="cmr-10">(2014), 2067–2199.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[13]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XPolymath8b"></a><span 
+class="cmr-10">D.</span><span 
+class="cmr-10"> H.</span><span 
+class="cmr-10"> J.</span><span 
+class="cmr-10"> Polymath, Variants of the Selberg sieve, and bounded intervals containing many primes,</span>
+    <span 
+class="cmti-10">Res.</span><span 
+class="cmti-10"> Math.</span><span 
+class="cmti-10"> Sci. </span><span 
+class="cmbx-10">1 </span><span 
+class="cmr-10">(2014), Article</span><span 
+class="cmr-10"> 12.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[14]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XRamanujan1919"></a><span 
+class="cmr-10">S.</span><span 
+class="cmr-10"> Ramanujan, Some properties of</span> \(p(n)\)<span 
+class="cmr-10">, the number of partitions of</span> \(n\)<span 
+class="cmr-10">, </span><span 
+class="cmti-10">Proc.</span><span 
+class="cmti-10"> Cambridge Philos.</span><span 
+class="cmti-10"> Soc. </span><span 
+class="cmbx-10">19</span>
+    <span 
+class="cmr-10">(1919), 207–210.</span>
+    </p>
+                                                                                         
+                                                                                         
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[15]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XVinogradov1965"></a><span 
+class="cmr-10">A.</span><span 
+class="cmr-10"> I.</span><span 
+class="cmr-10"> Vinogradov, The density hypothesis for Dirichlet</span> \(L\)<span 
+class="cmr-10">-series, </span><span 
+class="cmti-10">Izv.</span><span 
+class="cmti-10"> Akad.</span><span 
+class="cmti-10"> Nauk SSSR Ser.</span><span 
+class="cmti-10"> Mat. </span><span 
+class="cmbx-10">29</span>
+    <span 
+class="cmr-10">(1965), 903–934.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[16]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWatt1995"></a><span 
+class="cmr-10">N.</span><span 
+class="cmr-10"> Watt, Kloosterman sums and a mean value for Dirichlet polynomials, </span><span 
+class="cmti-10">J.</span><span 
+class="cmti-10"> Number Theory </span><span 
+class="cmbx-10">53</span>
+    <span 
+class="cmr-10">(1995), 179–210.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[17]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XZhang2014"></a><span 
+class="cmr-10">Y.</span><span 
+class="cmr-10"> Zhang, Bounded gaps between primes, </span><span 
+class="cmti-10">Ann.</span><span 
+class="cmti-10"> of Math. </span><span 
+class="cmbx-10">179 </span><span 
+class="cmr-10">(2014), 1121–1174.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[18]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilCF"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Constitutional Forcing, ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[19]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilKhayyam"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Khayyam’s Triangle: Historical Restoration and the Geometry Hidden in the Numbers,</span>
+    <span 
+class="cmr-10">ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[20]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilSC"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Spherical Cow Philosophy: A Methodological Framework for Mathematical Discovery,</span>
+    <span 
+class="cmr-10">ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[21]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilShannon"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, The Shannon–Wakil Eﬀect: Constitutional Forcing as a Universal Pattern in Information</span>
+    <span 
+class="cmr-10">Theory and Prime Arithmetic, ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[22]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilEisenstein"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil, Ternary Forcing on the Hexagonal Lattice: Eisenstein Integers, Cascade Moduli, and a</span>
+    <span 
+class="cmr-10">Conjectured Level of Distribution</span><span 
+class="cmr-10"> </span>\(5/8\)<span 
+class="cmr-10">, ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-10">[23]</span> <span class="bibsp"><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span><span 
+class="cmr-10"> </span></span></span><a 
+ id="XWakilW3"></a><span 
+class="cmr-10">K.</span><span 
+class="cmr-10"> Wakil,  Condition</span><span 
+class="cmr-10"> W3:  Absence  of  Siegel  Zeros  for  Characters  Modulo</span><span 
+class="cmr-10"> </span>\(3^K\)<span 
+class="cmr-10">,  ARC  Institute  of</span>
+    <span 
+class="cmr-10">Knowware, preprint, 2026.</span>
+</p>
     </div>
-    <div class="sb-label" style="margin-bottom:.6rem;">Programme Index</div>
-    <ul class="series-index">
-      <li class=""><a href="../p01-constitutional-forcing/p01.html">01 · Constitutional Forcing</a></li>
-      <li class=""><a href="../p02-khayyams-triangle/p02.html">02 · Khayyam's Triangle</a></li>
-      <li class=""><a href="../p03-constitutional-signatures/p03.html">03 · Spherical Cow Philosophy</a></li>
-      <li class=""><a href="../p04-that-eisenstein-guy/p04.html">04 · Eisenstein, θ = 5/8</a></li>
-      <li class="curr"><a href="p05.html">05 · Ramanujan's Formula</a></li>
-      <li class=""><a href="../p06-shannon-wakil/p06.html">06 · Shannon–Wakil Effect</a></li>
-      <li class=""><a href="../p07-condition_w3/p07.html">07 · Condition W3</a></li>
-      <li class=""><a href="../p08-prime-bias-ternary-bridge/p08.html">08 · Prime Digit Bias</a></li>
-      <li class=""><a href="../p09-wakil-theta-fft/p09.html">09 · DFT Constitutional Constant</a></li>
-    </ul>
-  </aside>
-  <article class="paper">
-    <div class="paper-header">
-      <div class="paper-label">Preprint · ARC Institute of Knowware · February 2026</div>
-      <h1 class="title">Ramanujan's Dimensional Forcing: A Universal Formula for Sieve Levels</h1>
-      <div class="authors">Khayyam Wakil</div>
-      <div class="affiliation">The ARC Institute of Knowware, Calgary, Alberta, Canada</div>
-      <div class="paper-date">Submitted February 2026 &nbsp;·&nbsp; Constitutional Sieve Programme, Paper 05 of 09</div>
-    </div>
-    <div class="abstract-block">
-      <div class="abs-label">Abstract</div>
-      <p>We derive a universal formula for the level of distribution achieved by <em>k</em>-fold sieves with constitutional structure:</p>
-      <p style="text-align:center;margin:.6em 0;font-style:italic;">θ<sub><em>k</em></sub> = (2<sup><em>k</em></sup> − <em>k</em>) / 2<sup><em>k</em></sup> = 1 − <em>k</em>/2<sup><em>k</em></sup>.</p>
-      <p>The formula rests on two independent pillars. The <em>combinatorial pillar</em>: a counting theorem shows that a <em>k</em>-level nested constitutional sieve has exactly <em>k</em> invalid configurations out of 2<sup><em>k</em></sup> total, giving configuration density (2<sup><em>k</em></sup>−<em>k</em>)/2<sup><em>k</em></sup>. The <em>geometric pillar</em>: for <em>k</em>=3 (twin primes, cascade moduli q=3<sup>K</sup>), the algebraic structure of Z[ω] independently forces θ = 5/8 via two mechanisms — the three-level Eisenstein filtration and the cyclic Kloosterman cancellation.</p>
-      <p style="margin-top:.7em;">The formula unifies the classical Bombieri–Vinogradov barrier (θ₁ = 1/2, k=1) and Pascadi's breakthrough (θ₃ = 5/8, k=3) as special cases, and predicts the next achievable threshold at k=4 (θ₄ = 3/4). We also resolve a previously conflated distinction between <em>pattern density</em> and <em>configuration density</em> that explains a 12% discrepancy in earlier estimates.</p>
-    </div>
-    <div class="keywords"><strong>Keywords:</strong> level of distribution, sieve theory, constitutional sieve, Eisenstein integers, Kloosterman sums, Watt's theorem, twin primes, cascade moduli, Ramanujan, configuration density, <em>k</em>-hierarchy</div>
-    <div class="paper-meta-strip">
-      <span class="meta-pill">MSC 2020: 11N35 (primary) · 11N36 · 11N13 · 05A16</span>
-      <span class="meta-pill"><a href="../../papers/index.html">preprints.knowware.institute</a></span>
-      <span class="meta-pill"><a href="https://github.com/knowware-institute/constitutional-forcing">p05.tex source</a></span>
-    </div>
-    <div class="paper-body">
+  <div class="addresses">
+<!--l. 987--><p class="indent" >  <span class="address-title"></span><span class="address"><span 
+class="cmcsc-10">T<span 
+class="small-caps">h</span><span 
+class="small-caps">e</span> ARC I<span 
+class="small-caps">n</span><span 
+class="small-caps">s</span><span 
+class="small-caps">t</span><span 
+class="small-caps">i</span><span 
+class="small-caps">t</span><span 
+class="small-caps">u</span><span 
+class="small-caps">t</span><span 
+class="small-caps">e</span> <span 
+class="small-caps">o</span><span 
+class="small-caps">f</span> K<span 
+class="small-caps">n</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">w</span><span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">e</span>, C<span 
+class="small-caps">a</span><span 
+class="small-caps">l</span><span 
+class="small-caps">g</span><span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">y</span>, A<span 
+class="small-caps">l</span><span 
+class="small-caps">b</span><span 
+class="small-caps">e</span><span 
+class="small-caps">r</span><span 
+class="small-caps">t</span><span 
+class="small-caps">a</span>, C<span 
+class="small-caps">a</span><span 
+class="small-caps">n</span><span 
+class="small-caps">a</span><span 
+class="small-caps">d</span><span 
+class="small-caps">a</span></span></span>
+</p><!--l. 987--><p class="indent" >  <span class="email-title">   <span 
+class="cmti-10">Email address</span><span 
+class="cmr-10">: </span></span><span class="email"><span 
+class="cmtt-10">the@knowware.institute</span></span>
+</p>
+  </div> 
+</body></html> 
 
-      <h2>Introduction</h2>
-      <p>This paper asks and answers: is there a universal formula for the level of distribution θ<sub>k</sub> as a function of sieve depth <em>k</em>? The answer is</p>
-      <div class="eq-label">
-        <div class="eq-content" style="font-size:1.15rem;"><em>θ<sub>k</sub></em> = (2<sup><em>k</em></sup> − <em>k</em>) / 2<sup><em>k</em></sup></div>
-        <div class="eq-num">(1)</div>
-      </div>
-      <p>giving θ₁ = 1/2 (Bombieri–Vinogradov), θ₃ = 5/8 (Pascadi; companion paper [4]), and θ₄ = 3/4 (predicted). Formula (1) is not an empirical fit: it is derived from first principles in two independent ways — one combinatorial, one geometric — and both derivations agree.</p>
-      <p>The Ramanujan principle: in his work on partition functions and modular forms, Ramanujan observed that certain numbers force exact asymptotic formulas through their structural properties alone. Just as 24 is forced by the modular properties of the Dedekind eta function, the number 3 forces θ = 5/8 in sieve theory. Given the constitutional structure, the configuration space has 2³ = 8 dimensions; three constraints eliminate three configurations; and θ₃ = 5/8 is inevitable — not chosen, not approximated, forced.</p>
+                                                                                         
 
-      <h2>Two Densities: A Critical Distinction</h2>
-      <div class="env-block definition">
-        <div class="env-label">Definition 4.1</div>
-        <strong>Configuration density</strong> ρ<sup>config</sup><sub>k</sub> = (2<sup><em>k</em></sup>−<em>k</em>)/2<sup><em>k</em></sup> is the ratio of valid to total binary configurations in a <em>k</em>-fold constitutionally constrained system, as counted by the Counting Theorem. <strong>Pattern density</strong> ρ<sup>pattern</sup><sub>k</sub> is the empirically observed frequency of primes landing in constitutional residue classes.
-      </div>
-      <div class="env-block remark">
-        <div class="env-label">Remark 4.3 — The 12% Discrepancy</div>
-        Pattern density ≠ configuration density. Pattern density overestimates configuration density by approximately 12% because observed prime distributions include cross-level correlations that the pure counting argument does not account for. Earlier estimates in this programme conflated the two, producing predictions that were systematically 12% too high. The formula θ<sub>k</sub> = (2<sup>k</sup>−k)/2<sup>k</sup> uses <em>configuration density</em>.
-      </div>
 
-      <h2>The Combinatorial Pillar</h2>
-      <div class="env-block theorem">
-        <div class="env-label">Theorem 3.1 — Nested Constraint Count</div>
-        For a <em>k</em>-fold sieve with constitutional constraints at each of <em>k</em> nested levels, exactly <em>k</em> configurations in C<sub>k</sub> = {0,1}<sup><em>k</em></sup> are invalid. The configuration density is θ<sub>k</sub> = (2<sup><em>k</em></sup>−<em>k</em>)/2<sup><em>k</em></sup>.
-      </div>
-      <div class="proof">
-        <div class="proof-label">Proof.</div>
-        By induction on <em>k</em>; identical to the Counting Theorem proof in Paper 01 [1]. The key observation is that each constitutional constraint is <em>independent</em>: it eliminates exactly one configuration class not already eliminated by prior constraints. With <em>k</em> such constraints, exactly <em>k</em> classes are eliminated from 2<sup><em>k</em></sup> total. <span class="qed">□</span>
-      </div>
-
-      <h2>The Universal Formula and Its Predictions</h2>
-      <table class="formal">
-        <tr><th><em>k</em></th><th>Formula</th><th>Value</th><th>Status</th><th>Source / Prediction</th></tr>
-        <tr><td>1</td><td>(2−1)/2</td><td>1/2</td><td>Proved</td><td>Bombieri–Vinogradov (1965)</td></tr>
-        <tr><td>2</td><td>(4−2)/4</td><td>1/2</td><td>Confirmed non-instance</td><td>Sophie Germain pairs (k=2 by structure)</td></tr>
-        <tr><td>3</td><td>(8−3)/8</td><td>5/8</td><td>Proved</td><td>Cascade moduli / Pascadi (2025)</td></tr>
-        <tr><td>4</td><td>(16−4)/16</td><td>3/4</td><td>Predicted (open)</td><td>Unknown prime constellation with 4 constraints</td></tr>
-        <tr><td>5</td><td>(32−5)/32</td><td>27/32</td><td>Predicted (open)</td><td>Would imply twin prime infinitude via GPY</td></tr>
-      </table>
-      <div class="table-caption"><strong>Table 1.</strong> The <em>k</em>-hierarchy of constitutional sieve levels. The formula unifies all proved instances and generates falsifiable predictions.</div>
-
-      <div class="env-block conjecture">
-        <div class="env-label">Conjecture 6.1 — Ramanujan's Dimensional Forcing</div>
-        For every <em>k</em>-fold sieve with constitutional structure, the analytic level of distribution equals the configuration density: θ<sub>k</sub> = (2<sup><em>k</em></sup>−<em>k</em>)/2<sup><em>k</em></sup>. The combinatorial pillar (Theorem 3.1) proves this for all <em>k</em> at the counting level. The geometric pillar proves it analytically for <em>k</em>=3 (cascade moduli). The extension to <em>k</em> ≥ 4 over sufficiently broad moduli families is the principal open problem of the programme.
-      </div>
-
-      <div class="env-block remark">
-        <div class="env-label">Remark — Connection to Twin Prime Infinitude</div>
-        The Goldston–Pintz–Yıldırım theorem requires a level of distribution θ > 1/2 over a moduli family broad enough to serve as GPY input. The cascade moduli family (θ = 5/8, <em>k</em>=3) is too narrow: cascade moduli q = 3<sup>K</sup> form a one-parameter family. The formula predicts θ₅ = 27/32 ≈ 0.844 for a 5-level constitutional sieve. If this can be established analytically over a broad family, twin prime infinitude follows. The formula already knows the answer. The proof is the remaining work.
-      </div>
-
-      <div class="next-paper">
-        <div class="next-label">Next in Programme</div>
-        <div class="next-title"><a href="../p06-shannon-wakil/p06.html">06 · The Shannon–Wakil Effect →</a></div>
-        <div class="next-desc">Constitutional Forcing as a Universal Pattern in Information Theory and Prime Arithmetic. Five structural correspondences between Shannon's 1948 theorems and the cascade moduli result — two independent fields, 77 years apart, one mechanism.</div>
-      </div>
-
-      <div class="references">
-        <h2 style="counter-increment:none;">References</h2>
-        <ol class="ref-list">
-          <li>K. Wakil, "Constitutional Forcing," Constitutional Sieve Programme Paper 01 (2026).</li>
-          <li>K. Wakil, "Khayyam's Triangle," Constitutional Sieve Programme Paper 02 (2026).</li>
-          <li>V. Bombieri, A. Vinogradov, Bombieri–Vinogradov theorem (1965).</li>
-          <li>K. Wakil, "Ternary Forcing on the Hexagonal Lattice," Constitutional Sieve Programme Paper 04 (2026).</li>
-          <li>A. Pascadi, arXiv:2505.00653v2 (2025).</li>
-          <li>D. Goldston, J. Pintz, C. Yıldırım, "Primes in tuples I," <em>Ann. Math.</em> 170 (2009), 819–862.</li>
-          <li>K. Wakil, "Condition W3," Constitutional Sieve Programme Paper 07 (2026).</li>
-        </ol>
-      </div>
-    </div>
-  </article>
-</div>
-<footer class="site-footer">
-  <span>Knowware is measured in lifetimes</span><span>Constitutional Sieve Programme · Paper 05 of 09</span><span>Registered · Canada</span>
-</footer>
-</body></html>

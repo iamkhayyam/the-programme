@@ -1,215 +1,1260 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Khayyam's Triangle — Wakil 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>Khayyam’s Triangle: Historical Restoration and the Geometry Hidden in the Numbers</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<!-- xhtml,mathjax,charset=utf-8,html --> 
+<meta name="src" content="Paper_02_Khayyams_Triangle.tex" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
-@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
-:root{--linen:#e8e4dc;--ink:#111;--mid:#444;--light:#888;--rule:#ccc;--lrule:#ddd;--bg:#faf9f6;--note-bg:#f4f2ee;--accent:#8B0000;--link:#1a3a7c;--sidebar-w:220px;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{font-size:14px;}
-body{background:var(--linen);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;}
-.site-header{border-bottom:1px solid var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:50px;background:var(--linen);position:sticky;top:0;z-index:100;}
-.site-logo{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.88rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);text-decoration:none;line-height:1.1;}
-.site-logo span{display:block;font-size:.58rem;letter-spacing:.22em;color:var(--light);font-weight:300;}
-.site-nav{display:flex;gap:1.8rem;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;}
-.site-nav a{color:var(--ink);text-decoration:none;}
-.preprint-bar{border-bottom:1px solid var(--rule);padding:.5rem 2rem;display:flex;align-items:center;justify-content:space-between;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);font-family:'IBM Plex Mono',monospace;}
-.preprint-bar .series-tag{color:var(--ink);font-weight:500;}
-.page-body{max-width:1080px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:var(--sidebar-w) 1fr;gap:0;}
-.sidebar{border-right:1px solid var(--rule);padding:2.5rem 1.8rem 2.5rem 0;position:sticky;top:50px;height:calc(100vh - 50px);overflow-y:auto;}
-.sb-label{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
-.sb-num{font-family:'IBM Plex Sans',sans-serif;font-size:3.2rem;font-weight:300;line-height:1;color:var(--ink);letter-spacing:-.02em;margin-bottom:1.8rem;}
-.sb-meta{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;color:var(--light);line-height:2;text-transform:uppercase;margin-bottom:1.8rem;}
-.sb-meta strong{color:var(--ink);display:block;font-weight:500;font-size:.55rem;margin-top:.6rem;}
-.sb-meta strong:first-child{margin-top:0;}
-.sb-links{margin-bottom:1.8rem;}
-.sb-link{display:block;font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;text-transform:uppercase;color:var(--link);text-decoration:none;padding:.35rem 0;border-bottom:1px solid var(--lrule);line-height:1.4;}
-.sb-link:last-child{border-bottom:none;}
-.sb-link:hover{color:var(--accent);}
-.sb-link .sb-link-label{color:var(--light);display:block;font-size:.48rem;}
-.series-index{list-style:none;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.04em;line-height:2.1;text-transform:uppercase;color:var(--light);}
-.series-index a{color:var(--light);text-decoration:none;}
-.series-index a:hover{color:var(--ink);}
-.series-index .curr{color:var(--ink);font-weight:500;}
-.series-index .curr::before{content:'→ ';}
-.paper{padding:2.5rem 0 4rem 2.8rem;background:var(--bg);min-height:calc(100vh - 50px);}
-.paper-header{text-align:center;padding-bottom:2rem;border-bottom:1px solid var(--rule);margin-bottom:2rem;}
-.paper-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--light);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem;}
-.paper-label a{color:var(--link);text-decoration:none;}
-h1.title{font-family:'STIX Two Text','Times New Roman',serif;font-weight:600;font-size:1.45rem;line-height:1.35;color:var(--ink);margin-bottom:1rem;}
-.authors{font-family:'IBM Plex Sans',sans-serif;font-size:.82rem;color:var(--mid);margin-bottom:.4rem;}
-.affiliation{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--light);font-style:italic;margin-bottom:1rem;}
-.paper-date{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--light);}
-.abstract-block{margin:0 2rem 1.5rem;padding:1.2rem 1.5rem;background:var(--note-bg);border:1px solid var(--rule);}
-.abs-label{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mid);margin-bottom:.7rem;text-align:center;}
-.abstract-block p{font-family:'STIX Two Text',serif;font-size:.88rem;line-height:1.65;color:var(--mid);text-align:justify;margin:0;}
-.keywords{margin:.8rem 2rem 1.5rem;font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;color:var(--light);text-align:center;}
-.keywords strong{color:var(--mid);font-weight:500;}
-.paper-meta-strip{display:flex;gap:1.5rem;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;padding:.8rem 1rem;border-top:1px solid var(--lrule);border-bottom:1px solid var(--lrule);}
-.meta-pill{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--light);}
-.meta-pill a{color:var(--link);text-decoration:none;border-bottom:1px solid var(--lrule);}
-.meta-pill a:hover{color:var(--accent);}
-.paper-body{font-family:'STIX Two Text','Times New Roman',serif;font-size:1rem;line-height:1.72;color:var(--ink);max-width:640px;}
-.paper-body p{text-align:justify;margin-bottom:.9em;hyphens:auto;}
-.paper-body h2{font-family:'STIX Two Text',serif;font-weight:600;font-size:1.05rem;color:var(--ink);margin:2.2rem 0 .8rem;counter-increment:section;}
-.paper-body h2::before{content:counter(section) '.  ';color:var(--accent);}
-.paper-body{counter-reset:section;}
-.paper-body h3{font-family:'STIX Two Text',serif;font-weight:600;font-size:.92rem;color:var(--mid);margin:1.5rem 0 .5rem;font-style:italic;}
-.eq-label{display:flex;align-items:center;justify-content:space-between;margin:1.2rem 0;}
-.eq-content{flex:1;text-align:center;font-family:'STIX Two Text',serif;font-size:1.02rem;}
-.eq-num{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);width:44px;text-align:right;}
-.env-block{margin:1.4rem 0;padding:1rem 1.2rem;font-family:'STIX Two Text',serif;font-size:.95rem;line-height:1.65;}
-.env-block.theorem{border:1px solid var(--rule);border-left:4px solid var(--ink);background:var(--note-bg);}
-.env-block.proposition{border:1px solid var(--rule);border-left:4px solid var(--mid);background:var(--note-bg);}
-.env-block.lemma{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
-.env-block.corollary{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
-.env-block.definition{border:1px solid var(--rule);border-left:4px solid var(--accent);background:#fff8f8;}
-.env-block.remark{border-left:3px solid var(--accent);background:#fff8f8;padding:.8rem 1.2rem;}
-.env-block.conjecture{border:1px dashed var(--rule);border-left:4px dashed var(--ink);background:var(--note-bg);}
-.env-label{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);margin-bottom:.5rem;}
-.env-block.remark .env-label,.env-block.definition .env-label{color:var(--accent);}
-.proof{margin:.5rem 0 1.2rem 1.5rem;font-family:'STIX Two Text',serif;font-size:.92rem;line-height:1.65;color:var(--mid);}
-.proof-label{font-family:'IBM Plex Sans',sans-serif;font-style:italic;font-size:.8rem;color:var(--light);margin-bottom:.3rem;}
-.qed{float:right;font-size:1rem;color:var(--mid);}
-table.formal{width:100%;border-collapse:collapse;margin:1.2rem 0 1rem;font-size:.85rem;font-family:'STIX Two Text',serif;}
-table.formal th{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid var(--ink);border-top:1px solid var(--ink);padding:.5rem .8rem;text-align:left;}
-table.formal td{padding:.45rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;}
-table.formal tr:last-child td{border-bottom:1px solid var(--ink);}
-.table-caption{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--mid);text-align:center;margin-bottom:1.5rem;font-style:italic;}
-.table-caption strong{font-style:normal;font-weight:500;}
-em{font-style:italic;}strong{font-weight:600;}
-sup{font-size:.7em;vertical-align:super;color:var(--accent);}
-sub{font-size:.7em;vertical-align:sub;}
-.next-paper{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--ink);max-width:640px;}
-.next-label{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
-.next-title{font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;}
-.next-title a{color:var(--ink);text-decoration:none;}
-.next-title a:hover{color:var(--link);}
-.next-desc{font-family:'STIX Two Text',serif;font-size:.88rem;color:var(--light);margin-top:.25rem;font-style:italic;}
-.references{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);max-width:640px;}
-.ref-list{list-style:none;counter-reset:refs;}
-.ref-list li{counter-increment:refs;padding-left:36px;position:relative;margin-bottom:.6rem;font-family:'STIX Two Text',serif;font-size:.82rem;line-height:1.5;color:var(--mid);}
-.ref-list li::before{content:'['counter(refs)']';position:absolute;left:0;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);}
-.site-footer{border-top:1px solid var(--ink);padding:.9rem 2rem;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);}
-@media(max-width:760px){.page-body{grid-template-columns:1fr;}.sidebar{position:static;height:auto;border-right:none;border-bottom:1px solid var(--rule);padding:1.5rem 0;}.paper{padding:1.5rem 0;}.preprint-bar{display:none;}.series-index{display:none;}.abstract-block{margin:0 0 1.5rem;}}
-</style>
+ 
+/* start css.sty */
+.cmr-10x-x-109{}
+.cmr-9{font-size:81%;}
+.cmcsc-10x-x-90{font-size:81%;}
+.cmti-9{font-size:81%; font-style: italic;}
+.cmbx-10x-x-109{ font-weight: bold;}
+.cmbx-10x-x-109{ font-weight: bold;}
+.cmti-10x-x-109{ font-style: italic;}
+.cmtt-10x-x-109{font-family: monospace,monospace;}
+.cmtt-10x-x-109{font-family: monospace,monospace;}
+.cmbx-9{font-size:81%; font-weight: bold;}
+.cmbx-9{ font-weight: bold;}
+.cmtt-9{font-size:81%;font-family: monospace,monospace;}
+.cmtt-9{font-family: monospace,monospace;}
+.small-caps{font-variant: small-caps; }
+p{margin-top:0;margin-bottom:0}
+p.indent{text-indent:0;}
+p + p{margin-top:1em;}
+p + div, p + pre {margin-top:1em;}
+div + p, pre + p {margin-top:1em;}
+a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+@media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+img.math{vertical-align:middle;}
+div.par-math-display, div.math-display{text-align:center;}
+li p.indent { text-indent: 0em }
+li p:first-child{ margin-top:0em; }
+li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
+li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+code.verb{font-family:monospace,monospace;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
+.hline:first-child{border-bottom:1px solid black;border-top:none;}
+.tabbing-right {text-align:right;}
+div.float, div.figure {margin-left: auto; margin-right: auto;}
+div.float img {text-align:center;}
+div.figure img {text-align:center;}
+.marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.reversemarginpar{float:left;}
+table.equation {width:100%;}
+.equation td{text-align:center; }
+td.equation { margin-top:1em; margin-bottom:1em; } 
+td.equation-label { width:5%; text-align:center; }
+td.eqnarray4 { width:5%; white-space: normal; }
+td.eqnarray2 { width:5%; }
+table.eqnarray-star, table.eqnarray {width:100%;}
+div.eqnarray{text-align:center;}
+div.array {text-align:center;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.pmatrix img{vertical-align:middle;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.bar-css {text-decoration:overline;}
+img.cdots{vertical-align:middle;}
+span.footnote-mark{ vertical-align: super; font-size:80%; }
+div.submaketitle{ text-align:left; margin-top:2em; border-top: 1px solid black; border-bottom: 1px solid black; margin-left:5%; margin-right:5%; font-size:85%; line-height: 95%;}
+div.submaketitle div {margin-top:0.5em; margin-bottom:0.5em; }
+div.submaketitle p { margin-top:0em; margin-bottom:0em; }
+div.abstract{ margin-top: 2em; text-align:left; margin-right:15pt; margin-left:15pt; }
+div.addresses p {margin-top:0em; margin-bottom:0em; }
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; text-align:center; }
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption span.id{font-weight: bold; white-space: nowrap; }
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.qed {width:2ex; float:right; text-align:right;}
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+div.translators {text-align:right; margin-bottom:0.7em;}
+.sectionHead{text-align:center;}
+.equation td{text-align:center; }
+.equation-star td{text-align:center; }
+table.equation-star { width:100%; }
+table.equation { width:100%; }
+table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:95%; margin-left:5%; white-space: nowrap;}
+table.align-star, table.alignat-star, table.xalignat-star, table.flalign-star {margin-left:auto; margin-right:auto; white-space: nowrap;}
+td.align-label { width:5%; text-align:center; }
+td.align-odd { text-align:right; padding-right:0.3em;}
+td.align-even { text-align:left; padding-right:0.6em;}
+table.multline, table.multline-star {width:100%;}
+td.gather {text-align:center; }
+table.gather {width:100%;}
+div.gather-star {text-align:center;}
+.rotatebox{display: inline-block;}
+/* end css.sty */
 
-</head>
-<body>
-<header class="site-header">
-  <a href="https://knowware.institute" class="site-logo">KNOWWARE<span>THE &nbsp; A.R.C &nbsp; INSTITUTE</span></a>
-  <nav class="site-nav"><a href="../../papers/index.html">Pre-Print</a><a href="https://knowware.institute/contact">Contact</a></nav>
-</header>
-<div class="preprint-bar">
-  <span>ARC Institute of Knowware · January 2026</span>
-  <span class="series-tag">Constitutional Sieve Programme · Nine Papers</span>
-  <span>math.NT · 01A30, 11B65, 28A80 · Fisher Creek Ranch, Alberta</span>
-</div>
-<div class="page-body">
-  <aside class="sidebar">
-    <div class="sb-label">Paper</div><div class="sb-num">02</div>
-    <div class="sb-meta"><strong>Author</strong>Khayyam Wakil<strong>Published</strong>January 2026<strong>Series</strong>Constitutional Sieve Programme<strong>MSC 2020</strong>01A30, 11B65, 28A80, 11N35</div>
-    <div class="sb-links">
-      <a class="sb-link" href="p02.pdf" target="_blank">
-        <span class="sb-link-label">Download · PDF</span>
-        p02.pdf → View
-      </a>
-      <a class="sb-link" href="p02.tex" target="_blank">
-        <span class="sb-link-label">LaTeX Source</span>
-        p02.tex → View
-      </a>
+
+body{max-width:48rem;margin:2rem auto;padding:0 1rem;font-family:"STIX Two Text","Times New Roman",serif;font-size:17px;line-height:1.55;color:#1a1a1a;background:#faf9f6}
+h2,h3,h4{line-height:1.3} .maketitle{text-align:center;margin-bottom:2rem} table{border-collapse:collapse;margin:1rem auto} td{padding:2px 8px}
+img{max-width:100%;height:auto} .abstract{margin:1.5rem 0;padding:1rem 1.25rem;background:#f4f2ee}
+@media (prefers-color-scheme: dark){body{background:#151515;color:#e8e6e1} .abstract{background:#222} a{color:#9bb8ff}}
+</style> 
+<script>window.MathJax = { tex: { tags: "ams", macros: {} } }; </script> 
+ <script type="text/javascript" async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml-full.js"></script>  
+</head><body 
+>
+  <div class="maketitle">
+  <h2 class="titleHead">
+KHAYYAM’S TRIANGLE: HISTORICAL RESTORATION AND THE
+GEOMETRY HIDDEN IN THE NUMBERS
+  </h2>
+  <div class="authors"><span class="author" >
+<span 
+class="cmr-9">KHAYYAM WAKIL</span>
+  </span></div>
+         <div class="abstract">
+       <!--l. 28--><p class="noindent" ><span class="title">
+       <span 
+class="cmcsc-10x-x-90">A<span 
+class="small-caps">b</span><span 
+class="small-caps">s</span><span 
+class="small-caps">t</span><span 
+class="small-caps">r</span><span 
+class="small-caps">a</span><span 
+class="small-caps">c</span><span 
+class="small-caps">t</span>.</span> </span><span 
+class="cmr-9">The triangular array of binomial coeﬃcients has been called “Pascal’s Triangle” in the</span>
+       <span 
+class="cmr-9">West for centuries—yet it was known in India, in the Islamic world and in China long before Pascal’s</span>
+       <span 
+class="cmti-9">Trait</span><span 
+class="cmti-9">é </span><span 
+class="cmr-9">of 1654. In Iran it carries the name of the Persian mathematician Omar Khayyam, whose</span>
+       <span 
+class="cmr-9">work on the extraction of roots, written before about 1070 and now lost, is the basis for associating</span>
+       <span 
+class="cmr-9">the triangle with him; he was not its ﬁrst discoverer. We review this history and correct the popular</span>
+       <span 
+class="cmr-9">account where it goes wrong. We then argue that a further consideration favours Khayyam’s name:</span>
+       <span 
+class="cmr-9">the triangle’s most striking structural property is </span><span 
+class="cmti-9">geometric</span><span 
+class="cmr-9">. Reduce the triangle’s entries modulo</span>
+       <span 
+class="cmr-9">any prime</span> \(p\) <span 
+class="cmr-9">and a Sierpi</span><span 
+class="cmr-9">ński-type fractal emerges—a self-similar geometric structure far from the</span>
+       <span 
+class="cmr-9">probabilistic questions Pascal put to the triangle, and of the kind of hidden geometry that runs</span>
+       <span 
+class="cmr-9">through Khayyam’s work. For</span> \(p=3\) <span 
+class="cmr-9">its Hausdorﬀ dimension is</span> \(\log 6/\log 3 \approx 1.631\)<span 
+class="cmr-9">.</span>
+       </p><!--l. 31--><p class="indent" >  <span 
+class="cmr-9">This paper is the second in a nine-paper program on constitutional sieve theory </span><span class="cite"><span 
+class="cmr-9">[</span><a 
+href="#Xforcing"><span 
+class="cmr-9">18</span></a><span 
+class="cmr-9">]</span></span><span 
+class="cmr-9">. The fractal</span>
+       <span 
+class="cmr-9">motivates the program’s interest in the prime 3, but it does not supply its arithmetic: nothing in the</span>
+       <span 
+class="cmr-9">fractal singles out the prime 3, and the program’s central arithmetic claim, a level of distribution</span> \(\theta _W = 5/8\)
+       <span 
+class="cmr-9">for the moduli</span> \(3^K\)<span 
+class="cmr-9">, is a conjecture </span><span class="cite"><span 
+class="cmr-9">[</span><a 
+href="#Xeisenstein"><span 
+class="cmr-9">20</span></a><span 
+class="cmr-9">]</span></span><span 
+class="cmr-9">. This paper makes the historical and mathematical case for the</span>
+       <span 
+class="cmr-9">name, and shows you the fractal.</span></p></div>
+<div class="submaketitle">
+  <div class="date" >
+<!--l. 34--><p class="indent" >  <span 
+class="cmti-10x-x-109">Date</span>: January 2026; revised November 2026.</p></div>
+  <div class="subjclass">
+<!--l. 34--><p class="indent" >  2020 <span 
+class="cmti-10x-x-109">Mathematics Subject Classiﬁcation. </span>01A30, 11B65, 28A80, 11N35.</p></div>
+  <div class="keywords">
+<!--l. 34--><p class="indent" >  <span 
+class="cmti-10x-x-109">Key words and phrases. </span>Pascal’s triangle, Khayyam’s triangle, Sierpiński fractal, Lucas’s
+theorem, modular arithmetic, history of mathematics, cascade moduli, constitutional sieve
+theory.</p></div></div></div>
+<!--l. 36--><p class="noindent" ><span 
+class="cmbx-10x-x-109">Revision note (November 2026). </span>The Hausdorﬀ dimension of the mod-\(p\) fractal is corrected to \(\log (p(p+1)/2)/\log p\), which
+is \(\log 6/\log 3\approx 1.631\) for \(p=3\) (larger, not smaller, than the mod-2 value), with six, not three, self-similar copies at each scale.
+The claim that the mod-3 void pattern matches the count of “\(k\) invalid conﬁgurations out of \(2^k\)” is false and
+has been withdrawn, as has the claim that the fractal explains why the prime 3 is singled out. Companion
+results are now cited with their revised status: \(\theta _W=5/8\) is a conjecture and the counting formula is a
+postulate. The history is corrected: Khayyam’s treatment of the binomial expansion is lost, his
+surviving algebra does not contain the triangle, and earlier sources are listed; the date of Apianus
+(1527), the gaps to Pascal and the al-Ṭ<span class="bar-css">u</span>s<span class="bar-css">ı</span> citation are ﬁxed. The 11-decimal solar-year ﬁgure, a
+modern reconstruction of doubtful authenticity, is no longer presented as Khayyam’s, and the
+claim that the fractal went unnoticed for three centuries is replaced by its nineteenth-century
+                                                                                         
+                                                                                         
+history.
+</p>
+  <h3 class="sectionHead"><a 
+ id="x1-1000"></a>Contents</h3>
+  <div class="tableofcontents"><span class="sectionToc" ><a 
+href="#x1-1000" id="QQ2-1-1">Contents</a></span><br /><span class="sectionToc" > 1.  <a 
+href="#x1-20001" id="QQ2-1-2">Whose Name?</a></span><br /><span class="sectionToc" > 2.  <a 
+href="#x1-30002" id="QQ2-1-3">Centuries Before Pascal</a></span><br /><span class="sectionToc" > 3.  <a 
+href="#x1-40003" id="QQ2-1-5">Two Ways of
+Seeing a Triangle</a></span><br /><span class="sectionToc" > 4.  <a 
+href="#x1-50004" id="QQ2-1-6">The Fractal Inside the Triangle</a></span><br /><span class="subsectionToc" > 4.1.  <a 
+href="#x1-60004.1" id="QQ2-1-7">Connection to the
+companion papers</a></span><br /><span class="subsectionToc" > 4.2.  <a 
+href="#x1-70004.2" id="QQ2-1-8">When the fractal was noticed</a></span><br /><span class="subsectionToc" > 4.3.  <a 
+href="#x1-80004.3" id="QQ2-1-9">What is lost when we
+forget</a></span><br /><span class="sectionToc" > 5.  <a 
+href="#x1-90005" id="QQ2-1-10">The Case, Stated Plainly—and a Precedent</a></span><br /><span class="sectionToc" ><a 
+href="#x1-10000" id="QQ2-1-11">Acknowledgements</a></span><br /><span class="sectionToc" ><a 
+href="#x1-11000" id="QQ2-1-13">References</a></span><br />
+  </div>
+  <h3 class="sectionHead"><span class="titlemark">1. </span> <a 
+ id="x1-20001"></a>Whose Name?</h3>
+<!--l. 42--><p class="noindent" >Here is a simple question. You know the triangular array of binomial coeﬃcients—the one where each
+entry is the sum of the two above it, the one that encodes combinations, gives you Pascal’s Rule,
+and sits in every combinatorics textbook. You call it Pascal’s Triangle. But what does its
+deepest structural property look like, and whose mathematical instincts would have found
+it?
+</p><!--l. 44--><p class="indent" >  Colour every entry that is <span 
+class="cmti-10x-x-109">not </span>divisible by 3 and leave the rest blank. Do this for row after row,
+hundreds of rows deep. What emerges is not a triangle. It is a fractal—an inﬁnite, self-similar geometric
+object that replicates itself at every scale (Figure <a 
+href="#x1-100011">1<!--tex4ht:ref: fig:fractal --></a>).
+</p><!--l. 46--><p class="indent" >  This is not a recent discovery: the arithmetic behind it was worked out in the nineteenth century <span class="cite">[<a 
+href="#Xkummer1852">7</a>, <a 
+href="#Xlucas1878">5</a>]</span>,
+and the picture is well documented <span class="cite">[<a 
+href="#Xwolfram1984">11</a>, <a 
+href="#Xreiter1993">12</a>]</span>. The question we ask here is a diﬀerent one: does this fractal
+belong to Pascal’s mathematical world, or to someone else’s?
+</p><!--l. 48--><p class="indent" >  The answer, we will argue, is someone else’s: Omar Khayyam’s. Khayyam was not the ﬁrst to know the
+triangle, and his own account of it is lost (Section <a 
+href="#x1-30002">2<!--tex4ht:ref: sec:history --></a>). Our case rests partly on history and partly on the
+character of his mathematics.
+</p>
+  <h3 class="sectionHead"><span class="titlemark">2. </span> <a 
+ id="x1-30002"></a>Centuries Before Pascal</h3>
+<!--l. 52--><p class="noindent" >The historical record is clear that the triangle long predates Pascal; it does not support the popular claim
+that Khayyam was the ﬁrst to know it. Table <a 
+href="#x1-30011">1<!--tex4ht:ref: tab:timeline --></a> lists some of the appearances of the binomial coeﬃcient
+triangle before Pascal’s <span 
+class="cmti-10x-x-109">Trait</span><span 
+class="cmti-10x-x-109">é du triangle arithm</span><span 
+class="cmti-10x-x-109">étique</span>, printed in 1654 and published posthumously in
+1665 <span class="cite">[<a 
+href="#Xpascal1654">4</a>]</span>; see <span class="cite">[<a 
+href="#Xedwards1987">13</a>]</span> for a full account.
+                                                                                         
+                                                                                         
+</p><!--l. 54--><p class="indent" >  <a 
+ id="x1-30011"></a></p><hr class="float" /><div class="float" 
+>
+                                                                                         
+                                                                                         
+ <div class="caption" 
+><span class="id">Table 1: </span><span  
+class="content">Some appearances of the triangle before Pascal.</span></div><!--tex4ht:label?: x1-30011 -->
+<div class="tabular"> <table id="TBL-1" class="tabular" 
+ 
+><colgroup id="TBL-1-1g"><col 
+id="TBL-1-1" /><col 
+id="TBL-1-2" /><col 
+id="TBL-1-3" /></colgroup><tr 
+class="hline"><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-1-1"  
+class="td11"> Date             </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-1-2"  
+class="td11"> Source                                                </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-1-3"  
+class="td11"> Location  </td></tr><tr 
+class="hline"><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-2-1"  
+class="td11"> 10th c. </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-2-2"  
+class="td11"> Hal<span class="bar-css">a</span>yudha, on Piṅgala’s <span 
+class="cmti-10x-x-109">meru-prast</span><span class="bar-css"><span 
+class="cmti-10x-x-109">a</span></span><span 
+class="cmti-10x-x-109">ra </span></td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-2-3"  
+class="td11"> India</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-3-1"  
+class="td11"> c. 1000          </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-3-2"  
+class="td11"> al-Karaj<span class="bar-css">ı</span> (reported by al-Samaw’al, 1144) </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-3-3"  
+class="td11"> Baghdad  </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-4-1"  
+class="td11"> c. 1050          </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-4-2"  
+class="td11"> Jia Xian (reported by Yang Hui)             </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-4-3"  
+class="td11"> China      </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-5-1"  
+class="td11"> before c. 1070 </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-5-2"  
+class="td11"> Omar Khayyam (lost work on roots)        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-5-3"  
+class="td11"> Persia     </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-6-1"  
+class="td11"> 13th c.           </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-6-2"  
+class="td11"> Jordanus de Nemore                             </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-6-3"  
+class="td11"> Europe    </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-7-1"  
+class="td11"> 1261              </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-7-2"  
+class="td11"> Yang Hui <span class="cite">[<a 
+href="#Xyanghui1261">3</a>]</span>                                        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-7-3"  
+class="td11"> China      </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-8-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-8-1"  
+class="td11"> 1265              </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-8-2"  
+class="td11"> al-Ṭ<span class="bar-css">u</span>s<span class="bar-css">ı</span>, <span 
+class="cmti-10x-x-109">Jaw</span><span class="bar-css"><span 
+class="cmti-10x-x-109">a</span></span><span 
+class="cmti-10x-x-109">mi‘ al-</span><span 
+class="cmti-10x-x-109">ḥis</span><span class="bar-css"><span 
+class="cmti-10x-x-109">a</span></span><span 
+class="cmti-10x-x-109">b </span><span class="cite">[<a 
+href="#Xaltusi1265">2</a>]</span>                    </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-8-3"  
+class="td11"> Persia     </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-9-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-9-1"  
+class="td11"> 1303              </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-9-2"  
+class="td11"> Zhu Shijie                                           </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-9-3"  
+class="td11"> China      </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-10-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-10-1"  
+class="td11"> 1356              </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-10-2"  
+class="td11"> Narayana Pandita                                 </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-10-3"  
+class="td11"> India       </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-11-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-11-1"  
+class="td11"> 1527              </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-11-2"  
+class="td11"> Petrus Apianus                                    </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-11-3"  
+class="td11"> Germany </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-12-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-12-1"  
+class="td11"> 1654              </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-12-2"  
+class="td11"> Blaise Pascal <span class="cite">[<a 
+href="#Xpascal1654">4</a>]</span>                                   </td><td  style="white-space:nowrap; text-align:left;" id="TBL-1-12-3"  
+class="td11"> France     </td>
+</tr><tr 
+class="hline"><td><hr /></td><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-1-13-"><td  style="white-space:nowrap; text-align:left;" id="TBL-1-13-1"  
+class="td11">              </td></tr></table>                                                                        </div>
+                                                                                         
+                                                                                         
+  </div><hr class="endfloat" />
+<!--l. 77--><p class="indent" >  Khayyam’s own treatment of the triangle does not survive. His algebra treatise, the <span 
+class="cmti-10x-x-109">Ris</span><span class="bar-css"><span 
+class="cmti-10x-x-109">a</span></span><span 
+class="cmti-10x-x-109">la f</span><span class="bar-css"><span 
+class="cmti-10x-x-109">ı</span></span><span 
+class="cmti-10x-x-109">’l-bar</span><span class="bar-css"><span 
+class="cmti-10x-x-109">a</span></span><span 
+class="cmti-10x-x-109">h</span><span class="bar-css"><span 
+class="cmti-10x-x-109">ı</span></span><span 
+class="cmti-10x-x-109">n</span>
+<span 
+class="cmti-10x-x-109">‘al</span><span class="bar-css"><span 
+class="cmti-10x-x-109">a</span></span> <span 
+class="cmti-10x-x-109">mas</span><span class="bar-css"><span 
+class="cmti-10x-x-109">a</span></span><span 
+class="cmti-10x-x-109">’il al-jabr wa’l-muq</span><span class="bar-css"><span 
+class="cmti-10x-x-109">a</span></span><span 
+class="cmti-10x-x-109">bala </span><span class="cite">[<a 
+href="#Xkhayyam1070">1</a>, <a 
+href="#Xrashed2000">14</a>]</span>, was written c. 1070 in Samarkand; it classiﬁes the
+cubic equations and solves them with conic sections, and it does not contain the triangle.
+In it Khayyam mentions an earlier work of his own on ﬁnding roots of higher order; that
+work, which presumably used the binomial coeﬃcients, is lost <span class="cite">[<a 
+href="#Xrashed2000">14</a>, <a 
+href="#Xedwards1987">13</a>]</span>. The association of the
+triangle with Khayyam rests on this reference and on the later tradition that carries his name in
+Iran.
+</p><!--l. 79--><p class="indent" >  Others were earlier. Al-Karaj<span class="bar-css">ı</span>’s construction of the triangle is reported by al-Samaw’al (1144); Jia
+Xian’s (c. 1050) is reported by Yang Hui, who credits him <span class="cite">[<a 
+href="#Xyanghui1261">3</a>]</span>; and the Indian prosodists had the array as
+Piṅgala’s <span 
+class="cmti-10x-x-109">meru-prast</span><span class="bar-css"><span 
+class="cmti-10x-x-109">a</span></span><span 
+class="cmti-10x-x-109">ra</span>, described explicitly by Hal<span class="bar-css">a</span>yudha in the tenth century <span class="cite">[<a 
+href="#Xedwards1987">13</a>]</span>. Two centuries after
+Khayyam, Naṣ<span class="bar-css">ı</span>r al-D<span class="bar-css">ı</span>n al-Ṭ<span class="bar-css">u</span>s<span class="bar-css">ı</span> used the binomial coeﬃcients for the extraction of roots in his <span 
+class="cmti-10x-x-109">Jaw</span><span class="bar-css"><span 
+class="cmti-10x-x-109">a</span></span><span 
+class="cmti-10x-x-109">mi‘</span>
+<span 
+class="cmti-10x-x-109">al-</span><span 
+class="cmti-10x-x-109">ḥis</span><span class="bar-css"><span 
+class="cmti-10x-x-109">a</span></span><span 
+class="cmti-10x-x-109">b </span>of 1265 <span class="cite">[<a 
+href="#Xaltusi1265">2</a>]</span>. Apianus printed the triangle in Europe, on the title page of his <span 
+class="cmti-10x-x-109">Rechnung</span>, in
+1527.
+</p><!--l. 81--><p class="indent" >  Pascal, born in 1623, printed his <span 
+class="cmti-10x-x-109">Trait</span><span 
+class="cmti-10x-x-109">é </span>in 1654: some 584 years after Khayyam’s algebra, 127 years
+after Apianus, and last of all the entries in Table <a 
+href="#x1-30011">1<!--tex4ht:ref: tab:timeline --></a>. Reference works already record that
+the triangle predates Pascal <span class="cite">[<a 
+href="#Xmathworld">17</a>, <a 
+href="#Xedwards1987">13</a>]</span>; in China it is called Yang Hui’s triangle, and in Iran it
+already carries Khayyam’s name. Corrections of this kind are not unusual: “Arabic numerals”
+came from India; the Fibonacci sequence was known in India, to Virah<span class="bar-css">a</span>ṅka centuries earlier
+and to Hemachandra before Fibonacci; the Pythagorean theorem was recorded in Babylon a
+millennium before Pythagoras. Restoring a name is not erasure. But since Khayyam was not ﬁrst,
+priority alone would favour other names; our case for his rests also on the argument of the next
+sections.
+</p>
+  <h3 class="sectionHead"><span class="titlemark">3. </span> <a 
+ id="x1-40003"></a>Two Ways of Seeing a Triangle</h3>
+<!--l. 85--><p class="noindent" >To understand why the fractal matters, one must understand the diﬀerent questions Pascal and Khayyam
+were asking.
+</p><!--l. 87--><p class="indent" >  Pascal’s <span 
+class="cmti-10x-x-109">Trait</span><span 
+class="cmti-10x-x-109">é </span>applies the triangle to, among other things, the <span 
+class="cmti-10x-x-109">probl</span><span 
+class="cmti-10x-x-109">ème des partis </span><span class="cite">[<a 
+href="#Xpascal1654">4</a>]</span>—the
+problem of dividing gambling stakes fairly when a game of chance is interrupted midway. His
+question there was: <span 
+class="cmti-10x-x-109">how many </span>outcomes are possible? The triangle answered it. Each entry \(\binom {n}{k}\)
+counted the ways to choose \(k\) items from \(n\)—discrete, additive, enumerative. Pascal’s tradition was
+probabilistic and combinatorial. He saw the triangle as a counting machine, and a very good
+one.
+</p><!--l. 89--><p class="indent" >  Khayyam’s tradition was diﬀerent. His central mathematical achievement was solving cubic equations
+not algebraically but <span 
+class="cmti-10x-x-109">geometrically</span>—by intersecting conic sections: a parabola and a circle for some
+types of cubic, and a parabola and a hyperbola, a hyperbola and a circle, or two hyperbolas
+for others <span class="cite">[<a 
+href="#Xkhayyam1070">1</a>, <a 
+href="#Xrashed2000">14</a>]</span>. In that work he did not ask how many ways something could happen. He
+asked what <span 
+class="cmti-10x-x-109">shape </span>the relationship took. Where Pascal counted, Khayyam looked for hidden
+structure.
+</p><!--l. 91--><p class="indent" >  This instinct extended to his astronomy. From about 1074, Khayyam worked with other
+astronomers at the Isfahan observatory, with naked-eye instruments, on the calendar reform that
+produced the Jalali calendar of 1079, whose year began at the observed vernal equinox. The year
+length his group adopted is not, as far as we can determine, preserved in a reliable primary
+source. The ﬁgure often quoted for it, 365.24219858156 days, cannot be taken at face value: it
+equals \(365 + 683/2820\) to every printed digit, the mean year of a 2820-year intercalation cycle proposed in the
+twentieth century, and is very likely a modern back-calculation rather than Khayyam’s value
+<span class="cite">[<a 
+href="#Xheydari2004">15</a>]</span>. (Taken at face value, it would diﬀer from the modern mean tropical year of 365.242190
+                                                                                         
+                                                                                         
+days by 0.741447 seconds per year; but the mean tropical year in Khayyam’s time was itself
+about 365.24225 days <span class="cite">[<a 
+href="#Xlaskar1986">16</a>]</span>.) Popular accounts credit the Jalali calendar with an error of one
+day in about 5,000 years, against one day in about 3,200 years for the Gregorian calendar,
+whose mean year is 365.2425 days. Since the Jalali calendar was ﬁxed by observation, such
+comparisons depend on which arithmetic leap-year rule is attributed to it; a 33-year cycle with eight
+leap years, for instance, drifts by one day in about 4,300 years against the mean tropical
+year.
+</p><!--l. 93--><p class="indent" >  A man remembered in the West for a jug of wine and a loaf of bread led a calendar reform whose
+accuracy, for its time, was remarkable.
+</p><!--l. 95--><p class="indent" >  We read this as a method rather than luck: ﬁnd the hidden geometry, ask what structure the
+observations encode, approach the problem as an outsider unbounded by specialist convention. On this
+reading, the same man was the right man to look at a triangle of counting numbers and ask
+not “how many?” but “what shape is hiding in here?” There is no evidence that Khayyam
+studied the triangle modulo a prime; the point concerns the kind of question, not a discovery he
+made.
+</p>
+  <h3 class="sectionHead"><span class="titlemark">4. </span> <a 
+ id="x1-50004"></a>The Fractal Inside the Triangle</h3>
+<!--l. 99--><p class="noindent" >Here is the experiment. Take the triangle. Replace every entry with its remainder when divided by 3.
+Entries divisible by 3 become 0—blank, void, absent. The rest survive. The result is Figure <a 
+href="#x1-100011">1<!--tex4ht:ref: fig:fractal --></a>: the
+survivors arrange themselves into a perfect Sierpiński-type fractal. The ﬁrst \(3^m\) rows contain six
+copies of the ﬁrst \(3^{m-1}\) rows—one in the top band of \(3^{m-1}\) rows, two in the middle band, three in the
+bottom band—separated by voids. Each of those contains six smaller copies. Each of those
+contains six smaller copies. (The copies agree with the original in which entries vanish; in
+one of them the nonzero residues are multiplied by 2.) The self-similarity continues without
+bound.
+</p><!--l. 101--><p class="indent" >  This is not an approximation or a visual trick. It is an exact mathematical fact, established by Lucas’s
+theorem <span class="cite">[<a 
+href="#Xlucas1878">5</a>]</span>.
+</p>
+  <div class="newtheorem">
+<!--l. 103--><p class="noindent" ><span class="head">
+<a 
+ id="x1-5001r1"></a>
+<span 
+class="cmbx-10x-x-109">Lemma 4.1 </span>(Lucas <span class="cite">[<a 
+href="#Xlucas1878">5</a>]</span>)<span 
+class="cmbx-10x-x-109">.</span>  </span> <span 
+class="cmti-10x-x-109">Write</span> \(n = \sum _i n_i p^i\) <span 
+class="cmti-10x-x-109">and</span> \(k = \sum _i k_i p^i\) <span 
+class="cmti-10x-x-109">in base</span> \(p\)<span 
+class="cmti-10x-x-109">. Then </span>\[ \binom {n}{k} \equiv \prod _i \binom {n_i}{k_i} \pmod {p}. \] <span 
+class="cmti-10x-x-109">In particular,</span> \(\binom {n}{k} \not \equiv 0 \pmod {p}\) <span 
+class="cmti-10x-x-109">if and only if</span> \(k_i \leq n_i\) <span 
+class="cmti-10x-x-109">for all</span> \(i\)<span 
+class="cmti-10x-x-109">.</span>
+</p>
+  </div>
+<!--l. 109--><p class="indent" >
+</p><!--l. 111--><p class="indent" >  The product in Lemma <a 
+href="#x1-5001r1">4.1<!--tex4ht:ref: lem:lucas --></a> is zero the moment any base-\(p\) digit of \(k\) exceeds the corresponding digit of
+\(n\)—and exactly those positions become the voids that carve the fractal. The self-similarity at scales \(p, p^2, p^3, \ldots \) follows
+directly from the self-similar structure of base-\(p\) digit representations. Counting the survivors is equally
+direct: by Lemma <a 
+href="#x1-5001r1">4.1<!--tex4ht:ref: lem:lucas --></a>, row \(n\) has \(\prod _i (n_i+1)\) entries not divisible by \(p\) <span class="cite">[<a 
+href="#Xfine1947">9</a>]</span>, and summing over the rows \(n &lt; p^m\) gives
+\((1+2+\cdots +p)^m = (p(p+1)/2)^m\).
+</p>
+  <div class="newtheorem">
+<!--l. 113--><p class="noindent" ><span class="head">
+<a 
+ id="x1-5002r2"></a>
+                                                                                         
+                                                                                         
+<span 
+class="cmbx-10x-x-109">Proposition 4.2 </span>(<span class="cite">[<a 
+href="#Xwolfram1984">11</a>, <a 
+href="#Xreiter1993">12</a>]</span>)<span 
+class="cmbx-10x-x-109">.</span>  </span> <span 
+class="cmti-10x-x-109">For any prime</span> \(p\)<span 
+class="cmti-10x-x-109">, the entries of the triangle not divisible by</span> \(p\) <span 
+class="cmti-10x-x-109">form a</span>
+<span 
+class="cmti-10x-x-109">Sierpi</span><span 
+class="cmti-10x-x-109">ński-type fractal, self-similar at scales</span> \(p^m\) <span 
+class="cmti-10x-x-109">for all positive integers</span> \(m\)<span 
+class="cmti-10x-x-109">: the ﬁrst</span> \(p^m\) <span 
+class="cmti-10x-x-109">rows contain</span> \(p(p+1)/2\) <span 
+class="cmti-10x-x-109">copies</span>
+<span 
+class="cmti-10x-x-109">of the pattern of the ﬁrst</span> \(p^{m-1}\) <span 
+class="cmti-10x-x-109">rows, and</span> \((p(p+1)/2)^m\) <span 
+class="cmti-10x-x-109">entries not divisible by</span> \(p\) <span 
+class="cmti-10x-x-109">in all. Rescaled to a triangle of ﬁxed</span>
+<span 
+class="cmti-10x-x-109">size, the pattern converges to a self-similar set of Hausdorﬀ dimension </span>\[ d = \frac {\log \bigl (p(p+1)/2\bigr )}{\log p}. \] <span 
+class="cmti-10x-x-109">For</span> \(p=3\) <span 
+class="cmti-10x-x-109">this gives</span> \(d = \log 6 / \log 3 \approx 1.631\)<span 
+class="cmti-10x-x-109">.</span>
+</p>
+  </div>
+<!--l. 119--><p class="indent" >
+</p>
+  <div class="newtheorem">
+<!--l. 121--><p class="noindent" ><span class="head">
+<a 
+ id="x1-5003r3"></a>
+<span 
+class="cmbx-10x-x-109">Remark 4.3.</span>  </span><span 
+class="cmti-10x-x-109">The value</span> \(\log 3 / \log 2 \approx 1.585\) <span 
+class="cmti-10x-x-109">is the Hausdorﬀ dimension of the binary (</span>\(p=2\)<span 
+class="cmti-10x-x-109">) Sierpi</span><span 
+class="cmti-10x-x-109">ński triangle, the gasket</span>
+<span 
+class="cmti-10x-x-109">of </span><span class="cite">[<a 
+href="#Xsierpinski1915">6</a>]</span><span 
+class="cmti-10x-x-109">—the case</span> \(p=2\) <span 
+class="cmti-10x-x-109">of the formula. The mod-3 case has the larger dimension</span> \(\log 6 / \log 3 \approx 1.631\)<span 
+class="cmti-10x-x-109">, and the dimension</span>
+<span 
+class="cmti-10x-x-109">increases with</span> \(p\) <span 
+class="cmti-10x-x-109">towards 2 (about 1.683 for</span> \(p=5\) <span 
+class="cmti-10x-x-109">and 1.712 for</span> \(p=7\)<span 
+class="cmti-10x-x-109">). These are distinct fractals.</span>
+</p>
+  </div>
+<!--l. 123--><p class="indent" >
+</p>
+<!--l. 125--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">4.1. </span> <a 
+ id="x1-60004.1"></a><span 
+class="cmbx-10x-x-109">Connection to the companion papers.</span></span>
+  This fractal is a historical and mathematical object in its own right, and it motivated the companion
+papers’ interest in the prime 3. It does not supply their arithmetic. An earlier version of this section
+stated that the void pattern at scale \(3^K\) matches the count of invalid conﬁgurations in a \(K\)-level cascade sieve,
+“\(k\) invalid conﬁgurations out of \(2^k\) total”. That is false, and the claim is withdrawn. In the ﬁrst \(3^K\)
+rows there are \(6^K\) nonzero and \(3^K(3^K+1)/2 - 6^K\) zero entries modulo 3 (0, 9, 162 and 2025 zero entries for \(K = 1, 2, 3, 4\)).
+The survivor density \(1, 4/5, 4/7, 16/41, 16/61, \ldots \) tends to \(0\), whereas \((2^K-K)/2^K\) tends to \(1\), and no statistic of the triangle equals
+\(2^K - K\).
+</p><!--l. 129--><p class="indent" >  The companion results, with their current status, are as follows. </p>
+         <ul class="itemize1">
+       <li class="itemize">
+       <!--l. 131--><p class="indent" >   The formula \(\theta _k = (2^k-k)/2^k\) is a postulate: a system “of depth \(k\)” is deﬁned as one in which exactly \(k\)
+       conﬁguration classes are eliminated <span class="cite">[<a 
+href="#Xforcing">18</a>, <a 
+href="#Xramanujan">19</a>]</span>. It is not a theorem. If a conﬁguration counts
+       as invalid whenever some constraint fails, there are \(2^k - 1\) invalid conﬁgurations, not \(k\).
+         </p></li>
+       <li class="itemize">
+       <!--l. 132--><p class="indent" >   The level of distribution \(\theta _W = 5/8\) for the moduli \(q = 3^K\) is a conjecture <span class="cite">[<a 
+href="#Xeisenstein">20</a>]</span>. The summed form of the
+       statement holds for every ﬁxed exponent below 1, so it carries no information about \(5/8\); the
+       per-modulus form would go beyond what the Generalised Riemann Hypothesis gives.
+         </p></li>
+       <li class="itemize">
+       <!--l. 133--><p class="indent" >   Condition W3, the absence of exceptional zeros for characters modulo \(3^K\), is true, with a
+       one-line proof: \((\mathbb {Z}/3^K\mathbb {Z})^\times \) is cyclic of even order, so the only real non-principal character modulo \(3^K\)
+       is induced from the character \(\chi _{-3}\) modulo 3; an exceptional zero can only belong to a real
+       character, so it would be a zero of \(L(s,\chi _{-3})\), which is positive on \((0,1]\) <span class="cite">[<a 
+href="#Xw3condition">21</a>]</span>.
+                                                                                         
+                                                                                         
+         </p></li>
+       <li class="itemize">
+       <!--l. 134--><p class="indent" >   An analogy between this arithmetic and information theory is explored in <span class="cite">[<a 
+href="#Xshannon">22</a>]</span>.</p></li></ul>
+<!--l. 137--><p class="indent" >  Nothing in Proposition <a 
+href="#x1-5002r2">4.2<!--tex4ht:ref: prop:fractal --></a> singles out the prime 3: Lucas’s theorem and the dimension formula hold
+uniformly for every prime. The companion papers single out 3 because it is the only prime that ramiﬁes in
+\(\mathbb {Z}[\omega ]\); that is a property of the ﬁeld \(\mathbb {Q}(\sqrt {-3})\), not of the fractal, and every prime ramiﬁes in some quadratic
+ﬁeld (5 in \(\mathbb {Q}(\sqrt {5})\), 7 in \(\mathbb {Q}(\sqrt {-7})\)). An earlier version described the fractal and the ramiﬁcation of 3 in \(\mathbb {Z}[\omega ]\) as
+“two faces of the same structure”; no such relation has been established, and the claim is
+withdrawn.
+</p>
+<!--l. 139--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">4.2. </span> <a 
+ id="x1-70004.2"></a><span 
+class="cmbx-10x-x-109">When the fractal was noticed.</span></span>
+  The arithmetic behind the fractal is a nineteenth-century achievement. Kummer determined in 1852 the
+exact power of a prime dividing \(\binom {n}{k}\) <span class="cite">[<a 
+href="#Xkummer1852">7</a>]</span>; Lucas proved Lemma <a 
+href="#x1-5001r1">4.1<!--tex4ht:ref: lem:lucas --></a> in 1878 <span class="cite">[<a 
+href="#Xlucas1878">5</a>]</span>, and it characterises the void
+pattern exactly; Glaisher counted the odd entries in each row in 1899 <span class="cite">[<a 
+href="#Xglaisher1899">8</a>]</span>; and Fine counted the entries of
+each row not divisible by \(p\) in 1947 <span class="cite">[<a 
+href="#Xfine1947">9</a>]</span>. Gardner surveyed the triangle’s patterns for a general audience in
+1966 <span class="cite">[<a 
+href="#Xgardner1966">10</a>]</span>, and Wolfram treated the geometry of binomial coeﬃcients modulo \(p\), including its fractal
+dimension, in 1984 <span class="cite">[<a 
+href="#Xwolfram1984">11</a>]</span>. Pascal’s <span 
+class="cmti-10x-x-109">Trait</span><span 
+class="cmti-10x-x-109">é </span>dates from 1654, so about two centuries passed before the
+arithmetic of the pattern was understood.
+</p><!--l. 143--><p class="indent" >  Pascal’s question was: <span 
+class="cmti-10x-x-109">how many ways? </span>Combinatorial, enumerative, discrete. That question is
+extraordinarily productive—it built probability theory and shaped mathematics for generations. On its
+own it does not lead to the fractal: the value \(\binom {n}{k}\) of a single entry carries no hint of the pattern. What
+revealed it was a question about the arithmetic of the entries—which of them a given prime divides—and
+then, with Glaisher and Fine, a count of those entries.
+</p><!--l. 145--><p class="indent" >  We read that as a question about structure: <span 
+class="cmti-10x-x-109">what do these numbers encode? </span>Not how many, but what
+shape. Not outcomes, but geometry. It is not the question Pascal asked of the triangle. It is, we argue, the
+kind of question Khayyam asked.
+</p>
+<!--l. 147--><p class="noindent" ><span class="subsectionHead"><span class="titlemark">4.3. </span> <a 
+ id="x1-80004.3"></a><span 
+class="cmbx-10x-x-109">What is lost when we forget.</span></span>
+  There is a cost to misattribution that goes beyond historical fairness. When a mathematical object
+carries the wrong name, it inherits the wrong conceptual tradition. Students and researchers approach it
+with the named person’s questions, methods, and intuitions. The name is not merely a label—it is a
+frame. And frames determine what you can see.
+</p><!--l. 151--><p class="indent" >  “Pascal’s Triangle” frames the object as combinatorial. It belongs to the world of counting, probability,
+and discrete mathematics. That framing is not wrong—it is incomplete, and its incompleteness is invisible
+when the name goes unquestioned.
+</p><!--l. 153--><p class="indent" >  “Khayyam’s Triangle” frames the object diﬀerently. It belongs to the world of hidden geometry,
+structural patterns, and the question of what arithmetic encodes. Under that frame, the natural next
+question is not “what does this count?” but “what does this look like when transformed?” Modular
+reduction. Base-\(p\) representations. Self-similar structure. Residue classes. These are the questions that
+motivated the companion papers <span class="cite">[<a 
+href="#Xramanujan">19</a>, <a 
+href="#Xeisenstein">20</a>, <a 
+href="#Xw3condition">21</a>]</span>; their central arithmetic claim, a level of distribution \(5/8\) for
+the moduli \(3^K\), remains a conjecture.
+</p><!--l. 155--><p class="indent" >  Discoveries, in our view, often come not from specialists deepening a known tradition but from
+outsiders who bring a diﬀerent question. Khayyam was a geometer and astronomer looking at an
+arithmetic object. That combination—the outsider’s question applied to the insider’s object—is what this
+                                                                                         
+                                                                                         
+program tries to imitate, in its use of the Eisenstein integers <span class="cite">[<a 
+href="#Xeisenstein">20</a>]</span> and in its analogy with information
+theory <span class="cite">[<a 
+href="#Xshannon">22</a>]</span>. Its methodology is set out in <span class="cite">[<a 
+href="#Xspherical">23</a>]</span>.
+</p><!--l. 157--><p class="indent" >  The ancient wisdom was not lost through malice. It was submerged by the ordinary mechanics of
+transmission and canonisation. European mathematical tradition inherited Pascal’s name and Pascal’s
+question. The geometric tradition—ﬁnd the hidden structure, come at the problem as an outsider, ask
+what shape the numbers encode—was submerged.
+</p><!--l. 159--><p class="indent" >  It is not submerged anymore.
+</p>
+  <h3 class="sectionHead"><span class="titlemark">5. </span> <a 
+ id="x1-90005"></a>The Case, Stated Plainly—and a Precedent</h3>
+<!--l. 163--><p class="noindent" >We are not the ﬁrst to correct a mathematical name when the evidence became clear enough. We will not
+be the last.
+</p><!--l. 165--><p class="indent" >  Consider Pluto. For seventy-six years it was the ninth planet—named, classiﬁed, taught in every school.
+Then the evidence accumulated that it did not ﬁt the category, and in 2006 the International
+Astronomical Union reclassiﬁed it. Science corrected itself. The reclassiﬁcation was not erasure—Pluto
+still exists, still has its name, still has its discoverers. What changed was the frame in which it was
+understood. We propose something analogous, and in the opposite direction. Not demotion but
+restoration.
+</p><!--l. 167--><p class="indent" >  We make three points.
+</p><!--l. 169--><p class="indent" >  <span 
+class="cmbx-10x-x-109">First. </span>The triangle was known centuries before Pascal, in India, in the Islamic world and in China
+(Table <a 
+href="#x1-30011">1<!--tex4ht:ref: tab:timeline --></a>). Khayyam’s own treatment, written before about 1070, is lost and is known only through his
+reference to it; he was not the ﬁrst, and if priority alone decided the name, al-Karaj<span class="bar-css">ı</span>, Jia Xian or the
+Indian prosodists would have the stronger claim. Reference works already record the earlier history
+<span class="cite">[<a 
+href="#Xmathworld">17</a>, <a 
+href="#Xedwards1987">13</a>]</span>. Iran already uses Khayyam’s name, and China uses Yang Hui’s. The correction we propose is not
+an invention; it extends an existing usage.
+</p><!--l. 171--><p class="indent" >  <span 
+class="cmbx-10x-x-109">Second. </span>The triangle’s most striking structural property is a self-similar fractal revealed by modular
+reduction via Lucas’s theorem (Lemma <a 
+href="#x1-5001r1">4.1<!--tex4ht:ref: lem:lucas --></a>, Proposition <a 
+href="#x1-5002r2">4.2<!--tex4ht:ref: prop:fractal --></a>). We argue that it is a geometric
+property, best seen through a geometric, structure-seeking lens, and that this lens is closer to
+Khayyam’s <span class="cite">[<a 
+href="#Xkhayyam1070">1</a>]</span> than to the combinatorial use Pascal made of the triangle <span class="cite">[<a 
+href="#Xpascal1654">4</a>]</span>. (Historically, the
+fractal’s arithmetic was worked out by Kummer, Lucas, Glaisher and Fine, not by either
+man.)
+</p><!--l. 173--><p class="indent" >  <span 
+class="cmbx-10x-x-109">Third. </span>The cost of the wrong name, we believe, is epistemic, not merely aesthetic. A name frames the
+questions one asks, and can train generations to approach a geometric object with a combinatorial frame.
+The program documented in <span class="cite">[<a 
+href="#Xforcing">18</a>, <a 
+href="#Xramanujan">19</a>, <a 
+href="#Xeisenstein">20</a>, <a 
+href="#Xw3condition">21</a>, <a 
+href="#Xshannon">22</a>, <a 
+href="#Xspherical">23</a>]</span> was, in the author’s view, prompted by asking
+Khayyam’s kind of question rather than Pascal’s.
+</p><!--l. 175--><p class="indent" >  We are not proposing to expunge Pascal from the literature. His contributions to probability and
+combinatorics are real, lasting, and appropriately celebrated. We propose that the standard Western
+designation go forward as Khayyam’s Triangle, with a note acknowledging Pascal’s work and the earlier
+history of Table <a 
+href="#x1-30011">1<!--tex4ht:ref: tab:timeline --></a>—much as Fibonacci’s contributions are noted while the earlier Indian sources are
+acknowledged, and as “Arabic numerals” are acknowledged to have come from India. This is a proposal
+about a name, not a claim of priority.
+</p><!--l. 177--><p class="indent" >  The geometry was always there.
+</p><!--l. 179--><p class="indent" >  The triangle was never only Pascal’s.
+</p><!--l. 181--><p class="indent" >  We propose that the name catch up.
+</p>
+                                                                                         
+                                                                                         
+  <h3 class="sectionHead"><a 
+ id="x1-10000"></a>Acknowledgements</h3>
+<!--l. 184--><p class="noindent" >The author thanks Omar Khayyam posthumously: for the cubic equations, for the calendar, and for the
+geometric instinct that turns counting numbers into hidden structure.
+</p>
+  <hr class="figure" /><div class="figure" 
+>
+                                                                                         
+                                                                                         
+<a 
+ id="x1-100011"></a>
+                                                                                         
+                                                                                         
+<!--l. 188--><p class="noindent" ><img 
+src="khayyam_sierpinski_academic.png" alt="Khayyam's Triangle in raw form and reduced modulo 2 and modulo 3, showing the Sierpinski-type fractals"  
+width="469" height="469"  />
+<br /> </p><div class="caption" 
+><span class="id">Figure 1: </span><span  
+class="content">From counting numbers to hidden geometry. <span 
+class="cmti-10x-x-109">Top row: </span>Khayyam’s Triangle in raw form
+(12 rows), reduced modulo 2 (64 rows)—odd entries survive, even entries vanish, binary Sierpiński
+emerges (Hausdorﬀ dimension \(\log 3 / \log 2 \approx 1.585\)), and reduced modulo 3 (64 rows)—residues 1 (teal) and 2 (crimson)
+survive, multiples of 3 collapse to void, ternary Sierpiński emerges (Hausdorﬀ dimension \(\log 6 / \log 3 \approx 1.631\)). <span 
+class="cmti-10x-x-109">Bottom</span>
+<span 
+class="cmti-10x-x-109">row: </span>the ﬁrst 27 rows, which contain six self-similar copies of the ﬁrst 9 rows (one, two and three
+in the successive bands of nine rows), Lucas’s theorem mechanism explaining the fractal structure,
+and 128-row depth showing continued self-similarity. <span 
+class="cmti-10x-x-109">Errors printed in the image: </span>the inset of the
+bottom-centre panel reads “\(d = \log 4/\log 3 \approx 1.585\)”, which is wrong twice over (\(\log 4/\log 3 \approx 1.262\), and \(1.585 \approx \log 3/\log 2\) is the mod-2 value); the correct
+mod-3 dimension is \(\log 6/\log 3 \approx 1.631\). The bottom-left panel’s legend “Three self-similar copies” should read six (its
+labels mark the three copies in the bottom band). In the mod-2 panel the odd entries are plotted
+in dark blue, not gold as its legend says.</span></div><!--tex4ht:label?: x1-100011 -->
+                                                                                         
+                                                                                         
+  </div><hr class="endfigure" />
+  <h3 class="sectionHead"><a 
+ id="x1-11000"></a>References</h3>
+<!--l. 193--><p class="noindent" >
+    </p><div class="thebibliography">
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-9">[1]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xkhayyam1070"></a><span 
+class="cmr-9">O.</span><span 
+class="cmr-9"> Khayyam,  </span><span 
+class="cmti-9">Ris</span><span class="bar-css"><span 
+class="cmti-9">a</span></span><span 
+class="cmti-9">la  f</span><span class="bar-css"><span 
+class="cmti-9">ı</span></span><span 
+class="cmti-9">’l-bar</span><span class="bar-css"><span 
+class="cmti-9">a</span></span><span 
+class="cmti-9">h</span><span class="bar-css"><span 
+class="cmti-9">ı</span></span><span 
+class="cmti-9">n  ‘al</span><span class="bar-css"><span 
+class="cmti-9">a</span></span>  <span 
+class="cmti-9">mas</span><span class="bar-css"><span 
+class="cmti-9">a</span></span><span 
+class="cmti-9">’il  al-jabr  wa’l-muq</span><span class="bar-css"><span 
+class="cmti-9">a</span></span><span 
+class="cmti-9">bala  </span><span 
+class="cmr-9">(Treatise  on  the  demonstration  of</span>
+    <span 
+class="cmr-9">problems of algebra), Samarkand, c.</span><span 
+class="cmr-9"> 1070 CE; edition and translation in </span><span class="cite"><span 
+class="cmr-9">[</span><a 
+href="#Xrashed2000"><span 
+class="cmr-9">14</span></a><span 
+class="cmr-9">]</span></span><span 
+class="cmr-9">.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-9">[2]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xaltusi1265"></a><span 
+class="cmr-9">Na</span><span 
+class="cmr-9">ṣ</span><span class="bar-css"><span 
+class="cmr-9">ı</span></span><span 
+class="cmr-9">r al-D</span><span class="bar-css"><span 
+class="cmr-9">ı</span></span><span 
+class="cmr-9">n al-</span><span 
+class="cmr-9">Ṭ</span><span class="bar-css"><span 
+class="cmr-9">u</span></span><span 
+class="cmr-9">s</span><span class="bar-css"><span 
+class="cmr-9">ı</span></span><span 
+class="cmr-9">, </span><span 
+class="cmti-9">Jaw</span><span class="bar-css"><span 
+class="cmti-9">a</span></span><span 
+class="cmti-9">mi‘ al-</span><span 
+class="cmti-9">ḥis</span><span class="bar-css"><span 
+class="cmti-9">a</span></span><span 
+class="cmti-9">b bi-l-takht wa-l-tur</span><span class="bar-css"><span 
+class="cmti-9">a</span></span><span 
+class="cmti-9">b</span><span 
+class="cmr-9">, 1265 CE.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-9">[3]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xyanghui1261"></a><span 
+class="cmr-9">Yang Hui, </span><span 
+class="cmti-9">Xiangjie Jiuzhang Suanfa</span><span 
+class="cmr-9">, China, 1261 CE.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-9">[4]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xpascal1654"></a><span 
+class="cmr-9">B.</span><span 
+class="cmr-9"> Pascal, </span><span 
+class="cmti-9">Trait</span><span 
+class="cmti-9">é du triangle arithm</span><span 
+class="cmti-9">étique</span><span 
+class="cmr-9">, G.</span><span 
+class="cmr-9"> Desprez, Paris, 1665 (printed 1654).</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-9">[5]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xlucas1878"></a><span 
+class="cmr-9">É.</span><span 
+class="cmr-9"> Lucas, Th</span><span 
+class="cmr-9">éorie des fonctions num</span><span 
+class="cmr-9">ériques simplement p</span><span 
+class="cmr-9">ériodiques, </span><span 
+class="cmti-9">Amer. J. Math. </span><span 
+class="cmbx-9">1 </span><span 
+class="cmr-9">(1878), 184–196,</span>
+    <span 
+class="cmr-9">197–240, 289–321.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-9">[6]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xsierpinski1915"></a><span 
+class="cmr-9">W.</span><span 
+class="cmr-9"> Sierpi</span><span 
+class="cmr-9">ński, Sur une courbe dont tout point est un point de ramiﬁcation, </span><span 
+class="cmti-9">C. R. Acad. Sci. Paris </span><span 
+class="cmbx-9">160</span>
+    <span 
+class="cmr-9">(1915), 302–305.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-9">[7]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xkummer1852"></a><span 
+class="cmr-9">E.</span><span 
+class="cmr-9"> E.</span><span 
+class="cmr-9"> Kummer, </span><span 
+class="cmr-9">Über die Erg</span><span 
+class="cmr-9">änzungss</span><span 
+class="cmr-9">ätze zu den allgemeinen Reciprocit</span><span 
+class="cmr-9">ätsgesetzen, </span><span 
+class="cmti-9">J. Reine Angew. Math.</span>
+    <span 
+class="cmbx-9">44 </span><span 
+class="cmr-9">(1852), 93–146.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-9">[8]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xglaisher1899"></a><span 
+class="cmr-9">J.</span><span 
+class="cmr-9"> W.</span><span 
+class="cmr-9"> L.</span><span 
+class="cmr-9"> Glaisher, On the residue of a binomial-theorem coeﬃcient with respect to a prime modulus, </span><span 
+class="cmti-9">Quart.</span>
+    <span 
+class="cmti-9">J. Pure Appl. Math. </span><span 
+class="cmbx-9">30 </span><span 
+class="cmr-9">(1899), 150–156.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+ <span 
+class="cmr-9">[9]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xfine1947"></a><span 
+class="cmr-9">N.</span><span 
+class="cmr-9"> J.</span><span 
+class="cmr-9"> Fine, Binomial coeﬃcients modulo a prime, </span><span 
+class="cmti-9">Amer. Math. Monthly </span><span 
+class="cmbx-9">54 </span><span 
+class="cmr-9">(1947), 589–592.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-9">[10]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xgardner1966"></a><span 
+class="cmr-9">M.</span><span 
+class="cmr-9"> Gardner, The multiple charms of Pascal’s triangle (Mathematical Games), </span><span 
+class="cmti-9">Sci. Amer. </span><span 
+class="cmbx-9">215</span><span 
+class="cmr-9">(6) (December</span>
+    <span 
+class="cmr-9">1966), 128ﬀ.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-9">[11]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xwolfram1984"></a><span 
+class="cmr-9">S.</span><span 
+class="cmr-9"> Wolfram, Geometry of binomial coeﬃcients, </span><span 
+class="cmti-9">Amer. Math. Monthly </span><span 
+class="cmbx-9">91 </span><span 
+class="cmr-9">(1984), 566–571.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-9">[12]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xreiter1993"></a><span 
+class="cmr-9">A.</span><span 
+class="cmr-9"> M.</span><span 
+class="cmr-9"> Reiter, Determining the dimension of fractals generated by Pascal’s triangle, </span><span 
+class="cmti-9">Fibonacci Quart. </span><span 
+class="cmbx-9">31</span><span 
+class="cmr-9">(2)</span>
+    <span 
+class="cmr-9">(1993), 112–120.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-9">[13]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xedwards1987"></a><span 
+class="cmr-9">A.</span><span 
+class="cmr-9"> W.</span><span 
+class="cmr-9"> F.</span><span 
+class="cmr-9"> Edwards, </span><span 
+class="cmti-9">Pascal’s Arithmetical Triangle</span><span 
+class="cmr-9">, Charles Griﬃn, London, 1987; reprinted Johns Hopkins</span>
+    <span 
+class="cmr-9">University Press, Baltimore, 2002.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-9">[14]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xrashed2000"></a><span 
+class="cmr-9">R.</span><span 
+class="cmr-9"> Rashed and B.</span><span 
+class="cmr-9"> Vahabzadeh, </span><span 
+class="cmti-9">Omar Khayy</span><span class="bar-css"><span 
+class="cmti-9">a</span></span><span 
+class="cmti-9">m the Mathematician</span><span 
+class="cmr-9">, Bibliotheca Persica Press, New York,</span>
+    <span 
+class="cmr-9">2000.</span>
+    </p>
+                                                                                         
+                                                                                         
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-9">[15]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xheydari2004"></a><span 
+class="cmr-9">M.</span><span 
+class="cmr-9"> Heydari-Malayeri, A concise review of the Iranian calendar, arXiv:astro-ph/0409620, 2004.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-9">[16]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xlaskar1986"></a><span 
+class="cmr-9">J.</span><span 
+class="cmr-9"> Laskar, Secular terms of classical planetary theories using the results of general theory, </span><span 
+class="cmti-9">Astron. Astrophys.</span>
+    <span 
+class="cmbx-9">157 </span><span 
+class="cmr-9">(1986), 59–70.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-9">[17]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xmathworld"></a><span 
+class="cmr-9">E.</span><span 
+class="cmr-9"> W.</span><span 
+class="cmr-9"> Weisstein,        Pascal’s        Triangle,        </span><span 
+class="cmti-9">MathWorld—A       Wolfram       Web       Resource</span><span 
+class="cmr-9">,</span>
+    <a 
+href="https://mathworld.wolfram.com/PascalsTriangle.html" class="url" ><span 
+class="cmtt-9">https://mathworld.wolfram.com/PascalsTriangle.html</span></a><span 
+class="cmr-9">.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-9">[18]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xforcing"></a><span 
+class="cmr-9">K.</span><span 
+class="cmr-9"> Wakil, </span><span 
+class="cmti-9">Constitutional Forcing</span><span 
+class="cmr-9">, ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-9">[19]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xramanujan"></a><span 
+class="cmr-9">K.</span><span 
+class="cmr-9"> Wakil,  </span><span 
+class="cmti-9">Ramanujan’s  Dimensional  Forcing:  A  Universal  Formula  for  Sieve  Levels</span><span 
+class="cmr-9">,  ARC  Institute  of</span>
+    <span 
+class="cmr-9">Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-9">[20]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xeisenstein"></a><span 
+class="cmr-9">K.</span><span 
+class="cmr-9"> Wakil, </span><span 
+class="cmti-9">Ternary Forcing on the Hexagonal Lattice: Eisenstein Integers, Cascade Moduli, and a Conjectured</span>
+    <span 
+class="cmti-9">Level of Distribution 5/8</span><span 
+class="cmr-9">, ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-9">[21]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xw3condition"></a><span 
+class="cmr-9">K.</span><span 
+class="cmr-9"> Wakil, </span><span 
+class="cmti-9">Condition W3: Absence of Siegel Zeros for Characters Modulo</span> \(3^K\)<span 
+class="cmr-9">, ARC Institute of Knowware,</span>
+    <span 
+class="cmr-9">preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-9">[22]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xshannon"></a><span 
+class="cmr-9">K.</span><span 
+class="cmr-9"> Wakil, </span><span 
+class="cmti-9">The Shannon–Wakil Eﬀect: Constitutional Forcing as a Universal Pattern in Information Theory</span>
+    <span 
+class="cmti-9">and Prime Arithmetic</span><span 
+class="cmr-9">, ARC Institute of Knowware, preprint, 2026.</span>
+    </p>
+    <p class="bibitem" ><span class="biblabel">
+<span 
+class="cmr-9">[23]</span> <span class="bibsp"><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span><span 
+class="cmr-9"> </span></span></span><a 
+ id="Xspherical"></a><span 
+class="cmr-9">K.</span><span 
+class="cmr-9"> Wakil,  </span><span 
+class="cmti-9">Spherical  Cow  Philosophy:  A  Methodological  Framework  for  Mathematical  Discovery</span><span 
+class="cmr-9">,  ARC</span>
+    <span 
+class="cmr-9">Institute of Knowware, preprint, 2026.</span>
+</p>
     </div>
-    <div class="sb-label" style="margin-bottom:.6rem;">Programme Index</div>
-    <ul class="series-index">
-      <li><a href="../p01-constitutional-forcing/p01.html">01 · Constitutional Forcing</a></li>
-      <li class="curr"><a href="p02.html">02 · Khayyam's Triangle</a></li>
-      <li><a href="../p03-constitutional-signatures/p03.html">03 · Spherical Cow Philosophy</a></li>
-      <li><a href="../p04-that-eisenstein-guy/p04.html">04 · Eisenstein, θ = 5/8</a></li>
-      <li><a href="../p05-ramanujans-formula/p05.html">05 · Ramanujan's Formula</a></li>
-      <li><a href="../p06-shannon-wakil/p06.html">06 · Shannon–Wakil Effect</a></li>
-      <li><a href="../p07-condition_w3/p07.html">07 · Condition W3</a></li>
-      <li><a href="../p08-prime-bias-ternary-bridge/p08.html">08 · Prime Digit Bias</a></li>
-      <li><a href="../p09-wakil-theta-fft/p09.html">09 · DFT Constitutional Constant</a></li>
-    </ul>
-  </aside>
-  <article class="paper">
-    <div class="paper-header">
-      <div class="paper-label">Preprint · ARC Institute of Knowware · January 2026</div>
-      <h1 class="title">Khayyam's Triangle: Historical Restoration and the Geometry Hidden in the Numbers</h1>
-      <div class="authors">Khayyam Wakil</div>
-      <div class="affiliation">The ARC Institute of Knowware, Calgary, Alberta, Canada</div>
-      <div class="paper-date">Submitted January 2026 &nbsp;·&nbsp; Constitutional Sieve Programme, Paper 02 of 09</div>
-    </div>
-    <div class="abstract-block">
-      <div class="abs-label">Abstract</div>
-      <p>The triangular array of binomial coefficients has been called "Pascal's Triangle" in the West for centuries — yet Pascal arrived 584 years after the Persian mathematician Omar Khayyam first documented it. That alone might justify a rename. But there is a stronger argument hiding in plain sight: the triangle's deepest structural property is <em>geometric</em>, not combinatorial, and it belongs by mathematical character to Khayyam's tradition rather than Pascal's. Reduce the triangle's entries modulo any prime <em>p</em> and a Sierpiński-type fractal emerges — a self-similar geometric structure invisible to Pascal's probabilistic eye, but exactly the kind of hidden geometry Khayyam spent his life finding.</p>
-      <p style="margin-top:.7em;">This paper is the second in the nine-paper Constitutional Sieve Programme. The mod-3 fractal structure of Khayyam's Triangle, governed by Lucas's theorem, is the direct combinatorial ancestor of the cascade moduli framework and the level-of-distribution result <em>θ<sub>W</sub></em> = 5/8 proved in the companion papers. A reader wishing to understand why the prime 3 plays a privileged role in that arithmetic programme will find the answer here.</p>
-    </div>
-    <div class="keywords"><strong>Keywords:</strong> Pascal's triangle, Khayyam's triangle, Sierpiński fractal, Lucas's theorem, modular arithmetic, history of mathematics, cascade moduli, constitutional sieve theory</div>
-    <div class="paper-meta-strip">
-      <span class="meta-pill">MSC 2020: 01A30 · 11B65 · 28A80 · 11N35</span>
-      <span class="meta-pill"><a href="../../papers/index.html">preprints.knowware.institute</a></span>
-      <span class="meta-pill"><a href="https://github.com/knowware-institute/constitutional-forcing">p02.tex source</a></span>
-    </div>
-    <div class="paper-body">
+  <div class="addresses">
+<!--l. 266--><p class="indent" >  <span class="address-title"></span><span class="address"><span 
+class="cmcsc-10x-x-90">T<span 
+class="small-caps">h</span><span 
+class="small-caps">e</span> ARC I<span 
+class="small-caps">n</span><span 
+class="small-caps">s</span><span 
+class="small-caps">t</span><span 
+class="small-caps">i</span><span 
+class="small-caps">t</span><span 
+class="small-caps">u</span><span 
+class="small-caps">t</span><span 
+class="small-caps">e</span> <span 
+class="small-caps">o</span><span 
+class="small-caps">f</span> K<span 
+class="small-caps">n</span><span 
+class="small-caps">o</span><span 
+class="small-caps">w</span><span 
+class="small-caps">w</span><span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">e</span>, C<span 
+class="small-caps">a</span><span 
+class="small-caps">l</span><span 
+class="small-caps">g</span><span 
+class="small-caps">a</span><span 
+class="small-caps">r</span><span 
+class="small-caps">y</span>, A<span 
+class="small-caps">l</span><span 
+class="small-caps">b</span><span 
+class="small-caps">e</span><span 
+class="small-caps">r</span><span 
+class="small-caps">t</span><span 
+class="small-caps">a</span>, C<span 
+class="small-caps">a</span><span 
+class="small-caps">n</span><span 
+class="small-caps">a</span><span 
+class="small-caps">d</span><span 
+class="small-caps">a</span></span></span>
+</p><!--l. 266--><p class="indent" >  <span class="email-title">    <span 
+class="cmti-9">Email address</span><span 
+class="cmr-9">: </span></span><span class="email"><span 
+class="cmtt-9">the@knowware.institute</span></span>
+</p>
+  </div> 
+</body></html> 
 
-      <h2>The Wrong Man's Name</h2>
-      <p>Here is a simple question nobody seems to have asked. You know the triangular array of binomial coefficients — the one where each entry is the sum of the two above it, the one that encodes combinations, gives you Pascal's Rule, and sits in every combinatorics textbook. You call it Pascal's Triangle. But what does its deepest structural property look like, and whose mathematical instincts would have found it?</p>
-      <p>Colour every entry that is <em>not</em> divisible by 3 and leave the rest blank. Do this for row after row, hundreds of rows deep. What emerges is not a triangle. It is a fractal — an infinite, self-similar geometric object that replicates itself at every scale. This is not a recent discovery. What is curious is that nobody has used it to ask the obvious question: does this fractal belong to Pascal's mathematical world, or to someone else's? The answer is someone else's. His name was Omar Khayyam.</p>
+                                                                                         
 
-      <h2>584 Years Earlier</h2>
-      <table class="formal">
-        <tr><th>Year</th><th>Mathematician</th><th>Location</th><th>Notes</th></tr>
-        <tr><td>~1070</td><td>Omar Khayyam</td><td>Persia</td><td>First documented appearance; cited by al-Ṭūsī, 1265</td></tr>
-        <tr><td>1261</td><td>Yang Hui</td><td>China</td><td>Independent discovery</td></tr>
-        <tr><td>1265</td><td>al-Ṭūsī</td><td>Persia</td><td>Explicitly cites Khayyam</td></tr>
-        <tr><td>1303</td><td>Zhu Shijie</td><td>China</td><td>Includes diagram</td></tr>
-        <tr><td>1523</td><td>Petrus Apianus</td><td>Europe</td><td>131 years before Pascal</td></tr>
-        <tr><td>1654</td><td>Blaise Pascal</td><td>France</td><td><em>Traité du triangle arithmétique</em></td></tr>
-      </table>
-      <div class="table-caption"><strong>Table 1.</strong> The triangle before Pascal. He came last.</div>
 
-      <h2>Two Ways of Seeing a Triangle</h2>
-      <p>Pascal's question was: <em>how many outcomes?</em> He wrote his <em>Traité</em> to solve the problem of points — how to divide gambling stakes fairly when a game is interrupted. That question is extraordinarily productive. It built probability theory. It shaped mathematics for generations. But it cannot see the fractal.</p>
-      <p>Khayyam's question was: <em>what structure is hiding here?</em> Reduce the triangle modulo 3. What survives? The answer is a Sierpiński triangle — the same self-similar fractal pattern at every scale, its appearance governed exactly by Lucas's theorem. The fractal is invisible to Pascal's question. It is the first thing Khayyam's question finds.</p>
-
-      <div class="env-block theorem">
-        <div class="env-label">Lemma 4.1 — Lucas's Theorem</div>
-        The binomial coefficient <em>C</em>(<em>n</em>, <em>k</em>) ≡ 0 (mod <em>p</em>) if and only if at least one base-<em>p</em> digit of <em>k</em> exceeds the corresponding digit of <em>n</em>. Equivalently, <em>C</em>(<em>n</em>, <em>k</em>) is nonzero mod <em>p</em> if and only if every base-<em>p</em> digit of <em>k</em> is at most the corresponding digit of <em>n</em>.
-      </div>
-
-      <div class="env-block proposition">
-        <div class="env-label">Proposition 4.2 — Hausdorff Dimension of the Mod-<em>p</em> Fractal</div>
-        For any prime <em>p</em>, the set of nonzero entries of the triangular array modulo <em>p</em> forms a Sierpiński fractal with Hausdorff dimension log(<em>p</em>+1)/log(<em>p</em>). For <em>p</em> = 3: dimension = log(4)/log(3) ≈ 1.262. For <em>p</em> = 2: dimension = log(3)/log(2) ≈ 1.585.
-      </div>
-
-      <h2>Why This Matters: The Combinatorial Origin of θ = 5/8</h2>
-      <p>The mod-3 fractal is not decorative. The surviving entries — the nonzero residues 1 and 2 mod 3 — trace out exactly the constitutional residue classes that twin primes inhabit. The Sierpiński void pattern at scale 3<sup><em>K</em></sup> matches, entry for entry, the count of invalid configurations in a <em>K</em>-level cascade sieve.</p>
-      <p>This is Proposition 2.3 of the Ramanujan paper [5]: a direct combinatorial correspondence between the fractal and the sieve. The triangle is not a metaphor for the arithmetic. The triangle <em>is</em> the arithmetic, seen from a different frame. Both are projections of the same underlying structure. Khayyam's Triangle (combinatorial face) and the hexagonal lattice of the Eisenstein integers (algebraic face) are the same result in two mathematical languages.</p>
-
-      <div class="next-paper">
-        <div class="next-label">Next in Programme</div>
-        <div class="next-title"><a href="../p03-constitutional-signatures/p03.html">03 · Spherical Cow Philosophy →</a></div>
-        <div class="next-desc">A Methodological Framework for Mathematical Discovery. Why the 2,300-year-old barrier at θ = 1/2 is not an obstacle — it is information. How to read what structural barriers tell you.</div>
-      </div>
-
-      <div class="references">
-        <h2 style="counter-increment:none;">References</h2>
-        <ol class="ref-list">
-          <li>R. Rashed (ed.), <em>Encyclopedia of the History of Arabic Science</em>, Vol. 2. Routledge, 1996.</li>
-          <li>B. Pascal, <em>Traité du triangle arithmétique</em> (1654; published posthumously 1665).</li>
-          <li>E. W. Weisstein, "Pascal's Triangle," MathWorld, Wolfram Web Resource.</li>
-          <li>M. Gardner, "Mathematical Games," <em>Scientific American</em> (1977).</li>
-          <li>K. Wakil, "Ramanujan's Dimensional Forcing: A Universal Formula for Sieve Levels," Constitutional Sieve Programme Paper 05 (2026).</li>
-        </ol>
-      </div>
-    </div>
-  </article>
-</div>
-<footer class="site-footer">
-  <span>Knowware is measured in lifetimes</span><span>Constitutional Sieve Programme · Paper 02 of 09</span><span>Registered · Canada</span>
-</footer>
-</body></html>

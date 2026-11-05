@@ -1,239 +1,1329 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The DFT Constitutional Constant — Wakil 2026</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head><title>The Constitutional Constant 𝜃FFT = 1 
+2:
+Conjugate Symmetry of the Real
+Discrete Fourier Transform</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<meta name="originator" content="TeX4ht (https://tug.org/tex4ht/)" /> 
+<!-- xhtml,mathjax,charset=utf-8,html --> 
+<meta name="src" content="p09.tex" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
-@import url('https://fonts.googleapis.com/css2?family=STIX+Two+Text:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@300;400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
-:root{--linen:#e8e4dc;--ink:#111;--mid:#444;--light:#888;--rule:#ccc;--lrule:#ddd;--bg:#faf9f6;--note-bg:#f4f2ee;--accent:#8B0000;--link:#1a3a7c;--sidebar-w:220px;}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{font-size:14px;}
-body{background:var(--linen);color:var(--ink);font-family:'IBM Plex Sans',sans-serif;min-height:100vh;}
-.site-header{border-bottom:1px solid var(--ink);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:50px;background:var(--linen);position:sticky;top:0;z-index:100;}
-.site-logo{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.88rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink);text-decoration:none;line-height:1.1;}
-.site-logo span{display:block;font-size:.58rem;letter-spacing:.22em;color:var(--light);font-weight:300;}
-.site-nav{display:flex;gap:1.8rem;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;}
-.site-nav a{color:var(--ink);text-decoration:none;}
-.preprint-bar{border-bottom:1px solid var(--rule);padding:.5rem 2rem;display:flex;align-items:center;justify-content:space-between;font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);font-family:'IBM Plex Mono',monospace;}
-.preprint-bar .series-tag{color:var(--ink);font-weight:500;}
-.page-body{max-width:1080px;margin:0 auto;padding:0 2rem;display:grid;grid-template-columns:var(--sidebar-w) 1fr;gap:0;}
-.sidebar{border-right:1px solid var(--rule);padding:2.5rem 1.8rem 2.5rem 0;position:sticky;top:50px;height:calc(100vh - 50px);overflow-y:auto;}
-.sb-label{font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
-.sb-num{font-family:'IBM Plex Sans',sans-serif;font-size:3.2rem;font-weight:300;line-height:1;color:var(--ink);letter-spacing:-.02em;margin-bottom:1.8rem;}
-.sb-meta{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;color:var(--light);line-height:2;text-transform:uppercase;margin-bottom:1.8rem;}
-.sb-meta strong{color:var(--ink);display:block;font-weight:500;font-size:.55rem;margin-top:.6rem;}
-.sb-meta strong:first-child{margin-top:0;}
-.sb-links{margin-bottom:1.8rem;}
-.sb-link{display:block;font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.06em;text-transform:uppercase;color:var(--link);text-decoration:none;padding:.35rem 0;border-bottom:1px solid var(--lrule);line-height:1.4;}
-.sb-link:last-child{border-bottom:none;}
-.sb-link:hover{color:var(--accent);}
-.sb-link .sb-link-label{color:var(--light);display:block;font-size:.48rem;}
-.series-index{list-style:none;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.04em;line-height:2.1;text-transform:uppercase;color:var(--light);}
-.series-index a{color:var(--light);text-decoration:none;}
-.series-index a:hover{color:var(--ink);}
-.series-index .curr{color:var(--ink);font-weight:500;}
-.series-index .curr::before{content:'→ ';}
-.paper{padding:2.5rem 0 4rem 2.8rem;background:var(--bg);min-height:calc(100vh - 50px);}
-.paper-header{text-align:center;padding-bottom:2rem;border-bottom:1px solid var(--rule);margin-bottom:2rem;}
-.paper-label{font-family:'IBM Plex Mono',monospace;font-size:.6rem;color:var(--light);letter-spacing:.15em;text-transform:uppercase;margin-bottom:1.2rem;}
-.paper-label a{color:var(--link);text-decoration:none;}
-h1.title{font-family:'STIX Two Text','Times New Roman',serif;font-weight:600;font-size:1.45rem;line-height:1.35;color:var(--ink);margin-bottom:1rem;}
-.authors{font-family:'IBM Plex Sans',sans-serif;font-size:.82rem;color:var(--mid);margin-bottom:.4rem;}
-.affiliation{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--light);font-style:italic;margin-bottom:1rem;}
-.paper-date{font-family:'IBM Plex Mono',monospace;font-size:.62rem;color:var(--light);}
-.abstract-block{margin:0 2rem 1.5rem;padding:1.2rem 1.5rem;background:var(--note-bg);border:1px solid var(--rule);}
-.abs-label{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;color:var(--mid);margin-bottom:.7rem;text-align:center;}
-.abstract-block p{font-family:'STIX Two Text',serif;font-size:.88rem;line-height:1.65;color:var(--mid);text-align:justify;margin:0;}
-.keywords{margin:.8rem 2rem 1.5rem;font-family:'IBM Plex Sans',sans-serif;font-size:.7rem;color:var(--light);text-align:center;}
-.keywords strong{color:var(--mid);font-weight:500;}
-.paper-meta-strip{display:flex;gap:1.5rem;align-items:center;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;padding:.8rem 1rem;border-top:1px solid var(--lrule);border-bottom:1px solid var(--lrule);}
-.meta-pill{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;color:var(--light);}
-.meta-pill a{color:var(--link);text-decoration:none;border-bottom:1px solid var(--lrule);}
-.meta-pill a:hover{color:var(--accent);}
-.paper-body{font-family:'STIX Two Text','Times New Roman',serif;font-size:1rem;line-height:1.72;color:var(--ink);max-width:640px;}
-.paper-body p{text-align:justify;margin-bottom:.9em;hyphens:auto;}
-.paper-body h2{font-family:'STIX Two Text',serif;font-weight:600;font-size:1.05rem;color:var(--ink);margin:2.2rem 0 .8rem;counter-increment:section;}
-.paper-body h2::before{content:counter(section) '.  ';color:var(--accent);}
-.paper-body{counter-reset:section;}
-.paper-body h3{font-family:'STIX Two Text',serif;font-weight:600;font-size:.92rem;color:var(--mid);margin:1.5rem 0 .5rem;font-style:italic;}
-.eq-label{display:flex;align-items:center;justify-content:space-between;margin:1.2rem 0;}
-.eq-content{flex:1;text-align:center;font-family:'STIX Two Text',serif;font-size:1.02rem;}
-.eq-num{font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);width:44px;text-align:right;}
-.env-block{margin:1.4rem 0;padding:1rem 1.2rem;font-family:'STIX Two Text',serif;font-size:.95rem;line-height:1.65;}
-.env-block.theorem{border:1px solid var(--rule);border-left:4px solid var(--ink);background:var(--note-bg);}
-.env-block.proposition{border:1px solid var(--rule);border-left:4px solid var(--mid);background:var(--note-bg);}
-.env-block.lemma{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
-.env-block.corollary{border:1px solid var(--lrule);border-left:3px solid var(--light);background:var(--bg);}
-.env-block.definition{border:1px solid var(--rule);border-left:4px solid var(--accent);background:#fff8f8;}
-.env-block.remark{border-left:3px solid var(--accent);background:#fff8f8;padding:.8rem 1.2rem;}
-.env-block.conjecture{border:1px dashed var(--rule);border-left:4px dashed var(--ink);background:var(--note-bg);}
-.env-label{font-family:'IBM Plex Sans',sans-serif;font-weight:600;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);margin-bottom:.5rem;}
-.env-block.remark .env-label,.env-block.definition .env-label{color:var(--accent);}
-.proof{margin:.5rem 0 1.2rem 1.5rem;font-family:'STIX Two Text',serif;font-size:.92rem;line-height:1.65;color:var(--mid);}
-.proof-label{font-family:'IBM Plex Sans',sans-serif;font-style:italic;font-size:.8rem;color:var(--light);margin-bottom:.3rem;}
-.qed{float:right;font-size:1rem;color:var(--mid);}
-table.formal{width:100%;border-collapse:collapse;margin:1.2rem 0 1rem;font-size:.85rem;font-family:'STIX Two Text',serif;}
-table.formal th{font-family:'IBM Plex Sans',sans-serif;font-weight:500;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border-bottom:2px solid var(--ink);border-top:1px solid var(--ink);padding:.5rem .8rem;text-align:left;}
-table.formal td{padding:.45rem .8rem;border-bottom:1px solid var(--rule);vertical-align:top;}
-table.formal tr:last-child td{border-bottom:1px solid var(--ink);}
-.table-caption{font-family:'IBM Plex Sans',sans-serif;font-size:.72rem;color:var(--mid);text-align:center;margin-bottom:1.5rem;font-style:italic;}
-.table-caption strong{font-style:normal;font-weight:500;}
-em{font-style:italic;}strong{font-weight:600;}
-sup{font-size:.7em;vertical-align:super;color:var(--accent);}
-sub{font-size:.7em;vertical-align:sub;}
-.next-paper{margin-top:3rem;padding-top:1.2rem;border-top:1px solid var(--ink);max-width:640px;}
-.next-label{font-family:'IBM Plex Mono',monospace;font-size:.52rem;letter-spacing:.15em;text-transform:uppercase;color:var(--light);margin-bottom:.35rem;}
-.next-title{font-family:'IBM Plex Sans',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;}
-.next-title a{color:var(--ink);text-decoration:none;}
-.next-title a:hover{color:var(--link);}
-.next-desc{font-family:'STIX Two Text',serif;font-size:.88rem;color:var(--light);margin-top:.25rem;font-style:italic;}
-.references{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--rule);max-width:640px;}
-.ref-list{list-style:none;counter-reset:refs;}
-.ref-list li{counter-increment:refs;padding-left:36px;position:relative;margin-bottom:.6rem;font-family:'STIX Two Text',serif;font-size:.82rem;line-height:1.5;color:var(--mid);}
-.ref-list li::before{content:'['counter(refs)']';position:absolute;left:0;font-family:'IBM Plex Mono',monospace;font-size:.68rem;color:var(--light);}
-.site-footer{border-top:1px solid var(--ink);padding:.9rem 2rem;display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:.5rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light);}
-@media(max-width:760px){.page-body{grid-template-columns:1fr;}.sidebar{position:static;height:auto;border-right:none;border-bottom:1px solid var(--rule);padding:1.5rem 0;}.paper{padding:1.5rem 0;}.preprint-bar{display:none;}.series-index{display:none;}.abstract-block{margin:0 0 1.5rem;}}
-</style>
+ 
+/* start css.sty */
+.cmr-8{font-size:66%;}
+.cmmi-12{font-style: italic;}
+.ecrm-2074{font-size:166%;}
+.ecrm-1440{font-size:116%;}
+.ecrm-1095{font-size:83%;}
+.ectt-1095{font-size:83%; font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ectt-1095{ font-family: monospace,monospace;}
+.ecbx-1095{font-size:83%; font-weight: bold;}
+.ecbx-1095{ font-weight: bold;}
+.ecbx-1095{ font-weight: bold;}
+.ecbx-1095{ font-weight: bold;}
+.ecbx-1095{ font-weight: bold;}
+.ecbx-1095{ font-weight: bold;}
+.ecbx-1095{ font-weight: bold;}
+.ecbx-1095{ font-weight: bold;}
+.ecbx-1095{ font-weight: bold;}
+.ecbx-1095{ font-weight: bold;}
+.ecti-1095{font-size:83%; font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecti-1095{ font-style: italic;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ecbx-1200{ font-weight: bold;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ectt-1200{ font-family: monospace,monospace;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+.ecti-1200{ font-style: italic;}
+p{margin-top:0;margin-bottom:0}
+p.indent{text-indent:0;}
+p + p{margin-top:1em;}
+p + div, p + pre {margin-top:1em;}
+div + p, pre + p {margin-top:1em;}
+a { overflow-wrap: break-word; word-wrap: break-word; word-break: break-word; hyphens: auto; }
+@media print {div.crosslinks {visibility:hidden;}}
+table.tabular{border-collapse: collapse; border-spacing: 0;}
+a img { border-top: 0; border-left: 0; border-right: 0; }
+center { margin-top:1em; margin-bottom:1em; }
+td center { margin-top:0em; margin-bottom:0em; }
+.Canvas { position:relative; }
+img.math{vertical-align:middle;}
+div.par-math-display, div.math-display{text-align:center;}
+li p.indent { text-indent: 0em }
+li p:first-child{ margin-top:0em; }
+li p:last-child, li div:last-child { margin-bottom:0.5em; }
+li p:first-child{ margin-bottom:0; }
+li p~ul:last-child, li p~ol:last-child{ margin-bottom:0.5em; }
+.enumerate1 {list-style-type:decimal;}
+.enumerate2 {list-style-type:lower-alpha;}
+.enumerate3 {list-style-type:lower-roman;}
+.enumerate4 {list-style-type:upper-alpha;}
+div.newtheorem { margin-bottom: 2em; margin-top: 2em;}
+div.newtheorem .head{font-weight: bold;}
+.obeylines-h,.obeylines-v {white-space: nowrap; }
+div.obeylines-v p { margin-top:0; margin-bottom:0; }
+.overline{ text-decoration:overline; }
+.overline img{ border-top: 1px solid black; }
+td.displaylines {text-align:center; white-space:nowrap;}
+.centerline {text-align:center;}
+.rightline {text-align:right;}
+pre.verbatim {font-family: monospace,monospace; text-align:left; clear:both; }
+.fbox {padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.fbox {display:table}
+div.center div.fbox {text-align:center; clear:both; padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+div.minipage{width:100%;}
+div.center, div.center div.center {text-align: center; margin-left:1em; margin-right:1em;}
+div.center div {text-align: left;}
+div.flushright, div.flushright div.flushright {text-align: right;}
+div.flushright div {text-align: left;}
+div.flushleft {text-align: left;}
+.underline{ text-decoration:underline; }
+.underline img{ border-bottom: 1px solid black; margin-bottom:1pt; }
+.framebox-c, .framebox-l, .framebox-r { padding-left:3.0pt; padding-right:3.0pt; text-indent:0pt; border:solid black 0.4pt; }
+.framebox-c {text-align:center;}
+.framebox-l {text-align:left;}
+.framebox-r {text-align:right;}
+span.thank-mark{ vertical-align: super }
+span.footnote-mark sup.textsuperscript, span.footnote-mark a sup.textsuperscript{ font-size:80%; }
+code.verb{font-family:monospace,monospace;}
+div.tabular, div.center div.tabular {text-align: center; margin-top:0.5em; margin-bottom:0.5em; }
+table.tabular td p{margin-top:0em;}
+table.tabular {margin-left: auto; margin-right: auto;}
+td p:first-child{ margin-top:0em; }
+td p:last-child{ margin-bottom:0em; }
+div.td00{ margin-left:0pt; margin-right:0pt; }
+div.td01{ margin-left:0pt; margin-right:5pt; }
+div.td10{ margin-left:5pt; margin-right:0pt; }
+div.td11{ margin-left:5pt; margin-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+td.td00{ padding-left:0pt; padding-right:0pt; }
+td.td01{ padding-left:0pt; padding-right:5pt; }
+td.td10{ padding-left:5pt; padding-right:0pt; }
+td.td11{ padding-left:5pt; padding-right:5pt; }
+table[rules] {border-left:solid black 0.4pt; border-right:solid black 0.4pt; }
+.hline hr, .cline hr{ height : 0px; margin:0px; }
+.hline td, .cline td{ padding: 0; }
+.hline hr, .cline hr{border:none;border-top:1px solid black;}
+.hline {border-top: 1px solid black;}
+.hline + .vspace:last-child{display:none;}
+.hline:first-child{border-bottom:1px solid black;border-top:none;}
+.tabbing-right {text-align:right;}
+div.float, div.figure {margin-left: auto; margin-right: auto;}
+div.float img {text-align:center;}
+div.figure img {text-align:center;}
+.marginpar,.reversemarginpar {width:20%; float:right; text-align:left; margin-left:auto; margin-top:0.5em; font-size:85%; text-decoration:underline;}
+.marginpar p,.reversemarginpar p{margin-top:0.4em; margin-bottom:0.4em;}
+.reversemarginpar{float:left;}
+table.equation {width:100%;}
+.equation td{text-align:center; }
+td.equation { margin-top:1em; margin-bottom:1em; } 
+td.equation-label { width:5%; text-align:center; }
+td.eqnarray4 { width:5%; white-space: normal; }
+td.eqnarray2 { width:5%; }
+table.eqnarray-star, table.eqnarray {width:100%;}
+div.eqnarray{text-align:center;}
+div.array {text-align:center;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.pmatrix img{vertical-align:middle;}
+div.pmatrix {text-align:center;}
+table.pmatrix {width:100%;}
+span.bar-css {text-decoration:overline;}
+img.cdots{vertical-align:middle;}
+.partToc a, .partToc, .likepartToc a, .likepartToc {line-height: 200%; font-weight:bold; font-size:110%;}
+.index-item, .index-subitem, .index-subsubitem {display:block}
+div.caption {text-indent:-2em; margin-left:3em; margin-right:1em; text-align:left;}
+div.caption span.id{font-weight: bold; white-space: nowrap; }
+h1.partHead{text-align: center}
+p.bibitem { text-indent: -2em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+p.bibitem-p { text-indent: 0em; margin-left: 2em; margin-top:0.6em; margin-bottom:0.6em; }
+.subsubsectionHead, .likesubsubsectionHead { font-size: 1em; }
+.paragraphHead, .likeparagraphHead { margin-top:2em; font-weight: bold;}
+.subparagraphHead, .likesubparagraphHead { font-weight: bold;}
+.verse{white-space:nowrap; margin-left:2em}
+div.maketitle {text-align:center;}
+h2.titleHead{text-align:center;}
+div.maketitle{ margin-bottom: 2em; }
+div.author, div.date {text-align:center;}
+div.thanks{text-align:left; margin-left:10%; font-size:85%; font-style:italic; }
+div.author{white-space: nowrap;}
+div.abstract p {margin-left:5%; margin-right:5%;}
+div.abstract {width:100%;}
+.abstracttitle{text-align:center;margin-bottom:1em;}
+.subsectionToc, .likesubsectionToc {margin-left:1em;}
+.subsubsectionToc, .likesubsubsectionToc {margin-left:2em;}
+.paragraphToc, .likeparagraphToc {margin-left:3em;}
+.subparagraphToc, .likesubparagraphToc {margin-left:4em;}
+.equation td{text-align:center; }
+.equation-star td{text-align:center; }
+table.equation-star { width:100%; }
+table.equation { width:100%; }
+table.align, table.alignat, table.xalignat, table.xxalignat, table.flalign {width:95%; margin-left:5%; white-space: nowrap;}
+table.align-star, table.alignat-star, table.xalignat-star, table.flalign-star {margin-left:auto; margin-right:auto; white-space: nowrap;}
+td.align-label { width:5%; text-align:center; }
+td.align-odd { text-align:right; padding-right:0.3em;}
+td.align-even { text-align:left; padding-right:0.6em;}
+table.multline, table.multline-star {width:100%;}
+td.gather {text-align:center; }
+table.gather {width:100%;}
+div.gather-star {text-align:center;}
+.rotatebox{display: inline-block;}
+dl.enumerate-enumitem{display:grid; grid-template-columns: 3ch 1fr; align-items: top; row-gap:1ch;}
+code.lstinline{font-family:monospace,monospace;}
+pre.listings{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
+.lstlisting .label{margin-right:0.5em; }
+pre.lstlisting{font-family: monospace,monospace; white-space: pre-wrap; margin-top:0.5em; margin-bottom:0.5em; }
+pre.lstinputlisting{ font-family: monospace,monospace; white-space: pre-wrap; }
+.lstinputlisting .label{margin-right:0.5em;}
+/* end css.sty */
 
-</head>
-<body>
-<header class="site-header">
-  <a href="https://knowware.institute" class="site-logo">KNOWWARE<span>THE &nbsp; A.R.C &nbsp; INSTITUTE</span></a>
-  <nav class="site-nav"><a href="../../papers/index.html">Pre-Print</a><a href="https://knowware.institute/contact">Contact</a></nav>
-</header>
-<div class="preprint-bar">
-  <span>ARC Institute of Knowware · 2026</span>
-  <span class="series-tag">Constitutional Sieve Programme · Nine Papers</span>
-  <span>cs.IT / math.CA · 42A38, 94A12 · Fisher Creek Ranch, Alberta</span>
+
+body{max-width:48rem;margin:2rem auto;padding:0 1rem;font-family:"STIX Two Text","Times New Roman",serif;font-size:17px;line-height:1.55;color:#1a1a1a;background:#faf9f6}
+h2,h3,h4{line-height:1.3} .maketitle{text-align:center;margin-bottom:2rem} table{border-collapse:collapse;margin:1rem auto} td{padding:2px 8px}
+img{max-width:100%;height:auto} .abstract{margin:1.5rem 0;padding:1rem 1.25rem;background:#f4f2ee}
+@media (prefers-color-scheme: dark){body{background:#151515;color:#e8e6e1} .abstract{background:#222} a{color:#9bb8ff}}
+</style> 
+<script>window.MathJax = { tex: { tags: "ams", macros: {"N": "\\mathbb{N}", "Z": "\\mathbb{Z}", "R": "\\mathbb{R}", "C": "\\mathbb{C}", "F": "\\mathbb{F}", "norm": ["\\left\\|#1\\right\\|", 1], "abs": ["\\left|#1\\right|", 1], "inner": ["\\left\\langle #1,\\, #2 \\right\\rangle", 2], "thetaFFT": "\\theta_{\\mathrm{FFT}}", "etapred": "\\eta_{\\mathrm{pred}}", "etaact": "\\eta_{\\mathrm{act}}", "Hd": "\\mathcal{H}_d", "NFR": "\\mathrm{NFR}", "DFT": "\\mathrm{DFT}", "supp": "\\operatorname{supp}", "spec": "\\operatorname{spec}"} } }; </script> 
+ <script type="text/javascript" async="async" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml-full.js"></script>  
+</head><body 
+>
+   <div class="maketitle">
+                                                                                         
+                                                                                         
+                                                                                         
+                                                                                         
+
+<h2 class="titleHead">The Constitutional Constant \(\thetaFFT = \tfrac {1}{2}\):<br />
+Conjugate Symmetry of the Real<br />
+Discrete Fourier Transform</h2>
+     <div class="author" ><span 
+class="ecrm-1440">Khayyam Wakil</span>
+<br /> <span 
+class="ecrm-1095">ARC Institute of Knowware</span>
+<br />  <span 
+class="ecrm-1095">Calgary, Alberta, Canada</span>
+<br />  <span 
+class="ectt-1095">the@knowware.institute</span></div><br />
+<div class="date" ><span 
+class="ecrm-1440">March 2026; revised November 2026</span></div>
+   </div>
+   <div 
+class="abstract" 
+>
+   <h3 class="abstracttitle">
+<span 
+class="ecbx-1095">Abstract</span>
+</h3>
+      <!--l. 76--><p class="noindent" ><span 
+class="ecrm-1095">The  Discrete  Fourier  Transform  of  any  real-valued  ﬁnite  signal  satisﬁes  an  exact</span>
+      <span 
+class="ecrm-1095">conjugate-mirror symmetry,</span> \(\hat {x}_{N-k} = \overline {\hat {x}_k}\)<span 
+class="ecrm-1095">: the upper half of its spectrum is completely determined by</span>
+      <span 
+class="ecrm-1095">the lower half. This classical fact (Hermitian symmetry) means that the</span> \(2N\) <span 
+class="ecrm-1095">real parameters</span>
+      <span 
+class="ecrm-1095">of the spectrum of a real signal of length</span> \(N\) <span 
+class="ecrm-1095">span a real subspace of dimension exactly</span> \(N\)<span 
+class="ecrm-1095">.</span>
+      <span 
+class="ecrm-1095">Within the constitutional programme we call this fraction the </span><span 
+class="ecti-1095">constitutional constant</span>
+      \(\thetaFFT = \tfrac {1}{2}\)<span 
+class="ecrm-1095">, and we give the elementary proof. Counted in complex coeﬃcients rather than real</span>
+      <span 
+class="ecrm-1095">parameters, the independent fraction is</span> \((\lfloor N/2 \rfloor + 1)/N\)<span 
+class="ecrm-1095">, not</span> \(\tfrac {1}{2}\)<span 
+class="ecrm-1095">. We then record what the symmetry does</span>
+      <span 
+class="ecrm-1095">and does not imply. The fraction of spectral energy in the upper half equals</span> \(\tfrac {1}{2} - (\abs {\hat {x}_0}^2 + \abs {\hat {x}_{N/2}}^2)/(2E)\)<span 
+class="ecrm-1095">, so it never</span>
+      <span 
+class="ecrm-1095">exceeds</span> \(\tfrac {1}{2}\) <span 
+class="ecrm-1095">and is a property of the data, not a measurement of</span> \(\thetaFFT \)<span 
+class="ecrm-1095">. The half-spectrum of a</span>
+      <span 
+class="ecrm-1095">real signal holds exactly</span> \(N\) <span 
+class="ecrm-1095">real numbers, so the symmetry gives no compression relative to</span>
+      <span 
+class="ecrm-1095">the input. Real invertible transforms (cosine, Hartley, Haar) have no such redundancy,</span>
+      <span 
+class="ecrm-1095">so the value</span> \(\tfrac {1}{2}\) <span 
+class="ecrm-1095">reﬂects the choice of a complex representation. A proposed parallel with</span>
+      <span 
+class="ecrm-1095">Khayyam’s Triangle modulo a prime fails: there the proportion of vanishing entries</span>
+      <span 
+class="ecrm-1095">tends to</span> \(1\)<span 
+class="ecrm-1095">. This paper is the ninth in the nine-paper programme on constitutional sieve</span>
+      <span 
+class="ecrm-1095">theory [</span><a 
+href="#XWakil2026ConditionW3"><span 
+class="ecrm-1095">14</span></a><span 
+class="ecrm-1095">–</span><a 
+href="#XWakil2026Shannon"><span 
+class="ecrm-1095">21</span></a><span 
+class="ecrm-1095">].</span>
+</p>
 </div>
-<div class="page-body">
-  <aside class="sidebar">
-    <div class="sb-label">Paper</div><div class="sb-num">09</div>
-    <div class="sb-meta"><strong>Author</strong>Khayyam Wakil<strong>Published</strong>March 2026<strong>Series</strong>Constitutional Sieve Programme<strong>MSC 2020</strong>42A38, 94A12, 28A80, 11N35</div>
-    <div class="sb-links">
-      <a class="sb-link" href="p09.pdf" target="_blank">
-        <span class="sb-link-label">Download · PDF</span>
-        p09.pdf → View
-      </a>
-      <a class="sb-link" href="p09.tex" target="_blank">
-        <span class="sb-link-label">LaTeX Source</span>
-        p09.tex → View
-      </a>
-    </div>
-    <div class="sb-label" style="margin-bottom:.6rem;">Programme Index</div>
-    <ul class="series-index">
-      <li class=""><a href="../p01-constitutional-forcing/p01.html">01 · Constitutional Forcing</a></li>
-      <li class=""><a href="../p02-khayyams-triangle/p02.html">02 · Khayyam's Triangle</a></li>
-      <li class=""><a href="../p03-constitutional-signatures/p03.html">03 · Spherical Cow Philosophy</a></li>
-      <li class=""><a href="../p04-that-eisenstein-guy/p04.html">04 · Eisenstein, θ = 5/8</a></li>
-      <li class=""><a href="../p05-ramanujans-formula/p05.html">05 · Ramanujan's Formula</a></li>
-      <li class=""><a href="../p06-shannon-wakil/p06.html">06 · Shannon–Wakil Effect</a></li>
-      <li class=""><a href="../p07-condition_w3/p07.html">07 · Condition W3</a></li>
-      <li class=""><a href="../p08-prime-bias-ternary-bridge/p08.html">08 · Prime Digit Bias</a></li>
-      <li class="curr"><a href="p09.html">09 · DFT Constitutional Constant</a></li>
-    </ul>
-  </aside>
-  <article class="paper">
-    <div class="paper-header">
-      <div class="paper-label">Preprint · ARC Institute of Knowware · March 2026</div>
-      <h1 class="title">The DFT Constitutional Constant: θ<sub>FFT</sub> = 1/2 and the Khayyam Bridge</h1>
-      <div class="authors">Khayyam Wakil</div>
-      <div class="affiliation">The ARC Institute of Knowware, Calgary, Alberta, Canada</div>
-      <div class="paper-date">Submitted March 2026 &nbsp;·&nbsp; Constitutional Sieve Programme, Paper 09 of 09</div>
-    </div>
-    <div class="abstract-block">
-      <div class="abs-label">Abstract</div>
-      <p>The Discrete Fourier Transform of any real-valued finite signal satisfies an exact conjugate-mirror symmetry: the upper half of its spectrum is completely determined by the lower half. This paper names and formalises this redundancy as the <em>constitutional constant</em> θ<sub>FFT</sub> = 1/2, establishes a complete proof from first principles, reports empirical confirmation across structured and random datasets (maximum deviation &lt; 3×10<sup>−4</sup>), and maps the boundary conditions under which the constant holds exactly, holds approximately, or ceases to be the relevant quantity.</p>
-      <p style="margin-top:.7em;">We then trace the structural parallel between θ<sub>FFT</sub> = 1/2 and the fractal geometry of Khayyam's Triangle modulo a prime <em>p</em>: in both cases a redundancy of exactly one-half reveals itself through a change of frame — spectral in one setting, modular in the other — and in both cases the residual non-redundant structure is the object of interest. This is the <em>Khayyam Bridge</em>: the same constitutional constant, forced by the same counting theorem, appearing in two domains through two different basis changes.</p>
-      <p style="margin-top:.7em;">This paper is the ninth in the nine-paper Constitutional Sieve Programme. θ<sub>FFT</sub> = 1/2 is Constitutional Forcing at depth k=1: one constitutional constraint (real-valued input), one invalid configuration class (upper half of spectrum), forced constant (2<sup>1</sup>−1)/2<sup>1</sup> = 1/2.</p>
-    </div>
-    <div class="keywords"><strong>Keywords:</strong> Discrete Fourier Transform, constitutional constant, conjugate symmetry, Khayyam's Triangle, Sierpiński fractal, neural compression, intrinsic dimensionality, spectral sparsity, constitutional forcing</div>
-    <div class="paper-meta-strip">
-      <span class="meta-pill">MSC 2020: 42A38 (primary) · 94A12 · 28A80 · 11N35</span>
-      <span class="meta-pill"><a href="../../papers/index.html">preprints.knowware.institute</a></span>
-      <span class="meta-pill"><a href="https://github.com/knowware-institute/constitutional-forcing">p09.tex source</a></span>
-    </div>
-    <div class="paper-body">
+                                                                                         
+                                                                                         
+<!--l. 103--><p class="noindent" ><span 
+class="ecbx-1200">Revision note (November 2026). </span>The title no longer claims empirical conﬁrmation or a bridge
+to Khayyam’s Triangle. The deﬁnition of \(\thetaFFT \) now counts real parameters, which give exactly \(\tfrac {1}{2}\); the
+coeﬃcient count, \((\lfloor N/2 \rfloor + 1)/N\), is stated separately, and the corollary on equal energies, which had oﬀ-by-one
+index bounds, is restated as magnitude symmetry. The empirical table is withdrawn: its value \(0.500247\) is
+impossible, because the energy fraction never exceeds \(\tfrac {1}{2}\) for real data, and Section <a 
+href="#x1-60004">4<!--tex4ht:ref: sec:empirical --></a> now states the
+exact identity. The propositions on complex inputs and on numerical stability were false and
+are replaced by correct statements; the “adversarial robustness” proposition is restated
+as a bound. The “\(2\times \) lossless compression ﬂoor”, the \(2730\times \) and \(67\times \) compression ﬁgures and the
+predicted-ratio formula are withdrawn as illusory or unveriﬁed. The Khayyam “redundancy
+duality”, the ternary-resonance conjecture and the universality conjecture are withdrawn as
+false; the Hausdorﬀ dimension of the mod-3 fractal is corrected to \(\log 6/\log 3\), and \(\theta _W = \tfrac {5}{8}\) is cited as a
+conjecture.
+</p><!--l. 124--><p class="indent" >   <span 
+class="ecbx-1200">Keywords: </span>Discrete Fourier Transform, constitutional constant, conjugate symmetry,
+Hermitian symmetry, Khayyam’s Triangle, Sierpiński fractal, neural compression, spectral
+sparsity.
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-1000"></a>Contents</h3>
+   <div class="tableofcontents">
+   <span class="sectionToc" >1 <a 
+href="#x1-20001" id="QQ2-1-2">Introduction</a></span>
+<br />   <span class="subsectionToc" >1.1 <a 
+href="#x1-30001.1" id="QQ2-1-3">Paper organisation</a></span>
+<br />   <span class="sectionToc" >2 <a 
+href="#x1-40002" id="QQ2-1-4">Notation and Preliminaries</a></span>
+<br />   <span class="sectionToc" >3 <a 
+href="#x1-50003" id="QQ2-1-5">Proof of \(\theta _{\mathrm{FFT}}= \tfrac {1}{2}\)</a></span>
+<br />   <span class="sectionToc" >4 <a 
+href="#x1-60004" id="QQ2-1-6">The Energy Fraction \(\theta _{\mathrm{FFT}}^{\mathrm{emp}}\)</a></span>
+<br />   <span class="subsectionToc" >4.1 <a 
+href="#x1-70004.1" id="QQ2-1-7">Deﬁnition and an exact identity</a></span>
+<br />   <span class="subsectionToc" >4.2 <a 
+href="#x1-80004.2" id="QQ2-1-8">What the energy fraction does and does not measure</a></span>
+<br />   <span class="subsectionToc" >4.3 <a 
+href="#x1-90004.3" id="QQ2-1-9">The withdrawn table</a></span>
+<br />   <span class="sectionToc" >5 <a 
+href="#x1-100005" id="QQ2-1-10">Scope: Complex, Quantised and Adversarial Inputs, and Finite Precision</a></span>
+<br />   <span class="subsectionToc" >5.1 <a 
+href="#x1-110005.1" id="QQ2-1-11">Complex-valued inputs</a></span>
+<br />   <span class="subsectionToc" >5.2 <a 
+href="#x1-120005.2" id="QQ2-1-12">Near-real inputs: integer quantisation</a></span>
+<br />   <span class="subsectionToc" >5.3 <a 
+href="#x1-130005.3" id="QQ2-1-13">Adversarial inputs</a></span>
+<br />   <span class="subsectionToc" >5.4 <a 
+href="#x1-140005.4" id="QQ2-1-14">Finite-precision arithmetic</a></span>
+<br />   <span class="sectionToc" >6 <a 
+href="#x1-150006" id="QQ2-1-15">Khayyam’s Triangle Modulo a Prime: A Parallel That Fails</a></span>
+<br />   <span class="subsectionToc" >6.1 <a 
+href="#x1-160006.1" id="QQ2-1-16">Khayyam’s Triangle modulo a prime</a></span>
+<br />   <span class="subsectionToc" >6.2 <a 
+href="#x1-170006.2" id="QQ2-1-17">Why the parallel fails</a></span>
+<br />   <span class="subsectionToc" >6.3 <a 
+href="#x1-180006.3" id="QQ2-1-18">The prime \(p = 3\)</a></span>
+<br />   <span class="sectionToc" >7 <a 
+href="#x1-190007" id="QQ2-1-19">Compression Implications</a></span>
+<br />   <span class="subsectionToc" >7.1 <a 
+href="#x1-200007.1" id="QQ2-1-20">What conjugate symmetry does and does not give</a></span>
+<br />   <span class="subsectionToc" >7.2 <a 
+href="#x1-210007.2" id="QQ2-1-21">Spectral sparsity of the test matrices</a></span>
+<br />   <span class="subsectionToc" >7.3 <a 
+href="#x1-220007.3" id="QQ2-1-22">The withdrawn predicted-ratio formula</a></span>
+<br />   <span class="subsectionToc" >7.4 <a 
+href="#x1-230007.4" id="QQ2-1-23">The NFR stage</a></span>
+<br />   <span class="sectionToc" >8 <a 
+href="#x1-240008" id="QQ2-1-24">Position Within the Constitutional Sieve Programme</a></span>
+                                                                                         
+                                                                                         
+<br />   <span class="sectionToc" >9 <a 
+href="#x1-250009" id="QQ2-1-25">Conclusion</a></span>
+   </div>
+                                                                                         
+                                                                                         
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-20001"></a>Introduction</h3>
+<!--l. 135--><p class="noindent" >Every real-valued signal carries a hidden redundancy in its frequency representation. It is not
+approximate, not dataset-dependent, not an engineering convenience: it is an exact
+mathematical fact that follows in two lines from the deﬁnition of the Discrete Fourier
+Transform.
+</p>
+   <div class="newtheorem">
+<!--l. 141--><p class="noindent" ><span class="head">
+<a 
+ id="x1-2001r1"></a>
+<span 
+class="ecbx-1200">Theorem 1.1 </span>(Informal)<span 
+class="ecbx-1200">.</span>  </span> <span 
+class="ecti-1200">For any real-valued signal</span> \(x \in \R ^N\)<span 
+class="ecti-1200">, the upper half of its DFT spectrum</span>
+<span 
+class="ecti-1200">is the complex conjugate, reversed, of the lower half. Storing only the lower half uniquely</span>
+<span 
+class="ecti-1200">determines  the  full  spectrum.  Of  the</span>  \(2N\)  <span 
+class="ecti-1200">real  parameters  of  the  spectrum,  exactly</span>  \(N\)  <span 
+class="ecti-1200">are</span>
+<span 
+class="ecti-1200">independent: counted in real parameters, the fraction of the spectrum that is </span>independently
+informative <span 
+class="ecti-1200">is exactly</span> \(\tfrac {1}{2}\)<span 
+class="ecti-1200">.</span>
+</p>
+   </div>
+<!--l. 148--><p class="indent" >
+</p><!--l. 150--><p class="indent" >   We call this fraction \(\thetaFFT \). The theorem is classical. It is usually called Hermitian (or conjugate)
+symmetry [<a 
+href="#XOppenheimSchafer2010">9</a>]; it is the reason real data are expanded in real cosine and sine series, a practice that
+goes back to Euler, Lagrange, Fourier and Gauss [<a 
+href="#XHeideman1984">6</a>], and real-input FFT algorithms exploit it
+to save roughly half the work of a complex FFT [<a 
+href="#XCooleyLewisWelch1970">2</a>, <a 
+href="#XCooley1965">3</a>, <a 
+href="#XSorensen1987">13</a>]. What this paper adds is
+modest:
+</p><!--l. 158--><p class="indent" >
+      </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   1. </dt><dd 
+class="enumerate-enumitem">We name the fraction, within the programme’s vocabulary, a <span 
+class="ecti-1200">constitutional constant</span>:
+      a structural invariant of the real DFT that holds before any data are examined. The
+      name is a label; the content is classical.
+      </dd><dt class="enumerate-enumitem">
+   2. </dt><dd 
+class="enumerate-enumitem">We record what the symmetry does and does not imply for energy measurements,
+      complex and quantised inputs, ﬁnite precision and compression. Several claims made
+      for it in an earlier version—an empirical conﬁrmation and a \(2\times \) compression ﬂoor—do
+      not hold, and an “adversarial robustness” result is a restatement of the theorem; we
+      say why.
+      </dd><dt class="enumerate-enumitem">
+   3. </dt><dd 
+class="enumerate-enumitem">We  examine  a  proposed  parallel  between  \(\thetaFFT = \tfrac {1}{2}\)  and  the  modular  fractal  geometry  of
+      Khayyam’s Triangle, and show that it fails.</dd></dl>
+<!--l. 174--><p class="indent" >   The practical context is FFT-based compression of real-valued weight tensors, such as the NFR
+(Neural Fiber Representation) pipeline under development by the author. There the symmetry is
+easily misread as a guaranteed \(2\times \) compression. It is not one. The independent half of the spectrum of
+\(N\) real numbers consists of \(\lfloor N/2 \rfloor + 1\) complex coeﬃcients, of which the DC coeﬃcient and, for even \(N\),
+                                                                                         
+                                                                                         
+the Nyquist coeﬃcient are real: that is exactly \(N\) real numbers, as many as the input.
+Conjugate symmetry avoids the \(2\times \) inﬂation of storing the full complex spectrum; it does not
+compress the signal. Any compression must come from spectral sparsity of the data
+(Section <a 
+href="#x1-190007">7<!--tex4ht:ref: sec:compression --></a>).
+</p><!--l. 186--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a 
+ id="x1-30001.1"></a>Paper organisation</h4>
+<!--l. 188--><p class="noindent" >Section <a 
+href="#x1-40002">2<!--tex4ht:ref: sec:notation --></a> establishes notation. Section <a 
+href="#x1-50003">3<!--tex4ht:ref: sec:proof --></a> gives the proof. Section <a 
+href="#x1-60004">4<!--tex4ht:ref: sec:empirical --></a> gives an exact identity for the
+energy fraction of the upper half and explains why it is not an empirical test of \(\thetaFFT \). Section <a 
+href="#x1-100005">5<!--tex4ht:ref: sec:stress --></a> treats
+complex inputs, integer quantisation, adversarial inputs and ﬁnite precision. Section <a 
+href="#x1-150006">6<!--tex4ht:ref: sec:bridge --></a> compares
+the triangle of binomial coeﬃcients modulo a prime and explains why the proposed parallel fails.
+Section <a 
+href="#x1-190007">7<!--tex4ht:ref: sec:compression --></a> states the compression implications. Section <a 
+href="#x1-240008">8<!--tex4ht:ref: sec:sieve --></a> positions this paper within the
+constitutional sieve programme.
+</p><!--l. 202--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-40002"></a>Notation and Preliminaries</h3>
+<!--l. 206--><p class="noindent" >Let \(N \in \N \) with \(N \geq 2\). Write \([N] := \{0, 1, \ldots , N-1\}\).
+</p>
+   <div class="newtheorem">
+<!--l. 208--><p class="noindent" ><span class="head">
+<a 
+ id="x1-4001r1"></a>
+<span 
+class="ecbx-1200">Deﬁnition 2.1 </span>(DFT)<span 
+class="ecbx-1200">.</span>  </span> The <span 
+class="ecti-1200">Discrete Fourier Transform </span>of \(x = (x_0, \ldots , x_{N-1}) \in \C ^N\) is the vector \(\hat {x} \in \C ^N\) with \[ \hat {x}_k \;=\; \sum _{n=0}^{N-1} x_n \, e^{-2\pi i k n / N}, \qquad k \in [N]. \]
+</p>
+   </div>
+<!--l. 215--><p class="indent" >
+</p>
+   <div class="newtheorem">
+<!--l. 217--><p class="noindent" ><span class="head">
+<a 
+ id="x1-4002r2"></a>
+<span 
+class="ecbx-1200">Deﬁnition 2.2 </span>(Spectral energy, energy fraction)<span 
+class="ecbx-1200">.</span>  </span> The <span 
+class="ecti-1200">spectral energy </span>of \(x\) is \(E(x) := \norm {\hat {x}}^2 = \sum _{k=0}^{N-1} \abs {\hat {x}_k}^2\). For a subset
+\(S \subseteq [N]\), the <span 
+class="ecti-1200">energy fraction </span>concentrated in \(S\) is \[ \rho _S(x) \;:=\; \frac {\sum _{k \in S} \abs {\hat {x}_k}^2}{E(x)}. \]
+</p>
+   </div>
+<!--l. 224--><p class="indent" >
+                                                                                         
+                                                                                         
+</p>
+   <div class="newtheorem">
+<!--l. 226--><p class="noindent" ><span class="head">
+<a 
+ id="x1-4003r3"></a>
+<span 
+class="ecbx-1200">Deﬁnition 2.3 </span>(Constitutional constant \(\thetaFFT \))<span 
+class="ecbx-1200">.</span>  </span> Write \(L := \{0, 1, \ldots , \lfloor N/2 \rfloor \}\) for the <span 
+class="ecti-1200">lower half  </span>of the spectrum (it
+contains the DC component \(k=0\) and, for even \(N\), the Nyquist component \(k = N/2\)), and \(U := \{\lfloor N/2 \rfloor + 1, \ldots , N-1\}\) for the <span 
+class="ecti-1200">upper</span>
+<span 
+class="ecti-1200">half</span>. Regard \(\C ^N\) as a real vector space of dimension \(2N\), and let \(\DFT (\R ^N) \subseteq \C ^N\) be the set of spectra of real
+signals. Deﬁne \[ \thetaFFT \;:=\; \frac {\dim _{\R } \DFT (\R ^N)}{\dim _{\R } \C ^N}, \] the fraction of the \(2N\) real parameters of a spectrum that are independent; the
+remaining fraction \(1 - \thetaFFT \) is derivable from them. We shall prove \(\thetaFFT = \tfrac {1}{2}\) exactly (Theorem <a 
+href="#x1-5001r1">3.1<!--tex4ht:ref: thm:main --></a>), so the
+independent and the derivable fractions are both \(\tfrac {1}{2}\).
+</p>
+   </div>
+<!--l. 242--><p class="indent" >
+</p>
+   <div class="newtheorem">
+<!--l. 244--><p class="noindent" ><span class="head">
+<a 
+ id="x1-4004r4"></a>
+<span 
+class="ecbx-1200">Remark 2.4 </span>(Counting coeﬃcients instead)<span 
+class="ecbx-1200">.</span>  </span> Counted in complex coeﬃcients rather than
+real parameters, the fraction is not \(\tfrac {1}{2}\). The \(\lfloor N/2 \rfloor + 1\) coeﬃcients indexed by \(L\) determine the rest, so the
+independent fraction of coeﬃcients is \((\lfloor N/2 \rfloor + 1)/N\) and the derivable fraction is \(\abs {U}/N = (N - \lfloor N/2 \rfloor - 1)/N\): for example \(5/8\) and \(3/8\) for \(N = 8\),
+and \(16385/32768\) and \(16383/32768\) for \(N = 32768\). The diﬀerence from \(\tfrac {1}{2}\) comes from the self-paired DC and Nyquist coeﬃcients,
+which are real and so carry one real parameter each.
+</p>
+   </div>
+<!--l. 254--><p class="indent" >
+</p><!--l. 257--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x1-50003"></a>Proof of \(\thetaFFT = \tfrac {1}{2}\)</h3>
+   <div class="newtheorem">
+<!--l. 261--><p class="noindent" ><span class="head">
+<a 
+ id="x1-5001r1"></a>
+<span 
+class="ecbx-1200">Theorem 3.1 </span>(Constitutional constant)<span 
+class="ecbx-1200">.</span>  </span> <span 
+class="ecti-1200">Let</span> \(x \in \R ^N\) <span 
+class="ecti-1200">(real-valued). Then for all</span> \(k \in \{1, \ldots , N-1\}\)<span 
+class="ecti-1200">, </span>\[ \hat {x}_{N-k} \;=\; \overline {\hat {x}_k}. \] <span 
+class="ecti-1200">Consequently,</span> \(\hat {x}_k\)
+<span 
+class="ecti-1200">for</span> \(k \in L = \{0, 1, \ldots , \lfloor N/2 \rfloor \}\) <span 
+class="ecti-1200">uniquely determines</span> \(\hat {x}\) <span 
+class="ecti-1200">entirely,</span> \(\DFT (\R ^N)\) <span 
+class="ecti-1200">is a real subspace of</span> \(\C ^N\) <span 
+class="ecti-1200">of dimension</span> \(N\)<span 
+class="ecti-1200">, and the fraction of</span>
+<span 
+class="ecti-1200">independent real parameters is exactly</span> \(\thetaFFT = \tfrac {1}{2}\)<span 
+class="ecti-1200">.</span>
+                                                                                         
+                                                                                         
+</p>
+   </div>
+<!--l. 270--><p class="indent" >
+</p>
+   <div class="proof">
+<!--l. 273--><p class="indent" >   <span class="head">
+<span 
+class="ecti-1200">Proof.</span> </span>Since \(x_n \in \R \) we have \(x_n = \overline {x_n}\). Compute directly: \begin {align}  \hat {x}_{N-k} &amp;= \sum _{n=0}^{N-1} x_n \, e^{-2\pi i (N-k) n / N} = \sum _{n=0}^{N-1} x_n \, e^{-2\pi i n} \, e^{2\pi i k n / N} \notag \\ &amp;= \sum _{n=0}^{N-1} x_n \, e^{2\pi i k n / N} \qquad \bigl (e^{-2\pi i n} = 1 \text { for } n \in \Z \bigr ) \notag \\ &amp;= \overline {\sum _{n=0}^{N-1} \overline {x_n} \, e^{-2\pi i k n / N}} = \overline {\hat {x}_k}. \label {eq:conjugate}  \end {align}
+</p><!--l. 284--><p class="indent" >   The index pairing \(k \leftrightarrow N-k\) is a bijection on \(\{1, \ldots , N-1\}\). For even \(N\) the midpoint \(k = N/2\) is its own pair (\(N - N/2 = N/2\)), yielding a real
+Nyquist coeﬃcient. The DC component \(\hat {x}_0 = \sum _n x_n\) is also real.
+</p><!--l. 289--><p class="indent" >   Counting independent real degrees of freedom: </p>
+      <ul class="itemize1">
+      <li class="itemize">
+      <!--l. 291--><p class="noindent" >\(\hat {x}_0\): 1 real number.
+      </p></li>
+      <li class="itemize">
+      <!--l. 292--><p class="noindent" >For even \(N\): \(\hat {x}_{N/2}\): 1 real number.
+      </p></li>
+      <li class="itemize">
+      <!--l. 293--><p class="noindent" >Each pair \((\hat {x}_k, \hat {x}_{N-k})\) for \(k = 1, \ldots , N/2 - 1\): 2 real numbers (real and imaginary parts of \(\hat {x}_k\); the partner is then
+      determined). There are \(N/2 - 1\) such pairs.</p></li></ul>
+<!--l. 298--><p class="noindent" >Total independent real degrees of freedom (even \(N\)): \(1 + 1 + 2(N/2 - 1) = N\).
+</p><!--l. 301--><p class="indent" >   For odd \(N\): DC is real (1 real dof), remaining \(N-1\) coeﬃcients pair into \((N-1)/2\) conjugate pairs each
+contributing 2 real dofs, giving \(1 + 2 \cdot (N-1)/2 = N\) independent real dofs.
+</p><!--l. 305--><p class="indent" >   In either case the vectors \(X \in \C ^N\) with \(X_{(N-k) \bmod N} = \overline {X_k}\) for all \(k\) form a real subspace of dimension \(N\), and it contains \(\DFT (\R ^N)\).
+Since the DFT is invertible, it is injective on \(\R ^N\), so \(\DFT (\R ^N)\) also has real dimension \(N\) and equals that
+subspace. The full spectrum has \(N\) complex coeﬃcients, i.e. \(2N\) real parameters, of which exactly \(N\) are
+independent: \(\thetaFFT = N / (2N) = \tfrac {1}{2}\).                                                                                                   __
+</p>
+   </div>
+   <div class="newtheorem">
+<!--l. 314--><p class="noindent" ><span class="head">
+<a 
+ id="x1-5002r2"></a>
+<span 
+class="ecbx-1200">Corollary 3.2 </span>(Magnitude symmetry)<span 
+class="ecbx-1200">.</span>  </span> <span 
+class="ecti-1200">Apart from the self-paired DC and Nyquist terms,</span>
+<span 
+class="ecti-1200">the lower and upper halves of the spectrum carry equal energy: </span>\[ \sum _{k=1}^{\lceil N/2 \rceil - 1} \abs {\hat {x}_k}^2 \;=\; \sum _{k=\lfloor N/2 \rfloor + 1}^{N-1} \abs {\hat {x}_k}^2. \]
+</p>
+   </div>
+<!--l. 322--><p class="indent" >
+</p>
+                                                                                         
+                                                                                         
+   <div class="proof">
+<!--l. 325--><p class="indent" >   <span class="head">
+<span 
+class="ecti-1200">Proof.</span> </span>From Theorem <a 
+href="#x1-5001r1">3.1<!--tex4ht:ref: thm:main --></a>, \(\abs {\hat {x}_{N-k}} = \abs {\hat {x}_k}\) for all \(k\), and \(k \mapsto N-k\) maps \(\{1, \ldots , \lceil N/2 \rceil - 1\}\) bijectively onto \(\{\lfloor N/2 \rfloor + 1, \ldots , N-1\}\).                                __
+</p>
+   </div>
+<!--l. 331--><p class="noindent" >This is magnitude symmetry, not Parseval’s identity (energy conservation between \(x\) and \(\hat {x}\)). The DC
+term and, for even \(N\), the Nyquist term appear on neither side.
+</p>
+   <div class="newtheorem">
+<!--l. 335--><p class="noindent" ><span class="head">
+<a 
+ id="x1-5003r3"></a>
+<span 
+class="ecbx-1200">Remark 3.3 </span>(Independence from the data)<span 
+class="ecbx-1200">.</span>  </span> The value \(\thetaFFT = \tfrac {1}{2}\) depends only on the signal being
+real; it carries no information about the <span 
+class="ecti-1200">distribution </span>of energy within the independent half.
+A white-noise signal and a spectrally sparse neural weight tensor have the same \(\thetaFFT \). Whatever
+compression is achievable is determined by spectral sparsity—a property of the data, not of
+the DFT (Section <a 
+href="#x1-190007">7<!--tex4ht:ref: sec:compression --></a>).
+</p>
+   </div>
+<!--l. 342--><p class="indent" >
+</p><!--l. 345--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
+ id="x1-60004"></a>The Energy Fraction \(\thetaFFT ^{\mathrm {emp}}\)</h3>
+<!--l. 349--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.1   </span> <a 
+ id="x1-70004.1"></a>Deﬁnition and an exact identity</h4>
+<!--l. 351--><p class="noindent" >An earlier version of this paper measured \(\thetaFFT \) “empirically” as the fraction of spectral energy in the
+upper half, together with a mirror-symmetry score: \[ \thetaFFT ^{\mathrm {emp}}(x) \;:=\; \rho _U(x) \;=\; \frac {\sum _{k &gt; N/2} \abs {\hat {x}_k}^2} {\sum _{k=0}^{N-1} \abs {\hat {x}_k}^2}, \qquad \sigma _{\mathrm {mirror}} \;:=\; 1 - \frac {\norm {(\hat {x}_{N-k} - \overline {\hat {x}_k})_{k=1}^{N-1}}} {\norm {(\hat {x}_{N-k})_{k=1}^{N-1}} + \epsilon }. \] For real signals the ﬁrst quantity is ﬁxed by
+the DC and Nyquist coeﬃcients.
+</p>
+   <div class="newtheorem">
+<!--l. 365--><p class="noindent" ><span class="head">
+<a 
+ id="x1-7001r1"></a>
+                                                                                         
+                                                                                         
+<span 
+class="ecbx-1200">Proposition 4.1 </span>(Energy-fraction identity)<span 
+class="ecbx-1200">.</span>  </span> <span 
+class="ecti-1200">Let</span> \(x \in \R ^N\)<span 
+class="ecti-1200">,</span> \(x \neq 0\)<span 
+class="ecti-1200">, and</span> \(E = E(x)\)<span 
+class="ecti-1200">. Then </span>\[ \thetaFFT ^{\mathrm {emp}}(x) \;=\; \frac {1}{2} \;-\; \frac {\abs {\hat {x}_0}^2 + \abs {\hat {x}_{N/2}}^2}{2E}, \] <span 
+class="ecti-1200">where the Nyquist term</span> \(\abs {\hat {x}_{N/2}}^2\)
+<span 
+class="ecti-1200">is present only for even</span> \(N\)<span 
+class="ecti-1200">. Consequently</span> \(0 \leq \thetaFFT ^{\mathrm {emp}}(x) \leq \tfrac {1}{2}\)<span 
+class="ecti-1200">; the value</span> \(\tfrac {1}{2}\) <span 
+class="ecti-1200">is attained if and only if</span> \(\hat {x}_0 = 0\) <span 
+class="ecti-1200">and, for even</span> \(N\)<span 
+class="ecti-1200">,</span> \(\hat {x}_{N/2} = 0\)<span 
+class="ecti-1200">;</span>
+<span 
+class="ecti-1200">and the value</span> \(0\) <span 
+class="ecti-1200">is attained if and only if all the energy lies in the DC and Nyquist coeﬃcients,</span>
+<span 
+class="ecti-1200">as for a constant signal or, for even</span> \(N\)<span 
+class="ecti-1200">, for</span> \(x_n = (-1)^n\)<span 
+class="ecti-1200">.</span>
+</p>
+   </div>
+<!--l. 377--><p class="indent" >
+</p>
+   <div class="proof">
+<!--l. 380--><p class="indent" >   <span class="head">
+<span 
+class="ecti-1200">Proof.</span> </span>Split \([N]\) into \(\{0\}\), the Nyquist index \(N/2\) (even \(N\) only), \(L' := \{1, \ldots , \lceil N/2 \rceil - 1\}\) and \(U\). By Corollary <a 
+href="#x1-5002r2">3.2<!--tex4ht:ref: cor:energy --></a> the energies \(S_{L'}\) and
+\(S_U\) on \(L'\) and \(U\) are equal, so \(E = \abs {\hat {x}_0}^2 + \abs {\hat {x}_{N/2}}^2 + 2 S_U\), and \(\thetaFFT ^{\mathrm {emp}} = S_U/E\) gives the identity. The remaining assertions follow at once.   __
+</p>
+   </div>
+<!--l. 388--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.2   </span> <a 
+ id="x1-80004.2"></a>What the energy fraction does and does not measure</h4>
+<!--l. 390--><p class="noindent" >\(\thetaFFT ^{\mathrm {emp}}\) is a property of the data, not a measurement of \(\thetaFFT \). Its deviation from \(\tfrac {1}{2}\) is exactly the DC and
+Nyquist term of Proposition <a 
+href="#x1-7001r1">4.1<!--tex4ht:ref: prop:energyidentity --></a>; it can be driven to \(0\) by a suitable signal; and it cannot tell real
+from complex input (\(x = (1+2i)\,x_R\) with \(x_R\) real has the same \(\thetaFFT ^{\mathrm {emp}}\) as \(x_R\)). Its closeness to \(\tfrac {1}{2}\) therefore does not conﬁrm
+Theorem <a 
+href="#x1-5001r1">3.1<!--tex4ht:ref: thm:main --></a>, which in any case needs no empirical conﬁrmation. The direct numerical check of the
+symmetry is the mirror residual \(\max _k \abs {\hat {x}_{N-k} - \overline {\hat {x}_k}}/\norm {\hat {x}}\), or \(1 - \sigma _{\mathrm {mirror}}\); for a Gaussian random signal of length \(N = 32768\) in double precision
+(NumPy), \(\sigma _{\mathrm {mirror}}\) diﬀers from \(1\) by about \(3 \times 10^{-16}\).
+</p><!--l. 403--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.3   </span> <a 
+ id="x1-90004.3"></a>The withdrawn table</h4>
+<!--l. 405--><p class="noindent" >An earlier version reported \(\thetaFFT ^{\mathrm {emp}}\) for three synthetic \(512 \times 64\) test matrices: “structured FFN weights” (low-rank
+plus Gaussian noise), “attention weights” (a product \((512 \times 16) \times (16 \times 64)\) with a sparse factor) and an i.i.d. Gaussian
+control. It included the value \(0.500247\) for the attention weights, with a deviation of \(2.5 \times 10^{-4}\) attributed to
+numerical precision. By Proposition <a 
+href="#x1-7001r1">4.1<!--tex4ht:ref: prop:energyidentity --></a> no value above \(\tfrac {1}{2}\) is possible for the DFT of real
+data, and double-precision rounding errors are of order \(10^{-16}\) in relative terms, so that entry
+cannot have come from the stated measurement. The table and its explanation are
+withdrawn.
+</p><!--l. 417--><p class="indent" >   Recomputing \(\thetaFFT ^{\mathrm {emp}}\) for 200 random matrices of each of the three described types, ﬂattened to
+length \(N = 32768\), gives values between \(0.49981\) and \(0.5\), never above, with mean about \(0.49997\) for each type: a
+                                                                                         
+                                                                                         
+deviation of order \(1/N\), consistent with the DC and Nyquist term of Proposition <a 
+href="#x1-7001r1">4.1<!--tex4ht:ref: prop:energyidentity --></a> for
+random data of mean near zero. Values slightly above \(\tfrac {1}{2}\) (up to about \(0.502\)) arise only if a
+two-dimensional FFT is computed and its spectrum split by ﬂattened index, which is
+not a partition into conjugate pairs. The table’s compression columns are discussed in
+Section <a 
+href="#x1-190007">7<!--tex4ht:ref: sec:compression --></a>.
+</p><!--l. 429--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
+ id="x1-100005"></a>Scope: Complex, Quantised and Adversarial Inputs, and Finite Precision</h3>
+<!--l. 433--><p class="noindent" >We record how the symmetry, and the energy fraction of Section <a 
+href="#x1-60004">4<!--tex4ht:ref: sec:empirical --></a>, behave for four families of
+inputs.
+</p><!--l. 436--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">5.1   </span> <a 
+ id="x1-110005.1"></a>Complex-valued inputs</h4>
+<!--l. 438--><p class="noindent" >Theorem <a 
+href="#x1-5001r1">3.1<!--tex4ht:ref: thm:main --></a> requires \(x \in \R ^N\). On all of \(\C ^N\) the DFT is a bijection, so no part of the spectrum is derivable
+from the rest: the independent fraction of real parameters is \(1\), not \(\tfrac {1}{2}\). The energy fraction behaves as
+follows.
+</p>
+   <div class="newtheorem">
+<!--l. 443--><p class="noindent" ><span class="head">
+<a 
+ id="x1-11001r1"></a>
+<span 
+class="ecbx-1200">Proposition 5.1 </span>(Complex inputs)<span 
+class="ecbx-1200">.</span>  </span> <span 
+class="ecti-1200">Let</span> \(x = x_R + i x_I\) <span 
+class="ecti-1200">with</span> \(x_R, x_I \in \R ^N\)<span 
+class="ecti-1200">, and write</span> \(A := \hat {x}_R\) <span 
+class="ecti-1200">and</span> \(B := \hat {x}_I\)<span 
+class="ecti-1200">, so that</span> \(\hat {x} = A + iB\)<span 
+class="ecti-1200">. Then for</span> \(1 \leq k \leq N-1\)<span 
+class="ecti-1200">, </span>\[ \abs {\hat {x}_k}^2 - \abs {\hat {x}_{N-k}}^2 \;=\; 4 \, \operatorname {Im}\bigl (A_k \overline {B_k}\bigr ). \] <span 
+class="ecti-1200">Hence</span>
+<span 
+class="ecti-1200">the lower and upper halves, excluding the DC and Nyquist terms, carry equal energy if and</span>
+<span 
+class="ecti-1200">only if</span> \(\sum _{k=1}^{\lceil N/2 \rceil - 1} \operatorname {Im}(A_k \overline {B_k}) = 0\)<span 
+class="ecti-1200">. For</span> \(N \geq 3\)<span 
+class="ecti-1200">,</span> \(\thetaFFT ^{\mathrm {emp}}\) <span 
+class="ecti-1200">takes every value in</span> \([0,1]\) <span 
+class="ecti-1200">on</span> \(\C ^N\)<span 
+class="ecti-1200">.</span>
+</p>
+   </div>
+<!--l. 456--><p class="indent" >
+</p>
+   <div class="proof">
+<!--l. 459--><p class="indent" >   <span class="head">
+<span 
+class="ecti-1200">Proof.</span> </span>By Theorem <a 
+href="#x1-5001r1">3.1<!--tex4ht:ref: thm:main --></a>, \(A_{N-k} = \overline {A_k}\) and \(B_{N-k} = \overline {B_k}\), so \(\hat {x}_{N-k} = \overline {A_k} + i\,\overline {B_k}\). Expanding, \(\abs {\hat {x}_k}^2 = \abs {A_k}^2 + \abs {B_k}^2 + 2\operatorname {Im}(A_k \overline {B_k})\) and \(\abs {\hat {x}_{N-k}}^2 = \abs {A_k}^2 + \abs {B_k}^2 - 2\operatorname {Im}(A_k \overline {B_k})\). Summing the diﬀerence over \(k = 1, \ldots , \lceil N/2 \rceil - 1\) gives
+the second claim. For the third, \(x_n = a\,e^{2\pi i n/N} + b\,e^{-2\pi i n/N}\) has all its energy at \(k = 1\) (lower half) and \(k = N-1\) (upper half), in the
+proportion \(\abs {a}^2 : \abs {b}^2\), so \(\thetaFFT ^{\mathrm {emp}} = \abs {b}^2/(\abs {a}^2 + \abs {b}^2)\).                                                                                                 __
+</p>
+   </div>
+                                                                                         
+                                                                                         
+<!--l. 472--><p class="indent" >   In particular, equal power in \(x_R\) and \(x_I\) is neither necessary nor suﬃcient for \(\thetaFFT ^{\mathrm {emp}}(x) = \tfrac {1}{2}\): the signal \(x = (1+2i)\,x_R\) has power
+ratio \(4\) but the same \(\thetaFFT ^{\mathrm {emp}}\) as \(x_R\), while \(x_n = e^{2\pi i n/N}\) has equal powers and \(\thetaFFT ^{\mathrm {emp}} = 0\).
+</p><!--l. 478--><p class="indent" >   <span 
+class="ecbx-1200">Practical implication. </span>Standard neural-network weight tensors are real-valued. Complex
+inputs arise in signal-processing applications where the data are genuinely complex (e.g., IQ radio
+samples, quantum state amplitudes).
+</p><!--l. 483--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">5.2   </span> <a 
+ id="x1-120005.2"></a>Near-real inputs: integer quantisation</h4>
+<!--l. 485--><p class="noindent" >Quantised weights (INT8, INT4, binary) are real-valued but live in a discrete lattice. The proof of
+Theorem <a 
+href="#x1-5001r1">3.1<!--tex4ht:ref: thm:main --></a> is unaﬀected by the arithmetic constraint: \(x_n \in \Z \) still satisﬁes \(x_n \in \R \), so conjugate symmetry
+holds exactly.
+</p>
+   <div class="newtheorem">
+<!--l. 490--><p class="noindent" ><span class="head">
+<a 
+ id="x1-12001r2"></a>
+<span 
+class="ecbx-1200">Corollary 5.2.</span>  </span> <span 
+class="ecti-1200">For any</span> \(x \in \Z ^N \subset \R ^N\)<span 
+class="ecti-1200">,</span> \(\hat {x}_{N-k} = \overline {\hat {x}_k}\) <span 
+class="ecti-1200">for all</span> \(k\)<span 
+class="ecti-1200">, exactly.</span>
+</p>
+   </div>
+<!--l. 493--><p class="indent" >
+</p><!--l. 495--><p class="indent" >   What quantisation can change is the <span 
+class="ecti-1200">sparsity </span>of the spectrum, and with it any compression
+ratio; the symmetry itself is preserved.
+</p><!--l. 498--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">5.3   </span> <a 
+ id="x1-130005.3"></a>Adversarial inputs</h4>
+   <div class="newtheorem">
+<!--l. 500--><p class="noindent" ><span class="head">
+<a 
+ id="x1-13001r3"></a>
+<span 
+class="ecbx-1200">Proposition 5.3 </span>(Adversarial inputs)<span 
+class="ecbx-1200">.</span>  </span> \(\thetaFFT = \tfrac {1}{2}\) <span 
+class="ecti-1200">is a property of the space</span> \(\R ^N\) <span 
+class="ecti-1200">of real signals, not of</span>
+<span 
+class="ecti-1200">any particular signal, so no choice of real data changes it. The energy fraction, by contrast,</span>
+<span 
+class="ecti-1200">can be placed anywhere in</span> \([0, \tfrac {1}{2}]\) <span 
+class="ecti-1200">and no higher: for real</span> \(x \neq 0\)<span 
+class="ecti-1200">,</span> \(0 \leq \thetaFFT ^{\mathrm {emp}}(x) \leq \tfrac {1}{2}\)<span 
+class="ecti-1200">, and for</span> \(N \geq 3\) <span 
+class="ecti-1200">every value in</span> \([0, \tfrac {1}{2}]\) <span 
+class="ecti-1200">is attained.</span>
+</p>
+   </div>
+<!--l. 507--><p class="indent" >
+</p>
+   <div class="proof">
+                                                                                         
+                                                                                         
+<!--l. 510--><p class="indent" >   <span class="head">
+<span 
+class="ecti-1200">Proof.</span> </span>The bounds are Proposition <a 
+href="#x1-7001r1">4.1<!--tex4ht:ref: prop:energyidentity --></a>. For \(x_n = a + b\cos (2\pi n/N)\) with \(a, b\) real, \(\hat {x}_0 = aN\), \(\hat {x}_1 = \hat {x}_{N-1} = bN/2\) and all other coeﬃcients vanish,
+so \(\thetaFFT ^{\mathrm {emp}} = (b^2/4)/(a^2 + b^2/2)\), which runs over \([0, \tfrac {1}{2}]\).                                                                                          __
+</p>
+   </div>
+<!--l. 517--><p class="noindent" >So the “robustness” of \(\thetaFFT \) to the data is automatic: it is the statement of Theorem <a 
+href="#x1-5001r1">3.1<!--tex4ht:ref: thm:main --></a>, not an
+additional property. An adversary who controls the data controls the energy fraction, down to \(0\), but
+can never push it above \(\tfrac {1}{2}\).
+</p><!--l. 522--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">5.4   </span> <a 
+ id="x1-140005.4"></a>Finite-precision arithmetic</h4>
+<!--l. 524--><p class="noindent" >IEEE 754 double-precision ﬂoating point has machine epsilon \(\epsilon _{\mathrm {mach}} \approx 2.2 \times 10^{-16}\). For the Cooley–Tukey FFT
+the computed spectrum \(\tilde {x}\) satisﬁes, to ﬁrst order, a normwise bound \(\norm {\tilde {x} - \hat {x}} \leq c \cdot \log _2 N \cdot \epsilon _{\mathrm {mach}} \cdot \norm {\hat {x}}\), with a modest
+constant \(c\) that depends on the implementation and on the accuracy of the twiddle factors
+[<a 
+href="#XHigham2002">7</a>].
+</p>
+   <div class="newtheorem">
+<!--l. 532--><p class="noindent" ><span class="head">
+<a 
+ id="x1-14001r4"></a>
+<span 
+class="ecbx-1200">Proposition 5.4 </span>(Numerical stability of the symmetry)<span 
+class="ecbx-1200">.</span>  </span>  <span 
+class="ecti-1200">Let</span>  \(x \in \R ^N\)  <span 
+class="ecti-1200">and  let</span>  \(\tilde {x}\)  <span 
+class="ecti-1200">be  a  computed</span>
+<span 
+class="ecti-1200">spectrum with</span> \(\norm {\tilde {x} - \hat {x}} \leq \delta \norm {\hat {x}}\)<span 
+class="ecti-1200">. Then </span>\[ \max _{1 \leq k \leq N-1} \bigl |\tilde {x}_{N-k} - \overline {\tilde {x}_k}\bigr | \;\leq \; 2\delta \norm {\hat {x}}. \] <span 
+class="ecti-1200">With the FFT bound above, the mirror residual is therefore</span> \(O(\log _2 N \cdot \epsilon _{\mathrm {mach}})\) <span 
+class="ecti-1200">relative</span>
+<span 
+class="ecti-1200">to</span> \(\norm {\hat {x}}\)<span 
+class="ecti-1200">.</span>
+</p>
+   </div>
+<!--l. 542--><p class="indent" >
+</p>
+   <div class="proof">
+<!--l. 545--><p class="indent" >   <span class="head">
+<span 
+class="ecti-1200">Proof.</span> </span>Since \(\hat {x}_{N-k} = \overline {\hat {x}_k}\), \(\abs {\tilde {x}_{N-k} - \overline {\tilde {x}_k}} \leq \abs {\tilde {x}_{N-k} - \hat {x}_{N-k}} + \abs {\overline {\hat {x}_k} - \overline {\tilde {x}_k}} \leq 2\norm {\tilde {x} - \hat {x}}\).                                                                                                  __
+</p>
+   </div>
+<!--l. 551--><p class="indent" >   This bound concerns the symmetry. It does not bound \(\abs {\thetaFFT ^{\mathrm {emp}} - \tfrac {1}{2}}\), which is not a rounding eﬀect: by
+Proposition <a 
+href="#x1-7001r1">4.1<!--tex4ht:ref: prop:energyidentity --></a> it equals \((\abs {\hat {x}_0}^2 + \abs {\hat {x}_{N/2}}^2)/(2E)\) exactly, which is \(\tfrac {1}{2}\) for a constant signal and typically of order \(1/N\) for
+zero-mean random data.
+                                                                                         
+                                                                                         
+</p><!--l. 559--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">6   </span> <a 
+ id="x1-150006"></a>Khayyam’s Triangle Modulo a Prime: A Parallel That Fails</h3>
+<!--l. 563--><p class="noindent" >An earlier version of this paper argued that \(\thetaFFT = \tfrac {1}{2}\) and Khayyam’s Triangle modulo a prime are instances
+of a single phenomenon, a “constitutional redundancy” of exactly one-half revealed by a change
+of frame. This section states the facts about the triangle and shows that the parallel
+fails.
+</p><!--l. 569--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">6.1   </span> <a 
+ id="x1-160006.1"></a>Khayyam’s Triangle modulo a prime</h4>
+<!--l. 571--><p class="noindent" >Recall from [<a 
+href="#XWakil2026Khayyam">16</a>]: reducing the entries of Khayyam’s Triangle modulo a prime \(p\) reveals a
+Sierpiński-type fractal. By Lucas’s theorem [<a 
+href="#XLucas1878">8</a>], \(\binom {n}{k} \not \equiv 0 \pmod {p}\) if and only if every base-\(p\) digit of \(k\) is \(\leq \) the
+corresponding digit of \(n\). The <span 
+class="ecti-1200">void </span>positions in the fractal are exactly those where this digit
+condition fails. Consequently row \(n\) contains \(\prod _i (n_i + 1)\) entries not divisible by \(p\) [<a 
+href="#XFine1947">4</a>], and the ﬁrst \(p^m\) rows contain \((p(p+1)/2)^m\)
+of them [<a 
+href="#XReiter1993">10</a>, <a 
+href="#XWolfram1984">22</a>]; for \(p = 2\) this count is \(3^m\) [<a 
+href="#XFine1947">4</a>, <a 
+href="#XGlaisher1899">5</a>], and the limiting set is the Sierpiński gasket [<a 
+href="#XSierpinski1915">11</a>]. The
+limiting fractal has Hausdorﬀ dimension [<a 
+href="#XReiter1993">10</a>] \[ d_p \;=\; \frac {\log \bigl (p(p+1)/2\bigr )}{\log p}, \] so \(d_2 = \log 3/\log 2 \approx 1.585\), \(d_3 = \log 6/\log 3 \approx 1.631\), and \(d_p\) increases towards \(2\) as \(p\) grows. (An
+earlier version, following an error since corrected in [<a 
+href="#XWakil2026Khayyam">16</a>], gave \(d_p = \log (p+1)/\log p\), which is correct only for
+\(p = 2\).)
+</p><!--l. 592--><p class="indent" >   The ﬁrst \(p^m\) rows contain \(p^m(p^m+1)/2\) entries in all, so the fraction of them not divisible by \(p\) is \[ \frac {(p(p+1)/2)^m}{p^m(p^m+1)/2} \;=\; \frac {2\,\bigl ((p+1)/2\bigr )^m}{p^m + 1} \;\longrightarrow \; 0 \qquad (m \to \infty ), \]
+and the fraction of entries that vanish modulo \(p\) tends to \(1\) for every prime \(p\). For \(p = 2\) and \(m = 1, \ldots , 7\)
+the void fraction is \(0, 0.10, 0.25, 0.40, 0.54, 0.65, 0.74\); for \(p = 3\) and \(m = 1, \ldots , 5\) it is \(0, 0.20, 0.43, 0.61, 0.74\). Almost all binomial coeﬃcients are divisible by
+\(p\).
+</p><!--l. 606--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">6.2   </span> <a 
+ id="x1-170006.2"></a>Why the parallel fails</h4>
+<!--l. 608--><p class="noindent" >There is therefore no redundancy of one-half in the triangle. The earlier claim that the void
+fraction tends to \(\tfrac {1}{2}\) for \(p = 2\) is false; the formula oﬀered for it, \(1 - p^{1-d_p}\), gives \(1/(p+1)\) under that version’s
+own \(d_p\), i.e. \(1/3\) for \(p = 2\), and in any case the limit is \(1\). The “constitutional redundancy duality”
+proposition, its table of parallels and its proof sketch are withdrawn. The “conjugate pairing of
+rows \(k\) and \(2^m - k\)” invoked there does not exist, since those rows have diﬀerent lengths; and a
+vanishing entry is not “derivable from the rest” in the sense in which \(\hat {x}_{N-k}\) is derivable from
+\(\hat {x}_k\), so the two “redundancies” are diﬀerent notions. The genuine binomial analogue of
+conjugate symmetry is the row symmetry \(\binom {n}{k} = \binom {n}{n-k}\), which determines each row from its ﬁrst \(\lfloor n/2 \rfloor + 1\)
+entries, for any modulus or none; it has nothing to do with Lucas’s theorem or the
+fractal.
+</p><!--l. 623--><p class="noindent" >
+</p>
+                                                                                         
+                                                                                         
+   <h4 class="subsectionHead"><span class="titlemark">6.3   </span> <a 
+ id="x1-180006.3"></a>The prime \(p = 3\)</h4>
+<!--l. 625--><p class="noindent" >In the companion paper [<a 
+href="#XWakil2026Eisenstein">19</a>], the prime \(p = 3\) is singled out because it is the only prime that ramiﬁes in
+the Eisenstein integers \(\Z [\omega ]\) (where \(\omega = e^{2\pi i/3}\)). The fractal does not single out \(3\): Lucas’s theorem and the formula
+for \(d_p\) hold for every prime. The level of distribution \(\theta _W = \tfrac {5}{8}\) that [<a 
+href="#XWakil2026Eisenstein">19</a>] proposes for the moduli \(q = 3^K\) is a
+conjecture, not a result.
+</p><!--l. 633--><p class="indent" >   An earlier version also proposed a “ternary resonance” conjecture: that three channels
+(magnitude, phase and “coherence”, processed by three SIREN networks [<a 
+href="#XSitzmann2020">12</a>] in the NFR stage) are
+optimal for neural spectral compression, by a connection with “the minimality of \(d_3 = \log 4/\log 3\) among
+primes \(p \geq 3\)”. Its premise used a wrong value of \(d_3\) (under that wrong formula \(d_3\) would be the
+largest value among primes \(p \geq 3\), not the smallest); a single complex coeﬃcient has two
+real parameters, not three; and no data supporting it were reported. The conjecture is
+withdrawn.
+</p><!--l. 644--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">7   </span> <a 
+ id="x1-190007"></a>Compression Implications</h3>
+<!--l. 648--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">7.1   </span> <a 
+ id="x1-200007.1"></a>What conjugate symmetry does and does not give</h4>
+<!--l. 650--><p class="noindent" >Let \(w \in \R ^N\) be a real-valued weight tensor, ﬂattened. Its independent half-spectrum \((\hat {w}_k)_{k \in L}\), as returned by
+real-input FFT routines such as <span 
+class="ectt-1200">numpy.fft.rfft</span>, consists of \(\lfloor N/2 \rfloor + 1\) complex numbers, of which \(\operatorname {Im}\hat {w}_0 = 0\) and, for
+even \(N\), \(\operatorname {Im}\hat {w}_{N/2} = 0\). It therefore holds exactly \(N\) real numbers, as many as \(w\): for \(N = 32768\), \(16385\) complex coeﬃcients, i.e. \(32768\) real
+numbers.
+</p>
+   <div class="newtheorem">
+<!--l. 659--><p class="noindent" ><span class="head">
+<a 
+ id="x1-20001r1"></a>
+<span 
+class="ecbx-1200">Proposition 7.1 </span>(No compression from the symmetry)<span 
+class="ecbx-1200">.</span>  </span> <span 
+class="ecti-1200">For</span> \(w \in \R ^N\)<span 
+class="ecti-1200">, the map sending</span> \(w\) <span 
+class="ecti-1200">to the real</span>
+<span 
+class="ecti-1200">and imaginary parts of</span> \((\hat {w}_k)_{k \in L}\)<span 
+class="ecti-1200">, with the identically zero imaginary parts of</span> \(\hat {w}_0\) <span 
+class="ecti-1200">and (for even</span> \(N\)<span 
+class="ecti-1200">)</span> \(\hat {w}_{N/2}\) <span 
+class="ecti-1200">omitted,</span>
+<span 
+class="ecti-1200">is a linear bijection</span> \(\R ^N \to \R ^N\)<span 
+class="ecti-1200">.</span>
+</p>
+   </div>
+<!--l. 664--><p class="indent" >
+</p>
+   <div class="proof">
+<!--l. 667--><p class="indent" >   <span class="head">
+                                                                                         
+                                                                                         
+<span 
+class="ecti-1200">Proof.</span> </span>The map is linear, and it is injective because by Theorem <a 
+href="#x1-5001r1">3.1<!--tex4ht:ref: thm:main --></a> the half-spectrum
+determines \(\hat {w}\) and hence \(w\). The number of real numbers it retains is \(2(\lfloor N/2 \rfloor + 1) - 2 = N\) for even \(N\) and \(2 \cdot \tfrac {N+1}{2} - 1 = N\) for odd \(N\), so
+a linear injection \(\R ^N \to \R ^N\) is a bijection.                                                                            __
+</p>
+   </div>
+<!--l. 675--><p class="indent" >   So conjugate symmetry avoids the \(2\times \) inﬂation of storing the full complex spectrum, but it
+gives no compression relative to the input. An earlier version decomposed the total
+compression of an FFT-based scheme as \(\eta _{\mathrm {total}} = \eta _{\mathrm {const}} \times \eta _{\mathrm {sparse}}\) with a “constitutional ﬂoor” \(\eta _{\mathrm {const}} = 2\), and stated a
+“compression lower bound” theorem: a lossless \(2\times \) compression for every real tensor, tight for
+white noise. Measured against the real input, \(\eta _{\mathrm {const}} = 1\), so \(\eta _{\mathrm {total}} = \eta _{\mathrm {sparse}}\), and that theorem is withdrawn. Any
+compression of an FFT-based scheme comes from discarding or coarsely coding spectral
+coeﬃcients—that is, from spectral sparsity of the data—and is lossy unless the discarded
+coeﬃcients are exactly zero. (In ﬂoating point even the round trip \(w \mapsto \hat {w} \mapsto w\) is exact only up to rounding
+error.)
+</p><!--l. 690--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">7.2   </span> <a 
+ id="x1-210007.2"></a>Spectral sparsity of the test matrices</h4>
+<!--l. 692--><p class="noindent" >The only reproducible compression entry of the table withdrawn in Section <a 
+href="#x1-60004">4<!--tex4ht:ref: sec:empirical --></a> is the random
+control. For an i.i.d. Gaussian \(512 \times 64\) matrix, keeping the largest \(20\%\) of the DFT coeﬃcients (\(5\times \)) retains about
+\(52\%\) of the energy (\(0.518\) to \(0.521\) in our recomputation); for exponentially distributed coeﬃcient powers the
+fraction retained is \(f(1 - \ln f) \approx 0.522\) at \(f = 0.2\).
+</p><!--l. 699--><p class="indent" >   The “\(2730\times \) at \(96\%\) energy” reported for “structured FFN weights” could not be reproduced from the
+described construction. For low-rank (rank \(1\), \(4\), \(8\) or \(16\)) plus Gaussian noise (standard deviation
+\(0.1\)) matrices of that shape, \(96\%\) of the energy of the two-dimensional DFT needs between \(19{,}871\)
+and \(23{,}767\) of the \(32{,}768\) coeﬃcients, a ratio of \(1.4\) to \(1.6\times \). Low rank does not imply DFT sparsity: the
+two-dimensional DFT of \(UV^{\mathsf {T}}\) is \((FU)(FV)^{\mathsf {T}}\), still of rank \(r\) but in general dense. A ratio of \(2730 = \lfloor 32768/12 \rfloor \) would mean
+that \(96\%\) of the energy lies in \(12\) of the \(32{,}768\) coeﬃcients. The \(2730\times \) ﬁgure is therefore unveriﬁed and is
+withdrawn, together with the earlier explanation that gradient-descent training drives
+weight tensors “onto low-dimensional manifolds in frequency space”, which synthetic test
+matrices could not have tested. The “moderate” entry for the attention weights was not a
+measurement.
+</p><!--l. 715--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">7.3   </span> <a 
+ id="x1-220007.3"></a>The withdrawn predicted-ratio formula</h4>
+<!--l. 717--><p class="noindent" >An earlier version gave a “theorem-predicted” compression ratio \(\etapred (d) = N/\lfloor N^{d/\dim } \rfloor \) and reported \(\etapred \approx 2730 = \etaact \) at \(d \approx 0.03\). The symbol \(\dim \)
+was never deﬁned and no theorem was stated. For \(N = 32768\) and \(d = 0.03\) the formula gives \(32768\) for \(\dim \in \{\tfrac {1}{2}, 1, 2\}\); the value \(2730\) would
+need \(\dim \approx 0.1255\). The formula and the claimed agreement are withdrawn.
+                                                                                         
+                                                                                         
+</p><!--l. 725--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">7.4   </span> <a 
+ id="x1-230007.4"></a>The NFR stage</h4>
+<!--l. 727--><p class="noindent" >The NFR (Neural Fiber Representation) stage trains three parallel SIREN networks [<a 
+href="#XSitzmann2020">12</a>] on a
+decomposition of the independent spectral half into magnitude, phase and a third “coherence”
+channel. It is under development, and no compression results for it are reported here. The ﬁgures
+given in an earlier version—\(67\times \) on MoE expert weights (\(20\times \) in public-facing claims), decomposed as
+\(2 \times 33.5\)—are unveriﬁed, and their factor \(2\) rested on the illusory ﬂoor of Proposition <a 
+href="#x1-20001r1">7.1<!--tex4ht:ref: prop:nocompression --></a>; they are
+withdrawn.
+</p><!--l. 738--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">8   </span> <a 
+ id="x1-240008"></a>Position Within the Constitutional Sieve Programme</h3>
+<!--l. 742--><p class="noindent" >This paper is the ninth of the nine papers of the programme:
+</p><!--l. 744--><p class="indent" >
+      </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   1. </dt><dd 
+class="enumerate-enumitem">[<a 
+href="#XWakil2026Forcing">15</a>]: Constitutional Forcing. The formula \(\theta _k = (2^k - k)/2^k\) is a postulate (a system of depth \(k\) is one in
+      which exactly \(k\) conﬁguration classes are eliminated), not a theorem.
+      </dd><dt class="enumerate-enumitem">
+   2. </dt><dd 
+class="enumerate-enumitem">[<a 
+href="#XWakil2026Khayyam">16</a>]: Khayyam’s Triangle; historical restoration and the mod-\(p\) fractal.
+      </dd><dt class="enumerate-enumitem">
+   3. </dt><dd 
+class="enumerate-enumitem">[<a 
+href="#XWakil2026SphericalCow">18</a>]: Spherical Cow Philosophy; the programme’s methodology.
+      </dd><dt class="enumerate-enumitem">
+   4. </dt><dd 
+class="enumerate-enumitem">[<a 
+href="#XWakil2026Eisenstein">19</a>]: Eisenstein integers and cascade moduli; the level of distribution \(\theta _W = \tfrac {5}{8}\) for the moduli \(3^K\)
+      is a conjecture.
+      </dd><dt class="enumerate-enumitem">
+   5. </dt><dd 
+class="enumerate-enumitem">[<a 
+href="#XWakil2026Ramanujan">17</a>]: Ramanujan’s dimensional forcing; the counting formula is a postulate.
+      </dd><dt class="enumerate-enumitem">
+   6. </dt><dd 
+class="enumerate-enumitem">[<a 
+href="#XWakil2026Shannon">21</a>]: the Shannon–Wakil eﬀect; a parallel with information theory.
+      </dd><dt class="enumerate-enumitem">
+   7. </dt><dd 
+class="enumerate-enumitem">[<a 
+href="#XWakil2026ConditionW3">14</a>]: Condition W3, the absence of exceptional zeros for characters modulo \(3^K\); it is true,
+      with a one-line proof from the cyclicity of \((\Z /3^K\Z )^\times \).
+      </dd><dt class="enumerate-enumitem">
+   8. </dt><dd 
+class="enumerate-enumitem">[<a 
+href="#XWakil2026Bias">20</a>]: the Lemke Oliver–Soundararajan bias and ternary structure.
+      </dd><dt class="enumerate-enumitem">
+   9. </dt><dd 
+class="enumerate-enumitem">This paper: \(\thetaFFT = \tfrac {1}{2}\); conjugate symmetry of the real DFT.</dd></dl>
+<!--l. 769--><p class="indent" >   The programme’s organising idea is <span 
+class="ecti-1200">constitutional forcing</span>: structural constraints that ﬁx a
+constant before any data are examined. Of the constants mentioned in this paper, \(\thetaFFT = \tfrac {1}{2}\) is a classical
+theorem (Theorem <a 
+href="#x1-5001r1">3.1<!--tex4ht:ref: thm:main --></a>), \(\theta _W = \tfrac {5}{8}\) is a conjecture [<a 
+href="#XWakil2026Eisenstein">19</a>], and the dimension of the mod-3 fractal is \(\log 6/\log 3\).
+The value \(\tfrac {1}{2}\) does not identify a depth \(k\) in the formula \(\theta _k = (2^k - k)/2^k\), since \(\theta _1 = \theta _2 = \tfrac {1}{2}\). That these constants are
+shadows of a common “sieve geometry”, as an earlier version put it, is a heuristic, not a
+result.
+                                                                                         
+                                                                                         
+</p><!--l. 780--><p class="indent" >   An earlier version also stated a “constitutional universality” conjecture: that every real-valued
+signal domain with a natural basis change (Fourier, modular, wavelet, \(p\)-adic) has a constant \(\theta \in (0,1)\) of its
+representation that is derivable from the remainder. It is false. Any invertible real transform \(\R ^N \to \R ^N\)—the
+discrete cosine transform, the discrete Hartley transform [<a 
+href="#XBracewell1983">1</a>], or an orthonormal Haar wavelet
+transform—has no derivable coeﬃcients, so \(\theta = 0\). The conjecture is withdrawn. The same
+examples show that the value \(\tfrac {1}{2}\) is an artefact of representing a real signal by complex
+coeﬃcients: the Hartley transform carries the same information as the DFT with no
+redundancy.
+</p><!--l. 794--><p class="noindent" >
+</p>
+   <h3 class="sectionHead"><span class="titlemark">9   </span> <a 
+ id="x1-250009"></a>Conclusion</h3>
+<!--l. 797--><p class="noindent" >We have established the following:
+</p><!--l. 799--><p class="indent" >
+      </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+   1. </dt><dd 
+class="enumerate-enumitem">\(\thetaFFT = \tfrac {1}{2}\), counted in real parameters, is an exact and classical theorem for all real-valued ﬁnite
+      signals, proved directly from the DFT deﬁnition (Theorem <a 
+href="#x1-5001r1">3.1<!--tex4ht:ref: thm:main --></a>). Counted in complex
+      coeﬃcients, the independent fraction is \((\lfloor N/2 \rfloor + 1)/N\) (Remark <a 
+href="#x1-4004r4">2.4<!--tex4ht:ref: rem:coeffcount --></a>).
+      </dd><dt class="enumerate-enumitem">
+   2. </dt><dd 
+class="enumerate-enumitem">The energy fraction of the upper half satisﬁes \(\thetaFFT ^{\mathrm {emp}} = \tfrac {1}{2} - (\abs {\hat {x}_0}^2 + \abs {\hat {x}_{N/2}}^2)/(2E) \leq \tfrac {1}{2}\) for real data (Proposition <a 
+href="#x1-7001r1">4.1<!--tex4ht:ref: prop:energyidentity --></a>). It is a
+      property of the data and does not test \(\thetaFFT \); the earlier empirical table, which contained
+      an impossible value, is withdrawn.
+      </dd><dt class="enumerate-enumitem">
+   3. </dt><dd 
+class="enumerate-enumitem">\(\thetaFFT \) does not depend on the data, so no real input can change it; the energy fraction can
+      be placed anywhere in \([0, \tfrac {1}{2}]\) (Proposition <a 
+href="#x1-13001r3">5.3<!--tex4ht:ref: prop:adversarial --></a>).
+      </dd><dt class="enumerate-enumitem">
+   4. </dt><dd 
+class="enumerate-enumitem">There is no parallel with Khayyam’s Triangle at the level of redundancy fraction: the
+      proportion of entries divisible by \(p\) tends to \(1\) (Section <a 
+href="#x1-150006">6<!--tex4ht:ref: sec:bridge --></a>).
+      </dd><dt class="enumerate-enumitem">
+   5. </dt><dd 
+class="enumerate-enumitem">Conjugate symmetry gives no compression relative to a real input: the half-spectrum
+      holds exactly \(N\) real numbers (Proposition <a 
+href="#x1-20001r1">7.1<!--tex4ht:ref: prop:nocompression --></a>). Compression must come from spectral
+      sparsity; the earlier \(2730\times \) and \(67\times \) ﬁgures are unveriﬁed and withdrawn.</dd></dl>
+<!--l. 825--><p class="indent" >   The symmetry has been in the spectrum, and in the textbooks, all along.
+</p><!--l. 828--><p class="noindent" >
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-26000"></a>Acknowledgements</h3>
+<!--l. 830--><p class="noindent" >The author thanks Omar Khayyam posthumously, for the geometric instinct that ﬁnds structure
+where others count outcomes.
+                                                                                         
+                                                                                         
+</p><!--l. 1--><p class="noindent" >
+</p>
+   <h3 class="likesectionHead"><a 
+ id="x1-27000"></a>References</h3>
+<!--l. 1--><p class="noindent" >
+     </p><div class="thebibliography">
+     <p class="bibitem" ><span class="biblabel">
+ <a 
+ id="XBracewell1983"></a>[1] <span class="bibsp">   </span></span>Ronald N. Bracewell. Discrete Hartley transform. <span 
+class="ecti-1200">Journal of the Optical Society of</span>
+     <span 
+class="ecti-1200">America</span>, 73(12):1832–1835, 1983.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+ <a 
+ id="XCooleyLewisWelch1970"></a>[2] <span class="bibsp">   </span></span>James W.  Cooley,  Peter  A. W.  Lewis,  and  Peter D.  Welch.   The  fast  Fourier
+     transform algorithm: Programming considerations in the calculation of sine, cosine and
+     Laplace transforms. <span 
+class="ecti-1200">Journal of Sound and Vibration</span>, 12(3):315–337, 1970.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+ <a 
+ id="XCooley1965"></a>[3] <span class="bibsp">   </span></span>James W. Cooley and John W. Tukey.  An algorithm for the machine calculation
+     of complex Fourier series. <span 
+class="ecti-1200">Mathematics of Computation</span>, 19(90):297–301, 1965.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+ <a 
+ id="XFine1947"></a>[4] <span class="bibsp">   </span></span>N. J. Fine.  Binomial coeﬃcients modulo a prime.  <span 
+class="ecti-1200">The American Mathematical</span>
+     <span 
+class="ecti-1200">Monthly</span>, 54:589–592, 1947.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+ <a 
+ id="XGlaisher1899"></a>[5] <span class="bibsp">   </span></span>J. W. L. Glaisher.  On the residue of a binomial-theorem coeﬃcient with respect
+     to a prime modulus. <span 
+class="ecti-1200">Quarterly Journal of Pure and Applied Mathematics</span>, 30:150–156,
+     1899.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+ <a 
+ id="XHeideman1984"></a>[6] <span class="bibsp">   </span></span>Michael T. Heideman, Don H. Johnson, and C. Sidney Burrus.   Gauss and the
+     history of the fast Fourier transform. <span 
+class="ecti-1200">IEEE ASSP Magazine</span>, 1(4):14–21, 1984.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+ <a 
+ id="XHigham2002"></a>[7] <span class="bibsp">   </span></span>Nicholas J.  Higham.   <span 
+class="ecti-1200">Accuracy  and  Stability  of  Numerical  Algorithms</span>.   SIAM,
+     Philadelphia, second edition, 2002.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+ <a 
+ id="XLucas1878"></a>[8] <span class="bibsp">   </span></span>Édouard  Lucas.     Théorie  des  fonctions  numériques  simplement  périodiques.
+     <span 
+class="ecti-1200">American Journal of Mathematics</span>, 1:184–196, 197–240, 289–321, 1878.
+                                                                                         
+                                                                                         
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+ <a 
+ id="XOppenheimSchafer2010"></a>[9] <span class="bibsp">   </span></span>Alan V.  Oppenheim  and  Ronald W.  Schafer.   <span 
+class="ecti-1200">Discrete-Time Signal Processing</span>.
+     Pearson, Upper Saddle River, NJ, third edition, 2010.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XReiter1993"></a>[10] <span class="bibsp">   </span></span>Ashley Melia Reiter.  Determining the dimension of fractals generated by Pascal’s
+     triangle. <span 
+class="ecti-1200">Fibonacci Quarterly</span>, 31(2):112–120, 1993.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XSierpinski1915"></a>[11] <span class="bibsp">   </span></span>Wacław Sierpiński.  Sur une courbe dont tout point est un point de ramiﬁcation.
+     <span 
+class="ecti-1200">Comptes Rendus de l’Acad</span><span 
+class="ecti-1200">émie des Sciences</span>, 160:302–305, 1915.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XSitzmann2020"></a>[12] <span class="bibsp">   </span></span>Vincent Sitzmann, Julien N. P. Martel, Alexander W. Bergman, David B. Lindell,
+     and  Gordon  Wetzstein.    Implicit  neural  representations  with  periodic  activation
+     functions.     In  <span 
+class="ecti-1200">Advances  in  Neural  Information  Processing  Systems  (NeurIPS)</span>,
+     volume 33, pages 7462–7473, 2020.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XSorensen1987"></a>[13] <span class="bibsp">   </span></span>Henrik V.  Sorensen,  Douglas L.  Jones,  Michael T.  Heideman,  and  C. Sidney
+     Burrus. Real-valued fast Fourier transform algorithms. <span 
+class="ecti-1200">IEEE Transactions on Acoustics,</span>
+     <span 
+class="ecti-1200">Speech, and Signal Processing</span>, 35(6):849–863, 1987.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XWakil2026ConditionW3"></a>[14] <span class="bibsp">   </span></span>Khayyam Wakil.  Condition W3: Absence of Siegel Zeros for Characters Modulo \(3^K\).
+     ARC Institute of Knowware, preprint, 2026.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XWakil2026Forcing"></a>[15] <span class="bibsp">   </span></span>Khayyam Wakil.  Constitutional Forcing.  ARC Institute of Knowware, preprint,
+     2026.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XWakil2026Khayyam"></a>[16] <span class="bibsp">   </span></span>Khayyam Wakil.   Khayyam’s Triangle: Historical Restoration and the Geometry
+     Hidden in the Numbers. ARC Institute of Knowware, preprint, 2026.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XWakil2026Ramanujan"></a>[17] <span class="bibsp">   </span></span>Khayyam Wakil. Ramanujan’s Dimensional Forcing: A Universal Formula for Sieve
+     Levels. ARC Institute of Knowware, preprint, 2026.
+                                                                                         
+                                                                                         
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XWakil2026SphericalCow"></a>[18] <span class="bibsp">   </span></span>Khayyam  Wakil.   Spherical  Cow  Philosophy:  A  Methodological  Framework  for
+     Mathematical Discovery. ARC Institute of Knowware, preprint, 2026.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XWakil2026Eisenstein"></a>[19] <span class="bibsp">   </span></span>Khayyam Wakil.  Ternary Forcing on the Hexagonal Lattice: Eisenstein Integers,
+     Cascade  Moduli,  and  a  Conjectured  Level  of  Distribution  5/8.   ARC  Institute  of
+     Knowware, preprint, 2026.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XWakil2026Bias"></a>[20] <span class="bibsp">   </span></span>Khayyam Wakil. The Lemke Oliver–Soundararajan Bias and Ternary Constitutional
+     Structure. ARC Institute of Knowware, preprint, 2026.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XWakil2026Shannon"></a>[21] <span class="bibsp">   </span></span>Khayyam Wakil. The Shannon–Wakil Eﬀect: Constitutional Forcing as a Universal
+     Pattern in Information Theory and Prime Arithmetic.  ARC Institute of Knowware,
+     preprint, 2026.
+     </p>
+     <p class="bibitem" ><span class="biblabel">
+<a 
+ id="XWolfram1984"></a>[22] <span class="bibsp">   </span></span>Stephen Wolfram.  Geometry of binomial coeﬃcients.  <span 
+class="ecti-1200">The American Mathematical</span>
+     <span 
+class="ecti-1200">Monthly</span>, 91(9):566–571, 1984.
+</p>
+     </div>
+    
+</body></html> 
 
-      <h2>Introduction</h2>
-      <p>The conjugate symmetry of the Discrete Fourier Transform is classical and well-known. Every signal processing textbook states it. Every FFT implementation exploits it. It is the reason compressed spectral representations store only half the coefficients.</p>
-      <p>What has not been done is name it as a constitutional constant and place it within the framework of Constitutional Forcing. This paper does that. The result is not new; the framing is. And the framing reveals a structural parallel — the Khayyam Bridge — that connects the DFT to the mod-<em>p</em> fractal of Khayyam's Triangle via the same counting theorem that underlies the entire Constitutional Sieve Programme.</p>
+                                                                                         
 
-      <h2>Formal Proof of θ<sub>FFT</sub> = 1/2</h2>
-      <div class="env-block theorem">
-        <div class="env-label">Theorem 3.1 — The Constitutional Constant (Informal)</div>
-        For any real-valued signal <em>x</em> ∈ ℝ<sup><em>N</em></sup>, the upper half of its DFT spectrum is the complex conjugate, reversed, of the lower half. Storing only the lower half uniquely determines the full spectrum. The fraction of the spectrum that is independently informative is exactly 1/2.
-      </div>
-      <div class="env-block theorem">
-        <div class="env-label">Theorem 3.2 — The Constitutional Constant (Formal)</div>
-        Let <em>x</em> ∈ ℝ<sup><em>N</em></sup> (real-valued). Then for all <em>k</em> ∈ {1, …, <em>N</em>−1},
-        <div class="eq-label" style="margin:.6rem 0;">
-          <div class="eq-content"><em>x̂</em><sub><em>N</em>−<em>k</em></sub> = <span style="text-decoration:overline;"><em>x̂</em><sub><em>k</em></sub></span></div>
-          <div class="eq-num">(1)</div>
-        </div>
-        Consequently, {<em>x̂</em><sub><em>k</em></sub> : <em>k</em> ∈ {0, 1, …, ⌊<em>N</em>/2⌋}} uniquely determines <em>x̂</em> entirely, and the fraction of independently informative coefficients is exactly θ<sub>FFT</sub> = 1/2.
-      </div>
-      <div class="proof">
-        <div class="proof-label">Proof.</div>
-        By definition, <em>x̂</em><sub><em>k</em></sub> = Σ<sub><em>n</em>=0</sub><sup><em>N</em>−1</sup> <em>x</em>[<em>n</em>] · <em>e</em><sup>−2πi<em>kn</em>/<em>N</em></sup>. Since <em>x</em>[<em>n</em>] ∈ ℝ for all <em>n</em>, we have <em>x̂</em><sub><em>N</em>−<em>k</em></sub> = Σ <em>x</em>[<em>n</em>] <em>e</em><sup>−2πi(<em>N</em>−<em>k</em>)<em>n</em>/<em>N</em></sup> = Σ <em>x</em>[<em>n</em>] <em>e</em><sup>−2πi<em>n</em></sup> <em>e</em><sup>2πi<em>kn</em>/<em>N</em></sup> = Σ <em>x</em>[<em>n</em>] <em>e</em><sup>2πi<em>kn</em>/<em>N</em></sup> = <span style="text-decoration:overline;"><em>x̂</em><sub><em>k</em></sub></span>, where the last step uses <em>e</em><sup>−2πi<em>n</em></sup> = 1 and <em>x</em>[<em>n</em>] ∈ ℝ. <span class="qed">□</span>
-      </div>
 
-      <h2>Constitutional Forcing at Depth k=1</h2>
-      <p>The DFT result is Constitutional Forcing of depth <em>k</em>=1:</p>
-      <div class="env-block proposition">
-        <div class="env-label">Proposition — DFT as Constitutional Forcing</div>
-        The DFT of real-valued signals exhibits Constitutional Forcing of depth <em>k</em>=1: (CF1) one constitutional constraint: <em>x</em>[<em>n</em>] ∈ ℝ for all <em>n</em>; (CF2) configuration space of size 2<sup>1</sup> = 2: {upper half informative, upper half redundant}; (CF3) exactly one configuration class invalid (upper half cannot carry independent information); (CF4) forced governing constant: θ<sub>FFT</sub> = (2<sup>1</sup>−1)/2<sup>1</sup> = 1/2. This is identical in formal structure to the Bombieri–Vinogradov barrier (also depth k=1).
-      </div>
-
-      <h2>The Khayyam Bridge</h2>
-      <p>Khayyam's Triangle modulo 2 has void fraction exactly 1/2 as rows grow (by Lucas's theorem: half the binomial coefficients are even in the limit). The DFT of a real-valued signal has informative fraction exactly 1/2 (by Theorem 3.2). Both are instances of the same counting theorem — Constitutional Forcing at depth k=1 — manifesting through two different changes of frame: modular arithmetic in one case, Fourier analysis in the other.</p>
-      <div class="env-block theorem">
-        <div class="env-label">Theorem 6.1 — Constitutional Redundancy Duality (Khayyam Bridge)</div>
-        Let θ<sub>FFT</sub> = 1/2 be the DFT constitutional constant and let θ<sub>Khayyam,2</sub> = 1/2 be the mod-2 survivor fraction of Khayyam's Triangle. Both equal 1/2 for the same reason: a single constitutional constraint eliminates exactly one configuration class from a binary space of size 2<sup>1</sup> = 2. The two instances are related by a change of frame — Fourier versus modular — applied to the same underlying Constitutional Forcing structure.
-      </div>
-
-      <h2>Compression Implications</h2>
-      <div class="env-block theorem">
-        <div class="env-label">Theorem 7.1 — Compression Lower Bound</div>
-        For any real-valued weight tensor <em>w</em> ∈ ℝ<sup><em>N</em></sup>, an FFT-based compression scheme retaining only the independent spectral half achieves at minimum a lossless 2× compression of the spectral representation. This bound is tight: it is achieved by white-noise inputs. Any additional compression beyond 2× must exploit sparsity in the non-redundant half, which is a property of the signal, not a constitutional guarantee.
-      </div>
-      <p>The 2× floor is constitutionally guaranteed regardless of the signal. The NFR (Neural Frequency Reduction) pipeline that motivated this paper achieves 2730× compression at 96% energy retention on neural network weight tensors — a factor of 2 is constitutionally guaranteed, and a factor of ≈1365 arises from exploiting the sparsity of the non-redundant spectral structure in trained networks. Constitutional Forcing explains the floor; the sparsity structure explains the ceiling.</p>
-
-      <h2>Position Within the Constitutional Sieve Programme</h2>
-      <table class="formal">
-        <tr><th>Paper</th><th>Domain</th><th>k</th><th>θ<sub>k</sub></th><th>Status</th></tr>
-        <tr><td>01</td><td>All domains (foundation)</td><td>—</td><td>θ<sub>k</sub> = (2<sup>k</sup>−k)/2<sup>k</sup></td><td>Proved</td></tr>
-        <tr><td>02</td><td>Khayyam's Triangle (mod 3)</td><td>3</td><td>5/8</td><td>Combinatorial</td></tr>
-        <tr><td>04</td><td>Cascade moduli (analytic)</td><td>3</td><td>5/8</td><td>Proved (W3 via Paper 07)</td></tr>
-        <tr><td>05</td><td>Universal sieve formula</td><td>all k</td><td>General formula</td><td>Proved (k=3 analytically)</td></tr>
-        <tr><td>06</td><td>Shannon AEP / Channel coding</td><td>1</td><td>1/2</td><td>Shannon (1948)</td></tr>
-        <tr><td>08</td><td>Prime digit bias</td><td>1</td><td>1/2 (base)</td><td>Proved mechanistically</td></tr>
-        <tr><td>09 (this)</td><td>DFT (real-valued signals)</td><td>1</td><td>1/2</td><td>Proved (classical + named)</td></tr>
-      </table>
-      <div class="table-caption"><strong>Table 1.</strong> Constitutional Forcing instances across the nine-paper programme. The DFT result (this paper) adds a seventh proven instance at depth k=1.</div>
-
-      <div class="env-block remark">
-        <div class="env-label">Remark — What Has Been Named</div>
-        The DFT conjugate symmetry has been known and exploited for sixty years. What this paper adds is the name, the formal framework, and the connection to the broader Constitutional Forcing structure. Naming something is not trivial: it makes the pattern recognisable in new domains, enables the Khayyam Bridge, and locates the DFT result within a programme that predicts further instances. The constant θ<sub>FFT</sub> = 1/2 was always there. It is now recognised.
-      </div>
-
-      <div class="references">
-        <h2 style="counter-increment:none;">References</h2>
-        <ol class="ref-list">
-          <li>J. Cooley and J. Tukey, "An algorithm for the machine calculation of complex Fourier series," <em>Math. Comp.</em> 19 (1965), 297–301.</li>
-          <li>K. Wakil, "Constitutional Forcing," Constitutional Sieve Programme Paper 01 (2026).</li>
-          <li>K. Wakil, "Khayyam's Triangle," Constitutional Sieve Programme Paper 02 (2026).</li>
-          <li>K. Wakil, "Ramanujan's Dimensional Forcing," Constitutional Sieve Programme Paper 05 (2026).</li>
-          <li>K. Wakil, "The Shannon–Wakil Effect," Constitutional Sieve Programme Paper 06 (2026).</li>
-          <li>E. M. Stein and R. Shakarchi, <em>Fourier Analysis: An Introduction</em>. Princeton University Press, 2003.</li>
-        </ol>
-      </div>
-    </div>
-  </article>
-</div>
-<footer class="site-footer">
-  <span>Knowware is measured in lifetimes</span><span>Constitutional Sieve Programme · Paper 09 of 09</span><span>Registered · Canada</span>
-</footer>
-</body></html>
