@@ -121,6 +121,9 @@ corrected to $\log 6/\log 3$, and $\theta_W = \tfrac{5}{8}$ is cited as a
 conjecture.
 
 \medskip
+\textbf{MSC 2020:} 42A38 (primary), 94A12, 65T50, 28A80.
+
+\medskip
 \textbf{Keywords:} Discrete Fourier Transform, constitutional constant,
 conjugate symmetry, Hermitian symmetry, Khayyam's Triangle,
 Sierpi\'nski fractal, neural compression, spectral sparsity.
@@ -151,8 +154,9 @@ We call this fraction $\thetaFFT$.  The theorem is classical.  It is
 usually called Hermitian (or conjugate) symmetry \cite{OppenheimSchafer2010};
 it is the reason real data are expanded in real cosine and sine series,
 a practice that goes back to Euler, Lagrange, Fourier and Gauss
-\cite{Heideman1984}, and real-input FFT algorithms exploit it to save
-roughly half the work of a complex FFT \cite{Cooley1965,CooleyLewisWelch1970,Sorensen1987}.
+\cite{Heideman1984}, and real-input FFT algorithms
+\cite{CooleyLewisWelch1970,Sorensen1987} exploit it to save roughly half
+the work of a complex FFT \cite{Cooley1965}.
 What this paper adds is modest:
 
 \begin{enumerate}[noitemsep]
@@ -784,8 +788,10 @@ $\theta \in (0,1)$ of its representation that is derivable from the
 remainder.  It is false.  Any invertible real transform
 $\R^N \to \R^N$---the discrete cosine transform, the discrete Hartley
 transform \cite{Bracewell1983}, or an orthonormal Haar wavelet
-transform---has no derivable coefficients, so $\theta = 0$.  The
-conjecture is withdrawn.  The same examples show that the value
+transform---has no derivable coefficients: none of its $N$ real outputs
+is determined by the others, so the derivable fraction is $0$ (equivalently,
+the independent fraction in the sense of Definition~\ref{def:theta} is $1$, not
+$\tfrac{1}{2}$).  The conjecture is withdrawn.  The same examples show that the value
 $\tfrac{1}{2}$ is an artefact of representing a real signal by complex
 coefficients: the Hartley transform carries the same information as the
 DFT with no redundancy.

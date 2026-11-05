@@ -1,6 +1,6 @@
 # Constitutional Forcing Programme
 
-> **Status (November 2026): revised.** An audit of the nine papers found errors in their assumptions, numbers and attributions, and the papers have been revised accordingly; each opens with a revision note. See [`audit/README.md`](audit/README.md) for the findings and the scripts that reproduce them. The website is still in maintenance mode; its paper summaries describe the earlier versions and have not yet been updated.
+> **Status (November 2026): revised.** An audit of the nine papers found errors in their assumptions, numbers and attributions, and the papers have been revised accordingly; each opens with a revision note. See [`audit/README.md`](audit/README.md) for the findings and the scripts that reproduce them. The website's paper pages, preprint list and essays have been updated to match, and the site serves the revised PDFs and full-text HTML; it remains in maintenance mode until it is switched back on.
 
 The **Constitutional Forcing Programme** is a research programme by Khayyam Wakil (ARC Institute of Knowware). It proposes a mechanism called **Constitutional Forcing**: the claim that certain mathematical systems have built-in structural constraints that determine their governing constants, rather than those constants being chosen or fitted.
 
