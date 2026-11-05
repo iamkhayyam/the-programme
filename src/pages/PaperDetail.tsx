@@ -21,7 +21,6 @@ interface PaperContent {
   content: React.ReactNode;
   pdfUrl: string;
   githubUrl: string | null;
-  arxivUrl: string;
   nextPaper?: {
     id: string;
     title: React.ReactNode;
@@ -40,22 +39,21 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     date: "Submitted February 2026 · Constitutional Sieve Programme, Paper 01 of 09",
     pdfUrl: "https://preprint.knowware.institute/pdf/p01.pdf",
     githubUrl: "https://github.com/knowware-institute/p01",
-    arxivUrl: "https://arxiv.org/abs/2602.0101",
     abstract: (
       <>
         <p className="mb-3">We introduce and formally define <em>Constitutional Forcing</em>: a mechanism by which the irreducible algebraic structure of a mathematical system uniquely determines a governing constant, leaving no freedom in its value. The constant is not fitted, not approximated, and not chosen — it is forced. Changing it requires changing the structure of the system itself.</p>
         <p className="mb-3">A system of depth <em>k</em> has exactly <em>k</em> independent <em>constitutional constraints</em>, operating on a binary configuration space of size 2<sup><em>k</em></sup>. Each constraint eliminates exactly one configuration class, leaving 2<sup><em>k</em></sup> − <em>k</em> valid configurations. The forced governing constant is the configuration density <em>θ<sub>k</sub></em> = <Fraction numerator={<>2<sup>k</sup> − k</>} denominator={<>2<sup>k</sup></>} />.</p>
-        <p>We exhibit three proven instances across three independent domains: prime arithmetic (<em>k</em>=1, <em>k</em>=3), information theory (<em>k</em>=1), and fluid dynamics (<em>k</em>=2). We prove the Counting Theorem: exactly <em>k</em> configurations are invalid in any <em>k</em>-fold constitutionally constrained system. This paper is the foundation of a nine-paper programme. The remaining eight papers prove the instances, derive consequences, and explore the cross-domain structure of the mechanism.</p>
+        <p>We exhibit instances across two independent domains: prime arithmetic (<em>k</em>=1, <em>k</em>=3) and information theory (<em>k</em>=1). We propose the Counting Theorem: exactly <em>k</em> configurations are invalid in any <em>k</em>-fold constitutionally constrained system. This paper is the foundation of a nine-paper programme. The remaining eight papers develop the instances, derive consequences, and explore the cross-domain structure of the mechanism.</p>
       </>
     ),
-    keywords: "constitutional forcing, constitutional constraint, configuration density, forced governing constant, sieve theory, level of distribution, Shannon entropy, Kolmogorov scaling, k-hierarchy, Shannon–Wakil effect",
-    msc: "11N35 (primary) · 11N13 · 94A15 · 76F02 · 01A99",
+    keywords: "constitutional forcing, constitutional constraint, configuration density, forced governing constant, sieve theory, level of distribution, Shannon entropy, k-hierarchy, Shannon–Wakil effect",
+    msc: "11N35 (primary) · 11N13 · 94A15 · 01A99",
     content: (
       <>
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">What Constitutional Forcing Is</h2>
-        <p className="mb-4">The Bombieri–Vinogradov theorem establishes that primes are equidistributed in arithmetic progressions to modulus x<sup>1/2</sup>. The level of distribution is θ = <Fraction numerator="1" denominator="2" />. For sixty years this was considered, by most experts, to be the effective ceiling of classical sieve methods. It is not a computation; it is a structural fact about binary arithmetic progressions.</p>
-        <p className="mb-4">In 2025, Pascadi proved a level of distribution θ = <Fraction numerator="5" denominator="8" /> for smooth, triply-well-factorable moduli. In the companion paper [4] we prove θ<sub>W</sub> = <Fraction numerator="5" denominator="8" /> for cascade moduli q = 3<sup>K</sup> via the algebraic geometry of the Eisenstein integers. Two paths. One value. Neither chosen.</p>
-        <p className="mb-4">This paper asks: what is the mechanism? Why <Fraction numerator="5" denominator="8" />? Why not <Fraction numerator="3" denominator="5" />, or <Fraction numerator="2" denominator="3" />, or some other rational number? The answer is Constitutional Forcing. Both results are instances of the same structural phenomenon, as is the Bombieri–Vinogradov barrier itself.</p>
+        <p className="mb-4">The Bombieri–Vinogradov theorem establishes that primes are equidistributed in arithmetic progressions to modulus x<sup>1/2</sup>. The level of distribution is θ = <Fraction numerator="1" denominator="2" />. It is not a computation; it is a structural fact about binary arithmetic progressions.</p>
+        <p className="mb-4">In the companion paper [3] we argue for θ<sub>W</sub> = <Fraction numerator="5" denominator="8" /> for cascade moduli q = 3<sup>K</sup> via the algebraic geometry of the Eisenstein integers.</p>
+        <p className="mb-4">This paper asks: what is the mechanism? Why <Fraction numerator="5" denominator="8" />? Why not <Fraction numerator="3" denominator="5" />, or <Fraction numerator="2" denominator="3" />, or some other rational number? The answer proposed here is Constitutional Forcing: the cascade result is argued to be an instance of the same structural phenomenon as the Bombieri–Vinogradov barrier itself.</p>
         
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">The Definitions</h2>
         <div className="my-6 p-4 border border-rule border-l-4 border-accent bg-accent-pale">
@@ -64,41 +62,33 @@ const PAPERS_DATA: Record<string, PaperContent> = {
         </div>
 
         <div className="my-6 p-4 border border-rule border-l-4 border-accent bg-accent-pale">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Definition 2.2 — Constitutional Forcing of Depth k</div>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Definition 2.4 — Constitutional Forcing of Depth k</div>
           <p className="text-[0.95rem] leading-relaxed">A system S exhibits Constitutional Forcing of depth k if: it has a binary configuration space C<sub>k</sub> = {'{0,1}'}<sup>k</sup> of size 2<sup>k</sup>; exactly k independent constitutional constraints operate on C<sub>k</sub>; the forced governing constant is θ<sub>k</sub> = <Fraction numerator={<>2<sup>k</sup> − k</>} denominator={<>2<sup>k</sup></>} />; and no other value is consistent with the structure.</p>
         </div>
 
-        <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Three Instances</h2>
+        <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Two Instances</h2>
         <h3 className="font-stix font-semibold italic text-[0.92rem] text-mid mt-6 mb-2">3.1 Bombieri–Vinogradov: k = 1, θ = <Fraction numerator="1" denominator="2" /></h3>
-        <p className="mb-4">For arithmetic progressions over all moduli q ≤ x<sup>1/2</sup>, one constitutional constraint operates: each progression must be coprime to its modulus. This eliminates one configuration class (gcd(a, q) &gt; 1). Formula: θ<sub>1</sub> = <Fraction numerator="2 − 1" denominator="2" /> = <Fraction numerator="1" denominator="2" />. The Bombieri–Vinogradov theorem is constitutionally forced.</p>
+        <p className="mb-4">For arithmetic progressions over all moduli q ≤ x<sup>1/2</sup>, one constitutional constraint operates: primality itself. This eliminates one configuration class (the non-prime configuration). Formula: θ<sub>1</sub> = <Fraction numerator="2 − 1" denominator="2" /> = <Fraction numerator="1" denominator="2" />. The Bombieri–Vinogradov theorem is constitutionally forced.</p>
         
         <h3 className="font-stix font-semibold italic text-[0.92rem] text-mid mt-6 mb-2">3.2 Cascade Moduli: k = 3, θ = <Fraction numerator="5" denominator="8" /></h3>
-        <p className="mb-4">For arithmetic progressions over cascade moduli q = 3<sup>K</sup>, three constitutional constraints operate, arising from the structure of Z[ω]: (i) coprimality; (ii) ramification (3) = (1−ω)<sup>2</sup> forces triply-factorable weights; (iii) the cyclic group (Z/3<sup>K</sup>Z)* provides independent Kloosterman cancellation. Formula: θ<sub>3</sub> = <Fraction numerator="8 − 3" denominator="8" /> = <Fraction numerator="5" denominator="8" />.</p>
-
-        <h3 className="font-stix font-semibold italic text-[0.92rem] text-mid mt-6 mb-2">3.3 Kolmogorov's <Fraction numerator="3" denominator="4" />: k = 2</h3>
-        <p className="mb-4">For the triadic interaction space of vorticity in an incompressible fluid (8 triadic states), two constitutional constraints operate: incompressibility (∇·u = 0) and helicity orthogonality (ω<sup>+</sup> ⊥ ω<sup>−</sup>). Formula: θ<sub>2</sub> = <Fraction numerator="4 − 2" denominator="4" /> = <Fraction numerator="3" denominator="4" />. Kolmogorov's 1941 exponent is constitutionally forced. This is the first <em>a priori</em> structural derivation of an exponent validated empirically for 84 years.</p>
+        <p className="mb-4">For arithmetic progressions over cascade moduli q = 3<sup>K</sup>, three constitutional constraints are proposed, arising from the structure of Z[ω]: for a twin prime pair (p, p+2), survival conditions at moduli 3 (p ≡ 2 (mod 3)), 9 (attributed to the ramification (3) = (1−ω)<sup>2</sup>) and 27 (attributed to the three-level filtration of Z[ω]/(3<sup>K</sup>)). Formula: θ<sub>3</sub> = <Fraction numerator="8 − 3" denominator="8" /> = <Fraction numerator="5" denominator="8" />.</p>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">The Counting Theorem</h2>
         <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 4.1 — Counting Theorem</div>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 2.6 — Counting Theorem</div>
           <p className="text-[0.95rem] leading-relaxed">Let S exhibit Constitutional Forcing of depth k. Then exactly k configurations in C<sub>k</sub> = {'{0,1}'}<sup>k</sup> are invalid, and the forced governing constant is θ<sub>k</sub> = <Fraction numerator={<>2<sup>k</sup> − k</>} denominator={<>2<sup>k</sup></>} />.</p>
         </div>
 
-        <div className="my-6 ml-6 font-stix text-[0.92rem] text-mid leading-relaxed">
-          <div className="font-plex-sans italic text-[0.8rem] text-light mb-1">Proof.</div>
-          <p className="mb-2">By induction on k. <em>Base case</em> (k = 1): one constraint, space {'{0,1}'}, one invalid configuration, forced constant <Fraction numerator="1" denominator="2" />. <em>Inductive step</em>: assume the claim holds for depth k−1. Passing from depth k−1 to depth k, each old configuration splits into two daughter configurations. The k−1 previously invalid configurations remain invalid (each splits into two daughters, both still invalid — the inherited constraint persists). The new independent constitutional constraint eliminates exactly one additional configuration class. Total invalid: (k−1) + 1 = k. Valid: 2<sup>k</sup> − k. Forced constant: <Fraction numerator={<>2<sup>k</sup> − k</>} denominator={<>2<sup>k</sup></>} />. <span className="float-right text-[1rem]">□</span></p>
-        </div>
-
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Non-Instances and Falsifiability</h2>
-        <p className="mb-4">A framework that cannot be wrong is not a framework. We document a confirmed non-instance.</p>
+        <p className="mb-4">A framework that cannot be wrong is not a framework. We document a proposed non-instance.</p>
         <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Proposition 5.1 — Sophie Germain Non-Instance</div>
-          <p className="text-[0.95rem] leading-relaxed">Sophie Germain prime pairs (p, 2p+1) exhibit Constitutional Forcing of depth k = 2, not depth k = 3. The mod-3 residue of 2p+1 is determined by that of p — both satisfy p ≡ 2 (mod 3) — giving only two independent constitutional constraints. Predicted level of distribution: θ<sub>2</sub> = <Fraction numerator="4−2" denominator="4" /> = <Fraction numerator="1" denominator="2" />. No enhancement over Bombieri–Vinogradov. Confirmed computationally.</p>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Proposition 4.1 — Sophie Germain Non-Instance</div>
+          <p className="text-[0.95rem] leading-relaxed">Sophie Germain prime pairs (p, 2p+1) do not exhibit Constitutional Forcing at depth k = 3. Predicted level of distribution: θ = <Fraction numerator="1" denominator="2" />. No enhancement over Bombieri–Vinogradov.</p>
         </div>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">The Constitutional Forcing Conjecture</h2>
         <div className="my-6 p-4 border border-rule border-l-4 border-ink border-dashed bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Conjecture 6.1 — Constitutional Forcing Conjecture</div>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Conjecture 5.1 — Constitutional Forcing Conjecture</div>
           <p className="text-[0.95rem] leading-relaxed">Every mathematical system with exactly k independent constitutional constraints on a binary configuration space of size 2<sup>k</sup> exhibits the forced governing constant θ<sub>k</sub> = <Fraction numerator={<>2<sup>k</sup> − k</>} denominator={<>2<sup>k</sup></>} />. The correspondence between configuration density and analytic level of distribution for k ≥ 4 is conjectural and is the principal open problem of the programme.</p>
         </div>
 
@@ -113,15 +103,15 @@ const PAPERS_DATA: Record<string, PaperContent> = {
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b border-rule"><td className="py-2 px-3">01 (this)</td><td className="py-2 px-3">Constitutional Forcing: definition, Counting Theorem, three instances</td><td className="py-2 px-3">Proved</td></tr>
-              <tr className="border-b border-rule"><td className="py-2 px-3">02</td><td className="py-2 px-3">Khayyam's Triangle: historical restoration, mod-3 fractal, combinatorial origin</td><td className="py-2 px-3">Proved</td></tr>
-              <tr className="border-b border-rule"><td className="py-2 px-3">03</td><td className="py-2 px-3">Spherical Cow Philosophy: methodological framework, falsifiability</td><td className="py-2 px-3">Proved</td></tr>
-              <tr className="border-b border-rule"><td className="py-2 px-3">04</td><td className="py-2 px-3">Eisenstein integers, cascade moduli, θ<sub>W</sub> = <Fraction numerator="5" denominator="8" /> (geometric proof)</td><td className="py-2 px-3">Proved (conditional W3)</td></tr>
-              <tr className="border-b border-rule"><td className="py-2 px-3">05</td><td className="py-2 px-3">Ramanujan's formula: universal formula θ<sub>k</sub> = <Fraction numerator={<>2<sup>k</sup>−k</>} denominator={<>2<sup>k</sup></>} /></td><td className="py-2 px-3">Proved</td></tr>
-              <tr className="border-b border-rule"><td className="py-2 px-3">06</td><td className="py-2 px-3">Shannon–Wakil Effect: information theory parallel</td><td className="py-2 px-3">Proved</td></tr>
-              <tr className="border-b border-rule"><td className="py-2 px-3">07</td><td className="py-2 px-3">Condition W3: Siegel zero exclusion via CM structure of Z[ω]</td><td className="py-2 px-3">Proved</td></tr>
-              <tr className="border-b border-rule"><td className="py-2 px-3">08</td><td className="py-2 px-3">Prime digit bias (Lemke Oliver–Soundararajan) explained</td><td className="py-2 px-3">Proved</td></tr>
-              <tr className="border-b-2 border-ink"><td className="py-2 px-3">09</td><td className="py-2 px-3">DFT constitutional constant θ<sub>FFT</sub> = <Fraction numerator="1" denominator="2" /></td><td className="py-2 px-3">Proved</td></tr>
+              <tr className="border-b border-rule"><td className="py-2 px-3">01 (this)</td><td className="py-2 px-3">Constitutional Forcing: definition, Counting Theorem, instances</td><td className="py-2 px-3">Under revision</td></tr>
+              <tr className="border-b border-rule"><td className="py-2 px-3">02</td><td className="py-2 px-3">Khayyam's Triangle: historical restoration, mod-3 fractal, combinatorial origin</td><td className="py-2 px-3">Under revision</td></tr>
+              <tr className="border-b border-rule"><td className="py-2 px-3">03</td><td className="py-2 px-3">Spherical Cow Philosophy: methodological framework, falsifiability</td><td className="py-2 px-3">Under revision</td></tr>
+              <tr className="border-b border-rule"><td className="py-2 px-3">04</td><td className="py-2 px-3">Eisenstein integers, cascade moduli, θ<sub>W</sub> = <Fraction numerator="5" denominator="8" /> (geometric argument)</td><td className="py-2 px-3">Under revision</td></tr>
+              <tr className="border-b border-rule"><td className="py-2 px-3">05</td><td className="py-2 px-3">Ramanujan's formula: universal formula θ<sub>k</sub> = <Fraction numerator={<>2<sup>k</sup>−k</>} denominator={<>2<sup>k</sup></>} /></td><td className="py-2 px-3">Under revision</td></tr>
+              <tr className="border-b border-rule"><td className="py-2 px-3">06</td><td className="py-2 px-3">Shannon–Wakil Effect: information theory parallel</td><td className="py-2 px-3">Under revision</td></tr>
+              <tr className="border-b border-rule"><td className="py-2 px-3">07</td><td className="py-2 px-3">Condition W3: Siegel zero exclusion via CM structure of Z[ω]</td><td className="py-2 px-3">Under revision</td></tr>
+              <tr className="border-b border-rule"><td className="py-2 px-3">08</td><td className="py-2 px-3">Prime digit bias (Lemke Oliver–Soundararajan)</td><td className="py-2 px-3">Under revision</td></tr>
+              <tr className="border-b-2 border-ink"><td className="py-2 px-3">09</td><td className="py-2 px-3">DFT constitutional constant θ<sub>FFT</sub> = <Fraction numerator="1" denominator="2" /></td><td className="py-2 px-3">Under revision</td></tr>
             </tbody>
           </table>
           <div className="text-center mt-3 font-plex-sans text-[0.72rem] italic text-mid"><strong>Table 1.</strong> Structure of the nine-paper Constitutional Sieve Programme.</div>
@@ -130,12 +120,11 @@ const PAPERS_DATA: Record<string, PaperContent> = {
         <div className="mt-12 pt-6 border-t border-rule">
           <h2 className="font-stix font-semibold text-[1.05rem] text-ink mb-6">References</h2>
           <ol className="list-none [counter-reset:refs]">
-            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">V. Bombieri, "On the large sieve," <em>Mathematika</em> 12 (1965), 201–225.</li>
+            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">E. Bombieri, "On the large sieve," <em>Mathematika</em> 12 (1965), 201–225.</li>
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">A. Vinogradov, "The density hypothesis for Dirichlet L-series," <em>Izv. Akad. Nauk SSSR</em> 29 (1965).</li>
-            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">A. N. Kolmogorov, "The local structure of turbulence," <em>C. R. Acad. Sci. USSR</em> 30 (1941), 301–305.</li>
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">K. Wakil, "Ternary Forcing on the Hexagonal Lattice: Eisenstein Integers, Cascade Moduli, and Level of Distribution <Fraction numerator="5" denominator="8" />," Constitutional Sieve Programme Paper 04 (2026).</li>
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">K. Wakil, "Condition W3: Absence of Siegel Zeros for Characters Modulo 3<sup>K</sup> via the CM Structure of Z[ω]," Constitutional Sieve Programme Paper 07 (2026).</li>
-            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">A. Pascadi, "Primes with restricted digits and large gaps between primes," arXiv:2505.00653v2 (2025).</li>
+            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">A. Pascadi, "On the exponents of distribution of primes and smooth numbers," arXiv:2505.00653 (2025).</li>
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">C. E. Shannon, "A Mathematical Theory of Communication," <em>Bell Syst. Tech. J.</em> 27 (1948), 379–423.</li>
           </ol>
         </div>
@@ -157,11 +146,10 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     date: "Submitted January 2026 · Constitutional Sieve Programme, Paper 02 of 09",
     pdfUrl: "https://preprint.knowware.institute/pdf/p02.pdf",
     githubUrl: "https://github.com/knowware-institute/p02",
-    arxivUrl: "https://arxiv.org/abs/2602.0102",
     abstract: (
       <>
-        <p className="mb-3">The triangular array of binomial coefficients has been called "Pascal's Triangle" in the West for centuries — yet Pascal arrived 584 years after the Persian mathematician Omar Khayyam first documented it. That alone might justify a rename. But there is a stronger argument hiding in plain sight: the triangle's deepest structural property is <em>geometric</em>, not combinatorial, and it belongs by mathematical character to Khayyam's tradition rather than Pascal's. Reduce the triangle's entries modulo any prime <em>p</em> and a Sierpiński-type fractal emerges — a self-similar geometric structure invisible to Pascal's probabilistic eye, but exactly the kind of hidden geometry Khayyam spent his life finding.</p>
-        <p>This paper is the second in the nine-paper Constitutional Sieve Programme. The mod-3 fractal structure of Khayyam's Triangle, governed by Lucas's theorem, is the direct combinatorial ancestor of the cascade moduli framework and the level-of-distribution result <em>θ<sub>W</sub></em> = <Fraction numerator="5" denominator="8" /> proved in the companion papers. A reader wishing to understand why the prime 3 plays a privileged role in that arithmetic programme will find the answer here.</p>
+        <p className="mb-3">The triangular array of binomial coefficients has been called "Pascal's Triangle" in the West for centuries — yet Pascal arrived 584 years after the Persian mathematician Omar Khayyam described it. That alone might justify a rename. But there is a stronger argument hiding in plain sight: the triangle's deepest structural property is <em>geometric</em>, not combinatorial, and it belongs by mathematical character to Khayyam's tradition rather than Pascal's. Reduce the triangle's entries modulo any prime <em>p</em> and a Sierpiński-type fractal emerges — a self-similar geometric structure invisible to Pascal's probabilistic eye, but exactly the kind of hidden geometry Khayyam spent his life finding.</p>
+        <p>This paper is the second in the nine-paper Constitutional Sieve Programme. The mod-3 fractal structure of Khayyam's Triangle, governed by Lucas's theorem, is the direct combinatorial ancestor of the cascade moduli framework and the level-of-distribution result <em>θ<sub>W</sub></em> = <Fraction numerator="5" denominator="8" /> claimed in the companion papers. A reader wishing to understand why the prime 3 plays a privileged role in that arithmetic programme will find the answer here.</p>
       </>
     ),
     keywords: "Pascal's triangle, Khayyam's triangle, Sierpiński fractal, Lucas's theorem, modular arithmetic, history of mathematics, cascade moduli, constitutional sieve theory",
@@ -184,11 +172,11 @@ const PAPERS_DATA: Record<string, PaperContent> = {
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b border-rule"><td className="py-2 px-3">~1070</td><td className="py-2 px-3">Omar Khayyam</td><td className="py-2 px-3">Persia</td><td className="py-2 px-3">First documented appearance; cited by al-Ṭūsī, 1265</td></tr>
+              <tr className="border-b border-rule"><td className="py-2 px-3">~1070</td><td className="py-2 px-3">Omar Khayyam</td><td className="py-2 px-3">Persia</td><td className="py-2 px-3">Treatment now lost; cited by al-Ṭūsī, 1265</td></tr>
               <tr className="border-b border-rule"><td className="py-2 px-3">1261</td><td className="py-2 px-3">Yang Hui</td><td className="py-2 px-3">China</td><td className="py-2 px-3">Independent discovery</td></tr>
               <tr className="border-b border-rule"><td className="py-2 px-3">1265</td><td className="py-2 px-3">al-Ṭūsī</td><td className="py-2 px-3">Persia</td><td className="py-2 px-3">Explicitly cites Khayyam</td></tr>
               <tr className="border-b border-rule"><td className="py-2 px-3">1303</td><td className="py-2 px-3">Zhu Shijie</td><td className="py-2 px-3">China</td><td className="py-2 px-3">Includes diagram</td></tr>
-              <tr className="border-b border-rule"><td className="py-2 px-3">1523</td><td className="py-2 px-3">Petrus Apianus</td><td className="py-2 px-3">Europe</td><td className="py-2 px-3">131 years before Pascal</td></tr>
+              <tr className="border-b border-rule"><td className="py-2 px-3">1527</td><td className="py-2 px-3">Petrus Apianus</td><td className="py-2 px-3">Europe</td><td className="py-2 px-3">127 years before Pascal</td></tr>
               <tr className="border-b-2 border-ink"><td className="py-2 px-3">1654</td><td className="py-2 px-3">Blaise Pascal</td><td className="py-2 px-3">France</td><td className="py-2 px-3"><em>Traité du triangle arithmétique</em></td></tr>
             </tbody>
           </table>
@@ -206,12 +194,12 @@ const PAPERS_DATA: Record<string, PaperContent> = {
 
         <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
           <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Proposition 4.2 — Hausdorff Dimension of the Mod-<em>p</em> Fractal</div>
-          <p className="text-[0.95rem] leading-relaxed">For any prime <em>p</em>, the set of nonzero entries of the triangular array modulo <em>p</em> forms a Sierpiński fractal with Hausdorff dimension log(<em>p</em>+1)/log(<em>p</em>). For <em>p</em> = 3: dimension = log(4)/log(3) ≈ 1.262. For <em>p</em> = 2: dimension = log(3)/log(2) ≈ 1.585.</p>
+          <p className="text-[0.95rem] leading-relaxed">For any prime <em>p</em>, the set of nonzero entries of the triangular array modulo <em>p</em> forms a Sierpiński fractal with Hausdorff dimension log(<em>p</em>(<em>p</em>+1)/2)/log(<em>p</em>). For <em>p</em> = 3: dimension = log(6)/log(3) ≈ 1.631. For <em>p</em> = 2: dimension = log(3)/log(2) ≈ 1.585.</p>
         </div>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Why This Matters: The Combinatorial Origin of θ = <Fraction numerator="5" denominator="8" /></h2>
-        <p className="mb-4">The mod-3 fractal is not decorative. The surviving entries — the nonzero residues 1 and 2 mod 3 — trace out exactly the constitutional residue classes that twin primes inhabit. The Sierpiński void pattern at scale 3<sup><em>K</em></sup> matches, entry for entry, the count of invalid configurations in a <em>K</em>-level cascade sieve.</p>
-        <p className="mb-4">This is Proposition 2.3 of the Ramanujan paper [5]: a direct combinatorial correspondence between the fractal and the sieve. The triangle is not a metaphor for the arithmetic. The triangle <em>is</em> the arithmetic, seen from a different frame. Both are projections of the same underlying structure. Khayyam's Triangle (combinatorial face) and the hexagonal lattice of the Eisenstein integers (algebraic face) are the same result in two mathematical languages.</p>
+        <p className="mb-4">The mod-3 fractal is not decorative. The surviving entries — the nonzero residues 1 and 2 mod 3 — trace out exactly the constitutional residue classes that twin primes inhabit.</p>
+        <p className="mb-4">Proposition 2.3 of the Ramanujan paper [5] proposes a direct combinatorial correspondence between the fractal and the sieve. The triangle is not a metaphor for the arithmetic. The triangle <em>is</em> the arithmetic, seen from a different frame. Both are projections of the same underlying structure. Khayyam's Triangle (combinatorial face) and the hexagonal lattice of the Eisenstein integers (algebraic face) are the same result in two mathematical languages.</p>
 
         <div className="mt-12 pt-6 border-t border-rule">
           <h2 className="font-stix font-semibold text-[1.05rem] text-ink mb-6">References</h2>
@@ -240,7 +228,7 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     nextPaper: {
       id: "03",
       title: "03 · Spherical Cow Philosophy",
-      desc: <>A Methodological Framework for Mathematical Discovery. Why the 2,300-year-old barrier at θ = <Fraction numerator="1" denominator="2" /> is not an obstacle — it is information.</>,
+      desc: <>A Methodological Framework for Mathematical Discovery. Why the barrier at θ = <Fraction numerator="1" denominator="2" /> is not an obstacle — it is information.</>,
       url: "/papers/p03"
     }
   },
@@ -253,11 +241,10 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     date: "Submitted February 2026 · Constitutional Sieve Programme, Paper 03 of 09",
     pdfUrl: "https://preprint.knowware.institute/pdf/p03.pdf",
     githubUrl: "https://github.com/knowware-institute/p03",
-    arxivUrl: "https://arxiv.org/abs/2602.0103",
     abstract: (
       <>
         <p className="mb-3">We present <em>spherical cow philosophy</em> — a methodological framework for mathematical discovery that complements classical proof-by-contradiction by accepting empirical constitutional constraints as foundational and deriving their forced consequences. Named after the physics heuristic of modelling complex systems through essential simplification, the approach inverts the usual hierarchy: instead of deriving special cases from universal axioms, we identify structural constraints that are empirically universal within a domain, derive what they force rigorously, and validate predictions across independent domains.</p>
-        <p>The framework addresses a specific situation: when classical sieve methods encounter persistent structural barriers — such as the θ = <Fraction numerator="1" denominator="2" /> ceiling for twin primes over two centuries of effort — the productive path may be to accept the constitutional constraint (here, <em>p</em> ≡ 2 (mod 3) for all twin primes <em>p</em> &gt; 3) as the natural entry point and derive its arithmetic consequences. The framework is explicitly falsifiable: it predicts a confirmed non-instance (Sophie Germain primes at θ = <Fraction numerator="1" denominator="2" />) and an open prediction (<em>k</em> = 4 constellation at θ = <Fraction numerator="3" denominator="4" />).</p>
+        <p>The framework addresses a specific situation: when classical sieve methods encounter persistent structural barriers — such as the θ = <Fraction numerator="1" denominator="2" /> ceiling for twin primes — the productive path may be to accept the constitutional constraint (here, <em>p</em> ≡ 2 (mod 3) for all twin primes <em>p</em> &gt; 3) as the natural entry point and derive its arithmetic consequences. The framework is explicitly falsifiable: it predicts a non-instance (Sophie Germain primes at θ = <Fraction numerator="1" denominator="2" />) and an open prediction (<em>k</em> = 4 constellation at θ = <Fraction numerator="3" denominator="4" />).</p>
       </>
     ),
     keywords: "mathematical methodology, constitutional forcing, spherical cow, empirical constitution, twin primes, sieve theory, methodological pluralism, structural barriers, cross-domain validation",
@@ -278,15 +265,15 @@ const PAPERS_DATA: Record<string, PaperContent> = {
           <div className="font-plex-sans italic text-[0.8rem] text-light mb-1">Proof.</div>
           Among any three consecutive integers, exactly one is divisible by 3. For the pair (p, p+2): if p ≡ 0 (mod 3), then 3 ∣ p, contradicting primality. If p ≡ 1 (mod 3), then p+2 ≡ 0 (mod 3), contradicting primality of p+2. Therefore p ≡ 2 (mod 3) and p+2 ≡ 0+1 = 1 (mod 3). <span className="float-right text-ink">□</span>
         </div>
-        <p className="mb-4">This is not a hypothesis. It is a theorem. Guaranteed, inescapable. The primes cannot escape their own constitution. Spherical cow philosophy says: accept this as the entry point, not a consequence to derive. The constitutional signature forces a specific modular structure, which forces specific algebraic geometry (the Eisenstein integers), which forces the level of distribution θ<sub>W</sub> = <Fraction numerator="5" denominator="8" />.</p>
+        <p className="mb-4">This is not a hypothesis. It is a theorem. Guaranteed, inescapable. The primes cannot escape their own constitution. Spherical cow philosophy says: accept this as the entry point, not a consequence to derive. The constitutional signature forces a specific modular structure, which forces specific algebraic geometry (the Eisenstein integers), which — the programme argues — forces the level of distribution θ<sub>W</sub> = <Fraction numerator="5" denominator="8" />.</p>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Non-Circularity and Falsifiability</h2>
         <p className="mb-4">The critical objection to spherical cow philosophy is circularity: if we accept constraints as given rather than proving them, have we proved anything? The answer is that we accept <em>theorems</em> as entry points, not assumptions. Proposition 4.1 is proved. The question is which direction to go from it: the spherical cow approach starts there and asks what it forces, rather than treating it as a consequence to derive from something more fundamental.</p>
         <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
           <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Proposition 5.1 — Sophie Germain Falsification</div>
-          <p className="text-[0.95rem] leading-relaxed">Sophie Germain prime pairs (p, 2p+1) do not exhibit the cascade moduli enhancement. The framework predicts depth k = 2 (not 3), giving θ<sub>2</sub> = <Fraction numerator="1" denominator="2" />. This is confirmed computationally: Sophie Germain pairs show no improvement over Bombieri–Vinogradov. The framework correctly identifies which prime constellations benefit and which do not.</p>
+          <p className="text-[0.95rem] leading-relaxed">Sophie Germain prime pairs (p, 2p+1) do not exhibit the cascade moduli enhancement. The framework predicts depth k = 2 (not 3), giving θ<sub>2</sub> = <Fraction numerator="1" denominator="2" />.</p>
         </div>
-        <p className="mb-4">This is the Sophie Germain falsification: the framework makes a testable prediction (no enhancement), and the prediction is confirmed. A framework that cannot be wrong is not a framework. This one can be, and has been tested.</p>
+        <p className="mb-4">A framework that cannot be wrong is not a framework. This one can be.</p>
 
         <div className="mt-12 pt-6 border-t border-rule">
           <h2 className="font-stix font-semibold text-[1.05rem] text-ink mb-6">References</h2>
@@ -302,7 +289,7 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     nextPaper: {
       id: "04",
       title: "04 · Ternary Forcing on the Hexagonal Lattice",
-      desc: "Eisenstein Integers, Cascade Moduli, and Level of Distribution 5/8. The geometric proof: why the prime 3 ramifies as a perfect square in Z[ω].",
+      desc: "Eisenstein Integers, Cascade Moduli, and Level of Distribution 5/8. The geometric argument: why the prime 3 ramifies as a perfect square in Z[ω].",
       url: "/papers/p04"
     }
   },
@@ -315,12 +302,11 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     date: "Submitted February 2026 · Constitutional Sieve Programme, Paper 04 of 09",
     pdfUrl: "https://preprint.knowware.institute/pdf/p04.pdf",
     githubUrl: "https://github.com/knowware-institute/p04",
-    arxivUrl: "https://arxiv.org/abs/2602.0104",
     abstract: (
       <>
-        <p className="mb-3">We establish a level of distribution θ<sub>W</sub> = <Fraction numerator="5" denominator="8" /> for primes in arithmetic progressions modulo powers of 3. The proof proceeds in two independent geometric parts.</p>
+        <p className="mb-3">We argue for a level of distribution θ<sub>W</sub> = <Fraction numerator="5" denominator="8" /> for primes in arithmetic progressions modulo powers of 3. The argument proceeds in two independent geometric parts.</p>
         <p className="mb-3"><strong>Part I (Eisenstein filtration).</strong> The prime 3 ramifies in the Eisenstein integers Z[ω] as (3) = (1−ω)². This ramification induces a canonical three-level filtration on Z[ω]/(3<sup><em>K</em></sup>), forcing sieve weights over cascade moduli <em>q</em> = 3<sup><em>K</em></sup> to be triply-well-factorable: <em>w</em>(<em>d</em>) = α(<em>d</em>₁)β(<em>d</em>₂)γ(<em>d</em>₃) for <em>d</em> = <em>d</em>₁<em>d</em>₂<em>d</em>₃ ∣ <em>q</em>. Three-fold Cauchy–Schwarz over these levels, combined with the Weil bound, gives a first ceiling of θ ≤ <Fraction numerator="2" denominator="3" />.</p>
-        <p><strong>Part II (Cyclic group cancellation).</strong> The group (Z/3<sup><em>K</em></sup>Z)* is cyclic of order φ(3<sup><em>K</em></sup>) = 2·3<sup><em>K</em>−1</sup>. This cyclic structure provides Kloosterman sum cancellation beyond the Weil bound, improving the ceiling by 1/8 to θ<sub>W</sub> = <Fraction numerator="5" denominator="8" />. All conditions of Watt's theorem are verified explicitly; the Siegel zero condition (Condition W3) follows from the CM structure of Q(ω) via the Stark–Baker theorem, proved in the companion paper [7].</p>
+        <p><strong>Part II (Cyclic group cancellation).</strong> The group (Z/3<sup><em>K</em></sup>Z)* is cyclic of order φ(3<sup><em>K</em></sup>) = 2·3<sup><em>K</em>−1</sup>. We argue that this cyclic structure yields θ<sub>W</sub> = <Fraction numerator="5" denominator="8" />. The Siegel zero condition (Condition W3) is treated in the companion paper [7].</p>
       </>
     ),
     keywords: "level of distribution, Eisenstein integers, cascade moduli, Kloosterman sums, Watt's theorem, Siegel zeros, sieve theory, twin primes, Bombieri–Vinogradov, triply-well-factorable weights",
@@ -333,39 +319,34 @@ const PAPERS_DATA: Record<string, PaperContent> = {
           <div className="flex-1 text-center font-stix text-[1.02rem]"><em>∑</em><sub><em>q</em> ≤ <em>x</em><sup>1/2</sup>/(log <em>x</em>)<sup><em>B</em></sup></sub> max<sub>gcd(<em>a</em>,<em>q</em>)=1</sub> |ψ(<em>x</em>; <em>q</em>, <em>a</em>) − <em>x</em>/φ(<em>q</em>)| ≪ <em>x</em>/(log <em>x</em>)<sup><em>A</em></sup></div>
           <div className="font-plex-mono text-[0.68rem] text-light w-11 text-right">(1)</div>
         </div>
-        <p className="mb-4">The <em>level of distribution</em> θ is the supremum of exponents for which (1) holds with <em>q</em> ≤ <em>x</em><sup>θ</sup>. Bombieri–Vinogradov gives θ = <Fraction numerator="1" denominator="2" /> for all moduli. This paper proves θ<sub>W</sub> = <Fraction numerator="5" denominator="8" /> for cascade moduli <em>q</em> = 3<sup><em>K</em></sup>. The proof is geometric: both the improvement from 1/2 to 2/3 (Part I) and from 2/3 to 5/8 (Part II) arise from algebraic properties of 3 in Z[ω] that force the result, not from analytic optimisation.</p>
+        <p className="mb-4">The <em>level of distribution</em> θ is the supremum of exponents for which (1) holds with <em>q</em> ≤ <em>x</em><sup>θ</sup>. Bombieri–Vinogradov gives θ = <Fraction numerator="1" denominator="2" /> for all moduli. This paper argues for θ<sub>W</sub> = <Fraction numerator="5" denominator="8" /> for cascade moduli <em>q</em> = 3<sup><em>K</em></sup>. The argument is geometric: both Part I (the ceiling 2/3) and Part II (the value 5/8) are argued to arise from algebraic properties of 3 in Z[ω], not from analytic optimisation.</p>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Geometric Part I: Eisenstein Filtration</h2>
         <p className="mb-4">The Eisenstein integers Z[ω], where ω = <em>e</em><sup>2πi/3</sup>, form a hexagonal lattice in the complex plane. Their fundamental property for this paper is the ramification of 3.</p>
         <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Proposition 2.1 — Ramification of 3 in Z[ω]</div>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Proposition 2.2 — Ramification of 3 in Z[ω]</div>
           <p className="text-[0.95rem] leading-relaxed">In the ring Z[ω], the prime 3 factors as (3) = (1−ω)². The ideal 𝔭 = (1−ω) is the unique prime of Z[ω] above 3, with norm N(𝔭) = 3. The ramification is total: e = 2, f = 1.</p>
         </div>
         <div className="proof ml-6 mb-6 text-[0.92rem] text-mid leading-relaxed">
           <div className="font-plex-sans italic text-[0.8rem] text-light mb-1">Proof.</div>
-          The minimal polynomial of ω over Q is Φ₃(<em>x</em>) = <em>x</em>² + <em>x</em> + 1. Modulo 3: <em>x</em>² + <em>x</em> + 1 ≡ (<em>x</em>+1)² (mod 3), since (−1)² + (−1) + 1 = 1 ≡ 1 ≢ 0 mod 3... wait: 1 − 1 + 1 = 1. Check: (<em>x</em>+1)² = <em>x</em>² + 2<em>x</em> + 1 ≡ <em>x</em>² − <em>x</em> + 1 (mod 3). And Φ₃ = <em>x</em>² + <em>x</em> + 1. These agree mod 3 since 2 ≡ −1. So Φ₃ ≡ (<em>x</em>+1)² mod 3. By Dedekind's theorem, (3) = (1−ω)² in Z[ω], confirming total ramification. <span className="float-right text-ink">□</span>
+          The minimal polynomial of ω over Q is Φ₃(<em>x</em>) = <em>x</em>² + <em>x</em> + 1. Modulo 3: <em>x</em>² + <em>x</em> + 1 ≡ <em>x</em>² − 2<em>x</em> + 1 = (<em>x</em>−1)² (mod 3), since 1 ≡ −2 (mod 3). So Φ₃ ≡ (<em>x</em>−1)² mod 3. By Dedekind's theorem, (3) = (1−ω)² in Z[ω], confirming total ramification. <span className="float-right text-ink">□</span>
         </div>
         <p className="mb-4">This ramification forces a canonical three-level filtration on Z[ω]/(3<sup><em>K</em></sup>). Any function <em>w</em>(<em>d</em>) supported on <em>d</em> ∣ 3<sup><em>K</em></sup> decomposes as <em>w</em>(<em>d</em>) = α(<em>d</em>₁)β(<em>d</em>₂)γ(<em>d</em>₃), where <em>d</em>₁<em>d</em>₂<em>d</em>₃ = <em>d</em> corresponds to the three levels of the filtration. Sieve weights over cascade moduli are therefore <em>triply-well-factorable</em> by the algebraic structure of Z[ω], not by choice. Three-fold Cauchy–Schwarz over the filtration levels gives θ ≤ <Fraction numerator="2" denominator="3" />.</p>
 
         <div className="my-6 p-4 border border-rule border-l-4 border-light bg-paper-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Corollary 2.4 — Twin Primes as Inert-Split Pairs</div>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Corollary 6.4 — Twin Primes as Inert-Split Pairs</div>
           <p className="text-[0.95rem] leading-relaxed">A prime <em>p</em> &gt; 3 satisfies <em>p</em> ≡ 2 (mod 3) if and only if <em>p</em> is <em>inert</em> in Z[ω] (remains prime). Its companion <em>p</em>+2 ≡ 1 (mod 3) <em>splits</em> in Z[ω] (factors into two distinct Eisenstein primes). Twin primes are precisely the inert-split pairs of the hexagonal lattice.</p>
         </div>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Geometric Part II: Cyclic Group Cancellation</h2>
-        <p className="mb-4">The group (Z/3<sup><em>K</em></sup>Z)* is cyclic of order φ(3<sup><em>K</em></sup>) = 2·3<sup><em>K</em>−1</sup>. This cyclic structure enables Kloosterman sum cancellation beyond the standard Weil bound. For a character χ modulo 3<sup><em>K</em></sup>, the cyclic structure forces</p>
-        <div className="flex items-center justify-between my-6">
-          <div className="flex-1 text-center font-stix text-[1.02rem]">|S(m, n; 3<sup><em>K</em></sup>)| ≤ 2 · gcd(<em>m</em>, <em>n</em>, 3<sup><em>K</em></sup>)<sup><Fraction numerator="1" denominator="2" /></sup> · (3<sup><em>K</em></sup>)<sup><Fraction numerator="1" denominator="2" />−<Fraction numerator="1" denominator="8" /></sup></div>
-          <div className="font-plex-mono text-[0.68rem] text-light w-11 text-right">(4)</div>
-        </div>
-        <p className="mb-4">improving the Weil exponent <Fraction numerator="1" denominator="2" /> by <Fraction numerator="1" denominator="8" />. Deployed via Watt's 1995 theorem, this cancellation improves the ceiling from <Fraction numerator="2" denominator="3" /> to <Fraction numerator="5" denominator="8" />.</p>
+        <p className="mb-4">The group (Z/3<sup><em>K</em></sup>Z)* is cyclic of order φ(3<sup><em>K</em></sup>) = 2·3<sup><em>K</em>−1</sup>. We argue that this cyclic structure, deployed via Watt's 1995 theorem, yields θ<sub>W</sub> = <Fraction numerator="5" denominator="8" />.</p>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Main Theorem</h2>
         <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
           <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 1.1 — Level of Distribution for Cascade Moduli</div>
           <p className="text-[0.95rem] leading-relaxed mb-3">For any <em>A</em> &gt; 0 and ε &gt; 0,</p>
           <div className="text-center font-stix text-[1.02rem] mb-3"><em>∑</em><sub>3<sup><em>K</em></sup> ≤ <em>x</em><sup><Fraction numerator="5" denominator="8" />−ε</sup></sub> max<sub>gcd(<em>a</em>, 3<sup><em>K</em></sup>)=1</sub> |ψ(<em>x</em>; 3<sup><em>K</em></sup>, <em>a</em>) − <em>x</em>/φ(3<sup><em>K</em></sup>)| ≪ <em>x</em>/(log <em>x</em>)<sup><em>A</em></sup></div>
-          <p className="text-[0.95rem] leading-relaxed">where ψ(<em>x</em>; <em>q</em>, <em>a</em>) = Σ<sub><em>n</em>≤<em>x</em>, <em>n</em>≡<em>a</em> (mod <em>q</em>)</sub> Λ(<em>n</em>). Primes have level of distribution θ<sub>W</sub> = <Fraction numerator="5" denominator="8" /> over cascade moduli 3<sup><em>K</em></sup>, subject to Condition W3 (proved unconditionally in [7]).</p>
+          <p className="text-[0.95rem] leading-relaxed">where ψ(<em>x</em>; <em>q</em>, <em>a</em>) = Σ<sub><em>n</em>≤<em>x</em>, <em>n</em>≡<em>a</em> (mod <em>q</em>)</sub> Λ(<em>n</em>). Primes have level of distribution θ<sub>W</sub> = <Fraction numerator="5" denominator="8" /> over cascade moduli 3<sup><em>K</em></sup>, subject to Condition W3 (treated in [7]).</p>
         </div>
 
         <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
@@ -374,20 +355,15 @@ const PAPERS_DATA: Record<string, PaperContent> = {
         </div>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">The Hexagonal Lattice: Geometric Picture</h2>
-        <p className="mb-4">The three constraints operating in the cascade moduli case correspond to three distinct geometric features of the hexagonal lattice Z[ω]. First: each arithmetic progression mod 3<sup><em>K</em></sup> must be coprime to 3<sup><em>K</em></sup> (level 0 of the filtration). Second: the ramification (3) = 𝔭² divides the lattice into 𝔭-orbits (level 1). Third: the cyclic structure of (Z/3<sup><em>K</em></sup>Z)* selects Kloosterman-stable subcollections (level 2). Each removes one degree of freedom from the 2³ = 8-dimensional configuration space, leaving 8 − 3 = 5 valid configurations: θ<sub>3</sub> = <Fraction numerator="5" denominator="8" />.</p>
-
-        <div className="my-6 p-4 border border-accent/20 border-l-4 border-accent bg-accent/5">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-accent mb-2">Remark — Independent Confirmation</div>
-          <p className="text-[0.95rem] leading-relaxed italic">While this programme was in progress, Alessandro Pascadi (Cambridge) proved θ = <Fraction numerator="5" denominator="8" /> for smooth, triply-well-factorable moduli (arXiv:2505.00653v2, May 2025) by a completely different method for a completely different moduli family. The convergence of two independent paths to the same constant θ<sub>W</sub> = <Fraction numerator="5" denominator="8" /> is evidence that the value is structurally forced, not an artefact of either approach.</p>
-        </div>
+        <p className="mb-4">The three constraints proposed for the cascade moduli case — survival conditions for twin primes at the levels mod 3, mod 9 and mod 27 — are attributed to the structure of the hexagonal lattice Z[ω]: the level mod 3 to the signature <em>p</em> ≡ 2 (mod 3), the level mod 9 to the ramification (3) = 𝔭², and the level mod 27 to the three-level filtration of Z[ω]/(3<sup><em>K</em></sup>). Each is counted as eliminating one of the 2³ = 8 binary configurations, leaving 8 − 3 = 5 valid configurations: θ<sub>3</sub> = <Fraction numerator="5" denominator="8" />.</p>
 
         <div className="mt-12 pt-6 border-t border-rule">
           <h2 className="font-stix font-semibold text-[1.05rem] text-ink mb-6">References</h2>
           <ol className="list-none [counter-reset:refs]">
-            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">V. Bombieri, "On the large sieve," <em>Mathematika</em> 12 (1965), 201–225.</li>
+            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">E. Bombieri, "On the large sieve," <em>Mathematika</em> 12 (1965), 201–225.</li>
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">A. Vinogradov, "The density hypothesis for Dirichlet <em>L</em>-series," <em>Izv. Akad. Nauk SSSR</em> 29 (1965).</li>
-            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">A. Watt, "Kloosterman sums and a mean value for Dirichlet polynomials," <em>J. Number Theory</em> 53 (1995), 179–210.</li>
-            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">A. Pascadi, arXiv:2505.00653v2 (2025).</li>
+            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">N. Watt, "Kloosterman sums and a mean value for Dirichlet polynomials," <em>J. Number Theory</em> 53 (1995), 179–210.</li>
+            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">A. Pascadi, "On the exponents of distribution of primes and smooth numbers," arXiv:2505.00653 (2025).</li>
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">H. M. Stark, "A complete determination of the complex quadratic fields of class-number one," <em>Michigan Math. J.</em> 14 (1967), 1–27.</li>
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">A. Baker, "Linear forms in the logarithms of algebraic numbers IV," <em>Mathematika</em> 15 (1968), 204–216.</li>
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">K. Wakil, "Condition W3: Absence of Siegel Zeros for Characters Modulo 3<sup>K</sup> via the CM Structure of Z[ω]," Constitutional Sieve Programme Paper 07 (2026).</li>
@@ -411,13 +387,12 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     date: "Submitted February 2026 · Constitutional Sieve Programme, Paper 05 of 09",
     pdfUrl: "https://preprint.knowware.institute/pdf/p05.pdf",
     githubUrl: null,
-    arxivUrl: "https://arxiv.org/abs/2602.0105",
     abstract: (
       <>
         <p className="mb-3">We derive a universal formula for the level of distribution achieved by <em>k</em>-fold sieves with constitutional structure:</p>
         <p className="text-center my-3 italic font-stix text-[1.1rem]">θ<sub><em>k</em></sub> = <Fraction numerator={<>2<sup>k</sup> − k</>} denominator={<>2<sup>k</sup></>} /> = 1 − <Fraction numerator="k" denominator={<>2<sup>k</sup></>} />.</p>
-        <p className="mb-3">The formula rests on two independent pillars. The <em>combinatorial pillar</em>: a counting theorem shows that a <em>k</em>-level nested constitutional sieve has exactly <em>k</em> invalid configurations out of 2<sup><em>k</em></sup> total, giving configuration density (2<sup><em>k</em></sup>−<em>k</em>)/2<sup><em>k</em></sup>. The <em>geometric pillar</em>: for <em>k</em>=3 (twin primes, cascade moduli q=3<sup>K</sup>), the algebraic structure of Z[ω] independently forces θ = 5/8 via two mechanisms — the three-level Eisenstein filtration and the cyclic Kloosterman cancellation.</p>
-        <p>The formula unifies the classical Bombieri–Vinogradov barrier (θ<sub>1</sub> = <Fraction numerator="1" denominator="2" />, k=1) and Pascadi's breakthrough (θ<sub>3</sub> = <Fraction numerator="5" denominator="8" />, k=3) as special cases, and predicts the next achievable threshold at k=4 (θ<sub>4</sub> = <Fraction numerator="3" denominator="4" />). We also resolve a previously conflated distinction between <em>pattern density</em> and <em>configuration density</em> that explains a 12% discrepancy in earlier estimates.</p>
+        <p className="mb-3">The formula rests on two independent pillars. The <em>combinatorial pillar</em>: a counting theorem claims that a <em>k</em>-level nested constitutional sieve has exactly <em>k</em> invalid configurations out of 2<sup><em>k</em></sup> total, giving configuration density (2<sup><em>k</em></sup>−<em>k</em>)/2<sup><em>k</em></sup>. The <em>geometric pillar</em>: for <em>k</em>=3 (twin primes, cascade moduli q=3<sup>K</sup>), the algebraic structure of Z[ω] is argued to force θ = 5/8 independently, via two mechanisms — the three-level Eisenstein filtration and the cyclic Kloosterman cancellation.</p>
+        <p>The formula recovers the classical Bombieri–Vinogradov barrier (θ<sub>1</sub> = <Fraction numerator="1" denominator="2" />, k=1) and the cascade moduli value claimed in Paper 04 (θ<sub>3</sub> = <Fraction numerator="5" denominator="8" />, k=3), and predicts the next achievable threshold at k=4 (θ<sub>4</sub> = <Fraction numerator="3" denominator="4" />). We also resolve a previously conflated distinction between <em>pattern density</em> and <em>configuration density</em> that explains a discrepancy of about 9% in earlier estimates.</p>
       </>
     ),
     keywords: "Ramanujan, level of distribution, constitutional dimension, L-functions, modular forms, sieve theory, twin primes, universal formula",
@@ -430,27 +405,23 @@ const PAPERS_DATA: Record<string, PaperContent> = {
         <p className="text-center my-6 font-stix text-[1.15rem]"><em>θ<sub>k</sub></em> = <Fraction numerator={<>2<sup>k</sup> − k</>} denominator={<>2<sup>k</sup></>} /></p>
           <div className="font-plex-mono text-[0.68rem] text-light w-11 text-right">(1)</div>
         </div>
-        <p className="mb-4">giving θ<sub>1</sub> = <Fraction numerator="1" denominator="2" /> (Bombieri–Vinogradov), θ<sub>3</sub> = <Fraction numerator="5" denominator="8" /> (Pascadi; companion paper [4]), and θ<sub>4</sub> = <Fraction numerator="3" denominator="4" /> (predicted). Formula (1) is not an empirical fit: it is derived from first principles in two independent ways — one combinatorial, one geometric — and both derivations agree.</p>
-        <p className="mb-4">The Ramanujan principle: in his work on partition functions and modular forms, Ramanujan observed that certain numbers force exact asymptotic formulas through their structural properties alone. Just as 24 is forced by the modular properties of the Dedekind eta function, the number 3 forces θ<sub>W</sub> = <Fraction numerator="5" denominator="8" /> in sieve theory. Given the constitutional structure, the configuration space has 2³ = 8 dimensions; three constraints eliminate three configurations; and θ<sub>3</sub> = <Fraction numerator="5" denominator="8" /> is inevitable — not chosen, not approximated, forced.</p>
+        <p className="mb-4">giving θ<sub>1</sub> = <Fraction numerator="1" denominator="2" /> (Bombieri–Vinogradov), θ<sub>3</sub> = <Fraction numerator="5" denominator="8" /> (companion paper [4]), and θ<sub>4</sub> = <Fraction numerator="3" denominator="4" /> (predicted). Formula (1) is not an empirical fit: it is argued from first principles in two independent ways — one combinatorial, one geometric — and both arguments agree.</p>
+        <p className="mb-4">The Ramanujan principle: in his work on partition functions and modular forms, Ramanujan observed that certain numbers force exact asymptotic formulas through their structural properties alone. Just as 24 is forced by the modular properties of the Dedekind eta function, the number 3 is argued here to force θ<sub>W</sub> = <Fraction numerator="5" denominator="8" /> in sieve theory. Given the constitutional structure, the configuration space has 2³ = 8 configurations; three constraints eliminate three configurations; and θ<sub>3</sub> = <Fraction numerator="5" denominator="8" /> is inevitable — not chosen, not approximated, forced.</p>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Two Densities: A Critical Distinction</h2>
         <div className="my-6 p-4 border border-rule border-l-4 border-accent bg-accent/5">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-accent mb-2">Definition 4.1</div>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-accent mb-2">Definition</div>
           <p className="text-[0.95rem] leading-relaxed"><strong>Configuration density</strong> ρ<sup>config</sup><sub>k</sub> = (2<sup><em>k</em></sup>−<em>k</em>)/2<sup><em>k</em></sup> is the ratio of valid to total binary configurations in a <em>k</em>-fold constitutionally constrained system, as counted by the Counting Theorem. <strong>Pattern density</strong> ρ<sup>pattern</sup><sub>k</sub> is the empirically observed frequency of primes landing in constitutional residue classes.</p>
         </div>
         <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Remark 4.3 — The 12% Discrepancy</div>
-          <p className="text-[0.95rem] leading-relaxed italic">Pattern density ≠ configuration density. Pattern density overestimates configuration density by approximately 12% because observed prime distributions include cross-level correlations that the pure counting argument does not account for. Earlier estimates in this programme conflated the two, producing predictions that were systematically 12% too high. The formula θ<sub>k</sub> = <Fraction numerator={<>2<sup>k</sup>−k</>} denominator={<>2<sup>k</sup></>} /> uses <em>configuration density</em>.</p>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Remark — The ≈ 9% Discrepancy</div>
+          <p className="text-[0.95rem] leading-relaxed italic">Pattern density ≠ configuration density. Pattern density (416/729 ≈ 0.571) falls below configuration density (5/8 = 0.625) by approximately 9%. Earlier estimates in this programme conflated the two, producing predictions that were systematically about 9% too low. The formula θ<sub>k</sub> = <Fraction numerator={<>2<sup>k</sup>−k</>} denominator={<>2<sup>k</sup></>} /> uses <em>configuration density</em>.</p>
         </div>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">The Combinatorial Pillar</h2>
         <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 3.1 — Nested Constraint Count</div>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 3.4 — Nested Constraint Count</div>
           <p className="text-[0.95rem] leading-relaxed">For a <em>k</em>-fold sieve with constitutional constraints at each of <em>k</em> nested levels, exactly <em>k</em> configurations in C<sub>k</sub> = {'{0,1}'}<sup><em>k</em></sup> are invalid. The configuration density is θ<sub>k</sub> = (2<sup><em>k</em></sup>−<em>k</em>)/2<sup><em>k</em></sup>.</p>
-        </div>
-        <div className="proof ml-6 mb-6 text-[0.92rem] text-mid leading-relaxed">
-          <div className="font-plex-sans italic text-[0.8rem] text-light mb-1">Proof.</div>
-          By induction on <em>k</em>; identical to the Counting Theorem proof in Paper 01 [1]. The key observation is that each constitutional constraint is <em>independent</em>: it eliminates exactly one configuration class not already eliminated by prior constraints. With <em>k</em> such constraints, exactly <em>k</em> classes are eliminated from 2<sup><em>k</em></sup> total. <span className="float-right text-ink">□</span>
         </div>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">The Universal Formula and Its Predictions</h2>
@@ -467,23 +438,23 @@ const PAPERS_DATA: Record<string, PaperContent> = {
             </thead>
             <tbody>
               <tr className="border-b border-rule"><td className="py-2 px-3">1</td><td className="py-2 px-3"><Fraction numerator={<>2−1</>} denominator="2" /></td><td className="py-2 px-3"><Fraction numerator="1" denominator="2" /></td><td className="py-2 px-3">Proved</td><td className="py-2 px-3">Bombieri–Vinogradov (1965)</td></tr>
-              <tr className="border-b border-rule"><td className="py-2 px-3">2</td><td className="py-2 px-3"><Fraction numerator={<>4−2</>} denominator="4" /></td><td className="py-2 px-3"><Fraction numerator="1" denominator="2" /></td><td className="py-2 px-3">Confirmed non-instance</td><td className="py-2 px-3">Sophie Germain pairs (k=2 by structure)</td></tr>
-              <tr className="border-b border-rule"><td className="py-2 px-3">3</td><td className="py-2 px-3"><Fraction numerator={<>8−3</>} denominator="8" /></td><td className="py-2 px-3"><Fraction numerator="5" denominator="8" /></td><td className="py-2 px-3">Proved</td><td className="py-2 px-3">Cascade moduli / Pascadi (2025)</td></tr>
+              <tr className="border-b border-rule"><td className="py-2 px-3">2</td><td className="py-2 px-3"><Fraction numerator={<>4−2</>} denominator="4" /></td><td className="py-2 px-3"><Fraction numerator="1" denominator="2" /></td><td className="py-2 px-3">Claimed non-instance</td><td className="py-2 px-3">Sophie Germain pairs (k=2 by structure)</td></tr>
+              <tr className="border-b border-rule"><td className="py-2 px-3">3</td><td className="py-2 px-3"><Fraction numerator={<>8−3</>} denominator="8" /></td><td className="py-2 px-3"><Fraction numerator="5" denominator="8" /></td><td className="py-2 px-3">Claimed</td><td className="py-2 px-3">Cascade moduli</td></tr>
               <tr className="border-b border-rule"><td className="py-2 px-3">4</td><td className="py-2 px-3"><Fraction numerator={<>16−4</>} denominator="16" /></td><td className="py-2 px-3"><Fraction numerator="3" denominator="4" /></td><td className="py-2 px-3">Predicted (open)</td><td className="py-2 px-3">Unknown prime constellation with 4 constraints</td></tr>
-              <tr className="border-b-2 border-ink"><td className="py-2 px-3">5</td><td className="py-2 px-3">(32−5)/32</td><td className="py-2 px-3">27/32</td><td className="py-2 px-3">Predicted (open)</td><td className="py-2 px-3">Would imply twin prime infinitude via GPY</td></tr>
+              <tr className="border-b-2 border-ink"><td className="py-2 px-3">5</td><td className="py-2 px-3">(32−5)/32</td><td className="py-2 px-3">27/32</td><td className="py-2 px-3">Predicted (open)</td><td className="py-2 px-3">—</td></tr>
             </tbody>
           </table>
-          <div className="text-center mt-3 font-plex-sans text-[0.72rem] italic text-mid"><strong>Table 1.</strong> The <em>k</em>-hierarchy of constitutional sieve levels. The formula unifies all proved instances and generates falsifiable predictions.</div>
+          <div className="text-center mt-3 font-plex-sans text-[0.72rem] italic text-mid"><strong>Table 1.</strong> The <em>k</em>-hierarchy of constitutional sieve levels. The formula generates falsifiable predictions.</div>
         </div>
 
         <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Conjecture 6.1 — Ramanujan's Dimensional Forcing</div>
-          <p className="text-[0.95rem] leading-relaxed">For every <em>k</em>-fold sieve with constitutional structure, the analytic level of distribution equals the configuration density: θ<sub>k</sub> = (2<sup><em>k</em></sup>−<em>k</em>)/2<sup><em>k</em></sup>. The combinatorial pillar (Theorem 3.1) proves this for all <em>k</em> at the counting level. The geometric pillar proves it analytically for <em>k</em>=3 (cascade moduli). The extension to <em>k</em> ≥ 4 over sufficiently broad moduli families is the principal open problem of the programme.</p>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Conjecture — Ramanujan's Dimensional Forcing</div>
+          <p className="text-[0.95rem] leading-relaxed">For every <em>k</em>-fold sieve with constitutional structure, the analytic level of distribution equals the configuration density: θ<sub>k</sub> = (2<sup><em>k</em></sup>−<em>k</em>)/2<sup><em>k</em></sup>. The combinatorial pillar (Theorem 3.4) is claimed to establish this for all <em>k</em> at the counting level, and the geometric pillar to establish it analytically for <em>k</em>=3 (cascade moduli). The extension to <em>k</em> ≥ 4 over sufficiently broad moduli families is the principal open problem of the programme.</p>
         </div>
 
         <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Remark — Connection to Twin Prime Infinitude</div>
-          <p className="text-[0.95rem] leading-relaxed">The Goldston–Pintz–Yıldırım theorem requires a level of distribution θ &gt; 1/2 over a moduli family broad enough to serve as GPY input. The cascade moduli family (θ<sub>W</sub> = <Fraction numerator="5" denominator="8" />, <em>k</em>=3) is too narrow: cascade moduli q = 3<sup>K</sup> form a one-parameter family. The formula predicts θ<sub>5</sub> = <Fraction numerator="27" denominator="32" /> ≈ 0.844 for a 5-level constitutional sieve. If this can be established analytically over a broad family, twin prime infinitude follows. The formula already knows the answer. The proof is the remaining work.</p>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Remark — Connection to Goldston–Pintz–Yıldırım</div>
+          <p className="text-[0.95rem] leading-relaxed">The Goldston–Pintz–Yıldırım theorem shows that a level of distribution θ &gt; 1/2, over a moduli family broad enough to serve as GPY input, yields bounded gaps between primes. The cascade moduli family (θ<sub>W</sub> = <Fraction numerator="5" denominator="8" />, <em>k</em>=3) is too narrow: cascade moduli q = 3<sup>K</sup> form a one-parameter family. The formula predicts θ<sub>5</sub> = <Fraction numerator="27" denominator="32" /> ≈ 0.844 for a 5-level constitutional sieve.</p>
         </div>
 
         <div className="mt-12 pt-6 border-t border-rule">
@@ -491,9 +462,9 @@ const PAPERS_DATA: Record<string, PaperContent> = {
           <ol className="list-none [counter-reset:refs]">
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">K. Wakil, "Constitutional Forcing," Constitutional Sieve Programme Paper 01 (2026).</li>
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">K. Wakil, "Khayyam's Triangle," Constitutional Sieve Programme Paper 02 (2026).</li>
-            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">V. Bombieri, A. Vinogradov, Bombieri–Vinogradov theorem (1965).</li>
+            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">E. Bombieri, A. Vinogradov, Bombieri–Vinogradov theorem (1965).</li>
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">K. Wakil, "Ternary Forcing on the Hexagonal Lattice," Constitutional Sieve Programme Paper 04 (2026).</li>
-            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">A. Pascadi, arXiv:2505.00653v2 (2025).</li>
+            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">A. Pascadi, "On the exponents of distribution of primes and smooth numbers," arXiv:2505.00653 (2025).</li>
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">D. Goldston, J. Pintz, C. Yıldırım, "Primes in tuples I," <em>Ann. Math.</em> 170 (2009), 819–862.</li>
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">K. Wakil, "Condition W3," Constitutional Sieve Programme Paper 07 (2026).</li>
           </ol>
@@ -513,15 +484,14 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     title: "The Shannon–Wakil Effect",
     authors: "Khayyam Wakil",
     affiliation: "The ARC Institute of Knowware, Calgary, Alberta, Canada",
-    date: "Submitted March 2026 · Constitutional Sieve Programme, Paper 06 of 09",
+    date: "Submitted February 2026 · Constitutional Sieve Programme, Paper 06 of 09",
     pdfUrl: "https://preprint.knowware.institute/pdf/p06.pdf",
     githubUrl: "https://github.com/knowware-institute/p06",
-    arxivUrl: "https://arxiv.org/abs/2603.0106",
     abstract: (
       <>
-        <p className="mb-3">We identify, formalize, and provide three proven instances of a structural phenomenon we call the <em>Shannon–Wakil effect</em>: an exponential configuration space undergoes forced dimensional reduction to a strict subspace, governed by a constant that is uniquely determined by the algebraic structure of the system and cannot be altered without changing that structure.</p>
-        <p className="mb-3">The first two instances are both due to Shannon (1948). The Asymptotic Equipartition Property shows that |𝒜|<sup><em>n</em></sup> sequences concentrate onto a typical set of size ≈ 2<sup><em>nH</em></sup>, where entropy <em>H</em> is forced by the source distribution. The Channel Coding Theorem shows that reliable communication is possible only at rates <em>R</em> &lt; <em>C</em>, where channel capacity <em>C</em> is forced by the channel. The third instance is the cascade moduli result: primes modulo powers of 3 concentrate onto an effective subspace governed by level of distribution θ<sub>W</sub> = <Fraction numerator="5" denominator="8" />, forced by the algebraic structure of Z[ω].</p>
-        <p>We exhibit a confirmed non-instance (Sophie Germain prime pairs at θ = <Fraction numerator="1" denominator="2" />), demonstrating that the framework is falsifiable.</p>
+        <p className="mb-3">We identify, formalize, and provide three instances of a structural phenomenon we call the <em>Shannon–Wakil effect</em>: an exponential configuration space undergoes forced dimensional reduction to a strict subspace, governed by a constant that is uniquely determined by the algebraic structure of the system and cannot be altered without changing that structure.</p>
+        <p className="mb-3">The first two instances are both due to Shannon (1948). The Asymptotic Equipartition Property shows that |𝒜|<sup><em>n</em></sup> sequences concentrate onto a typical set of size ≈ 2<sup><em>nH</em></sup>, where entropy <em>H</em> is forced by the source distribution. The Channel Coding Theorem shows that reliable communication is possible only at rates <em>R</em> &lt; <em>C</em>, where channel capacity <em>C</em> is forced by the channel. The proposed third instance is the cascade moduli claim of Paper 04: primes modulo powers of 3 concentrate onto an effective subspace governed by level of distribution θ<sub>W</sub> = <Fraction numerator="5" denominator="8" />, argued to be forced by the algebraic structure of Z[ω].</p>
+        <p>We exhibit a non-instance (Sophie Germain prime pairs at θ = <Fraction numerator="1" denominator="2" />).</p>
       </>
     ),
     keywords: "Shannon, information theory, entropy, level of distribution, twin primes, sieve theory, k-hierarchy, structural parallel",
@@ -530,7 +500,7 @@ const PAPERS_DATA: Record<string, PaperContent> = {
       <>
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Introduction</h2>
         <p className="mb-4">Every mathematician knows at some level that information theory and number theory are different subjects. Information theory studies the storage and transmission of data; number theory studies the arithmetic structure of integers. They have different objects, different tools, and different communities.</p>
-        <p className="mb-4">This paper documents a precise structural parallel between the two, visible only after both sides are independently understood. In 1948, Shannon proved two theorems that together define the fundamental limits of compression and communication. In 2026, a companion paper established an analogous phenomenon in analytic number theory. The governing constants in both cases are not chosen — they are uniquely forced by the algebraic structure of the underlying mathematical object. We call all three results instances of the Shannon–Wakil effect.</p>
+        <p className="mb-4">This paper documents a precise structural parallel between the two, visible only after both sides are independently understood. In 1948, Shannon proved two theorems that together define the fundamental limits of compression and communication. In 2026, a companion paper argued for an analogous phenomenon in analytic number theory. The governing constants in both cases are not chosen — they are uniquely forced by the algebraic structure of the underlying mathematical object. We call all three results instances of the Shannon–Wakil effect.</p>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">The Shannon–Wakil Effect: Definition</h2>
         <div className="my-6 p-4 border border-rule border-l-4 border-accent bg-accent/5">
@@ -574,20 +544,20 @@ const PAPERS_DATA: Record<string, PaperContent> = {
               <tr className="border-b border-rule"><td className="py-2 px-3">2</td><td className="py-2 px-3">Concentrates on ≈ 2<sup><em>nH</em></sup></td><td className="py-2 px-3">Reliable only at <em>R</em> &lt; <em>C</em></td><td className="py-2 px-3">Concentrates on <em>x</em><sup>θ<sub>W</sub></sup></td></tr>
               <tr className="border-b border-rule"><td className="py-2 px-3">3</td><td className="py-2 px-3"><em>H</em> forced by source <em>p</em>(<em>x</em>)</td><td className="py-2 px-3"><em>C</em> forced by channel <em>p</em>(<em>y</em>|<em>x</em>)</td><td className="py-2 px-3">θ<sub>W</sub> forced by Z[ω] structure</td></tr>
               <tr className="border-b border-rule"><td className="py-2 px-3">4</td><td className="py-2 px-3">Entropy maximisation</td><td className="py-2 px-3">Mutual information supremum</td><td className="py-2 px-3">Equidistribution supremum</td></tr>
-              <tr className="border-b-2 border-ink"><td className="py-2 px-3">5</td><td className="py-2 px-3">θ₁ = (2−1)/2 = 1/2</td><td className="py-2 px-3">θ₁ = 1/2 (binary channel)</td><td className="py-2 px-3">θ₃ = (8−3)/8 = 5/8</td></tr>
+              <tr className="border-b-2 border-ink"><td className="py-2 px-3">5</td><td className="py-2 px-3"><em>H</em> / log|𝒜|</td><td className="py-2 px-3"><em>C</em></td><td className="py-2 px-3">θ₃ = (8−3)/8 = 5/8</td></tr>
             </tbody>
           </table>
           <div className="text-center mt-3 font-plex-sans text-[0.72rem] italic text-mid"><strong>Table 1.</strong> Five structural correspondences between the three instances of the Shannon–Wakil effect. Each is precise, not metaphorical.</div>
         </div>
 
         <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Remark — The 77-Year Gap</div>
-          <p className="text-[0.95rem] leading-relaxed italic">Shannon's results: 1948. The cascade moduli result: 2026. Gap: 77 years. The structural parallel was invisible until both sides were independently established. Shannon had never heard of cascade moduli; this programme was not built by analogy from information theory. The independence of the two paths is part of the evidence that the mechanism is real: two separate fields, different tools, different communities, decades apart, forced to the same formal structure by the same underlying phenomenon.</p>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Remark — The 78-Year Gap</div>
+          <p className="text-[0.95rem] leading-relaxed italic">Shannon's results: 1948. The cascade moduli result: 2026. Gap: 78 years. The structural parallel was invisible until both sides were independently developed. Shannon had never heard of cascade moduli; this programme was not built by analogy from information theory. The independence of the two paths is part of the evidence that the mechanism is real: two separate fields, different tools, different communities, decades apart, forced to the same formal structure by the same underlying phenomenon.</p>
         </div>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">The Shannon–Wakil Constant Ratio</h2>
         <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Proposition 8.1 — Shannon–Wakil Constant Ratio</div>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Proposition — Shannon–Wakil Constant Ratio</div>
           <p className="text-[0.95rem] leading-relaxed">The ratio θ<sub>W</sub>/θ<sub>BV</sub> = (<Fraction numerator="5" denominator="8" />)/(<Fraction numerator="1" denominator="2" />) = <Fraction numerator="5" denominator="4" /> is the information-theoretic gain from exploiting the algebraic structure of Z[ω] relative to a generic (unstructured) channel. Whether this ratio has a channel-capacity interpretation — that is, whether there exists a channel whose capacity is exactly 5/4 times the capacity of the corresponding binary channel — is an open problem.</p>
         </div>
 
@@ -606,7 +576,7 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     nextPaper: {
       id: "07",
       title: "07 · Condition W3",
-      desc: "Absence of Siegel Zeros for Characters Modulo 3K via the CM Structure of Z[ω]. The foundation check: proving that the pathological zeros that would undermine the main theorem cannot exist.",
+      desc: "Absence of Siegel Zeros for Characters Modulo 3K via the CM Structure of Z[ω]. The foundation check: arguing that the pathological zeros that would undermine the main theorem cannot exist.",
       url: "/papers/p07"
     }
   },
@@ -619,11 +589,10 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     date: "Submitted February 2026 · Constitutional Sieve Programme, Paper 07 of 09",
     pdfUrl: "https://preprint.knowware.institute/pdf/p07.pdf",
     githubUrl: "https://github.com/knowware-institute/p07",
-    arxivUrl: "https://arxiv.org/abs/2603.0107",
     abstract: (
       <>
-        <p className="mb-3">We prove Condition W3: for every primitive Dirichlet character χ modulo <em>q</em> = 3<sup><em>K</em></sup>, the <em>L</em>-function <em>L</em>(<em>s</em>, χ) has no real zero in the region σ &gt; 1 − <em>c</em>/log <em>q</em> for an absolute, effectively computable constant <em>c</em> &gt; 0. This closes the gap marked [NOTE] in the companion paper [4] and renders the main theorem of that paper — level of distribution θ<sub>W</sub> = <Fraction numerator="5" denominator="8" /> for cascade moduli — unconditional.</p>
-        <p>The proof has three steps, each using the same algebraic structure. <strong>Step 1 (Lifting).</strong> Every primitive character χ (mod 3<sup><em>K</em></sup>) lifts canonically to a primitive Hecke Grössencharacter Ψ<sub>χ</sub> of K = Q(ω) = Q(√−3) of conductor 𝔭<sup>2<em>K</em></sup>, where 𝔭 = (1−ω) is the unique prime of Z[ω] above 3. <strong>Step 2 (Stark–Baker).</strong> Since K is a CM field of class number 1, the Stark–Baker theorem excludes Siegel zeros for <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>) in an effective zero-free region. <strong>Step 3 (Transfer).</strong> The factorisation <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>) = <em>L</em>(<em>s</em>, χ)·<em>L</em>(<em>s</em>, χε) transfers the zero-free region to <em>L</em>(<em>s</em>, χ).</p>
+        <p className="mb-3">We argue for Condition W3: for every primitive Dirichlet character χ modulo <em>q</em> = 3<sup><em>K</em></sup>, the <em>L</em>-function <em>L</em>(<em>s</em>, χ) has no real zero in the region σ &gt; 1 − <em>c</em>/log <em>q</em> for an absolute, effectively computable constant <em>c</em> &gt; 0.</p>
+        <p>The argument has three steps, each using the same algebraic structure. <strong>Step 1 (Lifting).</strong> Every primitive character χ (mod 3<sup><em>K</em></sup>) lifts canonically to a primitive Hecke Grössencharacter Ψ<sub>χ</sub> of K = Q(ω) = Q(√−3) of conductor 𝔭<sup>2<em>K</em></sup>, where 𝔭 = (1−ω) is the unique prime of Z[ω] above 3. <strong>Step 2 (Stark–Baker).</strong> Since K is a CM field of class number 1, the Stark–Baker theorem excludes Siegel zeros for <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>) in an effective zero-free region. <strong>Step 3 (Transfer).</strong> The factorisation <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>) = <em>L</em>(<em>s</em>, χ)·<em>L</em>(<em>s</em>, χε) transfers the zero-free region to <em>L</em>(<em>s</em>, χ).</p>
       </>
     ),
     keywords: "Siegel zeros, exceptional zeros, Dirichlet L-functions, Hecke Grössencharacters, CM fields, Eisenstein integers, Stark–Baker theorem, cascade moduli, Watt's theorem, level of distribution",
@@ -631,19 +600,19 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     content: (
       <>
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Setup and Statement</h2>
-        <p className="mb-4">Watt's theorem [3] converts triply-well-factorable sieve weights into a level-of-distribution bound, provided three conditions hold for the relevant Dirichlet characters. Conditions W1 and W2 are parameter bounds verified directly in the companion paper [4], Appendix A. Condition W3 — no Siegel zeros — is what this paper proves.</p>
+        <p className="mb-4">Watt's theorem [3] converts triply-well-factorable sieve weights into a level-of-distribution bound, provided three conditions hold for the relevant Dirichlet characters. Conditions W1 and W2 are parameter bounds addressed in the companion paper [4], Appendix A. Condition W3 — no Siegel zeros — is what this paper addresses.</p>
 
         <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
           <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 1.1 — Condition W3</div>
-          <p className="text-[0.95rem] leading-relaxed">Let <em>K</em> ≥ 1 and let χ be a primitive Dirichlet character modulo <em>q</em> = 3<sup><em>K</em></sup>. Then <em>L</em>(<em>s</em>, χ) has no real zero in the region σ &gt; 1 − <em>c</em>/log <em>q</em> for an absolute, effectively computable constant <em>c</em> &gt; 0. Consequently, Watt's condition θ<sub>f</sub> ≤ <Fraction numerator="7" denominator="32" /> holds for this character family, and Watt's theorem applies unconditionally to cascade moduli, rendering Theorem 1.1 of [4] (level of distribution θ<sub>W</sub> = <Fraction numerator="5" denominator="8" />) unconditional.</p>
+          <p className="text-[0.95rem] leading-relaxed">Let <em>K</em> ≥ 1 and let χ be a primitive Dirichlet character modulo <em>q</em> = 3<sup><em>K</em></sup>. Then <em>L</em>(<em>s</em>, χ) has no real zero in the region σ &gt; 1 − <em>c</em>/log <em>q</em> for an absolute, effectively computable constant <em>c</em> &gt; 0.</p>
         </div>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Step 1: Lifting to a Hecke Character</h2>
         <p className="mb-4">The key algebraic fact is that the ramification (3) = 𝔭² in Z[ω] makes the conductor of the lifted character in K = Q(ω) match the conductor of χ in Q exactly.</p>
 
         <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Proposition 2.1 — Canonical Lifting</div>
-          <p className="text-[0.95rem] leading-relaxed">Let χ be a primitive Dirichlet character modulo 3<sup><em>K</em></sup>. There exists a unique primitive Hecke Grössencharacter Ψ<sub>χ</sub> of K = Q(√−3) of conductor 𝔣 = 𝔭<sup>2<em>K</em></sup> such that χ(<em>n</em>) = Ψ<sub>χ</sub>((<em>n</em>)) for all <em>n</em> coprime to 3. The factorisation <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>) = <em>L</em>(<em>s</em>, χ)·<em>L</em>(<em>s</em>, χε) holds, where ε = (−3/·) is the quadratic character of K/Q.</p>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Proposition 2.5 — Canonical Lifting</div>
+          <p className="text-[0.95rem] leading-relaxed">Let χ be a primitive Dirichlet character modulo 3<sup><em>K</em></sup>, and let Ψ<sub>χ</sub> = χ∘N be its base change, a Hecke Grössencharacter of K = Q(√−3); then Ψ<sub>χ</sub>((<em>n</em>)) = χ(<em>n</em>)² for all <em>n</em> coprime to 3. The factorisation <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>) = <em>L</em>(<em>s</em>, χ)·<em>L</em>(<em>s</em>, χε) holds, where ε = (−3/·) is the quadratic character of K/Q.</p>
         </div>
         <div className="ml-6 mb-6 font-stix text-[0.92rem] leading-relaxed text-mid">
           <div className="font-plex-sans italic text-[0.8rem] text-light mb-1">Proof sketch.</div>
@@ -652,7 +621,7 @@ const PAPERS_DATA: Record<string, PaperContent> = {
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Step 2: The Stark–Baker Theorem for CM Fields</h2>
         <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 2.1 — Stark–Baker (1967/1968)</div>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 3.2 — Stark–Baker (1967/1968)</div>
           <p className="text-[0.95rem] leading-relaxed">Let F be a CM field and let Ψ be a Hecke character of F of conductor 𝔣. Then <em>L</em>(<em>s</em>, Ψ) has no real zero in the region σ &gt; 1 − <em>c</em><sub>F</sub>/log(N(𝔣)·|disc(F)|) for an effectively computable constant <em>c</em><sub>F</sub> &gt; 0 depending only on [F:Q].</p>
         </div>
 
@@ -662,25 +631,19 @@ const PAPERS_DATA: Record<string, PaperContent> = {
         </div>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Step 3: Transfer to <em>L</em>(<em>s</em>, χ)</h2>
-        <p className="mb-4">From Proposition 2.1: <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>) = <em>L</em>(<em>s</em>, χ)·<em>L</em>(<em>s</em>, χε). If <em>L</em>(<em>s</em>, χ) had a real zero β in the region σ &gt; 1 − <em>c</em>/log <em>q</em>, then <em>L</em>(β, Ψ<sub>χ</sub>) = <em>L</em>(β, χ)·<em>L</em>(β, χε) = 0. But Stark–Baker (Theorem 2.1) guarantees no such zero for <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>). Contradiction. Hence <em>L</em>(<em>s</em>, χ) has no such zero. <span className="float-right text-[1rem]">□</span></p>
-
-        <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Specificity to <em>q</em> = 3<sup><em>K</em></sup></h2>
-        <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 5.1 — The Argument is Specific to Cascade Moduli</div>
-          <p className="text-[0.95rem] leading-relaxed">The three properties of 3 in Z[ω] that make the proof work — (i) total ramification (3) = 𝔭²; (ii) cyclic unit group (Z/3<sup>K</sup>Z)* of order 2·3<sup>K−1</sup>; (iii) unique CM field Q(√−3) with class number 1 — do not simultaneously hold for any other prime-power family q = p<sup>K</sup>. The argument for Condition W3 is constitutionally specific to cascade moduli. This is not a limitation; it is part of the forcing.</p>
-        </div>
+        <p className="mb-4">From Proposition 2.5: <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>) = <em>L</em>(<em>s</em>, χ)·<em>L</em>(<em>s</em>, χε). If <em>L</em>(<em>s</em>, χ) had a real zero β in the region σ &gt; 1 − <em>c</em>/log <em>q</em>, then <em>L</em>(β, Ψ<sub>χ</sub>) = <em>L</em>(β, χ)·<em>L</em>(β, χε) = 0. But Stark–Baker (Theorem 3.2) guarantees no such zero for <em>L</em>(<em>s</em>, Ψ<sub>χ</sub>). Contradiction. Hence <em>L</em>(<em>s</em>, χ) has no such zero. <span className="float-right text-[1rem]">□</span></p>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Full Coherence: One Structure, Three Applications</h2>
-        <p className="mb-4">The Eisenstein structure of Z[ω] does three things at once: (1) it forces the triply-well-factorable decomposition of sieve weights (Part I of [4]); (2) it provides the cyclic Kloosterman cancellation that improves θ<sub>W</sub> from <Fraction numerator="2" denominator="3" /> to <Fraction numerator="5" denominator="8" /> (Part II of [4]); (3) it provides the CM field structure that prevents Siegel zeros (this paper). The same algebraic structure does all three jobs simultaneously. This coherence is constitutional — not designed in, but forced by what Z[ω] is.</p>
+        <p className="mb-4">The Eisenstein structure of Z[ω] does three things at once: (1) it forces the triply-well-factorable decomposition of sieve weights (Part I of [4]); (2) it provides the cyclic group structure used in the argument for θ<sub>W</sub> = <Fraction numerator="5" denominator="8" /> (Part II of [4]); (3) it provides the CM field structure that prevents Siegel zeros (this paper). The same algebraic structure does all three jobs simultaneously. This coherence is constitutional — not designed in, but forced by what Z[ω] is.</p>
 
         <div className="mt-12 pt-6 border-t border-rule">
           <h2 className="font-stix font-semibold text-[1.05rem] text-ink mb-6">References</h2>
           <ol className="list-none [counter-reset:refs]">
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">H. M. Stark, "A complete determination of the complex quadratic fields of class-number one," <em>Michigan Math. J.</em> 14 (1967), 1–27.</li>
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">A. Baker, "Linear forms in the logarithms of algebraic numbers IV," <em>Mathematika</em> 15 (1968), 204–216.</li>
-            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">A. Watt, "Kloosterman sums and a mean value for Dirichlet polynomials," <em>J. Number Theory</em> 53 (1995), 179–210.</li>
+            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">N. Watt, "Kloosterman sums and a mean value for Dirichlet polynomials," <em>J. Number Theory</em> 53 (1995), 179–210.</li>
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">K. Wakil, "Ternary Forcing on the Hexagonal Lattice," Constitutional Sieve Programme Paper 04 (2026).</li>
-            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">H. Goldfeld and L. Szpiro, "Bounds for the order of the Tate-Shafarevich group," <em>Compositio Math.</em> 97 (1995), 71–87.</li>
+            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">D. Goldfeld and L. Szpiro, "Bounds for the order of the Tate-Shafarevich group," <em>Compositio Math.</em> 97 (1995), 71–87.</li>
           </ol>
         </div>
       </>
@@ -688,7 +651,7 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     nextPaper: {
       id: "08",
       title: "08 · Prime Digit Bias",
-      desc: "The Lemke Oliver–Soundararajan bias explained mechanistically. Why consecutive prime last digits avoid each other — and why the diminishment rate is precisely the Siegel–Walfisz convergence rate.",
+      desc: "A proposed ternary explanation of the Lemke Oliver–Soundararajan bias: why consecutive prime last digits tend to avoid each other.",
       url: "/papers/p08"
     }
   },
@@ -698,14 +661,13 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     title: "Prime Digit Bias: The Ternary Constitutional Explanation of the Lemke Oliver–Soundararajan Effect",
     authors: "Khayyam Wakil",
     affiliation: "The ARC Institute of Knowware, Calgary, Alberta, Canada",
-    date: "Submitted February 2026 · Constitutional Sieve Programme, Paper 08 of 09",
+    date: "Submitted March 2026 · Constitutional Sieve Programme, Paper 08 of 09",
     pdfUrl: "https://preprint.knowware.institute/pdf/p08.pdf",
     githubUrl: "https://github.com/knowware-institute/p08",
-    arxivUrl: "https://arxiv.org/abs/2603.0108",
     abstract: (
       <>
-        <p className="mb-3">In 2016, Lemke Oliver and Soundararajan published a striking computational discovery: the last digits of consecutive primes exhibit a strong repulsion bias that contradicts naïve randomness assumptions and persists — though diminishing — across all number bases tested. The authors correctly traced this to the Hardy–Littlewood prime constellations conjecture, but could not identify the underlying mechanistic cause: why the structure exists, why it holds across all bases, and why the diminishment rate is precisely what it is.</p>
-        <p>We demonstrate that the bias is not mysterious: it is the direct base-10 projection of ternary constitutional pressure governing prime distribution. The observed digit-repulsion is a shadow of the mod-3 constraint under which all primes (except 2 and 3) reside in remainder classes {'{'}1, 2{'}'}, and under which all twin prime pairs satisfy <em>p</em> ≡ 2 (mod 3). The <em>snail's pace</em> of diminishment is identified as the Siegel–Walfisz convergence rate of ternary class equilibration — not an empirical curiosity, but a fundamental quantity in analytic number theory appearing in a context where it was not previously recognized.</p>
+        <p className="mb-3">In 2016, Lemke Oliver and Soundararajan published a striking computational discovery: the last digits of consecutive primes exhibit a strong repulsion bias that contradicts naïve randomness assumptions and persists — though diminishing — across all number bases tested. The authors correctly traced this to the Hardy–Littlewood prime constellations conjecture, but could not identify the underlying mechanistic cause: why the structure exists and why it holds across all bases.</p>
+        <p>We argue that the bias is not mysterious: that it is the direct base-10 projection of ternary constitutional pressure governing prime distribution — a shadow of the mod-3 constraint under which all primes (except 2 and 3) reside in remainder classes {'{'}1, 2{'}'}, and under which all twin prime pairs satisfy <em>p</em> ≡ 2 (mod 3).</p>
       </>
     ),
     keywords: "prime digit bias, ternary constitutional structure, Lemke Oliver–Soundararajan, mod-3 constraints, minimum gap structure, twin primes, parity barrier, Siegel–Walfisz theorem, cascade moduli",
@@ -714,38 +676,30 @@ const PAPERS_DATA: Record<string, PaperContent> = {
       <>
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Introduction: The Mystery That Wasn't</h2>
         <p className="mb-4">In March 2016, Robert Lemke Oliver and Kannan Soundararajan submitted a paper that became briefly famous beyond number theory: consecutive primes are not equidistributed in their last digits. If the last digit of a prime is 1, the next prime is far less likely to also end in 1 than chance would predict. The bias is strong, computationally unambiguous, and holds — with diminishing strength — across all bases tested.</p>
-        <p className="mb-4">The authors were admirably honest: they could explain <em>that</em> the bias follows from the Hardy–Littlewood conjecture, but not <em>why</em> the underlying structure exists. They called it "surprising" and "deeply unsettling." We show the structure is neither: it is the forced shadow of the ternary constitutional constraint governing prime distribution.</p>
+        <p className="mb-4">The authors were admirably honest: they could explain <em>that</em> the bias follows from the Hardy–Littlewood conjecture, but not <em>why</em> the underlying structure exists. They called it "surprising" and "deeply unsettling." We argue the structure is neither: that it is the forced shadow of the ternary constitutional constraint governing prime distribution.</p>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">The Ternary Constitutional Framework</h2>
         <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 3.1 — Constitutional Signature (from [3])</div>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 3.2 — Constitutional Signature (from [3])</div>
           <p className="text-[0.95rem] leading-relaxed">Let (<em>p</em>, <em>p</em>+2) be a twin prime pair with <em>p</em> &gt; 3. Then <em>p</em> ≡ 2 (mod 3) and <em>p</em>+2 ≡ 1 (mod 3).</p>
         </div>
         <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 3.2 — Ternary Equilibrium</div>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 3.4 — Ternary Equilibrium</div>
           <p className="text-[0.95rem] leading-relaxed">Let π₁(<em>N</em>) and π₂(<em>N</em>) denote the number of primes <em>p</em> ≤ <em>N</em> with <em>p</em> ≡ 1 (mod 3) and <em>p</em> ≡ 2 (mod 3) respectively. Then π₁(<em>N</em>)/π(<em>N</em>) → 1/2 and π₂(<em>N</em>)/π(<em>N</em>) → 1/2 as <em>N</em> → ∞, by Dirichlet's theorem on primes in arithmetic progressions.</p>
         </div>
-        <p className="mb-4">The bias mechanism is this: since all primes &gt; 3 live in classes {'{'}1, 2{'}'} mod 3 (never class {'{'}0{'}'}), and since twin primes constitutionally require the pair (2 mod 3, 1 mod 3), consecutive primes cannot both occupy the same ternary class in quick succession. This constitutional pressure propagates into the base-10 last-digit distribution as a repulsion bias — primes avoid repeating their last digit because repeating it would require both to occupy the same ternary residue class, which is constitutionally disfavoured at short gaps.</p>
+        <p className="mb-4">The proposed bias mechanism is this: all primes &gt; 3 live in classes {'{'}1, 2{'}'} mod 3 (never class {'{'}0{'}'}), and twin primes constitutionally require the pair (2 mod 3, 1 mod 3). We argue that this constitutional pressure propagates into the base-10 last-digit distribution as a repulsion bias.</p>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Deriving the Lemke Oliver–Soundararajan Bias</h2>
-        <p className="mb-4">Let <em>p<sub>n</sub></em> ≡ <em>r</em> (mod 10) and <em>p<sub>n+1</sub></em> ≡ <em>s</em> (mod 10). The ternary projection maps (<em>r</em>, <em>s</em>) to residue classes mod 3. For the pair (<em>r</em>, <em>s</em>) = (1, 1): both digits project to 1 mod 3. This requires consecutive primes both in class 1 mod 3. The constitutional pressure at short gaps disfavours this. For the pair (1, 3) = (1 mod 3, 0 mod 3): but primes are never 0 mod 3, so this pair is constitutionally forbidden entirely. The structure of the bias table — which pairs are suppressed, which enhanced — is exactly the shadow of the ternary constitutional constraint projected into base 10.</p>
 
         <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
           <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Proposition 4.1 — Base-10 Projection of Ternary Pressure</div>
           <p className="text-[0.95rem] leading-relaxed">For base-10 digits <em>r</em>, <em>s</em> ∈ {'{'}1, 3, 7, 9{'}'} (the digits coprime to 10 that can appear as last digits of primes &gt; 5), the observed Lemke Oliver–Soundararajan repulsion bias satisfies: the suppression of the pair (<em>r</em>, <em>s</em>) relative to equidistribution is positively correlated with the probability that both <em>r</em> and <em>s</em> are in the same ternary class mod 3. The enhancement of cross-class pairs relative to equidistribution is positively correlated with the constitutional twin-prime constraint.</p>
         </div>
 
-        <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">The Snail's Pace: Identifying the Convergence Rate</h2>
-        <p className="mb-4">Lemke Oliver and Soundararajan observed that the bias diminishes as primes grow, but slowly — a "snail's pace" that they could not identify analytically. We identify it precisely: it is the Siegel–Walfisz convergence rate of ternary class equilibration.</p>
-        <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 5.1 — Siegel–Walfisz Rate</div>
-          <p className="text-[0.95rem] leading-relaxed">By the Siegel–Walfisz theorem, for any <em>A</em> &gt; 0 and all <em>q</em> ≤ (log <em>N</em>)<sup><em>A</em></sup>, the error in the equidistribution of primes modulo <em>q</em> is ≪ <em>N</em>/(log <em>N</em>)<sup><em>A</em></sup>. For <em>q</em> = 3 and the classes 1, 2 mod 3, this means the ternary imbalance (which drives the digit bias) decays as O(1/(log <em>N</em>)<sup><em>A</em></sup>) for any fixed <em>A</em>. This is the "snail's pace" — not a mysterious empirical observation, but the Siegel–Walfisz rate applied to ternary equilibration, appearing in the digit-bias context where it was not previously recognized.</p>
-        </div>
-
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Validation and Context</h2>
         <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
           <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Remark — Mechanistic vs. Descriptive Explanation</div>
-          <p className="text-[0.95rem] leading-relaxed italic">This explanation is mechanistic, not descriptive. The Lemke Oliver–Soundararajan paper showed that the bias follows from the Hardy–Littlewood conjecture — a descriptive reduction to a more fundamental conjecture. The present paper identifies the structural reason <em>why</em> the conjecture itself encodes such behaviour: the ternary constitutional constraint <em>p</em> ≡ 2 (mod 3) for twin primes propagates the repulsion pressure that manifests as the digit bias. One is a derivation; the other is an explanation.</p>
+          <p className="text-[0.95rem] leading-relaxed italic">The proposed explanation is mechanistic, not descriptive. The Lemke Oliver–Soundararajan paper showed that the bias follows from the Hardy–Littlewood conjecture — a descriptive reduction to a more fundamental conjecture. The present paper proposes a structural reason <em>why</em> the conjecture itself encodes such behaviour: that the ternary constitutional constraint <em>p</em> ≡ 2 (mod 3) for twin primes propagates the repulsion pressure that manifests as the digit bias. One is a derivation; the other is an explanation.</p>
         </div>
 
         <div className="mt-12 pt-6 border-t border-rule">
@@ -754,8 +708,8 @@ const PAPERS_DATA: Record<string, PaperContent> = {
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">R. J. Lemke Oliver and K. Soundararajan, "Unexpected biases in the distribution of consecutive primes," <em>Proc. Natl. Acad. Sci. USA</em> 113 (2016), E4446–E4454.</li>
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">G. H. Hardy and J. E. Littlewood, "Some problems of 'Partitio Numerorum' III," <em>Acta Math.</em> 44 (1923), 1–70.</li>
             <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">K. Wakil, "Spherical Cow Philosophy," Constitutional Sieve Programme Paper 03 (2026).</li>
-            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">E. C. Walfisz, <em>Weylsche Exponentialsummen in der neueren Zahlentheorie</em>. VEB Deutscher Verlag, 1963.</li>
-            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">A. Pascadi, arXiv:2505.00653v2 (2025).</li>
+            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">A. Walfisz, <em>Weylsche Exponentialsummen in der neueren Zahlentheorie</em>. VEB Deutscher Verlag, 1963.</li>
+            <li className="relative pl-9 mb-3 font-stix text-[0.82rem] leading-relaxed text-mid before:content-['['counter(refs)']'] before:[counter-increment:refs] before:absolute before:left-0 before:font-plex-mono before:text-[0.68rem] before:text-light">A. Pascadi, "On the exponents of distribution of primes and smooth numbers," arXiv:2505.00653 (2025).</li>
           </ol>
         </div>
       </>
@@ -763,7 +717,7 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     nextPaper: {
       id: "09",
       title: "09 · The DFT Constitutional Constant",
-      desc: <>θ<sub>FFT</sub> = <Fraction numerator="1" denominator="2" />. The conjugate-mirror symmetry of the Discrete Fourier Transform, named and formalised as a constitutional constant. Empirical confirmation across datasets. The structural parallel with Khayyam's Triangle modulo 2.</>,
+      desc: <>θ<sub>FFT</sub> = <Fraction numerator="1" denominator="2" />. The conjugate-mirror symmetry of the Discrete Fourier Transform, named and formalised as a constitutional constant. Empirical confirmation across datasets.</>,
       url: "/papers/p09"
     }
   },
@@ -776,11 +730,9 @@ const PAPERS_DATA: Record<string, PaperContent> = {
     date: "Submitted March 2026 · Constitutional Sieve Programme, Paper 09 of 09",
     pdfUrl: "https://preprint.knowware.institute/pdf/p09.pdf",
     githubUrl: "https://github.com/knowware-institute/p09",
-    arxivUrl: "https://arxiv.org/abs/2603.0109",
     abstract: (
       <>
         <p className="mb-3">The Discrete Fourier Transform of any real-valued finite signal satisfies an exact conjugate-mirror symmetry: the upper half of its spectrum is completely determined by the lower half. This paper names and formalises this redundancy as the <em>constitutional constant</em> θ<sub>FFT</sub> = <Fraction numerator="1" denominator="2" />, establishes a complete proof from first principles, reports empirical confirmation across structured and random datasets (maximum deviation &lt; 3×10<sup>−4</sup>), and maps the boundary conditions under which the constant holds exactly, holds approximately, or ceases to be the relevant quantity.</p>
-        <p className="mb-3">We then trace the structural parallel between θ<sub>FFT</sub> = <Fraction numerator="1" denominator="2" /> and the fractal geometry of Khayyam's Triangle modulo a prime <em>p</em>: in both cases a redundancy of exactly one-half reveals itself through a change of frame — spectral in one setting, modular in the other — and in both cases the residual non-redundant structure is the object of interest. This is the <em>Khayyam Bridge</em>: the same constitutional constant, forced by the same counting theorem, appearing in two domains through two different basis changes.</p>
         <p>This paper is the ninth in the nine-paper Constitutional Sieve Programme. θ<sub>FFT</sub> = <Fraction numerator="1" denominator="2" /> is Constitutional Forcing at depth k=1: one constitutional constraint (real-valued input), one invalid configuration class (upper half of spectrum), forced constant <Fraction numerator={<>2<sup>1</sup>−1</>} denominator={<>2<sup>1</sup></>} /> = <Fraction numerator="1" denominator="2" />.</p>
       </>
     ),
@@ -790,15 +742,15 @@ const PAPERS_DATA: Record<string, PaperContent> = {
       <>
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Introduction</h2>
         <p className="mb-4">The conjugate symmetry of the Discrete Fourier Transform is classical and well-known. Every signal processing textbook states it. Every FFT implementation exploits it. It is the reason compressed spectral representations store only half the coefficients.</p>
-        <p className="mb-4">What has not been done is name it as a constitutional constant and place it within the framework of Constitutional Forcing. This paper does that. The result is not new; the framing is. And the framing reveals a structural parallel — the Khayyam Bridge — that connects the DFT to the mod-<em>p</em> fractal of Khayyam's Triangle via the same counting theorem that underlies the entire Constitutional Sieve Programme.</p>
+        <p className="mb-4">What has not been done is name it as a constitutional constant and place it within the framework of Constitutional Forcing. This paper does that. The result is not new; the framing is.</p>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Formal Proof of θ<sub>FFT</sub> = <Fraction numerator="1" denominator="2" /></h2>
         <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 3.1 — The Constitutional Constant (Informal)</div>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 1.1 — The Constitutional Constant (Informal)</div>
           <p className="text-[0.95rem] leading-relaxed">For any real-valued signal <em>x</em> ∈ ℝ<sup><em>N</em></sup>, the upper half of its DFT spectrum is the complex conjugate, reversed, of the lower half. Storing only the lower half uniquely determines the full spectrum. The fraction of the spectrum that is independently informative is exactly <Fraction numerator="1" denominator="2" />.</p>
         </div>
         <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 3.2 — The Constitutional Constant (Formal)</div>
+          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 3.1 — The Constitutional Constant (Formal)</div>
           <p className="text-[0.95rem] leading-relaxed">Let <em>x</em> ∈ ℝ<sup><em>N</em></sup> (real-valued). Then for all <em>k</em> ∈ {'{'}1, …, <em>N</em>−1{'}'},</p>
           <div className="flex items-center justify-between my-2">
             <div className="flex-1 text-center font-stix text-[1.02rem]"><em>x̂</em><sub><em>N</em>−<em>k</em></sub> = <span className="overline"><em>x̂</em><sub><em>k</em></sub></span></div>
@@ -818,19 +770,8 @@ const PAPERS_DATA: Record<string, PaperContent> = {
           <p className="text-[0.95rem] leading-relaxed">The DFT of real-valued signals exhibits Constitutional Forcing of depth <em>k</em>=1: (CF1) one constitutional constraint: <em>x</em>[<em>n</em>] ∈ ℝ for all <em>n</em>; (CF2) configuration space of size 2<sup>1</sup> = 2: {'{'}upper half informative, upper half redundant{'}'}; (CF3) exactly one configuration class invalid (upper half cannot carry independent information); (CF4) forced governing constant: θ<sub>FFT</sub> = <Fraction numerator={<>2<sup>1</sup>−1</>} denominator={<>2<sup>1</sup></>} /> = <Fraction numerator="1" denominator="2" />. This is identical in formal structure to the Bombieri–Vinogradov barrier (also depth k=1).</p>
         </div>
 
-        <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">The Khayyam Bridge</h2>
-        <p className="mb-4">Khayyam's Triangle modulo 2 has void fraction exactly <Fraction numerator="1" denominator="2" /> as rows grow (by Lucas's theorem: half the binomial coefficients are even in the limit). The DFT of a real-valued signal has informative fraction exactly <Fraction numerator="1" denominator="2" /> (by Theorem 3.2). Both are instances of the same counting theorem — Constitutional Forcing at depth k=1 — manifesting through two different changes of frame: modular arithmetic in one case, Fourier analysis in the other.</p>
-        <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 6.1 — Constitutional Redundancy Duality (Khayyam Bridge)</div>
-          <p className="text-[0.95rem] leading-relaxed">Let θ<sub>FFT</sub> = <Fraction numerator="1" denominator="2" /> be the DFT constitutional constant and let θ<sub>Khayyam,2</sub> = <Fraction numerator="1" denominator="2" /> be the mod-2 survivor fraction of Khayyam's Triangle. Both equal <Fraction numerator="1" denominator="2" /> for the same reason: a single constitutional constraint eliminates exactly one configuration class from a binary space of size 2<sup>1</sup> = 2. The two instances are related by a change of frame — Fourier versus modular — applied to the same underlying Constitutional Forcing structure.</p>
-        </div>
-
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Compression Implications</h2>
-        <div className="my-6 p-4 border border-rule border-l-4 border-ink bg-note-bg">
-          <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Theorem 7.1 — Compression Lower Bound</div>
-          <p className="text-[0.95rem] leading-relaxed">For any real-valued weight tensor <em>w</em> ∈ ℝ<sup><em>N</em></sup>, an FFT-based compression scheme retaining only the independent spectral half achieves at minimum a lossless 2× compression of the spectral representation. This bound is tight: it is achieved by white-noise inputs. Any additional compression beyond 2× must exploit sparsity in the non-redundant half, which is a property of the signal, not a constitutional guarantee.</p>
-        </div>
-        <p className="mb-4">The 2× floor is constitutionally guaranteed regardless of the signal. The NFR (Neural Frequency Reduction) pipeline that motivated this paper achieves 2730× compression at 96% energy retention on neural network weight tensors — a factor of 2 is constitutionally guaranteed, and a factor of ≈1365 arises from exploiting the sparsity of the non-redundant spectral structure in trained networks. Constitutional Forcing explains the floor; the sparsity structure explains the ceiling.</p>
+        <p className="mb-4">The NFR (Neural Fiber Representation) pipeline that motivated this paper achieves 2730× compression at 96% energy retention on neural network weight tensors.</p>
 
         <h2 className="font-stix font-semibold text-[1.05rem] text-ink mt-9 mb-3">Position Within the Constitutional Sieve Programme</h2>
         <div className="responsive-table-container">
@@ -845,21 +786,21 @@ const PAPERS_DATA: Record<string, PaperContent> = {
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b border-rule"><td className="py-2 px-3">01</td><td className="py-2 px-3">All domains (foundation)</td><td className="py-2 px-3">—</td><td className="py-2 px-3">θ<sub>k</sub> = <Fraction numerator={<>2<sup>k</sup>−k</>} denominator={<>2<sup>k</sup></>} /></td><td className="py-2 px-3">Proved</td></tr>
-              <tr className="border-b border-rule"><td className="py-2 px-3">02</td><td className="py-2 px-3">Khayyam's Triangle (mod 3)</td><td className="py-2 px-3">3</td><td className="py-2 px-3">5/8</td><td className="py-2 px-3">Combinatorial</td></tr>
-              <tr className="border-b border-rule"><td className="py-2 px-3">04</td><td className="py-2 px-3">Cascade moduli (analytic)</td><td className="py-2 px-3">3</td><td className="py-2 px-3">5/8</td><td className="py-2 px-3">Proved (W3 via Paper 07)</td></tr>
-              <tr className="border-b border-rule"><td className="py-2 px-3">05</td><td className="py-2 px-3">Universal sieve formula</td><td className="py-2 px-3">all k</td><td className="py-2 px-3">General formula</td><td className="py-2 px-3">Proved (k=3 analytically)</td></tr>
-              <tr className="border-b border-rule"><td className="py-2 px-3">06</td><td className="py-2 px-3">Shannon AEP / Channel coding</td><td className="py-2 px-3">1</td><td className="py-2 px-3">1/2</td><td className="py-2 px-3">Shannon (1948)</td></tr>
-              <tr className="border-b border-rule"><td className="py-2 px-3">08</td><td className="py-2 px-3">Prime digit bias</td><td className="py-2 px-3">1</td><td className="py-2 px-3">1/2 (base)</td><td className="py-2 px-3">Proved mechanistically</td></tr>
+              <tr className="border-b border-rule"><td className="py-2 px-3">01</td><td className="py-2 px-3">All domains (foundation)</td><td className="py-2 px-3">—</td><td className="py-2 px-3">θ<sub>k</sub> = <Fraction numerator={<>2<sup>k</sup>−k</>} denominator={<>2<sup>k</sup></>} /></td><td className="py-2 px-3">Under revision</td></tr>
+              <tr className="border-b border-rule"><td className="py-2 px-3">02</td><td className="py-2 px-3">Khayyam's Triangle (mod 3)</td><td className="py-2 px-3">3</td><td className="py-2 px-3">5/8</td><td className="py-2 px-3">Under revision</td></tr>
+              <tr className="border-b border-rule"><td className="py-2 px-3">04</td><td className="py-2 px-3">Cascade moduli (analytic)</td><td className="py-2 px-3">3</td><td className="py-2 px-3">5/8</td><td className="py-2 px-3">Under revision</td></tr>
+              <tr className="border-b border-rule"><td className="py-2 px-3">05</td><td className="py-2 px-3">Universal sieve formula</td><td className="py-2 px-3">all k</td><td className="py-2 px-3">General formula</td><td className="py-2 px-3">Under revision</td></tr>
+              <tr className="border-b border-rule"><td className="py-2 px-3">06</td><td className="py-2 px-3">Shannon AEP / Channel coding</td><td className="py-2 px-3">1</td><td className="py-2 px-3"><em>H</em> / log|𝒜|; <em>C</em></td><td className="py-2 px-3">Shannon (1948)</td></tr>
+              <tr className="border-b border-rule"><td className="py-2 px-3">08</td><td className="py-2 px-3">Prime digit bias</td><td className="py-2 px-3">1</td><td className="py-2 px-3">1/2 (base)</td><td className="py-2 px-3">Under revision</td></tr>
               <tr className="border-b-2 border-ink"><td className="py-2 px-3">09 (this)</td><td className="py-2 px-3">DFT (real-valued signals)</td><td className="py-2 px-3">1</td><td className="py-2 px-3">1/2</td><td className="py-2 px-3">Proved (classical + named)</td></tr>
             </tbody>
           </table>
-          <div className="text-center mt-3 font-plex-sans text-[0.72rem] italic text-mid"><strong>Table 1.</strong> Constitutional Forcing instances across the nine-paper programme. The DFT result (this paper) adds a seventh proven instance at depth k=1.</div>
+          <div className="text-center mt-3 font-plex-sans text-[0.72rem] italic text-mid"><strong>Table 1.</strong> Constitutional Forcing instances across the nine-paper programme. The DFT result (this paper) adds an instance at depth k=1.</div>
         </div>
 
         <div className="my-6 p-4 border border-rule border-l-4 border-mid bg-note-bg">
           <div className="font-plex-sans font-semibold text-[0.7rem] uppercase tracking-widest text-ink mb-2">Remark — What Has Been Named</div>
-          <p className="text-[0.95rem] leading-relaxed italic">The DFT conjugate symmetry has been known and exploited for sixty years. What this paper adds is the name, the formal framework, and the connection to the broader Constitutional Forcing structure. Naming something is not trivial: it makes the pattern recognisable in new domains, enables the Khayyam Bridge, and locates the DFT result within a programme that predicts further instances. The constant θ<sub>FFT</sub> = <Fraction numerator="1" denominator="2" /> was always there. It is now recognised.</p>
+          <p className="text-[0.95rem] leading-relaxed italic">The DFT conjugate symmetry has been known and exploited for sixty years. What this paper adds is the name, the formal framework, and the connection to the broader Constitutional Forcing structure. Naming something is not trivial: it makes the pattern recognisable in new domains and locates the DFT result within a programme that predicts further instances. The constant θ<sub>FFT</sub> = <Fraction numerator="1" denominator="2" /> was always there. It is now recognised.</p>
         </div>
 
         <div className="mt-12 pt-6 border-t border-rule">
@@ -881,12 +822,14 @@ const PAPERS_DATA: Record<string, PaperContent> = {
 export default function PaperDetail() {
   const { id } = useParams<{ id: string }>();
   const paper = id ? PAPERS_DATA[id] : null;
-  const paperStatus = PAPERS.find(p => p.id === paper?.id)?.status || "PROVED";
+  const paperStatus = PAPERS.find(p => p.id === paper?.id)?.status || "UNDER REVISION";
   const nextBtnRef = useRef<HTMLDivElement>(null);
 
   if (!paper) {
     return <Navigate to="/" replace />;
   }
+
+  const submitted = paper.date.split(" · ")[0].replace("Submitted ", "");
 
   const handleNextHover = () => {
     if (!nextBtnRef.current) return;
@@ -912,7 +855,7 @@ export default function PaperDetail() {
           
           <div className="flex gap-6 mt-2.5">
             <div>
-              <strong className="text-ink block font-medium text-[0.6rem]">Published</strong>Feb 2026
+              <strong className="text-ink block font-medium text-[0.6rem]">Published</strong>{submitted.replace(/^(\w{3})\w*/, "$1")}
             </div>
             <div>
               <strong className="text-ink block font-medium text-[0.6rem]">Status</strong>{paperStatus}
@@ -934,10 +877,6 @@ export default function PaperDetail() {
               GitHub → p{paper.id}.tex
             </a>
           )}
-          <a href={paper.arxivUrl} target="_blank" rel="noreferrer" className="block font-plex-mono text-[0.58rem] tracking-wider uppercase text-accent hover:text-ink border-b border-rule py-1.5 leading-tight hover:text-[0.62rem] transition-all duration-300">
-            <span className="text-light block text-[0.52rem]">arXiv Repository</span>
-            arXiv → {paper.arxivUrl.split('/').pop()}
-          </a>
         </div>
 
         <div className="font-plex-mono text-[0.55rem] tracking-[0.18em] uppercase text-light mb-2.5">Essays</div>
@@ -971,7 +910,7 @@ export default function PaperDetail() {
           transition={{ duration: 0.5 }}
         >
           <div className="text-center pb-8 border-b border-rule mb-8">
-            <div className="font-plex-mono text-[0.6rem] text-light tracking-[0.15em] uppercase mb-5">Preprint · ARC Institute of Knowware · February 2026</div>
+            <div className="font-plex-mono text-[0.6rem] text-light tracking-[0.15em] uppercase mb-5">Preprint · ARC Institute of Knowware · {submitted}</div>
             <h1 className="font-stix font-semibold text-[1.8rem] leading-[1.35] text-ink mb-4">{paper.title}</h1>
             <div className="font-plex-sans text-[0.82rem] text-mid mb-1.5">{paper.authors}</div>
             <div className="font-plex-sans text-[0.72rem] text-light italic mb-4">{paper.affiliation}</div>
