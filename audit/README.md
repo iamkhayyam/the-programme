@@ -10,6 +10,8 @@
 
 Detailed findings, with file:line, quotes, evidence and suggested corrections, are in `findings/`.
 
+> **Update (November 2026).** The papers, website, README, Lean verification report and programme registry have since been revised in line with this audit. Each paper now opens with a revision note listing what changed. Line numbers in `findings/` refer to the versions audited here (git history before the revision commits), not to the revised papers.
+
 ---
 
 ## 1. Bottom line
