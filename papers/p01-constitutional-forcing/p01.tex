@@ -7,6 +7,7 @@
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
 \usepackage{booktabs}
+\usepackage{array}
 \usepackage{enumitem}
 \usepackage{microtype}
 
@@ -537,7 +538,8 @@ after the November 2026 revision.
 \caption{The nine-paper programme and the revised status of each paper's
   main claim.}
 \label{tab:program}
-\begin{tabular}{c p{5.9cm} p{6.6cm}}
+\begin{tabular}{c >{\raggedright\arraybackslash}p{5.9cm}
+                  >{\raggedright\arraybackslash}p{6.6cm}}
 \toprule
 Paper & Title & Main claim and revised status \\
 \midrule
@@ -546,8 +548,8 @@ p01 & Constitutional Forcing (this paper)
     \\[2pt]
 p02 & Khayyam's Triangle: Historical Restoration and the Geometry Hidden in
       the Numbers~\cite{WakilKhayyam}
-    & History of the arithmetic triangle and its mod-$3$ fractal; no link
-      between the fractal and $\thetak$ is established \\[2pt]
+    & History of the arithmetic triangle and its mod-$3$ fractal; the claimed
+      link between the fractal and $\thetak$ is withdrawn \\[2pt]
 p03 & Spherical Cow Philosophy: A Methodological Framework for Mathematical
       Discovery~\cite{WakilSC}
     & Methodology; its arithmetic examples are corrected \\[2pt]
@@ -568,8 +570,8 @@ p07 & Condition W3: Absence of Siegel Zeros for Characters Modulo
       $(\Z/3^K\Z)^\times$; affects no level of distribution \\[2pt]
 p08 & The Lemke Oliver--Soundararajan Bias and Ternary Constitutional
       Structure~\cite{WakilBias}
-    & Proposed ternary interpretation of the bias in consecutive primes; not
-      established \\[2pt]
+    & The bias in consecutive primes; the claimed ternary explanation of it is
+      withdrawn \\[2pt]
 p09 & The Constitutional Constant $\theta_{\mathrm{FFT}} = 1/2$: Conjugate
       Symmetry of the Real Discrete Fourier Transform~\cite{WakilFFT}
     & The DFT of a real signal of length $N$ has $N$ independent real
