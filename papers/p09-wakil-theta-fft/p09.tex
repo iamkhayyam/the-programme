@@ -59,44 +59,71 @@
 % ─────────────────────────────────────────────────────────────────────────────
 
 \title{The Constitutional Constant $\thetaFFT = \tfrac{1}{2}$:\\
-  Formal Proof, Empirical Confirmation,\\
-  and the Bridge to Khayyam's Triangle}
+  Conjugate Symmetry of the Real\\
+  Discrete Fourier Transform}
 
 \author{Khayyam Wakil \\
   \small ARC Institute of Knowware \\
   \small Calgary, Alberta, Canada \\
   \small \texttt{the@knowware.institute}}
 
-\date{March 2026}
+\date{March 2026; revised November 2026}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
 The Discrete Fourier Transform of any real-valued finite signal satisfies
-an exact conjugate-mirror symmetry: the upper half of its spectrum is
-completely determined by the lower half.  This paper names and formalises
-this redundancy as the \emph{constitutional constant}
-$\thetaFFT = \tfrac{1}{2}$, establishes a complete proof from first
-principles, reports empirical confirmation across structured
-and random data sets (maximum deviation $< 3 \times 10^{-4}$), and
-maps the boundary conditions under which the constant holds exactly,
-holds approximately, or ceases to be the relevant quantity.
-We then trace the structural parallel between $\thetaFFT = \tfrac{1}{2}$
-and the fractal geometry of Khayyam's Triangle modulo a prime $p$:
-in both cases a redundancy of exactly one-half reveals itself through
-a change of frame---spectral in one setting, modular in the other---
-and in both cases the residual non-redundant structure is the
-object of interest.
-This paper is the third in the six-paper program on constitutional
-sieve theory \cite{Wakil2026Khayyam,Wakil2026Ramanujan,
-Wakil2026Eisenstein,Wakil2026ConditionW3,Wakil2026Shannon,
-Wakil2026SphericalCow}.
+an exact conjugate-mirror symmetry, $\hat{x}_{N-k} = \overline{\hat{x}_k}$:
+the upper half of its spectrum is completely determined by the lower half.
+This classical fact (Hermitian symmetry) means that the $2N$ real
+parameters of the spectrum of a real signal of length $N$ span a real
+subspace of dimension exactly $N$.  Within the constitutional programme we
+call this fraction the \emph{constitutional constant}
+$\thetaFFT = \tfrac{1}{2}$, and we give the elementary proof.  Counted in
+complex coefficients rather than real parameters, the independent
+fraction is $(\lfloor N/2 \rfloor + 1)/N$, not $\tfrac{1}{2}$.
+We then record what the symmetry does and does not imply.  The fraction
+of spectral energy in the upper half equals
+$\tfrac{1}{2} - (\abs{\hat{x}_0}^2 + \abs{\hat{x}_{N/2}}^2)/(2E)$, so it
+never exceeds $\tfrac{1}{2}$ and is a property of the data, not a
+measurement of $\thetaFFT$.  The half-spectrum of a real signal holds
+exactly $N$ real numbers, so the symmetry gives no compression relative
+to the input.  Real invertible transforms (cosine, Hartley, Haar) have no
+such redundancy, so the value $\tfrac{1}{2}$ reflects the choice of a
+complex representation.  A proposed parallel with Khayyam's Triangle
+modulo a prime fails: there the proportion of vanishing entries tends
+to $1$.
+This paper is the ninth in the nine-paper programme on constitutional
+sieve theory \cite{Wakil2026Forcing,Wakil2026Khayyam,Wakil2026SphericalCow,
+Wakil2026Eisenstein,Wakil2026Ramanujan,Wakil2026Shannon,
+Wakil2026ConditionW3,Wakil2026Bias}.
 \end{abstract}
 
+\noindent\textbf{Revision note (November 2026).}
+The title no longer claims empirical confirmation or a bridge to
+Khayyam's Triangle.  The definition of $\thetaFFT$ now counts real
+parameters, which give exactly $\tfrac{1}{2}$; the coefficient count,
+$(\lfloor N/2 \rfloor + 1)/N$, is stated separately, and the corollary on
+equal energies, which had off-by-one index bounds, is restated as
+magnitude symmetry.  The empirical table is withdrawn: its value
+$0.500247$ is impossible, because the energy fraction never exceeds
+$\tfrac{1}{2}$ for real data, and Section~\ref{sec:empirical} now states
+the exact identity.  The propositions on complex inputs and on numerical
+stability were false and are replaced by correct statements; the
+``adversarial robustness'' proposition is restated as a bound.  The
+``$2\times$ lossless compression floor'', the $2730\times$ and $67\times$
+compression figures and the predicted-ratio formula are withdrawn as
+illusory or unverified.  The Khayyam ``redundancy duality'', the
+ternary-resonance conjecture and the universality conjecture are
+withdrawn as false; the Hausdorff dimension of the mod-3 fractal is
+corrected to $\log 6/\log 3$, and $\theta_W = \tfrac{5}{8}$ is cited as a
+conjecture.
+
+\medskip
 \textbf{Keywords:} Discrete Fourier Transform, constitutional constant,
-conjugate symmetry, Khayyam's Triangle, Sierpi\'nski fractal,
-neural compression, intrinsic dimensionality, spectral sparsity.
+conjugate symmetry, Hermitian symmetry, Khayyam's Triangle,
+Sierpi\'nski fractal, neural compression, spectral sparsity.
 
 \tableofcontents
 \newpage
@@ -115,48 +142,60 @@ the Discrete Fourier Transform.
 For any real-valued signal $x \in \R^N$, the upper half of its DFT
 spectrum is the complex conjugate, reversed, of the lower half.
 Storing only the lower half uniquely determines the full spectrum.
-The fraction of the spectrum that is \emph{independently informative}
-is exactly $\tfrac{1}{2}$.
+Of the $2N$ real parameters of the spectrum, exactly $N$ are
+independent: counted in real parameters, the fraction of the spectrum
+that is \emph{independently informative} is exactly $\tfrac{1}{2}$.
 \end{theorem}
 
-We call this fraction $\thetaFFT$.  The theorem is classical and
-implicit in every signal processing text.  What is new here is three
-things:
+We call this fraction $\thetaFFT$.  The theorem is classical.  It is
+usually called Hermitian (or conjugate) symmetry \cite{OppenheimSchafer2010};
+it is the reason real data are expanded in real cosine and sine series,
+a practice that goes back to Euler, Lagrange, Fourier and Gauss
+\cite{Heideman1984}, and real-input FFT algorithms exploit it to save
+roughly half the work of a complex FFT \cite{Cooley1965,CooleyLewisWelch1970,Sorensen1987}.
+What this paper adds is modest:
 
 \begin{enumerate}[noitemsep]
-  \item We name it explicitly as a \emph{constitutional constant}---
-        a structural invariant that governs any downstream operation
-        built on the DFT, including neural compression architectures
-        such as NFR (Neural Fiber Representation).
-  \item We characterise precisely the boundary conditions under which
-        the constant holds, degrades, or ceases to apply.
-  \item We establish a structural bridge between $\thetaFFT = \tfrac{1}{2}$
-        and the modular fractal geometry of Khayyam's Triangle,
-        situating both within the same programme of constitutional
-        sieve theory.
+  \item We name the fraction, within the programme's vocabulary, a
+        \emph{constitutional constant}: a structural invariant of the
+        real DFT that holds before any data are examined.  The name is
+        a label; the content is classical.
+  \item We record what the symmetry does and does not imply for energy
+        measurements, complex and quantised inputs, finite precision
+        and compression.  Several claims made for it in an earlier
+        version---an empirical confirmation, a $2\times$ compression
+        floor, an adversarial-robustness result---do not hold, and we
+        say why.
+  \item We examine a proposed parallel between $\thetaFFT = \tfrac{1}{2}$
+        and the modular fractal geometry of Khayyam's Triangle, and show
+        that it fails.
 \end{enumerate}
 
-The practical stakes are significant.  In the context of AI weight
-compression, $\thetaFFT = \tfrac{1}{2}$ provides a \emph{theorem-predicted}
-compression floor before any data are examined.  A compression pipeline
-that runs FFT pre-processing on real-valued weight tensors and retains
-only the independent spectral half achieves at minimum a 2$\times$
-lossless compression on the spectral representation.  The
-\emph{additional} compression, from spectral sparsity of structured
-data, is the NFR stage's task.  The constitutional constant and the
-sparsity are orthogonal contributions.
+The practical context is FFT-based compression of real-valued weight
+tensors, such as the NFR (Neural Fiber Representation) pipeline under
+development by the author.  There the symmetry is easily misread as a
+guaranteed $2\times$ compression.  It is not one.  The independent half
+of the spectrum of $N$ real numbers consists of $\lfloor N/2 \rfloor + 1$
+complex coefficients, of which the DC coefficient and, for even $N$, the
+Nyquist coefficient are real: that is exactly $N$ real numbers, as many
+as the input.  Conjugate symmetry avoids the $2\times$ inflation of
+storing the full complex spectrum; it does not compress the signal.  Any
+compression must come from spectral sparsity of the data
+(Section~\ref{sec:compression}).
 
 \subsection{Paper organisation}
 
 Section~\ref{sec:notation} establishes notation.
-Section~\ref{sec:proof} gives the complete formal proof.
-Section~\ref{sec:empirical} reports empirical confirmation and the
-deviation budget.
-Section~\ref{sec:stress} catalogues stress tests: complex inputs,
-near-real inputs, integer quantisation, and adversarial construction.
-Section~\ref{sec:bridge} develops the Khayyam bridge.
-Section~\ref{sec:compression} derives the compression implications.
-Section~\ref{sec:sieve} positions this result within the broader
+Section~\ref{sec:proof} gives the proof.
+Section~\ref{sec:empirical} gives an exact identity for the energy
+fraction of the upper half and explains why it is not an empirical
+test of $\thetaFFT$.
+Section~\ref{sec:stress} treats complex inputs, integer quantisation,
+adversarial inputs and finite precision.
+Section~\ref{sec:bridge} compares the triangle of binomial coefficients
+modulo a prime and explains why the proposed parallel fails.
+Section~\ref{sec:compression} states the compression implications.
+Section~\ref{sec:sieve} positions this paper within the
 constitutional sieve programme.
 
 % ═════════════════════════════════════════════════════════════════════════════
@@ -185,19 +224,37 @@ in $S$ is
 \end{definition}
 
 \begin{definition}[Constitutional constant $\thetaFFT$]\label{def:theta}
-Let $H := \{1, 2, \ldots, \lfloor N/2 \rfloor\}$ denote the
-\emph{upper half} of the spectrum (excluding DC component $k=0$ and,
-for even $N$, the Nyquist component $k = N/2$).
-Define
+Write $L := \{0, 1, \ldots, \lfloor N/2 \rfloor\}$ for the
+\emph{lower half} of the spectrum (it contains the DC component $k=0$
+and, for even $N$, the Nyquist component $k = N/2$), and
+$U := \{\lfloor N/2 \rfloor + 1, \ldots, N-1\}$ for the
+\emph{upper half}.  Regard $\C^N$ as a real vector space of dimension
+$2N$, and let $\DFT(\R^N) \subseteq \C^N$ be the set of spectra of real
+signals.  Define
 \[
-  \thetaFFT(x) \;:=\; \frac{\text{number of upper-half coefficients
-    derivable from lower half}}{\text{total number of coefficients}}.
+  \thetaFFT \;:=\; \frac{\dim_{\R} \DFT(\R^N)}{\dim_{\R} \C^N},
 \]
-For real-valued $x$ we shall prove $\thetaFFT(x) = \tfrac{1}{2}$ exactly.
+the fraction of the $2N$ real parameters of a spectrum that are
+independent; the remaining fraction $1 - \thetaFFT$ is derivable from
+them.  We shall prove $\thetaFFT = \tfrac{1}{2}$ exactly
+(Theorem~\ref{thm:main}), so the independent and the derivable
+fractions are both $\tfrac{1}{2}$.
 \end{definition}
 
+\begin{remark}[Counting coefficients instead]\label{rem:coeffcount}
+Counted in complex coefficients rather than real parameters, the
+fraction is not $\tfrac{1}{2}$.  The $\lfloor N/2 \rfloor + 1$
+coefficients indexed by $L$ determine the rest, so the independent
+fraction of coefficients is $(\lfloor N/2 \rfloor + 1)/N$ and the
+derivable fraction is $\abs{U}/N = (N - \lfloor N/2 \rfloor - 1)/N$:
+for example $5/8$ and $3/8$ for $N = 8$, and $16385/32768$ and
+$16383/32768$ for $N = 32768$.  The difference from $\tfrac{1}{2}$ comes
+from the self-paired DC and Nyquist coefficients, which are real and so
+carry one real parameter each.
+\end{remark}
+
 % ═════════════════════════════════════════════════════════════════════════════
-\section{Formal Proof of $\thetaFFT = \tfrac{1}{2}$}
+\section{Proof of $\thetaFFT = \tfrac{1}{2}$}
 \label{sec:proof}
 % ═════════════════════════════════════════════════════════════════════════════
 
@@ -206,9 +263,10 @@ Let $x \in \R^N$ (real-valued).  Then for all $k \in \{1, \ldots, N-1\}$,
 \[
   \hat{x}_{N-k} \;=\; \overline{\hat{x}_k}.
 \]
-Consequently, $\hat{x}_k$ for $k \in \{0, 1, \ldots, \lfloor N/2 \rfloor\}$
-uniquely determines $\hat{x}$ entirely, and the fraction of independently
-informative coefficients is exactly $\thetaFFT = \tfrac{1}{2}$.
+Consequently, $\hat{x}_k$ for $k \in L = \{0, 1, \ldots, \lfloor N/2 \rfloor\}$
+uniquely determines $\hat{x}$ entirely, $\DFT(\R^N)$ is a real subspace
+of $\C^N$ of dimension $N$, and the fraction of independent real
+parameters is exactly $\thetaFFT = \tfrac{1}{2}$.
 \end{theorem}
 
 \begin{proof}
@@ -239,115 +297,133 @@ Counting independent real degrees of freedom:
 \end{itemize}
 Total independent real degrees of freedom (even $N$):
 $1 + 1 + 2(N/2 - 1) = N$.
-The full spectrum has $N$ complex coefficients $= 2N$ real degrees of
-freedom, but only $N$ are independent, confirming that exactly half
-the spectral information is redundant.
 
 For odd $N$: DC is real (1 real dof), remaining $N-1$ coefficients
 pair into $(N-1)/2$ conjugate pairs each contributing 2 real dofs,
 giving $1 + 2 \cdot (N-1)/2 = N$ independent real dofs.
-Same conclusion.
 
-In either case $\thetaFFT = N / (2N) = \tfrac{1}{2}$.
+In either case the vectors $X \in \C^N$ with
+$X_{(N-k) \bmod N} = \overline{X_k}$ for all $k$ form a real subspace of
+dimension $N$, and it contains $\DFT(\R^N)$.  Since the DFT is
+invertible, it is injective on $\R^N$, so $\DFT(\R^N)$ also has real
+dimension $N$ and equals that subspace.  The full spectrum has $N$
+complex coefficients, i.e.\ $2N$ real parameters, of which exactly $N$
+are independent: $\thetaFFT = N / (2N) = \tfrac{1}{2}$.
 \end{proof}
 
-\begin{corollary}[Energy conservation]\label{cor:energy}
-The upper and lower halves of the spectrum carry equal energy:
+\begin{corollary}[Magnitude symmetry]\label{cor:energy}
+Apart from the self-paired DC and Nyquist terms, the lower and upper
+halves of the spectrum carry equal energy:
 \[
-  \sum_{k=1}^{\lfloor N/2 \rfloor} \abs{\hat{x}_k}^2
+  \sum_{k=1}^{\lceil N/2 \rceil - 1} \abs{\hat{x}_k}^2
   \;=\;
-  \sum_{k=\lceil N/2 \rceil + 1}^{N-1} \abs{\hat{x}_k}^2.
+  \sum_{k=\lfloor N/2 \rfloor + 1}^{N-1} \abs{\hat{x}_k}^2.
 \]
 \end{corollary}
 
 \begin{proof}
 From Theorem~\ref{thm:main}, $\abs{\hat{x}_{N-k}} = \abs{\hat{x}_k}$
-for all $k$.  Re-indexing the upper sum gives the lower sum.
+for all $k$, and $k \mapsto N-k$ maps
+$\{1, \ldots, \lceil N/2 \rceil - 1\}$ bijectively onto
+$\{\lfloor N/2 \rfloor + 1, \ldots, N-1\}$.
 \end{proof}
 
-\begin{remark}[No entropy loss]\label{rem:entropy}
-The fact that $\thetaFFT = \tfrac{1}{2}$ carries zero information about
-the \emph{distribution} of energy within the independent half.
-A white-noise signal and a spectrally sparse neural weight tensor both
-satisfy $\thetaFFT = \tfrac{1}{2}$ exactly.  The \emph{additional}
-compression achievable beyond the constitutional floor is determined
-entirely by spectral sparsity---a property of the data, not of the DFT.
+This is magnitude symmetry, not Parseval's identity (energy
+conservation between $x$ and $\hat{x}$).  The DC term and, for even $N$,
+the Nyquist term appear on neither side.
+
+\begin{remark}[Independence from the data]\label{rem:entropy}
+The value $\thetaFFT = \tfrac{1}{2}$ depends only on the signal being
+real; it carries no information about the \emph{distribution} of energy
+within the independent half.  A white-noise signal and a spectrally
+sparse neural weight tensor have the same $\thetaFFT$.  Whatever
+compression is achievable is determined by spectral sparsity---a
+property of the data, not of the DFT (Section~\ref{sec:compression}).
 \end{remark}
 
 % ═════════════════════════════════════════════════════════════════════════════
-\section{Empirical Confirmation}
+\section{The Energy Fraction $\thetaFFT^{\mathrm{emp}}$}
 \label{sec:empirical}
 % ═════════════════════════════════════════════════════════════════════════════
 
-\subsection{Measurement protocol}
+\subsection{Definition and an exact identity}
 
-We measure $\thetaFFT$ empirically as the ratio of upper-half spectral
-energy to total spectral energy, and compare mirror symmetry directly:
+An earlier version of this paper measured $\thetaFFT$ ``empirically''
+as the fraction of spectral energy in the upper half, together with a
+mirror-symmetry score:
 \[
-  \thetaFFT^{\mathrm{emp}} \;:=\;
+  \thetaFFT^{\mathrm{emp}}(x) \;:=\; \rho_U(x) \;=\;
   \frac{\sum_{k > N/2} \abs{\hat{x}_k}^2}
        {\sum_{k=0}^{N-1} \abs{\hat{x}_k}^2},
   \qquad
-  \sigma_{\mathrm{mirror}} \;:=\; 1 - \frac{\norm{\hat{x}_{N-k} - \overline{\hat{x}_k}}}
-       {\norm{\hat{x}_{N-k}} + \epsilon}.
+  \sigma_{\mathrm{mirror}} \;:=\; 1 - \frac{\norm{(\hat{x}_{N-k} - \overline{\hat{x}_k})_{k=1}^{N-1}}}
+       {\norm{(\hat{x}_{N-k})_{k=1}^{N-1}} + \epsilon}.
 \]
+For real signals the first quantity is fixed by the DC and Nyquist
+coefficients.
 
-\subsection{Test cases}
+\begin{proposition}[Energy-fraction identity]\label{prop:energyidentity}
+Let $x \in \R^N$, $x \neq 0$, and $E = E(x)$.  Then
+\[
+  \thetaFFT^{\mathrm{emp}}(x) \;=\; \frac{1}{2} \;-\;
+  \frac{\abs{\hat{x}_0}^2 + \abs{\hat{x}_{N/2}}^2}{2E},
+\]
+where the Nyquist term $\abs{\hat{x}_{N/2}}^2$ is present only for even
+$N$.  Consequently $0 \leq \thetaFFT^{\mathrm{emp}}(x) \leq \tfrac{1}{2}$;
+the value $\tfrac{1}{2}$ is attained if and only if $\hat{x}_0 = 0$ and,
+for even $N$, $\hat{x}_{N/2} = 0$; and the value $0$ is attained if and
+only if all the energy lies in the DC and Nyquist coefficients, as for a
+constant signal or, for even $N$, for $x_n = (-1)^n$.
+\end{proposition}
 
-We ran three representative cases drawn from the AI weight compression
-pipeline:
+\begin{proof}
+Split $[N]$ into $\{0\}$, the Nyquist index $N/2$ (even $N$ only),
+$L' := \{1, \ldots, \lceil N/2 \rceil - 1\}$ and $U$.  By
+Corollary~\ref{cor:energy} the energies $S_{L'}$ and $S_U$ on $L'$ and $U$
+are equal, so $E = \abs{\hat{x}_0}^2 + \abs{\hat{x}_{N/2}}^2 + 2 S_U$,
+and $\thetaFFT^{\mathrm{emp}} = S_U/E$ gives the identity.  The remaining
+assertions follow at once.
+\end{proof}
 
-\begin{enumerate}[noitemsep]
-  \item \textbf{Structured FFN weights.}  Feed-forward network weight
-        matrix $(512 \times 64)$, low-rank plus Gaussian noise,
-        characteristic of transformer MLP layers.
+\subsection{What the energy fraction does and does not measure}
 
-  \item \textbf{Attention weights.}  Key/query weight matrix
-        $(512 \times 16) \times (16 \times 64)$ with sparse
-        specialisation pattern, modelling MoE expert layers.
+$\thetaFFT^{\mathrm{emp}}$ is a property of the data, not a measurement
+of $\thetaFFT$.  Its deviation from $\tfrac{1}{2}$ is exactly the DC and
+Nyquist term of Proposition~\ref{prop:energyidentity}; it can be driven
+to $0$ by a suitable signal; and it cannot tell real from complex input
+($x = (1+2i)\,x_R$ with $x_R$ real has the same $\thetaFFT^{\mathrm{emp}}$
+as $x_R$).  Its closeness to $\tfrac{1}{2}$ therefore does not confirm
+Theorem~\ref{thm:main}, which in any case needs no empirical
+confirmation.  The direct numerical check of the symmetry is the mirror
+residual $\max_k \abs{\hat{x}_{N-k} - \overline{\hat{x}_k}}/\norm{\hat{x}}$,
+or $1 - \sigma_{\mathrm{mirror}}$; for a Gaussian random signal of length
+$N = 32768$ in double precision (NumPy), $\sigma_{\mathrm{mirror}}$
+differs from $1$ by about $3 \times 10^{-16}$.
 
-  \item \textbf{Random control.}  Pure i.i.d.\ Gaussian noise, same
-        shape.  This should satisfy $\thetaFFT = \tfrac{1}{2}$ exactly
-        while exhibiting no spectral sparsity.
-\end{enumerate}
+\subsection{The withdrawn table}
 
-\subsection{Results}
+An earlier version reported $\thetaFFT^{\mathrm{emp}}$ for three synthetic
+$512 \times 64$ test matrices: ``structured FFN weights'' (low-rank plus
+Gaussian noise), ``attention weights'' (a product
+$(512 \times 16) \times (16 \times 64)$ with a sparse factor) and an
+i.i.d.\ Gaussian control.  It included the value $0.500247$ for the
+attention weights, with a deviation of $2.5 \times 10^{-4}$ attributed to
+numerical precision.  By Proposition~\ref{prop:energyidentity} no value
+above $\tfrac{1}{2}$ is possible for the DFT of real data, and
+double-precision rounding errors are of order $10^{-16}$ in relative
+terms, so that entry cannot have come from the stated measurement.  The
+table and its explanation are withdrawn.
 
-\begin{table}[h]
-\centering
-\caption{Empirical $\thetaFFT$ measurements across test cases.
-The constant holds to within $3 \times 10^{-4}$ universally;
-mirror symmetry is numerically exact.}
-\label{tab:empirical}
-\begin{tabular}{lccccc}
-\toprule
-Test case & $\thetaFFT^{\mathrm{emp}}$ & Deviation & Mirror $\sigma$ & FFT ratio & Energy \\
-\midrule
-FFN weights (structured)  & 0.500000 & $< 10^{-6}$ & 1.000000 & 2730$\times$ & 96\% \\
-Attention weights (sparse) & 0.500247 & $2.5 \times 10^{-4}$ & 1.000000 & moderate & 80\% \\
-Random control (Gaussian)  & 0.500000 & $< 10^{-6}$ & 1.000000 & 5$\times$   & 52\% \\
-\midrule
-\multicolumn{2}{l}{\textit{Max deviation across all cases}} & $2.5 \times 10^{-4}$ & & & \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-The deviation of $2.5 \times 10^{-4}$ on the attention weight case
-arises from numerical precision in the mirror-symmetry quotient
-at very small denominator values---not from any genuine asymmetry.
-In every case, $\sigma_{\mathrm{mirror}} = 1.000000$ to six decimal places.
-
-\subsection{The structured/random contrast is the key finding}
-
-The constitutional constant $\thetaFFT = \tfrac{1}{2}$ is \emph{identical}
-for structured and random inputs.  What differs is the energy
-concentration: structured weights achieve 2730$\times$ FFT compression
-at 96\% energy because gradient-descent training drives weight tensors
-onto low-dimensional manifolds in frequency space.  Random noise at
-5$\times$ and 52\% has nowhere to concentrate.
-
-This distinction---universal constitutional constant, data-dependent
-sparsity multiplier---is the central empirical finding.
+Recomputing $\thetaFFT^{\mathrm{emp}}$ for 200 random matrices of each of
+the three described types, flattened to length $N = 32768$, gives values
+between $0.49981$ and $0.5$, never above, with mean about $0.49997$ for
+each type: a deviation of order $1/N$, consistent with the DC and Nyquist
+term of Proposition~\ref{prop:energyidentity} for random data of mean
+near zero.  Values slightly above $\tfrac{1}{2}$ (up to about $0.502$)
+arise only if a two-dimensional FFT is computed and its spectrum split by
+flattened index, which is not a partition into conjugate pairs.  The
+table's compression columns are discussed in
+Section~\ref{sec:compression}.
 
 % ═════════════════════════════════════════════════════════════════════════════
 \section{Stress Tests: Where and How $\thetaFFT = \tfrac{1}{2}$ Breaks}

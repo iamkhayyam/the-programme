@@ -21,6 +21,8 @@
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{example}[theorem]{Example}
+\newtheorem{postulate}[theorem]{Postulate}
+\newtheorem{proposal}[theorem]{Proposal}
 
 \theoremstyle{remark}
 \newtheorem{remark}[theorem]{Remark}
@@ -40,18 +42,17 @@
 \author{Khayyam Wakil}
 \address{The ARC Institute of Knowware, Calgary, Alberta, Canada}
 \email{the@knowware.institute}
-\date{February 2026}
+\date{February 2026; revised November 2026}
 
 \keywords{constitutional forcing, constitutional constraint, configuration
-  density, forced governing constant, sieve theory, level of distribution,
-  Shannon entropy, channel capacity, Kolmogorov scaling, $k$-hierarchy,
+  density, governing constant, sieve theory, level of distribution,
+  Shannon entropy, channel capacity, $k$-hierarchy,
   Shannon--Wakil effect, cross-domain structure}
 
 \subjclass[2020]{
   11N35,  % Sieves (primary)
   11N13,  % Primes in progressions
   94A15,  % Shannon theory
-  76F02,  % Turbulence, fluid dynamics
   01A99   % Miscellaneous topics: history
 }
 
@@ -59,91 +60,99 @@
 \begin{document}
 
 \begin{abstract}
-We introduce and formally define \emph{Constitutional Forcing}: a mechanism
-by which the irreducible algebraic structure of a mathematical system uniquely
-determines a governing constant, leaving no freedom in its value. The constant
-is not fitted, not approximated, and not chosen---it is forced. Changing it
-requires changing the structure of the system itself.
+We introduce and formally define \emph{Constitutional Forcing}: a proposed
+mechanism by which the algebraic structure of a mathematical system would
+determine a governing constant, leaving no freedom in its value.
 
-A system of depth $k$ has exactly $k$ independent \emph{constitutional
-constraints}, operating on a binary configuration space of size $2^k$.
-Each constraint eliminates exactly one configuration class, leaving $2^k - k$
-valid configurations. The forced governing constant is the configuration density:
+A system of depth $k$ is defined to have exactly $k$ independent
+\emph{constitutional constraints}, operating on a binary configuration space of
+size $2^k$, and we postulate that exactly $k$ configuration classes are
+eliminated, leaving $2^k - k$ valid configurations. The governing constant is
+then the configuration density
 \begin{equation*}
   \thetak = \frac{2^k - k}{2^k}.
 \end{equation*}
+This count is a postulate, not a theorem: if a configuration is called invalid
+whenever some constraint fails, there are $2^k - 1$ invalid configurations,
+not $k$.
 
-We exhibit three proven instances across three independent domains.
-In \emph{prime arithmetic} ($k=1$, $k=3$): the Bombieri--Vinogradov level
-of distribution $\theta_1 = 1/2$ and the cascade moduli level of distribution
-$\theta_3 = 5/8$~\cite{WakilEisenstein,WakilW3} are both constitutional.
-In \emph{information theory} ($k=1$): Shannon's entropy $H$ and channel
-capacity $C$ are the forcing constants of the AEP and the Channel Coding
-Theorem~\cite{Shannon1948}.
-In \emph{fluid dynamics} ($k=2$): Kolmogorov's dissipation exponent
-$\alpha = 3/4$ is forced by two incompressibility constraints on an
-eight-dimensional triadic interaction space~\cite{Kolmogorov1941}.
+We examine three candidate instances. The Bombieri--Vinogradov level of
+distribution $1/2$ is assigned depth $k = 1$, but the assignment rests on the
+binary predicate ``prime or not prime'', and the same reasoning would assign
+$1/2$ to any predicate. The cascade moduli $q = 3^K$ are proposed as a depth-$3$
+system with conjectured level $\theta_3 = 5/8$~\cite{WakilEisenstein}; this
+assignment is currently unsupported. Shannon's theorems~\cite{Shannon1948}
+give the constants $H/\log|\mathcal{A}|$ and $C$, not $1/2$, and are retained
+only as a proposed analogy. We state the Constitutional Forcing Conjecture:
+every system with $k$ independent constitutional constraints has
+$\thetak = (2^k - k)/2^k$ as its governing constant, and every depth
+$k \geq 1$ is realised.
 
-We prove the Counting Theorem: exactly $k$ configurations are invalid in any
-$k$-fold constitutionally constrained system. We verify that all three domains
-satisfy the formal definition. We state the Constitutional Forcing Conjecture:
-every system with $k$ independent constitutional constraints exhibits
-$\thetak = (2^k - k)/2^k$ as its forcing constant.
-
-This paper is the foundation of a seven-paper program. The remaining six papers
-prove the instances, derive consequences, and explore the cross-domain
-structure of the mechanism.
+This paper is the first of a nine-paper programme (p01--p09). The remaining
+eight papers develop the proposed instances, their consequences and the
+cross-domain comparisons.
 \end{abstract}
 
 \maketitle
+
+\noindent\textbf{Revision note (November 2026).}
+The Counting Theorem of the February version is withdrawn as a theorem: its
+induction miscounts (under the paper's own semantics there are $2^k - 1$
+invalid configurations, not $k$), and the count $k$ is now stated as a
+postulate (Postulate~\ref{post:count}). The Kolmogorov ``$\alpha = 3/4$''
+instance is withdrawn: the formula gives $\theta_2 = 1/2$, and Kolmogorov's
+$3/4$ is the exponent in $\eta/L \sim \mathrm{Re}^{-3/4}$, obtained by
+dimensional analysis~\cite{Kolmogorov1941}. The Bombieri--Vinogradov statement
+is corrected: it is an average over moduli, GRH does not raise its level, and
+levels above $1/2$ are known for well-factorable weights. The cascade-moduli
+instance is downgraded to a proposal: $\theta_W = 5/8$ is a conjecture, and the
+three ``levels'' modulo $3$, $9$ and $27$ are not independent. The Shannon
+instance is downgraded to a proposed analogy, the Sophie Germain
+``non-instance'' is reduced to a remark, and the Pascadi citation is corrected.
+The programme table now lists the nine papers p01--p09 with their revised
+status.
+
 \tableofcontents
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section{What Constitutional Forcing Is}
 %% ─────────────────────────────────────────────────────────────────────────────
 
-\subsection{The problem this paper solves}
+\subsection{The problem this paper addresses}
 
-Mathematics is full of constants that appear to be chosen but turn out to be
-forced. Euler's $e$, the golden ratio $\varphi$, Kolmogorov's $3/4$, Shannon's
-channel capacity $C$, the Bombieri--Vinogradov exponent $1/2$, Pascadi's
-$5/8$~\cite{Pascadi2025}: in each case, someone could in principle have asked
-``why this value and not another?'' The answer, in every case, is that no other
-value is consistent with the algebraic structure of the problem. The constant is
-not discovered by fitting---it is forced by the geometry.
-
-This paper names, defines, and formalises that forcing mechanism.
+Some constants in mathematics invite the question ``why this value and not
+another?'' The Bombieri--Vinogradov exponent $1/2$ is an example. This paper
+proposes a framework in which such a constant would be read off from the number
+of independent structural constraints on the system, and it states the
+framework precisely enough that each proposed instance can be checked.
 
 We call it \emph{Constitutional Forcing}. The name is deliberate. A
 constitutional constraint is one that is not imposed from outside the system but
 is \emph{inherent to its constitution}---to what the system fundamentally is.
-Constitutional Forcing is what happens when a system's own constitution leaves
-no room for any governing constant other than the one it has.
+Constitutional Forcing, if it occurs, is the situation in which a system's own
+constitution leaves no room for any governing constant other than the one it
+has.
 
-\subsection{Why this needs a paper}
+\subsection{Status of the proposal}
 
-The mechanism has been operating silently across mathematics for at least a
-millennium---Khayyam's Triangle~\cite{WakilKhayyam} encodes it in the mod-3
-fractal structure that waited nine centuries for the right question. Shannon
-found two instances in 1948 without naming the mechanism. Kolmogorov found
-another in 1941. The prime arithmetic instance was established in
-2025--2026~\cite{Pascadi2025,WakilEisenstein}.
+The two arithmetic candidates examined in Section~\ref{sec:instances} rest, so
+far, on numerical coincidences: the Bombieri--Vinogradov exponent $1/2$ equals
+$\theta_1$, and the exponent $5/8$ that Pascadi~\cite{Pascadi2025} obtained for
+primes with triply-well-factorable weights to general moduli equals $\theta_3$.
+A coincidence of this kind is not evidence. Section~\ref{sec:instances} checks
+each candidate against the definition and records that none currently satisfies
+it in full.
 
-None of these works named what they had found. Each field had its own instance,
-its own language, its own proof methods. The mechanism---the common cause---was
-invisible because no one had looked across all three at once.
-
-This paper looks across all three. It names the mechanism. It defines it
-precisely enough that a referee can check whether a new system exhibits it.
-And it positions the six companion papers as instances and consequences of the
-same foundational definition.
+The purpose of this paper is therefore to fix the definitions on which the
+eight companion papers rely, and to state precisely what would have to be
+proved for a system to count as an instance.
 
 \subsection{Relationship to the Shannon--Wakil Effect}
 
-Constitutional Forcing is the \emph{mechanism}. The Shannon--Wakil
-Effect~\cite{WakilShannon} is the \emph{observable}: the forced dimensional
-reduction of an exponential configuration space that Constitutional Forcing
-produces. The relationship is:
+In the programme's terminology, Constitutional Forcing is the proposed
+\emph{mechanism} and the Shannon--Wakil Effect~\cite{WakilShannon} the proposed
+\emph{observable}: the reduction of an exponential configuration space to its
+valid part. The intended relationship is:
 \[
   \text{Constitutional Forcing}
   \;\xrightarrow{\text{acts on}}\;
@@ -151,9 +160,7 @@ produces. The relationship is:
   \;\xrightarrow{\text{produces}}\;
   \text{Shannon--Wakil Effect}.
 \]
-Defining the Shannon--Wakil Effect without first defining Constitutional
-Forcing is like defining combustion without defining oxygen. The present paper
-provides the missing definition.
+The present paper supplies the definitions on which~\cite{WakilShannon} relies.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section{The Definitions}
@@ -175,8 +182,10 @@ operational level. A constraint $\mathcal{C}_i$ at level $i$ is
     constraints at other levels: it cannot be derived from, or reduced to, a
     combination of constraints at levels $j \neq i$.
   \item \emph{Binary-eliminating.} $\mathcal{C}_i$ eliminates exactly one
-    configuration class at level $i$---the one where the constraint fails.
-    It does not eliminate more (over-constrained) or fewer (under-constrained).
+    configuration class at level $i$. It does not eliminate more
+    (over-constrained) or fewer (under-constrained). How the eliminated
+    classes are counted in the full configuration space is fixed by
+    Postulate~\ref{post:count} below.
 \end{enumerate}
 \end{definition}
 
@@ -192,11 +201,13 @@ is---then it is.
 Condition (C2) is what distinguishes Constitutional Forcing from ordinary
 constraint satisfaction. A system with $k$ coupled constraints (each derivable
 from a single underlying constraint) has effective depth $1$, not depth $k$.
-The Sophie Germain prime pairs are the canonical example: two modular conditions
-that appear independent but are coupled through a single algebraic relationship,
-giving effective depth $1$ and forcing constant $\theta = 1/2$, not the na\"ive
-$\theta_2 = 1/2$ that the formula also predicts for $k=2$ (for independent
-reasons)~\cite{WakilShannon}.
+An example is twin-prime admissibility modulo powers of~$3$: for $p > 3$, the
+pair $(p, p+2)$ avoids divisibility by $3$ if and only if $p \equiv 2 \pmod 3$,
+and every lift of this class to modulus $9$ or $27$ again avoids it, so the
+``conditions'' modulo $9$ and $27$ are implied by the condition modulo $3$
+(Section~\ref{sec:cascade}). Note also that $\theta_1 = \theta_2 = 1/2$
+(checked in the accompanying Lean files), so the value $1/2$ alone cannot
+distinguish depth $1$ from depth $2$.
 \end{remark}
 
 \subsection{Constitutional Forcing}
@@ -212,68 +223,68 @@ A system $S$ exhibits \emph{Constitutional Forcing of depth $k$} if:
   \item \emph{$k$ independent constitutional constraints.} $S$ has exactly
     $k$ constitutional constraints $\mathcal{C}_1, \ldots, \mathcal{C}_k$
     in the sense of Definition~\ref{def:constitutional}, one per level.
-  \item \emph{Forced configuration density.} The valid configurations---those
-    not eliminated by any $\mathcal{C}_i$---number exactly $2^k - k$,
-    giving forced governing constant
+  \item \emph{Counting postulate.} Exactly $k$ configurations of $\Ck$ are
+    invalid, one attributed to each $\mathcal{C}_i$
+    (Postulate~\ref{post:count}), so that the valid configurations number
+    $2^k - k$ and the governing constant is the configuration density
     \begin{equation}
     \label{eq:theta}
       \thetak = \frac{2^k - k}{2^k}.
     \end{equation}
-  \item \emph{Uniqueness.} No other value of $\thetak$ is consistent with both
-    the configuration space structure and the $k$ constitutional constraints.
-    Changing $\thetak$ requires either removing a constitutional constraint
-    (reducing depth) or adding one (increasing depth).
+  \item \emph{Uniqueness.} The governing constant of $S$ (for example, its
+    level of distribution) equals $\thetak$, and it cannot be changed without
+    either removing a constitutional constraint (reducing depth) or adding one
+    (increasing depth).
 \end{enumerate}
 \end{definition}
 
 \begin{remark}
-Condition (CF4) is what makes Constitutional Forcing a mechanism and not merely
-a formula. The formula $(2^k - k)/2^k$ is a consequence, not a definition. The
-definition is the forcing structure: the right-hand side is forced to equal the
-left-hand side by (CF1)--(CF3), and (CF4) asserts that nothing else can equal it.
+In this revision the formula $(2^k - k)/2^k$ is part of the definition,
+through the counting postulate in (CF3); it is not derived. Condition (CF4)
+carries the substantive content: for a given system it asserts that the
+system's governing constant equals $\thetak$ and is rigid. Verifying (CF4) for
+a particular system is a mathematical claim about that system and needs its
+own proof.
 \end{remark}
 
-\subsection{The Counting Theorem}
+\subsection{The counting postulate}
 
-The following theorem establishes that (CF3) follows from (CF1) and (CF2): the
-forced count $2^k - k$ is not an additional assumption but a consequence of
-having exactly $k$ independent constitutional constraints.
+The February version stated the following as a theorem (the ``Counting
+Theorem'') and gave a proof by induction. The proof is invalid
+(Remark~\ref{rem:count}), and the statement is now a postulate.
 
-\begin{theorem}[Counting Theorem]
-\label{thm:count}
-Let $S$ exhibit Constitutional Forcing of depth $k$. Then exactly $k$
-configurations in $\Ck = \{0,1\}^k$ are invalid, and the forced governing
-constant is $\thetak = (2^k - k)/2^k$.
-\end{theorem}
+\begin{postulate}[Counting postulate]
+\label{post:count}
+In a system of depth $k$, exactly $k$ configuration classes in
+$\Ck = \{0,1\}^k$ are eliminated, one by each constitutional constraint.
+\end{postulate}
 
-\begin{proof}
-By induction on $k$.
+Granting Postulate~\ref{post:count}, the valid configurations number $2^k - k$
+out of $2^k$, and the configuration density is $\thetak = (2^k - k)/2^k$, as
+in~\eqref{eq:theta}.
 
-\textit{Base case} ($k = 1$). One level, configuration space $\{0,1\}$.
-The single constitutional constraint eliminates the configuration where it fails
-(exactly one, by (C3)). Invalid count: $1 = k$. Valid configurations:
-$2 - 1 = 1$. Forced constant: $\theta_1 = 1/2$. \checkmark
+\begin{remark}[Why this is not a theorem]
+\label{rem:count}
+Under (CF1), $c_i = 1$ exactly when constraint $i$ holds. If a configuration is
+called invalid whenever some constraint fails, then a single failing constraint
+already invalidates the $2^{k-1}$ configurations with $c_i = 0$; in total
+$2^k - 1$ configurations are invalid and exactly one, $(1, \ldots, 1)$, is
+valid, for every $k$ (for $k = 3$: seven invalid, not three). The revised Lean
+file P05 proves this count as \texttt{invalid\_count}. The withdrawn induction
+overlooked that each of the $k - 1$ configurations invalid at depth $k - 1$
+splits into two at depth $k$. The count $k$ is therefore an additional
+assumption about which configuration classes are counted as eliminated, not a
+consequence of (CF1) and (CF2).
+\end{remark}
 
-\textit{Inductive step.} Assume the result for $k-1$: a system of depth $k-1$
-has exactly $k-1$ invalid configurations out of $2^{k-1}$.
-
-Passing to depth $k$, each configuration in $\mathcal{C}_{k-1}$ splits into
-two in $\Ck$ (the new level either holds or fails). The previously invalid
-$k-1$ configurations in $\mathcal{C}_{k-1}$ remain invalid (failing any
-constraint is sufficient for invalidity). The new constitutional constraint
-$\mathcal{C}_k$ is independent of the previous $k-1$ (by (C2)), so it
-eliminates exactly one configuration that was valid at levels $1, \ldots, k-1$
-but fails at level $k$ (by (C3)).
-
-Total invalid: $(k-1) + 1 = k$. Valid: $2^k - k$. Forced constant:
-$\thetak = (2^k - k)/2^k$.
-\end{proof}
-
-Table~\ref{tab:theta} displays the forced constants for $k = 1, \ldots, 6$.
+Table~\ref{tab:theta} displays the configuration densities for
+$k = 1, \ldots, 6$.
 
 \begin{table}[h]
 \centering
-\caption{Forced governing constants $\thetak = (2^k - k)/2^k$.}
+\caption{Configuration densities $\thetak = (2^k - k)/2^k$ under
+  Postulate~\ref{post:count}. The ``Invalid'' column is the postulated count
+  $k$; if ``invalid'' meant ``some constraint fails'', it would be $2^k - 1$.}
 \label{tab:theta}
 \begin{tabular}{rrrrl}
 \toprule
@@ -290,209 +301,184 @@ $6$ & $64$ & $6$ & $58$ & $29/32$ \\
 \end{table}
 
 %% ─────────────────────────────────────────────────────────────────────────────
-\section{Three Instances}
+\section{Three Candidate Instances}
 \label{sec:instances}
 %% ─────────────────────────────────────────────────────────────────────────────
 
-We exhibit Constitutional Forcing in three independent mathematical domains.
-Each instance is verified against Definition~\ref{def:CF}. The proofs of the
-underlying results live in the companion papers; here we verify only that each
-system satisfies the definition.
+We examine three candidate instances against Definition~\ref{def:CF}. None of
+them currently satisfies the definition in full; for each we record what holds
+and what does not.
 
 \subsection{Prime arithmetic: Bombieri--Vinogradov ($k = 1$)}
+\label{sec:BV}
 
-The Bombieri--Vinogradov theorem~\cite{BV1965} establishes that primes are
-equidistributed in arithmetic progressions to modulus $q \leq x^{1/2}$. The
-exponent $1/2$ is the level of distribution.
+The Bombieri--Vinogradov theorem~\cite{Bombieri1965,Vinogradov1965} states
+that for every $A > 0$ there is $B = B(A)$ such that
+\[
+  \sum_{q \leq x^{1/2}(\log x)^{-B}} \; \max_{(a,q) = 1}
+  \Bigl| \psi(x;q,a) - \frac{x}{\varphi(q)} \Bigr|
+  \ll_A \frac{x}{(\log x)^A}.
+\]
+It is a statement on average over the moduli, not one for each
+$q \leq x^{1/2}$. The exponent $1/2$ is its level of distribution.
 
-\begin{proposition}[BV is constitutionally forced]
+\begin{proposal}[Bombieri--Vinogradov as a depth-$1$ system]
 \label{prop:BV}
-The Bombieri--Vinogradov level of distribution $\theta_1 = 1/2$ is
-constitutionally forced at depth $k = 1$.
-\end{proposition}
+It is proposed that the Bombieri--Vinogradov level of distribution $1/2$ is an
+instance of Constitutional Forcing at depth $k = 1$.
+\end{proposal}
 
-\begin{proof}[Verification against Definition~\ref{def:CF}]
+\noindent\emph{Check against Definition~\ref{def:CF}.}
 (CF1): Configuration space $\{0,1\}^1 = \{0,1\}$, size $2$.
 
-(CF2): One constitutional constraint---primality itself. A positive integer
-either is prime (constraint satisfied, $c_1 = 1$) or is not (constraint failed,
-$c_1 = 0$). This is intrinsic (it is what primality means), independent (there
-is only one constraint), and binary-eliminating.
+(CF2): The proposed constraint is primality. A positive integer either is
+prime ($c_1 = 1$) or is not ($c_1 = 0$); the constraint is intrinsic, and there
+is only one. But the same reasoning applies verbatim to any predicate on the
+integers (being squarefree, being a sum of two squares, \ldots), and would
+assign each of them depth $1$ and constant $1/2$. As applied here, (CF2)
+therefore contains nothing specific to the primes or to the
+Bombieri--Vinogradov theorem.
 
-(CF3): Invalid configurations: $1$ (the non-prime configuration). Valid: $1$.
-Forced constant: $\theta_1 = 1/2$.
+(CF3): Under Postulate~\ref{post:count}, one configuration is invalid and one
+valid, so $\theta_1 = 1/2$.
 
-(CF4): The exponent $1/2$ cannot be improved unconditionally for all moduli
-without additional structural input (such as the Generalised Riemann
-Hypothesis). Any improvement requires either a new structural constraint
-(increasing depth $k$) or a restriction to a structured family of moduli.
-Both are exactly what Pascadi~\cite{Pascadi2025} and the companion
-papers~\cite{WakilEisenstein} do: they increase depth to $k = 3$ by
-restricting to cascade moduli.
-\end{proof}
+(CF4): Not established, and the justification given in the February version was
+incorrect. The Generalised Riemann Hypothesis does not raise the level beyond
+$1/2$: for a single modulus it gives the expected asymptotic only for
+$q \leq x^{1/2-\varepsilon}$, and a level beyond $1/2$ for general moduli is
+the content of the separate Elliott--Halberstam conjecture. Levels beyond $1/2$
+are known unconditionally in restricted settings: $1/2 + 1/584$
+(Zhang~\cite{Zhang2014}) and $1/2 + 7/300$ (Polymath~\cite{Polymath2014}) for
+smooth squarefree moduli; and, for a fixed residue class and suitably
+well-factorable weights, $4/7$ (Bombieri--Friedlander--Iwaniec~\cite{BFI1986}),
+$3/5$ (Maynard~\cite{Maynard2020}), $66/107$ (Lichtman~\cite{Lichtman2023}) and
+$5/8$ (Pascadi~\cite{Pascadi2025}). None of $4/7$, $3/5$ or $66/107$ has the
+form $(2^k - k)/2^k$, so the claim of the February version that any
+improvement on $1/2$ requires an increase of depth is not supported.
+Pascadi's theorem concerns general moduli; it does not restrict to cascade
+moduli and does not ``increase the depth''.
 
-\subsection{Prime arithmetic: Cascade moduli ($k = 3$)}
+\subsection{Prime arithmetic: cascade moduli (proposed $k = 3$)}
+\label{sec:cascade}
 
 For cascade moduli $q = 3^K$, the companion paper~\cite{WakilEisenstein}
-establishes level of distribution $\theta_3 = 5/8$.
+conjectures a level of distribution $\theta_W = 5/8$. The February version
+presented this as an established depth-$3$ instance. Both the arithmetic
+statement and the depth assignment are, at present, unsupported.
 
-\begin{proposition}[Cascade moduli are constitutionally forced]
+\begin{proposal}[Cascade moduli as a depth-$3$ system]
 \label{prop:cascade}
-The level of distribution $\theta_3 = 5/8$ for cascade moduli is
-constitutionally forced at depth $k = 3$.
-\end{proposition}
+It is proposed that primes have level of distribution $\theta_3 = 5/8$ to the
+moduli $q = 3^K$, and that this is an instance of Constitutional Forcing at
+depth $k = 3$. Both parts are conjectural.
+\end{proposal}
 
-\begin{proof}[Verification against Definition~\ref{def:CF}]
+\noindent\emph{Check against Definition~\ref{def:CF}.}
 (CF1): Configuration space $\{0,1\}^3$, size $8$.
 
-(CF2): Three constitutional constraints. For a twin prime pair $(p, p+2)$
-with $p > 3$:
+(CF2): The February version proposed three constraints on a twin prime pair
+$(p, p+2)$ with $p > 3$, at the moduli $3$, $9$ and $27$. Only the first is a
+constraint. Modulo $3$, $p \equiv 2$ is the only class for which neither $p$
+nor $p + 2$ is divisible by~$3$. Modulo $9$ and $27$ nothing further is
+excluded: each of the $3$ (respectively $9$) lifts of $2 \bmod 3$ keeps both $p$
+and $p + 2$ prime to~$3$. The conditions modulo $9$ and $27$ are implied by the
+condition modulo $3$, so (C2) fails and, by the paper's own criterion, the
+depth is $1$. Nor does $\Z[\omega]$ supply three levels: since
+$(3) = (1-\omega)^2$, the $(1-\omega)$-adic filtration of $\Z[\omega]/(3^K)$
+has $2K$ steps, each with quotient $\mathbb{F}_3$. The ``eight configuration
+classes'' were never defined.
+
+(CF3): With one constraint, Postulate~\ref{post:count} gives $\theta_1 = 1/2$.
+The value $5/8$ would require three independent constraints, and none has been
+exhibited beyond the first.
+
+(CF4): Not established. Twin-prime admissibility and the level of distribution
+of primes to the moduli $3^K$ are, moreover, different objects. The arithmetic
+statement itself is open in its meaningful form:
 \begin{itemize}
-  \item Level $1$ ($\bmod\,3$): $p \equiv 2 \pmod{3}$ is forced---the only
-    residue class allowing both $p$ and $p+2$ to avoid divisibility by $3$.
-  \item Level $2$ ($\bmod\,9$): The survival condition at modulus $9$ is
-    forced by the ramification $(3) = (1-\omega)^2$ in
-    $\Z[\omega]$~\cite{WakilEisenstein}.
-  \item Level $3$ ($\bmod\,27$): The survival condition at modulus $27$ is
-    similarly forced by the three-level filtration of $\Z[\omega]/(3^K)$.
+  \item The summed statement
+    \[
+      \sum_{3^K \leq x^{\theta}} \max_{(a,3) = 1}
+      \Bigl| \psi(x;3^K,a) - \frac{x}{\varphi(3^K)} \Bigr|
+      \ll \frac{x}{(\log x)^A}
+    \]
+    holds for \emph{every} fixed $\theta < 1$: for $3^K > (\log x)^{A+1}$ the
+    trivial bound $\ll x \log x / 3^K$ sums geometrically, and the
+    Siegel--Walfisz theorem covers the $O(\log\log x)$ remaining moduli. In
+    this form it carries no information about $5/8$.
+  \item The per-modulus version (the expected asymptotic for
+    $\psi(x;3^K,a)$ for each $3^K \leq x^{5/8-\varepsilon}$) would go beyond
+    what GRH gives ($x^{1/2}$). For prime-power moduli the best known ranges are
+    $3/8$ (Barban--Linnik--Tshudakov~\cite{BLT1964}), $2/5$
+    (Gallagher~\cite{Gallagher1972}) and $5/12$ (Huxley), with lower bounds of
+    the correct order up to $x^{0.4736}$ (Banks--Shparlinski);
+    see~\cite{BaierPujahari2022} for an account.
 \end{itemize}
-Each constraint is intrinsic to the twin prime condition and the Eisenstein
-integer structure, independent of the others (verified via CRT
-in~\cite{WakilRamanujan}), and binary-eliminating (each eliminates exactly one
-of the eight configuration classes).
+The ``uniqueness of $5/8$'' cited in the February version (an Eisenstein
+``ceiling $2/3$'' combined with cyclic-group cancellation) is withdrawn.
+Pascadi's exponent $5/8$~\cite{Pascadi2025} concerns smooth numbers, and primes
+with triply-well-factorable weights, in progressions to general moduli; its
+numerical agreement with $\theta_3$ is a coincidence, not evidence.
 
-(CF3): Invalid configurations: $3$ (one per level). Valid: $8 - 3 = 5$.
-Forced constant: $\theta_3 = 5/8$.
+\subsection{Information theory: Shannon's theorems (a proposed analogy)}
+\label{sec:shannon}
 
-(CF4): The uniqueness of $5/8$ is proved in Theorem~5.1 of~\cite{WakilEisenstein}:
-neither the Eisenstein filtration alone (giving ceiling $2/3$) nor the cyclic
-group cancellation alone achieves $5/8$; both are required, and together they
-force exactly $5/8$.
-\end{proof}
-
-\subsection{Information theory: Shannon's theorems ($k = 1$)}
-
-\begin{proposition}[Shannon's constants are constitutionally forced]
-\label{prop:shannon}
-Shannon's entropy $H$ and channel capacity $C$~\cite{Shannon1948} are
-constitutionally forced at depth $k = 1$ in their respective systems.
-\end{proposition}
-
-\begin{proof}[Verification against Definition~\ref{def:CF}]
-\textit{AEP case.} The system is a memoryless source with alphabet $\mathcal{A}$
-and distribution $p$.
-
-(CF1): Configuration space is $\{0,1\}^1$ (sequences are either typical or not).
-
-(CF2): One constitutional constraint---typicality. A sequence $x^n$ is typical
-if $|-\frac{1}{n}\log p(x^n) - H| < \varepsilon$. This is intrinsic to the
-source distribution $p$: it is not a free parameter.
-
-(CF3): Invalid configurations: $1$ (the atypical class). Valid: $1$ (the typical
-class). Forced constant: $\theta_1 = H / \log|\mathcal{A}|$---the fraction of
-the full space occupied by the typical set.
-
-(CF4): The entropy $H$ uniquely determines the size of the typical set. No other
-value is consistent with $p$. Changing $H$ requires changing $p$, which changes
-the system.
-
-\textit{Channel Coding case.} Identical structure with $C = \max_{p(x)} I(X;Y)$
-playing the role of $H$. The constitutional constraint is reliable
-decodability---a rate either achieves it (below $C$) or does not (above $C$).
-The capacity $C$ is forced by the channel $p(y|x)$; it cannot be changed
-without changing the channel.
-\end{proof}
-
-\subsection{Fluid dynamics: Kolmogorov's $\alpha = 3/4$ ($k = 2$)}
-
-Kolmogorov's 1941 theory~\cite{Kolmogorov1941} predicts that the vorticity
-dissipation exponent satisfies $|\omega|_\infty \leq C \cdot
-\varepsilon^{3/4}/\nu^{3/4}$, corresponding to scaling exponent $\alpha = 3/4$.
-This exponent has been empirically validated for 84 years; what has been lacking
-is an \textit{a priori} derivation.
-
-\begin{proposition}[Kolmogorov's exponent is constitutionally forced]
-\label{prop:kolmogorov}
-The Kolmogorov dissipation exponent $\alpha = 3/4$ is constitutionally forced
-at depth $k = 2$.
-\end{proposition}
-
-\begin{proof}[Verification against Definition~\ref{def:CF}]
-(CF1): The triadic interaction structure of the Navier--Stokes equations gives
-a configuration space of size $2^3 = 8$: three independent triadic couplings,
-each present or absent.
-
-(CF2): Two constitutional constraints:
+The February version presented Shannon's asymptotic equipartition property
+(AEP) and channel coding theorem~\cite{Shannon1948} as depth-$1$ instances. They
+do not satisfy Definition~\ref{def:CF}, because their governing constants are
+not $\theta_1 = 1/2$.
 \begin{itemize}
-  \item \emph{Incompressibility}: $\nabla \cdot \mathbf{u} = 0$. This is
-    intrinsic to incompressible fluid dynamics---not a modelling choice.
-    It eliminates one configuration class at level $1$.
-  \item \emph{Helicity orthogonality}: $\omega^+ \perp \omega^-$. The positive
-    and negative helicity components of vorticity are structurally orthogonal,
-    forbidding the resonant vorticity coupling necessary for finite-time
-    blow-up. This is intrinsic to the vorticity decomposition in three
-    dimensions and independent of the incompressibility constraint.
+  \item \emph{AEP.} For a memoryless source with alphabet $\mathcal{A}$ and
+    entropy $H$ (logarithms to base $2$), the typical set has about $2^{nH}$
+    of the $|\mathcal{A}|^n$ sequences of length $n$. The natural constant is
+    the exponent ratio $H/\log|\mathcal{A}|$, which takes every value in
+    $[0,1]$: it is $0.469$ for a Bernoulli$(0.1)$ source and $0.811$ for a
+    Bernoulli$(0.25)$ source. The typical set's share of $\mathcal{A}^n$ is
+    about $2^{-n(\log|\mathcal{A}| - H)}$, which tends to $0$ unless the source
+    is uniform.
+  \item \emph{Channel coding.} The capacity is $C = \max_{p(x)} I(X;Y)$. For a
+    binary symmetric channel with crossover probability $\rho$ it is
+    $1 - h(\rho)$, where $h$ is the binary entropy function; again this takes
+    every value in $[0,1]$.
 \end{itemize}
-
-(CF3): Invalid configurations: $2$ (one per constitutional constraint). Valid:
-$8 - 2 = 6$. Forced constant: $\theta_2 = (2^3 - 2)/2^3 = 6/8 = 3/4$.
-
-(CF4): The exponent $3/4$ is the unique value consistent with both
-incompressibility and helicity orthogonality in the triadic interaction space.
-Removing either constraint raises the effective exponent; no other value
-is geometrically consistent with both.
-\end{proof}
-
-\begin{remark}
-Proposition~\ref{prop:kolmogorov} provides what 84 years of empirical validation
-and dimensional analysis have not: an \textit{a priori} structural reason why
-$\alpha = 3/4$ and not any other value. Constitutional Forcing is the reason.
-Note also that $k=2$ gives $\theta_2 = 1/2$ in the prime arithmetic context
-(the Sophie Germain non-instance), while in the fluid dynamics context $k=2$
-acts on a base space of size $2^3 = 8$ rather than $2^2 = 4$, giving $3/4$.
-This is not a contradiction: the configuration space structure depends on the
-system. The Counting Theorem counts invalid configurations relative to the
-appropriate base space for each system.
-\end{remark}
+What the two theorems share with Definition~\ref{def:CF} is a binary split
+(typical or atypical; rate achievable or not). As with primality in
+Section~\ref{sec:BV}, a binary split by itself would assign depth $1$ to any
+predicate. We therefore retain the comparison only as a proposed analogy: in
+both settings a condition intrinsic to the system singles out part of an
+exponential space, and a constant fixed by the system governs its size.
+Whether the analogy can be sharpened into an instance of
+Definition~\ref{def:CF} is open; as it stands, the constants
+$H/\log|\mathcal{A}|$ and $C$ do not equal $\theta_1$.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section{Non-Instances and Falsifiability}
 \label{sec:noninstances}
 %% ─────────────────────────────────────────────────────────────────────────────
 
-A framework that cannot be wrong is not mathematics. Constitutional Forcing
-predicts not only which systems exhibit forcing but which do not---and why.
+A framework that cannot be wrong is not mathematics. For Constitutional
+Forcing to make predictions, the depth $k$ of a system---its constraints, with
+(C2) checked---must be fixed before its governing constant is compared with
+$\thetak$. Constitutional Forcing at depth $k$ requires \emph{genuinely}
+independent constraints, in the sense of (C2), not merely the appearance of
+independence; Section~\ref{sec:cascade} gives an example where apparent
+independence fails. The February version did not meet this standard, and its
+proposed non-instance did not test the framework.
 
-\begin{proposition}[Sophie Germain non-instance]
-\label{prop:sophie}
-Sophie Germain prime pairs $(p, 2p+1)$ do \emph{not} exhibit Constitutional
-Forcing at depth $k = 2$.
-\end{proposition}
-
-\begin{proof}
-The two apparent modular conditions on Sophie Germain pairs are:
-\begin{itemize}
-  \item $p \not\equiv 0 \pmod{2}$ (primality of $p$), and
-  \item $2p + 1 \not\equiv 0 \pmod{2}$ (primality of $2p+1$).
-\end{itemize}
-These appear to be two independent constraints (depth $k = 2$, predicting
-$\theta_2 = 1/2$). But the second is \emph{not} independent of the first:
-if $p$ is an odd prime, then $2p$ is even and $2p+1$ is automatically odd.
-The second condition is derivable from the first. Condition (C2) of
-Definition~\ref{def:constitutional} fails.
-
-The effective depth is $k = 1$, giving $\theta_1 = 1/2$. This matches the
-known level of distribution for Sophie Germain pairs~\cite{WakilShannon}.
-The prediction was confirmed computationally before the theoretical verification
-was performed.
-\end{proof}
-
-\begin{remark}
-The Sophie Germain non-instance illustrates a critical distinction: two
-constraints that look independent may be coupled, and coupled constraints do
-not increase the depth. Constitutional Forcing at depth $k$ requires \emph{genuinely}
-independent constraints---independence in the sense of (C2), not merely the
-appearance of independence.
+\begin{remark}[Sophie Germain pairs]
+\label{rem:sophie}
+The February version treated Sophie Germain pairs $(p, 2p+1)$ as a
+``non-instance'' of depth $2$ with effective depth $1$, on the ground that
+``$2p+1$ is odd'' follows from ``$p$ is odd''. That is no constraint at all:
+$2p + 1$ is odd for every integer $p$. The genuine local coupling is
+modulo~$3$: for $p > 3$, the conditions $3 \nmid p$ and $3 \nmid 2p+1$ together
+force $p \equiv 2 \pmod 3$, the same single condition as for twin primes. Since
+$\theta_1 = \theta_2 = 1/2$, the example cannot discriminate between depths $1$
+and $2$ and is not a falsification test. Moreover, a ``level of distribution of
+Sophie Germain pairs'' is not a defined notion, and no finite computation can
+confirm an asymptotic level, so the claimed computational confirmation is
+withdrawn. The accompanying Lean files check $\theta_1 = \theta_2$ and the
+mod-$3$ fact.
 \end{remark}
 
 %% ─────────────────────────────────────────────────────────────────────────────
@@ -513,139 +499,177 @@ Forcing at every depth $k \geq 1$.
 \end{conjecture}
 
 \begin{remark}
-Conjecture~\ref{conj:CF} has two parts. The \emph{uniqueness} part---that the
-governing constant is $\thetak$---follows from the Counting Theorem
-(Theorem~\ref{thm:count}) whenever (CF1)--(CF3) are verified. The
-\emph{achievability} part---that every depth $k$ is realised---is the open
-content. The known instances provide $k = 1$ (prime arithmetic and information
-theory), $k = 2$ (fluid dynamics), and $k = 3$ (cascade moduli). The first open
-case is $k = 4$, predicting a governing constant of $3/4$ in some as-yet
-unidentified system with four independent constitutional constraints. The
-$k$-hierarchy prediction table (Table~\ref{tab:theta}) is the program's
-falsifiable prediction set.
+Conjecture~\ref{conj:CF} has two parts. Under Definition~\ref{def:CF} the value
+$\thetak$ is built into (CF3) through Postulate~\ref{post:count}, so the
+\emph{uniqueness} part holds by definition and carries no independent content.
+The substantive content is the \emph{achievability} part: for each $k$, a
+system must be exhibited whose $k$ constraints are fixed in advance and satisfy
+(C1)--(C3), and whose governing constant is proved to equal $\thetak$, as (CF4)
+requires. No depth is currently realised in this sense: the $k = 1$ candidates
+of Section~\ref{sec:instances} rest on binary splits that would assign $1/2$ to
+any predicate, and the $k = 3$ candidate is unsupported. The February version
+singled out $k = 4$, with governing constant $3/4$, as the first open case; in
+fact every depth, including $k = 1$, is open in this sense.
+Table~\ref{tab:theta} is the programme's prediction set, and it becomes
+falsifiable only when $k$ is fixed for a system before its constant is known.
 \end{remark}
 
 \begin{remark}
-The conjecture connects to the Constitutional Forcing Conjecture as stated in
-categorical language in~\cite{WakilShannon}: the category $\mathcal{SW}$ of
-Shannon--Wakil systems and the functor $\Phi\colon \mathcal{SW} \to (0,1)$
-that assigns the governing constant. Constitutional Forcing is what gives the
-functor its value; the Shannon--Wakil Effect is what makes the functor
-observable. The two conjectures are the same statement from two perspectives.
+The companion paper~\cite{WakilShannon} discusses a version of this conjecture
+in the terminology of the Shannon--Wakil Effect. The February version of this
+remark attributed to~\cite{WakilShannon} a category of Shannon--Wakil systems
+and a functor to $(0,1)$; no such construction appears there, and none is
+claimed here.
 \end{remark}
 
 %% ─────────────────────────────────────────────────────────────────────────────
-\section{Position in the Seven-Paper Program}
+\section{Position in the Nine-Paper Programme}
 \label{sec:program}
 %% ─────────────────────────────────────────────────────────────────────────────
 
-This paper is Paper~00 of a seven-paper program on constitutional sieve theory.
-Table~\ref{tab:program} shows how each paper relates to the mechanism defined here.
+This paper is p01, the first of a nine-paper programme.
+Table~\ref{tab:program} lists the papers with the status of their main claims
+after the November 2026 revision.
 
 \begin{table}[h]
 \centering
-\caption{The seven-paper program. Each paper is an instance or consequence
-  of Constitutional Forcing.}
+\small
+\caption{The nine-paper programme and the revised status of each paper's
+  main claim.}
 \label{tab:program}
-\begin{tabular}{c p{3.8cm} p{5.2cm} c}
+\begin{tabular}{c p{5.9cm} p{6.6cm}}
 \toprule
-Paper & Title & Role & CF depth \\
+Paper & Title & Main claim and revised status \\
 \midrule
-00 & Constitutional Forcing (this paper)
-   & Mechanism coined & All $k$ \\[2pt]
-01 & Khayyam's Triangle~\cite{WakilKhayyam}
-   & Oldest known instance ($k{=}3$, mod-3 fractal)
-   & $k=3$ \\[2pt]
-02 & Spherical Cow Philosophy~\cite{WakilSC}
-   & Methodology: finding CF in the wild
-   & --- \\[2pt]
-03 & Shannon--Wakil Effect~\cite{WakilShannon}
-   & Observable phenomenon CF produces
-   & $k=1,3$ \\[2pt]
-04 & Ramanujan's Dimensional Forcing~\cite{WakilRamanujan}
-   & Universal formula $\thetak = (2^k{-}k)/2^k$
-   & All $k$ \\[2pt]
-05 & Eisenstein Cascade Moduli~\cite{WakilEisenstein}
-   & Proof of $\theta_3 = 5/8$ (arithmetic)
-   & $k=3$ \\[2pt]
-06 & Condition W3~\cite{WakilW3}
-   & Siegel zeros excluded; proof closed
-   & $k=3$ \\
+p01 & Constitutional Forcing (this paper)
+    & Framework; the count $k$ is a postulate; no instance established
+    \\[2pt]
+p02 & Khayyam's Triangle: Historical Restoration and the Geometry Hidden in
+      the Numbers~\cite{WakilKhayyam}
+    & History of the arithmetic triangle and its mod-$3$ fractal; no link
+      between the fractal and $\thetak$ is established \\[2pt]
+p03 & Spherical Cow Philosophy: A Methodological Framework for Mathematical
+      Discovery~\cite{WakilSC}
+    & Methodology; its arithmetic examples are corrected \\[2pt]
+p04 & Ternary Forcing on the Hexagonal Lattice: Eisenstein Integers, Cascade
+      Moduli, and a Conjectured Level of Distribution
+      5/8~\cite{WakilEisenstein}
+    & $\theta_W = 5/8$ for the moduli $3^K$: a conjecture \\[2pt]
+p05 & Ramanujan's Dimensional Forcing: A Universal Formula for Sieve
+      Levels~\cite{WakilRamanujan}
+    & The formula $\thetak = (2^k - k)/2^k$, as a postulate \\[2pt]
+p06 & The Shannon--Wakil Effect: Constitutional Forcing as a Universal
+      Pattern in Information Theory and Prime Arithmetic~\cite{WakilShannon}
+    & Proposed analogy between Shannon's theorems and the $\thetak$ scheme
+      \\[2pt]
+p07 & Condition W3: Absence of Siegel Zeros for Characters Modulo
+      $3^K$~\cite{WakilW3}
+    & True, with a one-line proof from the cyclicity of
+      $(\Z/3^K\Z)^\times$; affects no level of distribution \\[2pt]
+p08 & The Lemke Oliver--Soundararajan Bias and Ternary Constitutional
+      Structure~\cite{WakilBias}
+    & Proposed ternary interpretation of the bias in consecutive primes; not
+      established \\[2pt]
+p09 & The Constitutional Constant $\theta_{\mathrm{FFT}} = 1/2$: Conjugate
+      Symmetry of the Real Discrete Fourier Transform~\cite{WakilFFT}
+    & The DFT of a real signal of length $N$ has $N$ independent real
+      parameters (a standard fact); its depth is not identified, since
+      $\theta_1 = \theta_2$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \noindent The logical dependency structure is:
 \[
-  \text{Paper~00} \;\longrightarrow\;
+  \text{p01} \;\longrightarrow\;
   \begin{cases}
-    \text{Papers 01, 03, 04} & \text{(instances and cross-domain structure)} \\
-    \text{Papers 02} & \text{(methodology)} \\
-    \text{Papers 05, 06} & \text{(core arithmetic proof)}
+    \text{p02, p05, p06, p08, p09} & \text{(proposed instances and comparisons)} \\
+    \text{p03} & \text{(methodology)} \\
+    \text{p04, p07} & \text{(arithmetic of the moduli $3^K$)}
   \end{cases}
 \]
-A reader wishing to understand the arithmetic proof should read Papers 00, 04,
-05, 06 in order. A reader wishing to understand the cross-domain structure
-should read Papers 00, 01, 02, 03. A reader who wishes to understand why the
-prime $3$ is special should read Papers 00 and 01: Constitutional Forcing
-tells you the mechanism; Khayyam's Triangle shows you that it was operating
-long before anyone named it.
+A reader interested in the arithmetic should read p01, p05, p04 and p07 in
+order. A reader interested in the cross-domain comparisons should read p01,
+p02, p03, p06 and p09.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section{What Constitutional Forcing Is Not}
 \label{sec:not}
 %% ─────────────────────────────────────────────────────────────────────────────
 
-\subsection{Not an analogy}
+\subsection{Not, at present, more than an analogy across domains}
 
-An analogy observes that two things look similar and draws heuristic inspiration.
-Constitutional Forcing is not an analogy between number theory and information
-theory. It is a common \emph{mechanism} that both instantiate. The difference
-is the difference between two fires looking similar and two fires sharing the
-same oxygen. Analogies are suggestive; Constitutional Forcing is causal.
+The February version claimed that Constitutional Forcing is not an analogy
+between number theory and information theory but a common, causal mechanism
+that both instantiate. That claim is withdrawn. Section~\ref{sec:shannon}
+shows that the information-theoretic constants are not $\theta_1$; the
+comparison is a proposed analogy, and no causal link is claimed.
 
-\subsection{Not numerology}
+\subsection{Numerology, and how to avoid it}
 
-The formula $\thetak = (2^k-k)/2^k$ is derived from the Counting Theorem
-(Theorem~\ref{thm:count}), which is proved by induction from the definition
-of constitutional constraints. The formula is a theorem, not a fit.
-Furthermore, the framework is falsifiable: non-instances are predicted before
-verification (Proposition~\ref{prop:sophie}), and open predictions at $k = 4$
-are testable.
+The formula $\thetak = (2^k-k)/2^k$ is not derived from the definitions: it is
+the counting postulate (Postulate~\ref{post:count}), and the February claim
+that ``the formula is a theorem, not a fit'' is withdrawn. Whether the
+framework is more than numerology therefore depends on whether $k$ can be fixed
+for a system independently of the constant to be explained. The risk is
+concrete: if $k$ or the size of the configuration space may be chosen after the
+target value is known, the formula can be made to match many constants, and
+since $\theta_1 = \theta_2 = 1/2$ the value $1/2$ cannot identify the depth at
+all. A candidate instance should therefore
+(i) use the configuration space $\{0,1\}^k$;
+(ii) fix $k$ and the constraints, with (C2) checked, before any comparison with
+a known constant; and
+(iii) prove (CF4) for the system.
+None of the candidates in Section~\ref{sec:instances} meets all three
+conditions at present, and the Sophie Germain example (Remark~\ref{rem:sophie})
+is not a test.
 
 \subsection{Not a claim of isomorphism}
 
 We do not claim that prime arithmetic and information theory are isomorphic, or
-that there is a functor between them as mathematical objects. We claim that
-both exhibit Constitutional Forcing---that both are instances of the same
-mechanism. The same claim could be made about two entirely different physical
-systems that both exhibit, say, Hamiltonian dynamics: no isomorphism between
-the systems is implied, only a shared structural property.
+that there is a functor between them as mathematical objects. The February
+version claimed that both exhibit Constitutional Forcing; in this revision we
+claim only a proposed analogy (Section~\ref{sec:shannon}). Two physical systems
+that both obey Hamiltonian dynamics share a structural description without
+being isomorphic; here, even the shared description is not yet established.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \section*{Acknowledgements}
 %% ─────────────────────────────────────────────────────────────────────────────
 
-We thank Omar Khayyam (1048--1131), whose geometric instinct to ask not
-\emph{how many?} but \emph{what shape is hiding here?} produced, in the
-mod-3 fractal of his Triangle, the earliest known geometric manifestation
-of Constitutional Forcing---nine centuries before anyone named it.
-
-We thank Claude Shannon, whose 1948 theorems contained two instances of
-Constitutional Forcing without naming the mechanism, and Andrei Kolmogorov,
-whose 1941 scaling exponent contained a third.
-
-Constitutional Forcing was not invented in 2026. It was \emph{recognised}
-in 2026. That is a different thing, and the difference matters.
+The programme owes its inspiration to Omar Khayyam (c.~1048--1131), after
+whom the arithmetic triangle is named in Iran, and to Claude Shannon, whose
+1948 theorems prompted the cross-domain comparison of
+Section~\ref{sec:shannon}.
 
 %% ─────────────────────────────────────────────────────────────────────────────
 \begin{thebibliography}{99}
 %% ─────────────────────────────────────────────────────────────────────────────
 
-\bibitem{BV1965}
-E.~Bombieri and A.~I.~Vinogradov,
+\bibitem{BaierPujahari2022}
+S.~Baier and S.~Pujahari,
+A Bombieri--Vinogradov type theorem with prime power moduli,
+\emph{Acta Arith.}\ \textbf{204} (2022); arXiv:2107.04348.
+
+\bibitem{BLT1964}
+M.~B.~Barban, Yu.~V.~Linnik and N.~G.~Tshudakov,
+On prime numbers in an arithmetic progression with a prime-power difference,
+\emph{Acta Arith.}\ \textbf{9} (1964), 375--390.
+
+\bibitem{Bombieri1965}
+E.~Bombieri,
 On the large sieve,
 \emph{Mathematika} \textbf{12} (1965), 201--225.
+
+\bibitem{BFI1986}
+E.~Bombieri, J.~B.~Friedlander and H.~Iwaniec,
+Primes in arithmetic progressions to large moduli,
+\emph{Acta Math.}\ \textbf{156} (1986), 203--251.
+
+\bibitem{Gallagher1972}
+P.~X.~Gallagher,
+Primes in progressions to prime-power modulus,
+\emph{Invent.\ Math.}\ \textbf{16} (1972), 191--201.
 
 \bibitem{Kolmogorov1941}
 A.~N.~Kolmogorov,
@@ -653,49 +677,86 @@ The local structure of turbulence in incompressible viscous fluid for very
 large Reynolds numbers,
 \emph{Dokl.\ Akad.\ Nauk SSSR} \textbf{30} (1941), 301--305.
 
+\bibitem{Lichtman2023}
+J.~D.~Lichtman,
+Primes in arithmetic progressions to large moduli, and Goldbach beyond the
+square-root barrier,
+arXiv:2309.08522, 2023.
+
+\bibitem{Maynard2020}
+J.~Maynard,
+Primes in arithmetic progressions to large moduli II: well-factorable
+estimates,
+arXiv:2006.07088, 2020.
+
 \bibitem{Pascadi2025}
 A.~Pascadi,
-Level of distribution $5/8$ for smooth moduli,
-arXiv:2505.00653v2, 2025.
+On the exponents of distribution of primes and smooth numbers,
+arXiv:2505.00653, 2025.
+
+\bibitem{Polymath2014}
+D.~H.~J.~Polymath,
+New equidistribution estimates of Zhang type,
+\emph{Algebra Number Theory} \textbf{8} (2014), 2067--2199.
 
 \bibitem{Shannon1948}
 C.~E.~Shannon,
 A mathematical theory of communication,
 \emph{Bell System Tech.\ J.} \textbf{27} (1948), 379--423, 623--656.
 
+\bibitem{Vinogradov1965}
+A.~I.~Vinogradov,
+The density hypothesis for Dirichlet $L$-series,
+\emph{Izv.\ Akad.\ Nauk SSSR Ser.\ Mat.}\ \textbf{29} (1965), 903--934.
+
+\bibitem{Zhang2014}
+Y.~Zhang,
+Bounded gaps between primes,
+\emph{Ann.\ of Math.}\ \textbf{179} (2014), 1121--1174.
+
 \bibitem{WakilKhayyam}
 K.~Wakil,
-Khayyam's triangle: historical restoration and the geometry hidden in the
-numbers,
+Khayyam's Triangle: Historical Restoration and the Geometry Hidden in the
+Numbers,
 ARC Institute of Knowware, preprint, 2026.
 
 \bibitem{WakilSC}
 K.~Wakil,
-Spherical cow philosophy: a methodological framework for mathematical
-discovery,
-ARC Institute of Knowware, preprint, 2026.
-
-\bibitem{WakilShannon}
-K.~Wakil,
-The Shannon--Wakil effect: constitutional forcing as a universal pattern
-in information theory and prime arithmetic,
-ARC Institute of Knowware, preprint, 2026.
-
-\bibitem{WakilRamanujan}
-K.~Wakil,
-Ramanujan's dimensional forcing: a universal formula for sieve levels,
+Spherical Cow Philosophy: A Methodological Framework for Mathematical
+Discovery,
 ARC Institute of Knowware, preprint, 2026.
 
 \bibitem{WakilEisenstein}
 K.~Wakil,
-Ternary forcing on the hexagonal lattice: Eisenstein integers, cascade
-moduli, and level of distribution~$5/8$,
+Ternary Forcing on the Hexagonal Lattice: Eisenstein Integers, Cascade
+Moduli, and a Conjectured Level of Distribution~$5/8$,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilRamanujan}
+K.~Wakil,
+Ramanujan's Dimensional Forcing: A Universal Formula for Sieve Levels,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilShannon}
+K.~Wakil,
+The Shannon--Wakil Effect: Constitutional Forcing as a Universal Pattern
+in Information Theory and Prime Arithmetic,
 ARC Institute of Knowware, preprint, 2026.
 
 \bibitem{WakilW3}
 K.~Wakil,
-Condition W3: absence of Siegel zeros for characters modulo~$3^K$ via
-CM~structure of~$\Z[\omega]$,
+Condition W3: Absence of Siegel Zeros for Characters Modulo~$3^K$,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilBias}
+K.~Wakil,
+The Lemke Oliver--Soundararajan Bias and Ternary Constitutional Structure,
+ARC Institute of Knowware, preprint, 2026.
+
+\bibitem{WakilFFT}
+K.~Wakil,
+The Constitutional Constant $\theta_{\mathrm{FFT}} = 1/2$: Conjugate Symmetry
+of the Real Discrete Fourier Transform,
 ARC Institute of Knowware, preprint, 2026.
 
 \end{thebibliography}
